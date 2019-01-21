@@ -1,22 +1,37 @@
+@charset "UTF-8";
 a {
   text-decoration: none; }
 
 .wrap {
   width: 100%;
+  min-width: 1200px;
   height: 100vh;
-  background: linear-gradient(#7da4cb, #e89fb7);
+  background-image: url("../pic/nightParty.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-y: hidden;
   position: relative; }
 
+.wrap2 {
+  width: 100%;
+  min-width: 1200px;
+  height: 100vh;
+  background: linear-gradient(#e89fb7, #7da4cb);
+  overflow-y: hidden;
+  position: relative; }
+
+.clear-box {
+  clear: both; }
+
 .head {
   width: 100%;
-  height: 0;
-  padding-bottom: 15%;
+  height: 170px;
   background-image: url("../pic/head-down.svg");
   background-size: contain;
   background-position: 0 0;
   background-repeat: no-repeat;
-  position: relative; }
+  position: relative;
+  z-index: 3; }
 
 #logo {
   width: 15%;
@@ -45,11 +60,10 @@ a {
   position: absolute;
   top: 0;
   right: 0%;
-  text-align: right; }
+  text-align: center; }
 
 .menu_sub > li {
   display: inline-block;
-  float: right;
   margin-right: 20px;
   padding-top: 15px; }
 
@@ -62,13 +76,13 @@ a {
   vertical-align: bottom; }
 
 .chatRoom {
-  width: 30%;
+  width: 30vw;
   height: 0;
   padding-bottom: 30%;
   background-image: url("../pic/chatroom_all.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   padding-top: 80px;
@@ -134,7 +148,7 @@ a {
   margin-top: 10px;
   margin-left: 12%;
   width: 80%;
-  height: 40vh;
+  height: 37vh;
   background-color: #e5e5e5;
   border-radius: 15px; }
 
@@ -145,7 +159,7 @@ a {
 
 .chatbox_show {
   width: 100%;
-  height: 200px; }
+  height: 25vh; }
 
 .chatbox_show span {
   display: inline-block;
@@ -241,3 +255,206 @@ a {
   position: relative;
   top: 25px;
   left: 5px; }
+
+.curtain {
+  width: 100%;
+  min-width: 1200px;
+  height: 200px;
+  background-image: url("../pic/stageCurtain.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -100px;
+  text-align: center; }
+  .curtain h1 {
+    display: block;
+    font-size: 1.8rem;
+    color: #a9dce1;
+    font-weight: bold;
+    letter-spacing: .3rem;
+    position: relative;
+    top: 8vh; }
+
+.containerMatch {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  top: -18vh;
+  text-align: center;
+  display: flex;
+  justify-content: space-between; }
+  .containerMatch .matchControlBox {
+    width: 25%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column; }
+    .containerMatch .matchControlBox .show_info_actor {
+      width: 100%;
+      height: 70vh;
+      background-image: url("../pic/panel.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0 -18vh;
+      position: relative;
+      top: -15vh;
+      left: 5vw; }
+      .containerMatch .matchControlBox .show_info_actor span {
+        display: block;
+        font-size: 0.9rem;
+        color: #666666;
+        padding: 5px;
+        position: relative;
+        top: 20vh;
+        z-index: 2; }
+    .containerMatch .matchControlBox .show_selector {
+      width: 100%;
+      height: 15vh;
+      position: relative;
+      top: -15vh;
+      left: 5vw;
+      z-index: 2; }
+      .containerMatch .matchControlBox .show_selector select {
+        display: block;
+        width: 150px;
+        height: 30px;
+        border-radius: 15px;
+        color: #a9dce1;
+        margin: 10px auto; }
+  .containerMatch .matchOneShowBox {
+    width: 30%;
+    height: 70vh;
+    background-image: url("../pic/stageR.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 40vh;
+    position: relative;
+    left: 0vw; }
+    .containerMatch .matchOneShowBox .actor {
+      width: 100%;
+      height: 35vh; }
+      .containerMatch .matchOneShowBox .actor img {
+        width: 50%;
+        padding-top: 10%;
+        cursor: pointer; }
+    .containerMatch .matchOneShowBox .notAgree {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2; }
+      .containerMatch .matchOneShowBox .notAgree img {
+        width: 100%;
+        cursor: pointer; }
+    .containerMatch .matchOneShowBox .agree {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 0; }
+      .containerMatch .matchOneShowBox .agree img {
+        width: 100%;
+        cursor: pointer; }
+  .containerMatch .matchCrowd {
+    width: 25%;
+    height: 70vh;
+    background-image: url("../pic/crowd.svg");
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .containerMatch .spotLights {
+    width: 80%;
+    height: 0px;
+    position: absolute;
+    top: -20%;
+    left: 10%;
+    outline: 1px solid #f00;
+    display: flex;
+    justify-content: space-between; }
+    .containerMatch .spotLights .spotLight_01 {
+      width: 200px;
+      height: 10px;
+      position: relative;
+      right: 0%;
+      transition: 3s;
+      overflow: visible; }
+
+.newMemberBox {
+  width: 80%;
+  height: 40vh;
+  margin: 10px auto;
+  padding: 10px 40px;
+  background-image: url("../pic/floor_01.svg");
+  background-size: 50% 50%;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  position: relative; }
+  .newMemberBox h2 {
+    font-size: 1.8rem;
+    color: #a9dce1;
+    display: inline-block;
+    padding: 10px 20px;
+    transform: rotate(-3deg);
+    position: relative; }
+  .newMemberBox h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url("../pic/titleMark_Right.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -25%;
+    top: -20%; }
+  .newMemberBox .cards {
+    width: 60%; }
+    .newMemberBox .cards img {
+      width: 70%; }
+
+.newMemberBox::after {
+  content: '增加魅力值 每日可送出更多邀請';
+  display: block;
+  color: #a9dce1;
+  font-size: 1.6rem;
+  position: absolute;
+  right: 15%;
+  top: 20%; }
+
+.mostCharmingMemberBox {
+  width: 80%;
+  height: 40vh;
+  margin: 10px auto;
+  padding: 10px 40px;
+  background-image: url("../pic/floor_01.svg");
+  background-size: 50% 50%;
+  background-position: 5% 100%;
+  background-repeat: no-repeat;
+  position: relative; }
+  .mostCharmingMemberBox h2 {
+    font-size: 1.8rem;
+    color: #a9dce1;
+    display: inline-block;
+    padding: 10px 20px;
+    transform: rotate(3deg);
+    position: relative; }
+  .mostCharmingMemberBox h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url("../pic/titleMark_Left.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -25%;
+    top: -20%; }
+  .mostCharmingMemberBox .cards {
+    width: 60%; }
+    .mostCharmingMemberBox .cards img {
+      width: 80%; }
+
+.mostCharmingMemberBox::after {
+  content: '成為高魅力值會員';
+  display: block;
+  color: #a9dce1;
+  font-size: 1.6rem;
+  position: absolute;
+  right: 15%;
+  top: 20%; }
