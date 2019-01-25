@@ -5,22 +5,8 @@ a {
 .wrap-bg {
   width: 100%; }
 
-.wrap {
-  margin: auto;
-  width: 100%;
-  height: 100vh;
-  overflow-y: hidden;
-  background-image: url("../pic/boat.svg"), url("../pic/match_bg01_1.png");
-  background-size: 30% 30%,cover;
-  background-position: right center, center center;
-  background-repeat: no-repeat; }
 
-.wrap2 {
-  width: 100%;
-  height: 100vh;
-  margin: auto;
-  overflow-y: hidden;
-  position: relative; }
+
 
 .clear-box {
   clear: both; }
@@ -264,229 +250,17 @@ a {
   top: 20px;
   left: 5px; }
 
-.section_01 {
-  width: 90%;
-  height: calc(100vh - 170px);
-  padding: 0 5%;
-  overflow: hidden;
-  padding-top: 170px;
-  display: flex;
-  justify-content: space-between;
-  position: relative; }
-  .section_01 .colbox {
-    width: 30%;
-    height: calc(100vh - 170px); }
-  .section_01 .colbox_select {
-    display: flex;
-    flex-direction: column; }
-    .section_01 .colbox_select h2 {
-      font-size: 1.8rem;
-      color: #f05c79;
-      padding: 10px 5px;
-      letter-spacing: .2rem;
-      text-shadow: 1px 1px #444;
-      display: block;
-      transform: rotate(-3deg);
-      position: relative;
-      top: 5%;
-      left: 15%; }
-    .section_01 .colbox_select h2:after {
-      content: '';
-      width: 40px;
-      height: 40px;
-      background-image: url("../pic/titleMark_Right.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      position: absolute;
-      left: 90%;
-      top: -25%; }
-    .section_01 .colbox_select .info_of_match {
-      width: 80%;
-      height: 25vh;
-      margin: 10% auto;
-      padding-left: 40px;
-      padding-top: 10px;
-      background: rgba(244, 200, 219, 0.8);
-      box-shadow: 3px 4px #f05c79;
-      border-radius: 15px;
-      position: relative;
-      left: 10%;
-      top: 10%;
-      color: #fff; }
-    .section_01 .colbox_select label {
-      width: 100px;
-      height: 30px;
-      border-radius: 15px;
-      margin-top: 5%;
-      background: rgba(255, 255, 255, 0.5);
-      padding: 5px;
-      color: #f05c79;
-      text-align: center;
-      line-height: 30px;
-      position: relative;
-      left: 40%;
-      top: 10%; }
-    .section_01 .colbox_select label:hover {
-      width: 98px;
-      height: 28px;
-      color: rgba(255, 255, 255, 0.5);
-      background: #f05c79;
-      border: 1px solid rgba(255, 255, 255, 0.5); }
-  .section_01 .colbox_actor {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    position: relative; }
-    .section_01 .colbox_actor img {
-      width: 50%;
-      position: relative;
-      top: 30%;
-      left: 20%; }
-    .section_01 .colbox_actor span {
-      width: 40%;
-      height: 0;
-      padding-bottom: 30%;
-      background-image: url("../pic/txtbox_02.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      position: absolute;
-      z-index: 5;
-      top: 30%;
-      left: 70%;
-      text-align: center;
-      justify-content: center; }
-  .section_01 .colbox_other_actors {
-    display: flex; }
-    .section_01 .colbox_other_actors img {
-      width: 100%;
-      padding: 0 10px;
-      position: relative;
-      top: 15%;
-      left: -25%; }
-
-.lightbox_hobby {
-  width: 100%;
-  height: 95vh;
-  background-color: transparent;
-  margin: auto;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  display: none;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .lightbox_hobby .lightbox_info_hobby {
-    width: 170px;
-    height: 240px;
-    padding: 20px 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
-    display: none;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    top: 100px;
-    right: 200px; }
-    .lightbox_hobby .lightbox_info_hobby h2 {
-      width: 100%;
-      height: 30px; }
-    .lightbox_hobby .lightbox_info_hobby label {
-      width: 100px;
-      height: 20px;
-      padding: 5px 10px;
-      text-align: center;
-      background-color: #fff;
-      color: #ae8478;
-      border-radius: 15px; }
-    .lightbox_hobby .lightbox_info_hobby input {
-      opacity: 0;
-      display: none; }
-    .lightbox_hobby .lightbox_info_hobby #hobby_submit {
-      opacity: 1;
-      display: block;
-      width: 100%;
-      height: 30px;
-      background-color: #444;
-      color: #fff; }
-    .lightbox_hobby .lightbox_info_hobby #hobby_movie:checked + label, .lightbox_hobby .lightbox_info_hobby #hobby_sport:checked + label, .lightbox_hobby .lightbox_info_hobby #hobby_js:checked + label {
-      width: 98px;
-      height: 18px;
-      background-color: #ae8478;
-      color: #fff;
-      border: 1px solid #fff; }
-
-.section_02 {
-  width: 100%;
-  height: 100vh;
-  background-image: url("../pic/match_bg02_1.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  display: flex;
-  justify-content: space-between; }
-  .section_02 .ranking_of_all {
-    width: 65%;
-    height: 100vh; }
-    .section_02 .ranking_of_all img {
-      width: 80%;
-      position: relative;
-      left: 10%;
-      top: 15%; }
-  .section_02 .colbox_actor02 {
-    width: 30%;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-    .section_02 .colbox_actor02 .btn_searchF {
-      width: 60%;
-      position: relative;
-      top: 20%; }
-    .section_02 .colbox_actor02 .Agi02 {
-      width: 40%;
-      position: relative;
-      top: -20%; }
-    .section_02 .colbox_actor02 span {
-      font-size: 0.9rem;
-      color: #f05c79;
-      padding: 15px 15px;
-      letter-spacing: .15rem;
-      width: 40%;
-      height: 0;
-      padding-bottom: 30%;
-      background-image: url("../pic/txtbox.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      text-align: center;
-      justify-content: center;
-      position: relative;
-      top: 10%;
-      left: 40%; }
 
 .head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
   display: none; }
 
-@media only screen and (max-width: 1000px) {
-  html {
-    font-size: 16px; } }
 
 @media only screen and (max-width: 476px) {
   html {
     font-size: 12px; }
   .wrap-bg {
     overflow: hidden; }
-  .wrap {
-    width: 100%;
-    height: 92vh;
-    background-image: none; }
+  
   * {
     box-sizing: border-box; }
   .head, .chatRoom {
@@ -656,111 +430,7 @@ a {
         border: 2px solid #f05c79;
         border-radius: 15px; } }
 
-@media only screen and (max-width: 476px) {
-  .section_01 {
-    width: 100%;
-    height: 92vh;
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-size: cover;
-    flex-direction: column; }
-    .section_01 .colbox {
-      width: 100%; }
-    .section_01 .colbox_select h2 {
-      width: 80%;
-      font-size: 1.8rem;
-      position: relative;
-      top: -120px; }
-    .section_01 .colbox_select h2:after {
-      left: 92%;
-      top: -25%; }
-    .section_01 .colbox_select .info_of_match {
-      width: 50%;
-      height: 310px;
-      padding: 10px 10px;
-      margin: 0;
-      position: absolute;
-      left: 5%;
-      top: 20%; }
-    .section_01 .colbox_select label {
-      padding: 0px 10px;
-      position: relative;
-      left: 10%;
-      top: 190%; }
-    .section_01 .colbox_actor {
-      display: block; }
-      .section_01 .colbox_actor img {
-        width: 40%;
-        height: 250px;
-        position: relative;
-        top: -57%;
-        left: 60%; }
-      .section_01 .colbox_actor span {
-        position: absolute;
-        top: 60%;
-        left: 55%;
-        z-index: 5;
-        background-image: none;
-        display: none; }
-    .section_01 .colbox_other_actors img {
-      width: 20%;
-      position: relative;
-      top: -10%;
-      left: 35%; } }
 
-@media only screen and (max-width: 476px) {
-  .section_02 {
-    background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-size: cover;
-    display: block;
-    padding-top: 50px;
-    position: relative;
-    display: flex; }
-    .section_02 .ranking_of_all {
-      width: 90%;
-      position: relative;
-      left: 0;
-      top: 0px; }
-      .section_02 .ranking_of_all .demo_ddd {
-        display: none; }
-      .section_02 .ranking_of_all .dnone {
-        display: block; }
-      .section_02 .ranking_of_all .ranking {
-        width: 90%;
-        height: 80vh;
-        margin: auto;
-        padding: 30px 20px;
-        background: rgba(244, 200, 219, 0.8);
-        box-shadow: 3px 4px #f05c79;
-        border-radius: 15px;
-        position: relative;
-        top: 60px; }
-        .section_02 .ranking_of_all .ranking .showSpan {
-          width: 80%;
-          height: 80vh;
-          margin: auto;
-          display: flex;
-          flex-direction: column; }
-          .section_02 .ranking_of_all .ranking .showSpan span {
-            margin-top: 40px;
-            font-size: 0.9rem; }
-        .section_02 .ranking_of_all .ranking #result_searchF {
-          width: 50%;
-          position: absolute;
-          top: 50%;
-          left: 60%; }
-    .section_02 .colbox_actor02 {
-      width: 10%;
-      position: none; }
-      .section_02 .colbox_actor02 #btn_searchF {
-        width: 160px;
-        height: 50px;
-        position: absolute;
-        top: 0;
-        right: 10px; }
-      .section_02 .colbox_actor02 span {
-        display: none; }
-      .section_02 .colbox_actor02 .Agi02 {
-        display: none; } }
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -777,7 +447,6 @@ a {
    内阴影+圆角*/
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   background-color: rgba(244, 200, 219, 0.8); }
 
 ::-webkit-input-placeholder {
