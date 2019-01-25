@@ -100,3 +100,46 @@ btn_menu_menu.addEventListener('click',function(){
 //     style='';
 //     this.style.cssText="width:100px;transform:rotate(13deg);";
 // }
+
+//match功能操作＿點選切換觀看者
+
+var other_actors = document.getElementsByClassName('other_actors');
+var colbox_actor = document.getElementById('colbox_actor');
+
+
+for(var i=0;i<other_actors.length;i++){
+    other_actors[i].addEventListener('click',function(){
+        btn_beFriend.addEventListener('click',function(){
+            e.stopPropagation();
+        },false);
+        var srcForActor = this.src  ;
+        var srcForOtherActors = colbox_actor.src ;
+        // console.log(srcForActor);
+        colbox_actor.src = srcForActor ;
+        this.src = srcForOtherActors;
+
+    },false);
+}
+
+//match功能操作＿按鈕＿興趣挑選
+var btn_choose_hobby = document.getElementById('btn_choose_hobby');
+var lightbox_hobby = document.getElementById('lightbox_hobby');
+var lightbox_info_hobby = document.getElementById('lightbox_info_hobby');
+btn_choose_hobby.addEventListener('click',function(){
+    lightbox_hobby.style.cssText="display:flex;z-index:10;";
+    lightbox_info_hobby.style.cssText="display:flex;z-index:10;";
+
+    lightbox_info_hobby.addEventListener('click',function(e){
+        e.stopPropagation();
+    },false);
+    lightbox_hobby.addEventListener('click',function(){
+        lightbox_hobby.style.cssText="display:none;z-index:-1;";
+        lightbox_info_hobby.style.cssText="display:none;z-index:-1;";
+    },false);
+},false);
+
+//match功能操作_按鈕_家朋友
+var btn_beFriend =document.getElementById('btn_beFriend');
+btn_beFriend.addEventListener('click',function(e){
+   
+},false);

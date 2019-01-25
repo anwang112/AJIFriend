@@ -1,8 +1,8 @@
+@charset "UTF-8";
 a {
   text-decoration: none; }
 
 .wrap-bg {
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
   width: 100%; }
 
 .wrap {
@@ -10,7 +10,7 @@ a {
   width: 100%;
   height: 100vh;
   overflow-y: hidden;
-  background-image: url("../pic/boat.svg"), url("../pic/match_bg01.png");
+  background-image: url("../pic/boat.svg"), url("../pic/match_bg01_1.png");
   background-size: 30% 30%,cover;
   background-position: right center, center center;
   background-repeat: no-repeat; }
@@ -32,7 +32,7 @@ a {
   background-size: contain;
   background-position: 0 0;
   background-repeat: no-repeat;
-  position: relative;
+  position: fixed;
   z-index: 3; }
 
 #logo {
@@ -269,6 +269,7 @@ a {
   height: calc(100vh - 170px);
   padding: 0 5%;
   overflow: hidden;
+  padding-top: 170px;
   display: flex;
   justify-content: space-between;
   position: relative; }
@@ -279,10 +280,11 @@ a {
     display: flex;
     flex-direction: column; }
     .section_01 .colbox_select h2 {
-      font-size: 1.6rem;
-      color: #fff;
+      font-size: 1.8rem;
+      color: #f05c79;
       padding: 10px 5px;
       letter-spacing: .2rem;
+      text-shadow: 1px 1px #444;
       display: block;
       transform: rotate(-3deg);
       position: relative;
@@ -338,8 +340,8 @@ a {
     .section_01 .colbox_actor img {
       width: 50%;
       position: relative;
-      top: 33%;
-      left: 23%; }
+      top: 30%;
+      left: 20%; }
     .section_01 .colbox_actor span {
       width: 40%;
       height: 0;
@@ -348,6 +350,7 @@ a {
       background-size: contain;
       background-repeat: no-repeat;
       position: absolute;
+      z-index: 5;
       top: 30%;
       left: 70%;
       text-align: center;
@@ -355,16 +358,74 @@ a {
   .section_01 .colbox_other_actors {
     display: flex; }
     .section_01 .colbox_other_actors img {
-      width: 23%;
+      width: 100%;
       padding: 0 10px;
       position: relative;
       top: 15%;
-      left: -15%; }
+      left: -25%; }
+
+.lightbox_hobby {
+  width: 100%;
+  height: 95vh;
+  background-color: transparent;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .lightbox_hobby .lightbox_info_hobby {
+    width: 170px;
+    height: 240px;
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 100px;
+    right: 200px; }
+    .lightbox_hobby .lightbox_info_hobby h2 {
+      width: 100%;
+      height: 30px; }
+    .lightbox_hobby .lightbox_info_hobby label {
+      width: 100px;
+      height: 20px;
+      padding: 5px 10px;
+      text-align: center;
+      background-color: #fff;
+      color: #ae8478;
+      border-radius: 15px; }
+    .lightbox_hobby .lightbox_info_hobby input {
+      opacity: 0;
+      display: none; }
+    .lightbox_hobby .lightbox_info_hobby #hobby_submit {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 30px;
+      background-color: #444;
+      color: #fff; }
+    .lightbox_hobby .lightbox_info_hobby #hobby_movie:checked + label, .lightbox_hobby .lightbox_info_hobby #hobby_sport:checked + label, .lightbox_hobby .lightbox_info_hobby #hobby_js:checked + label {
+      width: 98px;
+      height: 18px;
+      background-color: #ae8478;
+      color: #fff;
+      border: 1px solid #fff; }
 
 .section_02 {
   width: 100%;
   height: 100vh;
-  background-image: url("../pic/match_bg02.png");
+  background-image: url("../pic/match_bg02_1.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -377,7 +438,7 @@ a {
       width: 80%;
       position: relative;
       left: 10%;
-      top: 5%; }
+      top: 15%; }
   .section_02 .colbox_actor02 {
     width: 30%;
     height: 100vh;
@@ -388,7 +449,7 @@ a {
     .section_02 .colbox_actor02 .btn_searchF {
       width: 60%;
       position: relative;
-      top: 10%; }
+      top: 20%; }
     .section_02 .colbox_actor02 .Agi02 {
       width: 40%;
       position: relative;
@@ -413,36 +474,51 @@ a {
 .head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
   display: none; }
 
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 16px; } }
+
 @media only screen and (max-width: 476px) {
+  html {
+    font-size: 12px; }
   .wrap-bg {
-    background-image: url("../pic/phone_head_bg.svg");
-    background-repeat: no-repeat;
     overflow: hidden; }
   .wrap {
     width: 100%;
+    height: 92vh;
     background-image: none; }
   * {
     box-sizing: border-box; }
   .head, .chatRoom {
     display: none; }
   .head_phone {
-    width: 95%;
+    width: 100%;
     height: 8vh;
-    margin: 5px auto;
     display: flex;
     justify-content: space-between;
+    background-image: url("../pic/phone_head_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     z-index: 3; }
     .head_phone img {
       width: 40px;
       height: 40px;
-      display: block; }
-    .head_phone .logo_phone img {
-      width: 100px;
-      height: 80px;
+      display: block;
       position: relative;
-      top: -10px;
+      left: 15px;
+      top: 10px; }
+    .head_phone .logo_phone img {
+      width: 90px;
+      height: 70px;
+      position: relative;
+      top: 5px;
+      left: 5px;
       z-index: 3; }
+    .head_phone #btn_chatroom_phone {
+      position: relative;
+      left: -15px;
+      top: 10px; }
     .head_phone .menu_phone {
       width: 100%;
       height: 92vh;
@@ -589,42 +665,47 @@ a {
     flex-direction: column; }
     .section_01 .colbox {
       width: 100%; }
-    .section_01 .colbox_select {
-      padding-top: 30px; }
-      .section_01 .colbox_select h2 {
-        font-size: 1.8rem; }
-      .section_01 .colbox_select h2:after {
-        left: 75%;
-        top: -25%; }
-      .section_01 .colbox_select .info_of_match {
-        width: 50%;
-        height: 260px;
-        padding: 10px 10px;
-        margin: 0;
-        position: absolute;
-        left: 5%;
-        top: 20%; }
-      .section_01 .colbox_select label {
-        padding: 0px 10px;
-        position: relative;
-        left: 0%;
-        top: 160%; }
-    .section_01 .colbox_actor img {
-      width: 35%;
+    .section_01 .colbox_select h2 {
+      width: 80%;
+      font-size: 1.8rem;
       position: relative;
-      top: -33%;
-      left: 63%; }
-    .section_01 .colbox_actor span {
+      top: -120px; }
+    .section_01 .colbox_select h2:after {
+      left: 92%;
+      top: -25%; }
+    .section_01 .colbox_select .info_of_match {
+      width: 50%;
+      height: 310px;
+      padding: 10px 10px;
+      margin: 0;
       position: absolute;
-      top: 60%;
-      left: 55%;
-      background-image: none;
-      display: none; }
+      left: 5%;
+      top: 20%; }
+    .section_01 .colbox_select label {
+      padding: 0px 10px;
+      position: relative;
+      left: 10%;
+      top: 190%; }
+    .section_01 .colbox_actor {
+      display: block; }
+      .section_01 .colbox_actor img {
+        width: 40%;
+        height: 250px;
+        position: relative;
+        top: -57%;
+        left: 60%; }
+      .section_01 .colbox_actor span {
+        position: absolute;
+        top: 60%;
+        left: 55%;
+        z-index: 5;
+        background-image: none;
+        display: none; }
     .section_01 .colbox_other_actors img {
-      width: 18%;
+      width: 20%;
       position: relative;
       top: -10%;
-      left: 31%; } }
+      left: 35%; } }
 
 @media only screen and (max-width: 476px) {
   .section_02 {
@@ -680,3 +761,37 @@ a {
         display: none; }
       .section_02 .colbox_actor02 .Agi02 {
         display: none; } }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 0px;
+  background-color: #F5F5F5; }
+
+/*定义滚动条轨道
+   内阴影+圆角*/
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5; }
+
+/*定义滑块
+   内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  background-color: rgba(244, 200, 219, 0.8); }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: pink; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: pink; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: pink; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: pink; }
