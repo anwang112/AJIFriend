@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0126
 //聊天室操控
 var chatRoom_control = document.getElementById('chatRoom_control');
 var chatroom_btn_open = document.getElementById('chatroom_btn_open');
@@ -9,7 +12,11 @@ var chatboxLeft = document.getElementById('chatboxLeft');
 var ch = 0,//控制開關，0為初始關閉值，1為打開
 ch1 =0;
 
+<<<<<<< HEAD
 console.log(chatboxLeft);
+=======
+// console.log(chatboxLeft);
+>>>>>>> 0126
 
 //聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 chatRoom_control.addEventListener('click',function(){
@@ -64,7 +71,11 @@ btn_chatroom_phone.addEventListener('click',function(){
 //手機版聊天室操控_02
 fr_demo.addEventListener('click',function(){
     chatRoom_phone_part1.style.cssText=" top:8vh;left:0%;opacity:1; ";
+<<<<<<< HEAD
     chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:2";
+=======
+    chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:4";
+>>>>>>> 0126
 });
 
 btn_chat_prev.addEventListener('click',function(){
@@ -105,11 +116,19 @@ btn_menu_menu.addEventListener('click',function(){
 
 var other_actors = document.getElementsByClassName('other_actors');
 var colbox_actor = document.getElementById('colbox_actor');
+<<<<<<< HEAD
 
 
 for(var i=0;i<other_actors.length;i++){
     other_actors[i].addEventListener('click',function(){
         btn_beFriend.addEventListener('click',function(){
+=======
+console.log(colbox_actor);
+
+for(var i=0;i<other_actors.length;i++){
+    other_actors[i].addEventListener('click',function(){
+        btn_beFriend.addEventListener('click',function(e){
+>>>>>>> 0126
             e.stopPropagation();
         },false);
         var srcForActor = this.src  ;
@@ -118,6 +137,20 @@ for(var i=0;i<other_actors.length;i++){
         colbox_actor.src = srcForActor ;
         this.src = srcForOtherActors;
 
+<<<<<<< HEAD
+=======
+        //重新reset送出交友
+        btn_beFriend.removeAttribute('class','bounceIn');
+        btn_beFriend.setAttribute('class','pulse');
+        btn_beFriend.style.backgroundImage="url('../pic/txtbox_03.svg')";
+
+        while (effectbox.firstChild) {
+            effectbox.removeChild(effectbox.firstChild);
+            console.log('ddd');
+          }
+        
+
+>>>>>>> 0126
     },false);
 }
 
@@ -126,6 +159,10 @@ var btn_choose_hobby = document.getElementById('btn_choose_hobby');
 var lightbox_hobby = document.getElementById('lightbox_hobby');
 var lightbox_info_hobby = document.getElementById('lightbox_info_hobby');
 btn_choose_hobby.addEventListener('click',function(){
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 0126
     lightbox_hobby.style.cssText="display:flex;z-index:10;";
     lightbox_info_hobby.style.cssText="display:flex;z-index:10;";
 
@@ -142,4 +179,70 @@ btn_choose_hobby.addEventListener('click',function(){
 var btn_beFriend =document.getElementById('btn_beFriend');
 btn_beFriend.addEventListener('click',function(e){
    
+<<<<<<< HEAD
 },false);
+=======
+},false);
+
+
+//match_愛心動畫
+var effectbox = document.getElementById('effectbox');
+
+function creatHearts(){
+    effectbox.setAttribute('style','z-index:1');
+    var hearts = Math.ceil((Math.random()*20)+17);;
+    //Math.random()
+    console.log(hearts);
+    //創造愛心
+    for(var i=0;i<hearts;i++){
+        var topPosition = Math.ceil((Math.random()*170));
+        var leftPosition = 10+Math.ceil((Math.random()*450));
+        var opacity = Math.random().toFixed(2) ;//0-1 
+
+        var img_heart = document.createElement('img');
+        img_heart.src = "pic/heartForMatch.png";
+        img_heart.setAttribute('style',`position:relative;top:${topPosition + 40}px;left:${leftPosition}px;opacity:${opacity};margin:20px;`);
+        effectbox.appendChild(img_heart);
+        console.log(img_heart);
+    }
+
+
+
+}
+
+
+//match_點擊觸發愛心動畫
+var btn_beFriend = document.getElementById('btn_beFriend');
+btn_beFriend.addEventListener('click',function(){
+    btn_beFriend.removeAttribute('class','pulse');
+    btn_beFriend.style.backgroundImage="url('../pic/txtbox_04.svg')";
+    btn_beFriend.setAttribute('class','bounceIn');
+
+    if(effectbox.hasChildNodes() === false ){
+        creatHearts();
+    }else{
+        // alert('已送出交友');
+        while (effectbox.firstChild) {
+            effectbox.removeChild(effectbox.firstChild);
+            console.log('ddd');
+          }
+    }  
+},false);
+
+
+
+
+//match_視窗大小改變觸發清除愛心圖
+window.addEventListener('resize',function(){
+    while (effectbox.firstChild) {
+        effectbox.removeChild(effectbox.firstChild);
+        console.log('ddd');
+      }
+},false);
+
+
+//match bg_boat移動
+
+var wrapForBoat = document.getElementById('wrapForBoat');
+
+>>>>>>> 0126

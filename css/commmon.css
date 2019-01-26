@@ -89,25 +89,11 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   position: fixed;
-<<<<<<< HEAD
   right: 10px;
   bottom: 0px;
   padding-top: 80px;
   display: flex;
   flex-wrap: wrap;
-=======
-  z-index: 4;
-  right: 10px;
-  bottom: 0px;
-  padding-top: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-transform: translateY(77%);
-  -ms-transform: translateY(77%);
->>>>>>> 0126
   transform: translateY(77%); }
 
 .chatRoom h2 {
@@ -138,15 +124,7 @@ a {
   width: 100%;
   padding: 0 30px;
   position: relative;
-<<<<<<< HEAD
   display: flex;
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
->>>>>>> 0126
   justify-content: space-between; }
 
 #friendPic {
@@ -292,31 +270,14 @@ a {
   padding: 0 5%;
   overflow: hidden;
   padding-top: 170px;
-<<<<<<< HEAD
   display: flex;
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
->>>>>>> 0126
   justify-content: space-between;
   position: relative; }
   .section_01 .colbox {
     width: 30%;
     height: calc(100vh - 170px); }
   .section_01 .colbox_select {
-<<<<<<< HEAD
     display: flex;
-=======
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
->>>>>>> 0126
     flex-direction: column; }
     .section_01 .colbox_select h2 {
       font-size: 1.8rem;
@@ -325,16 +286,8 @@ a {
       letter-spacing: .2rem;
       text-shadow: 1px 1px #444;
       display: block;
-<<<<<<< HEAD
       transform: rotate(-3deg);
       position: relative;
-=======
-      -webkit-transform: rotate(-3deg);
-      -ms-transform: rotate(-3deg);
-      transform: rotate(-3deg);
-      position: relative;
-      z-index: 2;
->>>>>>> 0126
       top: 5%;
       left: 15%; }
     .section_01 .colbox_select h2:after {
@@ -348,7 +301,6 @@ a {
       left: 90%;
       top: -25%; }
     .section_01 .colbox_select .info_of_match {
-<<<<<<< HEAD
       width: 80%;
       height: 25vh;
       margin: 10% auto;
@@ -361,26 +313,6 @@ a {
       left: 10%;
       top: 10%;
       color: #fff; }
-=======
-      width: 50%;
-      height: 30vh;
-      margin: 5% auto;
-      padding-left: 40px;
-      padding-top: 12px;
-      background-image: url("../pic/friendBox_02.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      border-radius: 15px;
-      position: relative;
-      z-index: 2;
-      left: 10%;
-      top: 10%;
-      color: #444; }
-    .section_01 .colbox_select p {
-      position: relative;
-      left: 10px;
-      top: 40px; }
->>>>>>> 0126
     .section_01 .colbox_select label {
       width: 100px;
       height: 30px;
@@ -401,48 +333,19 @@ a {
       background: #f05c79;
       border: 1px solid rgba(255, 255, 255, 0.5); }
   .section_01 .colbox_actor {
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
-=======
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
->>>>>>> 0126
     justify-content: end;
     position: relative; }
     .section_01 .colbox_actor img {
       width: 50%;
       position: relative;
-<<<<<<< HEAD
       top: 30%;
       left: 20%; }
-=======
-      z-index: 2;
-      top: 30%;
-      left: 20%; }
-    .section_01 .colbox_actor img:hover {
-      -webkit-animation-name: imgBounce;
-      animation-name: imgBounce;
-      -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
-      transform-origin: center bottom;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both; }
->>>>>>> 0126
     .section_01 .colbox_actor span {
       width: 40%;
       height: 0;
       padding-bottom: 30%;
-<<<<<<< HEAD
       background-image: url("../pic/txtbox_02.svg");
       background-size: contain;
       background-repeat: no-repeat;
@@ -460,81 +363,6 @@ a {
       position: relative;
       top: 15%;
       left: -25%; }
-=======
-      background-image: url("../pic/txtbox_03.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 30%;
-      left: 60%;
-      z-index: 2;
-      text-align: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center; }
-  .section_01 .colbox_other_actors {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
-    .section_01 .colbox_other_actors img {
-      width: 100%;
-      position: relative;
-      top: 15%;
-      left: -16%; }
-    .section_01 .colbox_other_actors img:hover {
-      -webkit-animation-name: imgBounce;
-      animation-name: imgBounce;
-      -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
-      transform-origin: center bottom;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both; }
-
-@-webkit-keyframes imgBounce {
-  0%, 20%, 53%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
-  40%, 43% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0);
-    transform: translate3d(0, -30px, 0); }
-  70% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0);
-    transform: translate3d(0, -15px, 0); }
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0);
-    transform: translate3d(0, -4px, 0); } }
-
-@keyframes imgBounce {
-  0%, 20%, 53%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
-  40%, 43% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -o-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0);
-    transform: translate3d(0, -30px, 0); }
-  70% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -o-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0);
-    transform: translate3d(0, -15px, 0); }
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0);
-    transform: translate3d(0, -4px, 0); } }
->>>>>>> 0126
 
 .lightbox_hobby {
   width: 100%;
@@ -548,19 +376,8 @@ a {
   right: 0;
   z-index: -1;
   display: none;
-<<<<<<< HEAD
   display: flex;
   justify-content: center;
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
->>>>>>> 0126
   align-items: center; }
   .lightbox_hobby .lightbox_info_hobby {
     width: 170px;
@@ -568,28 +385,11 @@ a {
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 15px;
-<<<<<<< HEAD
     box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
     display: none;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-=======
-    -webkit-box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
-    box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
-    display: none;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
->>>>>>> 0126
     align-items: center;
     position: relative;
     top: 100px;
@@ -622,188 +422,6 @@ a {
       color: #fff;
       border: 1px solid #fff; }
 
-<<<<<<< HEAD
-=======
-.bounceOut {
-  -webkit-animation-name: bounceOut;
-  animation-name: bounceOut;
-  -webkit-animation-duration: .75s;
-  animation-duration: .75s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-.effectbox {
-  width: 100%;
-  height: 36vh;
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: 100px;
-  z-index: 1; }
-  .effectbox img {
-    width: 40px;
-    height: auto;
-    position: relative;
-    top: 40px;
-    left: 5%;
-    -webkit-transition: 2.5s;
-    -o-transition: 2.5s;
-    transition: 2.5s;
-    -webkit-animation: heartsFadeout 4s linear 2 forwards;
-    animation: heartsFadeout 4s linear 2 forwards; }
-
-.pulse {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-duration: 1.5s;
-  animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite; }
-
-.bounceIn {
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
-  -webkit-animation-duration: .75s;
-  animation-duration: .75s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-@-webkit-keyframes heartsFadeout {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); }
-  90% {
-    opacity: 0;
-    -webkit-transform: translateY(-98px) scale(1.4);
-    transform: translateY(-98px) scale(1.4); }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); } }
-
-@keyframes heartsFadeout {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); }
-  90% {
-    opacity: 0;
-    -webkit-transform: translateY(-98px) scale(1.4);
-    transform: translateY(-98px) scale(1.4); }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); } }
-
-@-webkit-keyframes bounceOut {
-  20% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  50%, 55% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); } }
-
-@keyframes bounceOut {
-  20% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  50%, 55% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); } }
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-@keyframes pulse {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-@-webkit-keyframes bounceIn {
-  0%, 20%, 40%, 60%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); }
-  20% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  40% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03); }
-  80% {
-    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-    transform: scale3d(0.97, 0.97, 0.97); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-@keyframes bounceIn {
-  0%, 20%, 40%, 60%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); }
-  20% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  40% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03); }
-  80% {
-    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-    transform: scale3d(0.97, 0.97, 0.97); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
->>>>>>> 0126
 .section_02 {
   width: 100%;
   height: 100vh;
@@ -811,25 +429,13 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-<<<<<<< HEAD
   display: flex;
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
->>>>>>> 0126
   justify-content: space-between; }
   .section_02 .ranking_of_all {
     width: 65%;
     height: 100vh; }
     .section_02 .ranking_of_all img {
-<<<<<<< HEAD
       width: 80%;
-=======
-      width: 75%;
->>>>>>> 0126
       position: relative;
       left: 10%;
       top: 15%; }
@@ -837,20 +443,8 @@ a {
     width: 30%;
     height: 100vh;
     position: relative;
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
-=======
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
->>>>>>> 0126
     justify-content: space-between; }
     .section_02 .colbox_actor02 .btn_searchF {
       width: 60%;
@@ -863,18 +457,11 @@ a {
     .section_02 .colbox_actor02 span {
       font-size: 0.9rem;
       color: #f05c79;
-<<<<<<< HEAD
       padding: 15px 15px;
-=======
-      padding-top: 35px;
-      padding-left: 20px;
-      padding-right: 20px;
->>>>>>> 0126
       letter-spacing: .15rem;
       width: 40%;
       height: 0;
       padding-bottom: 30%;
-<<<<<<< HEAD
       background-image: url("../pic/txtbox.svg");
       background-size: contain;
       background-repeat: no-repeat;
@@ -883,18 +470,6 @@ a {
       position: relative;
       top: 10%;
       left: 40%; }
-=======
-      background-image: url("../pic/txtbox_05.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      text-align: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      position: relative;
-      top: 10%;
-      left: 35%; }
->>>>>>> 0126
 
 .head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
   display: none; }
@@ -913,35 +488,19 @@ a {
     height: 92vh;
     background-image: none; }
   * {
-<<<<<<< HEAD
-=======
-    -webkit-box-sizing: border-box;
->>>>>>> 0126
     box-sizing: border-box; }
   .head, .chatRoom {
     display: none; }
   .head_phone {
     width: 100%;
     height: 8vh;
-<<<<<<< HEAD
     display: flex;
-=======
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
->>>>>>> 0126
     justify-content: space-between;
     background-image: url("../pic/phone_head_bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-<<<<<<< HEAD
     z-index: 3; }
-=======
-    z-index: 5; }
->>>>>>> 0126
     .head_phone img {
       width: 40px;
       height: 40px;
@@ -955,11 +514,7 @@ a {
       position: relative;
       top: 5px;
       left: 5px;
-<<<<<<< HEAD
       z-index: 3; }
-=======
-      z-index: 5; }
->>>>>>> 0126
     .head_phone #btn_chatroom_phone {
       position: relative;
       left: -15px;
@@ -972,7 +527,6 @@ a {
       left: 0;
       top: 8vh;
       z-index: 2;
-<<<<<<< HEAD
       transition: 2s;
       opacity: 0;
       transform-origin: 0 0;
@@ -982,31 +536,6 @@ a {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-=======
-      -webkit-transition: 2s;
-      -o-transition: 2s;
-      transition: 2s;
-      opacity: 0;
-      -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-      transform-origin: 0 0;
-      -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-      transform: scale(0); }
-      .head_phone .menu_phone ul {
-        height: 92vh;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
->>>>>>> 0126
         align-items: center; }
         .head_phone .menu_phone ul img {
           display: inline-block; }
@@ -1019,25 +548,13 @@ a {
           border-radius: 15px; }
   .chatRoom_phone {
     width: 100%;
-<<<<<<< HEAD
     height: 92vh;
     background: #e89fb7;
     display: flex;
-=======
-    height: 92%;
-    background: #e89fb7;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
->>>>>>> 0126
     flex-direction: column;
     text-align: center; }
   .chatRoom_phone_part1 {
     width: 100%;
-<<<<<<< HEAD
     height: 92vh;
     background: #e89fb7;
     display: flex;
@@ -1046,24 +563,6 @@ a {
     padding: 20px 0;
     transition: 2s;
     position: absolute;
-=======
-    height: 92%;
-    background: #e89fb7;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 0;
-    -webkit-transition: 2s;
-    -o-transition: 2s;
-    transition: 2s;
-    position: absolute;
-    z-index: 3;
->>>>>>> 0126
     top: -100vh;
     left: 0;
     opacity: 1; }
@@ -1089,26 +588,12 @@ a {
     height: 92vh;
     background: #e89fb7;
     display: none;
-<<<<<<< HEAD
-=======
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
->>>>>>> 0126
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
     position: absolute;
-<<<<<<< HEAD
     left: 0;
     top: 8vh;
-=======
-    z-index: 4;
-    left: 0;
-    top: 8vh;
-    -webkit-transition: 2s;
-    -o-transition: 2s;
->>>>>>> 0126
     transition: 2s;
     opacity: 0;
     position: absolute;
@@ -1146,16 +631,7 @@ a {
       height: 78vh;
       display: inline-block;
       background: #e5e5e5;
-<<<<<<< HEAD
       display: flex;
-=======
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
->>>>>>> 0126
       flex-direction: column;
       padding: 10px; }
       .chatRoom_phone_part2 .info_chatbox span {
@@ -1168,15 +644,7 @@ a {
       display: inline-block;
       position: relative;
       top: 1.5vh;
-<<<<<<< HEAD
       display: flex;
-=======
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
->>>>>>> 0126
       justify-content: space-between; }
       .chatRoom_phone_part2 .info_controlbox img {
         width: 45px;
@@ -1192,28 +660,14 @@ a {
   .section_01 {
     width: 100%;
     height: 92vh;
-<<<<<<< HEAD
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-size: cover;
-=======
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-size: cover;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
->>>>>>> 0126
     flex-direction: column; }
     .section_01 .colbox {
       width: 100%; }
     .section_01 .colbox_select h2 {
       width: 80%;
-<<<<<<< HEAD
       font-size: 1.8rem;
-=======
-      font-size: 36px;
->>>>>>> 0126
       position: relative;
       top: -120px; }
     .section_01 .colbox_select h2:after {
@@ -1221,7 +675,6 @@ a {
       top: -25%; }
     .section_01 .colbox_select .info_of_match {
       width: 50%;
-<<<<<<< HEAD
       height: 310px;
       padding: 10px 10px;
       margin: 0;
@@ -1241,42 +694,6 @@ a {
         position: relative;
         top: -57%;
         left: 60%; }
-=======
-      height: 180px;
-      padding: 10px 10px;
-      margin: 0;
-      position: absolute;
-      background-image: none;
-      left: 5%;
-      top: 20%; }
-    .section_01 .colbox_select label {
-      width: 108px;
-      height: 30px;
-      font-size: 20px;
-      padding: 0px 10px;
-      position: relative;
-      left: 5%;
-      top: 40%;
-      z-index: 2;
-      border: 1px solid transparent; }
-    .section_01 .colbox_select label:hover {
-      width: 108px;
-      height: 30px;
-      font-size: 20px;
-      padding: 0px 10px;
-      color: rgba(255, 255, 255, 0.5);
-      background: #f05c79;
-      border: 1px solid rgba(255, 255, 255, 0.5); }
-    .section_01 .colbox_actor {
-      display: block; }
-      .section_01 .colbox_actor img {
-        width: 48%;
-        height: 250px;
-        position: relative;
-        top: -68%;
-        left: 60%;
-        z-index: 3; }
->>>>>>> 0126
       .section_01 .colbox_actor span {
         position: absolute;
         top: 60%;
@@ -1284,7 +701,6 @@ a {
         z-index: 5;
         background-image: none;
         display: none; }
-<<<<<<< HEAD
     .section_01 .colbox_other_actors img {
       width: 20%;
       position: relative;
@@ -1293,47 +709,11 @@ a {
 
 @media only screen and (max-width: 476px) {
   .section_02 {
-=======
-    .section_01 .colbox_other_actors {
-      position: absolute;
-      top: 75%;
-      bottom: 0;
-      display: block; }
-      .section_01 .colbox_other_actors img {
-        display: inline-block;
-        width: 22%;
-        font-size: 0;
-        position: relative;
-        left: 0%;
-        top: 0%; }
-  .lightbox_hobby .lightbox_info_hobby {
-    width: 170px;
-    height: 240px;
-    padding: 20px 20px;
-    top: 0px;
-    left: 0px; }
-  .lightbox_info_hobby #hobby_movie:checked + label, .lightbox_info_hobby #hobby_sport:checked + label, .lightbox_info_hobby #hobby_js:checked + label {
-    width: 98px;
-    height: 28px;
-    background-color: #ae8478;
-    color: #fff;
-    border: 1px solid #fff; } }
-
-@media only screen and (max-width: 476px) {
-  .section_02 {
-    background-image: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-image: -o-linear-gradient(315deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
->>>>>>> 0126
     background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-size: cover;
     display: block;
     padding-top: 50px;
     position: relative;
-<<<<<<< HEAD
-=======
-    display: -webkit-box;
-    display: -ms-flexbox;
->>>>>>> 0126
     display: flex; }
     .section_02 .ranking_of_all {
       width: 90%;
@@ -1349,14 +729,8 @@ a {
         height: 80vh;
         margin: auto;
         padding: 30px 20px;
-<<<<<<< HEAD
         background: rgba(244, 200, 219, 0.8);
         box-shadow: 3px 4px #f05c79;
-=======
-        background-image: url("../pic/friendBox.png");
-        background-repeat: no-repeat;
-        background-size: contain;
->>>>>>> 0126
         border-radius: 15px;
         position: relative;
         top: 60px; }
@@ -1364,16 +738,7 @@ a {
           width: 80%;
           height: 80vh;
           margin: auto;
-<<<<<<< HEAD
           display: flex;
-=======
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
->>>>>>> 0126
           flex-direction: column; }
           .section_02 .ranking_of_all .ranking .showSpan span {
             margin-top: 40px;

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0126
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -46,6 +49,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+<<<<<<< HEAD
 =======
 /* *{
     -webkit-tap-highlight-color:transparent;  
@@ -99,4 +103,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 >>>>>>> c79ae67194b810e6009a59b9582d7ebc413a5da2
+=======
+>>>>>>> 0126
 }
