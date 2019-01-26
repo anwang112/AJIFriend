@@ -47,84 +47,122 @@
 
 
 var controller = new ScrollMagic.Controller();
-var tl1 = new TimelineMax();
-
-tl1.fromTo('.chatBox', .5, {
-    opacity: 1
-}, {
-    opacity: 0
-});
 
 var tl2 = new TimelineMax();
-tl2.fromTo('#indexSec', .1, {
-    y: "100%"
-}, {
-    y: '0%'
+tl2.to('#indexSec', 1, {
+ y: '-120%'
 });
 
-
 var scene04 = new ScrollMagic.Scene({
-        // triggerElement: '#trigger01',
-        duration: '150%',
+        triggerElement: '#trigger01',
+        duration: '100%',
         triggerHook: 0,
 
         // reverse: true
-    }).setPin('#outerWrap')
-    .setTween([tl1, tl2])
+    }).setPin('#indexFir')
+    .setTween(tl2)
     .addIndicators({
         name: 'scence pin 04'
     })
     .addTo(controller);
 
+
+
 var $showImage = $('#eyes');
-$showImage.attr('src', 'images/eye2.svg');
+
 
 
 // 用來顯示大圖片用
-var $showhead = $('#head');
+var $showhead = $('#bodyWrap');
 
 // 當滑鼠移到 .abgne-block-20120106 中的某一個超連結時
-$('.bearHead').click(function () {
-    // 把 #show-image 的 src 改成被移到的超連結的位置
-    $showhead.attr('src', 'images/body1.svg');
-});
-$('.rabiHead').click(function () {
-    // 把 #show-image 的 src 改成被移到的超連結的位置
-    $showhead.attr('src', 'images/head2.svg');
-});
-$('.catHead').click(function () {
-    // 把 #show-image 的 src 改成被移到的超連結的位置
-    $showhead.attr('src', 'images/head3.svg');
-});
-$('.dogHead').click(function () {
-    // 把 #show-image 的 src 改成被移到的超連結的位置
-    $showhead.attr('src', 'images/head4.svg');
-});
+var shake = function () {
+        // 把 #show-image 的 src 改成被移到的超連結的位置
+        var tis = new TimelineMax({});
+        tis.to($showhead, .4, {
 
-var tllC = new TimelineMax({
-    repeat: -1,
-});
-tllC.to('.lC1', 1, {
-    opacity: 0.8,
+                    y: -100,
+                    repeat: 1,
+                    yoyo: true,
+                    ease: Power4.easeInOut,
 
-}).to('.lC2', 1, {
-    opacity: 0.8,
+                });
+            };
 
-}).to('.lC3', 1, {
-    opacity: 0.8,
+                $('.bearHead').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showhead.css('background-image', 'url(../images/body1.png)');
+                    shake();
+                }); $('.rabiHead').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showhead.css('background-image', 'url(../images/body3.png)');
+                    shake();
+                }); $('.catHead').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showhead.css('background-image', 'url(../images/body2.png)');
+                    shake();
+                }); $('.dogHead').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showhead.css('background-image', 'url(../images/body4.png)');
+                    shake();
+                });
+                var $showeye = $('#eyes'); $('.eye1').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showeye.attr('src', 'images/eye1.png');
+                }); $('.eye2').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showeye.attr('src', 'images/eye2.png');
+                }); $('.eye3').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showeye.attr('src', 'images/eye3.png');
+                }); $('.eye4').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $showeye.attr('src', 'images/eye4.png');
+                });
 
-}).to('.lC4', 1, {
-    opacity: 0.8,
+                $('.eyesChoice').hide(); $('.colorChoice').hide(); $('.eyesCir').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $('.bodyChoice').hide();
+                    $('.eyesChoice').show();
+                    $('.colorChoice').hide();
+                }); $('.bodyCir').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $('.bodyChoice').show();
+                    $('.eyesChoice').hide();
+                    $('.colorChoice').hide();
+                }); $('.colorCir').click(function () {
+                    // 把 #show-image 的 src 改成被移到的超連結的位置
+                    $('.bodyChoice').hide();
+                    $('.eyesChoice').hide();
+                    $('.colorChoice').show();
+                });
 
-}).to('.lC5', 1, {
-    opacity: 0.8,
 
-}).to('.lC6', 1, {
-    opacity: 0.8,
 
-}).to('.littleChat', 1, {
-    opacity: 0,
-    y:-40,
 
-});
 
+                var tllC = new TimelineMax({
+                    repeat: -1,
+                }); tllC.to('.lC1', .5, {
+                    opacity: 0.8,
+
+                }).to('.lC2', .5, {
+                    opacity: 0.8,
+
+                }).to('.lC3', .5, {
+                    opacity: 0.8,
+
+                }).to('.lC4', .5, {
+                    opacity: 0.8,
+
+                }).to('.lC5', .5, {
+                    opacity: 0.8,
+
+                }).to('.lC6', .5, {
+                    opacity: 0.8,
+
+                }).to('.littleChat', 1, {
+                    opacity: 0,
+                    y: -40,
+
+                });
