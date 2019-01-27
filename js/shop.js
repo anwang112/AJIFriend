@@ -3,7 +3,7 @@ function $id(id){
 }
 function closeLightBox(e){
     // console.log(e.target.parentNode.parentNode);
-    shop_background = document.getElementById("shop_background");
+    $id("shop_background");
     shop_background.removeChild(e.target.parentNode.parentNode);
     for (var i = 0; i<productItem.length; i++) {
         productItem[i].addEventListener("click",showLightBox);
@@ -113,11 +113,3 @@ function showLightBox(){
         console.log(9);
     }
 }
-function init(){
-    productItem = document.getElementsByClassName("productItem");
-    for (var i = 0; i<productItem.length; i++) {
-        productItem[i].addEventListener("click",showLightBox);
-    }
-    
-}
-window.addEventListener("load",init,false);

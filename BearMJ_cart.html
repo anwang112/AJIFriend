@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/lien.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
     
@@ -59,31 +60,31 @@
             <form action="" id="cartForm">
                 <ul id="tableTitle">
                     <li class="flexGrow">商品名稱</li>
-                    <li class="flexGrow">商品圖片</li>
+                    <li class="li_img">圖片</li>
                     <li>代幣</li>
                     <li>送禮</li>
                     <li>異動</li>
                 </ul>
-            
+                
                 <div id="cartTable">
                     <ul>
                         <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="li_img"><img src="images/products_01.png"></li>
+                        <li><img src="images/coin.png"><span>390</span></li>
                         <li><input type="button" value="送禮" class="btn_given"></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
                     <ul>
-                        <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="flexGrow">梅拉頭飾</li>
+                        <li class="li_img"><img src="images/pro-hat_3.png"></li>
+                        <li><img src="images/coin.png"><span>3000</span></li>
                         <li><input type="button" value="送禮" class="btn_given"></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
                     <ul>
-                        <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="flexGrow">武士頭盔</li>
+                        <li class="li_img"><img src="images/pro-hat_1.png"></li>
+                        <li><img src="images/coin.png"><span>250</span></li>
                         <li><input type="button" value="送禮" class="btn_given" ></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
@@ -169,11 +170,30 @@
         $id("cart_background").style.height =window.innerHeight +"px";
     }
 
-    // $id("productBlock").style.width = window.screen.width +"px";
-    
-
-    
     console.log(window.screen.height);
     console.log(document.body.clientWidth );
+
+    $id("btn_giftBoxClose").addEventListener("click",function(){
+        $id("giftBox").style.display = "none";
+    });
+
+    function init(){
+        var btn_delete = document.getElementsByClassName("btn_delete");
+        for( var i = 0; i < btn_delete.length; i++){
+            btn_delete[i].addEventListener("click",function(e){
+                $id("cartTable").removeChild(e.target.parentNode.parentNode);
+
+            });
+        }
+        btn_goingOn = document.getElementsByClassName("btn-buy"); 
+        btn_goingOn[0].addEventListener("click",function(){
+        
+            window.location.href = 'https://www.facebook.com/'; //串資料庫後需要修改
+        
+        });
+    }
+
+    window.addEventListener("load",init,false);
+
 </script>
 <script src="js/cart.js"></script>
