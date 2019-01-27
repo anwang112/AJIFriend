@@ -120,7 +120,7 @@ for(var i=0;i<other_actors.length;i++){
         //重新reset送出交友
         btn_beFriend.removeAttribute('class','bounceIn');
         btn_beFriend.setAttribute('class','pulse');
-        btn_beFriend.style.backgroundImage="url('../pic/txtbox_03.svg')";
+        btn_beFriend.style.backgroundImage="url('pic/txtbox_03.svg')";
 
         while (effectbox.firstChild) {
             effectbox.removeChild(effectbox.firstChild);
@@ -186,7 +186,7 @@ function creatHearts(){
 var btn_beFriend = document.getElementById('btn_beFriend');
 btn_beFriend.addEventListener('click',function(){
     btn_beFriend.removeAttribute('class','pulse');
-    btn_beFriend.style.backgroundImage="url('../pic/txtbox_04.svg')";
+    btn_beFriend.style.backgroundImage="url('pic/txtbox_04.svg')";
     btn_beFriend.setAttribute('class','bounceIn');
 
     if(effectbox.hasChildNodes() === false ){
