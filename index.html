@@ -15,16 +15,18 @@
     <script src="js/easings.min.js"></script>
     <script src="js/scrolloverflow.min.js"></script>
     <script src="js/fullpage.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link type="text/css" rel="stylesheet" href="css/fullpage.css">
 
 </head>
 
 <body>
 
-        <!-- 第一屏 -->
-        <div id="trigger01"></div>
-        <section id="indexFir" class="section">
+    <!-- 第一屏 -->
+    <div id="trigger01"></div>
+    <div id="aaa">
+        <section id="indexFir" class="section1 section">
+
             <!-- 背景城市 -->
             <div class="cityWrap">
                 <!-- 摩天輪 -->
@@ -48,6 +50,7 @@
                 <!-- <img src="/images/car1.svg" class="car car1" alt="汽車">
                 <img src="/images/car3.svg" class="car car3" alt="汽車">
                 <img src="/images/car2.svg" class="car car2" alt="汽車"> -->
+
             </div>
 
             <div class="wrap">
@@ -67,8 +70,6 @@
                             <span class="dot"></span>
                             <span class="dot"></span>
                         </div>
-                        <span class="chat1">大笨蛋</span>
-                        <span class="chat2"></span>
                     </div>
                 </div>
                 <div class="typing2">
@@ -80,22 +81,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="titleWrap">
+                    <h1 class="indexTitle">找到對的人<br>成為熊麻吉</h1>
+                    <button class="goChat pointer">創建角色聊天去</button>
+                </div>
             </div>
-            <section id="indexSec">
+
+
+            <div id="indexSec">
                 <div class="wrap">
                     <!-- 背景城市 -->
-                    <img src="images/home.svg" class="home" alt="城市">
+                    <img src="images/home.svg" class="home" alt="背景">
+                    <h2>創建專屬角色</h2>
                     <div class="inner">
                         <div class="roleLeft">
                             <div class="choice">
                                 <div class="circleWrap">
-                                    <img src="images/cir2.svg" class="circle bodyCir pointer">
+                                    <img src="images/roleStep1.svg" class="circle bodyCir pointer achive">
                                 </div>
                                 <div class="circleWrap">
-                                    <img src="images/cir.svg" class="circle colorCir pointer">
+                                    <img src="images/roleStep2.svg" class="circle colorCir pointer">
                                 </div>
                                 <div class="circleWrap">
-                                    <img src="images/cir3.svg" class="circle eyesCir pointer">
+                                    <img src="images/roleStep3.svg" class="circle eyesCir pointer">
                                 </div>
                             </div>
                             <div class="roleContent">
@@ -126,16 +134,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="exit" alt="離開"></div>
                 </div>
-            </section>
+            </div>
         </section>
 
 
 
 
         <!-- 第三屏配對＆活動 -->
-<div id="aaa">
-        <section id="indexMatch">
+
+        <section id="indexMatch" class="section">
 
             <img src="images/match-obj1.png" class="matchObj middle">
             <img src="images/match-obj3.png" class="matchObj left">
@@ -143,16 +152,51 @@
         </section>
 
 
-        <section id="indexShop">
+        <section id="indexShop" class="section">
+            <div class="star">
+                <img src="images/star.svg">
+            </div>   
+            <div class="next">
+                <img src="images/nextBtn.png" class="nextBtn">
+            </div>
+            <div class="item">
+                <img src="images/indexItem1.png" class="itemImg">
+            </div>
+            <div class="showItem">
+                <div class="itemContent itemC1">
+                    <h2>文青格紋大衣</h2>
+                    <h3>MJ值：+300</h3>
+                    <span>$500</span>
+                    <button>立即購買</button>
+                </div>
+                <div class="itemContent itemC2">
+                    <h2>型男休閒套裝</h2>
+                    <h3>MJ值：+500</h3>
+                    <span>$800</span>
+                    <button>立即購買</button>
+                </div>
+                <div class="itemContent itemC3">
+                    <h2>奪魂死神套裝</h2>
+                    <h3>MJ值：+800</h3>
+                    <span>$990</span>
+                    <button>立即購買</button>
+                </div>
+            </div>
+            <div class="itemSpotLight">
+                <img src="images/itemspotlight1.png" class="ISL light1" alt="">
+                <img src="images/itemspotlight1.png" class="ISL light2" alt="">
+                <img src="images/itemspotlight1.png" class="ISL light3" alt="">
+                <img src="images/itemspotlight1.png" class="ISL light4" alt="">
+            </div>
 
-             
-            </section>
-        </div>
+
+        </section>
+    </div>
 
 
 
 
-        <script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
