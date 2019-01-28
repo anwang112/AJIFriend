@@ -7,21 +7,12 @@ function head_html(){
 	var str_tag = `
 	<!-- head頁首 -->
 	<div class="head mnone">
-<<<<<<< HEAD
-	    <a href="#"><img id="logo" src="pic/logo.svg" alt="logo"></a>
-	    <ul class="menu">
-	        <li><a href="#">找麻吉</a></li>
-	        <li><a href="#">活動巴士</a></li>
-	        <li><a href="#">造型商城</a></li>
-	        <li><a href="#">照片牆</a></li>
-=======
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
 	        <li><a href="match.html">找麻吉</a></li>
 	        <li><a href="activity.html">活動巴士</a></li>
 	        <li><a href="BearMJ_shop.html">造型商城</a></li>
 	        <li><a href="photo.html">照片牆</a></li>
->>>>>>> origin/lien
 	    </ul>
 	    <ul class="menu_sub">
 	        <li><a href="#">登入</a></li>
@@ -41,17 +32,10 @@ function head_html(){
 	    </a>
 	    <div id="menu_phone" class="menu_phone">
 	        <ul>
-<<<<<<< HEAD
-	            <li><a href="#">找麻吉</a></li>
-	            <li><a href="#">活動巴士</a></li>
-	            <li><a href="#">造型商城</a></li>
-	            <li><a href="#">照片牆</a></li>
-=======
 	            <li><a href="match.html">找麻吉</a></li>
 	            <li><a href="activity.html">活動巴士</a></li>
 	            <li><a href="BearMJ_shop.html">造型商城</a></li>
 	            <li><a href="photo.html">照片牆</a></li>
->>>>>>> origin/lien
 	            <li><a href="#">登入</a></li>
 	            <li><a href="#">魅力值</a></li>
 	            <li><a id="head_member_icon" href="#">會員中心</a></li>
@@ -133,7 +117,7 @@ function foot_html(){
 	        </div>
 	    </div>
 	    <!-- 手機聊天室結束 -->
-	    <script src="js/main.js"></script>
+	    
 	</div>
 	`; 
 

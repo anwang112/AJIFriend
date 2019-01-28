@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //match功能操作＿點選切換觀看者
 
 var other_actors = document.getElementsByClassName('other_actors');
@@ -114,7 +113,6 @@ window.addEventListener('resize',function(){
 //match bg_boat移動
 
 var wrapForBoat = document.getElementById('wrapForBoat');
-=======
 
 
 window.addEventListener('load',function(){
@@ -423,4 +421,3 @@ window.addEventListener('load',function(){
 
 
 
->>>>>>> origin/lien
