@@ -791,7 +791,7 @@
 #indexSec h2 {
   font-size: 8vmin;
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 25%;
   z-index: 5;
   color: #736357;
@@ -809,7 +809,7 @@
   padding-bottom: 5%;
   background-color: #736357;
   position: absolute;
-  top: 5%;
+  top: 21%;
   right: 5%;
   border-radius: 50%;
 }
@@ -1169,7 +1169,7 @@
   background-position: center center;
   position: absolute;
   left: calc(50% + 150px);
-  top: 12%;
+  top: 18%;
 }
 
 #indexShop .showItem .itemContent {
