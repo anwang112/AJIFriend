@@ -1,4 +1,3 @@
-
 activityInit = () => {
 
     // slider輪播
@@ -12,13 +11,11 @@ activityInit = () => {
     //輪胎轉轉
     sliderOO = document.getElementsByClassName('cls-1');
 
-
-
     nowTransform = [];
     sliderCount = 100;
     sliderBusSvg = document.getElementsByClassName('activityBus');
-    busGo = window.setInterval(() => {
 
+    function busGoGo() {
         for (let i = 0; i <= 6; i += 3) {
             sliderOO[i + 1].classList.add("activityOO");
             sliderOO[i + 2].classList.add("activityOO");
@@ -42,11 +39,12 @@ activityInit = () => {
                 sliderImg[i].style.opacity = `1`;
             }
         }
+
         rotate = 0;
         sliderRotate = window.setInterval(() => {
             rotate += 3;
             // console.log(rotate);
-            if(rotate>800){
+            if (rotate > 800) {
                 clearInterval(sliderRotate);
                 rotate = 0;
             }
@@ -57,8 +55,25 @@ activityInit = () => {
                 sliderOO[i + 2].style.transform = `rotate(${rotate}deg)`
             }
         }, 10)
-    }, 5000);
+        // clearInterval(sliderRotate);
+    }
 
+    busGo = window.setInterval(busGoGo,4000);
+
+    //輪播摸到停止一下
+    activityBus = document.getElementsByClassName('activityBus');
+    for (let i = 0; i < activityBus.length; i++) {
+        activityBus[i].addEventListener('mouseenter', stopSloder);
+    }
+    for (let i = 0; i < activityBus.length; i++) {
+        activityBus[i].addEventListener('mouseleave', startSloder);
+    }
+    function stopSloder() {
+        clearInterval(busGo);
+    }
+    function startSloder() {
+        busGo = window.setInterval(busGoGo,4000);
+    }
 
 
     //活動燈箱
@@ -231,11 +246,137 @@ activityInit = () => {
         reader.readAsDataURL(file);
     })
 
+    // 背景漸層
+    activityFix = document.getElementsByClassName('activityFix')[0];
 
+    gradientStatus = false;
+    gradient = {
+        x1: 114,
+        x2: 183,
+        x3: 255,
+        y1: 255,
+        y2: 210,
+        y3: 163,
+    }
+    gradientEnd = {
+        x1: 70,
+        x2: 24,
+        x3: 62,
+        y1: 37,
+        y2: 56,
+        y3: 78,
+    }
+    activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+
+    ooxxGradient = () => {
+        if (gradient.x1 < gradientEnd.x1) {
+            gradient.x1++
+        } else if (gradient.x1 > gradientEnd.x1) {
+            gradient.x1--
+        }
+        if (gradient.x2 < gradientEnd.x2) {
+            gradient.x2++
+        } else if (gradient.x2 > gradientEnd.x2) {
+            gradient.x2--
+        }
+        if (gradient.x3 < gradientEnd.x3) {
+            gradient.x3++
+        } else if (gradient.x3 > gradientEnd.x3) {
+            gradient.x3--
+        }
+        if (gradient.y1 < gradientEnd.y1) {
+            gradient.y1++
+        } else if (gradient.y1 > gradientEnd.y1) {
+            gradient.y1--
+        }
+        if (gradient.y2 < gradientEnd.y2) {
+            gradient.y2++
+        } else if (gradient.y2 > gradientEnd.y2) {
+            gradient.y2--
+        }
+        if (gradient.y3 < gradientEnd.y3) {
+            gradient.y3++
+        } else if (gradient.y3 > gradientEnd.y3) {
+            gradient.y3--
+        }
+        if ((gradient.x1 == gradientEnd.x1) && (gradient.x2 == gradientEnd.x2) && (gradient.x3 == gradientEnd.x3) && (gradient.y1 == gradientEnd.y1) && (gradient.y2 == gradientEnd.y2) && (gradient.y3 == gradientEnd.y3)) {
+            clearTimeout(ooxx);
+            if (gradientStatus == false) {
+                gradientStatus = true;
+            } else {
+                gradientStatus = false;
+            }
+            gradientStatusGo();
+
+        }
+        activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+    }
+
+    ooxx = window.setInterval(ooxxGradient, 40);
+
+    function gradientStatusGo() {
+        if (gradientStatus == false) {
+            gradient = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradientEnd = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        } else {
+            gradientEnd = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradient = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        }
+        ooxx = window.setInterval(ooxxGradient, 40);
+    }
 
 }
 
 window.addEventListener('load', activityInit);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // localStorage.removeItem('carts');
 // window.location.reload();
 
