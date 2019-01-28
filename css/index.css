@@ -658,7 +658,7 @@
   position: absolute;
   top: 70px;
   left: 400px;
-  background-color: #E6E7ED;
+  background-color: #DBD0BB;
   will-change: transform;
   width: 60px;
   height: 10px;
@@ -736,12 +736,12 @@
 
 .typing2 {
   left: 550px;
-  background-color: #f05c79;
+  background-color: #E59DC2;
 }
 
 .typing2::before,
 .typing2::after {
-  background-color: #f05c79;
+  background-color: #E59DC2;
 }
 
 .typing2 .textWrap .dotGrop .dot {
@@ -791,7 +791,7 @@
 #indexSec h2 {
   font-size: 8vmin;
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 25%;
   z-index: 5;
   color: #736357;
@@ -809,7 +809,7 @@
   padding-bottom: 5%;
   background-color: #736357;
   position: absolute;
-  top: 21%;
+  top: 5%;
   right: 5%;
   border-radius: 50%;
 }
@@ -1169,7 +1169,7 @@
   background-position: center center;
   position: absolute;
   left: calc(50% + 150px);
-  top: 18%;
+  top: 12%;
 }
 
 #indexShop .showItem .itemContent {
@@ -1259,6 +1259,97 @@
   70%,
   90% {
     top: 21%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .wrap {
+    width: 100%;
+  }
+  .wrap .titleWrap .indexTitle {
+    font-size: 13vmin;
+    color: #1a0a0d;
+    -webkit-animation: title 0s infinite;
+            animation: title 0s infinite;
+  }
+  .section1 {
+    -webkit-animation: none;
+            animation: none;
+    background-color: #3DC8E5;
+  }
+  .wrap .titleWrap {
+    top: -16%;
+  }
+  .wrap .aji {
+    left: 10%;
+    width: 38%;
+  }
+  .wrap .rabbit {
+    left: 50%;
+    width: 38%;
+  }
+  .wrap .light {
+    width: 144px;
+    left: 1%;
+  }
+  #indexMatch .middle {
+    top: 29%;
+  }
+  .wrap .home {
+    width: auto;
+    height: 100vh;
+    left: -120%;
+  }
+  #indexSec {
+    width: 100%;
+    height: 100vh;
+    top: -33%;
+  }
+  #indexSec .wrap .inner .roleLeft {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  #indexSec .wrap .inner .roleLeft .roleContent .bodyChoice {
+    top: -19%;
+  }
+  #indexSec .wrap .inner .roleLeft .joinBtn {
+    margin-top: 0px;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  #indexSec .wrap .inner .roleRight {
+    width: 63%;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  #indexSec .wrap .inner .roleRight #bodyWrap {
+    -webkit-box-ordinal-group: -3;
+        -ms-flex-order: -4;
+            order: -4;
+    margin-bottom: -20px;
+  }
+  #indexSec .wrap .exit {
+    width: 17%;
+    padding-bottom: 17%;
+    top: 5%;
+    right: 2%;
+  }
+  #indexSec h2 {
+    display: none;
+  }
+  #indexSec .wrap .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    top: 5%;
+  }
+  #indexSec .wrap .inner .roleLeft .circle {
+    margin: 0px;
   }
 }
 /*# sourceMappingURL=index.css.map */
