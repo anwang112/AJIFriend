@@ -2,6 +2,7 @@ function $id(id){
     return document.getElementById(id);
 }
 
+<<<<<<< HEAD
 function changeModel(e){
     var idList
     var ta = e.target;
@@ -17,12 +18,33 @@ function changeModel(e){
         scale: 1,
     });
 }
+=======
+// function changeModel(e){
+//     var idList
+//     var ta = e.target;
+//     var no = ta.className.split(",");
+//     console.log(no[1]);
+//     $id("showId").innerText = no[0];
+//     $id("model_animal").src = "shop-images/model_" + no[1] +".png";
+//     $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
+//     closeFriendBox();
+//     TweenMax.fromTo('#showModel', 1.5, {
+//         scale: 0,
+//     }, {
+//         scale: 1,
+//     });
+// }
+>>>>>>> origin/photo
 
 function closeFriendBox(){
     // console.log(e.target.parentNode.parentNode);
     var close = document.getElementById("friendBoxClose");
     shop_background = document.getElementById("shop_background");
+<<<<<<< HEAD
     $id("chooseArea").removeChild(close.parentNode.parentNode);
+=======
+    $id("friendBox").removeChild(close.parentNode.parentNode);
+>>>>>>> origin/photo
     var choose = document.getElementsByClassName("gift");
     for(var i = 0 ; i < choose.length ; i++){
         choose[i].addEventListener("click",showfriendBox);
@@ -38,14 +60,22 @@ function showfriendBox(e){
 
         //創建img_bg(燈箱背景)
         var img_bg = document.createElement("img");
+<<<<<<< HEAD
         img_bg.src = "shop-images/friendBox.png";
+=======
+        img_bg.src = "/images/chooseF-31.png";
+>>>>>>> origin/photo
         
         //創建div_close
         var div_close = document.createElement("div");
         div_close.id = "btn_friendBoxClose";    
             //創建img_close(關燈箱按鈕)
             var img_close = document.createElement("img");
+<<<<<<< HEAD
             img_close.src = "shop-images/close.png";
+=======
+            img_close.src = "/images/times-circle-32.png";
+>>>>>>> origin/photo
             img_close.id = "friendBoxClose";
         
         //img_close塞進div_close    
@@ -74,7 +104,11 @@ function showfriendBox(e){
                         label.className = friendList[i-1];
                             //創建img_friend頭像
                             var img_friend = document.createElement("img");
+<<<<<<< HEAD
                             img_friend.src = "shop-images/gift.png";
+=======
+                            img_friend.src = "/images/member2-18.png";
+>>>>>>> origin/photo
                             img_friend.className = friendList[i-1];
                             //創建p_memName朋友暱稱
                             var p_memName = document.createElement("p");
@@ -98,8 +132,13 @@ function showfriendBox(e){
     div_friendBox.appendChild(div_close);
     div_friendBox.appendChild(div_content);
 
+<<<<<<< HEAD
     //將div_friendBox塞進chooseArea
     $id("chooseArea").appendChild(div_friendBox);
+=======
+    //將div_friendBox塞進friendBox
+    $id("friendBox").appendChild(div_friendBox);
+>>>>>>> origin/photo
 
     $id("btn_friendBoxClose").onclick = closeFriendBox;
     // 暫時關閉送禮給朋友按鈕功能
@@ -107,8 +146,23 @@ function showfriendBox(e){
     for(var i = 0 ; i < choose.length ; i++){
         choose[i].removeEventListener("click",showfriendBox);
     }
+<<<<<<< HEAD
     var labelFriend = document.getElementsByTagName("label");
     for(var i = 0 ; i < labelFriend.length ; i++){
         labelFriend[i].addEventListener("click",changeModel);
     }
 }
+=======
+    // var labelFriend = document.getElementsByTagName("label");
+    // for(var i = 0 ; i < labelFriend.length ; i++){
+    //     labelFriend[i].addEventListener("click",changeModel);
+    // }
+}
+
+function init(){
+    var choose = document.getElementById("chooseBtn");
+    choose.addEventListener("click",showfriendBox);
+        
+}
+window.addEventListener("load",init,false);
+>>>>>>> origin/photo

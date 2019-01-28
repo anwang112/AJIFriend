@@ -5,6 +5,10 @@ console.log(body);
 function head_html(){
 	
 	var str_tag = `
+<<<<<<< HEAD
+=======
+	<!-- head頁首 -->
+>>>>>>> origin/photo
 	<div class="head mnone">
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
@@ -14,9 +18,15 @@ function head_html(){
 	        <li><a href="photo.html">照片牆</a></li>
 	    </ul>
 	    <ul class="menu_sub">
+<<<<<<< HEAD
 	        <li><a id="btn_login"href="javascript:;">登入</a></li>
 	        <li><a href="#">魅力值</a></li>
 	        <li><a id="head_member_icon" href="myRoom.html"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
+=======
+	        <li><a href="#">登入</a></li>
+	        <li><a href="#">魅力值</a></li>
+	        <li><a id="head_member_icon" href="#"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
+>>>>>>> origin/photo
 	    </ul>
 	</div>
 	<div class="head_phone  dnone ">
@@ -37,6 +47,7 @@ function head_html(){
 	            <li><a href="photo.html">照片牆</a></li>
 	            <li><a href="#">登入</a></li>
 	            <li><a href="#">魅力值</a></li>
+<<<<<<< HEAD
 	            <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
 	        </ul>
 	    </div>
@@ -50,6 +61,12 @@ function head_html(){
 			<input type="submit" value="送出">
 		</form>
 	</div>
+=======
+	            <li><a id="head_member_icon" href="#">會員中心</a></li>
+	        </ul>
+	    </div>
+	</div>
+>>>>>>> origin/photo
 	`;
 	
 	document.write(str_tag);
@@ -125,6 +142,10 @@ function foot_html(){
 	        </div>
 	    </div>
 	    <!-- 手機聊天室結束 -->
+<<<<<<< HEAD
+=======
+	    
+>>>>>>> origin/photo
 	</div>
 	`; 
 
@@ -132,6 +153,7 @@ function foot_html(){
 }
 
 
+<<<<<<< HEAD
 window.addEventListener('load',function(){
 
 
@@ -243,4 +265,7 @@ window.addEventListener('load',function(){
 	},false);
 
 },false);
+=======
+
+>>>>>>> origin/photo
 
