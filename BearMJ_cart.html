@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lien.css">
+    <link rel="stylesheet" href="css/shop-style.css">
     <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
     
     
@@ -52,38 +53,38 @@
             </div>
         </div>
         <div class="title">
-            <img src="images/cart_pink.png">
+            <img src="shop-images/cart_pink.png">
             <h2>麻吉購物車</h2>
         </div>
         <div id="cart-content">
             <form action="" id="cartForm">
                 <ul id="tableTitle">
                     <li class="flexGrow">商品名稱</li>
-                    <li class="flexGrow">商品圖片</li>
+                    <li class="li_img">圖片</li>
                     <li>代幣</li>
                     <li>送禮</li>
                     <li>異動</li>
                 </ul>
-            
+                
                 <div id="cartTable">
                     <ul>
                         <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="li_img"><img src="shop-images/products_01.png"></li>
+                        <li><img src="shop-images/coin.png"><span>390</span></li>
                         <li><input type="button" value="送禮" class="btn_given"></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
                     <ul>
-                        <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="flexGrow">梅拉頭飾</li>
+                        <li class="li_img"><img src="shop-images/pro-hat_3.png"></li>
+                        <li><img src="shop-images/coin.png"><span>3000</span></li>
                         <li><input type="button" value="送禮" class="btn_given"></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
                     <ul>
-                        <li class="flexGrow">鐮刀死神</li>
-                        <li class="flexGrow"><img src="images/products_01.png"></li>
-                        <li><img src="images/coin.png"><span>30</span></li>
+                        <li class="flexGrow">武士頭盔</li>
+                        <li class="li_img"><img src="shop-images/pro-hat_1.png"></li>
+                        <li><img src="shop-images/coin.png"><span>250</span></li>
                         <li><input type="button" value="送禮" class="btn_given" ></li>
                         <li><input type="submit" value="刪除" class="btn_delete"></li>
                     </ul>
@@ -91,7 +92,7 @@
                 <hr>
                 <div id="totalCost">
                     <span>總數量:{$}</span>
-                    <img src="images/coin.png">
+                    <img src="shop-images/coin.png">
                     <span>支付代幣金額:{$}</span>
                 </div>
                 <div id="actionBtns">
@@ -103,19 +104,19 @@
         </div>
         <div id="giftBox">
             <div id="btn_giftBoxClose">
-                <img src="images/close.png">
+                <img src="shop-images/close.png">
             </div>
             <div id="friendBox">
                 <div id="tipBox">
                     <div class="giftToImg">
-                        <img src="images/gift.png">
+                        <img src="shop-images/gift.png">
                     </div>
                     <div class="gift-info">
                     </div>
                     
                     <div class="gift-ta">
                         <div class="idImg">
-                            <img src="images/id.png">
+                            <img src="shop-images/id.png">
                         </div>
                         <p>煞氣阿吉</p>
                     </div>
@@ -124,22 +125,22 @@
                 <div id="chooseBox">
                     <form>
                         <label for="f_001">
-                            <img src="images/gift.png">
+                            <img src="shop-images/gift.png">
                             <p>煞氣阿吉</p>
                             <input type="submit" id="f_1" value="001">
                         </label>
                         <label for="f_002">
-                            <img src="images/gift.png">
+                            <img src="shop-images/gift.png">
                             <p>霹靂嬌媧</p>
                             <input type="submit" id="f_2" value="002">
                         </label>
                         <label for="f_003">
-                            <img src="images/gift.png">
+                            <img src="shop-images/gift.png">
                             <p>理科太太</p>
                             <input type="submit" id="f_3" value="003">
                         </label>
                         <label for="f_004">
-                            <img src="images/gift.png">
+                            <img src="shop-images/gift.png">
                             <p>蔡小英</p>
                             <input type="submit" id="f_4" value="004">
                         </label>
@@ -169,11 +170,30 @@
         $id("cart_background").style.height =window.innerHeight +"px";
     }
 
-    // $id("productBlock").style.width = window.screen.width +"px";
-    
-
-    
     console.log(window.screen.height);
     console.log(document.body.clientWidth );
+
+    $id("btn_giftBoxClose").addEventListener("click",function(){
+        $id("giftBox").style.display = "none";
+    });
+
+    function init(){
+        var btn_delete = document.getElementsByClassName("btn_delete");
+        for( var i = 0; i < btn_delete.length; i++){
+            btn_delete[i].addEventListener("click",function(e){
+                $id("cartTable").removeChild(e.target.parentNode.parentNode);
+
+            });
+        }
+        btn_goingOn = document.getElementsByClassName("btn-buy"); 
+        btn_goingOn[0].addEventListener("click",function(){
+        
+            window.location.href = 'https://www.facebook.com/'; //串資料庫後需要修改
+        
+        });
+    }
+
+    window.addEventListener("load",init,false);
+
 </script>
 <script src="js/cart.js"></script>

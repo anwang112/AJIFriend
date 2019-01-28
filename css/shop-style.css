@@ -40,7 +40,7 @@ img {
 
 #shop_background {
   width: 100%;
-  background-image: url("../images/shop_background.png");
+  background-image: url("../shop-images/shop_background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -122,7 +122,7 @@ img {
   position: relative; }
   @media all and (min-width: 1300px) {
     #chooseId {
-      margin: 10% auto;
+      margin: 8% auto;
       padding-top: 90px; } }
   @media all and (min-width: 960px) {
     #chooseId {
@@ -139,11 +139,14 @@ img {
     align-items: flex-end; }
     @media all and (min-width: 960px) {
       #chooseId #chooseArea {
-        width: 20%; } }
+        width: 25%; } }
     @media all and (max-width: 480px) {
       #chooseId #chooseArea {
         width: 85%; } }
     #chooseId #chooseArea #showId {
+      width: 35%;
+      text-align: center;
+      font-family: "微軟正黑體";
       padding: 8px;
       background-color: #f4c8db;
       border: 2px solid #f05c79;
@@ -203,32 +206,32 @@ img {
           color: white;
           font-family: "微軟正黑體";
           padding: 3px; }
-        #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox form {
+        #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
           overflow: auto; }
           @media all and (min-width: 960px) {
-            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox form {
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
               height: 180px; } }
           @media all and (max-width: 480px) {
-            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox form {
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
               height: 140px; } }
-        #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label {
-          width: 80%;
-          display: block;
-          margin-bottom: 6px;
-          background-color: #eee;
-          padding: 5px;
-          border-radius: 5px;
-          font-family: "微軟正黑體";
-          cursor: pointer; }
-          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label:hover {
-            background-color: #ccc; }
-          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label img {
-            width: 20%;
-            margin-right: 4px; }
-          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label p {
-            display: inline; }
-          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label input[type="submit"] {
-            display: none; }
+          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label {
+            width: 80%;
+            display: block;
+            margin-bottom: 6px;
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: "微軟正黑體";
+            cursor: pointer; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label:hover {
+              background-color: #ccc; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label img {
+              width: 20%;
+              margin-right: 4px; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label p {
+              display: inline; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label input[type="submit"] {
+              display: none; }
   #chooseId #showModel {
     position: relative;
     width: 230px;
@@ -331,8 +334,7 @@ img {
         #productBlock #productsArea #productsShow section {
           box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; } }
       #productBlock #productsArea #productsShow section .productItem {
-        margin: 3px 15px;
-        cursor: pointer; }
+        margin: 3px 15px; }
         #productBlock #productsArea #productsShow section .productItem::after {
           content: '';
           display: block;
@@ -342,10 +344,51 @@ img {
           background-color: #f4c8db;
           border-radius: 12px;
           float: left;
-          margin: 4px; }
+          margin: 4px;
+          position: relative;
+          border: 2px solid transparent;
+          cursor: pointer; }
           @media all and (min-width: 960px) {
             #productBlock #productsArea #productsShow section .productItem .productImg {
               width: 33%; } }
+          @media all and (max-width: 480px) {
+            #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo {
+              position: absolute;
+              top: 0;
+              width: 100%;
+              padding: 2% 0;
+              text-align: center; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo h3 {
+                color: #f05c79;
+                font-weight: bolder;
+                font-family: "微軟正黑體";
+                margin: 8px 0; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .MJ, #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost {
+                margin-bottom: 4px;
+                font-family: "微軟正黑體";
+                font-size: 14px; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .MJ {
+                font-weight: bolder;
+                text-align: center; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost {
+                width: 100%;
+                margin: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center; }
+                #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost img {
+                  width: 20%;
+                  display: inline; }
+                #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost span {
+                  padding: 3% 4%;
+                  font-size: 18px;
+                  font-family: 'Times New Roman', Times, serif; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo #btn_buy {
+                border: 0px transparent;
+                padding: 4px 10px;
+                color: white;
+                border-radius: 2px;
+                background-color: #f05c79; } }
           #productBlock #productsArea #productsShow section .productItem .productImg img {
             width: 100%; }
         @media all and (min-width: 960px) {
@@ -400,7 +443,7 @@ img {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  background-image: url("../images/cart_background.png");
+  background-image: url("../shop-images/cart_background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -437,10 +480,15 @@ img {
         background-color: #f4c8db;
         border-radius: 5px; }
         #cart_background #cart-content #cartForm #tableTitle li {
-          width: 10%;
           padding: 8px 3%;
           font-family: "微軟正黑體";
           font-weight: bolder; }
+          @media all and (min-width: 960px) {
+            #cart_background #cart-content #cartForm #tableTitle li {
+              width: 10%; } }
+          @media all and (max-width: 480px) {
+            #cart_background #cart-content #cartForm #tableTitle li {
+              width: 18%; } }
         #cart_background #cart-content #cartForm #tableTitle li:not(.flexGrow) {
           text-align: center; }
         #cart_background #cart-content #cartForm #tableTitle .flexGrow {
@@ -457,15 +505,20 @@ img {
           background-color: rgba(255, 255, 255, 0.6);
           border-radius: 5px; }
           #cart_background #cart-content #cartForm #cartTable ul li {
-            width: 10%;
-            padding: 3px 3%;
+            padding: 6px 3%;
             font-family: "微軟正黑體";
             font-weight: bolder;
             display: flex;
             flex-direction: row;
             align-items: center; }
+            @media all and (min-width: 960px) {
+              #cart_background #cart-content #cartForm #cartTable ul li {
+                width: 10%; } }
+            @media all and (max-width: 480px) {
+              #cart_background #cart-content #cartForm #cartTable ul li {
+                width: 18%; } }
             #cart_background #cart-content #cartForm #cartTable ul li img {
-              width: 30%;
+              width: 35%;
               margin-right: 7%; }
             #cart_background #cart-content #cartForm #cartTable ul li span {
               display: inline-block; }
@@ -480,7 +533,7 @@ img {
               border: 0px transparent;
               color: white;
               font-family: "微軟正黑體";
-              padding: 3px 0; }
+              padding: 5% 0; }
               #cart_background #cart-content #cartForm #cartTable ul li .btn_given:hover {
                 transform: translateY(4px);
                 box-shadow: 0px 0px 0px transparent; }
@@ -495,10 +548,16 @@ img {
               border: 0px transparent;
               color: white;
               font-family: "微軟正黑體";
-              padding: 3px 0; }
+              padding: 5% 0; }
               #cart_background #cart-content #cartForm #cartTable ul li .btn_delete:hover {
                 transform: translateY(4px);
                 box-shadow: 0px 0px 0px transparent; }
+          @media all and (min-width: 960px) {
+            #cart_background #cart-content #cartForm #cartTable ul .li_img img {
+              width: 65%; } }
+          @media all and (max-width: 480px) {
+            #cart_background #cart-content #cartForm #cartTable ul .li_img img {
+              width: 50%; } }
           #cart_background #cart-content #cartForm #cartTable ul li:not(.flexGrow) {
             justify-content: center; }
           #cart_background #cart-content #cartForm #cartTable ul .flexGrow {
@@ -587,7 +646,7 @@ img {
           width: 2%;
           height: 0;
           padding: 10%;
-          background-image: url("../images/products_02.png");
+          background-image: url("../shop-images/products_02.png");
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
