@@ -1,0 +1,674 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "微軟正黑體";
+    outline: 1px solid red;
+}
+a{
+    text-decoration: none;
+    color: rgba(102,102,102,1);
+}
+
+.clear{
+    clear: both;
+}
+body{
+    background-repeat: repeat;
+    color: rgba(102,102,102,1);
+
+}
+.bg{
+    background-size: 100%;
+    background: linear-gradient(-45deg,#3dc8e5, white)  ;
+}
+
+/* @media screen and (max-width: 1200px){} */
+    /* a:hover{    
+        color:rgba(240,92,121,1);  
+    } */
+
+  .wrap,.postArea{
+    width: 100%;
+    margin: auto;
+    max-width: 1200px;
+  }
+  .trophy{
+        display: flex;
+        align-items: center;
+        width: 300px;
+        padding-top: 10%;
+        padding-left: 12%;
+        /* padding-bottom: 2%; */
+  }
+  .trophy div{
+      width: 30%;
+  }
+  .trophy h2{
+      width: 70%;
+      text-align: center;
+      
+
+  }
+  .trophy img{
+    width: 100%;
+    vertical-align: top;
+  
+  }
+
+/* 燈箱 */
+
+  #LB,#cardLB{
+    width: 400px;
+    height: 550px;
+    margin: auto;
+    color: rgba(102,102,102,1);
+    border: 10px solid #fcc6d0;
+    background-color: #fcc6d0;
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 5px 10px 5px #aaa;
+    position: absolute;
+    z-index: 999;
+    left: 35%;
+    top: 20%;
+}
+#LB .winnerPhoto img, #cardLB .cardPhoto img{
+    width:80%;
+    padding: 2%;
+    margin: auto;
+    vertical-align:middle;
+
+}
+#LB .member ,#cardLB .member{
+    width: 18%;
+    margin-left: 4%;
+}
+#LB .heart,.card .heart ,#cardLB .heart{
+    width: 12%;
+    margin-top: 1%;
+  }
+#LB a , #cardLB a{
+    margin-right: 15%;
+    cursor: pointer;
+    color: rgba(102,102,102,1);
+  }
+#LB a:hover, #cardLB a:hover {
+    color:rgba(240,92,121,1);  
+  }
+
+#LB p, #cardLB p{
+    margin-left: 10%;
+    margin-top: 5%;
+}
+#close {
+        width: 10%;
+        position: absolute;
+        right: 3%;
+        top: 1%;
+        cursor: pointer;
+        font-size: 1.3rem;
+        color:rgba(240,92,121,1);
+}
+#del{
+    width: 10%;
+    position: absolute;
+    left: 3%;
+    top: 1%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color:rgba(240,92,121,1);
+}
+/* #LB #left{
+    position: absolute;
+    left: 3%;
+    top: 40%;
+    color:rgba(240,92,121,1);
+    cursor: pointer;
+}
+#LB #right{
+    position: absolute;
+    right: 3%;
+    top: 40%;
+    color:rgba(240,92,121,1);
+    cursor: pointer;
+} */
+
+.col3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+  .top {
+    margin: 3%;
+    width: 240px;
+    height: 290px;
+    color: rgba(102,102,102,1);
+    background-color: #fff;
+    opacity: .9;
+    /* float: left; */
+    position: relative;
+}
+  
+  .top img{
+    width:94%;
+    padding: 3%;
+    margin: 0 auto;
+    vertical-align:middle;
+  }
+  .top .member,.card .member{
+    width: 18%;
+    margin-left: 4%;
+  }
+  .top .heart,.card .heart{
+    width: 12%;
+    margin-top: 1%;
+  }
+  .top a,.card a{
+    margin-right: 15%;
+    width: 40px;
+    display: inline-block;
+    color: rgba(102,102,102,1);
+  }
+  .top:hover,.card:hover{
+    /* box-shadow: 5px 10px 5px #aaa; */
+    transform: translateY(5px);
+    transition: .5s;
+
+  }
+  .top a:hover,.card a:hover{
+    color:rgba(240,92,121,1);  
+  }
+  .ground{
+    width: 100%;
+    height: 24vh;
+    margin-top: 2%;
+    position: relative;
+    background-color: #c9caca;
+  }
+  .content{
+    margin-left: 35%;
+  }
+  .ground h2{
+    display: inline-block;
+    margin-top: 13%;
+    margin-right:  5%;
+    
+  }
+  .ground img{
+    width: 13%;
+  }
+  .ground .aji{
+      position: absolute;
+      top: -5%;
+      display: inline-block;
+    }
+    .ground .ajiY{
+      position: absolute;
+      top: -5%;
+      display: inline-block;
+    }
+    .ground .aji:hover{
+      display: none;
+    }
+  
+    .switch{
+      z-index: 999;
+      position: fixed;
+      right: 3%;
+      top: 46%;
+      width: 13px;
+      height: 65px;
+    }
+  .switch .dot{
+      width: 13px;
+      height: 13px;
+      margin-bottom: 13px;
+      background-color: #fff;
+      opacity: 0.4;
+      border-radius: 50%;
+    }
+  .switch .dot:hover{
+      opacity: 0.9;
+  
+  }
+
+
+
+  /* 第二屏照片區 */
+.postArea{
+    padding-top: 10%;
+    padding-bottom: 20%;
+    position: relative;
+
+}
+    .father{
+        position: relative;
+    }
+    #myPhoto{
+        /* width: 100%; */
+        position: absolute;
+        text-align: right;
+        right: 5%;top: 55%;
+        animation: upndown 3s infinite;
+    }
+    @keyframes  upndown{
+        0% {top: 70px;}
+        50% {top: 80px;}
+        100%{top: 70px;}
+    }
+    #myPhoto a{
+        display: inline-block;
+    }
+    #myPhoto a h3{
+        width: 100px;
+        text-align: center;
+        display: block;
+        right: 11%;
+        top: 12%;
+    }
+    #myPhoto a img{
+        width: 120px;
+        display: block;
+        right: 10%;
+        top: 3%;
+
+    }
+   #myPhoto:hover a{
+        transform: translateY(10px);
+        transition: .5s;
+    }
+
+.card{  
+        float: left;
+        margin: 6%;
+        width: 240px;
+        height: 225px;
+        color: rgba(102,102,102,1);
+        /* background-color: #fff; */
+        opacity: .9;
+        position: relative;
+    }
+
+    .card img, #cardLB .cardPhoto img{
+        width:100%;
+        margin-bottom: 3%;
+        padding: 2%;
+        vertical-align:middle;
+      }
+    h1{
+        display: inline-block;
+        /* width: 300px; */
+        text-align: center;
+        margin-top: 10%;
+        margin-left: 39%;
+        margin-bottom: 5%;
+    }
+
+    #trash{
+        position: absolute;
+        right: -40%;
+        top: 2%;
+        cursor: pointer;
+        font-size: 1.3rem;
+        color:rgba(240,92,121,1);
+        /* display: none;  */
+    }
+    #trash img{
+        width: 15%;
+    }
+    .card .heart{
+        opacity: .8;
+    }
+    .card .heart:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+
+
+
+
+
+/* 第三屏畫畫～ */
+
+.mkPhoto{
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    /* background: #ccc; */
+    opacity: .9;
+    text-align: center;
+}
+
+/* 朋友燈箱 */
+
+    /* 燈箱背景 */
+    #friend_LightBox {
+        width: 25%;
+        position: absolute;
+        top: 45%;
+        left: 2%;
+        z-index: 1;
+    }
+    .bg_friendBox img{
+        width: 100%;
+        vertical-align: middle;
+    }
+    /* 關燈箱按鈕 */
+    #friend_LightBox #btn_friendBoxClose {
+        width: 10%;
+        position: absolute;
+        top: 7%;
+        right: 13%;
+        cursor: pointer;
+    }
+    #btn_friendBoxClose img{ 
+        width: 100%;
+    }
+
+    /* div_content  input_search*/
+
+
+    #friend_LightBox #content_friendBox {
+        width: 55%;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: left;
+    }
+
+    #friend_LightBox #content_friendBox input{
+        /* position: absolute; */
+        width: 95%;
+        height: 16px;
+        top: 0%;
+        left: 25%;
+        /* margin-left: 40px; */
+        /* margin-bottom: 18px; */
+        background-color: #f05c79;
+        border-radius: 5px;
+        border: 2px solid #c84e6a;
+        color: white;
+        font-family: "微軟正黑體";
+        padding: 3px;
+    }
+    #friend_LightBox #content_friendBox #chooseBox {
+        overflow: auto;
+    }
+
+    #friend_LightBox #content_friendBox #chooseBox {
+        height: 180px;
+    }
+    #friend_LightBox #content_friendBox #chooseBox label {
+        width: 80%;
+        display: block;
+        /* margin-top: 25px; */
+        margin-bottom: 6px;
+        background-color: #eee;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: "微軟正黑體";
+        cursor: pointer;
+    }
+   #friend_LightBox #content_friendBox #chooseBox label img {
+        width: 20%;
+        margin-right: 4px;
+   }
+   #friend_LightBox #content_friendBox #chooseBox label p {
+    display: inline;
+
+   }
+    .steps{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .step{
+        margin: 2%;
+        width: 200px;
+    }
+    #step1{
+        display: block;
+        filter: grayscale(0%);
+    }
+    #step1 img{
+        width: 100px;
+        margin: 5%;
+        box-shadow: 5px 10px 5px #aaa;
+
+    }
+    #step2{
+        display: block;
+        filter: grayscale(100%);
+    }
+    #step2 img{
+        width: 100px;
+        margin: 5%;
+    }
+    #step3{
+        display: block;
+
+        filter: grayscale(100%);
+
+    }
+    #step3 img{
+        width: 100px;
+        margin: 5%;
+    }
+    .bulletin{
+        position: absolute;
+        right: 6%;
+        top: 43%;
+        width: 260px;
+        padding: 2% 0;
+        border-radius: 20px;
+        box-shadow: 5px 10px 10px #aaa;
+        background:linear-gradient(-45deg,rgba(240,92,121,1),rgba(125,164,203,1));
+        /* animation: upndown 3s infinite; */
+        /* border:4px solid coral; */
+        /* opacity: 0; */
+    }
+
+    .bulletin img{
+        width: 15%;
+        height: 15%;
+    }
+
+    .drawing{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5%;
+        /* position: absolute;
+        left: 20%;
+        top: 30%; */
+    }
+    #canvas{
+        /* margin-top: 2%; */
+        border: 5px solid rgba(240,92,121,.7);
+        background-color: #ffffff;
+        width:350px;
+        height:350px;
+    }
+    .preview{
+        width: 350px;
+        height: 350px;
+        position: relative;
+        /* left: 35.34%; */
+
+    }
+    .preview img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;        
+        border: 5px solid rgba(240,92,121,.7);
+        left: 0;
+
+    }
+    .upload img{
+        display: none;
+        margin-left: 23%;
+        margin-bottom: 12%;
+    }
+    .mkPhoto .drawing #upBtn,#chooseBtn{ 
+        display: block;
+        margin-top: 275%;
+        margin-left: -11%;
+    }
+    .upload #upBtn{
+        display: block;
+    }
+     #chooseBtn{
+        display: none;
+    }
+    .mkPhoto .drawing .next span{
+        display: block;
+        margin-top: 275%;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
+    .mkPhoto span{
+        cursor: pointer;
+        width: 80px;
+        padding: 10px 20px;
+        color: #fff;
+        background: rgba(240,92,121,1);
+        box-shadow: 3px 5px 1px rgba(200,78,106,1);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .mkPhoto a:hover,input:hover{
+        background-color: rgba(200,78,106,1);
+    }
+
+
+@media screen and (max-width: 476px){
+    .wrap{
+        width: 95%;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    .ground,.switch {    
+        display: none;
+    }
+    .col-3{
+        margin: auto;
+    }
+    .top,.card{
+        margin: 10% 18%;
+    }
+    .postArea{
+        padding-top: 10%;
+    }
+    #myPhoto{
+        height: 100px;
+        padding-bottom: 50px;
+
+    }
+    #myPhoto img{
+        width: 70px;
+        position: absolute;
+        right: 13%;
+        top: 8%;
+    }
+    h1{
+        text-align: left;
+        margin-left: 12%;
+    }
+    #myPhoto h3{
+        font-size: 16px;
+        position: absolute;
+        right: 10%;
+        top: 34%;
+    }
+    .mkPhoto{
+        padding-top: 50px;
+    }
+    .bulletin{
+        display: none;
+    }
+    .steps{
+        display: flex;
+        flex-direction: column;
+    }
+    .drawing{
+        display: flex;
+        flex-direction: column;
+    }
+    .mkPhoto .drawing .upload span{
+        margin-top: 0;
+        margin-left: 0px;
+    }
+    .mkPhoto .drawing .next span{
+        margin-top: 20px;
+        margin-left: 0px;
+
+    }
+    .preview{
+        position: absolute;
+        left: 7.7%;
+        top: 22.3%;
+    }
+
+}  
+
+
+
+    /* #chooseId #friendBox #friend_LightBox img {
+      width: 150%; }
+    #chooseId #friendBox #friend_LightBox #btn_friendBoxClose {
+      width: 11%;
+      position: absolute;
+      top: 7%;
+      right: 13%;
+      cursor: pointer; }
+      #chooseId #friendBox #friend_LightBox #btn_friendBoxClose img {
+        width: 50%; }
+    #chooseId #friendBox #friend_LightBox #content_friendBox {
+      width: 55%;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%); }
+      #chooseId #friendBox #friend_LightBox #content_friendBox input[type="text"] {
+        width: 95%;
+        margin-bottom: 8px;
+        background-color: #f05c79;
+        border-radius: 5px;
+        border: 2px solid #c84e6a;
+        color: white;
+        font-family: "微軟正黑體";
+        padding: 3px; }
+      #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox {
+        overflow: auto; }
+        @media all and (min-width: 960px) {
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox {
+            height: 180px; } }
+        @media all and (max-width: 480px) {
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox {
+            height: 140px; } }
+        #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox label {
+          width: 80%;
+          display: block;
+          margin-bottom: 6px;
+          background-color: #eee;
+          padding: 5px;
+          border-radius: 5px;
+          font-family: "微軟正黑體";
+          cursor: pointer; }
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox label:hover {
+            background-color: #ccc; }
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox label img {
+            width: 20%;
+            margin-right: 4px; }
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox label p {
+            display: inline; }
+          #chooseId #friendBox #friend_LightBox #content_friendBox #chooseBox label input[type="submit"] {
+            display: none; } */
