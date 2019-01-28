@@ -5,7 +5,6 @@ console.log(body);
 function head_html(){
 	
 	var str_tag = `
-	<!-- head頁首 -->
 	<div class="head mnone">
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
@@ -15,9 +14,9 @@ function head_html(){
 	        <li><a href="photo.html">照片牆</a></li>
 	    </ul>
 	    <ul class="menu_sub">
-	        <li><a id="btn_login" href="javascript:;">登入</a></li>
+	        <li><a id="btn_login"href="javascript:;">登入</a></li>
 	        <li><a href="#">魅力值</a></li>
-	        <li><a id="head_member_icon" href="#"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
+	        <li><a id="head_member_icon" href="myRoom.html"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
 	    </ul>
 	</div>
 	<div class="head_phone  dnone ">
@@ -38,11 +37,11 @@ function head_html(){
 	            <li><a href="photo.html">照片牆</a></li>
 	            <li><a href="#">登入</a></li>
 	            <li><a href="#">魅力值</a></li>
-	            <li><a id="head_member_icon" href="#">會員中心</a></li>
+	            <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
 	        </ul>
 	    </div>
 	</div>
-
+	
 	<div id="login_box" class="login_box">
 		<h2>登入/註冊</h2>
 		<form id="login_form" action="">

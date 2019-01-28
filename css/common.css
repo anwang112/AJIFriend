@@ -282,7 +282,8 @@ a {
     background-image: url("../pic/phone_head_bg.png");
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: fixed;
+    top: 0;
     z-index: 3; }
   .head_phone img {
     width: 40px;
@@ -423,7 +424,7 @@ a {
   .chatRoom_phone_part2 .info_controlbox {
     width: 100vw;
     height: 7vh;
-    padding: 5px 5px;
+    padding: 5px 15px;
     display: inline-block;
     position: relative;
     top: 1.5vh;
