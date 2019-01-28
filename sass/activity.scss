@@ -1,0 +1,451 @@
+@import "var.scss";
+@import "reset.scss";
+// 全屏
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    img {
+        vertical-align: middle;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 0px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    /*定义滑块内阴影+圆角*/
+    border-radius: 13px; // -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.2);
+    background-color: $darkPink;
+    &:hover {
+        background-color: $shadowPink;
+        ;
+    }
+}
+
+@mixin fullPage() {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+//絕對定位 absolute(方向,值)
+@mixin absolute($direction, $value) {
+    #{$direction}: $value;
+    position: absolute;
+}
+
+.activityWrap {
+    width: 100%;
+    position: relative;
+    .activitySection {
+        @include fullPage();
+        .activityFix {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            #activitySlider {
+                @include fullPage();
+                transition: 1.8s;
+                z-index: 2;
+                li {
+                    @include absolute('bottom', 13%);
+                    z-index: 2;
+                    width: 100%;
+                    transition: 2.8s;
+                    text-align: center;
+                    @media screen and (min-width: 476px) {
+                        width: 100%;
+                    }
+                    .sliderImg {
+                        position: absolute;
+                        width: 58%;
+                        left: 0%;
+                        right: 0;
+                        margin: auto;
+                        top: 12%;
+                        max-width: 300px;
+                        @media screen and (min-width: 768px) {
+                            left: -19%;
+                        }
+                    }
+                    svg {
+                        width: 150%;
+                        max-width: 800px;
+                        margin: auto;
+                        transform: translateX(-6%);
+                    } // embed {
+                    //     width: 100%;
+                    //     max-width: 800px;
+                    //     margin: auto;
+                    // }
+                    .cls-2 {
+                        animation: bounce 0.5s infinite;
+                        transform-origin: center center;
+                    }
+                    &:nth-of-type(1) {
+                        transform: translateX(0);
+                    }
+                    &:nth-of-type(2) {
+                        transform: translateX(-200%);
+                    }
+                    &:nth-of-type(3) {
+                        transform: translateX(-400%);
+                    }
+                }
+            }
+            .activityway {
+                z-index: 1;
+                position: absolute;
+                bottom: 19%;
+                height: 12%;
+                width: 100%;
+                transition: .8s;
+                @media screen and (min-width: 768px) {
+                    bottom: 19%;
+                    height: 4%;
+                }
+            }
+            .activityCity {
+                width: 0;
+                transition: .8s;
+                @include absolute('bottom', 0);
+                @media screen and (min-width: 768px) {
+                    width: 100%;
+                    bottom: 12%;
+                }
+            }
+            .activityRoad {
+                transition: .8s;
+                @include absolute('bottom', 0);
+                width: 100%;
+                height: 20%;
+                background-image: url("../pic/activityRoad.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                @media screen and (min-width: 768px) {
+                    height: 20%;
+                    min-height: 85px;
+                }
+            }
+        }
+    }
+    .activityvisible {
+        overflow: visible;
+        .activityGrass {
+            @include absolute('top',
+            -20px);
+            z-index: 3;
+            width: 100%;
+            @media screen and (min-width: 1200px) {
+                top: -60px;
+            }
+        }
+        .activityEvent {
+            // background-color: #8ab58a;
+            width: 100%;
+            height: 100vh;
+            .eventNav {
+                position: relative;
+                z-index: 4;
+                width: 100%;
+                height: 160px;
+                background-color: #8ab58a;
+                border-bottom: 10px solid #608c60;
+                li {
+                    #holdBtn {
+                        border-radius: 12px;
+                        background-color: $darkPink;
+                        box-shadow: 0px 3px 0px $shadowPink;
+                        text-align: center;
+                        border: none;
+                        cursor: pointer;
+                        transition: .3s;
+                        display: inline-block;
+                        padding: 10px;
+                        margin: 10px;
+                        &:hover {
+                            transform: translateY(3px);
+                            box-shadow: 0px 0px 0px transparent;
+                        }
+                        width: 25%;
+                        display: block;
+                        margin: 20px 0;
+                        margin-left: 50px;
+                    }
+                }
+            }
+            .eventWrap {
+                background-color: #c6cc86;
+                width: 100%; // height: calc(100vh - 160px);
+                position: relative;
+                z-index: 4;
+                .eventList {
+                    max-width: 1200px;
+                    margin: auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    padding: 120px 50px;
+                    li {
+                        cursor: pointer;
+                        width: 95%;
+                        margin: auto;
+                        box-sizing: border-box;
+                        padding: 30px;
+                        @media screen and (min-width: 768px) {
+                            width: 50%;
+                        }
+                        @media screen and (min-width:1124px) {
+                            width: 33.33333333%;
+                        }
+                        .eventImg {
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#hideEventDetails {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 998;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: black;
+    opacity: .2;
+    #detailsArrowNext {
+        background-image: url("../pic/activityArrow.svg");
+        background-repeat: no-repeat;
+        background-size: 30px 60px;
+        cursor: pointer;
+        height: 60px;
+        width: 30px;
+        position: fixed;
+        right: 15%;
+        z-index: 1000;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    #detailsArrowPre {
+        background-image: url("../pic/activityArrow.svg");
+        background-repeat: no-repeat;
+        background-size: 30px 60px;
+        cursor: pointer;
+        height: 60px;
+        width: 30px;
+        position: fixed;
+        left: 15%;
+        z-index: 1000;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transform: rotate(180deg);
+    }
+}
+
+.activityEventDetails {
+    position: fixed;
+    z-index: 999;
+    height: 100vh;
+    width: 70%;
+    max-width: 750px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    background-color: white; // border: 1px solid #dfddcf;
+    box-shadow: 0px 3px 20px rgba(79, 66, 53, .7);
+    border-radius: 10px;
+    opacity: 0;
+    background-color: rgb(54, 41, 27);
+    color: white;
+    overflow-y: scroll;
+    h3 {
+        font-size: 30px;
+        line-height: 42px;
+        font-weight: 500;
+        padding: 30px 0 30px 0;
+        margin: 0;
+        padding-left: 50px; // text-align: center;
+    }
+    .detailsDescription {
+        padding-left: 50px;
+        li {
+            padding: 10px 0;
+        }
+    }
+    .activityEventDetailsInfo {
+        padding-left: 50px;
+        h4 {
+            font-size: 22px;
+            line-height: 42px;
+            font-weight: 500;
+            margin: 0;
+        }
+        p {
+            line-height: 1.6;
+            max-width: 70%;
+        }
+    }
+    #activityApply {
+        border-radius: 12px;
+        background-color: $darkPink;
+        box-shadow: 0px 3px 0px $shadowPink;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        &:hover {
+            transform: translateY(3px);
+            box-shadow: 0px 0px 0px transparent;
+        }
+        width: 25%;
+        display: block;
+        margin: 20px 0;
+        margin-left: 50px;
+    }
+    h4 {
+        padding-left: 50px;
+    }
+    .activityEventMessage {
+        padding: 5px 50px;
+        li {
+            border: 1px solid $lightPink;
+            padding: 10px;
+            display: flex;
+            .messageImg {
+                width: 6%;
+                margin-right: 10px;
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                    max-width: 36px;
+                }
+            }
+            p {
+                line-height: 36px;
+            }
+        }
+    }
+    form {
+        border: 1px solid $lightPink;
+        display: flex;
+        margin: 0 50px;
+        input{
+            &:first-child{
+                width: 80%;
+                padding: 10px
+            }
+            &:nth-of-type(2){
+                width: 20%;
+                border-radius: 12px;
+                background-color: $darkPink;
+                box-shadow: 0px 3px 0px $shadowPink;
+                text-align: center;
+                border: none;
+                cursor: pointer;
+                transition: .3s;
+                display: inline-block;
+                &:hover {
+                    transform: translateY(3px);
+                    box-shadow: 0px 0px 0px transparent;
+                }
+                display: block;
+            }
+        }
+    }
+}
+
+#hideHoldactivity {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 998;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: black;
+    opacity: .2;
+}
+
+#holdactivity {
+    position: fixed;
+    z-index: 999;
+    height: 100vh;
+    width: 70%;
+    max-width: 750px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    background-color: white; // border: 1px solid #dfddcf;
+    box-shadow: 0px 3px 20px rgba(79, 66, 53, .7);
+    border-radius: 10px;
+    opacity: 0;
+    background-color: rgb(54, 41, 27);
+    color: white;
+    overflow-y: scroll;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(0px, -0.95px);
+    }
+    75% {
+        transform: translate(-0.9px, 0.95px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+.activityOO {
+    animation: oo 2.5s;
+    transform-origin: center center;
+}
+@keyframes oo{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(3000deg);
+    }
+}
