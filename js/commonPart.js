@@ -125,10 +125,6 @@ function foot_html(){
 	        </div>
 	    </div>
 	    <!-- 手機聊天室結束 -->
-<<<<<<< HEAD
-	    
-=======
->>>>>>> lien
 	</div>
 	`; 
 
