@@ -1,0 +1,748 @@
+@charset "UTF-8";
+img {
+  vertical-align: middle; }
+
+::-webkit-scrollbar {
+  /*定义滚动条高宽及背景高宽分别对应横竖滚动条的尺寸*/
+  width: 10px;
+  height: 0px;
+  border-radius: 10px;
+  background-color: #F5F5F5; }
+
+::-webkit-scrollbar-track {
+  /*定义滚动条轨道内阴影+圆角*/
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #F5F5F5; }
+
+::-webkit-scrollbar-thumb {
+  /*定义滑块内阴影+圆角*/
+  border-radius: 13px;
+  background-color: rgba(244, 200, 219, 0.7); }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #f4c8db; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.7); }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.7); }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(255, 255, 255, 0.7); }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.7); }
+
+#shop_background {
+  width: 100%;
+  background-image: url("../shop-images/shop_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: auto; }
+  #shop_background #proLightBox {
+    z-index: 1; }
+    #shop_background #proLightBox #btn_close {
+      width: 15%;
+      position: absolute;
+      right: 0;
+      cursor: pointer; }
+      #shop_background #proLightBox #btn_close img {
+        width: 100%; }
+    @media all and (min-width: 960px) {
+      #shop_background #proLightBox {
+        display: none; } }
+    @media all and (max-width: 480px) {
+      #shop_background #proLightBox {
+        width: 60%;
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f4c8db;
+        border: 3px solid #f05c79;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 3px 3px 3px #aaa; }
+        #shop_background #proLightBox h3 {
+          font-size: 16px;
+          color: #f05c79;
+          font-weight: bolder;
+          font-family: "微軟正黑體";
+          margin: 4px 0; }
+        #shop_background #proLightBox .MJ {
+          margin-bottom: 10px;
+          font-family: "微軟正黑體";
+          font-size: 16px; }
+        #shop_background #proLightBox .cost {
+          width: 100%;
+          margin: 3px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          font-family: "微軟正黑體"; }
+          #shop_background #proLightBox .cost img {
+            width: 10%; }
+          #shop_background #proLightBox .cost p {
+            display: inline-block;
+            padding: 6px;
+            font-size: 25px;
+            font-family: Impact; }
+        #shop_background #proLightBox .lightBox_btns {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center; }
+          #shop_background #proLightBox .lightBox_btns .btn_addToCart, #shop_background #proLightBox .lightBox_btns .btn_wear {
+            width: 80px;
+            border-radius: 12px;
+            background-color: #f05c79;
+            box-shadow: 0px 4px 0px #c84e6a;
+            text-align: center;
+            cursor: pointer;
+            transition: .3s;
+            display: inline-block;
+            padding: 5px;
+            margin: 10px; }
+            #shop_background #proLightBox .lightBox_btns .btn_addToCart:hover, #shop_background #proLightBox .lightBox_btns .btn_wear:hover {
+              transform: translateY(4px);
+              box-shadow: 0px 0px 0px transparent; }
+            #shop_background #proLightBox .lightBox_btns .btn_addToCart img, #shop_background #proLightBox .lightBox_btns .btn_wear img {
+              width: 20%; } }
+
+#chooseId {
+  margin: 0 auto;
+  position: relative; }
+  @media all and (min-width: 1300px) {
+    #chooseId {
+      margin: 8% auto;
+      padding-top: 90px; } }
+  @media all and (min-width: 960px) {
+    #chooseId {
+      padding-top: 90px; } }
+  @media all and (max-width: 480px) {
+    #chooseId {
+      padding-top: 150px; } }
+  #chooseId #chooseArea {
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end; }
+    @media all and (min-width: 960px) {
+      #chooseId #chooseArea {
+        width: 25%; } }
+    @media all and (max-width: 480px) {
+      #chooseId #chooseArea {
+        width: 85%; } }
+    #chooseId #chooseArea #showId {
+      width: 35%;
+      text-align: center;
+      font-family: "微軟正黑體";
+      padding: 8px;
+      background-color: #f4c8db;
+      border: 2px solid #f05c79;
+      border-radius: 12px; }
+    #chooseId #chooseArea .btn_chooseModel {
+      width: 70px;
+      height: 65px;
+      text-align: center;
+      border-radius: 12px;
+      background-color: #f4c8db;
+      box-shadow: 0px 4px 0px #f05c79;
+      transition: all .3s;
+      cursor: pointer; }
+      #chooseId #chooseArea .btn_chooseModel:hover {
+        background-color: #f05c79;
+        box-shadow: 0px 0px 0px transparent;
+        transform: translateY(4px); }
+      #chooseId #chooseArea .btn_chooseModel:hover p {
+        color: white; }
+      #chooseId #chooseArea .btn_chooseModel img {
+        width: 60%;
+        margin-top: 4px; }
+      #chooseId #chooseArea .btn_chooseModel p {
+        color: #f05c79;
+        font-family: "微軟正黑體";
+        font-weight: bolder;
+        font-size: 12px;
+        margin: 2px 0;
+        transition: all .3s; }
+    #chooseId #chooseArea #friend_LightBox {
+      width: 90%;
+      position: absolute;
+      top: 110%;
+      z-index: 1; }
+      #chooseId #chooseArea #friend_LightBox img {
+        width: 100%; }
+      #chooseId #chooseArea #friend_LightBox #btn_friendBoxClose {
+        width: 11%;
+        position: absolute;
+        top: 7%;
+        right: 13%;
+        cursor: pointer; }
+        #chooseId #chooseArea #friend_LightBox #btn_friendBoxClose img {
+          width: 100%; }
+      #chooseId #chooseArea #friend_LightBox #content_friendBox {
+        width: 55%;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%); }
+        #chooseId #chooseArea #friend_LightBox #content_friendBox input[type="text"] {
+          width: 95%;
+          margin-bottom: 8px;
+          background-color: #f05c79;
+          border-radius: 5px;
+          border: 2px solid #c84e6a;
+          color: white;
+          font-family: "微軟正黑體";
+          padding: 3px; }
+        #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
+          overflow: auto; }
+          @media all and (min-width: 960px) {
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
+              height: 180px; } }
+          @media all and (max-width: 480px) {
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox {
+              height: 140px; } }
+          #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label {
+            width: 80%;
+            display: block;
+            margin-bottom: 6px;
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: "微軟正黑體";
+            cursor: pointer; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label:hover {
+              background-color: #ccc; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label img {
+              width: 20%;
+              margin-right: 4px; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label p {
+              display: inline; }
+            #chooseId #chooseArea #friend_LightBox #content_friendBox #chooseBox label input[type="submit"] {
+              display: none; }
+  #chooseId #showModel {
+    position: relative;
+    width: 230px;
+    height: 250px;
+    margin: 0 auto; }
+    @media all and (min-width: 1300px) {
+      #chooseId #showModel {
+        width: 330px;
+        height: 350px; } }
+    #chooseId #showModel img {
+      width: 100%;
+      position: absolute;
+      top: 0; }
+  @media all and (min-width: 960px) {
+    #chooseId #rwd_showCoin {
+      display: none; } }
+  @media all and (max-width: 480px) {
+    #chooseId #rwd_showCoin {
+      width: 25%;
+      border-radius: 12px;
+      background-color: #f4c8db;
+      text-align: center;
+      position: absolute;
+      right: 8%;
+      bottom: -8%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 5px; }
+      #chooseId #rwd_showCoin img {
+        width: 30%; }
+      #chooseId #rwd_showCoin span {
+        width: 50%;
+        font-size: 24px;
+        font-family: Impact;
+        color: #f05c79; } }
+
+#productBlock {
+  position: absolute; }
+  @media all and (min-width: 960px) {
+    #productBlock {
+      bottom: 20px; } }
+  @media all and (max-width: 480px) {
+    #productBlock {
+      bottom: 0; } }
+  #productBlock .tab-chooseCloth {
+    float: left;
+    padding: 5px 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-right: 1%;
+    border-radius: 5px 5px 0 0;
+    font-family: "微軟正黑體"; }
+  @media all and (min-width: 960px) {
+    #productBlock .tab-chooseCloth:first-child {
+      margin-left: 20%; } }
+  @media all and (max-width: 480px) {
+    #productBlock .tab-chooseCloth:first-child {
+      margin-left: 2%; } }
+  #productBlock #productsArea {
+    width: 90%;
+    margin: auto;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 6px #ccc; }
+    @media all and (min-width: 960px) {
+      #productBlock #productsArea #showCoin {
+        width: 5%;
+        margin: 10px 3%;
+        border-radius: 12px;
+        background-color: #f4c8db;
+        text-align: center; }
+        #productBlock #productsArea #showCoin img {
+          width: 60%;
+          margin: 15% 0; }
+        #productBlock #productsArea #showCoin p {
+          padding-bottom: 10px;
+          font-size: 24px;
+          font-family: Impact;
+          color: #f05c79; } }
+    @media all and (max-width: 480px) {
+      #productBlock #productsArea #showCoin {
+        display: none; } }
+    @media all and (min-width: 960px) {
+      #productBlock #productsArea #productsShow {
+        width: 80%;
+        padding-top: 15px; } }
+    @media all and (max-width: 480px) {
+      #productBlock #productsArea #productsShow {
+        width: 95%;
+        padding-top: 5px; } }
+    #productBlock #productsArea #productsShow section {
+      display: flex;
+      flex-direction: row; }
+      @media all and (min-width: 960px) {
+        #productBlock #productsArea #productsShow section {
+          box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; } }
+      #productBlock #productsArea #productsShow section .productItem {
+        margin: 3px 15px; }
+        #productBlock #productsArea #productsShow section .productItem::after {
+          content: '';
+          display: block;
+          clear: both; }
+        #productBlock #productsArea #productsShow section .productItem .productImg {
+          width: 80%;
+          background-color: #f4c8db;
+          border-radius: 12px;
+          float: left;
+          margin: 4px;
+          position: relative;
+          border: 2px solid transparent;
+          cursor: pointer; }
+          @media all and (min-width: 960px) {
+            #productBlock #productsArea #productsShow section .productItem .productImg {
+              width: 33%; } }
+          @media all and (max-width: 480px) {
+            #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo {
+              position: absolute;
+              top: 0;
+              width: 100%;
+              padding: 2% 0;
+              text-align: center; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo h3 {
+                color: #f05c79;
+                font-weight: bolder;
+                font-family: "微軟正黑體";
+                margin: 8px 0; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .MJ, #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost {
+                margin-bottom: 4px;
+                font-family: "微軟正黑體";
+                font-size: 14px; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .MJ {
+                font-weight: bolder;
+                text-align: center; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost {
+                width: 100%;
+                margin: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center; }
+                #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost img {
+                  width: 20%;
+                  display: inline; }
+                #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo .cost span {
+                  padding: 3% 4%;
+                  font-size: 18px;
+                  font-family: 'Times New Roman', Times, serif; }
+              #productBlock #productsArea #productsShow section .productItem .productImg .rwd-proInfo #btn_buy {
+                border: 0px transparent;
+                padding: 4px 10px;
+                color: white;
+                border-radius: 2px;
+                background-color: #f05c79; } }
+          #productBlock #productsArea #productsShow section .productItem .productImg img {
+            width: 100%; }
+        @media all and (min-width: 960px) {
+          #productBlock #productsArea #productsShow section .productItem .productInfo {
+            margin: 4px;
+            float: left; } }
+        @media all and (max-width: 480px) {
+          #productBlock #productsArea #productsShow section .productItem .productInfo {
+            display: none; } }
+        #productBlock #productsArea #productsShow section .productItem .productInfo h3 {
+          color: #f05c79;
+          font-weight: bolder;
+          font-family: "微軟正黑體";
+          margin: 4px 0; }
+        #productBlock #productsArea #productsShow section .productItem .productInfo .MJ, #productBlock #productsArea #productsShow section .productItem .productInfo .cost, #productBlock #productsArea #productsShow section .productItem .productInfo .btn_addToCart {
+          margin-bottom: 4px;
+          font-family: "微軟正黑體";
+          font-size: 12px; }
+        #productBlock #productsArea #productsShow section .productItem .productInfo .cost {
+          width: 100%;
+          margin: 3px; }
+          #productBlock #productsArea #productsShow section .productItem .productInfo .cost img {
+            width: 20%;
+            display: inline; }
+          #productBlock #productsArea #productsShow section .productItem .productInfo .cost span {
+            padding: 10px;
+            font-size: 18px;
+            font-family: Impact; }
+        #productBlock #productsArea #productsShow section .productItem .productInfo .btn_addToCart {
+          width: 100%;
+          border-radius: 12px;
+          background-color: #f05c79;
+          box-shadow: 0px 4px 0px #c84e6a;
+          text-align: center;
+          cursor: pointer;
+          transition: .3s;
+          padding: 5px;
+          transition: all .3s; }
+          #productBlock #productsArea #productsShow section .productItem .productInfo .btn_addToCart:hover {
+            transform: translateY(4px);
+            box-shadow: 0px 0px 0px transparent; }
+          #productBlock #productsArea #productsShow section .productItem .productInfo .btn_addToCart img {
+            width: 20%;
+            display: inline; }
+          #productBlock #productsArea #productsShow section .productItem .productInfo .btn_addToCart:hover {
+            background-color: #f05c79;
+            box-shadow: 0px 0px 0px transparent;
+            transform: translateY(4px); }
+
+#cart_background {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  background-image: url("../shop-images/cart_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: auto; }
+  #cart_background .title {
+    width: 97%;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    padding-top: 130px;
+    padding-bottom: 1%; }
+    #cart_background .title h2 {
+      font-family: "微軟正黑體";
+      font-size: 28px;
+      font-weight: bolder;
+      color: #f05c79;
+      margin-left: 20px; }
+  #cart_background #cart-content {
+    margin: 0 5%; }
+    @media all and (min-width: 960px) {
+      #cart_background #cart-content {
+        width: 55%; } }
+    @media all and (max-width: 480px) {
+      #cart_background #cart-content {
+        width: 90%; } }
+    #cart_background #cart-content #cartForm {
+      width: 95%;
+      margin-left: 5%; }
+      #cart_background #cart-content #cartForm #tableTitle {
+        display: flex;
+        justify-content: space-around;
+        margin: auto;
+        background-color: #f4c8db;
+        border-radius: 5px; }
+        #cart_background #cart-content #cartForm #tableTitle li {
+          padding: 8px 3%;
+          font-family: "微軟正黑體";
+          font-weight: bolder; }
+          @media all and (min-width: 960px) {
+            #cart_background #cart-content #cartForm #tableTitle li {
+              width: 10%; } }
+          @media all and (max-width: 480px) {
+            #cart_background #cart-content #cartForm #tableTitle li {
+              width: 18%; } }
+        #cart_background #cart-content #cartForm #tableTitle li:not(.flexGrow) {
+          text-align: center; }
+        #cart_background #cart-content #cartForm #tableTitle .flexGrow {
+          flex-basis: 0;
+          flex-grow: 1; }
+      #cart_background #cart-content #cartForm #cartTable {
+        width: 100%;
+        margin: 10px 0; }
+        #cart_background #cart-content #cartForm #cartTable ul {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin: 5px 0;
+          background-color: rgba(255, 255, 255, 0.6);
+          border-radius: 5px; }
+          #cart_background #cart-content #cartForm #cartTable ul li {
+            padding: 6px 3%;
+            font-family: "微軟正黑體";
+            font-weight: bolder;
+            display: flex;
+            flex-direction: row;
+            align-items: center; }
+            @media all and (min-width: 960px) {
+              #cart_background #cart-content #cartForm #cartTable ul li {
+                width: 10%; } }
+            @media all and (max-width: 480px) {
+              #cart_background #cart-content #cartForm #cartTable ul li {
+                width: 18%; } }
+            #cart_background #cart-content #cartForm #cartTable ul li img {
+              width: 35%;
+              margin-right: 7%; }
+            #cart_background #cart-content #cartForm #cartTable ul li span {
+              display: inline-block; }
+            #cart_background #cart-content #cartForm #cartTable ul li .btn_given {
+              width: 100%;
+              border-radius: 12px;
+              background-color: #f05c79;
+              box-shadow: 0px 4px 0px #c84e6a;
+              text-align: center;
+              cursor: pointer;
+              transition: .3s;
+              border: 0px transparent;
+              color: white;
+              font-family: "微軟正黑體";
+              padding: 5% 0; }
+              #cart_background #cart-content #cartForm #cartTable ul li .btn_given:hover {
+                transform: translateY(4px);
+                box-shadow: 0px 0px 0px transparent; }
+            #cart_background #cart-content #cartForm #cartTable ul li .btn_delete {
+              width: 100%;
+              border-radius: 12px;
+              background-color: #97837c;
+              box-shadow: 0px 4px 0px #7d655b;
+              text-align: center;
+              cursor: pointer;
+              transition: .3s;
+              border: 0px transparent;
+              color: white;
+              font-family: "微軟正黑體";
+              padding: 5% 0; }
+              #cart_background #cart-content #cartForm #cartTable ul li .btn_delete:hover {
+                transform: translateY(4px);
+                box-shadow: 0px 0px 0px transparent; }
+          @media all and (min-width: 960px) {
+            #cart_background #cart-content #cartForm #cartTable ul .li_img img {
+              width: 65%; } }
+          @media all and (max-width: 480px) {
+            #cart_background #cart-content #cartForm #cartTable ul .li_img img {
+              width: 50%; } }
+          #cart_background #cart-content #cartForm #cartTable ul li:not(.flexGrow) {
+            justify-content: center; }
+          #cart_background #cart-content #cartForm #cartTable ul .flexGrow {
+            flex-basis: 0;
+            flex-grow: 1; }
+      #cart_background #cart-content #cartForm a {
+        background-color: #f05c79;
+        display: inline-block;
+        margin: 5px;
+        padding: 8px;
+        position: relative; }
+      #cart_background #cart-content #cartForm hr {
+        margin: 15px 0; }
+      #cart_background #cart-content #cartForm #totalCost {
+        height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; }
+        #cart_background #cart-content #cartForm #totalCost span {
+          margin-right: 50px;
+          font-family: "微軟正黑體"; }
+        #cart_background #cart-content #cartForm #totalCost img {
+          width: 25px; }
+      #cart_background #cart-content #cartForm #actionBtns {
+        text-align: right;
+        margin: 10px 0; }
+        #cart_background #cart-content #cartForm #actionBtns .btn-buy {
+          text-decoration: none;
+          font-family: "微軟正黑體";
+          color: white;
+          font-size: 14px;
+          margin: 5px;
+          padding: 8px 15px;
+          width: 90px;
+          border-radius: 12px;
+          background-color: #f05c79;
+          box-shadow: 0px 4px 0px #c84e6a;
+          text-align: center;
+          cursor: pointer;
+          transition: .3s;
+          border: 0px transparent; }
+          #cart_background #cart-content #cartForm #actionBtns .btn-buy:hover {
+            transform: translateY(4px);
+            box-shadow: 0px 0px 0px transparent; }
+  #cart_background #giftBox {
+    box-sizing: border-box;
+    border: 3px solid #f05c79;
+    border-radius: 5px; }
+    @media all and (min-width: 960px) {
+      #cart_background #giftBox {
+        width: 25%;
+        margin-bottom: 5%; } }
+    @media all and (max-width: 480px) {
+      #cart_background #giftBox {
+        width: 90%;
+        margin: 0 5%;
+        padding-bottom: 5%;
+        position: absolute;
+        top: 30%;
+        background-color: white; } }
+    @media all and (min-width: 960px) {
+      #cart_background #giftBox #btn_giftBoxClose {
+        display: none; } }
+    @media all and (max-width: 480px) {
+      #cart_background #giftBox #btn_giftBoxClose {
+        width: 10%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer; }
+        #cart_background #giftBox #btn_giftBoxClose img {
+          width: 100%; } }
+    #cart_background #giftBox #friendBox {
+      background-color: rgba(151, 131, 124, 0.5);
+      padding: 4%;
+      border-bottom: 3px solid #f05c79; }
+      #cart_background #giftBox #friendBox #tipBox {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2%; }
+        #cart_background #giftBox #friendBox #tipBox .gift-info {
+          width: 2%;
+          height: 0;
+          padding: 10%;
+          background-image: url("../shop-images/products_02.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-color: white;
+          border-radius: 50%;
+          box-shadow: 0 6px 0 #f05c79; }
+        #cart_background #giftBox #friendBox #tipBox .giftToImg {
+          width: 15%;
+          padding: 2%; }
+          #cart_background #giftBox #friendBox #tipBox .giftToImg img {
+            width: 100%; }
+        #cart_background #giftBox #friendBox #tipBox .gift-ta {
+          text-align: center;
+          width: 50%;
+          border-radius: 50%; }
+          #cart_background #giftBox #friendBox #tipBox .gift-ta .idImg {
+            width: 30%;
+            padding: 3%;
+            margin: auto; }
+            #cart_background #giftBox #friendBox #tipBox .gift-ta .idImg img {
+              width: 100%; }
+      #cart_background #giftBox #friendBox #searchBox {
+        width: 90%;
+        margin-bottom: 8px;
+        background-color: #f05c79;
+        border-radius: 5px;
+        border: 2px solid #c84e6a;
+        color: white;
+        font-family: "微軟正黑體";
+        padding: 2%;
+        margin: 2%; }
+      #cart_background #giftBox #friendBox #chooseBox form {
+        margin: 2%;
+        overflow: auto; }
+        @media all and (min-width: 960px) {
+          #cart_background #giftBox #friendBox #chooseBox form {
+            height: 200px; } }
+        @media all and (max-width: 480px) {
+          #cart_background #giftBox #friendBox #chooseBox form {
+            height: 140px; } }
+      #cart_background #giftBox #friendBox #chooseBox label {
+        width: 85%;
+        display: block;
+        margin-bottom: 2%;
+        background-color: #eee;
+        padding: 1% 2%;
+        border-radius: 5px;
+        font-family: "微軟正黑體";
+        cursor: pointer; }
+        #cart_background #giftBox #friendBox #chooseBox label:hover {
+          background-color: #ccc; }
+        #cart_background #giftBox #friendBox #chooseBox label img {
+          width: 15%;
+          margin-right: 4px; }
+        #cart_background #giftBox #friendBox #chooseBox label p {
+          display: inline; }
+        #cart_background #giftBox #friendBox #chooseBox label input[type="submit"] {
+          display: none; }
+    #cart_background #giftBox #msgBox {
+      padding: 3%; }
+      #cart_background #giftBox #msgBox p {
+        padding: 6px 3%;
+        font-family: "微軟正黑體"; }
+      #cart_background #giftBox #msgBox #giftMsg {
+        width: 88%;
+        padding: 5px;
+        margin: 0 3% 3% 3%; }
+      #cart_background #giftBox #msgBox #choose_ok {
+        margin-left: 3%;
+        width: 23%;
+        border-radius: 12px;
+        background-color: #f05c79;
+        box-shadow: 0px 4px 0px #c84e6a;
+        text-align: center;
+        cursor: pointer;
+        transition: .3s;
+        border: 0px transparent;
+        color: white;
+        font-family: "微軟正黑體";
+        padding: 1% 0; }
+        #cart_background #giftBox #msgBox #choose_ok:hover {
+          transform: translateY(4px);
+          box-shadow: 0px 0px 0px transparent; }
+      #cart_background #giftBox #msgBox #choose_delete {
+        margin-left: 3%;
+        width: 23%;
+        border-radius: 12px;
+        background-color: #97837c;
+        box-shadow: 0px 4px 0px #7d655b;
+        text-align: center;
+        cursor: pointer;
+        transition: .3s;
+        border: 0px transparent;
+        color: white;
+        font-family: "微軟正黑體";
+        padding: 1% 0; }
+        #cart_background #giftBox #msgBox #choose_delete:hover {
+          transform: translateY(4px);
+          box-shadow: 0px 0px 0px transparent; }
