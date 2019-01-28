@@ -501,7 +501,8 @@ a {
     justify-content: space-around;
     align-items: center;
     border: 1px solid pink;
-    border-radius: 15px; }
+    border-radius: 15px;
+    background-color: #444444; }
     .login_box form input {
       width: 40%;
       height: 30px;
