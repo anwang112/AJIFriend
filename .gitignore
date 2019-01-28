@@ -1,6 +1,7 @@
-sass
+.scss
 node_modules
 appendChild
 gulpfile.js
 index.html
 *.jason
+css/reset.css
