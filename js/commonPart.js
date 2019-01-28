@@ -117,7 +117,6 @@ function foot_html(){
 	        </div>
 	    </div>
 	    <!-- 手機聊天室結束 -->
-	    <script src="js/main.js"></script>
 	</div>
 	`; 
 
