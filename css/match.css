@@ -93,13 +93,8 @@ a {
   right: 10px;
   bottom: 0px;
   padding-top: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-transform: translateY(77%);
-  -ms-transform: translateY(77%);
   transform: translateY(77%); }
 
 .chatRoom h2 {
@@ -130,11 +125,7 @@ a {
   width: 100%;
   padding: 0 30px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between; }
 
 #friendPic {
@@ -280,23 +271,14 @@ a {
   padding: 0 5%;
   overflow: hidden;
   padding-top: 170px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative; }
   .section_01 .colbox {
     width: 30%;
     height: calc(100vh - 170px); }
   .section_01 .colbox_select {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column; }
     .section_01 .colbox_select h2 {
       font-size: 1.8rem;
@@ -305,8 +287,6 @@ a {
       letter-spacing: .2rem;
       text-shadow: 1px 1px #444;
       display: block;
-      -webkit-transform: rotate(-3deg);
-      -ms-transform: rotate(-3deg);
       transform: rotate(-3deg);
       position: relative;
       z-index: 2;
@@ -361,15 +341,8 @@ a {
       background: #f05c79;
       border: 1px solid rgba(255, 255, 255, 0.5); }
   .section_01 .colbox_actor {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: end;
     position: relative; }
     .section_01 .colbox_actor img {
@@ -379,14 +352,9 @@ a {
       top: 30%;
       left: 20%; }
     .section_01 .colbox_actor img:hover {
-      -webkit-animation-name: imgBounce;
       animation-name: imgBounce;
-      -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
       transform-origin: center bottom;
-      -webkit-animation-duration: 1s;
       animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
       animation-fill-mode: both; }
     .section_01 .colbox_actor span {
       width: 40%;
@@ -400,12 +368,8 @@ a {
       left: 60%;
       z-index: 2;
       text-align: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center; }
   .section_01 .colbox_other_actors {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex; }
     .section_01 .colbox_other_actors img {
       width: 100%;
@@ -413,52 +377,24 @@ a {
       top: 15%;
       left: -16%; }
     .section_01 .colbox_other_actors img:hover {
-      -webkit-animation-name: imgBounce;
       animation-name: imgBounce;
-      -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
       transform-origin: center bottom;
-      -webkit-animation-duration: 1s;
       animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
       animation-fill-mode: both; }
-
-@-webkit-keyframes imgBounce {
-  0%, 20%, 53%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
-  40%, 43% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0);
-    transform: translate3d(0, -30px, 0); }
-  70% {
-    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0);
-    transform: translate3d(0, -15px, 0); }
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0);
-    transform: translate3d(0, -4px, 0); } }
 
 @keyframes imgBounce {
   0%, 20%, 53%, 80%, 100% {
     -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   40%, 43% {
     -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -o-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     -webkit-transform: translate3d(0, -30px, 0);
     transform: translate3d(0, -30px, 0); }
   70% {
     -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -o-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     -webkit-transform: translate3d(0, -15px, 0);
     transform: translate3d(0, -15px, 0); }
@@ -478,14 +414,8 @@ a {
   right: 0;
   z-index: -1;
   display: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center; }
   .lightbox_hobby .lightbox_info_hobby {
     width: 170px;
@@ -493,20 +423,11 @@ a {
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 15px;
-    -webkit-box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
     box-shadow: 10px 10px rgba(85, 84, 80, 0.6);
     display: none;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     position: relative;
     top: 100px;
@@ -563,72 +484,31 @@ a {
     position: relative;
     top: 40px;
     left: 5%;
-    -webkit-transition: 2.5s;
-    -o-transition: 2.5s;
     transition: 2.5s;
-    -webkit-animation: heartsFadeout 4s linear 2 forwards;
     animation: heartsFadeout 4s linear 2 forwards; }
 
 .pulse {
-  -webkit-animation-name: pulse;
   animation-name: pulse;
-  -webkit-animation-duration: 1.5s;
   animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
 .bounceIn {
-  -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
-  -webkit-animation-duration: .75s;
   animation-duration: .75s;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
-
-@-webkit-keyframes heartsFadeout {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); }
-  90% {
-    opacity: 0;
-    -webkit-transform: translateY(-98px) scale(1.4);
-    transform: translateY(-98px) scale(1.4); }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(0 px) scale(0.8);
-    transform: translateY(0 px) scale(0.8); } }
 
 @keyframes heartsFadeout {
   0% {
     opacity: 1;
-    -webkit-transform: translateY(0 px) scale(0.8);
     transform: translateY(0 px) scale(0.8); }
   90% {
     opacity: 0;
-    -webkit-transform: translateY(-98px) scale(1.4);
-    transform: translateY(-98px) scale(1.4); }
+    transform: translateY(-86px) scale(1.4); }
   100% {
     opacity: 0;
-    -webkit-transform: translateY(0 px) scale(0.8);
     transform: translateY(0 px) scale(0.8); } }
-
-@-webkit-keyframes bounceOut {
-  20% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  50%, 55% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); } }
 
 @keyframes bounceOut {
   20% {
@@ -643,17 +523,6 @@ a {
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3); } }
 
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
 @keyframes pulse {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -665,36 +534,9 @@ a {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); } }
 
-@-webkit-keyframes bounceIn {
-  0%, 20%, 40%, 60%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); }
-  20% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1); }
-  40% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9); }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03); }
-  80% {
-    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-    transform: scale3d(0.97, 0.97, 0.97); }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
 @keyframes bounceIn {
   0%, 20%, 40%, 60%, 80%, 100% {
     -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
   0% {
     opacity: 0;
@@ -725,33 +567,72 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between; }
   .section_02 .ranking_of_all {
-    width: 65%;
-    height: 100vh; }
-    .section_02 .ranking_of_all img {
-      width: 75%;
+    width: 60%;
+    height: 55vh;
+    position: relative;
+    top: 30%;
+    left: 10%; }
+    .section_02 .ranking_of_all .rankBox {
+      margin-top: 50px;
+      width: 90%;
+      height: 0;
+      padding-bottom: 5%;
+      padding-top: 30px;
+      padding-left: 30px;
+      border-radius: 15px;
+      background-color: rgba(40, 101, 231, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; }
+      .section_02 .ranking_of_all .rankBox .rankBox_info {
+        width: 25%;
+        position: relative;
+        right: 35%; }
+        .section_02 .ranking_of_all .rankBox .rankBox_info img {
+          width: 35%;
+          position: relative;
+          top: 40px; }
+        .section_02 .ranking_of_all .rankBox .rankBox_info span {
+          position: relative;
+          top: -40px; }
+      .section_02 .ranking_of_all .rankBox .svg_bar {
+        width: 65%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 250px; }
+        .section_02 .ranking_of_all .rankBox .svg_bar .divH {
+          width: 50px;
+          background: radial-gradient(#ff8da1 30%, pink 34%);
+          background-size: 12px 12px;
+          border-radius: 15px 15px 0 0;
+          color: #fff;
+          text-align: center;
+          display: inline-block;
+          position: relative; }
+          .section_02 .ranking_of_all .rankBox .svg_bar .divH h3 {
+            width: 110px;
+            font-size: 20px;
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            text-align: left; }
+    .section_02 .ranking_of_all .rankBox2 {
       position: relative;
-      left: 10%;
-      top: 15%; }
+      top: 80px;
+      background-color: rgba(90, 101, 231, 0.7); }
   .section_02 .colbox_actor02 {
     width: 30%;
     height: 100vh;
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between; }
     .section_02 .colbox_actor02 .btn_searchF {
       width: 60%;
@@ -775,8 +656,6 @@ a {
       background-size: contain;
       background-repeat: no-repeat;
       text-align: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
       position: relative;
       top: 10%;
@@ -799,18 +678,13 @@ a {
     height: 92vh;
     background-image: none; }
   * {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box; }
   .head, .chatRoom {
     display: none; }
   .head_phone {
     width: 100%;
     height: 8vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     background-image: url("../pic/phone_head_bg.png");
     background-repeat: no-repeat;
@@ -843,29 +717,15 @@ a {
       left: 0;
       top: 8vh;
       z-index: 2;
-      -webkit-transition: 2s;
-      -o-transition: 2s;
       transition: 2s;
       opacity: 0;
-      -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
       transform-origin: 0 0;
-      -webkit-transform: scale(0);
-      -ms-transform: scale(0);
       transform: scale(0); }
       .head_phone .menu_phone ul {
         height: 92vh;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
         flex-direction: column;
-        -ms-flex-pack: distribute;
         justify-content: space-around;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center; }
         .head_phone .menu_phone ul img {
           display: inline-block; }
@@ -880,29 +740,17 @@ a {
     width: 100%;
     height: 92%;
     background: #e89fb7;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center; }
   .chatRoom_phone_part1 {
     width: 100%;
     height: 92%;
     background: #e89fb7;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
-    -webkit-transition: 2s;
-    -o-transition: 2s;
     transition: 2s;
     position: absolute;
     z-index: 3;
@@ -931,9 +779,6 @@ a {
     height: 92vh;
     background: #e89fb7;
     display: none;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
@@ -941,8 +786,6 @@ a {
     z-index: 4;
     left: 0;
     top: 8vh;
-    -webkit-transition: 2s;
-    -o-transition: 2s;
     transition: 2s;
     opacity: 0;
     position: absolute;
@@ -980,12 +823,7 @@ a {
       height: 78vh;
       display: inline-block;
       background: #e5e5e5;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
       flex-direction: column;
       padding: 10px; }
       .chatRoom_phone_part2 .info_chatbox span {
@@ -998,11 +836,7 @@ a {
       display: inline-block;
       position: relative;
       top: 1.5vh;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
       justify-content: space-between; }
       .chatRoom_phone_part2 .info_controlbox img {
         width: 45px;
@@ -1018,13 +852,8 @@ a {
   .section_01 {
     width: 100%;
     height: 92vh;
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-size: cover;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column; }
     .section_01 .colbox {
       width: 100%; }
@@ -1106,21 +935,19 @@ a {
 
 @media only screen and (max-width: 476px) {
   .section_02 {
-    background-image: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
-    background-image: -o-linear-gradient(315deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-image: linear-gradient(-225deg, rgba(255, 255, 255, 0.6), rgba(0, 91, 151, 0.6));
     background-size: cover;
     display: block;
     padding-top: 50px;
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex; }
     .section_02 .ranking_of_all {
       width: 90%;
       position: relative;
       left: 0;
       top: 0px; }
+      .section_02 .ranking_of_all .rankBox {
+        display: none; }
       .section_02 .ranking_of_all .demo_ddd {
         display: none; }
       .section_02 .ranking_of_all .dnone {
@@ -1140,12 +967,7 @@ a {
           width: 80%;
           height: 80vh;
           margin: auto;
-          display: -webkit-box;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
           flex-direction: column; }
           .section_02 .ranking_of_all .ranking .showSpan span {
             margin-top: 40px;
