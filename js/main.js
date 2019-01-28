@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0126
 //聊天室操控
 var chatRoom_control = document.getElementById('chatRoom_control');
 var chatroom_btn_open = document.getElementById('chatroom_btn_open');
@@ -12,11 +8,7 @@ var chatboxLeft = document.getElementById('chatboxLeft');
 var ch = 0,//控制開關，0為初始關閉值，1為打開
 ch1 =0;
 
-<<<<<<< HEAD
 console.log(chatboxLeft);
-=======
-// console.log(chatboxLeft);
->>>>>>> 0126
 
 //聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 chatRoom_control.addEventListener('click',function(){
@@ -71,11 +63,7 @@ btn_chatroom_phone.addEventListener('click',function(){
 //手機版聊天室操控_02
 fr_demo.addEventListener('click',function(){
     chatRoom_phone_part1.style.cssText=" top:8vh;left:0%;opacity:1; ";
-<<<<<<< HEAD
     chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:2";
-=======
-    chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:4";
->>>>>>> 0126
 });
 
 btn_chat_prev.addEventListener('click',function(){
@@ -116,19 +104,11 @@ btn_menu_menu.addEventListener('click',function(){
 
 var other_actors = document.getElementsByClassName('other_actors');
 var colbox_actor = document.getElementById('colbox_actor');
-<<<<<<< HEAD
 
 
 for(var i=0;i<other_actors.length;i++){
     other_actors[i].addEventListener('click',function(){
         btn_beFriend.addEventListener('click',function(){
-=======
-console.log(colbox_actor);
-
-for(var i=0;i<other_actors.length;i++){
-    other_actors[i].addEventListener('click',function(){
-        btn_beFriend.addEventListener('click',function(e){
->>>>>>> 0126
             e.stopPropagation();
         },false);
         var srcForActor = this.src  ;
@@ -137,20 +117,6 @@ for(var i=0;i<other_actors.length;i++){
         colbox_actor.src = srcForActor ;
         this.src = srcForOtherActors;
 
-<<<<<<< HEAD
-=======
-        //重新reset送出交友
-        btn_beFriend.removeAttribute('class','bounceIn');
-        btn_beFriend.setAttribute('class','pulse');
-        btn_beFriend.style.backgroundImage="url('../pic/txtbox_03.svg')";
-
-        while (effectbox.firstChild) {
-            effectbox.removeChild(effectbox.firstChild);
-            console.log('ddd');
-          }
-        
-
->>>>>>> 0126
     },false);
 }
 
@@ -159,10 +125,6 @@ var btn_choose_hobby = document.getElementById('btn_choose_hobby');
 var lightbox_hobby = document.getElementById('lightbox_hobby');
 var lightbox_info_hobby = document.getElementById('lightbox_info_hobby');
 btn_choose_hobby.addEventListener('click',function(){
-<<<<<<< HEAD
-=======
-    
->>>>>>> 0126
     lightbox_hobby.style.cssText="display:flex;z-index:10;";
     lightbox_info_hobby.style.cssText="display:flex;z-index:10;";
 
@@ -245,4 +207,99 @@ window.addEventListener('resize',function(){
 
 var wrapForBoat = document.getElementById('wrapForBoat');
 
+<<<<<<< HEAD
 >>>>>>> 0126
+=======
+//新增pie圖
+
+// var startAngle=0;
+// var cx = 70; //圓心座標
+// var cy = 60; //圓心座標
+// var r = 50;
+// var deg1 = 180;
+// var deg2 = 90;
+// var deg3 = 170;
+
+// var x0 = cx+r*Math.cos(startAngle*Math.PI/180);
+// var y0 = cy-r*Math.sin(startAngle*Math.PI/180);
+
+// var x1 = cx+r*Math.cos(deg1*Math.PI/180); 
+// var y1 = cy-r*Math.sin(deg1*Math.PI/180); 
+
+// var x2 = cx+r*Math.cos(deg2*Math.PI/180); 
+// var y2 = cy-r*Math.sin(deg2*Math.PI/180); 
+
+// var x3 = cx+r*Math.cos(deg3*Math.PI/180); 
+// var y3 = cy-r*Math.sin(deg3*Math.PI/180); 
+
+// $(".test1").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x1+","+y1+" Z");
+// $(".test2").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x2+","+y2+" Z");
+// $(".test3").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x3+","+y3+" Z");
+
+
+// var pie_svgShow = document.getElementById('pie_svgShow');
+// var piesvg = document.createElement('svg');
+// var piepath = document.createElement() ;
+
+
+
+
+  window.addEventListener('load',function(){
+    //svg_bar
+    var svg_data=[
+        {h:35+(Math.floor(Math.random()*150)),t:'魅力值'},
+        {h:35+(Math.floor(Math.random()*150)),t:'金幣數'},
+        {h:35+(Math.floor(Math.random()*150)),t:'朋友數'},
+    ];
+
+    var svg_bar = document.getElementById('svg_bar');
+
+    for( var i=0;i<svg_data.length;i++){
+        var divH = document.createElement('div');
+        var txtH3 = document.createElement('h3');
+        svg_bar.appendChild(divH);
+        divH.setAttribute('class','divH'); 
+        divH.setAttribute('style',`height:${svg_data[i].h}px`);
+        divH.innerText = `${svg_data[i].h}`
+        divH.appendChild(txtH3).innerText = `${svg_data[i].t}`;
+        console.log(svg_data[i].h);
+
+    }
+
+  },false);
+
+
+window.addEventListener('load',function(){
+    var svg_data2=[
+    {h:35+(Math.floor(Math.random()*150)),t:'魅力值'},
+    {h:35+(Math.floor(Math.random()*150)),t:'金幣數'},
+    {h:35+(Math.floor(Math.random()*150)),t:'朋友數'},
+    ];
+
+    var svg_bar2 = document.getElementById('svg_bar2');
+
+    for( var i=0;i<svg_data2.length;i++){
+        var divH = document.createElement('div');
+        var txtH3 = document.createElement('h3');
+        svg_bar2.appendChild(divH);
+        divH.setAttribute('class','divH'); 
+        divH.setAttribute('style',`height:${svg_data2[i].h}px`);
+        divH.innerText = `${svg_data2[i].h}`
+        divH.appendChild(txtH3).innerText = `${svg_data2[i].t}`;
+        console.log(svg_data2[i].h);
+    }
+
+},false);
+
+
+window.addEventListener('scroll',function(){
+
+
+
+
+
+},false);
+
+
+
+>>>>>>> 0128 morning
