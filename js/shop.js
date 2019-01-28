@@ -22,7 +22,7 @@ function showLightBox(){
         div_close.id = "btn_close";
             // 創建img
             var img_close = document.createElement("img");
-            img_close.src = "images/close.png";
+            img_close.src = "shop-images/close.png";
         // .productImg & img 塞進畫面
         div_close.appendChild(img_close);
         div.appendChild(div_close);
@@ -32,7 +32,7 @@ function showLightBox(){
         div_img.className = "productImg";
             // 創建img
             var img = document.createElement("img");
-            img.src = "images/products_01.png";
+            img.src = "shop-images/products_01.png";
         // .productImg & img 塞進畫面
         div_img.appendChild(img);
         div.appendChild(div_img);
@@ -66,7 +66,7 @@ function showLightBox(){
         div_cost.className = "cost";
             // 創建img
             var img_cost = document.createElement("img");
-            img_cost.src = "images/coin.png";
+            img_cost.src = "shop-images/coin.png";
             // 創建p
             var p_cost = document.createElement("p");
             p_cost.innerText = "30";
@@ -82,7 +82,7 @@ function showLightBox(){
             div_addToCart.className = "btn_addToCart";
                 // 創建img
                 var img_addToCart = document.createElement("img");
-                img_addToCart.src = "images/cart.png";
+                img_addToCart.src = "shop-images/cart.png";
             // img塞進div_addToCart
             div_addToCart.appendChild(img_addToCart);
 
@@ -91,7 +91,7 @@ function showLightBox(){
             div_wear.className = "btn_wear";
                 // 創建img
                 var img_wear = document.createElement("img");
-                img_wear.src = "images/cart.png";
+                img_wear.src = "shop-images/cart.png";
             // img塞進div_wear
             div_wear.appendChild(img_wear);
 

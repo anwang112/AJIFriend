@@ -8,8 +8,8 @@ function changeModel(e){
     var no = ta.className.split(",");
     console.log(no[1]);
     $id("showId").innerText = no[0];
-    $id("model_animal").src = "images/model_" + no[1] +".png";
-    $id("model_hat").src = "images/hat_" + no[2] +".png";
+    $id("model_animal").src = "shop-images/model_" + no[1] +".png";
+    $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
     closeFriendBox();
     TweenMax.fromTo('#showModel', 1.5, {
         scale: 0,
@@ -38,14 +38,14 @@ function showfriendBox(e){
 
         //創建img_bg(燈箱背景)
         var img_bg = document.createElement("img");
-        img_bg.src = "images/friendBox.png";
+        img_bg.src = "shop-images/friendBox.png";
         
         //創建div_close
         var div_close = document.createElement("div");
         div_close.id = "btn_friendBoxClose";    
             //創建img_close(關燈箱按鈕)
             var img_close = document.createElement("img");
-            img_close.src = "images/close.png";
+            img_close.src = "shop-images/close.png";
             img_close.id = "friendBoxClose";
         
         //img_close塞進div_close    
@@ -74,7 +74,7 @@ function showfriendBox(e){
                         label.className = friendList[i-1];
                             //創建img_friend頭像
                             var img_friend = document.createElement("img");
-                            img_friend.src = "images/gift.png";
+                            img_friend.src = "shop-images/gift.png";
                             img_friend.className = friendList[i-1];
                             //創建p_memName朋友暱稱
                             var p_memName = document.createElement("p");

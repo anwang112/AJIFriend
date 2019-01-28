@@ -1,7 +1,7 @@
 function changeClothes(e){
     var clothes = e.target.id;
     console.log(clothes);
-    $id("model_hat").src = "images/" + clothes +".png";
+    $id("model_hat").src = "shop-images/" + clothes +".png";
 
     // 更衣動畫
     TweenMax.fromTo('#model_hat', 1.5, {
@@ -64,7 +64,7 @@ function showInfo(e){
         div_cost.className = "cost";
             // 創建img
             var img_cost = document.createElement("img");
-            img_cost.src = "images/coin.png";
+            img_cost.src = "shop-images/coin.png";
             // 創建span
             var span_cost = document.createElement("span");
             span_cost.innerText = "90";

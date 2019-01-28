@@ -71,7 +71,7 @@ img{
 // 造型商城============================================
    
     #shop_background{
-        @include background("../images/shop_background.png");
+        @include background("../");
         #proLightBox{
             z-index: 1;
             #btn_close{
@@ -550,7 +550,7 @@ img{
         display: flex;
         flex-wrap:wrap;
         flex-direction: row;
-        @include background("../images/cart_background.png");
+        @include background("../shop-images/cart_background.png");
         .title{
             width: 97%;
             margin-left: 3%;
@@ -759,7 +759,7 @@ img{
                         width: 2%;
                         height: 0;
                         padding: 10%;
-                        background-image: url("../images/products_02.png");
+                        background-image: url("../shop-images/products_02.png");
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: contain;
