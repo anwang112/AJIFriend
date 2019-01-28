@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>後台-商品管理</title>
+    <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.css">
+    <link rel="stylesheet" href="css/back.css">
+    <script src="js/back-header.js"></script>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        head_html();
+    </script>
+
+    <div class="title">
+        <h2 class="navbar-brand">商城管理</h2>
+        <nav class="navbar navbar-light bg-light">
+            
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="商品名稱" aria-label="Search">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                
+            </form>
+        </nav>
+        <div class="container noflex">
+            <div class="row m-1 bg-w bg-brown p-2">
+                    <div class="col text-white">編號</div>
+                    <div class="col-2 text-white">商品名稱</div>
+                    <div class="col text-white">圖片</div>
+                    <div class="col-2 text-white">價格</div>
+                    <div class="col-2 text-white">商品類別</div>
+                    <div class="col-2 text-white">魅力值獎勵</div>
+                    <div class="col text-white">上架</div>
+                    <div class="col text-white">異動</div>
+            </div>
+            <div class="row m-1 p-2 border-bottom">
+                <div class="col">00001</div>
+                <div class="col-2">死神頭套</div>
+                <div class="col">
+                    <img src="shop-images/hat_2.png">
+                </div>
+                <div class="col-2">250</div>
+                <div class="col-2">頭飾</div>
+                <div class="col-2">300</div>
+                <div class="col">上架</div>
+                
+                <div class="col">
+                    <div class="btn btn-danger">異動</div>
+                </div>
+            </div>
+            <div class="row m-1 p-2 border-bottom">
+                <div class="col">00001</div>
+                <div class="col-2">死神頭套</div>
+                <div class="col">
+                    <img src="shop-images/hat_2.png">
+                </div>
+                <div class="col-2">250</div>
+                <div class="col-2">頭飾</div>
+                <div class="col-2">300</div>
+                <div class="col">上架</div>
+                
+                <div class="col">
+                    <div class="btn btn-danger">異動</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -4,4 +4,4 @@ appendChild
 gulpfile.js
 index.html
 *.jason
-css/reset.css
+reset.css

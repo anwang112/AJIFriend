@@ -45,7 +45,6 @@ img{
     }
 
 @mixin background($url) {
-    width: 100%;
     background-image: url($url);
     background-repeat: no-repeat;
     background-position: center;
@@ -71,6 +70,7 @@ img{
 // 造型商城============================================
    
     #shop_background{
+        width: 100%;
         @include background("../shop-images/shop_background.png");
         #proLightBox{
             z-index: 1;
@@ -550,6 +550,7 @@ img{
         display: flex;
         flex-wrap:wrap;
         flex-direction: row;
+        width: 100%;
         @include background("../shop-images/cart_background.png");
         .title{
             width: 97%;

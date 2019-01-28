@@ -1,0 +1,51 @@
+$lightPink:rgba(244,200,219,1);
+$darkPink:rgba(240,92,121,1);
+$shadowPink:rgba(200,78,106,1);
+$lightBrown:rgba(151,131,124,1);
+$shadowBrown:rgba(125,101,91,1);
+$fontFamily:'微軟正黑體';
+$brown:rgba(127,78,32,.8);
+
+
+@mixin btn_standard($width,$color,$shadow) {
+    width: $width;
+    border-radius: 12px;
+    background-color: $color;
+    box-shadow: 0px 4px 0px $shadow;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    &:hover{
+        transform: translateY(4px);
+        box-shadow: 0px 0px 0px transparent;
+    }
+}
+
+.title{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 150px;
+    *{
+        text-align: center;
+        font-family: $fontFamily;
+    }
+    input{
+        margin-left: 50px;
+    }
+    .navbar{
+        justify-content: flex-start;
+        .noflex{
+            display: block;
+        }
+        
+        h2{
+            color: $shadowBrown;
+            font-weight: bolder;
+        }
+    }
+    .bg-brown{
+        background-color: $brown;
+        border-radius: 7px;
+        color: white;
+    }
+}
