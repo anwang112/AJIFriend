@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-/node_modules
-*.sass
-*.json
-gulpfile.js
-=======
 .scss
 node_modules
 appendChild
@@ -11,4 +5,3 @@ gulpfile.js
 index.html
 *.jason
 css/reset.css
->>>>>>> origin/b_ga
