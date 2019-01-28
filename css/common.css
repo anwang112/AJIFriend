@@ -5,18 +5,11 @@ a {
 .wrap-bg {
   width: 100%; }
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> origin/photo
 .clear-box {
   clear: both; }
 
 .head {
   width: 100%;
-<<<<<<< HEAD
   height: 170px;
   background-image: url("../pic/head-down.svg2.svg");
   background-size: contain;
@@ -25,19 +18,6 @@ a {
   position: fixed;
   z-index: 100;
   top: 0; }
-=======
-  height: 140px;
-  background-image: url(../pic/head-down.svg);
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  position: fixed;
-  z-index: 3;
-  left: 0;
-  max-width: 1200px;
-  right: 0;
-  margin: auto; }
->>>>>>> origin/photo
 
 #logo {
   width: 15%;
@@ -47,11 +27,7 @@ a {
   z-index: 4; }
 
 .menu {
-<<<<<<< HEAD
   width: 550px;
-=======
-  width: 500px;
->>>>>>> origin/photo
   position: absolute;
   top: 20%;
   left: 30%; }
@@ -63,7 +39,6 @@ a {
 .menu > li > a {
   font-size: 1.1rem;
   color: #f05c79;
-<<<<<<< HEAD
   padding: 4px 6px;
   font-weight: bold; }
 
@@ -71,12 +46,6 @@ a {
   background-color: #fff;
   padding: 4px 6px;
   border-radius: 15px; }
-=======
-  font-weight: bold; }
-
-.menu > li > a:hover, .menu_sub > li > a:hover {
-  background-color: #fff; }
->>>>>>> origin/photo
 
 .menu_sub {
   width: 400px;
@@ -91,7 +60,6 @@ a {
 
 .menu_sub > li > a {
   font-size: 0.9rem;
-<<<<<<< HEAD
   padding: 4px 6px;
   color: #f05c79; }
 
@@ -117,24 +85,6 @@ a {
   background-repeat: no-repeat;
   position: fixed;
   z-index: 12;
-=======
-  color: #f05c79; }
-
-#head_member_icon img {
-  width: 22px;
-  padding-top: 5px;
-  vertical-align: bottom;
-  vertical-align: center; }
-
-.chatRoom {
-  width: 400px;
-  height: 300px;
-  padding-bottom: 100px;
-  background-image: url("../pic/chatroom_all02.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: fixed;
->>>>>>> origin/photo
   right: 10px;
   bottom: 0px;
   padding-top: 80px;
@@ -252,37 +202,22 @@ a {
   background-color: #fff; }
 
 #chatroom_btn_open {
-<<<<<<< HEAD
   width: 45px;
   height: 40px;
   position: absolute;
   z-index: 11;
   top: 38%;
   left: 4px; }
-=======
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 30%;
-  left: 0; }
->>>>>>> origin/photo
 
 .chatboxLeft {
   width: 80%;
   height: 350px;
   background-color: #FCC6D0;
-<<<<<<< HEAD
   border-radius: 15px 0 0 15px;
   opacity: 0;
   position: fixed;
   z-index: 10;
   right: 410px;
-=======
-  border-radius: 15px;
-  opacity: 0;
-  position: fixed;
-  right: 400px;
->>>>>>> origin/photo
   bottom: 0px; }
 
 #search_input {
@@ -327,26 +262,14 @@ a {
   top: 20px;
   left: 5px; }
 
-<<<<<<< HEAD
 .head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
   display: none; }
 
-=======
-
-.head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
-  display: none; }
-
-
->>>>>>> origin/photo
 @media only screen and (max-width: 476px) {
   html {
     font-size: 12px; }
   .wrap-bg {
     overflow: hidden; }
-<<<<<<< HEAD
-=======
-  
->>>>>>> origin/photo
   * {
     box-sizing: border-box; }
   .head, .chatRoom {
@@ -359,7 +282,6 @@ a {
     background-image: url("../pic/phone_head_bg.png");
     background-repeat: no-repeat;
     background-size: cover;
-<<<<<<< HEAD
     position: fixed;
     top: 0;
     z-index: 3; }
@@ -408,55 +330,6 @@ a {
     background-color: #fff;
     color: #444;
     border-radius: 15px; }
-=======
-    position: relative;
-    z-index: 3; }
-    .head_phone img {
-      width: 40px;
-      height: 40px;
-      display: block;
-      position: relative;
-      left: 15px;
-      top: 10px; }
-    .head_phone .logo_phone img {
-      width: 90px;
-      height: 70px;
-      position: relative;
-      top: 5px;
-      left: 5px;
-      z-index: 3; }
-    .head_phone #btn_chatroom_phone {
-      position: relative;
-      left: -15px;
-      top: 10px; }
-    .head_phone .menu_phone {
-      width: 100%;
-      height: 92vh;
-      background: #f05c79;
-      position: absolute;
-      left: 0;
-      top: 8vh;
-      z-index: 2;
-      transition: 2s;
-      opacity: 0;
-      transform-origin: 0 0;
-      transform: scale(0); }
-      .head_phone .menu_phone ul {
-        height: 92vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center; }
-        .head_phone .menu_phone ul img {
-          display: inline-block; }
-        .head_phone .menu_phone ul a {
-          color: rgba(255, 255, 255, 0.5);
-          padding: 5px 10px; }
-        .head_phone .menu_phone ul li a:hover {
-          background-color: #fff;
-          color: #444;
-          border-radius: 15px; }
->>>>>>> origin/photo
   .chatRoom_phone {
     width: 100%;
     height: 92vh;
@@ -477,7 +350,6 @@ a {
     top: -100vh;
     left: 0;
     opacity: 1; }
-<<<<<<< HEAD
   .chatRoom_phone_part1 #search_input_phone {
     width: 90%;
     height: 30px;
@@ -495,25 +367,6 @@ a {
     border: 2px solid #f05c79;
     border-radius: 15px;
     line-height: 30px; }
-=======
-    .chatRoom_phone_part1 #search_input_phone {
-      width: 90%;
-      height: 30px;
-      margin: 0 5%;
-      border-radius: 15px;
-      background-color: #fff; }
-    .chatRoom_phone_part1 .fr_demo {
-      width: 90%;
-      margin: 20px auto; }
-    .chatRoom_phone_part1 #replybox_phone {
-      width: 90%;
-      height: 30px;
-      margin: 20px auto;
-      background-color: #ccc;
-      border: 2px solid #f05c79;
-      border-radius: 15px;
-      line-height: 30px; }
->>>>>>> origin/photo
   .chatRoom_phone_part2 {
     width: 100%;
     height: 92vh;
@@ -531,7 +384,6 @@ a {
     z-index: 2;
     top: 8vh;
     left: 100%; }
-<<<<<<< HEAD
   .chatRoom_phone_part2 .info_bar {
     width: 100%;
     height: 4vh;
@@ -587,65 +439,6 @@ a {
     display: block;
     border: 2px solid #f05c79;
     border-radius: 15px; } }
-=======
-    .chatRoom_phone_part2 .info_bar {
-      width: 100%;
-      height: 4vh;
-      display: inline-block;
-      background: #e89fb7;
-      text-align: center;
-      position: relative; }
-      .chatRoom_phone_part2 .info_bar img {
-        width: 40px;
-        height: 40px;
-        padding: 5px;
-        float: left;
-        position: relative;
-        top: -15px;
-        left: 10px; }
-      .chatRoom_phone_part2 .info_bar span {
-        font-size: 0.9rem;
-        color: #c84e6a;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0; }
-      .chatRoom_phone_part2 .info_bar #btn_chat_prev {
-        position: relative;
-        z-index: 3; }
-    .chatRoom_phone_part2 .info_chatbox {
-      width: 100%;
-      height: 78vh;
-      display: inline-block;
-      background: #e5e5e5;
-      display: flex;
-      flex-direction: column;
-      padding: 10px; }
-      .chatRoom_phone_part2 .info_chatbox span {
-        width: 50px;
-        float: left; }
-    .chatRoom_phone_part2 .info_controlbox {
-      width: 100vw;
-      height: 7vh;
-      padding: 5px 5px;
-      display: inline-block;
-      position: relative;
-      top: 1.5vh;
-      display: flex;
-      justify-content: space-between; }
-      .chatRoom_phone_part2 .info_controlbox img {
-        width: 45px;
-        height: 45px;
-        cursor: pointer; }
-      .chatRoom_phone_part2 .info_controlbox #info_input_phone {
-        width: 62%;
-        display: block;
-        border: 2px solid #f05c79;
-        border-radius: 15px; } }
-
-
->>>>>>> origin/photo
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -679,7 +472,6 @@ a {
 :-moz-placeholder {
   /* Firefox 18- */
   color: pink; }
-<<<<<<< HEAD
 
 .login_box {
   width: 100%;
@@ -726,5 +518,3 @@ a {
     background: #ccc;
     width: 20%;
     height: 30px; }
-=======
->>>>>>> origin/photo
