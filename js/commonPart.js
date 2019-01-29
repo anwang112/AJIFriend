@@ -7,7 +7,7 @@ function head_html(){
 	var str_tag = `
 	<!-- head頁首 -->
 	<div class="head mnone">
-	    <a href="#"><img id="logo" src="pic/logo.svg" alt="logo"></a>
+	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
 	        <li><a href="match.html">找麻吉</a></li>
 	        <li><a href="activity.html">活動巴士</a></li>
