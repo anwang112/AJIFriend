@@ -9,15 +9,15 @@ function head_html(){
 	<div class="head mnone">
 	    <a href="#"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
-	        <li><a href="#">找麻吉</a></li>
-	        <li><a href="#">活動巴士</a></li>
-	        <li><a href="#">造型商城</a></li>
-	        <li><a href="#">照片牆</a></li>
+	        <li><a href="match.html">找麻吉</a></li>
+	        <li><a href="activity.html">活動巴士</a></li>
+	        <li><a href="BearMJ_shop.html">造型商城</a></li>
+	        <li><a href="photo.html">照片牆</a></li>
 	    </ul>
 	    <ul class="menu_sub">
 	        <li><a href="#">登入</a></li>
 	        <li><a href="#">魅力值</a></li>
-	        <li><a id="head_member_icon" href="#"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
+	        <li><a id="head_member_icon" href="myRoom.html"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
 	    </ul>
 	</div>
 	<div class="head_phone  dnone ">
