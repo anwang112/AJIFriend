@@ -1,4 +1,3 @@
-
 activityInit = () => {
 
     // slider輪播
@@ -12,13 +11,11 @@ activityInit = () => {
     //輪胎轉轉
     sliderOO = document.getElementsByClassName('cls-1');
 
-
-
     nowTransform = [];
     sliderCount = 100;
     sliderBusSvg = document.getElementsByClassName('activityBus');
-    busGo = window.setInterval(() => {
 
+    function busGoGo() {
         for (let i = 0; i <= 6; i += 3) {
             sliderOO[i + 1].classList.add("activityOO");
             sliderOO[i + 2].classList.add("activityOO");
@@ -42,23 +39,39 @@ activityInit = () => {
                 sliderImg[i].style.opacity = `1`;
             }
         }
+
         rotate = 0;
         sliderRotate = window.setInterval(() => {
-            rotate += 3;
-            // console.log(rotate);
-            if(rotate>800){
-                clearInterval(sliderRotate);
-                rotate = 0;
-            }
-            for (let i = 0; i <= 6; i += 3) {
-                // sliderOO[i + 1].classList.remove("activityOO");
-                // sliderOO[i + 2].classList.remove("activityOO");
-                sliderOO[i + 1].style.transform = `rotate(${rotate}deg)`
-                sliderOO[i + 2].style.transform = `rotate(${rotate}deg)`
-            }
-        }, 10)
-    }, 5000);
 
+            if (rotate > 800) {
+                rotate = 0;
+                clearInterval(sliderRotate);
+            } else {
+                rotate += 3;
+                for (let i = 0; i <= 6; i += 3) {
+                    sliderOO[i + 1].style.transform = `rotate(${rotate}deg)`;
+                    sliderOO[i + 2].style.transform = `rotate(${rotate}deg)`;
+                }
+            }
+
+        }, 10);
+    }
+    busGo = window.setInterval(busGoGo, 4000);
+
+    //輪播摸到停止一下
+    activityBus = document.getElementsByClassName('activityBus');
+    for (let i = 0; i < activityBus.length; i++) {
+        activityBus[i].addEventListener('mouseenter', stopSloder);
+    }
+    for (let i = 0; i < activityBus.length; i++) {
+        activityBus[i].addEventListener('mouseleave', startSloder);
+    }
+    function stopSloder() {
+        clearInterval(busGo);
+    }
+    function startSloder() {
+        busGo = window.setInterval(busGoGo, 4000);
+    }
 
 
     //活動燈箱
@@ -92,8 +105,9 @@ activityInit = () => {
         }
     }
     hideEventDetails.addEventListener('click', () => {
-        hideEventDetails.style.display = 'none';
+
         if ((showhideStatus == true) && (imgBox.style.opacity == 1)) {
+            hideEventDetails.style.display = 'none';
             imgBoxHide = setInterval(hide, 20);
         }
     })
@@ -164,10 +178,10 @@ activityInit = () => {
 
     if (localStorage.getItem('carts') === null) {
         var cartArray = [];
-        NowcartObject = {
-            name: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`
-        }
-        cartArray[0] = NowcartObject;
+        // NowcartObject = {
+        //     name: `consectetur adipisicing elit.`
+        // }
+        // cartArray[0] = NowcartObject;
         localStorage.setItem('carts', JSON.stringify(cartArray));
     } else {
         var cartArray = JSON.parse(localStorage.getItem('carts'));
@@ -209,6 +223,7 @@ activityInit = () => {
                 <div class="messageImg">
                     <img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="messageImg">
                 </div>
+                <span>阿吉</span>
                 <p>${cartArray[x].name}</p>
             </li>`
 
@@ -231,11 +246,163 @@ activityInit = () => {
         reader.readAsDataURL(file);
     })
 
+    // 背景漸層
+    activityFix = document.getElementsByClassName('activityFix')[0];
+
+    gradientStatus = false;
+    gradient = {
+        x1: 114,
+        x2: 183,
+        x3: 255,
+        y1: 255,
+        y2: 210,
+        y3: 163,
+    }
+    gradientEnd = {
+        x1: 70,
+        x2: 24,
+        x3: 62,
+        y1: 37,
+        y2: 56,
+        y3: 78,
+    }
+    activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+
+    ooxxGradient = () => {
+        if (gradient.x1 < gradientEnd.x1) {
+            gradient.x1++
+        } else if (gradient.x1 > gradientEnd.x1) {
+            gradient.x1--
+        }
+        if (gradient.x2 < gradientEnd.x2) {
+            gradient.x2++
+        } else if (gradient.x2 > gradientEnd.x2) {
+            gradient.x2--
+        }
+        if (gradient.x3 < gradientEnd.x3) {
+            gradient.x3++
+        } else if (gradient.x3 > gradientEnd.x3) {
+            gradient.x3--
+        }
+        if (gradient.y1 < gradientEnd.y1) {
+            gradient.y1++
+        } else if (gradient.y1 > gradientEnd.y1) {
+            gradient.y1--
+        }
+        if (gradient.y2 < gradientEnd.y2) {
+            gradient.y2++
+        } else if (gradient.y2 > gradientEnd.y2) {
+            gradient.y2--
+        }
+        if (gradient.y3 < gradientEnd.y3) {
+            gradient.y3++
+        } else if (gradient.y3 > gradientEnd.y3) {
+            gradient.y3--
+        }
+        if ((gradient.x1 == gradientEnd.x1) && (gradient.x2 == gradientEnd.x2) && (gradient.x3 == gradientEnd.x3) && (gradient.y1 == gradientEnd.y1) && (gradient.y2 == gradientEnd.y2) && (gradient.y3 == gradientEnd.y3)) {
+            clearTimeout(ooxx);
+            if (gradientStatus == false) {
+                gradientStatus = true;
+            } else {
+                gradientStatus = false;
+            }
+            gradientStatusGo();
+
+        }
+        activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+    }
+
+    ooxx = window.setInterval(ooxxGradient, 40);
+
+    function gradientStatusGo() {
+        if (gradientStatus == false) {
+            gradient = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradientEnd = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        } else {
+            gradientEnd = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradient = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        }
+        ooxx = window.setInterval(ooxxGradient, 40);
+    }
+
+
+
+    // 已報名活動
+    // const eventMine = document.getElementById('eventMine');
+    // const eventBtn = document.getElementById('eventBtn');
+    // const Listevent = document.getElementsByClassName('eventList')[0];
+    // const applyList = document.getElementsByClassName('applyList')[0];
+    // applyList.style.display = `none`;
+
+    // eventMine.addEventListener('click', () => {
+
+    //     if (applyList.style.display == `none`) {
+    //         applyList.style.display = `block`;
+    //         Listevent.style.display = `none`;
+    //     }
+    // })
+
+    // eventBtn.addEventListener('click', () => {
+    //     if (Listevent.style.display == `none`) {
+    //         applyList.style.display = `none`;
+    //         Listevent.style.display = `flex`;
+    //     }
+    // })
+
 
 
 }
 
 window.addEventListener('load', activityInit);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // localStorage.removeItem('carts');
 // window.location.reload();
 

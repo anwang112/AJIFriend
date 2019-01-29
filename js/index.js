@@ -66,7 +66,7 @@
 //     })
 //     .addTo(controller);
     $('#indexSec').hide();
-    $('.goChat').click(function(){
+    $('.bubble').click(function(){
         $('#indexSec').show();
         $('.titleWrap').css({
             'opacity':'0',
