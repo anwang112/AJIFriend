@@ -9,10 +9,10 @@ function head_html(){
 	<div class="head mnone">
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
-	        <li><a href="match.html">帳號管理</a></li>
-	        <li><a href="activity.html">商城管理</a></li>
-	        <li><a href="BearMJ_shop.html">活動管理</a></li>
-	        <li><a href="photo.html">抽獎管理</a></li>
+	        <li><a href="back.html">帳號管理</a></li>
+	        <li><a href="back-pro.html">商城管理</a></li>
+	        <li><a href="#">活動管理</a></li>
+	        <li><a href="#">抽獎管理</a></li>
 	    </ul>
 	    <ul class="menu_sub">
 	        <li><a href="#">登入</a></li>
