@@ -388,8 +388,7 @@ img {
       flex-direction: row; }
       @media all and (min-width: 960px) {
         #productBlock #productsArea #productsShow section {
-          box-shadow: inset 3px 0 10px #ccc,
- inset -3px 0 10px #ccc; } }
+          box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; } }
       #productBlock #productsArea #productsShow section .productItem {
         margin: 3px 15px; }
         #productBlock #productsArea #productsShow section .productItem::after {
