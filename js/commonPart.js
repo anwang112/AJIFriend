@@ -31,15 +31,16 @@ function head_html(){
 	        <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
 	    </a>
 	    <div id="menu_phone" class="menu_phone">
-	        <ul>
-	            <li><a href="#">找麻吉</a></li>
-	            <li><a href="#">活動巴士</a></li>
-	            <li><a href="#">造型商城</a></li>
-	            <li><a href="#">照片牆</a></li>
-	            <li><a href="#">登入</a></li>
-	            <li><a href="#">魅力值</a></li>
-	            <li><a id="head_member_icon" href="#">會員中心</a></li>
-	        </ul>
+
+			<ul>
+				<li><a href="match.html">找麻吉</a></li>
+				<li><a href="activity.html">活動巴士</a></li>
+				<li><a href="BearMJ_shop.html">造型商城</a></li>
+				<li><a href="photo.html">照片牆</a></li>
+				<li><a href="#">登入</a></li>
+				<li><a href="#">魅力值</a></li>
+				<li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
+			</ul>
 	    </div>
 	</div>
 	`;
