@@ -160,7 +160,7 @@ img{
             padding-top:90px;    
         }
         @media all and (max-width: 480px) {
-            padding-top:150px;
+            padding-top:195px;
         } 
         #chooseArea{
             
@@ -312,13 +312,12 @@ img{
             }
             @media all and (max-width: 480px) {
                 width: 25%;
-                // margin: 10px 3%;
                 border-radius:12px; 
                 background-color: $lightPink;
                 text-align: center;
                 position: absolute;
                 right: 8%;
-                bottom: -8%;
+                bottom: -5%;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -326,13 +325,49 @@ img{
                 padding: 5px;
                 img{
                     width: 30%;
-                    // margin: 15% 0;
                 }
                 span{
                     width: 50%;
                     font-size: 24px;
                     font-family: Impact;
                     color: $darkPink;
+                }
+                
+            }
+
+        }
+        #rwd_showCart{
+            @media all and (min-width: 960px) {
+                display: none; 
+            }
+            @media all and (max-width: 480px) {
+                width: 25%;
+                border-radius:12px; 
+                background-color: $lightPink;
+                // text-align: center;
+                position: absolute;
+                right: 8%;
+                bottom: 5%;
+                a{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    padding: 5px;
+                    img{
+                        width: 30%;
+                    }
+                    p{
+                        width: 50%;
+                        margin-left: 10%;
+                        font-size: 20px;
+                        font-family: $fontFamily;
+                        font-weight: bolder;
+                        color: $darkPink;
+                        // display: inline-block;
+                    }
+
                 }
                 
             }
@@ -363,7 +398,7 @@ img{
                 margin-left: 20%;
             }
             @media all and (max-width: 480px) {
-                margin-left: 2%;
+                margin-left: 5%;
             }
             
         }
@@ -380,7 +415,7 @@ img{
             #showCoin{
                 @media all and (min-width: 960px) {
                     width: 5%;
-                    margin: 10px 3%;
+                    margin: 10px 0;
                     border-radius:12px; 
                     background-color: $lightPink;
                     text-align: center;
@@ -398,6 +433,45 @@ img{
                 @media all and (max-width: 480px) {
                     display: none;
                 }
+                
+            }
+            #showCart{
+                @media all and (min-width: 960px) {
+                    width: 5%;
+                    margin: 10px 0;
+                    border-radius:12px; 
+                    background-color: $lightPink;
+                    text-align: center;
+                    cursor: pointer;
+                    border:2px solid transparent;
+                    &:hover{
+                        border:2px solid $darkPink;
+                        color: white;
+                    }
+                    &:hover img{
+                        src: url("shop-images/cart.png")
+                        
+                    }
+                    a{
+                        width: 100%;
+                        img{
+                            width: 60%;
+                            margin: 15% 0;
+                            display: inline-block;
+                        }
+                        p{
+                            padding-bottom: 10px;
+                            font-size: 18px;
+                            font-family: $fontFamily;
+                            font-weight: bolder;
+                            color: $darkPink;
+                        } 
+                    }
+                }
+                @media all and (max-width: 480px) {
+                    display: none;
+                }
+                
             }
             #productsShow{
                 
@@ -673,10 +747,10 @@ img{
                     
                 }
                 a{
-                    background-color: $darkPink;
+                    // background-color: $darkPink;
                     display: inline-block;
                     margin: 5px;
-                    padding: 8px;
+                    // padding: 8px;
                     position: relative;
                 }
                 hr{
@@ -704,7 +778,7 @@ img{
                         color: white;
                         font-size: 14px;
                         margin: 5px;
-                        padding: 8px 15px;
+                        padding: 8px 0;
                         @include btn_standard(90px,$darkPink,$shadowPink);
                         border: 0px transparent;
                     }
@@ -722,11 +796,12 @@ img{
                 margin-bottom: 5%;
             }
             @media all and (max-width: 480px) {
+                display: none;
                 width: 90%;
                 margin:0 5%;
                 padding-bottom: 5%;
                 position: absolute;
-                top: 30%;
+                top: 18%;
                 background-color: white;
             }
             #btn_giftBoxClose{
