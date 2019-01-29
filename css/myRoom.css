@@ -1,11 +1,11 @@
-  @font-face {
+@font-face {
   font-family: 'AdobeFanHeitiStd-Bold';
   src: url(../font/AdobeFanHeitiStd-Bold.otf)format("truetype");
   }
   *{
     padding: 0;
     margin: 0;
-    /*outline: 1px solid #0af;*/
+    /* outline: 1px solid #0af; */
    font-family: 'AdobeFanHeitiStd-Bold', serif;
   }
   .clearfix{
@@ -392,6 +392,18 @@
     left: 19%;
     width: 55%;
   }
+  /*包住自己現在長什麼樣子的div*/
+  #meNow{
+    width: 20vw;
+    position: absolute;
+    top: 28%;
+    left: 47%;
+    z-index: 2;
+  }
+  #meNow img{
+    filter: drop-shadow(-4px 9px 9px rgba(0, 0, 0, 0.1));
+    width: 100%;
+  }
   /*包住整個電腦桌開關的div*/
   #wrapComputer{
     width: 100%;
@@ -433,10 +445,6 @@
     width: 100%;
     opacity: 1;
   }
-/*  #computer:hover .bubble{
-    opacity: 1;
-    transition: all .2s ease-in-out;
-  }*/
   .bubble{
     opacity: 1;
     display: block;
@@ -480,11 +488,19 @@
     float: left;
   }
   #mylookBG{
+    position: relative;
     background-color: rgba(162,152,143,1);
     border-radius: 15px;
     width: 21vw;
     height: 60vh;
     margin: 2vh 1vw;
+    overflow-y: hidden;
+  }
+  #mylookBG img{
+    width: 95%;
+    position: absolute;
+    top: 0%;
+    left: 3%;
   }
   #myProfile{
     width: 37vw;
@@ -531,10 +547,45 @@
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*RWD手機版--------------------------------------------------*/
 
 @media screen and (max-width: 476px){
-
+  #myRoom {
+    height: 132vh;
+    overflow-y: scroll;
+    position: relative;
+  }
   #myRoom .wheel{
     width: 18%;
     top: 14%;
@@ -551,88 +602,60 @@
     z-index: 2;
   }
   /*包住整個衣櫃開關的div*/
-  #wrapWardrobe{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-  }
   #wardrobe{
-    width: 17%;
+    width: 12%;
     top: 22%;
   }
   #wardrobe .Close{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    display: block;
-    width: 100%;
     opacity: 1;
   }
   #wardrobe .Open{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    display: block;
-    width: 100%;
     opacity: 0;
   }
   #wardrobe:hover{
-    width: 23.4%;
+    width: 12%;
     cursor:pointer;
   }
   #wardrobe:hover .Close{
-    display: block;
-    width: 100%;
-    opacity: 0;
-  }
-  #wardrobe:hover .Open{
-    display: block;
     width: 100%;
     opacity: 1;
-    animation: puddingmove 1.5s;
+  }
+  #wardrobe:hover .Open{
+    display: none;
   }
 
-  @keyframes puddingmove{
-  0% {transform: scaleX(1) scaleY(1);}
-  60% {transform: scaleX(1) scaleY(1);}
-  61% {transform: scaleX(1) scaleY(1);}
-  70% {transform: scaleX(1.3) scaleY(1);}
-  75% {transform: scaleX(1) scaleY(1);}
-  80% {transform: scaleX(1.1) scaleY(0.85);}
-  85% {transform: scaleX(0.9) scaleY(1.1);}
-  90% {transform: scaleX(1.05) scaleY(0.95);}
-  95% {transform: scaleX(0.98) scaleY(1.02);}
-  100% {transform: scaleX(1) scaleY(1);}
-  }
   /*-----------衣櫃燈箱-------------------*/
   #wardrobeLightBox{
     position: relative;
     top: 20%;
-    left: 19%;
+    left: 10%;
     width: 71vw;
     height: 69vh;
     z-index: 3;
   }
   #closet{
-    width: 47.5vw;
+    width: 93vw;
     height: 69vh;
+    position: absolute;
+    top: 102%;
+    left: -32%;
   }
   .clothCloset{
     width: 100%;
     height: 69vh;
-    border: 2px solid rgba(171, 130,119,1);
+    border: 2px solid rgba(171, 130,119,0);
     border-radius: 15px;
-    background-color: rgba(115,99,87,1);
+    background-color: rgba(85,84,80,.8);
     float: left;
   }
   .self{
     width: 97%;
     border: 2px solid rgba(171, 130,119,1);
     border-radius: 15px;
-    background-color: rgba(115,99,87,1);    
+    background-color: rgba(115,99,87,0);    
   }
   #clothesSelf{
-    width: 41vw;
+    width: 87vw;
     height: 36vh;
     margin: 2vh 2vw 1vh;
     position: relative;
@@ -649,7 +672,7 @@
   }
   #selfSlide {
     display: block;
-    width: 38vw;
+    width: 81vw;
     height: 28vh;
     position: absolute;
     top: 14%;
@@ -657,20 +680,6 @@
     overflow-y: hidden;
     overflow-x: scroll;
     cursor: pointer;
-  }
-  ::-webkit-scrollbar{
-    border-radius:2.5px;
-    height: 5px;
-  }
-  ::-webkit-scrollbar-track{
-    border-radius:2.5px;
-    border: 1px solid rgba(171, 130,119,1);
-    background-color:rgba(115,99,87,1);
-  }
-  ::-webkit-scrollbar-thumb{
-    border-radius:2.5px;
-    height: 3px;
-    background-color: rgba(171, 130,119,1);
   }
   .myClothes {
     display: table;
@@ -694,7 +703,7 @@
     height: 26vh;
   }
   #hatsSelf{
-    width: 41vw;
+    width: 87vw;
     height: 18vh;
     margin: 0 2vw;
     position: relative;
@@ -712,7 +721,7 @@
   }
   #hatselfSlide{
     display: block;
-    width: 38vw;
+    width: 81vw;
     height: 14vh;
     position: absolute;
     top: 14%;
@@ -745,7 +754,7 @@
     position: absolute;
     bottom: 1vh;
     z-index: 8;
-    width: 41vw;
+    width: 88vw;
     height: 6vh;
     margin: 0 2vw;
     padding-bottom: 2vh;
@@ -753,8 +762,8 @@
   .roomBtn{
     position: absolute;
     top: 0%;
-    left: 42%;
-    width: 6vw;
+    left: 34%;
+    width: 27vw;
     height: 4vh;
     display: block;
     border-radius: 15px;
@@ -769,28 +778,23 @@
     font-size: 2vh;
   }
   .roomBtn:hover{
-    background-color: rgba(155, 117,107,1);
-    box-shadow: 0 .5vh rgba(117,88,81,0);
-    top: 1vh;
+    display: none;
   }
+
   .fittingBox{
+    border: 2px solid rgba(171, 130,119,0);
+    background-color: rgba(85,84,80,.8);
     position: absolute;
     top: 0;
     right: 0;
-    width: 23vw;
-    height: 69vh;
-    border: 2px solid rgba(171, 130,119,1);
-    border-radius: 15px;
-    background-color: rgba(115,99,87,1);
+    width: 93vw;
+    height: 70vh;
   }
   #fittingRoom{
-    position: relative;
     height: 56vh;
-    margin: 2vh 1vw;
+    margin: 2vh 5vw;
     overflow-x: hidden;
     overflow-y: hidden;
-    border-radius: 15px;
-    background-color: rgba(171, 130,119,1);
   }
   #myRole{
     position: absolute;
@@ -817,7 +821,7 @@
     position: absolute;
     bottom: 1vh;
     z-index: 8;
-    width: 21vw;
+    width: 90vw;
     height: 5vh;
     margin: 0 1vw;
     padding-bottom: 3vh;
@@ -826,7 +830,7 @@
     position: absolute;
     top: 0%;
     left: 35%;
-    width: 6vw;
+    width: 27vw;
     height: 4vh;
     display: block;
     border-radius: 15px;
@@ -842,11 +846,11 @@
   }
   #keepSaveClothes{
     position: absolute;
-    top: 38%;
-    left: -88%;
+    top: 47%;
+    left: 14%;
     width: 272px;
     height: 157px;
-    z-index: 30;
+    z-index: 11;
     background-color: rgba(255,255,255,0.5);
     color: #333;
     text-align: center;
@@ -889,57 +893,57 @@
     left: 19%;
     width: 55%;
   }
+  #meNow{
+    width: 61vw;
+    top: 35%;
+    left: 5%;
+  }
   #computer{
     width: 40vw;
-    top: 33%;
+    top: 26%;
     right: 63%;
   }
   .deskOff{opacity: 0;}
   .deskOn{opacity: 1;}
   .bubble{
-    opacity: 1;
-    display: block;
-    position: absolute;
-    width: 6%;
-    z-index: 50;
+    width: 5%;
+    /*top: 26%;
+    left: 26%;*/
+    z-index: 30;
   }
+  .bubble1{top:27%; right:16%;}
+  .bubble2{top:31%; right:2%;}
+  .bubble3{top:22%; right:7%;}
+  .bubble4{top:34%; right:11%;}
   #profileLightBox{
     position: absolute;
-    top: 20%;
-    right: 19%;
-    width: 60vw;
-    height: 69vh;
+    top: 11%;
+    right: 63%;
+    width: 93vw;
+    height: 82vh;
     z-index: 3;
     border-radius: 15px;
-    border: 2px solid rgba(229,226,221,1);
-    background-color: rgba(85,84,80,1);
+    border: 2px solid rgba(229,226,221,.5);
+    background-color: rgba(85,84,80,.8);
   }
   #profileLightBox:after{
     display: block;
     content: '';
     clear:both;
   }
-  #myLook{
-    width: 23vw;
-    height: 69vh;
-    float: left;
-  }
-  #mylookBG{
-    background-color: rgba(162,152,143,1);
-    border-radius: 15px;
-    width: 21vw;
-    height: 60vh;
-    margin: 2vh 1vw;
-  }
+  #myLook{display: none;}
   #myProfile{
+    position: absolute;
+    top: 9%;
+    left: 4%;
     width: 37vw;
     height: 69vh;
     float: right;
     color: #fff;
   }
   #myProfile table{
-    width: 33vw;
-    line-height: 8vh;
+    width: 84vw;
+    line-height: 10vh;
     margin: auto;
   }
   #myProfile h3{
