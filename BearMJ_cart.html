@@ -61,7 +61,7 @@
                     <span>支付代幣金額:{$}</span>
                 </div>
                 <div id="actionBtns">
-                    <input type="submit" value="繼續購物" class="btn-buy">
+                    <a href="BearMJ_shop.html"><input type="button" value="繼續購物" class="btn-buy"></a>
                     <input type="submit" value="確認購買" class="btn-buy">
                 </div>
                 
@@ -147,9 +147,14 @@
 
     function init(){
         var btn_delete = document.getElementsByClassName("btn_delete");
+        var btn_given = document.getElementsByClassName("btn_given");
         for( var i = 0; i < btn_delete.length; i++){
             btn_delete[i].addEventListener("click",function(e){
                 $id("cartTable").removeChild(e.target.parentNode.parentNode);
+
+            });
+            btn_given[i].addEventListener("click",function(e){
+                $id("giftBox").style.display="block";
 
             });
         }
