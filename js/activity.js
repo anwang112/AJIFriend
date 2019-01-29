@@ -42,23 +42,21 @@ activityInit = () => {
 
         rotate = 0;
         sliderRotate = window.setInterval(() => {
-            rotate += 3;
-            // console.log(rotate);
-            if (rotate > 800) {
-                clearInterval(sliderRotate);
-                rotate = 0;
-            }
-            for (let i = 0; i <= 6; i += 3) {
-                // sliderOO[i + 1].classList.remove("activityOO");
-                // sliderOO[i + 2].classList.remove("activityOO");
-                sliderOO[i + 1].style.transform = `rotate(${rotate}deg)`
-                sliderOO[i + 2].style.transform = `rotate(${rotate}deg)`
-            }
-        }, 10)
-        // clearInterval(sliderRotate);
-    }
 
-    busGo = window.setInterval(busGoGo,4000);
+            if (rotate > 800) {
+                rotate = 0;
+                clearInterval(sliderRotate);
+            } else {
+                rotate += 3;
+                for (let i = 0; i <= 6; i += 3) {
+                    sliderOO[i + 1].style.transform = `rotate(${rotate}deg)`;
+                    sliderOO[i + 2].style.transform = `rotate(${rotate}deg)`;
+                }
+            }
+
+        }, 10);
+    }
+    busGo = window.setInterval(busGoGo, 4000);
 
     //輪播摸到停止一下
     activityBus = document.getElementsByClassName('activityBus');
@@ -72,7 +70,7 @@ activityInit = () => {
         clearInterval(busGo);
     }
     function startSloder() {
-        busGo = window.setInterval(busGoGo,4000);
+        busGo = window.setInterval(busGoGo, 4000);
     }
 
 
@@ -107,8 +105,9 @@ activityInit = () => {
         }
     }
     hideEventDetails.addEventListener('click', () => {
-        hideEventDetails.style.display = 'none';
+
         if ((showhideStatus == true) && (imgBox.style.opacity == 1)) {
+            hideEventDetails.style.display = 'none';
             imgBoxHide = setInterval(hide, 20);
         }
     })
@@ -179,10 +178,10 @@ activityInit = () => {
 
     if (localStorage.getItem('carts') === null) {
         var cartArray = [];
-        NowcartObject = {
-            name: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`
-        }
-        cartArray[0] = NowcartObject;
+        // NowcartObject = {
+        //     name: `consectetur adipisicing elit.`
+        // }
+        // cartArray[0] = NowcartObject;
         localStorage.setItem('carts', JSON.stringify(cartArray));
     } else {
         var cartArray = JSON.parse(localStorage.getItem('carts'));
@@ -224,6 +223,7 @@ activityInit = () => {
                 <div class="messageImg">
                     <img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="messageImg">
                 </div>
+                <span>阿吉</span>
                 <p>${cartArray[x].name}</p>
             </li>`
 
@@ -352,6 +352,32 @@ activityInit = () => {
         }
         ooxx = window.setInterval(ooxxGradient, 40);
     }
+
+
+
+    // 已報名活動
+    // const eventMine = document.getElementById('eventMine');
+    // const eventBtn = document.getElementById('eventBtn');
+    // const Listevent = document.getElementsByClassName('eventList')[0];
+    // const applyList = document.getElementsByClassName('applyList')[0];
+    // applyList.style.display = `none`;
+
+    // eventMine.addEventListener('click', () => {
+
+    //     if (applyList.style.display == `none`) {
+    //         applyList.style.display = `block`;
+    //         Listevent.style.display = `none`;
+    //     }
+    // })
+
+    // eventBtn.addEventListener('click', () => {
+    //     if (Listevent.style.display == `none`) {
+    //         applyList.style.display = `none`;
+    //         Listevent.style.display = `flex`;
+    //     }
+    // })
+
+
 
 }
 

@@ -52,7 +52,7 @@
                                 <linearGradient id="未命名漸層_23-5" x1="747.84248" y1="120.7806" x2="963.55713" y2="120.7806"
                                     xlink:href="#未命名漸層_23" />
                             </defs>
-                            <title>資產 7</title>
+                            <!-- <title>活動巴士</title> -->
                             <g id="圖層_2" data-name="圖層 2">
                                 <g id="圖層_1-2" data-name="圖層 1">
                                     <path class="cls-1" d="M319.25825,595.7437s-11.48376,33.497,22.3426,43.99965,61.50246-4.20106,67.65271-18.90479,0-23.9012,0-23.9012Z" />
@@ -75,12 +75,12 @@
                                     <path class="cls-10" d="M750.91687,169.22413l100.87834,8.40213L846.99147,70.49911l-62.4485-6.3016s-33.62611-4.20106-36.028,21.00532S750.91687,169.22413,750.91687,169.22413Z" /><text
                                         class="cls-11" transform="translate(748.71973 257.94922) scale(1.14346 1)">活動巴士</text></g>
                             </g>
-                            
+
                             <!-- <image src="pic/activity01.jpg"> -->
                         </svg>
                         <!-- <image xlink:href="pic/activity01.jpg" src="pic/activity01.jpg" width="100%"  height="100%"/> -->
-                            <img src="pic/activity01.jpg" alt="activityImg" class="sliderImg">
-                        
+                        <img src="pic/activityEvent01.jpg" alt="activityImg" class="sliderImg">
+
                     </li>
                     <li>
                         <!-- <embed class="activityBus" src="pic/activityBus.svg" style="display:block;" /> -->
@@ -126,7 +126,7 @@
                                         class="cls-11" transform="translate(748.71973 257.94922) scale(1.14346 1)">活動巴士</text></g>
                             </g>
                         </svg>
-                        <img src="pic/activity02.jpg" alt="activityImg" class="sliderImg">
+                        <img src="pic/activityEvent04.png" alt="activityImg" class="sliderImg">
                     </li>
                     <li>
                         <!-- <embed class="activityBus" src="pic/activityBus.svg" style="display:block;" /> -->
@@ -172,7 +172,7 @@
                                         class="cls-11" transform="translate(748.71973 257.94922) scale(1.14346 1)">活動巴士</text></g>
                             </g>
                         </svg>
-                        <img src="pic/activity03.jpg" alt="activityImg" class="sliderImg">
+                        <img src="pic/activityEvent05.jpg" alt="activityImg" class="sliderImg">
                     </li>
                 </ul>
 
@@ -189,58 +189,84 @@
             <div class="activityEvent">
                 <!-- 分類選單 -->
                 <ul class="eventNav">
-                    <li>
+                    <!-- <li>
                         <button id="eventBtn">活動列表</button>
                     </li>
                     <li>
                         <button id="eventMine">已報名活動</button>
+                    </li> -->
+                    <li>排序 :
+                        <select class="eventSelect">
+                            <option value="volvo">最受歡迎</option>
+                            <option value="saab">最新活動</option>
+                            <option value="mercedes">官方舉辦</option>
+                        </select>
                     </li>
                     <li>
                         <button id="holdBtn">發起活動</button>
                     </li>
                 </ul>
-                <img src="pic/activitystep.png" class="activitystep" src="activitystep">
+                <!-- <img src="pic/activitystep.png" class="activitystep" src="activitystep"> -->
                 <!-- 活動列表 -->
                 <div class="eventWrap">
                     <ul class="eventList">
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent01.jpg">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent02.jpg">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent03.png">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent04.png">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent05.jpg">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                         <li>
                             <div class="eventImg">
-                                <img alt="activityEventItemImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                                <img alt="activityEventItemImg" src="pic/activityEvent06.jpg">
                             </div>
                             <h3>ooxx聯誼活動</h3>
                         </li>
                     </ul>
+
+                    <!-- 已報名活動 -->
+                    <!-- <ul class="applyList">
+                        <li>
+                            <h3>ooxx聯誼活動</h3>
+                            <span>未舉行</span>
+                            <button>檢視入場卷</button>
+                            <button>取消報名</button>
+                        </li>
+                        <li>
+                            <h3>ooxx聯誼活動</h3>
+                            <span>已舉行</span>
+                            <button>檢視入場卷</button>
+                            <button>取消報名</button>
+                        </li>
+                    </ul> -->
                 </div>
+
+
+
             </div>
         </section>
 
@@ -266,10 +292,10 @@
                 </li>
                 <li>
                     <span>活動獎勵 :</span>
-                    <span>500</span>
+                    <span>Maji值+500</span>
                 </li>
                 <li>
-                    <img alt="activityEventDetailsImg" src="https://fakeimg.pl/350x200/?text=World&font=lobster">
+                    <img alt="activityEventDetailsImg" src="pic/activityEvent04.png">
                 </li>
             </ul>
 
@@ -280,7 +306,7 @@
                     consectetur pariatur.</p>
             </div>
             <input id="activityApply" type="submit" value="我要報名">
-            <h4>留言 :</h4>
+            <span class="titleMessage">留言 :</span>
             <ul class="activityEventMessage">
                 <li>
                     <div class="messageImg">
@@ -299,36 +325,36 @@
         <div id="hideHoldactivity"></div>
         <div id="holdactivity">
             <h3>發起活動</h3>
-            <ul>
-                <li>
-                    <label>活動名稱 :</label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label>活動開始時間 :</label>
-                    <input type="datetime-local">
-                </li>
-                <li>
-                    <label>活動結束時間 :</label>
-                    <input type="datetime-local">
-                </li>
-                <li>
-                    <label>活動地點 :</label>
-                    <input type="text">
-                </li>
-                <li>
-                    <label>活動介紹 :</label>
-                    <textarea role="20" cols="20"></textarea>
-                </li>
-                <li>
-                    <label>上船活動圖 :</label>
-                    <input id="loadfile" type="file">
-                    <img id="getimg" />
-                </li>
-                <li>
-                    <input type="submit" value="送出">
-                </li>
-            </ul>
+            <form>
+                <ul>
+                    <li>
+                        <label>活動名稱 :</label>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <label>活動開始時間 :</label>
+                        <input type="datetime-local">
+                    </li>
+                    <li>
+                        <label>活動結束時間 :</label>
+                        <input type="datetime-local">
+                    </li>
+                    <li>
+                        <label>活動地點 :</label>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <label>活動介紹 :</label>
+                        <textarea rows="4" cols="27"></textarea>
+                    </li>
+                    <li>
+                        <label>活動圖片 :</label>
+                    </li>
+                </ul>
+                <input id="loadfile" type="file">
+                <img id="getimg" />
+                <input type="submit" id="holdOnBtn" value="送出">
+            </form>
         </div>
 
 
