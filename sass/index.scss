@@ -578,7 +578,7 @@
     h2 {
         font-size: 8vmin;
         position: absolute;
-        top: 10%;
+        top: 23%;
         left: 25%;
         z-index: 5;
         color: #736357;
@@ -597,7 +597,7 @@
         padding-bottom: 5%;
         background-color: #736357;
         position: absolute;
-        top: 5%;
+        top: 25%;
         right: 5%;
         border-radius: 50%;
     }
@@ -682,7 +682,7 @@
     padding-bottom: 30%;
     background-color: #EEF2EF;
     border-radius: 20px;
-    box-shadow: -5px 5px #f05c79;
+    box-shadow: 6px -5px #f05c79;
 }
 
 #indexSec .wrap .inner .roleLeft .roleContent .bodyChoice {
@@ -713,22 +713,10 @@
 }
 
 #indexSec .wrap .inner .roleLeft .joinBtn {
-    display: block;
-    margin: auto;
-    padding: 10px 0;
-    width: 100px;
-    margin-top: 30px;
-    background-color: #f05c79;
-    border: none;
-    border-radius: 5px;
-    color: #EEF2EF;
-    font-size: 16px;
-    text-align: center;
+    @include btn_standard(100px,$darkPink,$shadowPink);
 }
 
-#indexSec .wrap .inner .roleLeft .joinBtn:hover {
-    box-shadow: -5px 5px #c84e6a;
-}
+
 
 .pointer {
     cursor: pointer;
@@ -1054,3 +1042,17 @@
     }
 
 }
+@mixin btn_standard($width,$color,$shadow) {
+    width: $width;
+    border-radius: 12px;
+    background-color: $color;
+    box-shadow: 0px 4px 0px $shadow;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    &:hover{
+        transform: translateY(4px);
+        box-shadow: 0px 0px 0px transparent;
+    }
+ }
+ 
