@@ -277,7 +277,7 @@ a {
     top: 40px;
     left: 5%;
     transition: 2.5s;
-    animation: heartsFadeout 4s linear infinite forwards; }
+    animation: heartsFadeout 4.5s linear infinite forwards; }
 
 .pulse {
   animation-name: pulse;
