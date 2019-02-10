@@ -1,0 +1,115 @@
+@import 'var';
+
+.wrap {
+    margin: auto;
+    width: 100%;
+    height: 200vh;
+    overflow-y: hidden;
+    background-image: url("../images/matchBg.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .effectbox {
+        width: 100%;
+        height: 36vh;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        z-index: 1;
+    }
+
+    .effectbox img {
+        width: 40px;
+        height: auto;
+        position: relative;
+        top: 40px;
+        left: 5%;
+        transition: 2.5s;
+        animation: heartsFadeout 4s linear infinite forwards;
+    }
+}
+
+.matchContent {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    margin-top: -100px;
+
+    .carousel {
+        min-width: 960px;
+        position: relative;
+        perspective: 800px;
+        margin: auto;
+        text-align: center;
+        
+
+        .matchMem {
+            width: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: 623px;
+            transition: 1s;
+            top: -410px;
+            left: -140px;
+
+            img {
+                width: 30%;
+                backface-visibility: hidden;
+                position: absolute;
+            }
+
+            .back {
+                transform: rotateY(180deg);
+            }
+        }
+
+        img {
+            width: 80%;
+            position: relative;
+            top: -13%;
+        }
+    }
+
+    .profileInfo {
+        color: #F05B79;
+        position: absolute;
+        top: 36%;
+        left: 650px;
+        width: 200px;
+        background-color: #EEF2EF;
+        border: 10px solid #FBC5CF;
+        border-radius: 30px;
+        line-height: 2;
+        text-align: center;
+        padding: 20px;
+        .matchMJ{
+            font-size: 5vmin;
+        }
+        button{
+            color: #EEF2EF;
+            @include btn_standard (100px,$darkPink,$shadowPink);
+        }
+    }
+    .selectBtn{
+        position: relative;
+        top: -200px;
+        left: -100px;
+        width: 200px;
+        display: flex;
+        .matchBtn{
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            color: #EEF2EF;
+            background-image: url(../images/matcBtn.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            line-height: 7.5;
+           
+        }
+    }
+}
