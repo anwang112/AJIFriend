@@ -23,7 +23,7 @@ function topLB(e){
     var aMem=document.createElement("a");
     aMem.src="#";
     aMem.innerText=parent.childNodes[5].innerText;
-    // 創建照片得票數
+    // 創建 照片得票數
     var spanVote=document.createElement("span");
     spanVote.innerText=parent.childNodes[9].innerText;
     // 創建愛心數
@@ -38,7 +38,7 @@ function topLB(e){
 
     //創建svg關閉圖片
     var imgclose=document.createElement("img");
-    imgclose.src="/images/times-circle-32.png";
+    imgclose.src="images/times-circle-32.png";
     imgclose.id="close";
     imgclose.addEventListener("click",closeTop,false);
 
@@ -83,13 +83,13 @@ function cardLB(e){
     var aMem=document.createElement("a");
     aMem.src="#";
     aMem.innerText=e.target.parentNode.children[2].innerText;
-    // 創建照片得票數
+    // 創建 照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[3].innerText;
+    spanVote.innerText=e.target.parentNode.children[4].innerText;
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";
-    imgHeart.src ="/images/fullheart-16.png";
+    imgHeart.src ="images/fullheart-16.png";
     // 創建p
     var pContent=document.createElement("p");
     //console.log(parent.childNodes[11]);
@@ -98,12 +98,12 @@ function cardLB(e){
 
     //創建svg關閉圖片
     var imgClose=document.createElement("img");
-    imgClose.src="/images/times-circle-32.png";
+    imgClose.src="images/times-circle-32.png";
     imgClose.id="close";
     imgClose.addEventListener("click",closeCard,false);
     // 創建svg刪除圖片
     var imgDel=document.createElement("img");
-    imgDel.src="/images/trash-alt.svg";
+    imgDel.src="images/trash-alt.svg";
     imgDel.id="del";
     imgDel.addEventListener("click",delCard,false);
 
@@ -157,7 +157,6 @@ function init(){
     
 }
 window.addEventListener("load", init, false);	
-
 
 
 

@@ -22,7 +22,7 @@ function head_html(){
 	    <a href="#">
 	        <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
 	    </a>
-	    <a href="#" class="logo_phone">
+	    <a href="index.html" class="logo_phone">
 	        <img src="pic/logo_phone03.png" alt="">
 	    </a>
 	    <a href="#">
