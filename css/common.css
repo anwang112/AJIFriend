@@ -1,12 +1,164 @@
 @charset "UTF-8";
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-sizing: initial; }
+
+html body * {
+  font-family: 'AdobeFanHeitiStd-Bold', serif; }
+
 a {
   text-decoration: none; }
 
-.wrap-bg {
-  width: 100%; }
+@font-face {
+  font-family: 'AdobeFanHeitiStd-Bold';
+  src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype"); }
 
-.clear-box {
+.clearbox {
   clear: both; }
+
+html {
+  font-size: 20px; }
+
+.input_R {
+  width: 200px;
+  height: 35px;
+  color: #ccc;
+  font-size: .9rem;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: .3s;
+  padding: 3px 5px;
+  border: 2px solid rgba(244, 200, 219, 0.3);
+  text-align: center; }
+  .input_R:focus {
+    height: 35px -4px;
+    color: #666666;
+    background-color: rgba(244, 200, 219, 0.3); }
+
+.btn_R {
+  width: 90px;
+  height: 35px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: .7rem;
+  background-color: #f05c79;
+  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  cursor: pointer;
+  transition: .3s; }
+  .btn_R:hover {
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px transparent; }
+
+.btn_R_B {
+  width: 90px;
+  height: 35px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: .7rem;
+  background-color: rgba(192, 191, 191, 0.5);
+  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  cursor: pointer;
+  transition: .3s; }
+  .btn_R_B:hover {
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px transparent; }
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 18px; }
+  .btn_R {
+    width: 75px;
+    height: 30px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .7rem;
+    background-color: #f05c79;
+    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s; }
+    .btn_R:hover {
+      transform: translateY(4px);
+      box-shadow: 0px 0px 0px transparent; }
+  .input_R {
+    width: 160px;
+    height: 30px;
+    color: #ccc;
+    font-size: .9rem;
+    background-color: #fff;
+    border-radius: 12px;
+    transition: .3s;
+    padding: 3px 5px;
+    border: 2px solid rgba(244, 200, 219, 0.3);
+    text-align: center; }
+    .input_R:focus {
+      height: 30px -4px;
+      color: #666666;
+      background-color: rgba(244, 200, 219, 0.3); }
+  .btn_R_B {
+    width: 75px;
+    height: 30px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .7rem;
+    background-color: rgba(192, 191, 191, 0.5);
+    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s; }
+    .btn_R_B:hover {
+      transform: translateY(4px);
+      box-shadow: 0px 0px 0px transparent; } }
+
+@media only screen and (max-width: 476px) {
+  html {
+    font-size: 16px; }
+  .btn_R {
+    width: 65px;
+    height: 25px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .7rem;
+    background-color: #f05c79;
+    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s; }
+    .btn_R:hover {
+      transform: translateY(4px);
+      box-shadow: 0px 0px 0px transparent; }
+  .input_R {
+    width: 130px;
+    height: 25px;
+    color: #ccc;
+    font-size: .9rem;
+    background-color: #fff;
+    border-radius: 12px;
+    transition: .3s;
+    padding: 3px 5px;
+    border: 2px solid rgba(244, 200, 219, 0.3);
+    text-align: center; }
+    .input_R:focus {
+      height: 25px -4px;
+      color: #666666;
+      background-color: rgba(244, 200, 219, 0.3); }
+  .btn_R_B {
+    width: 65px;
+    height: 25px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .7rem;
+    background-color: rgba(192, 191, 191, 0.5);
+    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s; }
+    .btn_R_B:hover {
+      transform: translateY(4px);
+      box-shadow: 0px 0px 0px transparent; } }
 
 .head {
   width: 100%;
@@ -27,7 +179,7 @@ a {
   z-index: 4; }
 
 .menu {
-  width: 550px;
+  width: 650px;
   position: absolute;
   top: 20%;
   left: 30%; }
@@ -37,12 +189,13 @@ a {
   margin-left: 7%; }
 
 .menu > li > a {
-  font-size: 1.1rem;
+  font-size: .8rem;
   color: #f05c79;
   padding: 4px 6px;
   font-weight: bold; }
 
-.menu > li > a:hover, .menu_sub > li > a:hover {
+.menu > li > a:hover,
+.menu_sub > li > a:hover {
   background-color: #fff;
   padding: 4px 6px;
   border-radius: 15px; }
@@ -59,7 +212,7 @@ a {
   margin-left: 20px; }
 
 .menu_sub > li > a {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   padding: 4px 6px;
   color: #f05c79; }
 
@@ -80,7 +233,7 @@ a {
 .chatRoom {
   width: 430px;
   height: 440px;
-  background-image: url("../pic/chatroom_all05.svg");
+  background-image: url("../pic/chatroom_all06.svg");
   background-size: cover;
   background-repeat: no-repeat;
   position: fixed;
@@ -90,13 +243,13 @@ a {
   padding-top: 80px;
   display: flex;
   flex-wrap: wrap;
-  transform: translateY(77%); }
+  transform: translateY(82%); }
 
 .chatRoom h2 {
   display: block;
   width: 100%;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: #f05c79;
   text-align: center;
   letter-spacing: .2rem;
@@ -107,9 +260,10 @@ a {
 .chatRoom h2::after {
   content: '';
   display: block;
-  width: 50px;
-  height: 50px;
-  background-image: url("../pic/chatroom_icon1.svg");
+  width: 60px;
+  height: 60px;
+  border-radius: 20%;
+  background-image: url("../pic/rington3.png");
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -118,59 +272,57 @@ a {
 
 .chatRoom_info {
   width: 100%;
-  padding: 0 30px;
+  height: 80px;
+  padding: 0 40px;
   position: relative;
   display: flex;
   justify-content: space-between; }
 
 #friendPic {
   width: 20%;
-  height: 80px;
   position: relative;
   left: 15px; }
 
 .chatRoom_info span {
   width: 25%;
-  height: 80px;
+  height: 50px;
   color: #f05c79;
   position: relative;
-  top: 30px;
+  padding: 15px 0;
   left: 15px; }
 
 .chatRoom_info a {
   width: 25%; }
 
 .chatRoom_info a > img {
-  width: 50%;
-  position: relative;
-  left: 50px;
-  top: 20px; }
+  width: 100%;
+  height: 50px;
+  padding: 15px 0; }
 
 .chatboxRight {
   margin-top: 10px;
-  margin-left: 12%;
-  width: 80%;
-  height: 265px;
+  margin-left: 35px;
+  width: 360px;
+  height: 295px;
   overflow-y: hidden;
   background-color: #e5e5e5;
   border-radius: 15px; }
 
 #friendPicSmall {
-  width: 16%;
+  width: 14%;
   display: inline-block;
   padding: 10px 10px; }
 
 .chatbox_show {
   width: 100%;
-  height: 25vh; }
+  height: 200px;
+  overflow-y: scroll; }
 
 .chatbox_show span {
   display: inline-block;
-  width: 130px;
   height: 30px;
   line-height: 30px;
-  background-color: #fff;
-  border-radius: 15px;
+  font-size: .7rem;
   position: relative;
   bottom: 30px;
   text-align: center; }
@@ -186,20 +338,17 @@ a {
 
 #chatTxt_input {
   display: inline-block;
-  width: 70%;
-  height: 30px;
+  width: 60%;
+  height: 25px;
   margin: 0 15px;
+  padding: 5px 10px;
   border-radius: 15px;
   border-color: #c84e6a; }
 
 #chatTxt_send {
   display: inline-block;
-  width: 15%;
-  height: 30px;
-  color: #f05c79;
-  border-color: #f05c79;
-  border-radius: 15px;
-  background-color: #fff; }
+  width: 16%;
+  height: 30px; }
 
 #chatroom_btn_open {
   width: 45px;
@@ -211,13 +360,15 @@ a {
 
 .chatboxLeft {
   width: 80%;
-  height: 350px;
+  height: 420px;
   background-color: #FCC6D0;
+  border-top: 4px solid #f05c79;
+  border-left: 4px solid #f05c79;
   border-radius: 15px 0 0 15px;
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   z-index: 10;
-  right: 410px;
+  right: 414px;
   bottom: 0px; }
 
 #search_input {
@@ -225,11 +376,9 @@ a {
   width: 90%;
   height: 30px;
   margin: 0 15px;
-  border-radius: 15px;
   background-color: #fff;
   position: relative;
-  top: 10px;
-  text-align: center; }
+  top: 10px; }
 
 .friendbox {
   width: 100%;
@@ -262,17 +411,18 @@ a {
   top: 20px;
   left: 5px; }
 
-.head_phone, .chatRoom_phone, .chatRoom_phone_part1, .chatRoom_phone_part2, .dnone {
+.head_phone,
+.chatRoom_phone,
+.chatRoom_phone_part1,
+.chatRoom_phone_part2,
+.dnone {
   display: none; }
 
-@media only screen and (max-width: 476px) {
-  html {
-    font-size: 12px; }
-  .wrap-bg {
-    overflow: hidden; }
+@media only screen and (max-width: 768px) {
   * {
     box-sizing: border-box; }
-  .head, .chatRoom {
+  .head,
+  .chatRoom {
     display: none; }
   .head_phone {
     width: 100%;
@@ -284,7 +434,7 @@ a {
     background-size: cover;
     position: fixed;
     top: 0;
-    z-index: 3; }
+    z-index: 10; }
   .head_phone img {
     width: 40px;
     height: 40px;
@@ -356,7 +506,8 @@ a {
     height: 30px;
     margin: 0 5%;
     border-radius: 15px;
-    background-color: #fff; }
+    background-color: #fff;
+    text-align: center; }
   .chatRoom_phone_part1 .fr_demo {
     width: 90%;
     margin: 20px auto; }
@@ -364,10 +515,15 @@ a {
     width: 90%;
     height: 30px;
     margin: 20px auto;
-    background-color: #ccc;
     border: 2px solid #f05c79;
     border-radius: 15px;
     line-height: 30px; }
+  .chatRoom_phone_part1 #replybox_phone h4 {
+    color: #f05c79;
+    font-size: 0.9rem;
+    background-color: transparent;
+    padding: 0px 0;
+    cursor: pointer; }
   .chatRoom_phone_part2 {
     width: 100%;
     height: 92vh;
@@ -375,7 +531,7 @@ a {
     display: none;
     flex-direction: column;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
     position: absolute;
     left: 0;
     top: 8vh;
@@ -401,7 +557,7 @@ a {
     top: -15px;
     left: 10px; }
   .chatRoom_phone_part2 .info_bar span {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #c84e6a;
     position: absolute;
     left: 0;
@@ -413,12 +569,13 @@ a {
     z-index: 3; }
   .chatRoom_phone_part2 .info_chatbox {
     width: 100%;
-    height: 78vh;
+    height: 76vh;
     display: inline-block;
     background: #e5e5e5;
     display: flex;
     flex-direction: column;
-    padding: 10px; }
+    padding: 10px;
+    overflow-y: scroll; }
   .chatRoom_phone_part2 .info_chatbox span {
     width: 50px;
     float: left; }
@@ -439,7 +596,21 @@ a {
     width: 62%;
     display: block;
     border: 2px solid #f05c79;
-    border-radius: 15px; } }
+    padding: 0 10px;
+    border-radius: 15px;
+    text-align: left; }
+  .chatbox_faces_phone {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 10vh;
+    z-index: 100;
+    text-align: left;
+    padding: 0 10px; }
+    .chatbox_faces_phone img {
+      width: 10%;
+      display: inline-block;
+      position: relative; } }
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -475,36 +646,28 @@ a {
   color: pink; }
 
 .login_box {
-  width: 100%;
-  height: 100vh;
-  margin: auto;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 15px;
-  background-color: rgba(68, 68, 68, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  opacity: 0; }
+  align-items: center; }
   .login_box h2 {
     display: block;
     padding: 20px 30px;
     font-size: 32px;
     color: #f05c79; }
   .login_box form {
+    margin: auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 400px;
     height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-    border: 1px solid pink;
-    border-radius: 15px;
-    background-color: #444444; }
+    align-items: center; }
     .login_box form input {
       width: 40%;
       height: 30px;
@@ -513,9 +676,172 @@ a {
       border-radius: 15px;
       text-align: center;
       background: transparent; }
-  .login_box form input:nth-child(1):focus, .login_box form input:nth-child(2):focus {
+  .login_box form input:nth-child(1):focus,
+  .login_box form input:nth-child(2):focus {
     background: #444; }
   .login_box form input:nth-child(3) {
-    background: #ccc;
-    width: 20%;
-    height: 30px; }
+    width: 20%; }
+
+@media only screen and (max-width: 1150px) {
+  .menu {
+    width: 550px;
+    position: absolute;
+    top: 10%;
+    left: 20%; }
+  .menu > li {
+    margin-left: 4%; }
+  .menu > li > a {
+    font-size: .5rem; } }
+
+@media only screen and (max-width: 850px) {
+  .menu {
+    width: 450px;
+    position: absolute;
+    top: 10%;
+    left: 20%; } }
+
+.middleLightBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 110;
+  width: 100%;
+  height: 70vh;
+  border-radius: 15px;
+  border: 2px solid #e5e2dd;
+  background-color: #555450;
+  max-width: 800px;
+  transition: .8s;
+  display: none;
+  opacity: 0;
+  padding: 37px;
+  box-sizing: border-box; }
+  .middleLightBox .lightBoxXX {
+    background-color: #a2988f;
+    box-shadow: 2px 5px #444440;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 2.5%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 111; }
+    @media only screen and (max-width: 476px) {
+      .middleLightBox .lightBoxXX {
+        right: 4%; } }
+    .middleLightBox .lightBoxXX:after {
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      display: block;
+      border-radius: 5px;
+      background-color: white;
+      transform: rotate(45deg); }
+    .middleLightBox .lightBoxXX::before {
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      display: block;
+      border-radius: 5px;
+      background-color: white;
+      transform: rotate(-45deg); }
+  .middleLightBox .lightBoxDown {
+    box-shadow: 0px 0px transparent !important;
+    transform: translateY(2px); }
+
+.smallLightBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 110;
+  width: 35%;
+  height: 40vh;
+  min-height: 300px;
+  min-width: 300px;
+  border-radius: 15px;
+  border: 2px solid #e5e2dd;
+  background-color: #555450;
+  max-width: 800px;
+  transition: .8s;
+  display: none;
+  opacity: 0;
+  padding: 37px;
+  box-sizing: border-box; }
+  .smallLightBox .lightBoxXX {
+    background-color: #a2988f;
+    box-shadow: 2px 5px #444440;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 2.5%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 111; }
+    @media only screen and (max-width: 476px) {
+      .smallLightBox .lightBoxXX {
+        right: 4%; } }
+    .smallLightBox .lightBoxXX:after {
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      display: block;
+      border-radius: 5px;
+      background-color: white;
+      transform: rotate(45deg); }
+    .smallLightBox .lightBoxXX::before {
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      display: block;
+      border-radius: 5px;
+      background-color: white;
+      transform: rotate(-45deg); }
+  .smallLightBox .lightBoxDown {
+    box-shadow: 0px 0px transparent !important;
+    transform: translateY(2px); }
+
+.LightBoxMask {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  z-index: 105;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: whitesmoke;
+  opacity: .7; }

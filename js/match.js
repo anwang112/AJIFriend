@@ -165,7 +165,7 @@ window.addEventListener('load',function(){
 
     function creatHearts(){
         effectbox.setAttribute('style','z-index:1');
-        var hearts = Math.ceil((Math.random()*20)+37);;
+        var hearts = Math.ceil((Math.random()*30)+57);;
         //Math.random()
         console.log(hearts);
         //創造愛心
@@ -176,7 +176,7 @@ window.addEventListener('load',function(){
 
             var img_heart = document.createElement('img');
             img_heart.src = "pic/heartForMatch.png";
-            img_heart.setAttribute('style',`position:relative;top:${topPosition + 40}px;left:${leftPosition}px;opacity:${opacity};margin:20px;`);
+            img_heart.setAttribute('style',`position:relative;top:${topPosition + 50}px;left:${leftPosition}px;opacity:${opacity};margin:20px;`);
             effectbox.appendChild(img_heart);
             console.log(img_heart);
         }
@@ -214,45 +214,6 @@ window.addEventListener('load',function(){
             console.log('ddd');
         }
     },false);
-
-
-    //match bg_boat移動
-
-    var wrapForBoat = document.getElementById('wrapForBoat');
-
-    //新增pie圖
-
-    // var startAngle=0;
-    // var cx = 70; //圓心座標
-    // var cy = 60; //圓心座標
-    // var r = 50;
-    // var deg1 = 180;
-    // var deg2 = 90;
-    // var deg3 = 170;
-
-    // var x0 = cx+r*Math.cos(startAngle*Math.PI/180);
-    // var y0 = cy-r*Math.sin(startAngle*Math.PI/180);
-
-    // var x1 = cx+r*Math.cos(deg1*Math.PI/180); 
-    // var y1 = cy-r*Math.sin(deg1*Math.PI/180); 
-
-    // var x2 = cx+r*Math.cos(deg2*Math.PI/180); 
-    // var y2 = cy-r*Math.sin(deg2*Math.PI/180); 
-
-    // var x3 = cx+r*Math.cos(deg3*Math.PI/180); 
-    // var y3 = cy-r*Math.sin(deg3*Math.PI/180); 
-
-    // $(".test1").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x1+","+y1+" Z");
-    // $(".test2").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x2+","+y2+" Z");
-    // $(".test3").attr("d","M "+cx+","+cy+" L "+x0+","+y0+" A "+r+","+r+" 0 0,0 "+x3+","+y3+" Z");
-
-
-    // var pie_svgShow = document.getElementById('pie_svgShow');
-    // var piesvg = document.createElement('svg');
-    // var piepath = document.createElement() ;
-
-
-
 
 
 
