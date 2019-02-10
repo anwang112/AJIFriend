@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/lien.css">
+    <link rel="stylesheet" href="css/shop-style.css">
+    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            head_html();
+        </script>
+    <div id="cart_background" class="background">
+        <div class="title">
+            <img src="shop-images/cart_pink.png">
+            <h2>麻吉購物車</h2>
+        </div>
+        <div id="cart-content">
+            <form action="" id="cartForm">
+                <ul id="tableTitle">
+                    <li class="flexGrow">商品名稱</li>
+                    <li class="li_img">圖片</li>
+                    <li>代幣</li>
+                    <li>送禮</li>
+                    <li>異動</li>
+                </ul>
+                
+                <div id="cartTable">
+                    <ul>
+                        <li class="flexGrow">鐮刀死神</li>
+                        <li class="li_img"><img src="shop-images/products_01.png"></li>
+                        <li><img src="shop-images/coin.png"><span>390</span></li>
+                        <li><input type="button" value="送禮" class="btn_given"></li>
+                        <li><input type="submit" value="刪除" class="btn_delete"></li>
+                    </ul>
+                    <ul>
+                        <li class="flexGrow">梅拉頭飾</li>
+                        <li class="li_img"><img src="shop-images/pro-hat_3.png"></li>
+                        <li><img src="shop-images/coin.png"><span>3000</span></li>
+                        <li><input type="button" value="送禮" class="btn_given"></li>
+                        <li><input type="submit" value="刪除" class="btn_delete"></li>
+                    </ul>
+                    <ul>
+                        <li class="flexGrow">武士頭盔</li>
+                        <li class="li_img"><img src="shop-images/pro-hat_1.png"></li>
+                        <li><img src="shop-images/coin.png"><span>250</span></li>
+                        <li><input type="button" value="送禮" class="btn_given" ></li>
+                        <li><input type="submit" value="刪除" class="btn_delete"></li>
+                    </ul>
+                </div>
+                <hr>
+                <div id="totalCost">
+                    <span>總數量:{$}</span>
+                    <img src="shop-images/coin.png">
+                    <span>支付代幣金額:{$}</span>
+                </div>
+                <div id="actionBtns">
+                    <a href="BearMJ_shop.html"><input type="button" value="繼續購物" class="btn-buy"></a>
+                    <input type="submit" value="確認購買" class="btn-buy">
+                </div>
+                
+            </form>
+        </div>
+        <div id="giftBox">
+            <div id="btn_giftBoxClose">
+                <img src="shop-images/close.png">
+            </div>
+            <div id="friendBox">
+                <div id="tipBox">
+                    <div class="giftToImg">
+                        <img src="shop-images/gift.png">
+                    </div>
+                    <div class="gift-info">
+                    </div>
+                    
+                    <div class="gift-ta">
+                        <div class="idImg">
+                            <img src="shop-images/id.png">
+                        </div>
+                        <p>煞氣阿吉</p>
+                    </div>
+                </div>
+                <input type="text" id="searchBox" placeholder="搜尋朋友ID">
+                <div id="chooseBox">
+                    <form>
+                        <label for="f_001">
+                            <img src="shop-images/gift.png">
+                            <p>煞氣阿吉</p>
+                            <input type="submit" id="f_1" value="001">
+                        </label>
+                        <label for="f_002">
+                            <img src="shop-images/gift.png">
+                            <p>霹靂嬌媧</p>
+                            <input type="submit" id="f_2" value="002">
+                        </label>
+                        <label for="f_003">
+                            <img src="shop-images/gift.png">
+                            <p>理科太太</p>
+                            <input type="submit" id="f_3" value="003">
+                        </label>
+                        <label for="f_004">
+                            <img src="shop-images/gift.png">
+                            <p>蔡小英</p>
+                            <input type="submit" id="f_4" value="004">
+                        </label>
+                    </form>
+                </div>
+
+            </div>
+            <div id="msgBox">
+                <p>想寫些悄悄話給朋友嗎....</p> 
+                <input type="text" id="giftMsg">
+                <input type="button" id="choose_ok" value="確定">
+                <input type="button" id="choose_delete"value="全部清除">
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+		foot_html();
+	</script>
+</body>
+</html>
+<script>
+    
+    function $id(id){
+        return document.getElementById(id);
+    }
+    if(innerWidth<768){
+        $id("cart_background").style.height =window.screen.height +"px";
+    }else{
+        $id("cart_background").style.height =window.innerHeight +"px";
+    }
+
+    console.log(window.screen.height);
+    console.log(document.body.clientWidth );
+
+    $id("btn_giftBoxClose").addEventListener("click",function(){
+        $id("giftBox").style.display = "none";
+    });
+
+    function init(){
+        var btn_delete = document.getElementsByClassName("btn_delete");
+        var btn_given = document.getElementsByClassName("btn_given");
+        for( var i = 0; i < btn_delete.length; i++){
+            btn_delete[i].addEventListener("click",function(e){
+                $id("cartTable").removeChild(e.target.parentNode.parentNode);
+
+            });
+            btn_given[i].addEventListener("click",function(e){
+                $id("giftBox").style.display="block";
+
+            });
+        }
+        btn_goingOn = document.getElementsByClassName("btn-buy"); 
+        btn_goingOn[0].addEventListener("click",function(){
+        
+            window.location.href = 'https://www.facebook.com/'; //串資料庫後需要修改
+        
+        });
+    }
+
+    window.addEventListener("load",init,false);
+
+</script>
+<script src="js/cart.js"></script>

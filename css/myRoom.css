@@ -1,0 +1,985 @@
+@font-face {
+  font-family: 'AdobeFanHeitiStd-Bold';
+  src: url(../font/AdobeFanHeitiStd-Bold.otf)format("truetype");
+  }
+  *{
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid #0af; */
+   font-family: 'AdobeFanHeitiStd-Bold', serif;
+  }
+  .clearfix{
+    height: 0;
+    margin: 0;
+    clear: both;
+  }
+  body{
+    background:linear-gradient(rgba(125,164,203,1), rgba(232,159,183,1));
+    overflow: hidden;
+  } 
+  #myRoom{
+    width: 100%;
+    min-width: 1100px;
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+  }
+  #myRoom .wheel{
+    display: block;
+    width: 27%;
+    position: absolute;
+    top: 0%;
+    left: 48%;
+    z-index: 1;
+    animation: rotate 60s infinite linear;
+  }
+  @keyframes rotate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+  }
+
+  #myRoom .roomBG{
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+  }
+  #myRoom .RWDroomBG{
+    display: none;
+  }
+  /*包住整個衣櫃開關的div*/
+  #wrapWardrobe{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  #wardrobe{
+    display: block;
+    width: 20.6%;
+    position: absolute;
+    top: 13%;
+    left: 0%;
+    z-index: 3;
+  }
+  #wardrobe .Close{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: block;
+    width: 100%;
+    opacity: 1;
+  }
+  #wardrobe .Open{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: block;
+    width: 100%;
+    opacity: 0;
+  }
+  #wardrobe:hover{
+    width: 23.4%;
+    cursor:pointer;
+  }
+  #wardrobe:hover .Close{
+    display: block;
+    width: 100%;
+    opacity: 0;
+  }
+  #wardrobe:hover .Open{
+    display: block;
+    width: 100%;
+    opacity: 1;
+    animation: puddingmove 1.5s;
+  }
+
+  @keyframes puddingmove{
+  0% {transform: scaleX(1) scaleY(1);}
+  60% {transform: scaleX(1) scaleY(1);}
+  61% {transform: scaleX(1) scaleY(1);}
+  70% {transform: scaleX(1.3) scaleY(1);}
+  75% {transform: scaleX(1) scaleY(1);}
+  80% {transform: scaleX(1.1) scaleY(0.85);}
+  85% {transform: scaleX(0.9) scaleY(1.1);}
+  90% {transform: scaleX(1.05) scaleY(0.95);}
+  95% {transform: scaleX(0.98) scaleY(1.02);}
+  100% {transform: scaleX(1) scaleY(1);}
+  }
+  /*-----------衣櫃燈箱-------------------*/
+  #wardrobeLightBox{
+    position: relative;
+    top: 20%;
+    left: 19%;
+    width: 71vw;
+    height: 69vh;
+    z-index: 3;
+  }
+  #closet{
+    width: 47.5vw;
+    height: 69vh;
+  }
+  .clothCloset{
+    width: 100%;
+    height: 69vh;
+    border: 2px solid rgba(171, 130,119,1);
+    border-radius: 15px;
+    background-color: rgba(115,99,87,1);
+    float: left;
+  }
+  .self{
+    width: 97%;
+    border: 2px solid rgba(171, 130,119,1);
+    border-radius: 15px;
+    background-color: rgba(115,99,87,1);    
+  }
+  #clothesSelf{
+    width: 41vw;
+    height: 36vh;
+    margin: 2vh 2vw 1vh;
+    position: relative;
+  }
+  #clothesSelf:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    top: 16%;
+    left: 0;
+    background-color: rgba(171, 130,119,1);
+  }
+  #selfSlide {
+    display: block;
+    width: 38vw;
+    height: 28vh;
+    position: absolute;
+    top: 14%;
+    left: 3%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar{
+    border-radius:2.5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track{
+    border-radius:2.5px;
+    border: 1px solid rgba(171, 130,119,1);
+    background-color:rgba(115,99,87,1);
+  }
+  ::-webkit-scrollbar-thumb{
+    border-radius:2.5px;
+    height: 3px;
+    background-color: rgba(171, 130,119,1);
+  }
+  .myClothes {
+    display: table;
+    white-space: nowrap;
+    height: 30%;
+    position: relative;
+  } 
+  .myClothes li {
+    display: table-cell;
+    position: relative;
+    padding: 0 1vw;
+    height: 26vh;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .myClothes li:hover{
+    transform: scale(1.1);
+  }
+  .myClothes img{
+    display: block;
+    height: 26vh;
+  }
+  #hatsSelf{
+    width: 41vw;
+    height: 18vh;
+    margin: 0 2vw;
+    position: relative;
+  }
+  #hatsSelf:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 6vh;
+    border-radius: 15px;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background-color: rgba(171, 130,119,1);
+  }
+  #hatselfSlide{
+    display: block;
+    width: 38vw;
+    height: 14vh;
+    position: absolute;
+    top: 14%;
+    left: 3%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    cursor: pointer;
+  }
+  .myhats {
+    display: table;
+    white-space: nowrap;
+    position: relative;
+  } 
+  .myhats li{
+    display: table-cell;
+    position: relative;
+    padding: 0px 1vw;
+    height: 9vh;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .myhats li:hover{
+    transform: scale(1.1);
+  }
+  .myhats img{
+    display: block;
+    height: 9vh;
+  }
+  #btnGotoShopSelf{
+    position: absolute;
+    bottom: 1vh;
+    z-index: 8;
+    width: 41vw;
+    height: 6vh;
+    margin: 0 2vw;
+    padding-bottom: 2vh;
+  }
+  .roomBtn{
+    position: absolute;
+    top: 0%;
+    left: 42%;
+    width: 6vw;
+    height: 4vh;
+    display: block;
+    border-radius: 15px;
+    background-color: rgba(171, 130,119,1);
+    box-shadow: 0 1vh rgba(138,104,95,1);
+    color: #fff;
+    cursor:pointer;
+    text-align: center;
+    line-height: 4vh;
+    margin: 1.5vh auto 0vh;
+    text-decoration: none;
+    font-size: 2vh;
+  }
+  .roomBtn:hover{
+    background-color: rgba(155, 117,107,1);
+    box-shadow: 0 .5vh rgba(117,88,81,0);
+    top: 1vh;
+  }
+  .fittingBox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 23vw;
+    height: 69vh;
+    border: 2px solid rgba(171, 130,119,1);
+    border-radius: 15px;
+    background-color: rgba(115,99,87,1);
+  }
+  #fittingRoom{
+    position: relative;
+    height: 56vh;
+    margin: 2vh 1vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 15px;
+    background-color: rgba(171, 130,119,1);
+  }
+  #myRole{
+    position: absolute;
+  }
+  #myRole img{
+    position: absolute;
+    display: block;
+    height: 56vh;
+  }
+  #mybody img{
+    z-index: 9;
+  }
+  #myface img{
+    z-index: 12;
+  }
+  #myHat img{
+    z-index: 11;
+  }
+  #myCloth img{
+    z-index: 11;
+  }
+  /*保存按鈕*/
+  #btnSaveChageCloth{
+    position: absolute;
+    bottom: 1vh;
+    z-index: 8;
+    width: 21vw;
+    height: 5vh;
+    margin: 0 1vw;
+    padding-bottom: 3vh;
+  }
+  #btnSaveChageCloth .btnSave{
+    position: absolute;
+    top: 0%;
+    left: 35%;
+    width: 6vw;
+    height: 4vh;
+    display: block;
+    border-radius: 15px;
+    background-color: rgba(171, 130,119,1);
+    box-shadow: 0 1vh rgba(138,104,95,1);
+    color: #fff;
+    cursor:pointer;
+    text-align: center;
+    line-height: 4vh;
+    margin: 1.5vh auto 0vh;
+    text-decoration: none;
+    font-size: 2vh;
+  }
+  #keepSaveClothes{
+    position: absolute;
+    top: 38%;
+    left: -88%;
+    width: 272px;
+    height: 157px;
+    z-index: 30;
+    background-color: rgba(255,255,255,0.5);
+    color: #333;
+    text-align: center;
+    font-size: 3vh;
+    border-radius: 15px;
+  }
+  #btnkeepSaveClose{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 123px;
+    height: 59px;
+    cursor:pointer;
+    text-align: center;
+    line-height: 59px;
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    z-index: 30;
+    background-color: #E15974;
+    box-shadow: 0 1vh #C64D6A;
+    border-radius: 30px;
+  }
+  /*X關閉衣櫃的按鈕*/
+  #btnClosetCancel{
+    background-color: rgba(115,99,87,1);
+    box-shadow: 0px 5px rgba(72,61,53,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+  }
+  #btnClosetCancel img{
+    position: absolute;
+    top: 25%;
+    left: 19%;
+    width: 55%;
+  }
+  /*包住自己現在長什麼樣子的div*/
+  #meNow{
+    width: 20vw;
+    position: absolute;
+    top: 28%;
+    left: 47%;
+    z-index: 2;
+  }
+  #meNow img{
+    filter: drop-shadow(-4px 9px 9px rgba(0, 0, 0, 0.1));
+    width: 100%;
+  }
+  /*包住整個電腦桌開關的div*/
+  #wrapComputer{
+    width: 100%;
+    height: 100vh;
+  }
+  #computer{
+    display: block;
+    width: 23vw;
+    position: absolute;
+    top: 38%;
+    right: 0%;
+    z-index: 2;
+    cursor:pointer;
+  }
+  .deskOff{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: block;
+    width: 100%;
+    opacity: 1;
+  }
+
+  .deskOn{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: block;
+    width: 100%;
+    opacity: 0;
+  }
+  #computer:hover .deskOff{
+    display: block;
+    width: 100%;
+    opacity: 0;
+  }
+  #computer:hover .deskOn{
+    display: block;
+    width: 100%;
+    opacity: 1;
+  }
+  .bubble{
+    opacity: 1;
+    display: block;
+    position: absolute;
+    width: 6%;
+    z-index: 2;
+  }
+  .bubble1{animation: bubblepop 3s infinite; top:27%; right:16%;}
+  .bubble2{animation: bubblepop2 6s infinite; top:31%; right:2%;}
+  .bubble3{animation: bubblepop 5s infinite; top:22%; right:7%;}
+  .bubble4{animation: bubblepop2 6s infinite; top:34%; right:11%;}
+  @-webkit-keyframes bubblepop{
+    0%{transform: scaleX(-1);translate(-50px, 0);opacity: 1;rotate(0deg);}
+    50%{transform: scaleX(-1);translate(0, -30px);opacity: 1;rotate(90deg);}
+    100%{transform: scaleX(-1);translate(80px, 0);opacity: 0;rotate(-110deg);}
+  }
+  @-webkit-keyframes bubblepop2{
+    0%{transform: scaleX(-1);translate(0, 50px);opacity: 0;rotate(-60deg);}
+    50%{transform: scaleX(1);translate(30px, 80px);opacity: 1;rotate(30deg);}
+    100%{transform: scaleX(-1);translate(-30px, -30px);opacity: 0;rotate(-90deg);}
+  }
+  #profileLightBox{
+    position: absolute;
+    top: 20%;
+    right: 19%;
+    width: 60vw;
+    height: 69vh;
+    z-index: 3;
+    border-radius: 15px;
+    border: 2px solid rgba(229,226,221,1);
+    background-color: rgba(85,84,80,1);
+  }
+  #profileLightBox:after{
+    display: block;
+    content: '';
+    clear:both;
+  }
+  #myLook{
+    width: 23vw;
+    height: 69vh;
+    float: left;
+  }
+  #mylookBG{
+    position: relative;
+    background-color: rgba(162,152,143,1);
+    border-radius: 15px;
+    width: 21vw;
+    height: 60vh;
+    margin: 2vh 1vw;
+    overflow-y: hidden;
+  }
+  #mylookBG img{
+    width: 95%;
+    position: absolute;
+    top: 0%;
+    left: 3%;
+  }
+  #myProfile{
+    width: 37vw;
+    height: 69vh;
+    float: right;
+    color: #fff;
+  }
+  #myProfile table{
+    width: 33vw;
+    line-height: 8vh;
+    margin: auto;
+  }
+  #myProfile h3{
+    margin: 3vh auto;
+    text-align: center;
+  }
+  #myProfile tr{
+
+  }
+  #myProfile th{
+    width: 32%;
+  }
+  #myProfile td{
+    
+  }
+  /*X關閉個人資訊的按鈕*/
+  #closeProfile{
+    background-color: rgba(162,152,143,1);
+    box-shadow: 0px 5px rgba(68,68,64,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+  }
+  #closeProfile img{
+    position: absolute;
+    top: 25%;
+    left: 19%;
+    width: 55%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*RWD手機版--------------------------------------------------*/
+
+@media screen and (max-width: 476px){
+  #myRoom {
+    height: 132vh;
+    overflow-y: scroll;
+    position: relative;
+  }
+  #myRoom .wheel{
+    width: 18%;
+    top: 14%;
+    left: 24%;
+    z-index: 1;
+  }
+  #myRoom .roomBG{display: none;}
+  #myRoom .RWDroomBG{
+    display: block;
+    width: 38%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+  }
+  /*包住整個衣櫃開關的div*/
+  #wardrobe{
+    width: 12%;
+    top: 22%;
+  }
+  #wardrobe .Close{
+    opacity: 1;
+  }
+  #wardrobe .Open{
+    opacity: 0;
+  }
+  #wardrobe:hover{
+    width: 12%;
+    cursor:pointer;
+  }
+  #wardrobe:hover .Close{
+    width: 100%;
+    opacity: 1;
+  }
+  #wardrobe:hover .Open{
+    display: none;
+  }
+
+  /*-----------衣櫃燈箱-------------------*/
+  #wardrobeLightBox{
+    position: relative;
+    top: 20%;
+    left: 10%;
+    width: 71vw;
+    height: 69vh;
+    z-index: 3;
+  }
+  #closet{
+    width: 93vw;
+    height: 69vh;
+    position: absolute;
+    top: 102%;
+    left: -32%;
+  }
+  .clothCloset{
+    width: 100%;
+    height: 69vh;
+    border: 2px solid rgba(171, 130,119,0);
+    border-radius: 15px;
+    background-color: rgba(85,84,80,.8);
+    float: left;
+  }
+  .self{
+    width: 97%;
+    border: 2px solid rgba(171, 130,119,1);
+    border-radius: 15px;
+    background-color: rgba(115,99,87,0);    
+  }
+  #clothesSelf{
+    width: 87vw;
+    height: 36vh;
+    margin: 2vh 2vw 1vh;
+    position: relative;
+  }
+  #clothesSelf:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    top: 16%;
+    left: 0;
+    background-color: rgba(171, 130,119,1);
+  }
+  #selfSlide {
+    display: block;
+    width: 81vw;
+    height: 28vh;
+    position: absolute;
+    top: 14%;
+    left: 3%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    cursor: pointer;
+  }
+  .myClothes {
+    display: table;
+    white-space: nowrap;
+    height: 30%;
+    position: relative;
+  } 
+  .myClothes li {
+    display: table-cell;
+    position: relative;
+    padding: 0 1vw;
+    height: 26vh;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .myClothes li:hover{
+    transform: scale(1.1);
+  }
+  .myClothes img{
+    display: block;
+    height: 26vh;
+  }
+  #hatsSelf{
+    width: 87vw;
+    height: 18vh;
+    margin: 0 2vw;
+    position: relative;
+  }
+  #hatsSelf:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 6vh;
+    border-radius: 15px;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background-color: rgba(171, 130,119,1);
+  }
+  #hatselfSlide{
+    display: block;
+    width: 81vw;
+    height: 14vh;
+    position: absolute;
+    top: 14%;
+    left: 3%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    cursor: pointer;
+  }
+  .myhats {
+    display: table;
+    white-space: nowrap;
+    position: relative;
+  } 
+  .myhats li{
+    display: table-cell;
+    position: relative;
+    padding: 0px 1vw;
+    height: 9vh;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .myhats li:hover{
+    transform: scale(1.1);
+  }
+  .myhats img{
+    display: block;
+    height: 9vh;
+  }
+  #btnGotoShopSelf{
+    position: absolute;
+    bottom: 1vh;
+    z-index: 8;
+    width: 88vw;
+    height: 6vh;
+    margin: 0 2vw;
+    padding-bottom: 2vh;
+  }
+  .roomBtn{
+    position: absolute;
+    top: 0%;
+    left: 34%;
+    width: 27vw;
+    height: 4vh;
+    display: block;
+    border-radius: 15px;
+    background-color: rgba(171, 130,119,1);
+    box-shadow: 0 1vh rgba(138,104,95,1);
+    color: #fff;
+    cursor:pointer;
+    text-align: center;
+    line-height: 4vh;
+    margin: 1.5vh auto 0vh;
+    text-decoration: none;
+    font-size: 2vh;
+  }
+  .roomBtn:hover{
+    display: none;
+  }
+
+  .fittingBox{
+    border: 2px solid rgba(171, 130,119,0);
+    background-color: rgba(85,84,80,.8);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 93vw;
+    height: 70vh;
+  }
+  #fittingRoom{
+    height: 56vh;
+    margin: 2vh 5vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  #myRole{
+    position: absolute;
+  }
+  #myRole img{
+    position: absolute;
+    display: block;
+    height: 56vh;
+  }
+  #mybody img{
+    z-index: 9;
+  }
+  #myface img{
+    z-index: 12;
+  }
+  #myHat img{
+    z-index: 11;
+  }
+  #myCloth img{
+    z-index: 11;
+  }
+  /*保存按鈕*/
+  #btnSaveChageCloth{
+    position: absolute;
+    bottom: 1vh;
+    z-index: 8;
+    width: 90vw;
+    height: 5vh;
+    margin: 0 1vw;
+    padding-bottom: 3vh;
+  }
+  #btnSaveChageCloth .btnSave{
+    position: absolute;
+    top: 0%;
+    left: 35%;
+    width: 27vw;
+    height: 4vh;
+    display: block;
+    border-radius: 15px;
+    background-color: rgba(171, 130,119,1);
+    box-shadow: 0 1vh rgba(138,104,95,1);
+    color: #fff;
+    cursor:pointer;
+    text-align: center;
+    line-height: 4vh;
+    margin: 1.5vh auto 0vh;
+    text-decoration: none;
+    font-size: 2vh;
+  }
+  #keepSaveClothes{
+    position: absolute;
+    top: 47%;
+    left: 14%;
+    width: 272px;
+    height: 157px;
+    z-index: 11;
+    background-color: rgba(255,255,255,0.5);
+    color: #333;
+    text-align: center;
+    font-size: 3vh;
+    border-radius: 15px;
+  }
+  #btnkeepSaveClose{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 123px;
+    height: 59px;
+    cursor:pointer;
+    text-align: center;
+    line-height: 59px;
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    z-index: 30;
+    background-color: #E15974;
+    box-shadow: 0 1vh #C64D6A;
+    border-radius: 30px;
+  }
+  /*X關閉衣櫃的按鈕*/
+  #btnClosetCancel{
+    background-color: rgba(115,99,87,1);
+    box-shadow: 0px 5px rgba(72,61,53,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+  }
+  #btnClosetCancel img{
+    position: absolute;
+    top: 25%;
+    left: 19%;
+    width: 55%;
+  }
+  #meNow{
+    width: 61vw;
+    top: 35%;
+    left: 5%;
+  }
+  #computer{
+    width: 40vw;
+    top: 26%;
+    right: 63%;
+  }
+  .deskOff{opacity: 0;}
+  .deskOn{opacity: 1;}
+  .bubble{
+    width: 5%;
+    /*top: 26%;
+    left: 26%;*/
+    z-index: 30;
+  }
+  .bubble1{top:27%; right:16%;}
+  .bubble2{top:31%; right:2%;}
+  .bubble3{top:22%; right:7%;}
+  .bubble4{top:34%; right:11%;}
+  #profileLightBox{
+    position: absolute;
+    top: 11%;
+    right: 63%;
+    width: 93vw;
+    height: 82vh;
+    z-index: 3;
+    border-radius: 15px;
+    border: 2px solid rgba(229,226,221,.5);
+    background-color: rgba(85,84,80,.8);
+  }
+  #profileLightBox:after{
+    display: block;
+    content: '';
+    clear:both;
+  }
+  #myLook{display: none;}
+  #myProfile{
+    position: absolute;
+    top: 9%;
+    left: 4%;
+    width: 37vw;
+    height: 69vh;
+    float: right;
+    color: #fff;
+  }
+  #myProfile table{
+    width: 84vw;
+    line-height: 10vh;
+    margin: auto;
+  }
+  #myProfile h3{
+    margin: 3vh auto;
+    text-align: center;
+  }
+  #myProfile tr{
+
+  }
+  #myProfile th{
+    width: 32%;
+  }
+  #myProfile td{
+    
+  }
+  /*X關閉個人資訊的按鈕*/
+  #closeProfile{
+    background-color: rgba(162,152,143,1);
+    box-shadow: 0px 5px rgba(68,68,64,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+  }
+  #closeProfile img{
+    position: absolute;
+    top: 25%;
+    left: 19%;
+    width: 55%;
+  }
+
+
+
+
+}

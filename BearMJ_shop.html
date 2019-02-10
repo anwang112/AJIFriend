@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BearMJ_Shop</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="css/lien.css"> -->
+    <link rel="stylesheet" href="css/shop-style.css">
+	<link rel="stylesheet" type="text/css" href="slick/slick.css">
+  	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+      <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/friendBox.js"></script>
+    <script src="js/changeClothes.js"></script>
+    <script src="js/commonPart.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+        <script type="text/javascript">
+            head_html();
+        </script>
+    <div id="shop_background" class="background">
+        
+        <div id="chooseId">
+            <div id="chooseArea">
+                <!-- 自己穿 -->
+                <div id="choose-me" class="btn_chooseModel"> 
+                    <img src="shop-images/gift.png">
+                    <p>自己穿</p>
+                </div>
+        
+                <!-- 試穿角色暱稱顯示區塊 -->
+                <span id="showId">寂寞阿吉</span>
+        
+                <!-- 選朋友來試穿(送禮) -->
+                <div id="choose-friend" class="btn_chooseModel gift" >
+                    <img src="shop-images/gift.png" class="gift">
+                    <p class="gift">選朋友</p>
+                </div>
+
+                <!-- 選擇送禮對象燈箱<<動態新增>> friendBox.js -->
+
+
+            </div>
+            
+            <!-- 試穿預視 -->
+            <div id="showModel">
+                <img src="shop-images/model_1.png" id="model_animal">
+                <img src="shop-images/hat_1.png" id="model_hat">
+                <!-- <img src="" id="model_clothes"> -->
+                
+            </div>
+            <!-- 餘額顯示 -->
+            <div id="rwd_showCoin">
+                <img src="shop-images/coin.png">
+                <span>30</span>
+            </div>
+            <!-- 前往購物車 -->
+            <div id="rwd_showCart">
+                <a href="BearMJ_cart.html">
+                    <img src="shop-images/cart_pink.png">
+                    <p>查看</p>
+                </a>
+            </div>
+    
+        </div>
+
+        <div id="productBlock">
+            <!-- 種類選擇Tab -->
+            <div class="tab-chooseCloth">頭飾</div>
+            <div class="tab-chooseCloth">衣服</div>
+            
+            <!-- 商品選擇 -->
+            <div id="productsArea">
+                <!-- 餘額顯示 -->
+                <div id="showCoin">
+                    <img src="shop-images/coin.png">
+                    <p>30</p>
+                </div>
+                <!-- 前往購物車 -->
+                <div id="showCart">
+                    <a href="BearMJ_cart.html">
+                        <img src="shop-images/cart_pink.png">
+                        <p>查看</p>
+                    </a>
+                </div>
+                
+                
+                <!-- 商品區 -->
+                <div id="productsShow">
+                    <section class="regular slider">
+                        <!-- 商品項 -->
+                        <div class="productItem">
+                            <!-- 商品圖 -->
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_1.png" id="hat_1">
+                                
+                                
+
+
+                            </div>
+                            <div class="productInfo">
+                                <!-- 商品名稱 -->
+                                <h3>武士頭盔</h3>
+                                <!-- 魅力值 -->
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>150</span>
+                                </div>
+                                <!-- 價格 -->
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>250</span>
+                                </div>
+                                <!-- 加入購物車 -->
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_2.png" id="hat_2">
+                            </div>
+                            <div class="productInfo">
+                                <h3>死神頭套</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>100</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_3.png" id="hat_3">
+                            </div>
+                            <div class="productInfo">
+                                <h3>梅拉頭飾</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>3000</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>3000</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/products_04.png" id="hat_1">
+                            </div>
+                            <div class="productInfo">
+                                <h3>鐮刀死神</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>50</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="productItem">
+                            <!-- 商品圖 -->
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_3.png" id="hat_3">
+                            </div>
+                            <!-- 商品相關資訊:名稱、魅力值、價格 -->
+                            <div class="productInfo">
+                                <!-- 商品名稱 -->
+                                <h3>鐮刀死神</h3>
+                                <!-- 魅力值 -->
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>50</span>
+                                </div>
+                                <!-- 價格 -->
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <!-- 加入購物車 -->
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_2.png" id="hat_2">
+                            </div>
+                            <div class="productInfo">
+                                <h3>鐮刀死神</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>50</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_1.png" id="hat_1">
+                            </div>
+                            <div class="productInfo">
+                                <h3>鐮刀死神</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>50</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="productItem">
+                            <div class="productImg">
+                                <img class="click_wear" src="shop-images/pro-hat_3.png" id="hat_3">
+                            </div>
+                            <div class="productInfo">
+                                <h3>鐮刀死神</h3>
+                                <div class="MJ">
+                                    <span>Maji值+</span>
+                                    <span>50</span>
+                                </div>
+                                <div class="cost">
+                                    <img src="shop-images/coin.png"><span>30</span>
+                                </div>
+                                <div class="btn_addToCart">
+                                    <img src="shop-images/cart.png">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+		foot_html();
+	</script>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+  $(document).on('ready', function() {
+      if(innerWidth<768){
+          $(".regular").slick({
+              dots: false,
+              infinite: true,
+              slidesToShow: 3,
+              slidesToScroll: 2
+
+          });
+      }else if(innerWidth<1300){
+          $(".regular").slick({
+              dots: true,
+              infinite: true,
+              slidesToShow: 4,
+              slidesToScroll: 3
+
+          });
+      }else{
+          $(".regular").slick({
+              dots: true,
+              infinite: true,
+              slidesToShow: 5,
+              slidesToScroll: 3
+
+          });
+      }
+      
+
+  });
+</script>
+<script>
+    
+    function $id(id){
+        return document.getElementById(id);
+    }
+    window.addEventListener("load",function(){
+        if(innerWidth<768){
+            $id("shop_background").style.height =window.screen.height +"px";
+        }else{ 
+            $id("shop_background").style.height =window.innerHeight +"px";
+        }
+            $id("productBlock").style.width = window.innerWidth +"px";
+
+    });
+    
+    console.log(document.body.clientHeight);
+    console.log(window.screen.availWidth);
+
+    function init(){
+        var choose = document.getElementsByClassName("gift");
+        for(var i = 0 ; i < choose.length ; i++){
+            choose[i].addEventListener("click",showfriendBox);
+        }
+        if(innerWidth<768){
+            productItem = document.getElementsByClassName("productItem");
+            for (var i = 0; i<productItem.length; i++) {
+                //productItem[i].addEventListener("click",showLightBox);
+            }
+        }
+
+        productImg = document.getElementsByClassName("click_wear");
+        for (var i = 0 ; i< productImg.length; i++){
+            productImg[i].addEventListener("click",changeClothes);
+            if(innerWidth<768){
+                productImg[i].addEventListener("click",showInfo);
+            }
+        }
+        $id("choose-me").addEventListener("click",function(){
+            $id("model_animal").src = "shop-images/model_1.png";
+            $id("model_hat").src = "shop-images/hat_1.png";
+            // $id("model_clothes").src = "";
+            $id("showId").innerText = "寂寞阿吉";
+            TweenMax.fromTo('#showModel', 1.5, {
+                scale: 0,
+            }, {
+                scale: 1,
+            });
+        });
+
+        
+        TweenMax.fromTo('#showModel', 1.5, {
+                scale: 0,
+            }, {
+                scale: 1,
+            });
+        
+        
+        
+    }
+
+    window.addEventListener("load",init,false);
+
+</script>
