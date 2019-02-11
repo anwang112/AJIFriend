@@ -12,17 +12,20 @@ function changeModel(e){
     $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
     closeFriendBox();
     TweenMax.fromTo('#showModel', 1.5, {
-        scale: 0,
-    }, {
-        scale: 1,
-    });
+        y:-45,
+        scale: .5,
+        }, {
+            y:0,
+            scale: 1,
+            ease: Power2.easeIn
+        });
 }
 
 function closeFriendBox(){
     // console.log(e.target.parentNode.parentNode);
     var close = document.getElementById("friendBoxClose");
     shop_background = document.getElementById("shop_background");
-    $id("chooseArea").removeChild(close.parentNode.parentNode);
+    $id("chooseId").removeChild(close.parentNode.parentNode);
     var choose = document.getElementsByClassName("gift");
     for(var i = 0 ; i < choose.length ; i++){
         choose[i].addEventListener("click",showfriendBox);
@@ -99,7 +102,7 @@ function showfriendBox(e){
     div_friendBox.appendChild(div_content);
 
     //將div_friendBox塞進chooseArea
-    $id("chooseArea").appendChild(div_friendBox);
+    $id("chooseId").appendChild(div_friendBox);
 
     $id("btn_friendBoxClose").onclick = closeFriendBox;
     // 暫時關閉送禮給朋友按鈕功能
