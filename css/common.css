@@ -301,21 +301,12 @@ html {
 
 .chatboxRight {
   margin-top: 10px;
-<<<<<<< HEAD
   margin-left: 35px;
   width: 360px;
   height: 295px;
-=======
-<<<<<<< HEAD
-  margin-left: 35px;
-  width: 360px;
-  height: 295px;
-=======
   margin-left: 12%;
   width: 80%;
   height: 265px;
->>>>>>> f840ac757eab55a8b8160c0d9f09a48f4c37190a
->>>>>>> c75aba6cc09de6006610b15ae4a40c24766fb17e
   overflow-y: hidden;
   background-color: #e5e5e5;
   border-radius: 15px; }
