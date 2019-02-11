@@ -24,6 +24,29 @@
     <div id="shop_background" class="background">
         
         <div id="chooseId">
+            
+            <!-- 試穿預視 -->
+            <div id="showModel">
+                <img src="shop-images/model_1.png" id="model_animal">
+                <img src="shop-images/hat_1.png" id="model_hat">
+                <!-- <img src="" id="model_clothes"> -->
+                
+            </div>
+
+            <!-- 前往購物車 -->
+            <div id="rwd_showCart">
+                <a href="BearMJ_cart.html">
+                    <img src="shop-images/cart_pink.png">
+                    <p>查看</p>
+                </a>
+            </div>
+
+            <!-- 餘額顯示 -->
+            <div id="rwd_showCoin">
+                <img src="shop-images/coin.png">
+                <span>30</span>
+            </div>
+
             <div id="chooseArea">
                 <!-- 自己穿 -->
                 <div id="choose-me" class="btn_chooseModel"> 
@@ -40,30 +63,11 @@
                     <p class="gift">選朋友</p>
                 </div>
 
-                <!-- 選擇送禮對象燈箱<<動態新增>> friendBox.js -->
 
 
             </div>
             
-            <!-- 試穿預視 -->
-            <div id="showModel">
-                <img src="shop-images/model_1.png" id="model_animal">
-                <img src="shop-images/hat_1.png" id="model_hat">
-                <!-- <img src="" id="model_clothes"> -->
-                
-            </div>
-            <!-- 餘額顯示 -->
-            <div id="rwd_showCoin">
-                <img src="shop-images/coin.png">
-                <span>30</span>
-            </div>
-            <!-- 前往購物車 -->
-            <div id="rwd_showCart">
-                <a href="BearMJ_cart.html">
-                    <img src="shop-images/cart_pink.png">
-                    <p>查看</p>
-                </a>
-            </div>
+            <!-- 選擇送禮對象燈箱<<動態新增>> friendBox.js -->
     
         </div>
 
@@ -106,7 +110,7 @@
                                 <h3>武士頭盔</h3>
                                 <!-- 魅力值 -->
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>150</span>
                                 </div>
                                 <!-- 價格 -->
@@ -128,7 +132,7 @@
                             <div class="productInfo">
                                 <h3>死神頭套</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>100</span>
                                 </div>
                                 <div class="cost">
@@ -147,7 +151,7 @@
                             <div class="productInfo">
                                 <h3>梅拉頭飾</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>3000</span>
                                 </div>
                                 <div class="cost">
@@ -166,7 +170,7 @@
                             <div class="productInfo">
                                 <h3>鐮刀死神</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>50</span>
                                 </div>
                                 <div class="cost">
@@ -188,7 +192,7 @@
                                 <h3>鐮刀死神</h3>
                                 <!-- 魅力值 -->
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>50</span>
                                 </div>
                                 <!-- 價格 -->
@@ -210,7 +214,7 @@
                             <div class="productInfo">
                                 <h3>鐮刀死神</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>50</span>
                                 </div>
                                 <div class="cost">
@@ -229,7 +233,7 @@
                             <div class="productInfo">
                                 <h3>鐮刀死神</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>50</span>
                                 </div>
                                 <div class="cost">
@@ -248,7 +252,7 @@
                             <div class="productInfo">
                                 <h3>鐮刀死神</h3>
                                 <div class="MJ">
-                                    <span>Maji值+</span>
+                                    <span>MJ值+</span>
                                     <span>50</span>
                                 </div>
                                 <div class="cost">
@@ -316,7 +320,18 @@
         }else{ 
             $id("shop_background").style.height =window.innerHeight +"px";
         }
+        
+        $id("productBlock").style.width = window.innerWidth +"px";
+        
+        $(window).resize(function() {
+            if(innerWidth<768){
+                $id("shop_background").style.height =window.screen.height +"px";
+            }else{ 
+                $id("shop_background").style.height =window.innerHeight +"px";
+            }
             $id("productBlock").style.width = window.innerWidth +"px";
+
+    });
 
     });
     
@@ -348,17 +363,24 @@
             // $id("model_clothes").src = "";
             $id("showId").innerText = "寂寞阿吉";
             TweenMax.fromTo('#showModel', 1.5, {
-                scale: 0,
+                y:-45,
+                scale: .5,
             }, {
+                y:0,
                 scale: 1,
+                ease: Power2.easeIn
             });
         });
 
         
+        
         TweenMax.fromTo('#showModel', 1.5, {
-                scale: 0,
+            y:-45,
+            scale: .5,
             }, {
+                y:0,
                 scale: 1,
+                ease: Power2.easeIn
             });
         
         
