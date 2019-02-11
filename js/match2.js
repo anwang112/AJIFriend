@@ -6,6 +6,12 @@ $('.matchNext').click(function(){
     })
 });
 
+$('.rankNavBtn').click(function(){
+    $('.rankNavBtn').not(this).removeClass('achive');
+    $(this).addClass('achive');
+});
+
+
 //match功能操作_按鈕_家朋友
     var btn_beFriend =document.getElementById('btn_beFriend');
     btn_beFriend.addEventListener('click',function(e){

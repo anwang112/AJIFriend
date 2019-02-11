@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>找麻吉</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/match2.css">
+    <link rel="stylesheet" href="css/common.css">
     <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-
 </head>
 
 <body>
@@ -22,10 +21,12 @@
         <div id="effectbox" class="effectbox"></div>
         <div class="matchContent">
             <div class="carousel">
-                <img src="images/matchHorse.svg" alt="">
+                <h1>轉轉找麻吉</h1>
+                <img src="images/matchBoard.svg" class="board">
+                <img src="images/matchHorse.svg">
                 <div class="matchMem">
                     <img src="images/matchBack.svg" class="back">
-                    <img src="images/match01.svg " alt="">
+                    <img src="images/match01.svg ">
 
                 </div>
                 <div class="profileInfo">
@@ -54,29 +55,94 @@
 
                 </div>
                 <div class="selectBtn">
-                    <div class="matchBtn">挑星座</div>
-                    <div class="matchBtn">挑興趣</div>
+                    <select>
+                        <option value="select">挑星座</option>
+                        <option value="">牡羊座</option>
+                        <option value="">金牛座</option>
+                        <option value="">雙子座</option>
+                        <option value="">巨蟹座</option>
+                        <option value="">雙子座</option>
+                        <option value="">獅子座</option>
+                        <option value="">處女座</option>
+                        <option value="">天秤座</option>
+                        <option value="">天蠍座</option>
+                        <option value="">射手座</option>
+                        <option value="">摩羯座</option>
+                        <option value="">水瓶座</option>
+                        <option value="">雙魚座</option>
+                    </select>
+                    <select>
+                        <option value="select">挑興趣</option>
+                        <option value="">打籃球</option>
+                        <option value="">打電動</option>
+                        <option value="">游泳</option>
+                        <option value="">看電影</option>
+                        <option value="">唱歌</option>
+                        <option value="">玩音樂</option>
+                        <option value="">爬山</option>
+                        <option value="">騎單車</option>
+                    </select>
+                    <input type="button" value="送出">
                 </div>
-                <div class="star">
-                    <ul>
-                        <li>牡羊座</li>
-                        <li>金牛座</li>
-                        <li>雙子座</li>
-                        <li>巨蟹座</li>
-                        <li>獅子座</li>
-                        <li>處女座</li>
-                        <li>天秤座</li>
-                        <li>天蠍座</li>
-                        <li>射手座</li>
-                        <li>摩羯座</li>
-                        <li>水瓶座</li>
-                        <li>雙魚座</li>
-                    </ul>
-                </div>
+
 
 
             </div>
 
+        </div>
+        <div class="majiRank">
+            <div class="rankTitle">
+                <h2>麻吉名人榜</h2>
+            </div>
+            <div class="rankNav">
+                <input type="text" placeholder="搜尋麻吉ID">
+                <input type="button" value="搜尋" class="search">
+                <button class="achive rankNavBtn friendBtn">人氣王</button>
+                <button class="rankNavBtn moneyBtn">大富翁</button>
+                <button class="rankNavBtn mjTopBtn">萬人迷</button>
+            </div>
+            <div class="rankContent">
+                <div class="rankItem rank2">
+                    <img src="images/rank2.svg" class="rankRole">
+                    <div class="rankProfile">
+                            <div class="rankTxt">
+                        <h3>LV.3 XXX</h3>
+                        <span>魅力值：300</span><br>
+                        <span>金幣：1400</span><br>
+                        <span>好友數：207</span><br>
+                        <button class="rankBtn">查看個人頁面</button><br>
+                        <button class="rankBtn">加為朋友</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rankItem rank1">
+                    <img src="images/rank1.svg" class="rankRole">
+                    <div class="rankProfile rank1pro">
+                            <div class="rankTxt">
+                            <h3>LV.3 XXX</h3>
+                            <span>魅力值：300</span><br>
+                            <span>金幣：1400</span><br>
+                            <span>好友數：207</span><br>
+                            <button class="rankBtn">查看個人頁面</button><br>
+                            <button class="rankBtn">加為朋友</button>
+                        </div>
+                        </div>
+
+                </div>
+                <div class="rankItem rank3">
+                    <img src="images/rank3.svg" class="rankRole">
+                    <div class="rankProfile">
+                            <div class="rankTxt">
+                            <h3>LV.3 XXX</h3>
+                            <span>魅力值：300</span><br>
+                            <span>金幣：1400</span><br>
+                            <span>好友數：207</span><br>
+                            <button class="rankBtn">查看個人頁面</button><br>
+                            <button class="rankBtn">加為朋友</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
         </div>
 
 

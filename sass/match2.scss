@@ -1,9 +1,10 @@
 @import 'var';
 
 .wrap {
+    padding-top: 200px;
     margin: auto;
     width: 100%;
-    height: 200vh;
+    padding-bottom: 100px;
     overflow-y: hidden;
     background-image: url("../images/matchBg.svg");
     background-size: cover;
@@ -45,7 +46,16 @@
         perspective: 800px;
         margin: auto;
         text-align: center;
-        
+
+        h1 {
+            position: absolute;
+            font-size: 40px;
+            left: -110px;
+            top: 190px;
+            z-index: 1;
+            color: #EB616D;
+            text-shadow: 2px 2px #333;
+        }
 
         .matchMem {
             width: 100%;
@@ -67,6 +77,13 @@
             }
         }
 
+        .board {
+            position: absolute;
+            width: 40%;
+            left: -200px;
+            top: 50px;
+        }
+
         img {
             width: 80%;
             position: relative;
@@ -77,39 +94,192 @@
     .profileInfo {
         color: #F05B79;
         position: absolute;
-        top: 36%;
-        left: 650px;
-        width: 200px;
+        top: 33%;
+        right: -200px;
+        width: 230px;
         background-color: #EEF2EF;
         border: 10px solid #FBC5CF;
         border-radius: 30px;
         line-height: 2;
         text-align: center;
         padding: 20px;
-        .matchMJ{
+
+        .matchMJ {
             font-size: 5vmin;
         }
-        button{
-            color: #EEF2EF;
-            @include btn_standard (100px,$darkPink,$shadowPink);
+
+        button {
+            @include btn_standard (100px, $darkPink, $shadowPink);
         }
     }
-    .selectBtn{
+
+    .selectBtn {
         position: relative;
-        top: -200px;
+        top: -230px;
         left: -100px;
-        width: 200px;
         display: flex;
-        .matchBtn{
-            cursor: pointer;
+        flex-flow: column;
+
+        select {
+            border: 3px solid #FBC5CF;
+            background: #EEF2EF;
             width: 100px;
-            height: 100px;
-            color: #EEF2EF;
-            background-image: url(../images/matcBtn.svg);
+            padding: 3px 10px;
+            margin: 5px;
+            font-size: 16px;
+            line-height: 1;
+            border-radius: 10px;
+            height: 30px;
+            color: #EB616D;
+
+        }
+
+        input {
+            margin: 5px;
+            @include btn_standard (100px, $darkPink, $shadowPink);
+        }
+    }
+}
+
+.majiRank {
+    width: 70%;
+    background-color: rgb(233, 229, 229);
+    box-shadow: 2px 2px 5px #ccc;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+
+    .rankTitle {
+        position: relative;
+        top: -100px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 400px;
+        height: 150px;
+        background-image: url(../images/rankTitle.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        h2 {
+            font-size: 25px;
+            text-align: center;
+            line-height: 7.3;
+            color: rgb(116, 106, 89);
+        }
+    }
+
+    .rankNav {
+        text-align: center;
+        margin-top: -50px;
+        padding-bottom: 50px;
+    }
+
+    input,
+    button {
+        height: 24px;
+        margin: 0;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        vertical-align: middle;
+    }
+    .rankNavBtn{
+        position: relative;
+        &::before {
+            content: '好友最多';
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            top: -35px;
+            left: 20px;
+            border-radius: 10px;
+            border: 1px solid #EB616D;
+        }
+    }
+        .moneyBtn{
+            &::before {
+                content: '金幣最多';
+            }
+        }
+        .mjTopBtn{
+            &::before {
+                content: 'MJ值最高';
+            }
+        }
+    
+    .search {
+        background-color: #FBC5CF;
+        margin-right: 50px;
+        width: 50px;
+        color: #F05B79;
+        border: none;
+
+    }
+
+    button {
+        cursor: pointer;
+        width: 100px;
+        background-color: #EEF2EF;
+        color: #F05B79;
+        font-size: 15px;
+        border: none;
+    }
+
+    .achive {
+        background-color: #FBC5CF;
+    }
+}
+
+.rankContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+
+    .rankBtn {
+        margin: 5px;
+        @include btn_standard (100px, $darkPink, $shadowPink);
+    }
+
+    .rankItem {
+        width: 30%;
+        text-align: center;
+
+        img {
+            width: 50%;
+            position: relative;
+        }
+
+        .rankProfile {
+            position: relative;
+            top: -40px;
+            background-image: url(../images/rank1stage.svg);
             background-repeat: no-repeat;
-            background-position: center center;
-            line-height: 7.5;
-           
+            background-size: contain;
+            background-position: center;
+            .rankTxt{
+                margin-left: -50px;
+                padding: 70px 0 30px 0;
+            font-size: 18px;
+            line-height: 1.5;
+            color: rgb(116, 106, 89);
+            }
+        }
+
+        .rank1pro {
+            top: -30px;
+            left: -10px;
+        }
+
+        .rankRole {
+            z-index: 1;
+        }
+    }
+
+    .rank1 {
+        img {
+            width: 70%;
         }
     }
 }
