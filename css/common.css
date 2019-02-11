@@ -161,16 +161,20 @@ html {
       box-shadow: 0px 0px 0px transparent; } }
 
 .head {
+  margin: auto;
+  max-width: 1200px;
   width: 100%;
-  height: 170px;
-  background-image: url("../pic/head-down.svg2.svg");
-  background-size: contain;
-  background-position: 0 0;
+  height: 120px;
+  background-image: url("../images/header.svg");
+  background-size: cover;
+  background-position: center bottom;
   background-repeat: no-repeat;
   transition: 2s;
   position: fixed;
   z-index: 100;
-  top: 0; }
+  top: 0;
+  left: 0;
+right: 0; }
 
 #logo {
   width: 15%;
@@ -182,15 +186,15 @@ html {
 .menu {
   width: 650px;
   position: absolute;
-  top: 20%;
-  left: 30%; }
+  top: 25px;
+  left: 250px; }
 
 .menu > li {
   display: inline-block;
   margin-left: 7%; }
 
 .menu > li > a {
-  font-size: .8rem;
+  font-size: 18px;
   color: #f05c79;
   padding: 4px 6px;
   font-weight: bold; }
@@ -302,21 +306,16 @@ html {
 
 .chatboxRight {
   margin-top: 10px;
-<<<<<<< HEAD
+
   margin-left: 35px;
   width: 360px;
   height: 295px;
-=======
-<<<<<<< HEAD
   margin-left: 35px;
   width: 360px;
   height: 295px;
-=======
   margin-left: 12%;
   width: 80%;
   height: 265px;
->>>>>>> f840ac757eab55a8b8160c0d9f09a48f4c37190a
->>>>>>> c75aba6cc09de6006610b15ae4a40c24766fb17e
   overflow-y: hidden;
   background-color: #e5e5e5;
   border-radius: 15px; }

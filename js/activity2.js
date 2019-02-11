@@ -29,9 +29,6 @@ window.addEventListener('load',function(){
     //     tab_allAct.style.cssText='color:#fff;border-bottom:1px solid #fff';
     // }
 
-<<<<<<< HEAD
-},false);
-=======
     //#btn_actL btn_actR
     var btn_actL = $id('btn_actL');
     var btn_actR = $id('btn_actR');
@@ -120,4 +117,3 @@ window.addEventListener('load',function(){
 
 
 
->>>>>>> origin/lien
