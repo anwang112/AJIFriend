@@ -4,12 +4,29 @@ function changeClothes(e){
     $id("model_hat").src = "shop-images/" + clothes +".png";
 
     // 更衣動畫
-    TweenMax.fromTo('#model_hat', 1.5, {
+
+    var  tl =  new TimelineMax({
+        repeat: 0,
+        // yoyo: true
+    });
+    
+    
+     tl.add(TweenMax.fromTo('#model_hat', 1.5, {
         scale: .6,
     }, {
         scale: 1,
         ease: Elastic.easeOut,
-        });
+    }))
+    tl.add(TweenMax.fromTo('#showModel', 1.5, {
+        y:-45,
+        scale: .5,
+    }, {
+        y:0,
+        scale: 1,
+        ease: Power2.easeIn
+    }))
+
+    
 }
 
 function removeInfo(e){  //移除產品訊息
@@ -52,7 +69,7 @@ function showInfo(e){
         div_MJ.className = "MJ";
             // 創建span*2
             var span_MJtitle = document.createElement("span");
-            span_MJtitle.innerText = "MaJi值+";
+            span_MJtitle.innerText = "MJ值+";
             var span_MJ = document.createElement("span");
             span_MJ.innerText = "150";
         // span*2塞進div_MJ

@@ -2,15 +2,15 @@ var body = document.getElementsByTagName('body');
 
 console.log(body);
 
-function head_html(){
-	
+function head_html() {
+
 	var str_tag = `
 	<!-- head頁首 -->
 	<div class="head mnone">
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
-	        <li><a href="match.html">找麻吉</a></li>
-	        <li><a href="activity.html">活動巴士</a></li>
+	        <li><a href="match2.html">找麻吉</a></li>
+	        <li><a href="activity_v2.html">活動巴士</a></li>
 	        <li><a href="BearMJ_shop.html">造型商城</a></li>
 	        <li><a href="photo.html">照片牆</a></li>
 	    </ul>
@@ -33,7 +33,7 @@ function head_html(){
 	    <div id="menu_phone" class="menu_phone">
 	        <ul>
 	            <li><a href="match.html">找麻吉</a></li>
-	            <li><a href="activity.html">活動巴士</a></li>
+	            <li><a href="activity_v2.html">活動巴士</a></li>
 	            <li><a href="BearMJ_shop.html">造型商城</a></li>
 	            <li><a href="photo.html">照片牆</a></li>
 	            <li><a href="#">登入</a></li>
@@ -43,13 +43,13 @@ function head_html(){
 	    </div>
 	</div>
 	`;
-	
+
 	document.write(str_tag);
 }
 
 
 
-function foot_html(){
+function foot_html() {
 
 	var str_tag2 = `
 		   <!-- 桌機聊天室 -->
@@ -119,7 +119,7 @@ function foot_html(){
 	    <!-- 手機聊天室結束 -->
 	    
 	</div>
-	`; 
+	`;
 
 	document.write(str_tag2);
 }
