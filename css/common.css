@@ -167,6 +167,7 @@ html {
   background-size: contain;
   background-position: 0 0;
   background-repeat: no-repeat;
+  transition: 2s;
   position: fixed;
   z-index: 100;
   top: 0; }
@@ -324,7 +325,6 @@ html {
   line-height: 30px;
   font-size: .7rem;
   position: relative;
-  bottom: 30px;
   text-align: center; }
 
 .chatbox_faces {
@@ -448,7 +448,7 @@ html {
     position: relative;
     top: 5px;
     left: 5px;
-    z-index: 3; }
+    z-index: 13; }
   .head_phone #btn_chatroom_phone {
     position: relative;
     left: -15px;
@@ -500,7 +500,8 @@ html {
     position: absolute;
     top: -100vh;
     left: 0;
-    opacity: 1; }
+    opacity: 1;
+    z-index: 7; }
   .chatRoom_phone_part1 #search_input_phone {
     width: 90%;
     height: 30px;
