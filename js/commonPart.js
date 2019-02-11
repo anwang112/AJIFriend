@@ -4,11 +4,11 @@ var body = document.getElementsByTagName('body');
 function head_html(){
 	
 	var str_tag = `
-	<div class="head mnone">
+	<div id="head" class="head mnone">
 	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
 	    <ul class="menu">
 	        <li><a href="match.html">找麻吉</a></li>
-	        <li><a href="activity.html">活動巴士</a></li>
+	        <li><a href="activity_v2.html">活動巴士</a></li>
 	        <li><a href="BearMJ_shop.html">造型商城</a></li>
 			<li><a href="photo.html">照片牆</a></li>
 			<li><a href="myRoom.html">我的窩</a></li>
@@ -31,7 +31,7 @@ function head_html(){
 	    <div id="menu_phone" class="menu_phone">
 	        <ul>
 	            <li><a href="match.html">找麻吉</a></li>
-	            <li><a href="activity.html">活動巴士</a></li>
+	            <li><a href="activity_v2.html">活動巴士</a></li>
 	            <li><a href="BearMJ_shop.html">造型商城</a></li>
 	            <li><a href="photo.html">照片牆</a></li>
 	            <li><a href="#">登入</a></li>
@@ -204,7 +204,7 @@ window.addEventListener('load',function(){
     //手機版聊天室操控_02
     fr_demo.addEventListener('click',function(){
         chatRoom_phone_part1.style.cssText=" top:8vh;left:0%;opacity:1; ";
-        chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:4";
+        chatRoom_phone_part2.style.cssText=" left: 0;display:flex;opacity:1;z-index:11";
     });
 
     btn_chat_prev.addEventListener('click',function(){
@@ -217,10 +217,10 @@ window.addEventListener('load',function(){
     btn_menu_menu.addEventListener('click',function(){
 
         if(menu_phone.hasAttribute('value') == false){
-            menu_phone.style.cssText="transform: scale(1);opacity:1; ";
+            menu_phone.style.cssText="transform: scale(1);opacity:1";
             menu_phone.setAttribute('value','打開');
         }else{
-            menu_phone.style.cssText="transform: scale(0);opacity:0; ";
+            menu_phone.style.cssText="transform: scale(0);opacity:0";
             menu_phone.removeAttribute('value','打開');
         }
 	});
@@ -536,3 +536,43 @@ window.addEventListener('load',function(){
 	},false);
 	
 },false);
+
+
+window.addEventListener('load',function(){
+	    //head消失
+	var head = $id('head');
+	console.log(head);
+
+	window.addEventListener('scroll',function(e){
+		var scrollY = document.documentElement.scrollTop;
+		if(window.innerWidth > 844){
+			if(scrollY > 120){
+				head.style.display='none';
+			}else{
+				head.style.display='block';
+			}
+		}
+	},false);
+
+	window.addEventListener('resize',function(){
+		if(window.innerWidth < 767){
+			head.style.display='none';
+		}else{
+			head.style.display='block';
+		}
+	},false);
+
+},false);
+
+
+var scrollY = document.documentElement.scrollTop;
+console.log(scrollY);
+
+if(window.innerWidth > 844){
+	if(scrollY > 120 ){
+		head.style.display='none';
+	}else{
+		head.style.display='block';
+	}
+}
+
