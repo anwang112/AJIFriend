@@ -1,11 +1,24 @@
-.act_section01 {
+.wrap1 {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-image: url("../images/activity/act_bg_03.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-color: #abe9ff; }
+
+.wrap2 {
+  width: 100%;
+  background-image: url(../images/activity/activityGrass.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: -2px; }
+
+.act_section01 {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  overflow: hidden; }
   .act_section01 h1 {
     width: 30%;
     font-size: 2rem;
@@ -24,6 +37,7 @@
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
+    transform: rotate(-1deg);
     position: absolute;
     right: 10%;
     bottom: 15%;
@@ -100,6 +114,7 @@
   align-items: center; }
   .lightbox_act .lightbox_act_info {
     width: 50%;
+    max-width: 1500px;
     height: 350px;
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.7);
@@ -121,11 +136,13 @@
       font-size: 1rem;
       color: #f05c79; }
     .lightbox_act .lightbox_act_info p {
-      width: 70%;
+      width: 40%;
       color: #f05c79;
-      font-size: .8rem; }
+      font-size: .8rem;
+      max-width: 600px;
+      line-height: 1rem; }
     .lightbox_act .lightbox_act_info .spanbox {
-      width: 70%;
+      width: 40%;
       display: flex;
       justify-content: space-around;
       align-items: center; }
@@ -133,7 +150,8 @@
         display: inline-block;
         width: 20%;
         color: #f05c79;
-        font-size: .8rem; }
+        font-size: .8rem;
+        line-height: 1rem; }
 
 @keyframes busMoving {
   0% {
@@ -165,10 +183,10 @@
 
 .act_section02 {
   width: 100%;
+  max-width: 1200px;
   padding-top: 50px;
-  background-image: url(../images/activity/activityGrass.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-top: -2px;
+  margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: column; }
@@ -179,21 +197,27 @@
   position: relative; }
   .act_tabBar span {
     display: inline-block;
-    padding: 5px 10px;
-    font-size: .7rem;
-    color: #444;
-    border-bottom: 1px solid #444;
-    cursor: pointer; }
+    padding: 2px 10px;
+    font-size: .9rem;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #f05c79;
+    border-radius: 15px;
+    text-align: center; }
   .act_tabBar span:hover {
-    color: #fff;
-    border-bottom: 1px solid #fff; }
+    color: #fff; }
   .act_tabBar #tab_allAct {
-    color: #fff;
-    border-bottom: 1px solid #fff; }
+    color: #fff; }
   .act_tabBar #btn_holdAct {
+    display: block;
     position: absolute;
     right: 0;
-    z-index: 4; }
+    z-index: 4;
+    width: 75px;
+    height: 30px; }
 
 .lightbox_holdact {
   width: 100%;
@@ -267,19 +291,24 @@
 .act_officialBanner {
   width: 80%;
   height: 0;
-  padding-bottom: 25%;
+  padding-top: 50px;
+  padding-bottom: 30%;
   margin: 10px auto;
+  color: rgba(255, 255, 255, 0.5);
   display: flex; }
   .act_officialBanner img {
     width: 65%;
-    height: 300px; }
+    height: 260px;
+    display: block;
+    border-left: 2px solid #e5e5e5; }
   .act_officialBanner .act_info {
-    width: 35%;
+    width: 50%;
     text-align: center; }
     .act_officialBanner .act_info h2 {
       width: 100%;
       padding: 10px 20px;
-      text-align: left; }
+      text-align: left;
+      color: #fff; }
     .act_officialBanner .act_info span {
       display: inline-block;
       width: 30%;
@@ -289,14 +318,22 @@
     .act_officialBanner .act_info p {
       text-align: left;
       padding: 5px 0 5px 20px;
-      font-size: .8rem; }
+      font-size: .8rem;
+      line-height: 1.4rem;
+      width: 90%;
+      margin: 2px 5%; }
     .act_officialBanner .act_info button {
       display: inline-block;
-      margin: 20px 20px; }
+      margin: 20px 20px;
+      position: relative;
+      bottom: 30px;
+      width: 75px;
+      height: 30px; }
 
 .act_memberHold {
   width: 80%;
   height: 0;
+  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 50%;
@@ -312,17 +349,31 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    text-align: center; }
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6); }
     .act_memberHold .act_memberHold_box img {
       width: 100%; }
+    .act_memberHold .act_memberHold_box .act_memberHold_join {
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      right: 0%;
+      bottom: 0;
+      opacity: 0; }
+      .act_memberHold .act_memberHold_box .act_memberHold_join button {
+        width: 75px;
+        height: 30px; }
     .act_memberHold .act_memberHold_box h3 {
-      width: 100%;
+      width: 60%;
+      margin: 5px auto;
       font-size: .9rem;
-      padding: 7px 0; }
+      padding: 7px 0;
+      border-bottom: 1px solid #fff; }
     .act_memberHold .act_memberHold_box .spanbox {
-      width: 100%;
-      position: relative;
-      left: 20%;
+      width: 60%;
+      margin: 5px auto;
       display: flex;
       flex-wrap: wrap; }
       .act_memberHold .act_memberHold_box .spanbox span {
@@ -331,7 +382,8 @@
         padding: 5px 10px;
         display: inline-block;
         font-size: .7rem;
-        text-align: left; }
+        text-align: left;
+        color: rgba(102, 102, 102, 0.7); }
     .act_memberHold .act_memberHold_box p {
       width: 90%;
       font-size: .8rem;
@@ -343,11 +395,16 @@
     transform: translateX(-30%);
     position: absolute;
     left: 50%;
-    bottom: 15px; }
+    bottom: 30px; }
     .act_memberHold .act_tab_pages span {
       width: 20px;
       padding: 2px 5px;
-      font-size: .7rem; }
+      font-size: 1rem;
+      letter-spacing: 1.1rem;
+      color: rgba(102, 102, 102, 0.7);
+      cursor: pointer; }
+      .act_memberHold .act_tab_pages span:hover {
+        color: #fff; }
 
 .act_memberHold_B {
   width: 80%;
@@ -359,12 +416,14 @@
     width: 100%;
     width: 100%;
     height: 45vh;
+    color: rgba(102, 102, 102, 0.7);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column; }
     .act_memberHold_B .act_myActs h3, .act_memberHold_B .act_joins h3 {
       display: inline-block;
-      padding: 10px 20px; }
+      padding: 10px 20px;
+      color: #f05c79; }
     .act_memberHold_B .act_myActs .act_memberCheckBox, .act_memberHold_B .act_joins .act_memberCheckBox {
       width: 100%;
       display: inline-block;
@@ -377,10 +436,13 @@
         display: flex;
         flex-direction: column; }
         .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo h4, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo h4 {
-          font-size: .8rem; }
+          font-size: .9rem;
+          color: #f05c79;
+          padding: 10px 0; }
         .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo .messagebox, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo .messagebox {
           width: 100%;
-          height: 200px; }
+          height: 200px;
+          overflow-y: scroll; }
         .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo input, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo input {
           width: 80%;
           height: 25px; }
@@ -490,17 +552,36 @@
 
 @media only screen and (max-width: 476px) {
   #btn_actCheck, #btn_actJoin {
-    width: 70px; }
+    width: 70px;
+    bottom: 0; }
   .act_memberHold {
     padding-left: 10px;
-    padding-right: 10px; }
+    padding-right: 10px;
+    margin-top: -40px; }
     .act_memberHold .act_memberHold_box {
       padding-bottom: 20%;
       width: 48%;
       height: 220px; }
   .act_memberHold_B {
     padding-left: 10px;
-    padding-right: 10px; } }
+    padding-right: 10px; }
+  .act_memberHold .act_memberHold_box .spanbox {
+    width: 60%;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: unset; }
+  .act_memberHold .act_tab_pages {
+    width: 100px;
+    transform: translateX(-51%);
+    position: absolute;
+    left: 50%;
+    bottom: 10px; }
+  .act_memberHold_B .act_myActs h3 {
+    position: absolute;
+    left: 0%; }
+  .act_memberHold_B .act_joins h3 {
+    position: absolute;
+    left: 0%; } }
 
 @media only screen and (max-width: 1100px) {
   .act_section01 {
@@ -674,7 +755,18 @@
   .lightbox_act .lightbox_act_info {
     width: 97%; }
     .lightbox_act .lightbox_act_info img {
-      width: 76%; }
+      width: 60%; }
+    .lightbox_act .lightbox_act_info p {
+      width: 80%;
+      color: #f05c79;
+      font-size: .8rem;
+      max-width: 600px;
+      line-height: 1rem; }
+    .lightbox_act .lightbox_act_info .spanbox {
+      width: 65%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
   .lightbox_holdact .lightbox_holdact_info {
     width: 98%; }
     .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox {

@@ -1,5 +1,7 @@
 var body = document.getElementsByTagName('body');
-
+function $id(id) {
+    return document.getElementById(id);
+}
 
 function head_html(){
 	
@@ -149,7 +151,6 @@ window.addEventListener('load',function(){
     var ch = 0,//控制開關，0為初始關閉值，1為打開
     ch1 =0;
 
-    // console.log(chatboxLeft);
 
     //聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
     chatRoom_control.addEventListener('click',function(){
@@ -233,7 +234,6 @@ window.addEventListener('load',function(){
 	for(var i=0; i<chat_facesImgs.length;i++){
 		chat_facesImgs[i].addEventListener('click',function(){
 			var src_face = this.src;
-			console.log(src_face) ;
 			var img = document.createElement('img');
 			img.setAttribute('style','float:right;width:10%;position:relative;right:50px');
 			img.src = src_face;
@@ -420,7 +420,6 @@ window.addEventListener('load',function(){
 
 	window.addEventListener('resize',function(){//可能要再改
 		var clientWidrh = document.body.clientWidth;
-		console.log(clientWidrh);
 		if(clientWidrh  < 1000){
 			while (chatbox_show.firstChild) {
 				chatbox_show.removeChild(chatbox_show.firstChild);
@@ -538,41 +537,39 @@ window.addEventListener('load',function(){
 },false);
 
 
-window.addEventListener('load',function(){
-	    //head消失
-	var head = $id('head');
-	console.log(head);
+// window.addEventListener('load',function(){
+// 	    //head消失
+// 	var head = $id('head');
 
-	window.addEventListener('scroll',function(e){
-		var scrollY = document.documentElement.scrollTop;
-		if(window.innerWidth > 844){
-			if(scrollY > 120){
-				head.style.display='none';
-			}else{
-				head.style.display='block';
-			}
-		}
-	},false);
+// 	window.addEventListener('scroll',function(e){
+// 		var scrollY = document.documentElement.scrollTop;
+// 		if(window.innerWidth > 844){
+// 			if(scrollY > 120){
+// 				head.style.display='none';
+// 			}else{
+// 				head.style.display='block';
+// 			}
+// 		}
+// 	},false);
 
-	window.addEventListener('resize',function(){
-		if(window.innerWidth < 767){
-			head.style.display='none';
-		}else{
-			head.style.display='block';
-		}
-	},false);
+// 	window.addEventListener('resize',function(){
+// 		if(window.innerWidth < 767){
+// 			head.style.display='none';
+// 		}else{
+// 			head.style.display='block';
+// 		}
+// 	},false);
 
-},false);
+// },false);
 
+// var scrollY = document.documentElement.scrollTop;
 
-var scrollY = document.documentElement.scrollTop;
-console.log(scrollY);
-
-if(window.innerWidth > 844){
-	if(scrollY > 120 ){
-		head.style.display='none';
-	}else{
-		head.style.display='block';
-	}
-}
+// if(window.innerWidth > 844){
+// 	var head = $id('head');
+// 	if(scrollY > 120 ){
+// 		head.style.display='none';
+// 	}else{
+// 		head.style.display='block';
+// 	}
+// }
 

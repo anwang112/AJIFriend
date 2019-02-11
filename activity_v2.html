@@ -15,126 +15,143 @@
 		head_html();
     </script>
         <!-- 活動頁第一屏 巴士動畫 -->
-        <div class="act_section01">
-            <h1>聯聯誼揪揪團</h1>
-            <div class="act_mainbox">
-                <div class="imgBox">
-                    <img id="imgBoxImg" src="images/activity/act_number01.svg" alt="">
-                </div>
-                <div class="btnbox">
-                    <span id="btn_actL"></span>
-                    <span id="btn_actR"></span>
-                </div>
-            </div>
-            <div class="act_bg_moving01"></div>
-            <img  id="act_bus" class="act_bus" src="images/activity/act_bus.svg" alt="bus">
-
-            <div id="lightbox_act" class="lightbox_act">
-                <div id="lightbox_act_info" class="lightbox_act_info">
-                    <img id="imgBoxImg_B" src="" alt="">
-                    <p>活動說明: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, perspiciatis? Officia amet obcaecati voluptate</p>
-                    <div class="spanbox">
-                        <span>人數：{{}}</span>
-                        <span>地點：{{}}</span>  
-                        <span>獎勵：{{}}</span> 
+        <div class="wrap1">
+            <div class="act_section01">
+                <h1>聯聯誼揪揪團</h1>
+                <div class="act_mainbox">
+                    <div class="imgBox">
+                        <img id="imgBoxImg" src="images/activity/act_number01.svg" alt="">
                     </div>
-                    <button class="btn_R">立即參加</button> 
+                    <div class="btnbox">
+                        <span id="btn_actL"></span>
+                        <span id="btn_actR"></span>
+                    </div>
+                </div>
+                <div class="act_bg_moving01"></div>
+                <img  id="act_bus" class="act_bus" src="images/activity/act_bus.svg" alt="bus">
+
+                <div id="lightbox_act" class="lightbox_act">
+                    <div id="lightbox_act_info" class="lightbox_act_info">
+                        <img id="imgBoxImg_B" src="" alt="">
+                        <p>活動說明: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, perspiciatis? Officia amet obcaecati voluptate</p>
+                        <div class="spanbox">
+                            <span>人數：{{}}</span>
+                            <span>地點：{{}}</span>  
+                            <span>獎勵：{{}}</span> 
+                        </div>
+                        <button class="btn_R">立即參加</button> 
+                    </div>
                 </div>
             </div>
         </div>
         <!-- 活動頁第二屏 活動瀏覽(tab A)與個人活動區(tab B) -->
-        <div class="act_section02">
-            <div class="act_tabBar">
-                <span id="tab_allAct">所有活動</span>  <!-- 活動瀏覽(tab A) -->
-                <span id="tab_myAct">我的活動</span>  <!-- 個人活動區(tab B) -->
-                <button id="btn_holdAct" class="btn_R">舉辦活動</button>
-            </div>
-            <div id="partA" class="partA">
-                <div class="act_officialBanner">
-                    <img src="images/activity/act_number01B.svg" alt="活動banner">
-                    <div class="act_info">
-                        <h2>官方活動名稱</h2>
-                        <span>時間：{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        <p>活動資訊： Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, nobis saepe labore voluptas laudantium deleniti veniam ullam atque error officiis, tempore eius reprehenderit molestias officia fugiat mollitia repudiandae, eligendi quaerat. </p>
-                        <button id="btn_actJoin" class="btn_R">報名</button>
-                        <!-- <button id="btn_actCheck" class="btn_R">查看詳情</button> -->
+        <div class="wrap2">
+            <div class="act_section02">
+                <div class="act_tabBar">
+                    <span id="tab_allAct">所有活動</span>  <!-- 活動瀏覽(tab A) -->
+                    <span id="tab_myAct">我的活動</span>  <!-- 個人活動區(tab B) -->
+                    <button id="btn_holdAct" class="btn_R">舉辦活動</button>
+                </div>
+                <div id="partA" class="partA">
+                    <div class="act_officialBanner">
+                        <img src="images/activity/act_number01B.svg" alt="活動banner">
+                        <div class="act_info">
+                            <h2>官方活動名稱</h2>
+                            <span>時間：{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            <p>活動資訊： Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, nobis saepe labore voluptas laudantium deleniti veniam ullam atque error officiis, tempore eius reprehenderit molestias officia fugiat mollitia repudiandae, eligendi quaerat. </p>
+                            <button id="btn_actJoin" class="btn_R">報名</button>
+                            <!-- <button id="btn_actCheck" class="btn_R">查看詳情</button> -->
+                        </div>
+                    </div>
+                    <div id="act_memberHold" class="act_memberHold">
+                        <div class="act_memberHold_box act_memberHold_box1">
+                            <img src="images/activity/act_number02B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+
+                        </div>
+                        <div class="act_memberHold_box act_memberHold_box2">
+                            <img src="images/activity/act_number02B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+                        </div>
+                        <div class="act_memberHold_box act_memberHold_box3">
+                            <img src="images/activity/act_number02B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+                        </div>
+                        <div class="act_memberHold_box act_memberHold_box4">
+                            <img src="images/activity/act_number03B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+                        </div>
+                        <div class="act_memberHold_box act_memberHold_box5">
+                            <img src="images/activity/act_number03B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+                        </div>
+                        <div class="act_memberHold_box act_memberHold_box6">
+                            <img src="images/activity/act_number03B.svg" alt="">
+                            <div class="act_memberHold_join">
+                                <button class="btn_ActJoin btn_R">立即參加</button>
+                            </div>
+                            <h3>個人揪團-活動名稱</h3>
+                            <div class="spanbox">
+                                <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                            </div>
+                        </div>
+                        <div class="act_tab_pages">
+                            <span>1</span><span>2</span><span>3</span>
+                        </div>                  
                     </div>
                 </div>
-                <div class="act_memberHold">
-                    <div class="act_memberHold_box act_memberHold_box1">
-                        <img src="images/activity/act_number02B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
+                <div id="partB" class="partB">
+                    <div class="act_memberHold_B">
+                        <div class="act_myActs">
+                            <h3>我的揪團</h3>
+                            <div class="act_memberCheckBox">
+                                <img src="images/activity/act_number01B.svg" alt="">
+                                <div class="act_MCInfo">
+                                    <h4>活動名稱</h4>
+                                    <div id="myMessagebox" class="messagebox"></div>
+                                    <input id="myMessagebox_input" class="input_R" type="text" placeholder="回覆留言">
+                                </div>    
+                            </div>
                         </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_memberHold_box act_memberHold_box2">
-                        <img src="images/activity/act_number02B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_memberHold_box act_memberHold_box3">
-                        <img src="images/activity/act_number02B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_memberHold_box act_memberHold_box4">
-                        <img src="images/activity/act_number03B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_memberHold_box act_memberHold_box5">
-                        <img src="images/activity/act_number03B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_memberHold_box act_memberHold_box6">
-                        <img src="images/activity/act_number03B.svg" alt="">
-                        <h3>個人揪團-活動名稱</h3>
-                        <div class="spanbox">
-                            <span>發起人:{{}}</span><span>地點：{{}}</span><span>人數:{{}}</span><span>獎勵:{{}}</span>
-                        </div>
-                        <p>繼續查看..</p>
-                    </div>
-                    <div class="act_tab_pages">
-                        <span>1</span><span>2</span><span>3</span>
-                    </div>                  
-                </div>
-            </div>
-            <div id="partB" class="partB">
-                <div class="act_memberHold_B">
-                    <div class="act_myActs">
-                        <h3>我的揪團</h3>
-                        <div class="act_memberCheckBox">
-                            <img src="images/activity/act_number01B.svg" alt="">
-                            <div class="act_MCInfo">
-                                <h4>活動名稱</h4>
-                                <div class="messagebox">{{已有留言}}</div>
-                                <input class="input_R" type="text" placeholder="回覆留言">
-                            </div>    
-                        </div>
-                    </div>
-                    <div class="act_joins">
-                        <h3>參加跟團</h3>
-                        <div class="act_memberCheckBox">
-                            <img src="images/activity/act_number01B.svg" alt="">
-                            <div class="act_MCInfo">
-                                <h4>活動名稱</h4>
-                                <div class="messagebox">{{已有留言}}</div>
-                                <input class="input_R" type="text" placeholder="回覆留言">
+                        <div class="act_joins">
+                            <h3>參加跟團</h3>
+                            <div class="act_memberCheckBox">
+                                <img src="images/activity/act_number01B.svg" alt="">
+                                <div class="act_MCInfo">
+                                    <h4>活動名稱</h4>
+                                    <div id="JoinMessagebox" class="messagebox"></div>
+                                    <input id="JoinMessagebox_input" class="input_R" type="text" placeholder="回覆留言">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +177,6 @@
                             --活動圖片--
                     </div>
                 </div>
-
             </div>
         </div>
     <script type="text/javascript">
