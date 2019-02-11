@@ -20,50 +20,6 @@ a {
 html {
   font-size: 20px; }
 
-.loginBox{
-  position: absolute;
-  top: 5px;
-  right: 0%;
-  text-align: center; 
-  display: flex;
-}
-.loginImg{
-  padding: 10px;
-  width: 60px;
-}
-.loginImg img{
-  width: 80%;
-}
-.loginTxtWrap{
-  padding-top: 15px;
-  width: 80px;
-  position: relative;
-}
-.loginNot,.loginContent{
-  position: absolute;
-}
-.loginNot span{
-  color: #f05c79;
-  font-size: 15px;
-  padding-top: 12px;
-  display: block;
-}
-.loginContent{
-  display: none;
-}
-.loginContent{
-  font-size: 17px;
-}
-.loginContent span{
-  padding: 0 10px;
-}
-.loginMj{
-  width: 100px;
-  height: 10px;
-  background-color: #f05c79;
-  border-radius: 10px;
-  margin-top: 10px;
-}
 .input_R {
   width: 200px;
   height: 35px;
@@ -73,12 +29,12 @@ html {
   border-radius: 12px;
   transition: .3s;
   padding: 3px 5px;
-  border: 2px solid rgba(244, 200, 219, 0.3);
+  border: 2px solid #f05c79;
   text-align: center; }
   .input_R:focus {
     height: 35px -4px;
     color: #666666;
-    background-color: rgba(244, 200, 219, 0.3); }
+    background-color: #fff; }
 
 .btn_R {
   width: 90px;
@@ -87,12 +43,12 @@ html {
   color: rgba(255, 255, 255, 0.5);
   font-size: .7rem;
   background-color: #f05c79;
-  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
   text-align: center;
   cursor: pointer;
   transition: .3s; }
   .btn_R:hover {
-    transform: translateY(4px);
+    transform: translateY(2px);
     box-shadow: 0px 0px 0px transparent; }
 
 .btn_R_B {
@@ -102,12 +58,12 @@ html {
   color: rgba(255, 255, 255, 0.5);
   font-size: .7rem;
   background-color: rgba(192, 191, 191, 0.5);
-  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
   text-align: center;
   cursor: pointer;
   transition: .3s; }
   .btn_R_B:hover {
-    transform: translateY(4px);
+    transform: translateY(2px);
     box-shadow: 0px 0px 0px transparent; }
 
 @media only screen and (max-width: 768px) {
@@ -120,12 +76,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: #f05c79;
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; }
   .input_R {
     width: 160px;
@@ -136,12 +92,12 @@ html {
     border-radius: 12px;
     transition: .3s;
     padding: 3px 5px;
-    border: 2px solid rgba(244, 200, 219, 0.3);
+    border: 2px solid #f05c79;
     text-align: center; }
     .input_R:focus {
       height: 30px -4px;
       color: #666666;
-      background-color: rgba(244, 200, 219, 0.3); }
+      background-color: #fff; }
   .btn_R_B {
     width: 75px;
     height: 30px;
@@ -149,12 +105,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: rgba(192, 191, 191, 0.5);
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R_B:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; } }
 
 @media only screen and (max-width: 476px) {
@@ -167,12 +123,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: #f05c79;
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; }
   .input_R {
     width: 130px;
@@ -183,12 +139,12 @@ html {
     border-radius: 12px;
     transition: .3s;
     padding: 3px 5px;
-    border: 2px solid rgba(244, 200, 219, 0.3);
+    border: 2px solid #f05c79;
     text-align: center; }
     .input_R:focus {
       height: 25px -4px;
       color: #666666;
-      background-color: rgba(244, 200, 219, 0.3); }
+      background-color: #fff; }
   .btn_R_B {
     width: 65px;
     height: 25px;
@@ -196,33 +152,25 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: rgba(192, 191, 191, 0.5);
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R_B:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; } }
 
 .head {
-  margin: auto;
   width: 100%;
-  height: 90px;
-  background-image: url("../images/header.svg");
-  background-size: cover;
-  background-position: center bottom;
+  height: 170px;
+  background-image: url("../pic/head-down.svg2.svg");
+  background-size: contain;
+  background-position: 0 0;
   background-repeat: no-repeat;
   transition: 2s;
   position: fixed;
   z-index: 100;
-  top: 0;
-  left: 0;
-right: 0; }
-.headWrap{
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-}
+  top: 0; }
 
 #logo {
   width: 15%;
@@ -234,15 +182,15 @@ right: 0; }
 .menu {
   width: 650px;
   position: absolute;
-  top: 25px;
-  left: calc(50% - 325px); }
+  top: 20%;
+  left: 30%; }
 
 .menu > li {
   display: inline-block;
   margin-left: 7%; }
 
 .menu > li > a {
-  font-size: 18px;
+  font-size: .8rem;
   color: #f05c79;
   padding: 4px 6px;
   font-weight: bold; }
@@ -357,9 +305,6 @@ right: 0; }
   margin-left: 35px;
   width: 360px;
   height: 295px;
-  margin-left: 12%;
-  width: 80%;
-  height: 265px;
   overflow-y: hidden;
   background-color: #e5e5e5;
   border-radius: 15px; }
@@ -774,7 +719,8 @@ right: 0; }
   display: none;
   opacity: 0;
   padding: 37px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: fixed; }
   .middleLightBox .lightBoxXX {
     background-color: #a2988f;
     box-shadow: 2px 5px #444440;
