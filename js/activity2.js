@@ -41,8 +41,11 @@ window.addEventListener('load',function(){
     var imgBoxImg = $id('imgBoxImg');
     var imgBoxImg_B = $id('imgBoxImg_B');
     var act_bus = $id('act_bus');
+<<<<<<< HEAD
     var wrap1 = $id('wrap1');
     console.log(wrap1);
+=======
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
     var count_img = 0 ;
     var btn_actArray = [
         'images/activity/act_number01.svg',
@@ -52,6 +55,7 @@ window.addEventListener('load',function(){
     btn_actL.addEventListener('click',function(){
         if(count_img == 0){
             imgBoxImg.src = btn_actArray[2];
+<<<<<<< HEAD
             wrap1.style.cssText=`background-color:#7389a1;`;
             return count_img = 2 ;
         }else if(count_img == 1){
@@ -62,6 +66,14 @@ window.addEventListener('load',function(){
         }else{
             imgBoxImg.src = btn_actArray[1];
             wrap1.style.cssText=`background-color:#f9de96`;
+=======
+            return count_img = 2 ;
+        }else if(count_img == 1){
+            imgBoxImg.src = btn_actArray[0];
+            return count_img = 0 ;
+        }else{
+            imgBoxImg.src = btn_actArray[1];
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
             return count_img = 1 ;
         }
     },false);
@@ -70,6 +82,7 @@ window.addEventListener('load',function(){
     btn_actR.addEventListener('click',function(){
         if(count_img == 0){
             imgBoxImg.src = btn_actArray[1];
+<<<<<<< HEAD
             wrap1.style.cssText=`background-color:#f9de96`;
             return count_img = 1 ;
         }else if(count_img == 1){
@@ -79,6 +92,14 @@ window.addEventListener('load',function(){
         }else{
             imgBoxImg.src = btn_actArray[0];
             wrap1.style.cssText=`background-color:#abe9ff;`;
+=======
+            return count_img = 1 ;
+        }else if(count_img == 1){
+            imgBoxImg.src = btn_actArray[2];
+            return count_img = 2 ;
+        }else{
+            imgBoxImg.src = btn_actArray[0];
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
             return count_img = 0 ;
         }
     },false);
@@ -112,7 +133,11 @@ window.addEventListener('load',function(){
     console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
+<<<<<<< HEAD
         window.scrollTo(0,(act_memberHold.offsetTop + 150));
+=======
+        window.scrollTo(0,(act_memberHold.offsetTop + 350));
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
         console.log(act_memberHold.offsetTop);
 
         lightbox_holdact.style.cssText="display:flex;z-index:10;";
@@ -128,6 +153,7 @@ window.addEventListener('load',function(){
 
     },false);
     
+<<<<<<< HEAD
 
     // $id('btn_holdAct').addEventListener('click',function(){
 	// 	ooxxLightBox($id('lightbox_act'),$id('lightbox_act_info'),$id('lightbox_act_close'));
@@ -135,6 +161,8 @@ window.addEventListener('load',function(){
 
 
 
+=======
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
     //join
     var act_memberHold_boxs  = document.getElementsByClassName('act_memberHold_box');
     var act_memberHold_joins = document.getElementsByClassName('act_memberHold_join');
@@ -168,7 +196,11 @@ window.addEventListener('load',function(){
 
 			if( myMessagebox_input.value != ""){
 				var span = document.createElement('p');
+<<<<<<< HEAD
 				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#444');
+=======
+				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#fff');
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
 				span.innerText = txt;
 	
 				var divspan = document.createElement('div');
@@ -197,7 +229,11 @@ window.addEventListener('load',function(){
 
 			if( JoinMessagebox_input.value != ""){
 				var span = document.createElement('p');
+<<<<<<< HEAD
 				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#444');
+=======
+				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#fff');
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
 				span.innerText = txt;
 	
 				var divspan = document.createElement('div');
@@ -216,6 +252,7 @@ window.addEventListener('load',function(){
 		}
     },false);
 
+<<<<<<< HEAD
     var controller = new ScrollMagic.Controller();
     //scroll 動態 第一屏
     var an00 = new TimelineMax();
@@ -311,6 +348,8 @@ window.addEventListener('load',function(){
     // }).
     addTo(controller);
 
+=======
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
 },false);
 
 

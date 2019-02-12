@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Agee {
   width: 30%;
   position: absolute;
@@ -14,18 +15,28 @@
   100% {
     transform: rotate(-5deg) translateX(1%) translateY(2%); } }
 
+=======
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
 .wrap1 {
   width: 100%;
   height: 100vh;
   background-image: url("../images/activity/act_bg_03.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-color: #abe9ff;
   transition: 2s; }
 
 .wrap2 {
   width: 100%;
   background-image: url(../images/activity/activityGrass6.svg);
+=======
+  background-color: #abe9ff; }
+
+.wrap2 {
+  width: 100%;
+  background-image: url(../images/activity/activityGrass.svg);
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -117,6 +128,10 @@
 .lightbox_act {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+=======
+  background-color: rgba(66, 65, 65, 0.7);
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   margin: auto;
   position: absolute;
   left: 0;
@@ -129,11 +144,19 @@
   justify-content: center;
   align-items: center; }
   .lightbox_act .lightbox_act_info {
+<<<<<<< HEAD
     width: 75%;
     height: 60%;
     max-width: 1200px;
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.9);
+=======
+    width: 50%;
+    max-width: 1500px;
+    height: 350px;
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
     border: 1px solid #f05c79;
     border-radius: 15px;
     display: none;
@@ -238,6 +261,10 @@
 .lightbox_holdact {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+=======
+  background-color: rgba(66, 65, 65, 0.7);
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   margin: auto;
   position: absolute;
   left: 0;
@@ -250,12 +277,20 @@
   justify-content: center;
   align-items: center; }
   .lightbox_holdact .lightbox_holdact_info {
+<<<<<<< HEAD
     width: 75%;
     max-width: 1200px;
     height: 60%;
     padding: 20px 20px;
     color: #f05c79;
     background-color: rgba(255, 255, 255, 0.9);
+=======
+    width: 50%;
+    height: 400px;
+    padding: 20px 20px;
+    color: #f05c79;
+    background-color: rgba(255, 255, 255, 0.7);
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
     border: 1px solid #f05c79;
     border-radius: 15px;
     display: none;
@@ -292,11 +327,18 @@
       height: 0;
       padding-bottom: 27%;
       border-radius: 15px;
+<<<<<<< HEAD
       line-height: 200px;
       border: 1px dashed #fff;
       background-color: #ccc;
       position: absolute;
       top: 100px;
+=======
+      line-height: 150px;
+      border: 1px dashed #fff;
+      position: absolute;
+      top: 10px;
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
       right: 10px; }
 
 .partA {
@@ -313,6 +355,7 @@
   margin: 10px auto;
   color: rgba(255, 255, 255, 0.5);
   display: flex; }
+<<<<<<< HEAD
   .act_officialBanner:hover {
     color: #fff; }
   .act_officialBanner img {
@@ -325,6 +368,13 @@
     background-repeat: no-repeat; }
     .act_officialBanner img:hover {
       animation: shake 2s linear; }
+=======
+  .act_officialBanner img {
+    width: 65%;
+    height: 260px;
+    display: block;
+    border-left: 2px solid #e5e5e5; }
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   .act_officialBanner .act_info {
     width: 50%;
     text-align: center; }
@@ -355,13 +405,22 @@
       height: 30px; }
 
 .act_memberHold {
+<<<<<<< HEAD
   width: 90%;
+=======
+  width: 80%;
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   height: 0;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+<<<<<<< HEAD
   padding-bottom: 55%;
   margin: 15px auto;
+=======
+  padding-bottom: 50%;
+  margin: 10px auto;
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -438,6 +497,7 @@
   margin: 10px auto; }
   .act_memberHold_B .act_myActs, .act_memberHold_B .act_joins {
     width: 100%;
+<<<<<<< HEAD
     height: 320px;
     margin-bottom: 20px;
     color: rgba(102, 102, 102, 0.7);
@@ -461,6 +521,24 @@
       left: 0%; }
       .act_memberHold_B .act_myActs .act_memberCheckBox img, .act_memberHold_B .act_joins .act_memberCheckBox img {
         width: 50%; }
+=======
+    width: 100%;
+    height: 45vh;
+    color: rgba(102, 102, 102, 0.7);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; }
+    .act_memberHold_B .act_myActs h3, .act_memberHold_B .act_joins h3 {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #f05c79; }
+    .act_memberHold_B .act_myActs .act_memberCheckBox, .act_memberHold_B .act_joins .act_memberCheckBox {
+      width: 100%;
+      display: inline-block;
+      display: flex; }
+      .act_memberHold_B .act_myActs .act_memberCheckBox img, .act_memberHold_B .act_joins .act_memberCheckBox img {
+        width: 60%; }
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
       .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo {
         width: 40%;
         padding: 20px 20px;
@@ -476,9 +554,13 @@
           overflow-y: scroll; }
         .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo input, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo input {
           width: 80%;
+<<<<<<< HEAD
           height: 25px;
           position: relative;
           bottom: 30px; }
+=======
+          height: 25px; }
+>>>>>>> 265ae420b6bf5a2a90708ced2f97542803784bc7
 
 @media only screen and (max-width: 1200px) {
   .act_officialBanner {
