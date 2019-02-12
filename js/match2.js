@@ -1,9 +1,10 @@
 var Y = 0;
 $('.matchNext').click(function(){
-    Y += 180;
+    Y += 360;
     $('.matchMem').css({
         'transform':'rotateY('+ Y +'deg)',
-    })
+    });
+    $(".matchBody").attr("src","images/body2.png");
 });
 
 $('.rankNavBtn').click(function(){

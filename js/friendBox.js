@@ -6,8 +6,10 @@ function changeModel(e){
     var idList
     var ta = e.target;
     var no = ta.className.split(",");
-    console.log(no[1]);
+    console.log(ta.className);
+    $id("rwd-showId").innerText = no[0];
     $id("showId").innerText = no[0];
+    // console.log(no);
     $id("model_animal").src = "shop-images/model_" + no[1] +".png";
     $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
     closeFriendBox();
@@ -33,7 +35,7 @@ function closeFriendBox(){
 }
 
 function showfriendBox(e){
-    console.log(e.target);
+    // console.log(e.target);
     //創建div_friendBox
     var div_friendBox = document.createElement("div");
     div_friendBox.id = "friend_LightBox";
@@ -71,7 +73,7 @@ function showfriendBox(e){
 
                     // [暫代]創建label
                     friendList = [["煞氣阿吉","1","2","3"],["霹靂嬌媧","2","1","1"],["理科太太","3","3","2"],["蔡小英","1","3","1"]];
-                    console.log(friendList[0][1]);
+                    // console.log(friendList[0][1]);
                     for(var i = 1;i<=4;i++){
                         var label = document.createElement("label");
                         label.className = friendList[i-1];
