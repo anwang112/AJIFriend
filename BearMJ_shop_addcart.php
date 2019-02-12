@@ -22,12 +22,11 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BearMJ_Shop</title>
     <link rel="stylesheet" href="css/reset.css">
-    <!-- <link rel="stylesheet" href="css/lien.css"> -->
+    <script src="js/lightbox.js"></script>
 	<link rel="stylesheet" type="text/css" href="slick/slick.css">
   	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/shop-style.css">
-      <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="js/shop.js"></script>
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/friendBox.js"></script>
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
@@ -36,13 +35,22 @@ try {
 <body>
 <?php
   if( $errMsg != ""){
-  	exit("<div><center>888</center></div>");
+  	exit("<div><center>$errMsg</center></div>");
   }
 ?>	
         <script type="text/javascript">
             head_html();
         </script>
     <div id="shop_background" class="background">
+
+    <script>
+        if(innerWidth<768){
+            $id("shop_background").style.height =window.screen.height +"px";
+        }else{ 
+            $id("shop_background").style.height =window.innerHeight +"px";
+        }
+    
+    </script>
                         
         
             <div id="chooseId">
@@ -89,7 +97,39 @@ try {
 
                 </div>
                 
-                <!-- 選擇送禮對象燈箱<<動態新增>> friendBox.js -->
+
+                <!-- 選擇送禮對象燈箱 -->
+                <!-- <div id="a" class="LightBoxMask"></div>
+                <div id="b" class="middleLightBox">
+                    <div id="friend_LightBox" class="bg_friendBox">
+                        <img src="shop-images/friendBox.png">
+                        <div id="content_friendBox">
+                            <input type="text" id="searchBox" placeholder="搜尋朋友ID">
+                            <div id="chooseBox">
+                                    <label for="f_001">
+                                        <img src="shop-images/gift.png">
+                                        <p>煞氣阿吉</p>
+                                    </label>
+                                    <label for="f_002">
+                                        <img src="shop-images/gift.png">
+                                        <p>霹靂嬌媧</p>
+                                    </label>
+                                    <label for="f_003">
+                                        <img src="shop-images/gift.png">
+                                        <p>理科太太</p>
+                                    </label>
+                                    <label for="f_004">
+                                        <img src="shop-images/gift.png">
+                                        <p>蔡小英</p>
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btn_friendBoxClose">
+                        <img src="shop-images/close.png">
+                    </div>
+                </div>
+                <button id="aaa">點我</button> -->
         
             </div>  
         
@@ -101,17 +141,31 @@ try {
                 
                 <!-- 商品選擇 -->
                 <div id="productsArea">
-                    <!-- 餘額顯示 -->
-                    <div id="showCoin">
-                        <img src="shop-images/coin.png">
-                        <p>30</p>
-                    </div>
-                    <!-- 前往購物車 -->
-                    <div id="showCart">
-                        <a href="BearMJ_cartShow.php">
-                            <img src="shop-images/cart_pink.png">
-                            <p>查看</p>
-                        </a>
+                    <div id="actionPanel">
+                        <!-- 選朋友來試穿(送禮) -->
+                        <div id="choose-friend" class="gift">
+                            <div class="btn_chooseModel gift" >
+                                <img src="shop-images/gift.png" class="gift">
+                                <p class="gift">選朋友</p>
+                            </div>
+                            <!-- 試穿角色暱稱顯示區塊 -->
+                            <span id="rwd-showId">寂寞阿吉</span>
+
+                        </div>
+
+                        <!-- 餘額顯示 -->
+                        <div id="showCoin">
+                            <img src="shop-images/coin.png">
+                            <span>30</span>
+                        </div>
+                        <!-- 前往購物車 -->
+                        <div id="showCart">
+                            <a href="BearMJ_cartShow.php">
+                                <img src="shop-images/cart_pink.png">
+                                <p>查看</p>
+                            </a>
+                        </div>
+
                     </div>
 
                     <!-- 商品區 -->
@@ -120,7 +174,8 @@ try {
                         <?php	
                             while($prodRow = $products->fetch(PDO::FETCH_ASSOC)){
                         ?>		
-                            <form action="cartAdd.php">    
+                            <form action="cartAdd.php" target="nm_iframe">    
+                            
                                 <input type="hidden" name="proNo" value="<?php echo $prodRow["proNo"];?>">
                                 <input type="hidden" name="proName" value="<?php echo $prodRow["proName"];?>">
                                 <input type="hidden" name="price" value="<?php echo $prodRow["price"];?>">
@@ -144,7 +199,7 @@ try {
                                             <img src="shop-images/coin.png"><span><?php echo $prodRow["price"];?></span>
                                         </div>
                                         <!-- 加入購物車 -->
-                                        <input type="submit" class="btn_addToCart" value="">
+                                        <input type="submit" class="btn_addToCart" >
                                             
                                             <!-- <img src="shop-images/cart.png"> -->
                                         
@@ -152,6 +207,7 @@ try {
                                     
                                     
                                 </div>
+                                <iframe class="id_iframe" name="nm_iframe"></iframe>
                             </form>
                         <?php
                             }
@@ -182,11 +238,11 @@ try {
               slidesToScroll: 2
 
           });
-      }else if(innerWidth<1300){
+      }else if(innerWidth<1200){
           $(".regular").slick({
               dots: true,
               infinite: true,
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 3
 
           });
@@ -209,14 +265,10 @@ try {
         return document.getElementById(id);
     }
     window.addEventListener("load",function(){
-        // if(innerWidth<768){
-        //     $id("shop_background").style.height =window.screen.height +"px";
-        // }else{ 
-        //     $id("shop_background").style.height =window.innerHeight +"px";
-        // }
+
         
         // $id("productBlock").style.width = window.innerWidth +"px";
-        $id("productBlock").style.display = "";
+        // $id("productBlock").style.display = "";
         
         $(window).resize(function() {
             if(innerWidth<768){
@@ -249,7 +301,7 @@ try {
         for (var i = 0 ; i< productImg.length; i++){
             productImg[i].addEventListener("click",changeClothes);
             if(innerWidth<768){
-                productImg[i].addEventListener("click",showInfo);
+                productImg[i].addEventListener("click",showInfo); //link:changeClothes.js
             }
         }
         $id("choose-me").addEventListener("click",function(){
@@ -279,6 +331,9 @@ try {
             });
         
         
+        // $id('choose-friend').addEventListener('click', () => {
+        //     ooxxLightBox($id('a'), $id('b'), $id('btn_friendBoxClose'));
+        // });
         
     }
 

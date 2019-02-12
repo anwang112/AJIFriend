@@ -28,7 +28,7 @@ session_start();
             <h2>麻吉購物車</h2>
         </div>
         <div id="cart-content">
-            <form id="cartForm">
+            
                 <ul id="tableTitle">
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
@@ -38,30 +38,38 @@ session_start();
                 </ul>
                 
                 <div id="cartTable">
+                
                     <?php 
                         if( isset($_SESSION["proName"]) === false or count($_SESSION["proName"])===0){
                             echo "尚無購物資料";
-                        }else{
-                            foreach($_SESSION["proName"] as $no => $proName){
-                                
+                        }else{ 
+                            // foreach($_SESSION["proName"] as $no => $proName){
+                                for($i=0;$i<100;$i++){
+                                    if( isset($_SESSION["proName"][$i])=== true){ //修改
+                                        
+                                   
                     ?>	
-                    
-                    <form action="BearMJ_cartUpdate.php">
+                    <form class="cartContent" action="BearMJ_cartUpdate.php">
                         <ul>
-                            <input type="hidden" name="proNo" value="<?php echo $no;?>">
-                            <li class="flexGrow"><?php echo $proName;?></li>
-                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$no];?>"></li>
-                            <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$no];?></span></li>
+                            <input type="hidden" name="proNo" value="<?php echo $i;?>">
+                            <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
+                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$i];?>"></li>
+                            <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
                             <li><input type="button" value="送禮" class="btn_given"></li>
                             <li><input type="submit" value="刪除" class="btn_delete"></li>
                         </ul>
-                    </form> 
+                    </form>
+
                     <?php
-                        } 
+                        
+                                
+                            } 
+                        }
                     } 
                     ?>
                 </div>
                 <hr>
+            <form id="cartForm">
                 <div id="totalCost">
                     <span>總數量:{$}</span>
                     <img src="shop-images/coin.png">
@@ -167,11 +175,6 @@ session_start();
             });
         }
         btn_goingOn = document.getElementsByClassName("btn-buy"); 
-        btn_goingOn[0].addEventListener("click",function(){
-        
-            window.location.href = 'https://www.facebook.com/'; //串資料庫後需要修改
-        
-        });
     }
 
     window.addEventListener("load",init,false);
