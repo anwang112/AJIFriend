@@ -1,0 +1,1486 @@
+@import "var";
+@import "methods";
+
+a{
+    text-decoration: none;
+}
+
+.wrap-bg{
+    width: 100%;
+}
+
+
+.wrap{ 
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    //第一屏背景
+    background-image: url('../pic/boat.svg'),url('../pic/match_bg01_8.svg');
+    background-size: 30% 30%,cover;
+    background-position: right center, center center ;
+    background-repeat: no-repeat;
+
+    // animation: boat 50s  forwards infinite;
+}
+
+// @keyframes boat{
+//     0%{
+//         background-position: 140% center, center center ;
+//     }
+//     50%{
+//         background-position: 50% 40%, center center ;
+//     }
+//     100%{
+//         background-position: -40% 50%, center center ;
+//     }
+// }
+
+.wrap2{
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    // background: linear-gradient($bgPink,$lightBlue);
+    overflow-y: hidden;
+    position: relative;
+
+}
+
+.clear-box{
+    clear: both;
+}
+
+// head頁首開始 
+
+// .head{
+//     width: 100%;
+//     height: 170px;
+//     // padding-bottom: 15%;
+//     background-image: url('../pic/head-down.svg');
+//     // background-image: url('pic/head-up.png'),
+//     //                 url('pic/head-down.png');
+//     background-size: contain;
+//     background-position: 0 0;
+//     background-repeat: no-repeat;
+//     position: fixed;
+//     z-index: 3;
+
+//     //排版
+// }
+// #logo{
+//     width: 15%;
+//     position: absolute;
+//     left: 5%;
+//     right: 0;
+//     z-index: 4;
+// }
+
+
+// .menu{
+//     width:500px;
+//     position: absolute;
+//     top: 20%;
+//     left: 30%;
+//     // outline: 1px solid #f00;
+// }
+// .menu>li{
+//     // width: 15%;
+//     display: inline-block;
+//     margin-left: 7%;
+//     // 
+// }
+// .menu>li>a{
+//     font-size: $fontMenu;
+//     color:$darkPink;
+//     font-weight: bold;
+// }
+
+// .menu>li>a:hover,.menu_sub>li>a:hover{
+//     background-color: #fff;
+// }
+
+// .menu_sub{
+//     width: 400px;
+//     position: absolute;
+//     top:0;
+//     right:0%;
+//     text-align: center;
+
+// }
+// .menu_sub>li{
+//     display: inline-block;
+//     margin-left: 20px;
+//     // outline: 1px solid #f00;
+// }
+// .menu_sub>li>a{
+//     font-size: $fontMenu_sub;
+//     color:$darkPink;
+// }
+// #head_member_icon img{
+//     width: 22px;
+//     padding-top: 5px;
+//     vertical-align: bottom;
+//     vertical-align: center;
+//     // outline: 1px solid #f00;
+// }
+
+// // head頁首結束
+
+
+// // chatRoom聊天室開始
+// .chatRoom{
+//     //定位
+//     width: 400px;
+//     height: 300px;
+//     padding-bottom: 100px;
+//     background-image: url('../pic/chatroom_all02.png');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     position: fixed;
+//     z-index: 4;
+//     right: 10px;
+//     bottom: 0px;
+//     // outline: 1px solid #f00;
+
+//     //排版
+//     padding-top: 80px;
+//     display: flex;
+//     flex-wrap: wrap;
+
+//     // transform:translateY(0%);
+//     transform:translateY(77%);
+   
+// }
+
+// .chatRoom h2{
+//     display: block;
+//     width: 100%;
+//     font-weight: bold;
+//     font-size: $fontH2;
+//     color:$darkPink;
+//     text-align: center;
+//     letter-spacing: .2rem;
+//     cursor: pointer;
+//     position: relative;
+//     bottom: 20px;
+// }
+// .chatRoom h2::after{
+//     content:'';
+//     display: block;
+//     width: 50px;
+//     height: 50px;
+//     background-image: url('../pic/chatroom_icon1.svg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     position: absolute;
+//     right: 15%;
+//     top: -100%;
+// }
+
+// .chatRoom_info{
+//     width: 100%;
+//     padding: 0 30px;
+//     //排版
+//     position: relative;
+//     display: flex;
+//     justify-content: space-between;
+// }
+// #friendPic{
+//     width: 20%;
+//     height: 80px;
+//     position: relative;
+//     left: 15px;
+// }
+
+// .chatRoom_info span{
+//     width: 25%;
+//     height: 80px;
+//     color:$darkPink;;
+//     position: relative;
+//     top:30px;
+//     left: 15px;
+// }
+
+// .chatRoom_info a{
+//     width: 25%;
+// }
+
+// .chatRoom_info a>img{
+//     width: 50%;
+//     position: relative;
+//     left: 50px;
+//     top:20px;
+// }
+
+// .chatboxRight{
+//     margin-top: 10px;
+//     margin-left: 12%;
+//     width: 80%;
+//     height: 37vh;
+//     overflow-y: hidden;
+//     // padding-bottom: 70%;
+//     background-color: #e5e5e5;
+//     border-radius: $btnRadius;
+// }
+// #friendPicSmall{
+//     width: 16%;
+//     display: inline-block;
+//     padding: 10px 10px;
+// }
+// .chatbox_show{
+//     width: 100%;
+//     height:25vh;
+// }
+// .chatbox_show span{
+//     display: inline-block;
+//     width: 130px;//要跟著變動
+//     height: 30px;
+//     line-height: 30px;
+//     background-color: #fff;
+//     border-radius: 15px;
+//     position: relative;
+//     bottom: 30px;
+//     text-align: center;
+// }
+
+// .chatbox_faces{
+//     width: 65%;
+//     margin: 0 15px;
+// }
+// .chatbox_faces img{
+//     width: 15%;
+//     display: inline-block;
+//     cursor: pointer;
+// }
+
+// #chatTxt_input{
+//     display: inline-block;
+//     width: 70%;
+//     height: 30px;
+//     margin: 0 15px;
+//     border-radius: $btnRadius;
+//     border-color: $shadowPink;
+// }
+
+// #chatTxt_send{
+//     display: inline-block;
+//     width: 15%;
+//     height: 30px;
+//     color:$darkPink;
+//     border-color:$darkPink;
+//     border-radius: $btnRadius;
+//     background-color: #fff;
+// }
+
+// #chatroom_btn_open{
+//     width: 40px;
+//     height: 40px;
+//     position: absolute;
+//     top: 30%;
+//     left: 0;
+// }
+
+// .chatboxLeft{
+//     width: 80%;
+//     height: 350px;
+//     background-color:#FCC6D0;
+//     border-radius: $btnRadius;
+//     // position: absolute;
+//     // top: 30%;//要跟著捲軸增加
+//     // left: 180%;
+//     // left: -80%;//正確顯示位置
+//     // z-index: -1;
+//     opacity: 0;
+//     position: fixed;
+//     right: 400px;
+//     // bottom: 370px;
+//     bottom: 0px;
+// }
+
+// #search_input{
+//     display: inline-block;
+//     width: 90%;
+//     height: 30px;
+//     margin: 0 15px;
+//     border-radius: $btnRadius;
+//     background-color: #fff;
+//     position: relative;
+//     top: 10px; 
+//     text-align: center;
+// }
+// .friendbox{
+//     width: 100%;
+//     height: 140px;
+// }
+// .replybox{
+//     display: inline-block;
+//     width: 90%;
+//     height: 30px;
+//     margin: 0 15px; 
+//     border:2px solid $darkPink;
+//     border-radius: $btnRadius;
+//     text-align: center;
+//     position: relative;
+// }
+// .replybox h4{
+//     color:$darkPink;
+//     font-size: $fontSpan;
+//     padding: 5px 0;
+//     cursor: pointer;
+// }
+// .replybox h4::after{
+//     content: '';
+//     width: 0;
+//     height: 0;
+//     border-style: solid;
+//     border-width: 16px 8px 0 8px;
+//     border-color: $darkPink transparent transparent transparent;
+//     position: relative;
+//     top:20px;
+//     left: 5px;
+// }
+
+// chatRoom聊天室結束
+
+// 配對第一屏開始
+
+.section_01{
+    width:90%;
+    height: calc(100vh - 170px) ;
+    padding: 0 5%;
+    overflow: hidden;
+    padding-top: 170px;
+    // outline: 1px solid #f00;
+
+
+    //第一屏背景
+    // background-image: url('../pic/boat.svg'),url('../pic/match_bg01.png');
+    // background-size: 30% 30%,cover;
+    // background-position: right center, center center ;
+    // background-repeat: no-repeat;
+    
+    // outline: 1px solid #f00;
+
+    //排版
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .colbox{
+        width: 30%;
+        height: calc(100vh - 170px) ;
+    }
+    .colbox_select{
+        display: flex;
+        flex-direction: column;
+        h2{
+            width: 350px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 15px;
+            background-color: #444;
+            color: $titleColor;
+            font-size: $fontH1;
+            padding: 10px 15px;
+            letter-spacing: .2rem;
+            text-shadow:1px 1px #444;
+
+            //排版
+            display: block;
+            transform: rotate(-3deg);
+            position: relative;
+            z-index: 2;
+            top:-5%;
+            left: 13%;
+        }
+        h2:after{
+            content: '';
+            width: 60px;
+            height: 60px;
+            background-image: url('../pic/titleMark_Right.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            left:90%;
+            top: -25%;
+        }
+        .info_of_match{
+            width:230px;
+            height: 270px;
+            margin: 5% auto;
+            padding-left: 40px;
+            // background: $lightPink;
+            // box-shadow: 3px 4px $darkPink;
+            // background-image: url('../pic/friendBox_02.png');
+            // background-size: cover;
+            // background-repeat: no-repeat;
+            background-color: #fff;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+
+            
+            
+            //排版
+            position: absolute;
+            z-index: 2;
+            left: 11%;
+            top: 26%;
+            color: #444;
+        }
+        table{
+            position: relative;
+            left: 25px;
+            top: 5px;
+            th,td{
+                padding: 5px 5px;
+                color: #f05c79;
+            }
+            th{
+                font-weight: bold;
+                font-size: 14px;
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #444;
+                text-align: center;
+                line-height: 40px;
+                margin-top: 10px;
+            }
+            td{
+                width: 80px;
+                font-size: 20px;
+                border-bottom:1px dotted #444;
+            }
+        }
+
+        // label{
+        //     width: 100px;
+        //     height: 30px;
+        //     border-radius: $btnRadius;
+        //     margin-top: 5%;
+        //     background: $white;
+        //     padding: 5px;
+        //     color: $darkPink;
+
+        //     //排版
+        //     text-align: center;
+        //     line-height: 30px;
+        //     position: relative;
+        //     left: 40%;
+        //     top: 10%;
+        // }
+        // label:hover{
+        //     width: 98px;
+        //     height: 28px;
+        //     color: $white;
+        //     background: $darkPink;
+        //     border:1px solid  $white;
+        // }
+        label{
+            @include btn_standard(100px,$darkPink,$shadow);
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            background-color: #f4c8db;
+            left: 12%;
+            top: 85%;
+        }
+        #btn_choose_hobby{
+            top: 85%;
+            left: 23%;
+        }
+    }
+    .colbox_actor{
+        //排版
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        position: relative;
+        // outline: 1px solid #f00;
+        img{
+            width: 50%;
+            position: relative;
+            z-index: 2;
+            top:40%;
+            left:20%;
+            // outline: 1px solid #f00;
+        }
+        img:hover{
+            animation-name: imgBounce;
+            transform-origin: center bottom;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        span{
+            width: 40%;
+            height: 0;
+            padding-bottom: 30%;
+            background-image: url('../pic/txtbox_03.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top:30%;
+            left: 60%;
+            z-index: 2;
+            //排版
+            text-align: center;
+            justify-content: center;
+
+        }
+    }
+    .colbox_other_actors{
+        display: flex;
+        img{
+            width: 100%;
+            position: relative;
+            top:15%;
+            left: -16%;
+        }
+        img:hover{
+            animation-name: imgBounce;
+            transform-origin: center bottom;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+    }
+}
+@keyframes imgBounce {
+    0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+    }
+    70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+    }
+    90% { -webkit-transform: translate3d(0,-4px,0); transform: translate3d(0,-4px,0);
+    }
+    } 
+
+.lightbox_hobby{
+    width: 100%;
+    height: 95vh;
+    background-color: transparent;
+    // background-color: #444;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    display: none;
+
+    //排版
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lightbox_info_hobby{
+
+        width: 240px;
+        height: 300px;
+        padding: 20px 20px;
+        background-color:#fff;
+        border: 1px solid #444; 
+        border-radius: $btnRadius;
+        // box-shadow: 10px 10px $lightbox_bg;
+
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+
+
+        position: relative;
+
+        h2{
+            width: 100%;
+            height: 30px;
+            color: $shadow;
+        }
+
+        label{
+            @include btn_standard(100px,$darkPink,$shadow);
+            text-align: center;
+            line-height: 30px;
+            background-color: #f4c8db;
+            color: $shadow;
+            // width: 100px;
+            // height: 20px;
+            // padding: 5px 10px;
+            // text-align: center;
+            // background-color: #fff;
+            // color: $btn_bg;
+            // border-radius: $btnRadius;
+        }
+
+        input{
+            opacity: 0;
+            display: none;
+        }
+
+        #hobby_submit{
+            opacity: 1;
+            display: block;
+            width: 50px;
+            height: 30px;
+            border-radius: 12px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        #hobby_movie:checked+label,#hobby_sport:checked+label,#hobby_js:checked+label,#hobby_pokemon:checked+label{
+            width: 98px;
+            height: 28px;
+            background-color: $btn_bg;
+            color: #fff;
+            border: 1px solid #fff;
+            box-shadow: 0px 0px 0px transparent;
+        }
+    }
+}
+
+.bounceOut{
+    -webkit-animation-name: bounceOut;
+    animation-name: bounceOut;
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+.effectbox{
+    width: 100%;
+    height: 36vh;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top:100px;
+    z-index: 1;
+
+
+    // background-color: rgba(222, 222, 222, 1);
+    img{
+        width: 40px;
+        height: auto;
+        position: relative;
+        top:40px;
+        left: 5%;
+        transition: 2.5s;
+        animation: heartsFadeout 4s linear infinite forwards;
+    }
+}
+//animation: pulse 1.5s infinite both;
+.pulse{
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.bounceIn {
+    animation-name: bounceIn;
+    animation-duration: .75s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    }
+
+@keyframes heartsFadeout{
+    0%{ 
+        opacity: 1;
+        transform: translateY( 0 px) scale(.8);
+    }
+    90%{
+        opacity: 0;
+        transform: translateY( - (60 + random(70)) + px) scale(1.4);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY( 0 px) scale(.8);
+    }
+
+}
+
+@keyframes bounceOut {
+    20% {
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+    }
+    50%, 55% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+    }
+} 
+
+@keyframes pulse {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+} 
+
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+    }
+    20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+    }
+    60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+    -webkit-transform: scale3d(.97, .97, .97);
+    transform: scale3d(.97, .97, .97);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    }
+// 配對第一屏結束
+
+//配對第二屏開始
+
+.section_02{
+    width: 100%;
+    height: 100vh;
+
+    background-image: url('../pic/match_bg02_3.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    //排版
+    display: flex;
+    justify-content: space-between;
+    .ranking_of_all{
+        width: 60%;
+        height: 55vh ;
+
+        // img{
+        //     width: 75%;
+        //     position: relative;
+        //     left: 10%;
+        //     top: 15%;
+        // }
+        position: relative;
+        top: 30%;
+        left: 5%;
+
+        .rankBox{
+            margin-top: -10px;
+            width: 90%;
+            height: 80px;
+            padding-bottom: 5%;
+            padding-top: 30px;
+            padding-left: 30px;
+            border-radius: $btnRadius;
+
+            // background-color: rgba(40, 101, 231,.7);
+            background-color:rgba(59, 58, 58, 0.8);
+
+
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            position: relative;
+            
+            .rankBox_info{
+                width: 25%;
+                position: relative;
+                right:35%;
+                img{
+                    width: 60%;
+                    position: relative;
+                    top: 27px;
+                    left: 65px;
+                }
+                span:nth-child(1),span:nth-child(3){
+                    padding: 5px 10px;
+                    text-align: center;
+                    border-radius: 15px;
+                    background-color: #444;
+                    color: $titleColor;
+
+                }
+                span:nth-child(1){
+                    position: absolute;
+                    left: 0;
+                    top: -5px;
+                    width: 170px;
+                }
+                span:nth-child(3){
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    width: 85px;
+                }
+            }
+
+
+            .svg_bar{
+                width: 65%;
+                
+                display: flex;
+                justify-content:space-evenly;
+                align-items:flex-end;
+                
+                position: absolute;
+                bottom: 0;
+                left: 250px;
+
+                .divH{
+                    width: 50px;
+                    // background: radial-gradient(#ff8da1 30%, pink 34%);
+                    // background-size: 12px 12px;
+                    background-color: pink;
+                    border-radius: 15px 15px 0 0;
+                    color: $titleColor;
+                    text-align: center;
+
+                    //排版
+                    display: inline-block;
+                    position: relative;
+
+                    h3{
+                        width: 110px;
+                        font-size: 16px;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0px;
+                        text-align: left;
+                        color: $titleColor;
+                        
+                    }
+                }
+            }
+        }
+        .rankBox2{
+            position: relative;
+            top: 80px;
+        }
+
+    }
+
+
+    .colbox_actor02{
+        width: 30%;
+        height: 100vh;
+        // outline: 1px solid #f00;
+
+        //排版
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .btn_searchF{
+            width: 60%;
+            position: relative;
+            top: 20%;
+
+        }
+        .Agi02{
+            width: 40%;
+            position: relative;
+            top: -20%;
+        }
+        span{
+            font-size: $fontSpan;
+            color:$darkPink ;
+            padding-top: 35px;
+            padding-left: 20px;
+            padding-right: 20px;
+            letter-spacing: .15rem;
+
+            width: 40%;
+            height: 0;
+            padding-bottom: 30%;
+            background-image: url('../pic/txtbox_05.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            text-align: center;
+            justify-content: center;
+
+            position: relative;
+            top:10%;
+            left: 35%;
+        }
+    }
+}
+
+//rwd 手機物件在桌機隱藏
+.head_phone,.chatRoom_phone,.chatRoom_phone_part1,.chatRoom_phone_part2,.dnone{
+    display: none;
+}
+
+@media only screen and (max-width:1000px){
+   html{
+        font-size: 16px;
+    }
+}
+
+//rwd phone 476px
+
+@media only screen and (max-width:$rwdwidth){
+    html{
+        font-size: 12px;
+    }
+
+
+    //外框與背景
+    .wrap-bg{
+        overflow: hidden;
+    }   
+    .wrap {
+        width: 100%; 
+        height: 92vh;
+        background-image: none;
+    }
+    
+    *{
+        box-sizing:border-box; 
+    }
+
+    //桌機物件在手機隱藏
+    .head,.chatRoom{
+        display: none;
+    }
+    .head_phone{
+        width: 100%;
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        background-image: url('../pic/phone_head_bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        // outline: 1px solid #f00;
+
+        //排版
+        position: relative;
+        z-index: 5;
+
+        img{
+            width: 40px;
+            height: 40px;
+            display: block;
+            position: relative;
+            left: 15px;
+            top: 10px;
+        }
+        .logo_phone img{
+            width: 90px;
+            height: 70px;
+            // transform: rotate(-10deg);
+            position: relative;
+            top: 5px;
+            left: 5px;
+            z-index: 5;
+            // outline: 1px solid #f00;
+        }
+        #btn_chatroom_phone{
+            position: relative;
+            left: -15px;
+            top: 10px;
+        }
+
+        .menu_phone{
+            width: 100%;
+            height: 92vh;
+            background: rgba(240,92,121,1);
+            position: absolute;
+            left: 0;
+            top: 8vh;
+            z-index: 2;
+
+            transition: 2s;
+            opacity: 0;
+            transform-origin: 0 0;
+            transform: scale(0);//js效果目標
+
+            //排版
+            ul{
+                height: 92vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                img{
+                    display: inline-block;
+                }
+                a{
+                    color: $white;
+                    padding: 5px 10px;
+                }
+                li a:hover{
+                    background-color: #fff;
+                    color:#444;
+                    border-radius: 15px;
+                }
+            }
+            
+        }
+    }
+    //聊天室
+
+    .chatRoom_phone{
+        // display: block;
+        width: 100%;
+        height: 92%;
+        background: $bgPink;
+
+        //排版
+        display: flex; 
+        flex-direction: column;
+        text-align: center;
+
+        
+    }
+
+    .chatRoom_phone_part1{
+        width: 100%;
+        height: 92%;
+        background: $bgPink;
+
+        //排版
+        display: flex; 
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        transition: 2s;
+
+        position: absolute;
+        z-index: 3;
+        top: -100vh;
+        //top: 10vh; //移回來
+        left: 0;
+        opacity: 1;
+
+
+        #search_input_phone{
+            width: 90%;
+            height: 30px;
+            margin: 0 5%;
+            border-radius: $btnRadius;
+            background-color: #fff;
+            
+        } 
+        .fr_demo{
+            width: 90%;
+            margin: 20px auto;
+
+        }
+        #replybox_phone{
+            width: 90%;
+            height: 30px;
+            margin: 20px auto;
+            background-color: #ccc;
+            border:2px solid $darkPink;
+            border-radius: $btnRadius;
+            line-height: 30px;
+
+        }
+
+    }
+    .chatRoom_phone_part2{
+        width: 100%;
+        height: 92vh;
+        background: $bgPink;
+
+        //排版
+        display: none;
+        // display: flex; 
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        position: absolute;
+        z-index: 4;
+        left: 0;
+        top: 8vh;
+
+        transition: 2s;
+        opacity: 0;
+        position: absolute;
+        z-index: 2;
+        top: 8vh;
+        left: 100%;
+        //left: 0;//移回來
+       
+
+        .info_bar{
+            width: 100%;
+            height: 4vh;
+            display: inline-block;
+            background: $bgPink;
+            text-align: center;
+            position: relative;
+            img{
+                width: 40px;
+                height: 40px;
+                padding: 5px;
+                float: left;
+                position: relative;
+                top: -15px;
+                left: 10px;
+            }
+            span{
+                font-size: $fontSpan;
+                color: $shadowPink;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+            #btn_chat_prev{
+                position: relative;
+                z-index: 3;
+            }
+
+        }
+        .info_chatbox{
+            width: 100%;
+            height: 78vh;
+            display: inline-block;
+            background: $black;
+
+            // 排版
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            span{
+                width: 50px;
+                 float: left;
+            }
+        }
+        .info_controlbox{
+            width: 100vw;
+            height: 7vh;
+            padding: 5px 5px;
+            display: inline-block;
+            // outline: 1px solid #f00;
+
+            //排版
+            position: relative;
+            top: 1.5vh;
+            display: flex;
+            justify-content: space-between;
+            img{
+                width: 45px;
+                height: 45px;
+                cursor: pointer;
+            }
+            #info_input_phone{
+                width: 62%;
+                display: block;
+                border:2px solid $darkPink;
+                border-radius: $btnRadius;
+            }
+
+        }
+    }
+
+}
+
+//第一屏rwd
+@media only screen and (max-width:$rwdwidth){
+    .section_01{
+        width: 100%;
+        height: 100vh;
+        background-image:linear-gradient(45deg,$bg_01,$bg_02);
+        background-size: cover;
+
+        //排版
+        flex-direction: column;
+
+        .colbox{
+            width: 100%;
+        }
+        .colbox_select{
+            h2{//標題
+                width: 80%;
+                height: 42px;
+                line-height: 32px;
+                font-size: 32px;
+                position: relative;
+                top: -120px;
+            }
+            h2:after{
+                left:92%;
+                top: -25%;
+            }
+            .info_of_match{
+                width: 400px;
+                height: 240px;
+                padding: 10px 10px;
+                margin: 0;
+                position: absolute;
+                background-image: none;
+                left: 5%;
+                top: 20%;
+                table{
+                    position: absolute;
+                    left: 30px;
+                    top: 40px;
+                    td{
+                        width: 180px;
+                    }
+                }
+            }
+            label{//選擇興趣跟星座
+                width: 108px;
+                height: 30px;
+                font-size: 20px;
+                padding: 0px 10px;
+                position: relative;
+                left: 4%;
+                top: 73%;
+                z-index:2 ;
+                border: 1px solid transparent;
+            }
+            label:hover {
+                width: 108px;
+                height: 30px;
+                font-size: 20px;
+                padding: 0px 10px;
+                color: rgba(255, 255, 255, 0.5);
+                background: #f05c79;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+            }
+            #btn_choose_hobby{
+                top: 83%;
+                left:37% ;
+            }
+
+        }
+        .colbox_actor{
+            display: block;
+            img{
+                width: 48%;
+                height: 250px;
+                position:relative;
+                top:-68%;
+                left:60%;
+                z-index: 3;
+            }
+            span{
+                position: absolute;
+                top:60%;
+                left: 55%;
+                z-index: 5;
+                background-image: none;
+                display: none;
+            }
+        }
+        .colbox_other_actors{
+            position: absolute;
+            top: 75%;
+            bottom: 0;
+            display: block;
+            img{
+                display: inline-block;
+                width: 22%;
+                font-size: 0;
+                position: relative;
+                left:0%;
+                top: 0%;
+            }
+        }
+        
+
+    }
+
+    .lightbox_hobby {
+        .lightbox_info_hobby {
+            width: 170px;
+            height: 240px;
+            padding: 20px 20px;
+            top: 0px;
+            left:0px;
+            
+        }
+    }
+    .lightbox_info_hobby{
+        #hobby_movie:checked+label,#hobby_sport:checked+label,#hobby_js:checked+label{
+            width: 98px;
+            height: 28px;
+            background-color: $btn_bg;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+    }
+
+}
+
+//第二屏rwd
+@media only screen and (max-width:$rwdwidth){
+    .section_02{
+        background-image:linear-gradient(-225deg,$bg_01,$bg_02);
+        background-size: cover;
+
+        display: block;
+        padding-top: 50px;
+        position: relative;
+        //排版
+        display: flex;
+        
+        .ranking_of_all{
+            width: 90%;
+            position: relative;
+            left: 0;
+            top: 0px;
+            // outline: 1px solid #f00;
+            .rankBox{
+                display: none;
+            }
+
+            .demo_ddd{
+                display: none;
+            }
+            .dnone{
+                display: block;
+            }
+            .ranking{
+                width: 90%;
+                height: 80vh;
+                margin: auto;
+                padding: 30px 20px;
+                // background: $lightPink;
+                // box-shadow: 3px 4px $darkPink;
+                background-image: url('../pic/friendBox.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                border-radius: $btnRadius;
+
+                //排版
+                position: relative;
+                top: 60px;
+
+                .showSpan{
+                    width: 80%;
+                    height: 80vh;
+                    margin: auto;
+                    display: flex;
+                    flex-direction: column;
+
+                    span{
+                        margin-top: 40px;
+                        font-size: $fontSpan;
+                    }
+                }
+
+                #result_searchF{
+                    width: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 60%;
+                }
+            }
+        
+        }
+
+        .colbox_actor02{
+            width: 10%;
+            position: none;
+
+            #btn_searchF{
+                width: 160px;
+                height: 50px;
+                position: absolute;
+                top:0;
+                right:10px;
+        
+            }
+            span{
+                display: none;
+            }
+            .Agi02{
+                display: none;
+            }
+        }
+    }
+
+}
+
+
+//調整scroll樣式
+   ::-webkit-scrollbar
+   {
+       width:10px;
+       height:0px;
+       background-color:#F5F5F5;
+   }
+   /*定义滚动条轨道
+   内阴影+圆角*/
+   ::-webkit-scrollbar-track
+   {
+       //  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+       border-radius:10px;
+       background-color:#F5F5F5;
+   }
+   /*定义滑块
+   内阴影+圆角*/
+   ::-webkit-scrollbar-thumb
+   {
+       border-radius:10px;
+       background-color:$lightPink;
+   }
+
+   //調整input placeholder樣式
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: pink;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: pink;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: pink;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: pink;
+  }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+
+    <title>btn</title>
+
+</head>
+
+<body>
+    <p>button class設為btn_R</p>
+    <button id="" class="btn_R">送出</button>
+    <p>button class設為btn_R_B</p>
+    <button id="" class="btn_R_B">取消</button>
+    <p>input class設為input_R</p>
+    <input type="text" class="input_R" placeholder="搜尋你的麻吉">
+
+
+
+    <!-- 燈箱遮罩點旁邊可以關掉ㄉ -->
+    <div id="填入" class="LightBoxMask"></div>
+    <!-- 燈箱 -->
+    <div id="填入" class="middleLightBox">
+        <div>
+            <!-- 你ㄉ東西打在這 -->
+        </div>
+        <!-- 關掉按鈕 -->
+        <div id="填入" class="lightBoxXX"></div>
+    </div>
+
+
+    <!-- js執行 
+        操作說明 
+            宣告註冊 燈箱id 燈箱遮罩ID 燈箱xx按鈕ID
+            ex.
+            ooxx = document.getElementById('ooxx');
+            啟動你要ㄉ動作執行帶入ooxxLightBox函式
+            ex. 
+            ooxx.addEventListener('click', () => {
+                ooxxLightBox(燈箱遮罩ID,燈箱ID,燈箱xx按鈕ID);
+            })
+    -->
+
+    <script src="js/commonPart.js"></script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- 以下為燈箱實際範例 -->
+    <!-- html -->
+    <div id="a" class="LightBoxMask"></div>
+    <div id="b" class="middleLightBox">
+        <div>
+            你好啊
+        </div>
+        <div id="c" class="lightBoxXX"></div>
+    </div>
+    <button id="aaa">點我</button>
+
+
+
+    <!-- javascript -->
+    <script>
+        function $id(id) {
+            return document.getElementById(id);
+        }
+        $id('aaa').addEventListener('click', () => {
+            ooxxLightBox($id('a'), $id('b'), $id('c'));
+        })
+        
+    </script>
+</body>
+
+</html>
