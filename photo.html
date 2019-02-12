@@ -12,20 +12,20 @@
     <link rel="stylesheet" href="/css/photo.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
-    <script src="/js/drawing.js"></script>
-    <script src="/js/friendBox.js"></script>
-    <script src="/js/lightbox.js"></script>
-    <script src="/js/vote.js"></script>
+    <script src="js/drawing.js"></script>
+    <script src="js/friendBox.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/vote.js"></script>
 </head>
 <body>
     <script type="text/javascript">
 		head_html();
 	</script>
 
-
     <div class="bg">
+            <!-- <img src="/images/cityBg-33.png" alt=""> -->
         <div class="wrap">
             <div class="trophy">
                 <div><img src="images/trophy-11.png" alt="獎盃"></div>
@@ -58,46 +58,46 @@
             
             <div class="ground">
                 <div class="content">
-                    <h2>立刻製造你跟麻吉的合照</h2>
+                    <h2>立刻製作你跟麻吉的合照</h2>
                     <img class="ajiY" src="images/yellowheart-10.png" alt="y">
                     <img class="aji" src="images/jiFriend.png" alt="og">
                 </div>
             </div>
 
  <!-- canvas -->
-
-
     <div id="drawingTab">
-        <h1>立刻製造你跟麻吉的合照</h1>    
+        <img src="images/camera-17.png" alt="camera">
+        <h1>製作你跟麻吉的合照</h1>    
     </div>
+ <!-- canvas -->
 
     <div class="bg">
-            <div class="mkPhoto">
-                <div id="exit">
-                    <img src="images/exit.png" alt="exit">
+        <div class="mkPhoto">
+            <div id="exit">
+                <img src="images/exit.png" alt="exit">
+            </div>
+            <div class="steps">
+                <div class="step" id="step1">
+                        <img  src="images/choiceBg-23.png" alt="chooseBg">
+                        <h3>Step 1 選擇背景</h3>
                 </div>
-                <div class="steps">
-                    <div class="step" id="step1">
-                            <img  src="images/choiceBg-23.png" alt="chooseBg">
-                            <h3>Step 1 選擇背景</h3>
-                    </div>
-                    <div class="step" id="step2">
-                        <img src="images/chooseFriend-24.png" alt="chooseFriend">
-                        <h3>Step 2 選擇朋友</h3>
-                    </div>
-                    <div class="step" id="step3">
-                        <img src="images/colorPen-25.png" alt="colorPen">
-                        <h3>Step 3 編輯塗鴉</h3>
-                    </div>
+                <div class="step" id="step2">
+                    <img src="images/chooseFriend-24.png" alt="chooseFriend">
+                    <h3>Step 2 選擇朋友</h3>
                 </div>
-                <div class="bulletin">
-                    <h3>本月票選主題</h3>
-                    <p>城市愛情故事</p>
-                    <h3>得名獎勵</h3>
-                    <p>1.水行俠套裝</p><img src="images/wmSuit-27.png" alt="wmSuit">
-                    <p>2.死神頭套</p><img src="images/ghostCap-28.png" alt="ghostCap">
-                    <p>3.海盜頭套</p><img src="images/pirateCap-29.png" alt="pirateCap">
+                <div class="step" id="step3">
+                    <img src="images/colorPen-25.png" alt="colorPen">
+                    <h3>Step 3 編輯塗鴉</h3>
                 </div>
+            </div>
+            <div class="bulletin">
+                <h3>本月票選主題</h3>
+                <p>城市愛情故事</p>
+                <h3>得名獎勵</h3>
+                <p>1.水行俠套裝</p><img src="images/wmSuit-27.png" alt="wmSuit">
+                <p>2.死神頭套</p><img src="images/ghostCap-28.png" alt="ghostCap">
+                <p>3.海盜頭套</p><img src="images/pirateCap-29.png" alt="pirateCap">
+            </div>
             <!-- <div id="friend_LightBox" class="bg_friendBox">
                 <img src="images/chooseF-31.png" alt="bg">
                 <div id="btn_friendBoxClose">
@@ -150,7 +150,8 @@
                     </div>
             </div>
         </div>
-    
+    </div>
+
             <script>
                 function $id(id){
                     return document.getElementById(id);
@@ -194,7 +195,7 @@
     </div>
 
     <!-- 第二屏 相片牆 -->
-    <div class="bg">
+    <div class="bg2">
         <div class="postArea">
             <div class="father">
                 <h1>LOVE STORY</h1>
