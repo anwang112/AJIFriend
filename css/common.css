@@ -29,12 +29,12 @@ html {
   border-radius: 12px;
   transition: .3s;
   padding: 3px 5px;
-  border: 2px solid rgba(244, 200, 219, 0.3);
+  border: 2px solid #f05c79;
   text-align: center; }
   .input_R:focus {
     height: 35px -4px;
     color: #666666;
-    background-color: rgba(244, 200, 219, 0.3); }
+    background-color: #fff; }
 
 .btn_R {
   width: 90px;
@@ -43,12 +43,12 @@ html {
   color: rgba(255, 255, 255, 0.5);
   font-size: .7rem;
   background-color: #f05c79;
-  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
   text-align: center;
   cursor: pointer;
   transition: .3s; }
   .btn_R:hover {
-    transform: translateY(4px);
+    transform: translateY(2px);
     box-shadow: 0px 0px 0px transparent; }
 
 .btn_R_B {
@@ -58,12 +58,12 @@ html {
   color: rgba(255, 255, 255, 0.5);
   font-size: .7rem;
   background-color: rgba(192, 191, 191, 0.5);
-  box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
   text-align: center;
   cursor: pointer;
   transition: .3s; }
   .btn_R_B:hover {
-    transform: translateY(4px);
+    transform: translateY(2px);
     box-shadow: 0px 0px 0px transparent; }
 
 @media only screen and (max-width: 768px) {
@@ -76,12 +76,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: #f05c79;
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; }
   .input_R {
     width: 160px;
@@ -92,12 +92,12 @@ html {
     border-radius: 12px;
     transition: .3s;
     padding: 3px 5px;
-    border: 2px solid rgba(244, 200, 219, 0.3);
+    border: 2px solid #f05c79;
     text-align: center; }
     .input_R:focus {
       height: 30px -4px;
       color: #666666;
-      background-color: rgba(244, 200, 219, 0.3); }
+      background-color: #fff; }
   .btn_R_B {
     width: 75px;
     height: 30px;
@@ -105,12 +105,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: rgba(192, 191, 191, 0.5);
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R_B:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; } }
 
 @media only screen and (max-width: 476px) {
@@ -123,12 +123,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: #f05c79;
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; }
   .input_R {
     width: 130px;
@@ -139,12 +139,12 @@ html {
     border-radius: 12px;
     transition: .3s;
     padding: 3px 5px;
-    border: 2px solid rgba(244, 200, 219, 0.3);
+    border: 2px solid #f05c79;
     text-align: center; }
     .input_R:focus {
       height: 25px -4px;
       color: #666666;
-      background-color: rgba(244, 200, 219, 0.3); }
+      background-color: #fff; }
   .btn_R_B {
     width: 65px;
     height: 25px;
@@ -152,12 +152,12 @@ html {
     color: rgba(255, 255, 255, 0.5);
     font-size: .7rem;
     background-color: rgba(192, 191, 191, 0.5);
-    box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
     text-align: center;
     cursor: pointer;
     transition: .3s; }
     .btn_R_B:hover {
-      transform: translateY(4px);
+      transform: translateY(2px);
       box-shadow: 0px 0px 0px transparent; } }
 
 .head {
@@ -167,6 +167,7 @@ html {
   background-size: contain;
   background-position: 0 0;
   background-repeat: no-repeat;
+  transition: 2s;
   position: fixed;
   z-index: 100;
   top: 0; }
@@ -324,7 +325,6 @@ html {
   line-height: 30px;
   font-size: .7rem;
   position: relative;
-  bottom: 30px;
   text-align: center; }
 
 .chatbox_faces {
@@ -448,7 +448,7 @@ html {
     position: relative;
     top: 5px;
     left: 5px;
-    z-index: 3; }
+    z-index: 13; }
   .head_phone #btn_chatroom_phone {
     position: relative;
     left: -15px;
@@ -500,7 +500,8 @@ html {
     position: absolute;
     top: -100vh;
     left: 0;
-    opacity: 1; }
+    opacity: 1;
+    z-index: 7; }
   .chatRoom_phone_part1 #search_input_phone {
     width: 90%;
     height: 30px;
@@ -718,7 +719,8 @@ html {
   display: none;
   opacity: 0;
   padding: 37px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: fixed; }
   .middleLightBox .lightBoxXX {
     background-color: #a2988f;
     box-shadow: 2px 5px #444440;
