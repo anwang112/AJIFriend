@@ -17,9 +17,11 @@ body{
     color: rgba(102,102,102,1);
 
 }
+/* 第一屏背景 */
+/* #ead3cc */
 .bg{
-    background: #ead3cc url("/images/photoBg.png") no-repeat scroll 85%;
-    background-size: 90%;
+    background:  url("/images/buildingBg-19.png")  #ead3cc no-repeat scroll 100%;
+    background-size: 95%;
 }
 
 /* @media screen and (max-width: 1200px){} */
@@ -279,6 +281,14 @@ body{
 
 
   /* 第二屏照片區 */
+
+  /* 背景 */
+  .bg2{
+    background: #ead3cc url("/images/camera-16.png") no-repeat scroll ;
+    background-size: 100%;
+}
+
+
 .postArea{
     padding-top: 10%;
     padding-bottom: 20%;
@@ -292,13 +302,14 @@ body{
         /* width: 100%; */
         position: absolute;
         text-align: right;
-        right: 10%;top: 55%;
+        right: 15%;
+        /* top: 55%; */
         animation: upndown 3s infinite;
     }
     @keyframes  upndown{
-        0% {top: 70px;}
-        50% {top: 80px;}
-        100%{top: 70px;}
+        0% {top: -50px;}
+        50% {top: -40px;}
+        100%{top: -50px;}
     }
     #myPhoto a{
         display: inline-block;
@@ -340,12 +351,13 @@ body{
         padding: 2%;
         vertical-align:middle;
       }
-    h1{
-        display: inline-block;
+ .postArea h1{
+        /* display: inline-block; */
         /* width: 300px; */
         text-align: center;
+        color: #f05c79;
         margin-top: 10%;
-        margin-left: 39%;
+        /* margin-left: 39%; */
         margin-bottom: 5%;
     }
 
