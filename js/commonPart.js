@@ -5,7 +5,6 @@ console.log(body);
 function head_html() {
 
 	var str_tag = `
-<<<<<<< HEAD
 	<div id="head" class="head mnone">
         <div class="headWrap">
             <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
@@ -69,45 +68,6 @@ function head_html() {
         <!-- 關掉按鈕 -->
         <div id="loginBoxClose" class="lightBoxXX"></div>
     </div>
-=======
-	<!-- head頁首 -->
-	<div class="head mnone">
-	    <a href="index.html"><img id="logo" src="pic/logo.svg" alt="logo"></a>
-	    <ul class="menu">
-	        <li><a href="match2.html">找麻吉</a></li>
-	        <li><a href="activity_v2.html">活動巴士</a></li>
-	        <li><a href="BearMJ_shop.html">造型商城</a></li>
-	        <li><a href="photo.html">照片牆</a></li>
-	    </ul>
-	    <ul class="menu_sub">
-	        <li><a href="#">登入</a></li>
-	        <li><a href="#">魅力值</a></li>
-	        <li><a id="head_member_icon" href="#"><img  src="pic/head_member_icon.svg" alt="會員"></a></li>
-	    </ul>
-	</div>
-	<div class="head_phone  dnone ">
-	    <a href="#">
-	        <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
-	    </a>
-	    <a href="#" class="logo_phone">
-	        <img src="pic/logo_phone03.png" alt="">
-	    </a>
-	    <a href="#">
-	        <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
-	    </a>
-	    <div id="menu_phone" class="menu_phone">
-	        <ul>
-	            <li><a href="match.html">找麻吉</a></li>
-	            <li><a href="activity_v2.html">活動巴士</a></li>
-	            <li><a href="BearMJ_shop.html">造型商城</a></li>
-	            <li><a href="photo.html">照片牆</a></li>
-	            <li><a href="#">登入</a></li>
-	            <li><a href="#">魅力值</a></li>
-	            <li><a id="head_member_icon" href="#">會員中心</a></li>
-	        </ul>
-	    </div>
-	</div>
->>>>>>> origin/photo
 	`;
 
 	document.write(str_tag);
