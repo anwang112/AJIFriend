@@ -1,31 +1,14 @@
-#Agee {
-  width: 30%;
-  position: absolute;
-  left: 20%;
-  top: 20%; }
-
-#handR {
-  transform-origin: center left;
-  animation: hands linear 2s infinite alternate; }
-
-@keyframes hands {
-  0% {
-    transform: rotate(0deg) translateX(0%) translateY(0%); }
-  100% {
-    transform: rotate(-5deg) translateX(1%) translateY(2%); } }
-
 .wrap1 {
   width: 100%;
   height: 100vh;
   background-image: url("../images/activity/act_bg_03.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-color: #abe9ff;
-  transition: 2s; }
+  background-color: #abe9ff; }
 
 .wrap2 {
   width: 100%;
-  background-image: url(../images/activity/activityGrass6.svg);
+  background-image: url(../images/activity/activityGrass.svg);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -117,6 +100,7 @@
 .lightbox_act {
   width: 100%;
   height: 100%;
+  background-color: rgba(66, 65, 65, 0.7);
   margin: auto;
   position: absolute;
   left: 0;
@@ -129,11 +113,11 @@
   justify-content: center;
   align-items: center; }
   .lightbox_act .lightbox_act_info {
-    width: 75%;
-    height: 60%;
-    max-width: 1200px;
+    width: 50%;
+    max-width: 1500px;
+    height: 350px;
     padding: 20px 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #f05c79;
     border-radius: 15px;
     display: none;
@@ -238,6 +222,7 @@
 .lightbox_holdact {
   width: 100%;
   height: 100%;
+  background-color: rgba(66, 65, 65, 0.7);
   margin: auto;
   position: absolute;
   left: 0;
@@ -250,12 +235,11 @@
   justify-content: center;
   align-items: center; }
   .lightbox_holdact .lightbox_holdact_info {
-    width: 75%;
-    max-width: 1200px;
-    height: 60%;
+    width: 50%;
+    height: 400px;
     padding: 20px 20px;
     color: #f05c79;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #f05c79;
     border-radius: 15px;
     display: none;
@@ -292,11 +276,10 @@
       height: 0;
       padding-bottom: 27%;
       border-radius: 15px;
-      line-height: 200px;
+      line-height: 150px;
       border: 1px dashed #fff;
-      background-color: #ccc;
       position: absolute;
-      top: 100px;
+      top: 10px;
       right: 10px; }
 
 .partA {
@@ -313,18 +296,11 @@
   margin: 10px auto;
   color: rgba(255, 255, 255, 0.5);
   display: flex; }
-  .act_officialBanner:hover {
-    color: #fff; }
   .act_officialBanner img {
     width: 65%;
-    height: 300px;
-    padding-right: 15px;
+    height: 260px;
     display: block;
-    background-image: url("../images/activity/bgbox_act2.png");
-    background-size: 100% 102%;
-    background-repeat: no-repeat; }
-    .act_officialBanner img:hover {
-      animation: shake 2s linear; }
+    border-left: 2px solid #e5e5e5; }
   .act_officialBanner .act_info {
     width: 50%;
     text-align: center; }
@@ -355,13 +331,13 @@
       height: 30px; }
 
 .act_memberHold {
-  width: 90%;
+  width: 80%;
   height: 0;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 55%;
-  margin: 15px auto;
+  padding-bottom: 50%;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -438,29 +414,22 @@
   margin: 10px auto; }
   .act_memberHold_B .act_myActs, .act_memberHold_B .act_joins {
     width: 100%;
-    height: 320px;
-    margin-bottom: 20px;
+    width: 100%;
+    height: 45vh;
     color: rgba(102, 102, 102, 0.7);
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    position: relative;
-    display: flex; }
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; }
     .act_memberHold_B .act_myActs h3, .act_memberHold_B .act_joins h3 {
       display: inline-block;
       padding: 10px 20px;
-      color: #f05c79;
-      position: absolute;
-      left: 10%;
-      top: 8%; }
+      color: #f05c79; }
     .act_memberHold_B .act_myActs .act_memberCheckBox, .act_memberHold_B .act_joins .act_memberCheckBox {
       width: 100%;
       display: inline-block;
-      display: flex;
-      position: relative;
-      top: 20px;
-      left: 0%; }
+      display: flex; }
       .act_memberHold_B .act_myActs .act_memberCheckBox img, .act_memberHold_B .act_joins .act_memberCheckBox img {
-        width: 50%; }
+        width: 60%; }
       .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo {
         width: 40%;
         padding: 20px 20px;
@@ -476,9 +445,7 @@
           overflow-y: scroll; }
         .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo input, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo input {
           width: 80%;
-          height: 25px;
-          position: relative;
-          bottom: 30px; }
+          height: 25px; }
 
 @media only screen and (max-width: 1200px) {
   .act_officialBanner {
