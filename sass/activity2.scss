@@ -1,0 +1,1123 @@
+@charset "UTF-8";
+@import "methods";
+@import "var";
+
+#Agee{
+    width: 30%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+
+#handR{
+    transform-origin: center left;
+    animation: hands linear 2s infinite alternate;
+}
+
+@keyframes hands{
+    0%{
+        transform:rotate(0deg) translateX(0%) translateY(0%);
+    }
+    100%{
+        transform:rotate(-5deg) translateX(1%) translateY(2%);
+    }
+}
+
+
+.wrap1{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/activity/act_bg_03.svg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: #abe9ff;
+    transition: 2s;
+}
+.wrap2{
+    width: 100%;
+    background-image: url(../images/activity/activityGrass6.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: -2px;
+}
+.act_section01{
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    overflow: hidden;
+    // margin-top: 170px;
+    // background-color: #ccc;
+
+    h1{
+        width: 30%;
+       font-size: 2rem;
+       letter-spacing: .15rem;
+        color: $titleColor;
+        transform: rotate(-6deg);
+
+        position: relative;
+        z-index: 2;
+        top:20vh;
+        left: 30vh;
+    }
+    .act_mainbox{
+        width: 38%;
+        height: 0;
+        padding-bottom: 32%;
+        background-image: url('../images/activity/act_board.svg');
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: rotate(-1deg);
+
+        //排版
+        position: absolute;
+        right: 10%;
+        bottom: 15%;
+        z-index: 2;
+        overflow: hidden;
+
+        .imgBox{
+            width: 90%;
+            height: 50%;
+            margin: 5px 5%;
+            img{
+                width: 87%;
+                margin: 0 5%;
+                position: relative;
+                z-index: 3;
+                cursor: pointer;
+            }
+        }
+
+        .btnbox{
+            width: 100%;
+            transform: rotate(2deg);
+            position: relative;
+            top: 150px;
+            left: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            #btn_actL,#btn_actR{
+                display: inline-block;
+                width: 12%;
+                height: 0;
+                padding-bottom: 12%;
+                cursor: pointer;
+            }
+    
+            #btn_actL{
+                background-image: url('../images/activity/act_boardBtnL.svg');
+                background-repeat: no-repeat;
+            }
+            #btn_actR{
+                background-image: url('../images/activity/act_boardBtnR.svg');
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    .act_bg_moving01{ //css動畫要加
+        width: 100%;
+        height: 45vh;
+        position: absolute;
+        top:10vh;
+        left: 0;
+
+        background-image: url('../images/activity/cloud01.svg'),
+                          url('../images/activity/cloud01.svg'),
+                          url('../images/activity/cloud01.svg'),
+                          url('../images/activity/cloud01.svg'),
+                          url('../images/activity/cloud01.svg');
+        background-size: 70px;
+        background-position: 50% 10%,
+                             60% 47%,
+                             10% 57%,
+                             25% 11%,
+                             80% 22%;
+        background-repeat: no-repeat;
+        animation: cloudMoving 50s infinite linear forwards;
+    }
+    .act_bus{
+        width: 25%;
+        position: absolute;
+        left: 10%;
+        bottom: 10%;
+        // animation:  busMoving ease-in-out 10s infinite;
+    }
+
+    #LightBoxAct,#LightBoxActInner,#LightBoxActClose{
+        position: relative;
+        z-index: -1;
+    }
+
+    #LightBoxActInner{
+        //排版
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+}
+
+.lightbox_act{
+    width: 100%;
+    height: 100%;
+    // background-color: transparent;
+    // background-color: rgba(66, 65, 65,.7);
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    display: none;
+
+    //排版
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lightbox_act_info{
+        width:75%;
+        height:60%;
+        max-width: 1200px;
+        padding: 20px 20px;
+        background-color:rgba(255, 255, 255,.9);
+        border: 1px solid $btn_bgcolor; 
+        border-radius: $btnRadius;
+
+        // box-shadow: 10px 10px $lightbox_bg;
+
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+
+        position: relative;
+        img{
+            width:45%;
+            transform: rotate(-1deg);
+        }
+        h2{
+            width: 70%;
+            height: 30px;
+            font-size: 1rem;
+            color: $shadow;
+        }
+        p{  
+            width: 40%;
+            color: $shadow;
+            font-size: .8rem;
+            max-width: 600px;
+            line-height: 1rem;
+        }
+        .spanbox{
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            span{  
+                display: inline-block;
+                width: 20%;
+                color: $shadow;
+                font-size: .8rem;
+                line-height: 1rem;
+            }
+        }
+
+    }
+}
+@keyframes busMoving {
+    0%{left: 5%;bottom: 5%;z-index: 4;}
+    30%{left: 30%;bottom: 15%;z-index: 4;}
+    60%{left: 60%;bottom: 10%;z-index: 4;}
+    90%{left: 90%;bottom: 5%;z-index: 4;}
+    100%{left: 90%;bottom: 5%;z-index: 4;}
+
+}
+
+@keyframes cloudMoving {
+    0%{
+        background-position: 50% 10%,
+                            60% 47%,
+                            10% 57%,
+                            25% 11%,
+                            80% 22%;
+    }
+    100%{
+        background-position: 70% 10%,
+                            90% 47%,
+                            20% 57%,
+                            65% 11%,
+                            110% 22%;
+    }
+}
+
+
+
+
+.act_section02{
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 50px;
+    margin-top: -2px;
+    margin: 0 auto;
+    // background-color: rgb(245, 170, 85);
+    //排版
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.act_tabBar{
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+    span{
+        display:inline-block;
+        padding: 2px 10px;
+        font-size: .9rem;
+        color: $btn_color;
+        // border-bottom: 1px solid #444;
+        cursor: pointer;
+        width: 80px;
+        height: 25px;
+        line-height: 25px;
+        background-color:$input_bgcolor;
+        border-radius: 15px;
+        text-align: center;
+
+    }
+    span:hover{
+        color:#fff;
+        // border-bottom: 1px solid #fff;
+    }
+    #tab_allAct{
+        color:#fff;
+        // border-bottom: 1px solid #fff;
+    }
+    #btn_holdAct{
+        display: block;
+        position: absolute;
+        right: 0;
+        z-index: 4;
+        width: 75px;
+        height: 30px;
+
+    }
+}
+
+.lightbox_holdact{
+    width: 100%;
+    height: 100%;
+    // background-color: transparent;
+    // background-color: rgba(66, 65, 65,.7);
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    display: none;
+
+    //排版
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lightbox_holdact_info{
+        width:75%;
+        max-width: 1200px;
+        height:60%;
+        padding: 20px 20px;
+        color:$btn_bgcolor;
+        background-color:rgba(255, 255, 255,.9);
+        border: 1px solid $btn_bgcolor; 
+        border-radius: $btnRadius;
+
+        // box-shadow: 10px 10px $lightbox_bg;
+
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+
+        position: relative;
+        bottom: 20%;
+        h2{
+            width: 100%;
+            text-align: left;
+        }
+        label{
+            width: 90%;
+            text-align: left;
+            vertical-align: top;
+            input{
+                width: 25%;
+                height: 20px;
+                margin-top: 10px;
+                text-align: left;
+                font-size: .7rem;
+            }
+            textarea{
+                width: 250px;
+                resize: none;
+                font-size: .8rem;
+                margin-top: 10px;
+            }
+        }
+
+        #input_actInfo{
+            height: 50px;
+            position: relative;
+        }
+
+        .act_holdActFileBox{
+            width: 44%;
+            height: 0;
+            padding-bottom: 27%;
+            border-radius: 15px;
+            line-height: 200px;
+            border: 1px dashed #fff;
+            background-color: #ccc;
+            position: absolute;
+            top: 100px;
+            right: 10px;
+        }
+    }
+
+}
+
+
+
+//partA和B操作
+.partA{
+    display:block;
+
+}
+.partB{
+    display: none;
+
+}
+
+
+.act_officialBanner{
+    width: 80%;
+    height: 0;
+    padding-top: 50px;
+    padding-bottom: 30%;
+    margin: 10px auto;
+    color: $btn_color;
+    //排版
+    display: flex;
+    &:hover{
+        color: #fff;
+    }
+    img{
+        width: 65%;
+        height: 300px;
+        padding-right: 15px;
+        display: block;
+        // border-left:2px solid $gray; 
+        background-image: url('../images/activity/bgbox_act2.png');
+        background-size: 100% 102%;
+        background-repeat: no-repeat;
+        &:hover{
+            animation: shake 2s linear ;
+        }
+    }
+    .act_info{
+        width: 50%;
+        // background-color: #444;
+        text-align: center;
+        h2{
+            width: 100%;
+            padding: 10px 20px;
+            text-align: left;
+            color: #fff;
+        }
+        span{
+            display: inline-block;
+            width: 30%;
+            padding: 10px 20px;
+            text-align: left;
+            font-size: .8rem;
+        }
+        p{  
+            text-align: left;
+            padding: 5px 0 5px 20px;
+            font-size: .8rem;
+            line-height: 1.4rem;
+            width: 90%;
+            margin: 2px 5%;
+        }
+        button{
+            display: inline-block;
+            margin: 20px 20px;
+            position: relative;
+            bottom: 30px;
+            width: 75px;
+            height: 30px;
+        }
+    }
+}
+
+// @keyframes shake {
+//     0%, 100% {
+//         -webkit-transform: translate3d(0, 0, 0);
+//         transform: translate3d(0, 0, 0);
+//         }
+//         10%, 30%, 70%,{
+//         -webkit-transform: translate3d(-5px, 0, 0);
+//         transform: translate3d(-5px, 0, 0);
+//         }
+//         20%, 40%, 80% {
+//         -webkit-transform: translate3d(5px, 0, 0);
+//         transform: translate3d(5px, 0, 0);
+//         }
+// }
+
+.act_memberHold{
+    width: 90%;
+    height: 0;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 55%;
+    margin: 15px auto;
+
+    //排版
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: space-around;
+    .act_memberHold_box{
+        width: 30%;
+        height: 0;
+        padding-bottom: 27%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255,.6); //回家修圖改
+        // margin-top: 30px;
+        // padding: 10px 20px;
+        // background-color: #fff;
+        img{
+            width: 100%;
+        }
+        .act_memberHold_join{
+            width: 100px;
+            height: 50px;
+            // background-color: #fff;
+            position: absolute;
+            right: 0%;
+            bottom:0;
+            opacity: 0;
+            button{
+                width: 75px;
+                height: 30px;
+            }
+        }
+
+        h3{
+            width: 60%;
+            margin: 5px auto;
+            font-size: .9rem;
+            padding: 7px 0;
+            border-bottom: 1px solid #fff;
+        }
+        .spanbox{
+            width: 60%;
+            margin: 5px auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            span{
+                width: 30%;
+                height: 30px;
+                padding: 5px 10px;
+                display: inline-block;
+                font-size: .7rem;
+                text-align: left;
+                color: $textGray2;
+            }
+        }
+
+        p{
+            width: 90%;
+            font-size: .8rem;
+            padding: 5px 10px;
+            text-align: right;
+            cursor: pointer;
+        }
+    }
+    .act_tab_pages{ 
+        width: 100px;
+        transform: translateX(-30%);
+        position: absolute;
+        left: 50%;
+        bottom:30px;
+        span{
+            width: 20px;
+            padding: 2px 5px;  
+            font-size: 1rem;
+            letter-spacing: 1.1rem;
+            color: $textGray2;
+            cursor: pointer;
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
+}
+
+.act_memberHold_B{
+    width: 80%;
+    padding-bottom: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+    // padding-bottom: 44%;
+    margin: 10px auto;
+    
+
+    //排版
+
+    .act_myActs,.act_joins{
+        width: 100%;
+        height: 320px;
+        margin-bottom: 20px;    
+        color: $textGray2;
+        background-color: $white;
+        border-radius: 15px;
+        position: relative;
+
+        //排版
+        display: flex;
+        // flex-wrap: wrap;
+        // flex-direction: column;
+        h3{
+            display: inline-block;
+            padding: 10px 20px;
+            color: $darkPink;
+            position: absolute;
+            left: 10%;
+            top: 8%;
+        }
+        .act_memberCheckBox{
+            width: 100%;
+            display: inline-block;
+            display: flex;
+            position: relative;
+            top: 20px;
+            left: 0%;
+            img{
+                width: 50%;
+            }
+            .act_MCInfo{
+                width: 40%;
+                padding: 20px 20px;
+                display: flex;
+                flex-direction: column;
+                h4{
+                    font-size: .9rem;
+                    color: $darkPink;
+                    padding: 10px 0;
+                }
+                .messagebox{
+                    width: 100%;
+                    height: 200px;
+                    overflow-y: scroll;
+                }
+                input{
+                    width: 80%;
+                    height: 25px;
+                    position: relative;
+                    bottom:30px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .act_officialBanner{
+        padding-bottom: 28%;
+        img{
+            width: 60%;
+        }
+        .act_info{
+            width: 40%;
+        }
+    }
+    .act_memberHold{
+        .act_memberHold_box{
+            padding-bottom: 27%;
+        }
+    }
+
+}
+@media only screen and (max-width: 1150px){
+    .act_officialBanner{
+        img{
+            width: 50%;
+        }
+        .act_info{
+            width: 50%;
+        }
+    }
+    .act_memberHold_B{
+        width: 90%;
+        .act_myActs{
+            padding-bottom: 5%;
+            h3{
+                position: absolute;
+                left: 10%;
+            }
+        }
+        .act_joins{
+            padding-bottom: 5%;
+            h3{
+                position: absolute;
+                left: 10%;
+            }            
+        }
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1100px){
+
+    .act_officialBanner{
+        flex-wrap: wrap;
+        height: 50%;
+        padding-bottom: 0%;
+        img{
+            width: 100%;
+        }
+        .act_info{
+            width: 100%;
+        }
+    }
+    .act_memberHold{
+        height: 50%;
+        padding-bottom: 4%;
+        .act_memberHold_box{
+            width: 45%;
+            height: 300px;
+            padding-bottom: 20px;
+        }
+    }
+} 
+@media only screen and (max-width: 767px){
+    .act_officialBanner{
+        width: 95%;
+        .act_info{
+
+            span{
+                width: 20%;
+                padding: 10px 0;
+            }
+            button{
+                margin: 0 0 25px 0px;
+            }
+        }
+    }
+    .act_memberHold{
+        width: 95%;
+        .act_memberHold_box{
+            padding-bottom: 20%;
+            span {
+                width: 40%;
+                padding: 4px 5px;
+                display: inline-block;
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .act_memberHold_B{
+        width: 100%;
+        .act_myActs{
+            height: 70vh;
+            padding-bottom: 4%;
+            h3{
+                position: absolute;
+                left: 10%;
+            }
+            .act_memberCheckBox{
+                height: 100%;
+                flex-wrap: wrap;
+                img{
+                    width: 100%;
+                }
+                .act_MCInfo{
+                    width: 100%;
+                    height: 200px;
+
+                    input{
+                        margin:  0 auto;
+                    }
+                }
+            }
+        }
+        .act_joins{
+            height: 70vh;
+            padding-bottom: 4%;
+            h3{
+                position: absolute;
+                left: 10%;
+            }
+            .act_memberCheckBox{
+                height: 100%;
+                flex-wrap: wrap;
+                img{
+                    width: 100%;
+                }
+                .act_MCInfo{
+                    width: 100%;
+                    height: 200px;
+
+                    input{
+                        margin:  0 auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 550px){
+
+    .act_memberHold{
+        .act_memberHold_box{
+            padding-bottom: 20%;
+            width: 48%;
+            height: 260px;
+        }
+    }
+}
+
+@media only screen and (max-width: 476px){
+    #btn_actCheck,#btn_actJoin{
+        width: 70px;
+        bottom: 0;
+    }
+    .act_memberHold{
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: -40px;
+        .act_memberHold_box{
+            padding-bottom: 20%;
+            width: 48%;
+            height: 220px;
+        }
+
+        // .act_tab_pages{
+        //     width: 100px;
+        //     transform: translateX(-50%);
+        // }
+    }
+    .act_memberHold_B{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .act_memberHold {
+        .act_memberHold_box{
+            .spanbox {
+                width: 60%;
+                margin: 5px auto;
+                display: flex;
+                flex-wrap:unset; 
+            }
+        } 
+    }
+    .act_memberHold {
+        .act_tab_pages {
+            width: 100px;
+            transform: translateX(-51%);
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+        }
+    }
+    .act_memberHold_B{
+        .act_myActs{
+            h3 {
+                position: absolute;
+                left: 0%;
+            }
+        }
+        .act_joins{
+            h3{
+                position: absolute;
+                left: 0%;
+            }
+        }
+    }  
+
+}
+
+
+@media only screen and (max-width: 1100px){
+    .act_section01{
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url(../images/activity/act_bg_03.svg);
+        background-position: center 79%;
+        background-size: 272%;
+        background-repeat: no-repeat;
+        background-color: #abe9ff;
+        h1{
+            width: 98%;
+            font-size: 3rem;
+            letter-spacing: .15rem;
+            color: #f05c79;
+            transform: rotate(0deg);
+            position: relative;
+            z-index: 2;
+            top: 19vh;
+            left: 9vh;
+        }
+
+        .act_mainbox{
+            width: 83%;
+            height: 0;
+            padding-bottom: 71%;
+            background-image: url(../images/activity/act_board.svg);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 7%;
+            bottom: 17%;
+            z-index: 2;
+            overflow: hidden;
+            transform: rotate(-1.5deg);
+            .btnbox{
+                width: 100%;
+                transform: rotate(1.5deg);
+                position: relative;
+                top: 141px;
+                left: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .act_bg_moving01{
+            display: none;
+        }
+        .act_bus{
+            width: 49%;
+            z-index: 4;
+            position: absolute;
+            left: -3%;
+            bottom: 5%;
+        }
+    }
+    .lightbox_act{
+        .lightbox_act_info{
+            width: 97%;
+            img{
+                width: 44%;
+            }
+        }
+    }
+    .lightbox_holdact{
+        .lightbox_holdact_info{
+            width: 98%;
+            .act_holdActFileBox{
+                line-height: 130px;
+            }
+        }
+    }
+
+}
+
+
+@media only screen and (max-width: 767px){
+    .act_section01{
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url(../images/activity/act_bg_03.svg);
+        background-position: center 100%;
+        background-size: 427%;
+        background-repeat: no-repeat;
+        background-color: #abe9ff;
+        h1{
+            width: 98%;
+            font-size: 2rem;
+            letter-spacing: .15rem;
+            color: #f05c79;
+            transform: rotate(0deg);
+            position: relative;
+            z-index: 2;
+            top: 15vh;
+            left: 9vh;
+        }
+
+        .act_mainbox{
+            width: 88%;
+            height: 0;
+            padding-bottom: 75%;
+            background-image: url(../images/activity/act_board.svg);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 4%;
+            bottom: 9%;
+            z-index: 2;
+            overflow: hidden;
+            transform: rotate(-1.5deg);
+            .btnbox{
+                width: 100%;
+                transform: rotate(0deg);
+                position: relative;
+                top: 171px;
+                left: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .act_bg_moving01{
+            display: none;
+        }
+        .act_bus{
+            width: 37%;
+            z-index: 4;
+            position: absolute;
+            left: -3%;
+            bottom: 5%;
+        }
+    }
+    .lightbox_act{
+        .lightbox_act_info{
+            width: 97%;
+            img{
+                width: 44%;
+            }
+        }
+    }
+    .lightbox_holdact{
+        .lightbox_holdact_info{
+            width: 98%;
+            .act_holdActFileBox{
+                line-height: 130px;
+            }
+        }
+    }
+
+}
+
+
+@media only screen and (max-width: 476px){
+    .act_section01{
+        width: 100%;
+        height: 100vh;
+        min-width: 400px;
+        overflow: hidden;
+        background-image: url(../images/activity/act_bg_03.svg);
+        background-position: center 100%;
+        background-size: 427%;
+        background-repeat: no-repeat;
+        background-color: #abe9ff;
+        h1{
+            width: 98%;
+            font-size: 2rem;
+            letter-spacing: .15rem;
+            color: #f05c79;
+            transform: rotate(0deg);
+            position: relative;
+            z-index: 2;
+            top: 15vh;
+            left: 9vh;
+        }
+
+        .act_mainbox{
+            width: 95%;
+            height: 0;
+            padding-bottom: 81%;
+            background-image: url(../images/activity/act_board.svg);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 2%;
+            bottom: 24%;
+            z-index: 2;
+            overflow: hidden;
+            transform: rotate(-1deg);
+            .btnbox{
+                width: 100%;
+                transform: rotate(2deg);
+                position: relative;
+                top: 96px;
+                left: 7px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .act_bg_moving01{
+            display: none;
+        }
+        .act_bus{
+            width: 61%;
+            z-index: 4;
+            position: absolute;
+            left: -3%;
+            bottom: 5%;
+        }
+    }
+    .lightbox_act{
+        .lightbox_act_info{
+            width: 97%;
+            img{
+                width: 60%;
+            }
+            p{
+                width: 80%;
+                color: #f05c79;
+                font-size: .8rem;
+                max-width: 600px;
+                line-height: 1rem;
+            }
+            .spanbox {
+                width: 65%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
+
+
+    .lightbox_holdact{
+        .lightbox_holdact_info{
+            width: 98%;
+            .act_holdActFileBox{
+                line-height: 130px;
+            }
+        }
+    }
+    .act_section02{
+        min-width: 400px;
+    }
+
+
+}

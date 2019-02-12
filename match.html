@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 共用css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/activity2.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <script src="js/commonPart.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 套件full-page  -->
+    <link type="text/css" rel="stylesheet" href="css/fullpage.css">
+    
+
+    <title>Match</title>
+</head>
+<body>
+	<script type="text/javascript">
+		head_html();
+	</script>
+
+    <div id="example" class="wrap-bg">
+        <!-- wrap開始 -->
+        <div class="section">
+            <div id="wrapForBoat" class="wrap">
+                <div class="section_01">
+                    <div class="colbox colbox_select">
+                        <h2>match your 麻吉</h2>
+                        <div class="info_of_match">
+                            <table>
+                                <tr><th>暱稱</th><td>阿吉好累</td></tr>
+                                <tr><th>興趣</th><td>騎腳踏車和滑手機</td></tr>
+                                <tr><th>星座</th><td>摩羯座</td></tr>
+                                <tr><th>自介</th><td>？？？</td></tr>
+                            </table>
+                        </div>
+                        <label for="" id="btn_choose_hobby">興趣挑選</label>
+                        <label for="" id="btn_choose_
+                        constellation">星座挑選</label>
+                    </div>
+                    <div class="colbox colbox_actor">
+                        <img id="colbox_actor" src="pic/demo_F00.svg" alt="colbox_actor">
+                        <span id="btn_beFriend" class="pulse"></span>
+                    </div>
+                    <div class="colbox colbox_other_actors mnone">
+                        <img class="other_actors" src="pic/demo_F01.svg" alt="other_actors">
+                        <img class="other_actors" src="pic/demo_F02.svg" alt="other_actors">
+                        <img class="other_actors" src="pic/demo_F03.svg" alt="other_actors">
+                        <img class="other_actors" src="pic/demo_F04.svg" alt="other_actors">
+                    </div>
+                </div>
+            <!-- 操作燈箱 -->
+                <div id="lightbox_hobby" class="lightbox_hobby">
+                    <div id="lightbox_info_hobby" class="lightbox_info_hobby">
+                        <h2>興趣選項</h2>
+
+                        <input id="hobby_movie" type="checkbox" value="看電影">
+                        <label for="hobby_movie">看電影 </label>
+
+
+                        <input id="hobby_sport" type="checkbox" value="運動">
+                        <label for="hobby_sport">運動</label>
+
+                        <input id="hobby_js" type="checkbox" value="寫js">
+                        <label for="hobby_js">寫js</label>
+
+                        <input id="hobby_pokemon" type="checkbox" value="pokemon">
+                        <label for="hobby_pokemon">抓寶可夢</label>
+
+                        <input id="hobby_submit" type="submit" value="送出"></form>
+                    </div>
+                </div>
+            <!-- 送出交友邀請動畫 -->
+                <div id="effectbox" class="effectbox"></div>
+            <!-- 配對第一屏結束 -->
+            </div>
+        </div>
+       
+
+        <!-- wrap2開始 -->
+        <div class="section">
+            <div class="wrap2">
+                <!-- 配對第二屏開始  v0123 -->
+                <div class="section_02">
+                    <!-- <h2>麻吉排行</h2> -->
+                    <div class="ranking_of_all">
+                        <!-- <img class="demo_ddd" src="pic/demo_ranking_of_all02.svg" alt=""> -->
+                        <div class="rankBox">
+                            <div class="rankBox_info">
+                                    <span>熱門搜尋第一名</span>
+                                    <span><img class="rankBox_img" src="pic/fRank04.svg" alt="大頭照"></span>
+                                    <span>梅拉</span>
+                            </div>
+                            <div id="svg_bar" class="svg_bar">
+                            </div>
+                        </div>
+                        <div class="rankBox rankBox2">
+                            <div class="rankBox_info">
+                                    <span>熱門搜尋第二名</span>
+                                    <span><img class="rankBox_img" src="pic/fRank05.svg" alt="大頭照"></span>
+                                    <span> Momoa</span>
+                            </div>
+                            <div id="svg_bar2" class="svg_bar">
+                            </div>
+                        </div>
+                        <div class="ranking dnone">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <span>{{ID}}</span>
+                            <div class="showSpan">
+                                <span>{{朋友數}}</span>
+                                <span>{{魅力值}}</span>
+                                <span>{{財產數}}</span>
+                            </div>
+                            <img id="result_searchF" src="pic/demo_F04.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="colbox_actor02">
+                        <img id="btn_searchF" class="btn_searchF" src="pic/Fsearch_02.svg" alt="搜尋麻吉">
+                        <span>hello</span>
+                        <img class="Agi02" src="pic/demo_F00.svg" alt="colbox_actor02">
+                    </div>
+                </div>
+                <!-- 配對第二屏結束 -->
+            </div>
+        </div>
+    </div>    
+
+    <script type="text/javascript">
+		foot_html();
+	</script>
+    <script src="js/match.js"></script>
+    <!-- <script>
+        window.addEventListener('load',function(){
+            $("#example").fullpage({
+            navigation: true, // 顯示導行列
+            navigationPosition: "right" // 導行列位置
+           });
+        },false);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/fullpage.js"></script> -->
+</body>
+</html>
