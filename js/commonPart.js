@@ -53,71 +53,6 @@ function head_html(){
 		<!-- 關掉按鈕 -->
 		<div id="loginBoxClose" class="lightBoxXX"></div>
 	</div>
->>>>>>> origin/master
-=======
-	<div id="head" class="head mnone">
-        <div class="headWrap">
-            <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
-            <ul class="menu">
-                <li><a href="match2.html">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop.html">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
-                <li><a href="myRoom.html">我的窩</a></li>
-            </ul>
-            <div class="loginBox">
-                <div class="loginImg">
-                    <img src="images/loginPhoto.svg">
-                </div>
-                <div class="loginTxtWrap">
-                    <div class="loginNot">
-                        <a href="#"><span>登入</span></a> 
-                    </div>
-                    <div class="loginContent">
-                        <div class="loginTitle">
-                            <span>ID</span><span>等級</span>
-                        </div>
-                        <div class="loginMj">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="head_phone  dnone ">
-        <a href="#">
-            <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
-        </a>
-        <a href="index.html" class="logo_phone">
-            <img src="pic/logo_phone03.png" alt="">
-        </a>
-        <a href="#">
-            <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
-        </a>
-        <div id="menu_phone" class="menu_phone">
-            <ul>
-                <li><a href="match.html">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop.html">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
-                <li><a href="#">登入</a></li>
-                <li><a href="#">魅力值</a></li>
-                <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
-            </ul>
-        </div>
-    </div>
-    <div id="loginBox" class="LightBoxMask"></div>
-    <div id="lightBoxInner" class="middleLightBox login_box">
-        <h2>登入/註冊</h2>
-        <form id="login_form" action="">
-            <input type="e-mail" placeholder="hi@gmail.com">
-            <input type="psw" placeholder="6位數密碼">
-            <input type="submit" value="送出" class="input_R">
-        </form>
-        <!-- 關掉按鈕 -->
-        <div id="loginBoxClose" class="lightBoxXX"></div>
-    </div>
 	`;
 	
 	document.write(str_tag);
@@ -128,72 +63,75 @@ function head_html(){
 function foot_html(){
 
 	var str_tag2 = `
-		   <!-- 桌機聊天室 -->
-	    <div id="chatRoom" class="chatRoom">
-	    <!-- 聊天室右側主要顯示區  -->
-	    <h2 id="chatRoom_control">麻吉聊天室</h2>
-	    <div class="chatRoom_info">
-	        <img id="friendPic" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-	        <span>吐2</span>
-	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
-	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
-	    </div> 
-	    <div class="chatboxRight">
-	        <div class="chatbox_show">
-	            <img id="friendPicSmall" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-	            <span>聊天內容</span>
-	        </div>
-	        <div class="chatbox_faces">
-	            <img src="pic/chatroom_face_01.svg" alt="喜">
-	            <img src="pic/chatroom_face_02.svg" alt="怒">
-	            <img src="pic/chatroom_face_03.svg" alt="哀">
-	            <img src="pic/chatroom_face_04.svg" alt="樂">
-	        </div>
-	        <div class="chatbox_input">
-	            <input id="chatTxt_input" type="text">
-	            <input id="chatTxt_send" type="button" value="送出">
-	        </div>      
-	    </div> 
-	    <!-- 聊天室收合左側欄  -->
-	    <label for=""><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
-	    <div id="chatboxLeft" class="chatboxLeft">
-	        <input id="search_input" type="text" placeholder="搜尋好友">
-	        <div class="friendbox">
+	<!-- 桌機聊天室 -->
+	<div id="chatRoom" class="chatRoom">
+	<!-- 聊天室右側主要顯示區  -->
+	<h2 id="chatRoom_control">麻吉聊天室</h2>
+	<div class="chatRoom_info">
+		<img id="friendPic" src="pic/friend_demo_03.svg" alt="朋友大頭照">
+		<span>吐2</span>
+		<a href="#"><img src="pic/btn_chat_gift.svg" alt="送禮物按鍵"></a>
+		<a href="#"><img src="pic/btn_chat_profile.svg" alt="查看個人檔案按鍵"></a>
+	</div> 
+	<div class="chatboxRight">
+		<div id="chatbox_show" class="chatbox_show">
+			<img id="friendPicSmall" src="pic/friend_demo_03.svg" alt="朋友大頭照">
+			<span>hello</span>
+		</div>
+		<div id="chatbox_faces" class="chatbox_faces">
+			<img class="chat_faces" src="pic/chatroom_face_01.svg" alt="喜">
+			<img class="chat_faces" src="pic/chatroom_face_02.svg" alt="怒">
+			<img class="chat_faces" src="pic/chatroom_face_03.svg" alt="哀">
+			<img class="chat_faces" src="pic/chatroom_face_04.svg" alt="樂">
+		</div>
+		<div class="chatbox_input">
+			<input id="chatTxt_input" type="text">
+			<input id="chatTxt_send" class="btn_R" type="button" value="送出">
+		</div>      
+	</div> 
+	<!-- 聊天室收合左側欄  -->
+	<label for=""><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
+	<div id="chatboxLeft" class="chatboxLeft">
+		<input id="search_input" class="input_R" type="text" placeholder="搜尋好友">
+		<div class="friendbox">
 
-	        </div>
-	        <div class="replybox">
-	            <h4>待回覆好友邀請</h4>
-	        </div>
-	    </div>
+		</div>
+		<div class="replybox">
+			<h4>待回覆好友邀請</h4>
+		</div>
 	</div>
-	    <!-- 手機聊天室 -->
-	    <div class="chatRoom_phone_part1" id="chatRoom_phone_part1">
-	            <input id="search_input_phone" type="text" placeholder="搜尋好友">
-	            <img src="pic/friendbox_demo.png" alt="fr_demo" class="fr_demo" id="fr_demo">
-	            <!-- <div id="friendbox_phone">
-	                friendbox//之後寫入
-	            </div> -->
-	            <div id="replybox_phone">
-	                <h4>待回覆好友邀請</h4>
-	            </div>
-	    </div>
-	    <div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
-	        <div class="info_bar">
-	            <img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
-	            <span id="friend_id_show">傻眼貓咪</span>
-	        </div>
-	        <div class="info_chatbox">
-	            <span>hi~~</span>
-	        </div>
-	        <div class="info_controlbox">
-	            <img id="" src="pic/btn_chat_gift.svg" alt="">
-	            <img src="pic/btn_chat_profile.svg" alt="">
-	            <img src="pic/btn_chat_send.svg" alt="">
-	            <input id="info_input_phone" type="text">
-	        </div>
-	    </div>
-	    <!-- 手機聊天室結束 -->
-	    
+	</div>
+	<!-- 手機聊天室 -->
+	<div class="chatRoom_phone_part1" id="chatRoom_phone_part1">
+			<input id="search_input_phone" type="text" placeholder="搜尋好友">
+			<img src="pic/friendbox_demo.png" alt="fr_demo" class="fr_demo" id="fr_demo">
+			<!-- <div id="friendbox_phone">
+				friendbox//之後寫入
+			</div> -->
+			<div id="replybox_phone">
+				<h4>待回覆好友邀請</h4>
+			</div>
+	</div>
+	<div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
+		<div class="info_bar">
+			<img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
+			<span id="friend_id_show">傻眼貓咪</span>
+		</div>
+		<div id="info_chatbox" class="info_chatbox">
+			<span>hi~~</span>
+		</div>
+		<div id="info_controlbox" class="info_controlbox">
+			<img id="" src="pic/btn_chat_gift.svg" alt="">
+			<img src="pic/btn_chat_profile.svg" alt="">
+			<img id="btn_chat_picbox" src="pic/btn_chat_send.svg" alt="">
+			<input id="info_input_phone" type="text">
+		</div>
+		<div id="chatbox_faces_phone" class="chatbox_faces_phone">
+				<img class="chat_faces_phone" src="pic/chatroom_face_01.svg" alt="喜">
+				<img class="chat_faces_phone" src="pic/chatroom_face_02.svg" alt="怒">
+				<img class="chat_faces_phone" src="pic/chatroom_face_03.svg" alt="哀">
+				<img class="chat_faces_phone" src="pic/chatroom_face_04.svg" alt="樂">
+		</div>
 	</div>
 	`; 
 
