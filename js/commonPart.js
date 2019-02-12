@@ -5,54 +5,68 @@ function head_html() {
 
 	var str_tag = `
 	<div id="head" class="head mnone">
-		<div class="headWrap">
-	    <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
-	    <ul class="menu">
-	        <li><a href="match2.html">找麻吉</a></li>
-	        <li><a href="activity_v2.html">活動巴士</a></li>
-	        <li><a href="BearMJ_shop.html">造型商城</a></li>
-			<li><a href="photo.html">照片牆</a></li>
-			<li><a href="myRoom.html">我的窩</a></li>
-	    </ul>
-	    <ul class="menu_sub">
-	        <li><a id="btn_login"href="javascript:;">登入</a></li>
-	        <li><a href="#">魅力值</a></li>
-		</ul>
-		</div>
-	</div>
-	<div class="head_phone  dnone ">
-	    <a href="#">
-	        <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
-	    </a>
-	    <a href="index.html" class="logo_phone">
-	        <img src="pic/logo_phone03.png" alt="">
-	    </a>
-	    <a href="#">
-	        <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
-	    </a>
-	    <div id="menu_phone" class="menu_phone">
-	        <ul>
-	            <li><a href="match.html">找麻吉</a></li>
-	            <li><a href="activity_v2.html">活動巴士</a></li>
-	            <li><a href="BearMJ_shop.html">造型商城</a></li>
-	            <li><a href="photo.html">照片牆</a></li>
-	            <li><a href="#">登入</a></li>
-	            <li><a href="#">魅力值</a></li>
-	            <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
-	        </ul>
-	    </div>
-	</div>
-	<div id="loginBox" class="LightBoxMask"></div>
-		<div id="lightBoxInner" class="middleLightBox login_box">
-				<h2>登入/註冊</h2>
-				<form id="login_form" action="">
-					<input type="e-mail" placeholder="hi@gmail.com">
-					<input type="psw" placeholder="6位數密碼">
-					<input type="submit" value="送出" class="input_R">
-				</form>
-		<!-- 關掉按鈕 -->
-		<div id="loginBoxClose" class="lightBoxXX"></div>
-	</div>
+        <div class="headWrap">
+            <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
+            <ul class="menu">
+                <li><a href="match2.html">找麻吉</a></li>
+                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="BearMJ_shop.html">造型商城</a></li>
+                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="myRoom.html">我的窩</a></li>
+            </ul>
+            <div class="loginBox">
+                <div class="loginImg">
+                    <img src="images/loginPhoto.svg">
+                </div>
+                <div class="loginTxtWrap">
+                    <div class="loginNot">
+                        <a href="#"><span>登入</span></a> 
+                    </div>
+                    <div class="loginContent">
+                        <div class="loginTitle">
+                            <span>ID</span><span>等級</span>
+                        </div>
+                        <div class="loginMj">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="head_phone  dnone ">
+        <a href="#">
+            <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
+        </a>
+        <a href="index.html" class="logo_phone">
+            <img src="pic/logo_phone03.png" alt="">
+        </a>
+        <a href="#">
+            <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
+        </a>
+        <div id="menu_phone" class="menu_phone">
+            <ul>
+                <li><a href="match.html">找麻吉</a></li>
+                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="BearMJ_shop.html">造型商城</a></li>
+                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="#">登入</a></li>
+                <li><a href="#">魅力值</a></li>
+                <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="loginBox" class="LightBoxMask"></div>
+    <div id="lightBoxInner" class="middleLightBox login_box">
+        <h2>登入/註冊</h2>
+        <form id="login_form" action="">
+            <input type="e-mail" placeholder="hi@gmail.com">
+            <input type="psw" placeholder="6位數密碼">
+            <input type="submit" value="送出" class="input_R">
+        </form>
+        <!-- 關掉按鈕 -->
+        <div id="loginBoxClose" class="lightBoxXX"></div>
+    </div>
 	`;
 
 	document.write(str_tag);

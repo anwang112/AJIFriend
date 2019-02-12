@@ -8,9 +8,9 @@
     <title>找麻吉</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
-    <link rel="stylesheet" href="css/common.css">
     <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
 </head>
 
 <body>
@@ -18,35 +18,52 @@
         head_html();
     </script>
     <div class="wrap">
-        <div id="effectbox" class="effectbox"></div>
+
+        <div class="searchMaji">
+            <input type="text" placeholder="搜尋麻吉ID" class="searchTxt">
+            <input type="button" value="搜尋" class="search">
+        </div>
         <div class="matchContent">
             <div class="carousel">
                 <h1>轉轉找麻吉</h1>
                 <img src="images/matchBoard.svg" class="board">
-                <img src="images/matchHorse.svg">
+                <div class="matchHorse">
+                    <img src="images/matchHorse.svg">
+                    <img src="images/matchItem01.svg"class="matchItem mi01">
+                    <img src="images/matchItem01.svg"class="matchItem mi02">
+                    <img src="images/matchItem01.svg"class="matchItem mi03">
+                    <img src="images/matchItem01.svg"class="matchItem mi04">
+                </div>
                 <div class="matchMem">
-                    <img src="images/matchBack.svg" class="back">
-                    <img src="images/match01.svg ">
-
+                    <div class="memFront">
+                        <img src="images/match01.svg">
+                        <img src="images/body1.png" alt="body"class="matchBody">
+                        <img src="images/eye1.png" alt="eyes"class="matchEyes">
+                        <!-- <img src="" alt="clothes">
+                        <img src="" alt="hat"> -->
+                    </div>
+                    <div class="memBack">
+                        <img src="images/matchBack.svg" class="back">
+                    </div>
                 </div>
                 <div class="profileInfo">
                     <h2>默契值
                         <span class="matchMJ">89%</span>
                     </h2>
                     <h3>暱稱：
-                        <span>動態資料</span>
+                        <span class="colorG">動態資料</span>
                     </h3>
                     <p>
                         <span>興趣：</span>
-                        <span>動態資料</span>
+                        <span class="colorG">動態資料</span>
                     </p>
                     <p>
                         <span>星座：</span>
-                        <span>動態資料</span>
+                        <span class="colorG">動態資料</span>
                     </p>
                     <p>
                         <span>自我介紹：</span>
-                        <span>動態資料</span>
+                        <span class="colorG">動態資料</span>
                     </p>
                     <p>
                         <button class="matchNext">下一位</button>
@@ -95,8 +112,7 @@
                 <h2>麻吉名人榜</h2>
             </div>
             <div class="rankNav">
-                <input type="text" placeholder="搜尋麻吉ID">
-                <input type="button" value="搜尋" class="search">
+
                 <button class="achive rankNavBtn friendBtn">人氣王</button>
                 <button class="rankNavBtn moneyBtn">大富翁</button>
                 <button class="rankNavBtn mjTopBtn">萬人迷</button>
@@ -105,20 +121,20 @@
                 <div class="rankItem rank2">
                     <img src="images/rank2.svg" class="rankRole">
                     <div class="rankProfile">
-                            <div class="rankTxt">
-                        <h3>LV.3 XXX</h3>
-                        <span>魅力值：300</span><br>
-                        <span>金幣：1400</span><br>
-                        <span>好友數：207</span><br>
-                        <button class="rankBtn">查看個人頁面</button><br>
-                        <button class="rankBtn">加為朋友</button>
+                        <div class="rankTxt">
+                            <h3>LV.3 XXX</h3>
+                            <span>魅力值：300</span><br>
+                            <span>金幣：1400</span><br>
+                            <span>好友數：207</span><br>
+                            <button class="rankBtn">查看個人頁面</button><br>
+                            <button class="rankBtn">加為朋友</button>
                         </div>
                     </div>
                 </div>
                 <div class="rankItem rank1">
                     <img src="images/rank1.svg" class="rankRole">
                     <div class="rankProfile rank1pro">
-                            <div class="rankTxt">
+                        <div class="rankTxt">
                             <h3>LV.3 XXX</h3>
                             <span>魅力值：300</span><br>
                             <span>金幣：1400</span><br>
@@ -126,13 +142,13 @@
                             <button class="rankBtn">查看個人頁面</button><br>
                             <button class="rankBtn">加為朋友</button>
                         </div>
-                        </div>
+                    </div>
 
                 </div>
                 <div class="rankItem rank3">
                     <img src="images/rank3.svg" class="rankRole">
                     <div class="rankProfile">
-                            <div class="rankTxt">
+                        <div class="rankTxt">
                             <h3>LV.3 XXX</h3>
                             <span>魅力值：300</span><br>
                             <span>金幣：1400</span><br>
@@ -140,7 +156,7 @@
                             <button class="rankBtn">查看個人頁面</button><br>
                             <button class="rankBtn">加為朋友</button>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

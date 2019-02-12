@@ -20,6 +20,50 @@ a {
 html {
   font-size: 20px; }
 
+.loginBox{
+  position: absolute;
+  top: 5px;
+  right: 0%;
+  text-align: center; 
+  display: flex;
+}
+.loginImg{
+  padding: 10px;
+  width: 60px;
+}
+.loginImg img{
+  width: 80%;
+}
+.loginTxtWrap{
+  padding-top: 15px;
+  width: 80px;
+  position: relative;
+}
+.loginNot,.loginContent{
+  position: absolute;
+}
+.loginNot span{
+  color: #f05c79;
+  font-size: 15px;
+  padding-top: 12px;
+  display: block;
+}
+.loginContent{
+  display: none;
+}
+.loginContent{
+  font-size: 17px;
+}
+.loginContent span{
+  padding: 0 10px;
+}
+.loginMj{
+  width: 100px;
+  height: 10px;
+  background-color: #f05c79;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 .input_R {
   width: 200px;
   height: 35px;
