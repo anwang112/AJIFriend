@@ -41,6 +41,8 @@ window.addEventListener('load',function(){
     var imgBoxImg = $id('imgBoxImg');
     var imgBoxImg_B = $id('imgBoxImg_B');
     var act_bus = $id('act_bus');
+    var wrap1 = $id('wrap1');
+    console.log(wrap1);
     var count_img = 0 ;
     var btn_actArray = [
         'images/activity/act_number01.svg',
@@ -50,12 +52,16 @@ window.addEventListener('load',function(){
     btn_actL.addEventListener('click',function(){
         if(count_img == 0){
             imgBoxImg.src = btn_actArray[2];
+            wrap1.style.cssText=`background-color:#7389a1;`;
             return count_img = 2 ;
         }else if(count_img == 1){
             imgBoxImg.src = btn_actArray[0];
+            wrap1.style.cssText=`background-color:#abe9ff;`;
             return count_img = 0 ;
+
         }else{
             imgBoxImg.src = btn_actArray[1];
+            wrap1.style.cssText=`background-color:#f9de96`;
             return count_img = 1 ;
         }
     },false);
@@ -64,12 +70,15 @@ window.addEventListener('load',function(){
     btn_actR.addEventListener('click',function(){
         if(count_img == 0){
             imgBoxImg.src = btn_actArray[1];
+            wrap1.style.cssText=`background-color:#f9de96`;
             return count_img = 1 ;
         }else if(count_img == 1){
             imgBoxImg.src = btn_actArray[2];
+            wrap1.style.cssText=`background-color:#7389a1;`;
             return count_img = 2 ;
         }else{
             imgBoxImg.src = btn_actArray[0];
+            wrap1.style.cssText=`background-color:#abe9ff;`;
             return count_img = 0 ;
         }
     },false);
@@ -103,7 +112,7 @@ window.addEventListener('load',function(){
     console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
-        window.scrollTo(0,(act_memberHold.offsetTop + 350));
+        window.scrollTo(0,(act_memberHold.offsetTop + 150));
         console.log(act_memberHold.offsetTop);
 
         lightbox_holdact.style.cssText="display:flex;z-index:10;";
@@ -119,6 +128,13 @@ window.addEventListener('load',function(){
 
     },false);
     
+
+    // $id('btn_holdAct').addEventListener('click',function(){
+	// 	ooxxLightBox($id('lightbox_act'),$id('lightbox_act_info'),$id('lightbox_act_close'));
+	// },false);
+
+
+
     //join
     var act_memberHold_boxs  = document.getElementsByClassName('act_memberHold_box');
     var act_memberHold_joins = document.getElementsByClassName('act_memberHold_join');
@@ -152,7 +168,7 @@ window.addEventListener('load',function(){
 
 			if( myMessagebox_input.value != ""){
 				var span = document.createElement('p');
-				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#fff');
+				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#444');
 				span.innerText = txt;
 	
 				var divspan = document.createElement('div');
@@ -181,7 +197,7 @@ window.addEventListener('load',function(){
 
 			if( JoinMessagebox_input.value != ""){
 				var span = document.createElement('p');
-				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#fff');
+				span.setAttribute('style','float:left;display:block;height:30px;position:relative;left:0px;color:#444');
 				span.innerText = txt;
 	
 				var divspan = document.createElement('div');
@@ -199,6 +215,101 @@ window.addEventListener('load',function(){
 			}
 		}
     },false);
+
+    var controller = new ScrollMagic.Controller();
+    //scroll 動態 第一屏
+    var an00 = new TimelineMax();
+    an00.fromTo('#act_bus',1,{
+        x:-180,
+    },{
+        x:-0,
+    }).fromTo('#Agee', 5, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+    }).delay(1.5);
+
+
+    var an01 = new TimelineMax();
+    an01.fromTo('#tab_allAct', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('#tab_myAct', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('#btn_holdAct', .5, {
+        opacity: 0,
+        right: -30
+    }, {
+        opacity: 1,
+        right: 0
+    })
+
+    var an02 = new TimelineMax();
+    an02.fromTo('.act_memberHold_box1', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('.act_memberHold_box2', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('.act_memberHold_box3', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('.act_memberHold_box4', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('.act_memberHold_box5', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    }).fromTo('.act_memberHold_box6', .5, {
+        opacity: 0,
+        y: -70
+    }, {
+        opacity: 1,
+        y: 0
+    })
+
+    //場景
+    var scene = new ScrollMagic.Scene({
+        //觸發點id
+        triggerElement: '.wrap2',
+        offset:80
+    }).setTween(an01).
+    // addIndicators({
+    //     name: 'scence 01'
+    // }).
+    addTo(controller);
+
+    var scene2 = new ScrollMagic.Scene({
+        //觸發點id
+        triggerElement: '.act_info',
+        offset:280
+    }).setTween(an02).
+    // addIndicators({
+    //     name: 'scence 02'
+    // }).
+    addTo(controller);
 
 },false);
 
