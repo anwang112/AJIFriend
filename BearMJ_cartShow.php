@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +28,7 @@
             <h2>麻吉購物車</h2>
         </div>
         <div id="cart-content">
-            <form action="" id="cartForm">
+            
                 <ul id="tableTitle">
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
@@ -33,40 +38,50 @@
                 </ul>
                 
                 <div id="cartTable">
-                    <ul>
-                        <li class="flexGrow">鐮刀死神</li>
-                        <li class="li_img"><img src="shop-images/products_01.png"></li>
-                        <li><img src="shop-images/coin.png"><span>390</span></li>
-                        <li><input type="button" value="送禮" class="btn_given"></li>
-                        <li><input type="submit" value="刪除" class="btn_delete"></li>
-                    </ul>
-                    <ul>
-                        <li class="flexGrow">梅拉頭飾</li>
-                        <li class="li_img"><img src="shop-images/pro-hat_3.png"></li>
-                        <li><img src="shop-images/coin.png"><span>3000</span></li>
-                        <li><input type="button" value="送禮" class="btn_given"></li>
-                        <li><input type="submit" value="刪除" class="btn_delete"></li>
-                    </ul>
-                    <ul>
-                        <li class="flexGrow">武士頭盔</li>
-                        <li class="li_img"><img src="shop-images/pro-hat_1.png"></li>
-                        <li><img src="shop-images/coin.png"><span>250</span></li>
-                        <li><input type="button" value="送禮" class="btn_given" ></li>
-                        <li><input type="submit" value="刪除" class="btn_delete"></li>
-                    </ul>
+                
+                    <?php 
+                        if( isset($_SESSION["proName"]) === false or count($_SESSION["proName"])===0){
+                            echo "尚無購物資料";
+                        }else{ 
+                            // foreach($_SESSION["proName"] as $no => $proName){
+                                for($i=0;$i<100;$i++){
+                                    if( isset($_SESSION["proName"][$i])=== true){ //修改
+                                        
+                                   
+                    ?>	
+                    <form class="cartContent" action="BearMJ_cartUpdate.php">
+                        <ul>
+                            <input type="hidden" name="proNo" value="<?php echo $i;?>">
+                            <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
+                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$i];?>"></li>
+                            <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
+                            <li><input type="button" value="送禮" class="btn_given"></li>
+                            <li><input type="submit" value="刪除" class="btn_delete"></li>
+                        </ul>
+                    </form>
+
+                    <?php
+                        
+                                
+                            } 
+                        }
+                    } 
+                    ?>
                 </div>
                 <hr>
+            <form id="cartForm">
                 <div id="totalCost">
                     <span>總數量:{$}</span>
                     <img src="shop-images/coin.png">
                     <span>支付代幣金額:{$}</span>
                 </div>
                 <div id="actionBtns">
-                    <a href="BearMJ_shop.html"><input type="button" value="繼續購物" class="btn-buy"></a>
+                    <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
                     <input type="submit" value="確認購買" class="btn-buy">
                 </div>
                 
             </form>
+
         </div>
         <div id="giftBox">
             <div id="btn_giftBoxClose">
@@ -150,21 +165,16 @@
         var btn_delete = document.getElementsByClassName("btn_delete");
         var btn_given = document.getElementsByClassName("btn_given");
         for( var i = 0; i < btn_delete.length; i++){
-            btn_delete[i].addEventListener("click",function(e){
-                $id("cartTable").removeChild(e.target.parentNode.parentNode);
+            // btn_delete[i].addEventListener("click",function(e){
+            //     $id("cartTable").removeChild(e.target.parentNode.parentNode);
 
-            });
+            // });
             btn_given[i].addEventListener("click",function(e){
                 $id("giftBox").style.display="block";
 
             });
         }
         btn_goingOn = document.getElementsByClassName("btn-buy"); 
-        btn_goingOn[0].addEventListener("click",function(){
-        
-            window.location.href = 'https://www.facebook.com/'; //串資料庫後需要修改
-        
-        });
     }
 
     window.addEventListener("load",init,false);

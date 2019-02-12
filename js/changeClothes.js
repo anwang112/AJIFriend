@@ -4,12 +4,29 @@ function changeClothes(e){
     $id("model_hat").src = "shop-images/" + clothes +".png";
 
     // 更衣動畫
-    TweenMax.fromTo('#model_hat', 1.5, {
+
+    var  tl =  new TimelineMax({
+        repeat: 0,
+        // yoyo: true
+    });
+    
+    
+     tl.add(TweenMax.fromTo('#model_hat', 1.5, {
         scale: .6,
     }, {
         scale: 1,
         ease: Elastic.easeOut,
-        });
+    }))
+    tl.add(TweenMax.fromTo('#showModel', 1.5, {
+        y:-45,
+        scale: .5,
+    }, {
+        y:0,
+        scale: 1,
+        ease: Power2.easeIn
+    }))
+
+    
 }
 
 function removeInfo(e){  //移除產品訊息
@@ -25,6 +42,8 @@ function removeInfo(e){  //移除產品訊息
 }
 var check=false;
 function showInfo(e){
+
+    console.log(0);
 
     // [重置]若有其他格產生資訊，先把其他格的資訊關掉
     if(check==true){
@@ -46,15 +65,15 @@ function showInfo(e){
     div_proInfo.className = "rwd-proInfo";
         // 創建h3
         var h3 = document.createElement("h3");
-        h3.innerText = "武士帽";
+        // h3.innerText = "武士帽";
         // 創建div_MJ
         var div_MJ = document.createElement("div");
         div_MJ.className = "MJ";
             // 創建span*2
             var span_MJtitle = document.createElement("span");
-            span_MJtitle.innerText = "MaJi值+";
+            span_MJtitle.innerText = "MJ值+";
             var span_MJ = document.createElement("span");
-            span_MJ.innerText = "150";
+            // span_MJ.innerText = "150";
         // span*2塞進div_MJ
         div_MJ.appendChild(span_MJtitle);
         div_MJ.appendChild(span_MJ);
@@ -67,14 +86,14 @@ function showInfo(e){
             img_cost.src = "shop-images/coin.png";
             // 創建span
             var span_cost = document.createElement("span");
-            span_cost.innerText = "90";
+            // span_cost.innerText = "90";
         // 將img、span塞進div_cost
         div_cost.appendChild(img_cost);
         div_cost.appendChild(span_cost);
 
         //創建input
         var input_buy = document.createElement("input");
-        input_buy.type = "button";
+        input_buy.type = "submit";
         input_buy.value = "買";
         input_buy.id = "btn_buy";
         
@@ -87,6 +106,32 @@ function showInfo(e){
 
     //將div_proInfo塞進#productImg
     e.target.parentNode.appendChild(div_proInfo);
+
+
+    //new XML
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange=function (){
+        if( xhr.readyState == 4){
+        if( xhr.status == 200 ){
+            //動作
+            h3.innerText = "武士帽";
+            span_MJ.innerText = "150";
+            span_cost.innerText = "90";
+
+
+        }else{
+            alert( xhr.status );
+        }
+        }
+    }
+    //結束 XML
+
+    var url = "getMore.php?memId=" + document.getElementById("memId").value;
+    xhr.open("Get", url, true);
+    xhr.send( null );
+
+
     
     //商品圖透明度恢復
     var img = document.getElementsByClassName("click_wear");
