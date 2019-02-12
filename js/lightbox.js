@@ -82,9 +82,6 @@ commonInit = () => {
             closeLightBoxId = window.requestAnimationFrame(closeLightBox);
         })
     }
-<<<<<<< HEAD
-
-=======
 // 創建div
     var divTop=document.createElement("div");
     var wrap=document.getElementsByClassName("wrap")[0];
@@ -197,7 +194,6 @@ function cardLB(e){
     divCard.appendChild(pContent);
     divCard.appendChild(imgClose);
     divCard.appendChild(imgDel);
->>>>>>> origin/photo
 
 
     
