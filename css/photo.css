@@ -285,7 +285,7 @@ body{
 
   /* 背景 */
   .bg2{
-    background: #ead3cc url("/images/camera-16.png") no-repeat scroll ;
+    background: #ead3cc url("/images/buildingBg-19.png") no-repeat scroll 50% 5%;
     background-size: 100%;
 }
 
