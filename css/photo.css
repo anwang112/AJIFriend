@@ -155,6 +155,7 @@ body{
     flex-wrap: wrap;
 }
   .top {
+    cursor: pointer;
     margin: 3%;
     width: 240px;
     height: 290px;
@@ -334,8 +335,9 @@ body{
         transition: .5s;
     }
 
-.card{  
+    .card{  
         float: left;
+        cursor: pointer;
         margin: 6%;
         width: 240px;
         height: 225px;
