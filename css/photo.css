@@ -1,4 +1,3 @@
-
 *{
     padding: 0;
     margin: 0;
@@ -18,32 +17,19 @@ body{
     color: rgba(102,102,102,1);
 
 }
+/* 第一屏背景 */
+/* #ead3cc */
 .bg{
-    background-size: cover;
-    background: linear-gradient(-45deg,#3dc8e5, white)  ;
-    ;
-
+    background:  url("/images/buildingBg-19.png")  #ead3cc no-repeat scroll 100%;
+    background-size: 95%;
 }
-/* .bg2{
-    background-image: url("/images/cityBg-33.png");
-    background-size: cover;
-} */
-/* .bg3{
-    background-image: url("/images/cityBg-33.png");
-    background-size: cover;
-} */
 
 /* @media screen and (max-width: 1200px){} */
     /* a:hover{    
         color:rgba(240,92,121,1);  
     } */
 
-  .wrap{
-    width: 100%;
-    margin: auto;
-    /* max-width: 1200px; */
-  }
-  .postArea{
+  .wrap,.postArea{
     width: 100%;
     margin: auto;
     max-width: 1200px;
@@ -55,15 +41,17 @@ body{
         padding-top: 10%;
         padding-left: 12%;
         /* padding-bottom: 2%; */
+
   }
   .trophy div{
       width: 30%;
+      /* transform: rotate(350deg);
+      transition: 3s ; */
+      animation: rotate 3s alternate infinite;
+
   }
   .trophy h2{
       width: 70%;
-      font-size: 1.4rem;
-      color: #f05c79;
-      font-weight: bold;
       text-align: center;
       
 
@@ -71,7 +59,13 @@ body{
   .trophy img{
     width: 100%;
     vertical-align: top;
+
   
+  }
+  @keyframes rotate{
+    0%{transform:rotate(-10deg);}
+    /* 50%{transform:rotate(720deg);} */
+    100%{transform:rotate( -95deg);}
   }
 
 /* 燈箱 */
@@ -81,8 +75,8 @@ body{
     height: 550px;
     margin: auto;
     color: rgba(102,102,102,1);
-    border: 10px solid #fcc6d0;
-    background-color: #fcc6d0;
+    /* border: 10px solid #fcc6d0; */
+    background-color: #ffffff;
     border-radius: 10px;
     opacity: 1;
     box-shadow: 5px 10px 5px #aaa;
@@ -95,6 +89,7 @@ body{
     width:80%;
     padding: 2%;
     margin: auto;
+    border-radius: 10px;
     vertical-align:middle;
 
 }
@@ -129,10 +124,10 @@ body{
         color:rgba(240,92,121,1);
 }
 #del{
-    width: 7%;
+    width: 10%;
     position: absolute;
-    right: 2%;
-    bottom: 2%;
+    left: 3%;
+    top: 1%;
     cursor: pointer;
     font-size: 1.3rem;
     color:rgba(240,92,121,1);
@@ -160,21 +155,27 @@ body{
     flex-wrap: wrap;
 }
   .top {
+    cursor: pointer;
     margin: 3%;
     width: 240px;
     height: 290px;
     color: rgba(102,102,102,1);
     background-color: #fff;
-    opacity: .9;
+    border-radius: 6px;
     /* float: left; */
     position: relative;
 }
-  
-  .top img, #cardLB .cardPhoto{
+  .top span{
+    font-size: .8rem;
+
+  }
+  .top img{
     width:94%;
     padding: 3%;
     margin: 0 auto;
     vertical-align:middle;
+    border-radius: 10px;
+
   }
   .top .member,.card .member{
     width: 18%;
@@ -185,7 +186,8 @@ body{
     margin-top: 1%;
   }
   .top a,.card a{
-    margin-right: 15%;
+    margin-right: 10%;
+    font-size: .8rem;
     width: 40px;
     display: inline-block;
     color: rgba(102,102,102,1);
@@ -201,18 +203,17 @@ body{
   }
   .ground{
     width: 100%;
-    height: 23vh;
+    height: 24vh;
     margin-top: 2%;
     position: relative;
-    background-color: #c9caca;
+    /* background-color: #c9caca; */
   }
   .content{
     margin-left: 35%;
   }
   .ground h2{
-    font-size: 1.4rem;
     display: inline-block;
-    margin-top: 10%;
+    margin-top: 13%;
     margin-right:  5%;
     
   }
@@ -233,7 +234,32 @@ body{
       display: none;
     }
   
-    .switch{
+
+    #drawingTab{
+        position: fixed;
+        top: 20%;
+        right: 3%;
+        width: 100px;
+        height: 50%;
+        cursor: pointer;
+        animation: camera 3s infinite;
+    }
+
+    @keyframes  camera{
+        0% {top: 110px;}
+        50% {top: 120px;}
+        100%{top: 110px;}
+    }
+    #drawingTab h1{
+        width: 30px;
+        font-size: 1rem;
+        line-height: 1.3;
+        color: #f05c79;
+    }
+    #drawingTab img{
+        width: 150%;
+    }
+    /* .switch{
       z-index: 999;
       position: fixed;
       right: 3%;
@@ -252,14 +278,21 @@ body{
   .switch .dot:hover{
       opacity: 0.9;
   
-  }
-
+  } */
 
 
   /* 第二屏照片區 */
+
+  /* 背景 */
+  .bg2{
+    background: #ead3cc url("/images/camera-16.png") no-repeat scroll ;
+    background-size: 100%;
+}
+
+
 .postArea{
-    padding-top: 3%;
-    padding-bottom: 25%;
+    padding-top: 10%;
+    padding-bottom: 20%;
     position: relative;
 
 }
@@ -270,13 +303,14 @@ body{
         /* width: 100%; */
         position: absolute;
         text-align: right;
-        right: 5%;top: 55%;
+        right: 15%;
+        /* top: 55%; */
         animation: upndown 3s infinite;
     }
     @keyframes  upndown{
-        0% {top: 70px;}
-        50% {top: 80px;}
-        100%{top: 70px;}
+        0% {top: -50px;}
+        50% {top: -40px;}
+        100%{top: -50px;}
     }
     #myPhoto a{
         display: inline-block;
@@ -285,6 +319,7 @@ body{
         width: 100px;
         text-align: center;
         display: block;
+        color: #f05c79;
         right: 11%;
         top: 12%;
     }
@@ -300,8 +335,9 @@ body{
         transition: .5s;
     }
 
-.card{  
+    .card{  
         float: left;
+        cursor: pointer;
         margin: 6%;
         width: 240px;
         height: 225px;
@@ -317,15 +353,13 @@ body{
         padding: 2%;
         vertical-align:middle;
       }
-    .postArea h1{
-        display: inline-block;
+ .postArea h1{
+        /* display: inline-block; */
         /* width: 300px; */
-        font-size: 1.6rem;
-        color: #f05c79;
-        font-weight: bold;
         text-align: center;
+        color: #f05c79;
         margin-top: 10%;
-        margin-left: 39%;
+        /* margin-left: 39%; */
         margin-bottom: 5%;
     }
 
@@ -353,18 +387,28 @@ body{
 
 
 
-/* 第三屏畫畫～ */
+/* fixed畫畫～ */
 
 .mkPhoto{
-    position: relative;
+    position: fixed;
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    right: 0;
+    top: 0;
+    z-index: 2;
     margin: auto;
-    padding-top: 200px;
+    display: none;
+    padding-top: 40px;
     padding-bottom: 200px;
-    /* background: #ccc; */
-    opacity: .9;
+    background: #ccc;
+    opacity: 1;
     text-align: center;
+}
+.slideL{    animation: slideL 1s ; 
+}
+@keyframes slideL{
+    0%{ right: -100%;}
+    100%{right:0%;}
 }
 
 /* 朋友燈箱 */
@@ -375,7 +419,7 @@ body{
         position: absolute;
         top: 45%;
         left: 2%;
-        z-index: 1;
+        z-index: 3;
     }
     .bg_friendBox img{
         width: 100%;
@@ -501,13 +545,19 @@ body{
         width: 15%;
         height: 15%;
     }
-
+    #exit{
+        position: absolute;
+        z-index: 999;
+        width: 70px;
+        right: 8%;
+        top: 20%;
+    }
     .drawing{
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: 5%;
+        padding-top: 3%;
         /* position: absolute;
         left: 20%;
         top: 30%; */
@@ -542,22 +592,40 @@ body{
     }
     .mkPhoto .drawing #upBtn,#chooseBtn{ 
         display: block;
-        margin-top: 275%;
+        margin-top: 200%;
         margin-left: -11%;
     }
     .upload #upBtn{
         display: block;
     }
-     #chooseBtn{
+    #chooseBtn{
         display: none;
     }
-    .mkPhoto .drawing .next span{
+    /* 下一步 btn */
+    .next span{
         display: block;
-        margin-top: 275%;
+        margin-top: 200%;
         margin-left: 20%;
         margin-right: 10%;
     }
-    .mkPhoto span{
+    /* 上一步 btn */
+    .back span{
+        position: absolute;
+        right: 17.5%;
+        top: 60%;
+        display: none;
+        cursor: pointer;
+        width: 80px;
+        padding: 10px 20px;
+        /* margin-top: 150%; */
+        margin-bottom: 0%;
+        margin-left: 20%;
+        margin-right: 10%;
+        border-radius: 10px;
+        background: #aaa;
+        box-shadow: 3px 5px 1px #797979;
+    }
+    .upload span,#friendBox span,.next span{
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
@@ -581,7 +649,7 @@ body{
     .ground,.switch {    
         display: none;
     }
-    .col3{
+    .col-3{
         margin: auto;
     }
     .top,.card{
@@ -597,9 +665,9 @@ body{
     }
     #myPhoto img{
         width: 70px;
-        /* position: absolute; */
-        right:0%;
-        top: 0%;
+        position: absolute;
+        right: 13%;
+        top: 8%;
     }
     h1{
         text-align: left;
@@ -609,7 +677,7 @@ body{
         font-size: 16px;
         position: absolute;
         right: 10%;
-        bottom: 0;
+        top: 34%;
     }
     .mkPhoto{
         padding-top: 50px;
