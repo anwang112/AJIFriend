@@ -5,3 +5,4 @@ gulpfile.js
 index.html
 *.jason
 css/reset.css
+*.map
