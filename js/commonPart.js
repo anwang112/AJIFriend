@@ -669,7 +669,10 @@ ooxxGetRole = (roleId, roleData) => {
         roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
     }
 
-    //眼睛動起來
+	//眼睛動起來
+	function getRandom(min,max){
+        return Math.floor(Math.random()*(max-min+1))+min;
+    };
     scaleY = 1;
 
     eyesAnimate = (...eyesArray) => {
@@ -693,7 +696,7 @@ ooxxGetRole = (roleId, roleData) => {
                     endDelay: 1000,
                 });
         }
-        setInterval(eyesGo, 2500);
+        setInterval(eyesGo, getRandom(2000,3500));
     }
 
     roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
