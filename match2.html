@@ -38,10 +38,17 @@
                 <div class="matchMem">
                     <div class="memFront">
                         <img src="images/match01.svg">
-                        <img src="images/body1.png" alt="body" class="matchBody">
-                        <img src="images/eye1.png" alt="eyes" class="matchEyes">
-                        <!-- <img src="" alt="clothes">
-                        <img src="" alt="hat"> -->
+                        <div id="matchMaji" class="roleBox"></div>
+                        <script>
+                            matchMaji = document.getElementById('matchMaji'); 
+                            ooxxGetRole(matchMaji,{
+                            animal: 1,
+                            color: 'aaaa99',
+                            eyes: 3,
+                            hat: 1,
+                            clothes: 3,
+                            });
+                        </script>
                     </div>
                     <div class="memBack">
                         <img src="images/matchBack.svg" class="back">
@@ -128,7 +135,18 @@
             <div class="tabPanel active" id="tab-1">
                 <div class="rankContent">
                     <div class=" rankItem rank2">
-                        <img src="images/rank2.svg" class="rankRole">
+                        <div id="topFriend02" class="roleBox rankRole"></div>
+                        <script>
+                            var ddd = 2;
+                            topFriend02 = document.getElementById('topFriend02');
+                            ooxxGetRole(topFriend02, {
+                                animal: ddd,
+                                color: '005450',
+                                eyes: 3,
+                                hat: 1,
+                                clothes: 0,
+                            });
+                        </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
