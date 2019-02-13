@@ -149,7 +149,7 @@ function foot_html() {
 	document.write(str_tag2);
 }
 
-function msgDB(){
+function msgDB(){ //聊天歷史訊息
 	
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
@@ -173,17 +173,17 @@ function msgDB(){
 					msg_div.className="youSaid";
 				}
 			}
-			// var mineMsg = data.mine.split("||");
-			// for(var i=0;i<mineMsg.length;i++){ //有撈到(回傳)聊天內容的話
-
 		}
 	};
 	xhr.open("Post","getChatMsg.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	
 	var chatMems = {
 		sendMemId: 1,
 		taMemId: 2,
 	}; //聊天雙方會員ID組成物件
+	
+	
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
 }
 

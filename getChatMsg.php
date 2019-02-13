@@ -23,38 +23,15 @@ $chatMems = json_decode($_REQUEST["chatMems"]);
             $num = 1;
             $i=0;
             while($msgRows = $msg ->fetch(PDO::FETCH_ASSOC)){
-                $_SESSION["time"][$i] = $msgRows["time"];
-                $_SESSION["send_memNo"][$i] = $msgRows["send_memNo"];
-                $_SESSION["msg"][$i] = $msgRows["msg"];
+                $arr["time"][$i] = $msgRows["time"];
+                $arr["send_memNo"][$i] = $msgRows["send_memNo"];
+                $arr["msg"][$i] = $msgRows["msg"];
                 $i++;
-                // if($msgRows["msg"]!=""){
-                //     if($num==1){
-                //         $mineMsg=$msgRows["msg"];
-
-                        
-                //     }else{
-                //         $mineMsg .= "|II|".$msgRows["msg"];
-                //     }
-                //     $num++;
-
-                // }
             }
-
-            // $num = 1;
-            // while($msgUURows = $msgUU ->fetch(PDO::FETCH_ASSOC)){
-            //     if($msgUURows["msg"]!=""){
-            //         if($num==1){
-            //             $yoursMsg=$msgUURows["msg"];
-            //         }else{
-            //             $yoursMsg .= "|UU|".$msgUURows["msg"];
-            //         }
-            //         $num++;
-            //     }
-            // }
             $str = new data();
-            $str->time = $_SESSION["time"];
-            $str->content = $_SESSION["msg"];
-            $str->sendMem =$_SESSION["send_memNo"];
+            $str->time = $arr["time"];
+            $str->content = $arr["msg"];
+            $str->sendMem =$arr["send_memNo"];
             $send = json_encode($str);
 
             echo $send;
