@@ -640,7 +640,9 @@ img{
             #productsShow{
                 width: 80%;
                 padding-top: 15px;
-                
+                .id_iframe{
+                    display: none;
+                }
                 @media all and (max-width: 768px) {
                     width: 95%;
                     padding-top: 5px;
@@ -676,58 +678,62 @@ img{
                             border:2px solid transparent;
                             cursor: pointer;  
                             width: 35%;
+                            .rwd-proInfo{
+                                display: none;
+                                z-index: -10;
+                                position: absolute;
+                                top: 0;
+                                width: 100%;
+                                padding:2% 0;
+                                text-align: center;
+                                h3{
+                                    color: $darkPink;
+                                    font-weight:bolder; 
+                                    // font-family: $fontFamily;
+                                    margin: 4px 0;
+                                }
+                                .MJ{
+                                    margin-bottom: 4px;
+                                    font-weight: bolder;
+                                    text-align: center;
+                                    padding:3% 0;
+                                    font-size: 14px;
+                                }
+                                .cost{
+                                    margin-bottom: 4px;
+                                    width: 100%;
+                                    margin:3px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 14px;
+                                    img{
+                                        width: 20%;
+                                        display: inline;
+                                    }
+                                    span{
+                                        padding:3% 4%;
+                                        font-size: 18px;
+                                        font-family: 'Times New Roman', Times, serif;
+                                    }
+                                }
+                                .btn_buy{
+                                    border: 0px transparent;
+                                    padding:0px 10px;
+                                    color: white; 
+                                    border-radius:2px;
+                                    background-color: $darkPink; 
+                                }
+                                
+                            }
                             @media all and (max-width: 768px) {
                                 width: 80%;
-                                .rwd-proInfo{
-                                    position: absolute;
-                                    top: 0;
-                                    width: 100%;
-                                    padding:2% 0;
-                                    text-align: center;
-                                    h3{
-                                        color: $darkPink;
-                                        font-weight:bolder; 
-                                        // font-family: $fontFamily;
-                                        margin: 8px 0;
-                                    }
-                                    .MJ{
-                                        margin-bottom: 4px;
-                                        font-weight: bolder;
-                                        text-align: center;
-                                        padding:3% 0;
-                                        font-size: 14px;
-                                    }
-                                    .cost{
-                                        margin-bottom: 4px;
-                                        width: 100%;
-                                        margin:3px;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        font-size: 14px;
-                                        img{
-                                            width: 20%;
-                                            display: inline;
-                                        }
-                                        span{
-                                            padding:3% 4%;
-                                            font-size: 18px;
-                                            font-family: 'Times New Roman', Times, serif;
-                                        }
-                                    }
-                                    #btn_buy{
-                                        border: 0px transparent;
-                                        padding:0px 10px;
-                                        color: white; 
-                                        border-radius:2px;
-                                        background-color: $darkPink; 
-                                    }
-                                    
-                                }
+                                
                             }
                             
                             @media all and (max-width: 476px) {
                                 .rwd-proInfo{
+                                    display: none;
                                     position: absolute;
                                     top: 0;
                                     width: 100%;
@@ -764,7 +770,7 @@ img{
                                             font-family: 'Times New Roman', Times, serif;
                                         }
                                     }
-                                    #btn_buy{
+                                    .btn_buy{
                                         width: 90%;
                                         border: 0px transparent;
                                         padding:0 10px;
@@ -775,7 +781,7 @@ img{
                                     
                                 }
                             }
-                            img{
+                            .click_wear{
                                 width: 100%;
                             }
                         }
