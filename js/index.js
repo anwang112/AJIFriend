@@ -1,251 +1,312 @@
-// var tlC = new TimelineMax({
-//     repeat: -1,
-//     delay: 3,
-// });
-// tlC.add("re1");
-// tlC.to('.dotGrop', 1, {
-//     y: -40,
-//     opacity: 0,
-//     // rotationX: 0,
-//     // transformOrigin: 'center top',
-//     // transformPerspective: 600,
-// }).staggerFromTo('.typing1', 1, {
-//     y: 0,
-// }, {
-//     y: -10,
-// }, 're1').to('.chat1', 1, {
-//     opacity: 1,
-// }, 're1').to('.textWrap', 1, {
-//     y: -20,
-// }, 're2').to('.chat1', 1, {
-//     opacity: 0,
-// },'re2').to('.textWrap', 1, {
-//     y: -40,
-// },'re2');
-// tlC.add('re2');
-// tlC.to('.dotGrop', 1, {
-//     opacity:1,
-// },'re3').to('.dotGrop', 1, {
-//     y: 0,
-//     opacity:1,
-// },'re3');
+indexInit = () => {
 
-// tlC.to('.textWrap', 1, {
-//     y: -20,
-// }, 're2').to('.chat2', 1, {
-//     opacity: 1
-// },'re2');
-// tlC.add("begin");
-// tlC.staggerFromTo('.box', 1, {
-//     y: 0,
-
-// }, {
-//     y: -40,
-
-// });
-
-
-
-// var controller = new ScrollMagic.Controller();
-
-// var tl2 = new TimelineMax();
-// tl2.to('#indexSec', 1, {
-//     y: '-120%'
-// });
-
-// var scene04 = new ScrollMagic.Scene({
-//         triggerElement: '#trigger01',
-//         duration: '80%',
-//         triggerHook: 0,
-
-//         // reverse: true
-//     }).setPin('#indexFir')
-//     .setTween(tl2)
-//     .addIndicators({
-//         name: 'scence pin 04'
-//     })
-//     .addTo(controller);
-    $('#indexSec').hide();
-    $('.goChat').click(function(){
-        $('#indexSec').show();
-        $('.titleWrap').css({
-            'opacity':'0',
-        });
-       
-    });
-    $('.exit').click(function(){
-        $('#indexSec').hide();
-        $('.titleWrap').css({
-            'opacity':'1',
-        });
-       
-    });
-
-
-var $showhead = $('#bodyWrap');
-var shake = function () {
-    var tis = new TimelineMax({});
-    tis.to($showhead, .4, {
-
-        y: -100,
-        repeat: 1,
-        yoyo: true,
-        ease: Power4.easeInOut,
-
-    });
-};
-
-$('.bearHead').click(function () {
-    
-    $showhead.css('background-image', 'url(images/body1.png)');
-    shake();
-});
-$('.rabiHead').click(function () {
-    $showhead.css('background-image', 'url(images/body3.png)');
-    shake();
-});
-$('.catHead').click(function () {
-    $showhead.css('background-image', 'url(images/body2.png)');
-    shake();
-});
-$('.dogHead').click(function () {
-    $showhead.css('background-image', 'url(images/body4.png)');
-    shake();
-});
-var $showeye = $('#eyes');
-$('.eye1').click(function () {
-    $showeye.attr('src', 'images/eye1.png');
-});
-$('.eye2').click(function () {
-    $showeye.attr('src', 'images/eye2.png');
-});
-$('.eye3').click(function () {
-    $showeye.attr('src', 'images/eye3.png');
-});
-$('.eye4').click(function () {
-    $showeye.attr('src', 'images/eye4.png');
-});
-
-$('.eyesChoice').hide();
-$('.colorChoice').hide();
-$('.eyesCir').click(function () {
-    $('.bodyChoice').hide();
-    $('.eyesChoice').show();
-    $('.colorChoice').hide();
-    $('.circle').removeClass('achive');
-    $(this).addClass('achive');
-});
-$('.bodyCir').click(function () {
-    $('.bodyChoice').show();
-    $('.eyesChoice').hide();
-    $('.colorChoice').hide();
-    $('.circle').removeClass('achive');
-    $(this).addClass('achive');
-});
-$('.colorCir').click(function () {
-    $('.bodyChoice').hide();
-    $('.eyesChoice').hide();
-    $('.colorChoice').show();
-    $('.circle').removeClass('achive');
-    $(this).addClass('achive');
-});
-
-
-
-
-
-var tllC = new TimelineMax({
-    repeat: -1,
-});
-tllC.to('.lC1', .5, {
-    opacity: 0.8,
-
-}).to('.lC2', .5, {
-    opacity: 0.8,
-
-}).to('.lC3', .5, {
-    opacity: 0.8,
-
-}).to('.lC4', .5, {
-    opacity: 0.8,
-
-}).to('.lC5', .5, {
-    opacity: 0.8,
-
-}).to('.lC6', .5, {
-    opacity: 0.8,
-
-}).to('.littleChat', 1, {
-    opacity: 0,
-    y: -40,
-
-});
-
-$('.matchObj').click(function(){
-    $('.right').toggleClass('right').toggleClass('middle');
-    $('.left').toggleClass('left').addClass('right');
-    $(this).addClass('left').removeClass('middle');
-});
-
-$("#aaa").fullpage({
-
-    navigation: true, // 顯示導行列
-    navigationPosition: "right" // 導行列位置
-
-});
-
-
-$('.itemC2').hide();
-$('.itemC3').hide();
-
-var nextBtn = document.querySelector('.nextBtn');
-var i=1
-nextBtn.onmousedown = function(){
-    var itemImg = document.querySelector('.itemImg');
-    i = i%3;
-    if(i==0){
-        itemImg.src = "images/indexItem"+ parseInt(i+1)  +".png";
-        $('.itemC'+parseInt(i+1)).show();
-        $('.itemC3').hide();
-        i++;
-    }else{
-        itemImg.src = "images/indexItem"+ parseInt(i+1)  +".png";
-        $('.itemC'+parseInt(i+1)).show();
-        $('.itemC'+parseInt(i)).hide();
-        i++;
+    //取得當前螢幕寬度
+    if (window.innerWidth) {
+        winWidth = window.innerWidth;
     }
-        $('.light1').css({
-            'transform': 'rotate(40deg)',
+    else if ((document.body) && (document.body.clientWidth)) {
+        winWidth = document.body.clientWidth;
+    }
+
+
+    changeScreen = () => {
+        if (window.innerWidth) {
+            winWidth = window.innerWidth;
+        }
+        else if ((document.body) && (document.body.clientWidth)) {
+            winWidth = document.body.clientWidth;
+        }
+        trojanItemGo();
+    }
+    window.addEventListener('resize', changeScreen);
+
+    //  第二屏slider
+    trojanList = document.getElementById('trojanList');
+    trojanItem = trojanList.getElementsByClassName('trojanItem');
+    carousel = trojanList.getElementsByClassName('carousel')[0];
+
+    //排好排好
+    trojanItemGo = () => {
+        // 公式
+        rotate = 360 / trojanItem.length;
+
+
+        transZ = winWidth / trojanItem.length * 1.8;
+        if (winWidth >= 976) {
+            transZ = 160;
+        } else if (winWidth >= 768) {
+            transZ = (winWidth / 2) / trojanItem.length * 1.9;
+        } else {
+            transZ = winWidth / trojanItem.length * 1.8;
+        }
+        yyy = 0;
+
+        for (let i = 0; i < trojanItem.length; i++) {
+            // if (winWidth >= 768) {
+            //     trojanItem[i].style.transform = "rotateY(" + (i * rotate + yyy) + "deg) translateZ(" + transZ + "px) translateX(" + 20 +
+            //         "px)";
+            // } else {
+            //     trojanItem[i].style.transform = "rotateY(" + (i * rotate + yyy) + "deg) translateZ(" + transZ + "px)";
+            // }
+            // trojanItem[i].style.transform = "translateX(" + 20 +
+            //     "px)"+ "rotateY(" + (i * rotate + yyy) + "deg) translateZ(" + transZ + "px)";
+                trojanItem[i].style.transform = "rotateY(" + (i * rotate + yyy) + "deg) translateZ(" + transZ + "px)";
+        }
+    }
+    trojanItemGo();
+
+    stage = document.getElementsByClassName('secondScreenSlider')[0];
+    stage.addEventListener('click', (e) => {
+        yyy -= 360 / trojanItem.length;
+        for (let i = 0; i < trojanItem.length; i++) {
+            trojanItem[i].style.transform = "rotateY(" + (i * rotate + yyy) + "deg) translateZ(" + transZ + "px)";
+        }
+    })
+
+    //建立角色
+    KindList = document.getElementById('KindList');
+    KindItem = KindList.getElementsByTagName('li');
+    role = document.getElementById('role');
+
+
+
+    // 選身體
+    changeKind = (e) => {
+        role.innerHTML = "";
+        switch (e.currentTarget.id) {
+            case 'bodyBear':
+                role.innerHTML = `<embed id="bodySvg" src="image/indexBear.svg" style="display:block;" />`;
+                break;
+            case 'bodyCat':
+                role.innerHTML = `<embed id="bodySvg" src="image/indexCat.svg" style="display:block;" />`;
+                break;
+            case 'bodyRabbit':
+                role.innerHTML = `<embed id="bodySvg" src="image/indexRabbit.svg" style="display:block;" />`;
+                break;
+            case 'bodyDog':
+                role.innerHTML = `<embed id="bodySvg" src="image/indexDog.svg" style="display:block;" />`;
+                break;
+        }
+        bodySvg = document.getElementById("bodySvg");
+        bodySvg.addEventListener('load', () => {
+            nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+
+        })
+
+
+
+    }
+    for (let i = 0; i < KindItem.length; i++) {
+        KindItem[i].addEventListener('click', changeKind);
+    }
+
+    //選顏色
+    rRang = document.getElementById('rRang');
+    gRang = document.getElementById('gRang');
+    bRang = document.getElementById('bRang');
+
+    rRangValue = 80;
+    gRangValue = 66;
+    bRangValue = 59;
+    colorList = document.getElementById('colorList');
+    colorItem = colorList.getElementsByTagName('input');
+    colorMouseStatus = false;
+    bodySvg = document.getElementById("bodySvg");
+
+    nowColor = (...getColor) => {
+        getColor[3] = getColor[3].getSVGDocument();
+        bodyColor = getColor[3].getElementsByClassName('cls-1');
+        for (let i = 0; i < bodyColor.length; i++) {
+            bodyColor[i].style.fill = `rgb(${getColor[0]},${getColor[1]},${getColor[2]})`;
+        }
+    }
+
+    changeColor = (e) => {
+        bodySvg = document.getElementById("bodySvg");
+        switch (e.currentTarget.id) {
+            case 'rRang':
+                rRangValue = e.currentTarget.value;
+                break;
+            case 'gRang':
+                gRangValue = e.currentTarget.value;
+                break;
+            case 'bRang':
+                bRangValue = e.currentTarget.value;
+                break;
+        }
+        nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+    }
+    rRang.addEventListener('change', changeColor);
+    gRang.addEventListener('change', changeColor);
+    bRang.addEventListener('change', changeColor);
+
+
+    for (let i = 0; i < colorItem.length; i++) {
+        colorItem[i].addEventListener('mousedown', (e) => {
+            colorMouseStatus = true;
+            if (colorMouseStatus == true) {
+                e.target.style.cursor = `grabbing`;
+            }
+
         });
-        $('.light2').css({
-            'transform': 'rotate(22deg)',
+        colorItem[i].addEventListener('mousemove', (e) => {
+
+            if (colorMouseStatus == true) {
+                e.target.style.cursor = `grabbing`;
+                switch (e.currentTarget.id) {
+                    case 'rRang':
+                        rRangValue = e.currentTarget.value;
+                        break;
+                    case 'gRang':
+                        gRangValue = e.currentTarget.value;
+                        break;
+                    case 'bRang':
+                        bRangValue = e.currentTarget.value;
+                        break;
+                }
+                nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+                console.log(rRangValue, gRangValue, bRangValue);
+
+            } else {
+                e.target.style.cursor = `grab`;
+            }
         });
-        $('.light3').css({
-            'transform': 'rotate(-35deg)',
+        colorItem[i].addEventListener('mouseup', (e) => {
+            colorMouseStatus = false;
+            e.target.style.cursor = `grab`;
         });
-        $('.light4').css({
-            'transform': 'rotate(-40deg)',
+
+    }
+
+    //選眼睛
+    eyesList = document.getElementById('eyesList');
+    eyesItem = eyesList.getElementsByTagName('li');
+    roleEyes = document.getElementById('roleEyes');
+    for (let i = 0; i < eyesItem.length; i++) {
+        eyesItem[i].addEventListener('click', (e) => {
+            eyesSrc = e.currentTarget.children[0].src;
+            console.log(eyesSrc);
+            // roleEyes.innerHTML = `<img src="${eyesSrc}">`;
+            roleEyes.style.backgroundImage = `url(${eyesSrc})`;
         });
-        
-};
-nextBtn.onmouseup = function(){
-        $('.light1').css({
-            'transform': 'rotate(0deg)',
-        });
-        $('.light2').css({
-            'transform': 'rotate(0deg)',
-        });
-        $('.light3').css({
-            'transform': 'rotate(0deg)',
-        });
-        $('.light4').css({
-            'transform': 'rotate(0deg)',
-        });
-        
-};
-     
-    
-    
-    
-    
-    
+    }
+
+
+
+
+
+
+
+
+
+
+    //背景漸層
+    activityFix = document.getElementsByClassName('firstScreenBg')[0];
+
+    gradientStatus = false;
+    gradient = {
+        x1: 114,
+        x2: 183,
+        x3: 255,
+        y1: 255,
+        y2: 210,
+        y3: 163,
+    }
+    gradientEnd = {
+        x1: 70,
+        x2: 24,
+        x3: 62,
+        y1: 37,
+        y2: 56,
+        y3: 78,
+    }
+    activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+
+    ooxxGradient = () => {
+        if (gradient.x1 < gradientEnd.x1) {
+            gradient.x1++
+        } else if (gradient.x1 > gradientEnd.x1) {
+            gradient.x1--
+        }
+        if (gradient.x2 < gradientEnd.x2) {
+            gradient.x2++
+        } else if (gradient.x2 > gradientEnd.x2) {
+            gradient.x2--
+        }
+        if (gradient.x3 < gradientEnd.x3) {
+            gradient.x3++
+        } else if (gradient.x3 > gradientEnd.x3) {
+            gradient.x3--
+        }
+        if (gradient.y1 < gradientEnd.y1) {
+            gradient.y1++
+        } else if (gradient.y1 > gradientEnd.y1) {
+            gradient.y1--
+        }
+        if (gradient.y2 < gradientEnd.y2) {
+            gradient.y2++
+        } else if (gradient.y2 > gradientEnd.y2) {
+            gradient.y2--
+        }
+        if (gradient.y3 < gradientEnd.y3) {
+            gradient.y3++
+        } else if (gradient.y3 > gradientEnd.y3) {
+            gradient.y3--
+        }
+        if ((gradient.x1 == gradientEnd.x1) && (gradient.x2 == gradientEnd.x2) && (gradient.x3 == gradientEnd.x3) && (gradient.y1 == gradientEnd.y1) && (gradient.y2 == gradientEnd.y2) && (gradient.y3 == gradientEnd.y3)) {
+            clearTimeout(ooxx);
+            if (gradientStatus == false) {
+                gradientStatus = true;
+            } else {
+                gradientStatus = false;
+            }
+            gradientStatusGo();
+
+        }
+        activityFix.style.backgroundImage = `linear-gradient(49deg, rgba(${gradient.x1}, ${gradient.x2}, ${gradient.x3}, 1)0%, rgba(${gradient.y1}, ${gradient.y2}, ${gradient.y3}, 0.8)100%)`;
+    }
+
+    ooxx = window.setInterval(ooxxGradient, 40);
+
+    function gradientStatusGo() {
+        if (gradientStatus == false) {
+            gradient = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradientEnd = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        } else {
+            gradientEnd = {
+                x1: 114,
+                x2: 183,
+                x3: 255,
+                y1: 255,
+                y2: 210,
+                y3: 163,
+            }
+            gradient = {
+                x1: 70,
+                x2: 24,
+                x3: 62,
+                y1: 37,
+                y2: 56,
+                y3: 78,
+            }
+        }
+        ooxx = window.setInterval(ooxxGradient, 40);
+    }
+
+
+}
+window.addEventListener('load', indexInit);

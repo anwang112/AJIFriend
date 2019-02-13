@@ -54,7 +54,7 @@ function showLightBox(){
         div_MJ.className = "MJ";
             // 創建span*2
             var span_MJtitle = document.createElement("span");
-            span_MJtitle.innerText = "MaJi值+";
+            span_MJtitle.innerText = "MJ值+";
             var span_MJ = document.createElement("span");
             span_MJ.innerText = "50";
         // span*2塞進div_MJ
