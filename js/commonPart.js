@@ -660,7 +660,7 @@ ooxxGetRole = (roleId, roleData) => {
         }
     })
 
-    // 眼睛 帽帽 衣服喔
+    // 眼睛 帽帽 衣服喔 
     // roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
     if (roleData.hat) {
         roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(hatImages/hat${roleData.hat}.png`;
