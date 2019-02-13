@@ -91,7 +91,6 @@ function foot_html() {
 	    <div class="chatboxRight">
 	        <div class="chatbox_show">
 	            <img id="friendPicSmall" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-	            <span>聊天內容</span>
 	        </div>
 	        <div class="chatbox_faces">
 	            <img src="pic/chatroom_face_01.svg" alt="喜">
@@ -158,23 +157,32 @@ function msgDB(){
 			alert("xhr錯誤發生");
 		}else{
 			var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
-			var arrMsg = xhr.responseText.split("||");
-			for(var i=0;i<arrMsg.length;i++){ //有撈到(回傳)聊天內容的話
+			var data = JSON.parse(xhr.responseText);
+			
+			console.log(data.content);
+			for(var i=0;data.content.length;i++){
+				var msg_div = document.createElement("div");
 				var msg_span = document.createElement("span");
-				var br = document.createElement("br");
-				msg_span.innerText = arrMsg[i];
-				console.log(arrMsg[i]);
-
-				chatbox_show.appendChild(br);
-				chatbox_show.appendChild(msg_span);
+				msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+				msg_div.appendChild(msg_span);
+				chatbox_show.appendChild(msg_div);
+				
+				if(data.sendMem[i]==1){ //我發的訊息:靠右
+					msg_div.className="iSaid";			
+				}else{
+					msg_div.className="youSaid";
+				}
 			}
+			// var mineMsg = data.mine.split("||");
+			// for(var i=0;i<mineMsg.length;i++){ //有撈到(回傳)聊天內容的話
+
 		}
 	};
 	xhr.open("Post","getChatMsg.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 	var chatMems = {
 		sendMemId: 1,
-		toMemId: 2,
+		taMemId: 2,
 	}; //聊天雙方會員ID組成物件
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
 }
@@ -207,6 +215,7 @@ window.addEventListener('load', function () {
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
+			msgDB();
 			return ch1 = 1;
 		} else {
 			chatRoom.style.cssText = "transform:translateY(82%)";
@@ -279,7 +288,7 @@ window.addEventListener('load', function () {
 	//聊天室貼圖操作
 	var chatbox_faces = document.getElementById('chatbox_faces');
 	var chat_facesImgs = document.getElementsByClassName('chat_faces');
-	var chatbox_show = document.getElementById('chatbox_show');
+	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 
 	for (var i = 0; i < chat_facesImgs.length; i++) {
 		chat_facesImgs[i].addEventListener('click', function () {
@@ -384,7 +393,7 @@ window.addEventListener('load', function () {
 window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
 	var chatTxt_send = document.getElementById('chatTxt_send');
-	var chatbox_show = document.getElementById('chatbox_show');
+	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 
 
 	chatTxt_input.addEventListener('keydown', function (e) {

@@ -439,14 +439,14 @@ html {
     overflow-y: scroll;
 }
 
-.chatbox_show span {
+/* .chatbox_show span {
     display: inline-block;
     height: 30px;
     line-height: 30px;
     font-size: .7rem;
     position: relative;
     text-align: center;
-}
+} */
 
 .chatbox_faces {
     width: 65%;

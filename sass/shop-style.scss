@@ -640,7 +640,9 @@ img{
             #productsShow{
                 width: 80%;
                 padding-top: 15px;
-                
+                .id_iframe{
+                    display: none;
+                }
                 @media all and (max-width: 768px) {
                     width: 95%;
                     padding-top: 5px;

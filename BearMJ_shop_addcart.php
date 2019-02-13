@@ -30,7 +30,8 @@ try {
     <script src="js/friendBox.js"></script>
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
 </head>
 <body>
 <?php
