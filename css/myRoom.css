@@ -15,11 +15,10 @@
   }
   body{
     background:linear-gradient(rgba(125,164,203,1), rgba(232,159,183,1));
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: 'AdobeFanHeitiStd-Bold', serif;
   } 
   #myRoom{
-    width: 100%;
     min-width: 1100px;
     height: 100vh;
     overflow-x: hidden;
@@ -158,6 +157,7 @@
     margin: 0vh 2vw;
     border-radius: 0px 0px 15px 15px;
     position: relative;
+    cursor: pointer;
   }
   #clothesSelf::-webkit-scrollbar{
     border-radius:2.5px;
@@ -222,6 +222,7 @@
     margin: 2vh 2vw 0vh;
     position: relative;
     border-radius: 15px 15px 0px 0px;
+    cursor: pointer;
   }
   #hatsSelf::-webkit-scrollbar{
     border-radius:2.5px;
@@ -569,6 +570,7 @@
 @media screen and (max-width: 768px){
   #myRoom{
     overflow-y: scroll;
+    overflow-x: hidden;
   }
   #myRoom .wheel{
     width: 29%;
@@ -583,6 +585,7 @@
     top: 0%;
     left: 0%;
     z-index: 2;
+    overflow-x: hidden;
   }
   .wardrobeTitle{
     width: 23vw;
@@ -774,6 +777,7 @@
 
 @media screen and (max-width: 476px){
   #myRoom {
+    width: 38%;
     height: 132vh;
     overflow-y: scroll;
     position: relative;
@@ -824,7 +828,9 @@
 
   /*-----------衣櫃燈箱-------------------*/
   #wardrobeLightBox{
+    width: 38%;
     height: 168vh;
+    overflow-x: hidden;
   }
   #closet{
     width: 36%;
@@ -834,23 +840,29 @@
   }
   .clothCloset{
     position: absolute;
-    top: 100%;
-    left: 0%;
-    width: 100%;
+    top: 99%;
+    left: 3%;
+    width: 261%;
     height: 65vh;
     border-radius: 0px 0px 15px 15px;
   }
   #clothesSelf{
     width: 90vw;
   }
+  #clothesSelf:before{
+    width: 290vw;
+  }
   #selfSlide {
-    width: 84vw;
+    width: 277vw;
   }
   #hatsSelf{
     width: 90vw;
   }
+  #hatsSelf:before{
+    width: 170vw;
+  }
   #hatselfSlide{
-    width: 84vw;
+    width: 145vw;
   }
   .decoDrawer{
     width: 95vw;
@@ -860,6 +872,7 @@
     width: 12vw;
   }
   .fittingBox{
+    right: -164%;
     width: 94vw;
     border-radius: 15px 15px 0px 0px;
   }
@@ -936,6 +949,9 @@
     top: 43%;
     left: 5%;
   }
+  #wrapComputer{
+    width: 38%;
+  }
   #computer{
     width: 40vw;
     top: 26%;
@@ -947,10 +963,10 @@
     width: 5%;
     z-index: 30;
   }
-  .bubble1{top:27%; right:16%;}
-  .bubble2{top:31%; right:2%;}
-  .bubble3{top:22%; right:7%;}
-  .bubble4{top:34%; right:11%;}
+  .bubble1{top:27%; right:71%;}
+  .bubble2{top:31%; right:71%;}
+  .bubble3{top:22%; right:71%;}
+  .bubble4{top:34%; right:71%;}
   #profileLightBox{
     position: absolute;
     top: 11%;
