@@ -47,7 +47,7 @@ function head_html() {
         </a>
         <div id="menu_phone" class="menu_phone">
             <ul>
-                <li><a href="match.html">找麻吉</a></li>
+                <li><a href="match2.html">找麻吉</a></li>
                 <li><a href="activity_v2.html">活動巴士</a></li>
                 <li><a href="BearMJ_shop.html">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
@@ -165,6 +165,7 @@ function msgDB(){
 				msg_span.innerText = arrMsg[i];
 				console.log(arrMsg[i]);
 
+<<<<<<< HEAD
 				chatbox_show.appendChild(br);
 				chatbox_show.appendChild(msg_span);
 			}
@@ -187,6 +188,10 @@ window.addEventListener('load', function () {
 
 	
 
+=======
+window.addEventListener('load', function () {
+
+>>>>>>> master
 
 	//聊天室操控
 	var chatRoom_control = document.getElementById('chatRoom_control');
@@ -201,9 +206,12 @@ window.addEventListener('load', function () {
 
 	//聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 	chatRoom_control.addEventListener('click', function () {
+<<<<<<< HEAD
 
 		
 
+=======
+>>>>>>> master
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
@@ -372,6 +380,7 @@ window.addEventListener('load', function () {
 			boxScroll(info_chatbox);
 
 		}, false);
+<<<<<<< HEAD
 
 		function boxScroll(o) {
 			o.scrollTop = o.scrollHeight;
@@ -627,5 +636,308 @@ if (window.innerWidth > 844) {
 	} else {
 		head.style.display = 'block';
 	}
+=======
+
+		function boxScroll(o) {
+			o.scrollTop = o.scrollHeight;
+		}
+	}
+
+
+}, false);
+
+window.addEventListener('load', function () {
+	var chatTxt_input = document.getElementById('chatTxt_input');
+	var chatTxt_send = document.getElementById('chatTxt_send');
+	var chatbox_show = document.getElementById('chatbox_show');
+
+
+	chatTxt_input.addEventListener('keydown', function (e) {
+		if (e.keyCode == 13) { //enter代碼
+			var txt = chatTxt_input.value;
+
+			if (chatTxt_input.value != "") {
+				var span = document.createElement('p');
+				span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
+				span.innerText = txt;
+
+				var divspan = document.createElement('div');
+				divspan.appendChild(span);
+				divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+
+				var clearbox = document.createElement('div');
+				divspan.appendChild(clearbox);
+				clearbox.setAttribute('class', 'clearbox');
+
+				chatbox_show.appendChild(divspan);
+				chatTxt_input.value = '';
+
+				boxScroll(chatbox_show);
+			}
+
+		}
+	}, false);
+
+	chatTxt_send.addEventListener('click', function () {
+		var txt = chatTxt_input.value;
+
+		if (chatTxt_input.value != "") {
+			var span = document.createElement('p');
+			span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px;padding:5px 0;');
+			span.innerText = txt;
+
+			var divspan = document.createElement('div');
+			divspan.appendChild(span);
+			divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+
+			var clearbox = document.createElement('div');
+			divspan.appendChild(clearbox);
+			clearbox.setAttribute('class', 'clearbox');
+
+			chatbox_show.appendChild(divspan);
+			chatTxt_input.value = '';
+
+			boxScroll(chatbox_show);
+		}
+	}, false);
+
+	function boxScroll(o) {
+		o.scrollTop = o.scrollHeight;
+	}
+
+	//手機聊天室輸入
+
+	var info_input_phone = document.getElementById('info_input_phone');
+	var info_chatbox = document.getElementById('info_chatbox');
+
+	info_input_phone.addEventListener('keydown', function (e) {
+		if (e.keyCode == 13) { //enter代碼
+			var txt = info_input_phone.value;
+
+			if (info_input_phone.value != "") {
+				var span = document.createElement('p');
+				span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
+				span.innerText = txt;
+
+				var divspan = document.createElement('div');
+				divspan.appendChild(span);
+				divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+
+				var clearbox = document.createElement('div');
+				divspan.appendChild(clearbox);
+				clearbox.setAttribute('class', 'clearbox');
+
+				info_chatbox.appendChild(divspan);
+				info_input_phone.value = '';
+
+				boxScroll(info_chatbox);
+			}
+
+		}
+	}, false);
+
+	window.addEventListener('resize', function () { //可能要再改
+		var clientWidrh = document.body.clientWidth;
+		console.log(clientWidrh);
+		if (clientWidrh < 1000) {
+			while (chatbox_show.firstChild) {
+				chatbox_show.removeChild(chatbox_show.firstChild);
+				console.log('ddd');
+			}
+		}
+		if (clientWidrh > 760) {
+			while (info_chatbox.firstChild) {
+				info_chatbox.removeChild(info_chatbox.firstChild);
+				console.log('ddd');
+			}
+		}
+
+
+	}, false);
+
+}, false);
+
+//燈箱
+/*
+		操作說明
+        宣告註冊 燈箱id 燈箱遮罩ID 燈箱xx按鈕ID
+        ex.
+        ooxx = document.getElementById('ooxx');
+        啟動你要ㄉ動作執行帶入ooxxLightBox函式
+        ex. 
+        ooxx.addEventListener('click', () => {
+            ooxxLightBox(燈箱遮罩ID,燈箱ID,燈箱xx按鈕ID);
+		})
+    */
+ooxxLightBox = (...lightBoxArray) => {
+	let LightBoxMask = lightBoxArray[0];
+	let LightBox = lightBoxArray[1];
+	let lightBoxXX = lightBoxArray[2];
+	LightBox.style.display = 'none';
+	opacity = 0;
+
+	// 關掉按鈕樣式
+	lightBoxXXGo = (e) => {
+		if ((e.type == 'mousedown') || (e.type == 'touchstart')) {
+			lightBoxXX.classList.add('lightBoxDown');
+		} else if ((e.type == 'mouseup') || (e.type == 'touchend')) {
+			lightBoxXX.classList.remove('lightBoxDown');
+		}
+	}
+	lightBoxXX.addEventListener('mousedown', lightBoxXXGo);
+	lightBoxXX.addEventListener('mouseup', lightBoxXXGo);
+	lightBoxXX.addEventListener('touchstart', lightBoxXXGo);
+	lightBoxXX.addEventListener('touchend', lightBoxXXGo);
+
+	//燈箱開始
+	LightBox.style.display = 'none';
+	opacity = 0;
+
+	//打開淡入    
+	OpenLightBox = () => {
+		LightBox.style.display = 'block';
+		LightBoxMask.style.display = 'block';
+		opacity += 0.086;
+		LightBox.style.opacity = opacity;
+		OpenLightBoxId = window.requestAnimationFrame(OpenLightBox);
+		if (opacity > 1) {
+			opacity = 1;
+			LightBox.style.opacity = 1;
+			cancelAnimationFrame(OpenLightBoxId);
+		}
+	}
+
+	//關掉燈箱喔
+	closeLightBox = () => {
+		if (opacity > 0.4) {
+			opacity -= 0.086;
+		} else {
+			opacity -= 0.026;
+		}
+		LightBox.style.opacity = opacity;
+		closeLightBoxId = window.requestAnimationFrame(closeLightBox);
+		if (opacity <= 0) {
+			LightBoxMask.style.display = 'none';
+			opacity = 0;
+			LightBox.style.opacity = opacity;
+			cancelAnimationFrame(closeLightBoxId);
+			LightBox.style.display = 'none';
+		}
+	}
+	// 開啟燈箱
+	if (LightBox.style.display == 'none') {
+		OpenLightBoxId = window.requestAnimationFrame(OpenLightBox);
+	}
+
+	//關掉燈箱函式
+	lightBoxXX.addEventListener('click', () => {
+		closeLightBoxId = window.requestAnimationFrame(closeLightBox);
+	})
+	LightBoxMask.addEventListener('click', () => {
+		closeLightBoxId = window.requestAnimationFrame(closeLightBox);
+	})
+}
+
+
+
+
+window.addEventListener('load', function () {
+
+
+	function $id(id) {
+		return document.getElementById(id);
+	}
+
+
+	$id('btn_login').addEventListener('click', function () {
+		ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
+	}, false);
+
+}, false);
+
+
+window.addEventListener('load', function () {
+	//head消失
+	var head = $id('head');
+	console.log(head);
+
+	window.addEventListener('scroll', function (e) {
+		var scrollY = document.documentElement.scrollTop;
+		if (window.innerWidth > 844) {
+			if (scrollY > 120) {
+				head.style.display = 'none';
+			} else {
+				head.style.display = 'block';
+			}
+		}
+	}, false);
+
+	window.addEventListener('resize', function () {
+		if (window.innerWidth < 767) {
+			head.style.display = 'none';
+		} else {
+			head.style.display = 'block';
+		}
+	}, false);
+
+}, false);
+
+
+var scrollY = document.documentElement.scrollTop;
+console.log(scrollY);
+
+if (window.innerWidth > 844) {
+	if (scrollY > 120) {
+		head.style.display = 'none';
+	} else {
+		head.style.display = 'block';
+	}
+}
+
+
+ooxxGetRole = (roleId, roleData) => {
+    // 載入角色
+    roleId.innerHTML = `<div class="role">
+                                <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
+                         </div>
+                        <div class="roleEyes"></div>
+                        <div class="roleHat"></div>
+                        <div class="roleClothes"></div>`;
+
+    //填入顏色
+    roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+        for (let i = 0; i < fillColor.length; i++) {
+            fillColor[i].style.fill = `#${roleData.color}`;
+        }
+    })
+
+    // 眼睛 帽帽 衣服喔
+    roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${roleData.eyes}.svg`;
+    if (roleData.hat) {
+        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+    }
+    if (roleData.clothes) {
+        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+    }
+}
+
+
+
+ooxxGetHead = (headId, headData) => {
+    // 載入頭頭
+    headId.innerHTML = `<div class="head">
+                            <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
+                        </div>
+                        <div class="headEyes"></div>`;
+
+    headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
+        fillColor.style.fill = `#${headData.color}`;
+    })
+
+    //插入眼睛
+    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
+>>>>>>> master
 }
 

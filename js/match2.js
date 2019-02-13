@@ -1,76 +1,76 @@
+//搜尋好友
+$('.search').click(function(){
+    alert('查無此麻吉');
+})
+//搜尋好友結束
+
+//翻牌
 var Y = 0;
-$('.matchNext').click(function(){
+$('.matchNext').click(function () {
     Y += 360;
     $('.matchMem').css({
-        'transform':'rotateY('+ Y +'deg)',
+        'transform': 'rotateY(' + Y + 'deg)',
     });
-    $(".matchBody").attr("src","images/body2.png");
-});
+    $(".matchBody").attr("src", "images/body2.png");
+    //魅力值跑分
+    var demo = {
+            score: 0
+        },
+        mj = Math.ceil(Math.random() * 100),
+        scoreDisplay = document.getElementById("scoreDisplay");
 
-$('.rankNavBtn').click(function(){
-    $('.rankNavBtn').not(this).removeClass('achive');
-    $(this).addClass('achive');
-});
+    //create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
+    var tween = TweenLite.to(demo, 5, {
+        score: mj,
+        onUpdate: showScore
+    })
 
-
-//match功能操作_按鈕_家朋友
-    var btn_beFriend =document.getElementById('btn_beFriend');
-    btn_beFriend.addEventListener('click',function(e){
-    
-    },false);
-
-
-    //match_愛心動畫
-    var effectbox = document.getElementById('effectbox');
-
-    function creatHearts(){
-        effectbox.setAttribute('style','z-index:1');
-        var hearts = Math.ceil((Math.random()*20)+37);;
-        //Math.random()
-        console.log(hearts);
-        //創造愛心
-        for(var i=0;i<hearts;i++){
-            var topPosition = Math.ceil((Math.random()*170));
-            var leftPosition = 10+Math.ceil((Math.random()*400));
-            var opacity = Math.random().toFixed(2) ;//0-1 
-
-            var img_heart = document.createElement('img');
-            img_heart.src = "pic/heartForMatch.png";
-            img_heart.setAttribute('style',`position:relative;top:${topPosition + 40}px;left:${leftPosition}px;opacity:${opacity};margin:20px;`);
-            effectbox.appendChild(img_heart);
-            console.log(img_heart);
-        }
-
-
-
+    //each time the tween updates this function will be called.
+    function showScore() {
+        scoreDisplay.innerHTML = demo.score.toFixed(1);
     }
+    //魅力值跑分結束
+});
+//翻牌結束
 
 
-    //match_點擊觸發愛心動畫
-    var btn_beFriend = document.getElementById('btn_beFriend');
-    btn_beFriend.addEventListener('click',function(){
-        btn_beFriend.removeAttribute('class','pulse');
-        btn_beFriend.style.backgroundImage="url('pic/txtbox_04.svg')";
-        btn_beFriend.setAttribute('class','bounceIn');
+//名人榜切換
+$('.rankNav').each(function () {
+    var $this = $(this);
+   var $tab = $this.find('li.active');
+   var $link = $tab.find('a');
+   var $panel = $($link.attr('href'));
+   $this.on('click','.tabControl',function(e){
+    e.preventDefault();
+    var $link = $(this);
+    var id = this.hash;
+    if(id && !$(this).is('.active')){
+        $panel.removeClass('active');
+        $tab.removeClass('active');
+        $panel = $(id).addClass('active');
+        $tab = $link.parent().addClass('active')
+    }
+   })
+});
+//名人榜切換結束
 
-        if(effectbox.hasChildNodes() === false ){
-            creatHearts();
-        }else{
-            // alert('已送出交友');
-            while (effectbox.firstChild) {
-                effectbox.removeChild(effectbox.firstChild);
-                console.log('ddd');
-            }
-        }  
-    },false);
+
+//魅力值跑分第一次
+var demo = {
+        score: 0
+    },
+    mj = Math.ceil((Math.random() * 50) + 50),
+    scoreDisplay = document.getElementById("scoreDisplay");
+//create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
+var tween = TweenLite.to(demo, 2, {
+    score: mj,
+    onUpdate: showScore
+})
+
+//each time the tween updates this function will be called.
+function showScore() {
+    scoreDisplay.innerHTML = demo.score.toFixed(1);
+}
+//魅力值跑分結束
 
 
-
-
-    //match_視窗大小改變觸發清除愛心圖
-    window.addEventListener('resize',function(){
-        while (effectbox.firstChild) {
-            effectbox.removeChild(effectbox.firstChild);
-            console.log('ddd');
-        }
-    },false);
