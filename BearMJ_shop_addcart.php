@@ -185,6 +185,21 @@ try {
                                     <!-- 商品圖 -->
                                     <div class="productImg">
                                         <img class="click_wear" src="shop-images/<?php echo $prodRow["img"];?>" id="hat_1">
+                                        <div class="rwd-proInfo">
+                                            <h3><?php echo $prodRow["proName"];?></h3>
+                                            <!-- 魅力值 -->
+                                            <div class="MJ">
+                                                <span>MJ+</span>
+                                                <span><?php echo $prodRow["proMJ"];?></span>
+                                            </div>
+                                            <!-- 價格 -->
+                                            <div class="cost">
+                                                <img src="shop-images/coin.png">
+                                                <span><?php echo $prodRow["price"];?></span>
+                                            </div>
+                                            <input type="submit" value="買" class="btn_buy">
+
+                                        </div>
                                     </div>
                                     <div class="productInfo">
                                         <!-- 商品名稱 -->
