@@ -159,6 +159,20 @@
     border-radius: 0px 0px 15px 15px;
     position: relative;
   }
+  #clothesSelf::-webkit-scrollbar{
+    border-radius:2.5px;
+    height: 5px;
+  }
+  #clothesSelf::-webkit-scrollbar-track{
+    border-radius:2.5px;
+    border: 1px solid #FBC5CF;
+    background-color:#CD9E9A;
+  }
+  #clothesSelf::-webkit-scrollbar-thumb{
+    border-radius:2.5px;
+    height: 3px;
+    background-color: #FBC5CF;
+  }
   #clothesSelf:before{
     display: block;
     content: '';
@@ -179,20 +193,7 @@
     overflow-y: hidden;
     cursor: pointer;
   }
-  ::-webkit-scrollbar{
-    border-radius:2.5px;
-    height: 5px;
-  }
-  ::-webkit-scrollbar-track{
-    border-radius:2.5px;
-    border: 1px solid #FBC5CF;
-    background-color:#CD9E9A;
-  }
-  ::-webkit-scrollbar-thumb{
-    border-radius:2.5px;
-    height: 3px;
-    background-color: #FBC5CF;
-  }
+  
   .myClothes {
     display: table;
     white-space: nowrap;
@@ -221,6 +222,20 @@
     margin: 2vh 2vw 0vh;
     position: relative;
     border-radius: 15px 15px 0px 0px;
+  }
+  #hatsSelf::-webkit-scrollbar{
+    border-radius:2.5px;
+    height: 5px;
+  }
+  #hatsSelf::-webkit-scrollbar-track{
+    border-radius:2.5px;
+    border: 1px solid #FBC5CF;
+    background-color:#CD9E9A;
+  }
+  #hatsSelf::-webkit-scrollbar-thumb{
+    border-radius:2.5px;
+    height: 3px;
+    background-color: #FBC5CF;
   }
   #hatsSelf:before{
     display: block;
