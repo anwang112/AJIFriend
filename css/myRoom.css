@@ -204,7 +204,7 @@
     display: table-cell;
     position: relative;
     padding: 0 1vw;
-    height: 26vh;
+    width: 12vw;
     cursor: pointer;
     transition: all .2s ease-in-out;
   }
@@ -212,6 +212,9 @@
     transform: scale(1.1);
   }
   .myClothes img{
+    position: absolute;
+    top:0;
+    left: 0;
     display: block;
     height: 26vh;
   }
@@ -799,6 +802,7 @@
   }
   .wardrobeTitle{
     width: 23vw;
+    line-height: 4vh;
     font-size: 4vw;
     top: 16%;
     left: 1%;
@@ -854,6 +858,9 @@
   }
   #selfSlide {
     width: 277vw;
+  }
+  .myClothes li{
+    width: 39vw;
   }
   #hatsSelf{
     width: 90vw;
@@ -961,7 +968,7 @@
   .deskOn{opacity: 1;}
   .bubble{
     width: 5%;
-    z-index: 30;
+    z-index: 2;
   }
   .bubble1{top:27%; right:71%;}
   .bubble2{top:31%; right:71%;}
@@ -992,7 +999,7 @@
   }
   .fittingBox{
     width: 94vw;
-    right: 36px;
+    right: -140%;
   }
   .clothCloset{
     width: 90.5%;
