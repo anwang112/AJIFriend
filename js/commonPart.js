@@ -593,3 +593,48 @@ if (window.innerWidth > 844) {
 }
 
 
+ooxxGetRole = (roleId, roleData) => {
+    // 載入角色
+    roleId.innerHTML = `<div class="role">
+                                <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
+                         </div>
+                        <div class="roleEyes"></div>
+                        <div class="roleHat"></div>
+                        <div class="roleClothes"></div>`;
+
+    //填入顏色
+    roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+        for (let i = 0; i < fillColor.length; i++) {
+            fillColor[i].style.fill = `#${roleData.color}`;
+        }
+    })
+
+    // 眼睛 帽帽 衣服喔
+    roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${roleData.eyes}.svg`;
+    if (roleData.hat) {
+        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+    }
+    if (roleData.clothes) {
+        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+    }
+}
+
+
+
+ooxxGetHead = (headId, headData) => {
+    // 載入頭頭
+    headId.innerHTML = `<div class="head">
+                            <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
+                        </div>
+                        <div class="headEyes"></div>`;
+
+    headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
+        fillColor.style.fill = `#${headData.color}`;
+    })
+
+    //插入眼睛
+    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
+}
+
