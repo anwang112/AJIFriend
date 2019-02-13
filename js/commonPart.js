@@ -554,43 +554,43 @@ window.addEventListener('load', function () {
 }, false);
 
 
-window.addEventListener('load', function () {
-	//head消失
-	var head = $id('head');
-	console.log(head);
+// window.addEventListener('load', function () {
+// 	//head消失
+// 	var head = $id('head');
+// 	console.log(head);
 
-	window.addEventListener('scroll', function (e) {
-		var scrollY = document.documentElement.scrollTop;
-		if (window.innerWidth > 844) {
-			if (scrollY > 120) {
-				head.style.display = 'none';
-			} else {
-				head.style.display = 'block';
-			}
-		}
-	}, false);
+// 	window.addEventListener('scroll', function (e) {
+// 		var scrollY = document.documentElement.scrollTop;
+// 		if (window.innerWidth > 844) {
+// 			if (scrollY > 120) {
+// 				head.style.display = 'none';
+// 			} else {
+// 				head.style.display = 'block';
+// 			}
+// 		}
+// 	}, false);
 
-	window.addEventListener('resize', function () {
-		if (window.innerWidth < 767) {
-			head.style.display = 'none';
-		} else {
-			head.style.display = 'block';
-		}
-	}, false);
+// 	window.addEventListener('resize', function () {
+// 		if (window.innerWidth < 767) {
+// 			head.style.display = 'none';
+// 		} else {
+// 			head.style.display = 'block';
+// 		}
+// 	}, false);
 
-}, false);
+// }, false);
 
 
-var scrollY = document.documentElement.scrollTop;
-console.log(scrollY);
+// var scrollY = document.documentElement.scrollTop;
+// console.log(scrollY);
 
-if (window.innerWidth > 844) {
-	if (scrollY > 120) {
-		head.style.display = 'none';
-	} else {
-		head.style.display = 'block';
-	}
-}
+// if (window.innerWidth > 844) {
+// 	if (scrollY > 120) {
+// 		head.style.display = 'none';
+// 	} else {
+// 		head.style.display = 'block';
+// 	}
+// }
 
 
 ooxxGetRole = (roleId, roleData) => {
