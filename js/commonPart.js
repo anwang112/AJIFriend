@@ -644,10 +644,10 @@ if (window.innerWidth > 844) {
 ooxxGetRole = (roleId, roleData) => {
     // 載入角色
     roleId.innerHTML = `<div class="role">
-                            <embed class="bodySvg" src="roleImages/body${roleData.animal}.svg" style="display:block;">
+                            <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
                         <div class="roleEyes">
-                            <embed class="eyesSvg" src="roleImages/eyes${roleData.eyes}.svg" style="display:block;">
+                            <embed class="eyesSvg" src="images/roleImages/eyes${roleData.eyes}.svg" style="display:block;">
                         </div>
                         <div class="roleHat"></div>
                         <div class="roleClothes"></div>`;
@@ -663,10 +663,10 @@ ooxxGetRole = (roleId, roleData) => {
     // 眼睛 帽帽 衣服喔 
     // roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
     if (roleData.hat) {
-        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(hatImages/hat${roleData.hat}.png`;
+        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
     }
     if (roleData.clothes) {
-        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(clothesImages/clothes${roleData.clothes}.png`;
+        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
     }
 
     //眼睛動起來
@@ -742,7 +742,7 @@ ooxxGetRole = (roleId, roleData) => {
 ooxxGetHead = (headId, headData) => {
     // 載入頭頭
     headId.innerHTML = `<div class="roadHead">
-                            <embed class="headSvg" src="roleImages/head${headData.animal}.svg" style="display:block;">
+                            <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
                         <div class="headEyes"></div>`;
 
@@ -752,7 +752,7 @@ ooxxGetHead = (headId, headData) => {
     })
 
     //插入眼睛
-    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(roleImages/eyes${headData.eyes}.svg`;
+    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
 
 
