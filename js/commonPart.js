@@ -47,7 +47,7 @@ function head_html() {
         </a>
         <div id="menu_phone" class="menu_phone">
             <ul>
-                <li><a href="match.html">找麻吉</a></li>
+                <li><a href="match2.html">找麻吉</a></li>
                 <li><a href="activity_v2.html">活動巴士</a></li>
                 <li><a href="BearMJ_shop.html">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
