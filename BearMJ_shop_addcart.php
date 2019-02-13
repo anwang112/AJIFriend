@@ -199,7 +199,7 @@ try {
                                             <img src="shop-images/coin.png"><span><?php echo $prodRow["price"];?></span>
                                         </div>
                                         <!-- 加入購物車 -->
-                                        <input type="submit" class="btn_addToCart" >
+                                        <input type="submit" class="btn_addToCart" value="">
                                             
                                             <!-- <img src="shop-images/cart.png"> -->
                                         

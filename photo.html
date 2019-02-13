@@ -8,51 +8,49 @@
     <title>Document</title>
     <script src="js/commonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/common.css">
 
     <link rel="stylesheet" href="/css/photo.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
-    <script src="/js/drawing.js"></script>
-    <script src="/js/friendBox.js"></script>
-    <script src="/js/lightbox.js"></script>
-    <script src="/js/vote.js"></script>
+    <script src="js/drawing.js"></script>
+    <script src="js/friendBox.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/vote.js"></script>
 </head>
 <body>
     <script type="text/javascript">
 		head_html();
 	</script>
 
-
     <div class="bg">
+            <!-- <img src="/images/cityBg-33.png" alt=""> -->
         <div class="wrap">
             <div class="trophy">
-                <div><img src="/images/trophy-11.png" alt="獎盃"></div>
+                <div><img src="images/trophy-11.png" alt="獎盃"></div>
                 <h2>12月票選得名</h2>
             </div>
             <div class="col3">
-                <!-- id剛剛刪掉了 記得加回來 -->
                 <div  class="top top1">
-                    <img id="top1" class="winnerPhoto" src="/images/rank1-13.png" alt="no1">
-                    <img class="member" src="/images/member4-20.png" alt="doggy">
+                    <img id="top1" class="winnerPhoto" src="images/rank1-13.png" alt="no1">
+                    <img class="member" src="images/member4-20.png" alt="doggy">
                     <a href="#">AJI</a>
-                    <img class="heart" src="/images/fullheart-16.png" alt="heart">
+                    <img class="heart" src="images/fullheart-16.png" alt="heart">
                     <span>105 </span>
                 </div>
                 <div class="top top2">
-                    <img class="winnerPhoto" src="/images/rank2-14.png" alt="no2">
-                    <img class="member" src="/images/member2-18.png" alt="bunny">
+                    <img class="winnerPhoto" src="images/rank2-14.png" alt="no2">
+                    <img class="member" src="images/member2-18.png" alt="bunny">
                     <a href="#">Bunny</a>
-                    <img class="heart" src="/images/fullheart-16.png" alt="heart">
+                    <img class="heart" src="images/fullheart-16.png" alt="heart">
                     <span>96 </span>
                 </div>
                 <div class="top top3">
-                    <img class="winnerPhoto" src="/images/rank3-15.png" alt="no3">
-                    <img class="member" src="/images/member3-19.png" alt="dodo">
+                    <img class="winnerPhoto" src="images/rank3-15.png" alt="no3">
+                    <img class="member" src="images/member3-19.png" alt="dodo">
                     <a href="#">Dodo</a>
-                    <img class="heart" src="/images/fullheart-16.png" alt="heart">
+                    <img class="heart" src="images/fullheart-16.png" alt="heart">
                     <span>85</span>
                 </div>
                 <!-- <div class="clear"></div> -->
@@ -60,138 +58,35 @@
             
             <div class="ground">
                 <div class="content">
-                    <h2>立刻製造你跟麻吉的合照</h2>
-                    <img class="ajiY" src="/images/yellowheart-10.png" alt="y">
-                    <img class="aji" src="/images/jiFriend.png" alt="og">
+                    <h2>立刻製作你跟麻吉的合照</h2>
+                    <img class="ajiY" src="images/yellowheart-10.png" alt="y">
+                    <img class="aji" src="images/jiFriend.png" alt="og">
                 </div>
             </div>
-            <div class="switch">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <!-- <div id="LB">
-                <div id="del"><img src="/images/trash-alt.svg" alt="del"></div>
-                <div id="left">%%</div>
-                <div id="right">>></div>
-                <img class="cardPhoto" src="/images/rank1-13.png" alt="top1">
-                <img class="member" src="/images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img class="heart" src="/images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
-                <p>整個城市都是我們的伸展台</p>
-            </div> -->
-        </div>
+
+ <!-- canvas -->
+    <div id="drawingTab">
+        <img src="images/camera-17.png" alt="camera">
+        <h1>製作你跟麻吉的合照</h1>    
     </div>
-
-    <!-- 第二屏 相片牆 -->
-    <div class="bg">
-        <div class="postArea">
-            <div class="father">
-                <h1>LOVE STORY</h1>
-                <div id="myPhoto">
-                    <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp">
-                        <img src="/images/myPhoto-30.png" alt="photo">
-                        <h3>我的相片</h3>
-                    </a>
-                </div>
-            </div>
-                <div class="card" id="photo1">
-                    <img class="cardPhoto" src="/images/rank1-13.png" alt="no1">
-                    <img class="member" src="/images/member4-20.png" alt="doggy">
-                    <a href="#">AJI</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">105 </span>
-                </div>
-                <div class="inform"></div>
-                <div class="card" id="photo2">
-                    <img class="cardPhoto" src="/images/rank2-14.png" alt="no2">
-                    <img class="member" src="/images/member2-18.png" alt="bunny">
-                    <a href="#">Bunny</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">96 </span>
-                </div>
-                <div class="card" id="photo3">
-                    <img class="cardPhoto" src="/images/rank3-15.png" alt="no3">
-                    <img class="member" src="/images/member3-19.png" alt="dodo">
-                    <a href="#">Dodo</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">85</span>
-                </div>
-                <div class="card" id="photo4">
-                    <img class="cardPhoto" src="/images/rank1-13.png" alt="no1">
-                    <img class="member" src="/images/member4-20.png" alt="doggy">
-                    <a href="#">AJI</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">105 </span>
-                </div>
-                <div class="card" id="photo5">
-                    <img class="cardPhoto" src="/images/rank2-14.png" alt="no2">
-                    <img class="member" src="/images/member2-18.png" alt="bunny">
-                    <a href="#">Bunny</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">96 </span>
-                </div>
-                <div class="card" id="photo6">
-                    <img class="cardPhoto" src="/images/rank3-15.png" alt="no3">
-                    <img class="member" src="/images/member3-19.png" alt="dodo">
-                    <a href="#">Dodo</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">85</span>
-                </div>
-                <div class="card" id="photo7">
-                    <img class="cardPhoto" src="/images/rank1-13.png" alt="no1">
-                    <img class="member" src="/images/member4-20.png" alt="doggy">
-                    <a href="#">AJI</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">105 </span>
-                </div>
-                <div class="card" id="photo8">
-                    <img class="cardPhoto" src="/images/rank2-14.png" alt="no2">
-                    <img class="member" src="/images/member2-18.png" alt="bunny">
-                    <a href="#">Bunny</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">96 </span>
-                </div>
-                <div class="card" id="photo9">
-                    <img class="cardPhoto" src="/images/rank3-15.png" alt="no3">
-                    <img class="member" src="/images/member3-19.png" alt="dodo">
-                    <a href="#">Dodo</a>
-                    <img id="heart" class="heart" src="/images/fullheart-16.png" alt="heart">
-                    <span id="voteNum">85</span>
-                </div>
-                <div class="clear"></div>
-
-            <!-- <div class="clear"></div> -->
-            
-            <!-- <div id="cardLB" class="照片id ex:card-photo7">
-                <div id="del"><img src="/images/trash-alt.svg" alt="del"></div>
-                <div id="left">%%</div>
-                <div id="right">>></div>
-                <img class="cardPhoto" src="/images/rank1-13.png" alt="top1">
-                <img class="member" src="/images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img class="heart" src="/images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
-                <p>整個城市都是我們的伸展台</p>
-            </div> -->
-        </div>
-    </div>
-
-    <!--  -->
+ <!-- canvas -->
+<img src="" alt="">
     <div class="bg">
         <div class="mkPhoto">
+            <div id="exit">
+                <img src="images/exit.png" alt="exit">
+            </div>
             <div class="steps">
                 <div class="step" id="step1">
-                        <img  src="/images/choiceBg-23.png" alt="chooseBg">
+                        <img  src="images/choiceBg-23.png" alt="chooseBg">
                         <h3>Step 1 選擇背景</h3>
                 </div>
                 <div class="step" id="step2">
-                    <img src="/images/chooseFriend-24.png" alt="chooseFriend">
+                    <img src="images/chooseFriend-24.png" alt="chooseFriend">
                     <h3>Step 2 選擇朋友</h3>
                 </div>
                 <div class="step" id="step3">
-                    <img src="/images/colorPen-25.png" alt="colorPen">
+                    <img src="images/colorPen-25.png" alt="colorPen">
                     <h3>Step 3 編輯塗鴉</h3>
                 </div>
             </div>
@@ -199,33 +94,32 @@
                 <h3>本月票選主題</h3>
                 <p>城市愛情故事</p>
                 <h3>得名獎勵</h3>
-                <p>1.水行俠套裝</p><img src="/images/wmSuit-27.png" alt="wmSuit">
-                <p>2.死神頭套</p><img src="/images/ghostCap-28.png" alt="ghostCap">
-                <p>3.海盜頭套</p><img src="/images/pirateCap-29.png" alt="pirateCap">
+                <p>1.水行俠套裝</p><img src="images/wmSuit-27.png" alt="wmSuit">
+                <p>2.死神頭套</p><img src="images/ghostCap-28.png" alt="ghostCap">
+                <p>3.海盜頭套</p><img src="images/pirateCap-29.png" alt="pirateCap">
             </div>
-            
             <!-- <div id="friend_LightBox" class="bg_friendBox">
-                <img src="/images/chooseF-31.png" alt="bg">
+                <img src="images/chooseF-31.png" alt="bg">
                 <div id="btn_friendBoxClose">
-                    <img src="/images/times-circle-32.png">
+                    <img src="images/times-circle-32.png">
                 </div>
                 <div id="content_friendBox">
                     <input type="text" id="searchBox" placeholder="搜尋朋友ID">
                     <div id="chooseBox">
                         <label for="f_001">
-                            <img src="/images/member1-17.png">
+                            <img src="images/member1-17.png">
                             <p>煞氣阿吉</p>
                         </label>
                         <label for="f_002">
-                            <img src="/images/member2-18.png">
+                            <img src="images/member2-18.png">
                             <p>霹靂嬌媧</p>
                         </label>
                         <label for="f_003">
-                            <img src="/images/member3-19.png">
+                            <img src="images/member3-19.png">
                             <p>理科太太</p>
                         </label>
                         <label for="f_004">
-                            <img src="/images/member4-20.png">
+                            <img src="images/member4-20.png">
                             <p>蔡小英</p>
                         </label>
             
@@ -235,25 +129,167 @@
             <div class="drawing">
                 <label> 
                     <div class="upload">
-                        <!-- <img id="imgPreview" src="/images/member4-20.png" alt="bear"> -->
+                        <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
                         <span id="upBtn">上傳背景</span>
                         <input style="width:'30px'; " type="file" id="upFile" name="upfile" hidden>
                     </div> 
                 </label>
-                <label id="friendBox">
+                    <label id="friendBox">
                         <span id="chooseBtn">選擇朋友</span>
-
-
-                </label>
-                <div class="preview"><img id="imgPreview" src="" alt="">
-                    <canvas id="canvas"></canvas>
-                </div>
-                <div class="next" id="next">                
-                        <span>下一步</span>
-                </div>
+                    </label>
+                    <div class="preview"><img id="imgPreview" src="" alt="">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                <div class="btn">
+                        <div class="back" >                
+                            <span id="back">上一步</span>
+                        </div>
+                        <div class="next" >                
+                            <span id="next">下一步</span>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
+
+            <script>
+                function $id(id){
+                    return document.getElementById(id);
+                    }	
+                    function init(){
+                        $id("drawingTab").onclick = function showCanvas(){
+                                var mkPhoto=document.getElementsByClassName("mkPhoto");
+                                mkPhoto[0].style.display="block";
+                                mkPhoto[0].classList.add("slideL");
+                                
+                            }
+                        $id("exit").onclick= function back(){
+                            console.log(exit);
+                            var mkPhoto=document.getElementsByClassName("mkPhoto");
+                            mkPhoto[0].style.display="none";
+
+                        }
+
+                        }
+                window.addEventListener("load", init, false);
+            </script>
+
+
+            <!-- <div class="switch">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div> -->
+            <!-- <div id="LB">
+                <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
+                <div id="left">%%</div>
+                <div id="right">>></div>
+                <img class="cardPhoto" src="images/rank1-13.png" alt="top1">
+                <img class="member" src="images/member4-20.png" alt="doggy">
+                <a href="#">AJI</a>
+                <img class="heart" src="images/fullheart-16.png" alt="heart">
+                <span id="voteNum">105 </span>
+                <p>整個城市都是我們的伸展台</p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- 第二屏 相片牆 -->
+    <div class="bg2">
+        <div class="postArea">
+            <div class="father">
+                <h1>LOVE STORY</h1>
+                <div id="myPhoto">
+                    <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp">
+                        <img src="images/myPhoto-30.png" alt="photo">
+                        <h3>我的相片</h3>
+                    </a>
+                </div>
+            </div>
+                <div class="card" id="photo1">
+                    <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
+                    <img class="member" src="images/member4-20.png" alt="doggy">
+                    <a href="#">AJI</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">105 </span>
+                </div>
+                <div class="inform"></div>
+                <div class="card" id="photo2">
+                    <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
+                    <img class="member" src="images/member2-18.png" alt="bunny">
+                    <a href="#">Bunny</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">96 </span>
+                </div>
+                <div class="card" id="photo3">
+                    <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
+                    <img class="member" src="images/member3-19.png" alt="dodo">
+                    <a href="#">Dodo</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">85</span>
+                </div>
+                <div class="card" id="photo4">
+                    <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
+                    <img class="member" src="images/member4-20.png" alt="doggy">
+                    <a href="#">AJI</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">105 </span>
+                </div>
+                <div class="card" id="photo5">
+                    <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
+                    <img class="member" src="images/member2-18.png" alt="bunny">
+                    <a href="#">Bunny</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">96 </span>
+                </div>
+                <div class="card" id="photo6">
+                    <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
+                    <img class="member" src="images/member3-19.png" alt="dodo">
+                    <a href="#">Dodo</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">85</span>
+                </div>
+                <div class="card" id="photo7">
+                    <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
+                    <img class="member" src="images/member4-20.png" alt="doggy">
+                    <a href="#">AJI</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">105 </span>
+                </div>
+                <div class="card" id="photo8">
+                    <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
+                    <img class="member" src="images/member2-18.png" alt="bunny">
+                    <a href="#">Bunny</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">96 </span>
+                </div>
+                <div class="card" id="photo9">
+                    <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
+                    <img class="member" src="images/member3-19.png" alt="dodo">
+                    <a href="#">Dodo</a>
+                    <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                    <span id="voteNum">85</span>
+                </div>
+                <div class="clear"></div>
+
+            <!-- <div class="clear"></div> -->
+            
+            <!-- <div id="cardLB" class="照片id ex:card-photo7">
+                <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
+                <div id="left">%%</div>
+                <div id="right">>></div>
+                <img class="cardPhoto" src="images/rank1-13.png" alt="top1">
+                <img class="member" src="images/member4-20.png" alt="doggy">
+                <a href="#">AJI</a>
+                <img class="heart" src="images/fullheart-16.png" alt="heart">
+                <span id="voteNum">105 </span>
+                <p>整個城市都是我們的伸展台</p>
+            </div> -->
+        </div>
+    </div>
+
+    
+            
 
 
     <script type="text/javascript">
