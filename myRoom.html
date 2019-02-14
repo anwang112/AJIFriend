@@ -38,7 +38,7 @@
     <!-- 燈箱：衣櫃 -->
     <div id="wardrobeLightBox" style="display:none">
         <div id="closet">
-          <h3 style="display:none">衣櫃</h3>
+          <!-- 左半邊衣櫃 -->
           <div class="clothCloset">
             <div id="hatsSelf" class="self">
               <div id="hatselfSlide">
@@ -67,14 +67,6 @@
                     <img class="hanger" src="images/cloth/hanger.png">
                     <img src="images/cloth/cloth_coatofKOKO.png" class="cloth">
                   </li>
-
-
-                  <li>
-                    <!-- 前往商城 -->
-                    <img class="hanger" src="images/cloth/hanger.png" >
-                    <a href="BearMJ_shop.html" class="gotoShop">前往商城</a>
-                  </li>
-                
                 </ul>
               </div>
             </div>
@@ -85,47 +77,55 @@
               <div class="clearfix"></div>
             </div>
           </div>
-          <h3 style="display:none">我的更衣室</h3>
+          <!-- 右半邊更衣室 -->
           <div class="fittingBox">
-            <!-- 更衣室框框fittingRoom -->
             <div id="fittingRoom">
               <!-- 我的角色人物myRole -->
               <div id="myRole"> 
-                <!-- 身體顏色耳朵EXCX.png -->
                 <img src="images/EarsXColor/E1AJI.png" id="mybody">
-                <!-- 眼睛嘴巴FX.png -->
                 <img src="images/face/F2.png" id="myface">
-                <!-- 我的帽子myHat -->
                 <div id="myHat">
                   <img class="" id="wearhat" src="images/head/head_beanieBlack.png">
                 </div>
-                <!-- 我的衣服myCloth -->
                 <div id="myCloth">
                   <img class="" id="putonCloth" src="images/body/body_coatofKOKO.png">
                 </div>
               </div>
             </div>
-            <!-- 保存按鈕 -->
-            <div id="btnSaveChageCloth">
-              <input class="btnSave" type="submit" value="保存設定">
-            </div>
-            <!-- 保存造型成功 燈箱 -->
-            <div id="keepSaveClothes" style="display:none">保存造型成功!
-              <!-- 確定後燈箱消失 -->
-              <div id="btnkeepSaveClose">確定</div>
-            </div>
-            <!-- X關閉衣櫃的按鈕btnClosetCancel -->
-            <div id="btnClosetCancel">
-              <img src="images/closeX.png">
-            </div>
           </div>
+          <div class="clearfix"></div>
+          <!-- 保存按鈕 -->
+          <div id="btnSaveChageCloth">
+            <button class="btnSave">保存設定</button>
+          </div>
+          <!-- 保存造型成功 燈箱 -->
+          <div id="keepSaveClothes" style="display:none">保存造型成功!
+            <!-- 確定後燈箱消失 -->
+            <div id="btnkeepSaveClose">確定</div>
+          </div>
+          <!-- X關閉衣櫃的按鈕btnClosetCancel -->
+          <div id="btnClosetCancel">
+            <img src="images/closeX.png">
+          </div>     
         </div>
     </div>
   </div>
   <!-- ↓自己現在長什麼樣區↓ -->
   <div id="meNow">
-    <img src="images/meNow.png">
+    <!-- <img src="images/meNow.png"> -->
+    <div id="meNow" class="roleBox"></div>
   </div>
+ 
+	<script>
+		meNow = document.getElementById('meNow');
+		ooxxGetRole(meNow, {
+			animal: 1,
+			color: '7E675C',
+			eyes: 2,
+			hat: 1,
+			clothes: 3,
+		});
+	</script>
   <!-- ↓個人資訊區↓ -->
   <div id="wrapComputer">
     <div id="computer">
