@@ -115,21 +115,9 @@ function foot_html() {
 	    <div id="chatboxLeft" class="chatboxLeft">
 	        <input id="search_input" type="text" placeholder="搜尋好友">
 	        <div class="friendbox">
-				<label for="f_001">
-					<img src="images/gift.png">
-					<p>煞氣阿吉</p>
-				</label>
-				<label for="f_002">
-					<img src="images/gift.png">
-					<p>霹靂嬌媧</p>
-				</label>
-				<label for="f_003">
-					<img src="images/gift.png">
-					<p>理科太太</p>
-				</label>
-				<label for="f_004">
-					<img src="images/gift.png">
-					<p>蔡小英</p>
+				<label class="friendClick">
+					<img src="shop-images/gift.png" class="friendClick">
+					<p class="friendClick">管理員</p>
 				</label>
 	        </div>
 	        <div class="replybox">
@@ -171,6 +159,95 @@ function foot_html() {
 	document.write(str_tag2);
 }
 
+
+function friendList(){ //Ajax撈朋友列表
+	
+	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
+	//撈朋友資料並動態新增列表--start
+	var xhr = new XMLHttpRequest(); // 建立xhr
+	xhr.onload = function(){
+		if(xhr.responseText == "null"){ //失敗狀態
+			alert("xhr錯誤發生");
+
+		}else{ //成功取得
+			var friendArr = JSON.parse(xhr.responseText);
+
+			// var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼鏡||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+			
+			
+			console.log(friendInfo);
+			//產生朋友列表<label>*N
+			
+
+			// // [暫代]創建label
+			// console.log(friendList[0][1]);
+			for(var i = 0;i<friendInfo.length;i++){
+				var infoArr = friendInfo[i].split("||",5);
+				var label = document.createElement("label");
+				label.className = "friendClick";
+					//創建img_friend頭像
+					var img_friend = document.createElement("img");
+					img_friend.src = "shop-images/gift.png";
+					img_friend.className = "friendClick";
+					// img_friend.className = friendList[i-1];
+					//創建p_memName朋友暱稱
+					var p_memName = document.createElement("p");
+					p_memName.innerText = infoArr[i][1]; //會員暱稱
+					p_memName.className = "friendClick";
+					// p_memName.className = friendList[i-1];
+					var input = document.createElement("input");
+					input.type = "hidden";
+					input.value = infoArr[i][0]; //會員編號
+
+
+				//將img_friend、p_memNam、input_submit塞進label
+				label.appendChild(img_friend);
+				label.appendChild(p_memName);
+				label.appendChild(input);
+
+
+				//將label塞進div
+				div_chooseBox.appendChild(label);
+			
+			}
+			console.log('a');
+			//執行動作撰寫
+			var friendLabels = document.getElementsByClassName("friendClick"); 
+			
+			for(var i = 0;i<friendLabels.length;i++){
+				friendLabels[i].addEventListener('click',changeChat,false);
+			}
+		}
+	};
+	xhr.open("Post","getFriend.php",true);
+	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	
+	xhr.send("me="+ '1');
+
+	//撈朋友資料並動態新增列表--end
+	
+}
+
+//切換朋友聊天
+function changeChat(e){
+	var taName = document.getElementById("mem-2");
+	if(e.target.children.length==0){
+		console.log(e.target.children[2].value);
+		taName.innerText = e.target.parentNode.children[1].innerText;
+	}else{
+		taName.innerText = e.target.children[1].innerText;
+	}
+	// var taPic = document.getElementById("friendPic"); //頭像
+	// taPic.src = taPic.src; //頭像
+
+	msgDB(1,e.target.children[2].value);
+
+
+
+}
+
+
+
 function msgDB(){ //聊天歷史訊息
 	console.log("還在reload唷!");
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
@@ -189,7 +266,7 @@ function msgDB(){ //聊天歷史訊息
 			
 			console.log(num);
 			if(num==0){
-				for(var i=0;data.content.length;i++){
+				for(var i=0;i<data.content.length;i++){
 					var msg_div = document.createElement("div");
 					var msg_span = document.createElement("span");
 					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
@@ -203,9 +280,10 @@ function msgDB(){ //聊天歷史訊息
 					}
 				
 				}
+				boxScroll(chatbox_show);
 
 			}else{
-				for(var i=num-1;data.content.length;i++){
+				for(var i=num-1;i<data.content.length;i++){
 					var msg_div = document.createElement("div");
 					var msg_span = document.createElement("span");
 					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
@@ -266,7 +344,9 @@ window.addEventListener('load', function () {
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
+			msgDB();
 			chatBoxreload = setInterval(msgDB, 3000);
+			// friendList(); //呼叫撈朋友資料的函式
 			boxScroll(chatbox_show);
 			return ch1 = 1;
 		} else {

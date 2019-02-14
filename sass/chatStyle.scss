@@ -19,43 +19,44 @@ img{
     font-size: 14px;    
 }
 
-.friendbox{
-    #chooseBox{
-        overflow: auto;
-            height: 180px;   
-        @media all and (max-width: 768px) { 
-            height: 140px;
-        }
-        @media all and (max-width: 476px) {
-            height: 140px;
-        }
+// .friendbox{
+    
+//         overflow: auto;
+//             height: 180px;   
+//         @media all and (max-width: 768px) { 
+//             height: 140px;
+//         }
+//         @media all and (max-width: 476px) {
+//             height: 140px;
+//         }
 
-        label{
-            width: 80%;
-            display: block;
-            margin-bottom:6px;
-            background-color: #eee;
-            padding: 5px; 
-            border-radius: 5px;
-            // font-family: $fontFamily;
-            cursor: pointer;
-            &:hover{
-                background-color: #ccc;
-            }
-            img{
-                width: 20%;
-                margin-right:4px; 
-            }
-            p{
-                display: inline;
-            }
-            input[type="submit"]{
-                display: none;
-            }
-        }
+//         label{
+//             width: 80%;
+//             display: block;
+//             margin-bottom:6px;
+//             background-color: #eee;
+//             padding: 5px; 
+//             border-radius: 5px;
+//             text-align: left;
+//             // font-family: $fontFamily;
+//             cursor: pointer;
+//             &:hover{
+//                 background-color: #ccc;
+//             }
+//             img{
+//                 width: 20%;
+//                 margin-right:4px; 
+//             }
+//             p{
+//                 display: inline;
+//             }
+//             input[type="submit"]{
+//                 display: none;
+//             }
+//         }
 
-    }
-}
+    
+// }
 
 
 
