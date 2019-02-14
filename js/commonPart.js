@@ -90,7 +90,6 @@ function foot_html() {
 	    </div> 
 	    <div class="chatboxRight">
 	        <div class="chatbox_show">
-	            <img id="friendPicSmall" src="pic/friend_demo_03.svg" alt="朋友大頭照">
 	        </div>
 	        <div class="chatbox_faces">
 	            <img src="pic/chatroom_face_01.svg" alt="喜">
@@ -150,16 +149,23 @@ function foot_html() {
 }
 
 function msgDB(){ //聊天歷史訊息
+
+	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
 	
-	var xhr = new XMLHttpRequest();
+	while(chatbox_show.firstChild) {  //reload聊天訊息(先清掉所有子節點)
+        chatbox_show.removeChild(chatbox_show.firstChild);
+	}
+	
+	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
-		if(xhr.responseText == "null"){
+		if(xhr.responseText == "null"){ //失敗狀態
 			alert("xhr錯誤發生");
-		}else{
-			var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
+
+		}else{ //成功取得
+
+			//執行動作撰寫
 			var data = JSON.parse(xhr.responseText);
 			
-			console.log(data.content);
 			for(var i=0;data.content.length;i++){
 				var msg_div = document.createElement("div");
 				var msg_span = document.createElement("span");
@@ -169,7 +175,7 @@ function msgDB(){ //聊天歷史訊息
 				
 				if(data.sendMem[i]==1){ //我發的訊息:靠右
 					msg_div.className="iSaid";			
-				}else{
+				}else{ //我發的訊息:靠右
 					msg_div.className="youSaid";
 				}
 			}

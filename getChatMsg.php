@@ -1,6 +1,6 @@
 <?php
 session_start();
-$chatMems = json_decode($_REQUEST["chatMems"]);
+$chatMems = json_decode($_REQUEST["ooxx"]);
     try{
         require_once("connectBooks.php");
         $sql = "select * from message where (send_memNo=:sendMemId && to_memNo=:taMemId) or (send_memNo=:taMemId && to_memNo=:sendMemId) ORDER by msgNo";
@@ -27,30 +27,7 @@ $chatMems = json_decode($_REQUEST["chatMems"]);
                 $_SESSION["send_memNo"][$i] = $msgRows["send_memNo"];
                 $_SESSION["msg"][$i] = $msgRows["msg"];
                 $i++;
-                // if($msgRows["msg"]!=""){
-                //     if($num==1){
-                //         $mineMsg=$msgRows["msg"];
-
-                        
-                //     }else{
-                //         $mineMsg .= "|II|".$msgRows["msg"];
-                //     }
-                //     $num++;
-
-                // }
             }
-
-            // $num = 1;
-            // while($msgUURows = $msgUU ->fetch(PDO::FETCH_ASSOC)){
-            //     if($msgUURows["msg"]!=""){
-            //         if($num==1){
-            //             $yoursMsg=$msgUURows["msg"];
-            //         }else{
-            //             $yoursMsg .= "|UU|".$msgUURows["msg"];
-            //         }
-            //         $num++;
-            //     }
-            // }
             $str = new data();
             $str->time = $_SESSION["time"];
             $str->content = $_SESSION["msg"];
@@ -59,6 +36,7 @@ $chatMems = json_decode($_REQUEST["chatMems"]);
 
             echo $send;
         }
+
     }catch(PDOException $e){
         echo $e->getMessage();
     }
