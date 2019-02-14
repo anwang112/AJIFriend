@@ -2,20 +2,25 @@
 // 聊天訊息送出  --by ga
   
 session_start();
-$chatMems = json_decode($_REQUEST["chatMems"]);
+$data = json_decode($_REQUEST["data"]);  //解碼js傳過來的值
     try{
         require_once("connectBooks.php");
-        $sql = "select * from message where (send_memNo=:sendMemId && to_memNo=:taMemId) or (send_memNo=:taMemId && to_memNo=:sendMemId) ORDER by msgNo";
+        $sql = "INSERT INTO `message` (`msgNo`, `send_memNo`, `to_memNo`, `send_adminNo`, `to_adminNo`, `msg`, `time`)
+                  VALUES (NULL, :me, :you, NULL , :toAdminId, :msg, :timeNow );";
         $msg = $pdo->prepare( $sql );
-        $msg -> bindValue( ":sendMemId",$chatMems->sendMemId);
-        $msg -> bindValue( ":taMemId",$chatMems->taMemId);
-        $msg ->execute();
+        if($data->taIsWho=='mem'){  //聊天對象是會員
+            $msg -> bindValue( ":you",$data->chatTA);
+            $msg -> bindValue( ":toAdminId",NULL);
 
-
-        if( $msg->rowCount()==0){ 
-        }else{
-
+        }else{   //聊天對象是管理員
+            $msg -> bindValue( ":toAdminId",$data->chatTA);
+            $msg -> bindValue( ":you",NULL);
         }
+        $msg -> bindValue( ":me",$data->me);
+        $msg -> bindValue( ":msg",$data->msg);
+        $msg -> bindValue( ":timeNow",$data->timeNow);
+        $msg ->execute();
+        echo "sucess";
     }catch(PDOException $e){
         echo $e->getMessage();
     }

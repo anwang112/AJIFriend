@@ -1,3 +1,10 @@
+function boxScroll(o) {
+	o.scrollTop = o.scrollHeight;
+	o.scrollTop+=200;
+	console.log(o.scrollTop+':'+o.scrollHeight);
+	
+}
+
 var body = document.getElementsByTagName('body');
 
 console.log(body);
@@ -84,7 +91,8 @@ function foot_html() {
 	    <h2 id="chatRoom_control">麻吉聊天室</h2>
 	    <div class="chatRoom_info">
 	        <img id="friendPic" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-	        <span id="mem-2">An</span>
+			<span id="mem-2">An</span>
+			<input type="hidden" name="" id="friendId" value="2">
 	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
 	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
@@ -107,7 +115,22 @@ function foot_html() {
 	    <div id="chatboxLeft" class="chatboxLeft">
 	        <input id="search_input" type="text" placeholder="搜尋好友">
 	        <div class="friendbox">
-
+				<label for="f_001">
+					<img src="images/gift.png">
+					<p>煞氣阿吉</p>
+				</label>
+				<label for="f_002">
+					<img src="images/gift.png">
+					<p>霹靂嬌媧</p>
+				</label>
+				<label for="f_003">
+					<img src="images/gift.png">
+					<p>理科太太</p>
+				</label>
+				<label for="f_004">
+					<img src="images/gift.png">
+					<p>蔡小英</p>
+				</label>
 	        </div>
 	        <div class="replybox">
 	            <h4>待回覆好友邀請</h4>
@@ -149,12 +172,9 @@ function foot_html() {
 }
 
 function msgDB(){ //聊天歷史訊息
-
+	console.log("還在reload唷!");
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
-	
-	while(chatbox_show.firstChild) {  //reload聊天訊息(先清掉所有子節點)
-        chatbox_show.removeChild(chatbox_show.firstChild);
-	}
+
 	
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
@@ -165,20 +185,44 @@ function msgDB(){ //聊天歷史訊息
 
 			//執行動作撰寫
 			var data = JSON.parse(xhr.responseText);
+			var num = chatbox_show.children.length;
 			
-			for(var i=0;data.content.length;i++){
-				var msg_div = document.createElement("div");
-				var msg_span = document.createElement("span");
-				msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
-				msg_div.appendChild(msg_span);
-				chatbox_show.appendChild(msg_div);
+			console.log(num);
+			if(num==0){
+				for(var i=0;data.content.length;i++){
+					var msg_div = document.createElement("div");
+					var msg_span = document.createElement("span");
+					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+					msg_div.appendChild(msg_span);
+					chatbox_show.appendChild(msg_div);
+					
+					if(data.sendMem[i]==1){ //我發的訊息:靠右
+						msg_div.className="iSaid";			
+					}else{ //我發的訊息:靠右
+						msg_div.className="youSaid";
+					}
 				
-				if(data.sendMem[i]==1){ //我發的訊息:靠右
-					msg_div.className="iSaid";			
-				}else{ //我發的訊息:靠右
-					msg_div.className="youSaid";
 				}
+
+			}else{
+				for(var i=num-1;data.content.length;i++){
+					var msg_div = document.createElement("div");
+					var msg_span = document.createElement("span");
+					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+					msg_div.appendChild(msg_span);
+					chatbox_show.appendChild(msg_div);
+					
+					if(data.sendMem[i]==1){ //我發的訊息:靠右
+						msg_div.className="iSaid";			
+					}else{ //我發的訊息:靠右
+						msg_div.className="youSaid";
+					}
+				
+				}
+
 			}
+			
+			
 		}
 	};
 	xhr.open("Post","getChatMsg.php",true);
@@ -191,6 +235,7 @@ function msgDB(){ //聊天歷史訊息
 	
 	
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
+	
 }
 
 
@@ -221,11 +266,13 @@ window.addEventListener('load', function () {
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
-			msgDB();
+			chatBoxreload = setInterval(msgDB, 3000);
+			boxScroll(chatbox_show);
 			return ch1 = 1;
 		} else {
 			chatRoom.style.cssText = "transform:translateY(82%)";
 			chatboxLeft.style.cssText = "opacity:1;";
+			clearInterval(chatBoxreload);
 			return ch1 = 0, ch = 0;
 		}
 
@@ -320,10 +367,10 @@ window.addEventListener('load', function () {
 		}, false);
 	}
 
-	//讓
-	function boxScroll(o) {
-		o.scrollTop = o.scrollHeight;
-	}
+	// //讓
+	// function boxScroll(o) {
+	// 	o.scrollTop = o.scrollHeight;
+	// }
 
 	//登入燈箱操作
 	var login_box = document.getElementById('login_box');
@@ -388,9 +435,7 @@ window.addEventListener('load', function () {
 
 		}, false);
 
-		function boxScroll(o) {
-			o.scrollTop = o.scrollHeight;
-		}
+
 	}
 
 
@@ -400,29 +445,82 @@ window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
 	var chatTxt_send = document.getElementById('chatTxt_send');
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
-
+	var friend = document.getElementById('friendId');
 
 	chatTxt_input.addEventListener('keydown', function (e) {
 		if (e.keyCode == 13) { //enter代碼
-			var txt = chatTxt_input.value;
+			var txt = chatTxt_input.value; //送出的訊息
+			var friendName = friend.value; //聊天對象的暱稱
 
 			if (chatTxt_input.value != "") {
-				var span = document.createElement('p');
-				span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
-				span.innerText = txt;
+				// 廷嘉寫的開始
+				// 送出訊息：
+				// step1>>寫進資料庫
+				
+				// 要傳的參數物件
+				var time = new Date();
+				var now = time.getHours()+":"+time.getMinutes();
+				
+				console.log(time);
+				var YY = time.getFullYear();
+				var MM = time.getMonth()+1;
+				var DD = time.getDate();
+				var hh = time.getHours();
+				var mm = time.getMinutes();
+				var ss = time.getSeconds();
+				var ms = time.getMilliseconds();  
+				var timeStr =`${YY}-${MM}-${DD} ${hh}:${mm}:${ss}.${ms}`;
+				console.log(timeStr);
 
-				var divspan = document.createElement('div');
-				divspan.appendChild(span);
-				divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+				var data = {
+					me : '1', //我的暱稱
+					chatTA : friendName, //聊天對象
+ 					taIsWho : 'mem', //聊天對象是會員還是管理員
+					msg : txt, //送出的訊息
+					timeNow : timeStr, //送出訊息時間
+				};
 
-				var clearbox = document.createElement('div');
-				divspan.appendChild(clearbox);
-				clearbox.setAttribute('class', 'clearbox');
 
-				chatbox_show.appendChild(divspan);
-				chatTxt_input.value = '';
+				// Ajax開始
+				var xhr = new XMLHttpRequest();// new xhr
+				xhr.onload = function(){
+				     if(xhr.responseText != "sucess"){      // 失敗狀態
+				            alert("xhr錯誤發生");     
+					}else{      //成功取得
+						console.log(xhr.responseText);
+						msgDB();
+						chatTxt_input.value = "";
+						
+						boxScroll(chatbox_show);
+					}
+				};
+				xhr.open("Post" , "msgInsert.php " , true );     
+				xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");    //參考董董講義
+				xhr.send("data="+JSON.stringify(data));
+				
+				// chatbox_show.scrollTop = chatbox_show.scrollHeight;
 
-				boxScroll(chatbox_show);
+
+
+
+				// 宗聖寫的開始-----
+				// var span = document.createElement('p');
+				// span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
+				// span.innerText = txt;
+
+				// var divspan = document.createElement('div');
+				// divspan.appendChild(span);
+				// divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+
+				// var clearbox = document.createElement('div');
+				// divspan.appendChild(clearbox);
+				// clearbox.setAttribute('class', 'clearbox');
+
+				// chatbox_show.appendChild(divspan);
+				// chatTxt_input.value = '';
+
+				// boxScroll(chatbox_show);
+				// 宗聖寫的結束------
 			}
 
 		}
@@ -451,9 +549,7 @@ window.addEventListener('load', function () {
 		}
 	}, false);
 
-	function boxScroll(o) {
-		o.scrollTop = o.scrollHeight;
-	}
+
 
 	//手機聊天室輸入
 

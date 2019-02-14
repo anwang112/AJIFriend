@@ -517,8 +517,7 @@ img {
       #productBlock #productsArea #productsShow section {
         display: flex;
         flex-direction: row;
-        box-shadow: inset 3px 0 10px #ccc,
- inset -3px 0 10px #ccc; }
+        box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; }
         #productBlock #productsArea #productsShow section .id_iframe {
           display: none;
           width: 0; }
