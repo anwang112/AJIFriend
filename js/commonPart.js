@@ -9,9 +9,9 @@ function head_html() {
         <div class="headWrap">
             <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
             <ul class="menu">
-                <li><a href="match2.html">找麻吉</a></li>
+                <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop.html">造型商城</a></li>
+                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="myRoom.html">我的窩</a></li>
             </ul>
@@ -47,9 +47,9 @@ function head_html() {
         </a>
         <div id="menu_phone" class="menu_phone">
             <ul>
-                <li><a href="match2.html">找麻吉</a></li>
+                <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop.html">造型商城</a></li>
+                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="#">登入</a></li>
                 <li><a href="#">魅力值</a></li>
@@ -600,51 +600,55 @@ window.addEventListener('load', function () {
 }, false);
 
 
-window.addEventListener('load', function () {
-	//head消失
-	var head = $id('head');
-	console.log(head);
+// window.addEventListener('load', function () {
+// 	//head消失
+// 	var head = $id('head');
+// 	console.log(head);
 
-	window.addEventListener('scroll', function (e) {
-		var scrollY = document.documentElement.scrollTop;
-		if (window.innerWidth > 844) {
-			if (scrollY > 120) {
-				head.style.display = 'none';
-			} else {
-				head.style.display = 'block';
-			}
-		}
-	}, false);
+// 	window.addEventListener('scroll', function (e) {
+// 		var scrollY = document.documentElement.scrollTop;
+// 		if (window.innerWidth > 844) {
+// 			if (scrollY > 120) {
+// 				head.style.display = 'none';
+// 			} else {
+// 				head.style.display = 'block';
+// 			}
+// 		}
+// 	}, false);
 
-	window.addEventListener('resize', function () {
-		if (window.innerWidth < 767) {
-			head.style.display = 'none';
-		} else {
-			head.style.display = 'block';
-		}
-	}, false);
+// 	window.addEventListener('resize', function () {
+// 		if (window.innerWidth < 767) {
+// 			head.style.display = 'none';
+// 		} else {
+// 			head.style.display = 'block';
+// 		}
+// 	}, false);
 
-}, false);
+// }, false);
 
 
-var scrollY = document.documentElement.scrollTop;
-console.log(scrollY);
+// var scrollY = document.documentElement.scrollTop;
+// console.log(scrollY);
 
-if (window.innerWidth > 844) {
-	if (scrollY > 120) {
-		head.style.display = 'none';
-	} else {
-		head.style.display = 'block';
-	}
-}
+// if (window.innerWidth > 844) {
+// 	if (scrollY > 120) {
+// 		head.style.display = 'none';
+// 	} else {
+// 		head.style.display = 'block';
+// 	}
+// }
+
+
 
 
 ooxxGetRole = (roleId, roleData) => {
     // 載入角色
     roleId.innerHTML = `<div class="role">
-                                <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
+                            <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
-                        <div class="roleEyes"></div>
+                        <div class="roleEyes">
+                            <embed class="eyesSvg" src="images/roleImages/eyes${roleData.eyes}.svg" style="display:block;">
+                        </div>
                         <div class="roleHat"></div>
                         <div class="roleClothes"></div>`;
 
@@ -656,21 +660,91 @@ ooxxGetRole = (roleId, roleData) => {
         }
     })
 
-    // 眼睛 帽帽 衣服喔
-    roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${roleData.eyes}.svg`;
+    // 眼睛 帽帽 衣服喔 
+    // roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
     if (roleData.hat) {
         roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
     }
     if (roleData.clothes) {
         roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
     }
+
+	//眼睛動起來
+	function getRandom(min,max){
+        return Math.floor(Math.random()*(max-min+1))+min;
+    };
+    scaleY = 1;
+
+    eyesAnimate = (...eyesArray) => {
+
+        eyesGo = () => {
+            eyesArray[0].animate([
+                { transform: 'scaleY(1)' },
+                { transform: 'scaleY(0.01)' },
+                { transform: 'scaleY(1)' }
+            ], {
+                    duration: 500,
+                    endDelay: 1000,
+                });
+
+            eyesArray[1].animate([
+                { transform: 'scaleY(1)' },
+                { transform: 'scaleY(0.01)' },
+                { transform: 'scaleY(1)' }
+            ], {
+                    duration: 500,
+                    endDelay: 1000,
+                });
+        }
+        setInterval(eyesGo, getRandom(2000,3500));
+    }
+
+    roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
+        switch (roleData.eyes) {
+            case 1:
+                eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                eyes1[0].style.transformOrigin = `center 52%`;
+                eyes1[1].style.transformOrigin = `center 52%`;
+
+                eyesAnimate(eyes1[0], eyes1[1]);
+                break;
+            case 2:
+                eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+                eyes2[1].style.transformOrigin = `center 52%`;
+                eyes2[2].style.transformOrigin = `center 52%`;
+                eyesAnimate(eyes2[1], eyes2[2]);
+                break;
+            case 3:
+                eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+                eyes3[1].style.transformOrigin = `center 52%`;
+                eyes3[2].style.transformOrigin = `center 52%`;
+                eyesAnimate(eyes3[1], eyes3[2]);
+                break;
+            case 4:
+                eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                eyes4[1].style.transformOrigin = `center 52%`;
+                eyes4[3].style.transformOrigin = `center 52%`;
+                eyesAnimate(eyes4[1], eyes4[3]);
+                break;
+            case 5:
+                eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+                eyes5[0].style.transformOrigin = `center 52%`;
+                eyes5[1].style.transformOrigin = `center 52%`;
+                eyesAnimate(eyes5[0], eyes5[1]);
+                break;
+            case 6:
+                eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                eyes6[1].style.transformOrigin = `center 51%`;
+                eyes6[4].style.transformOrigin = `center 51%`;
+                eyesAnimate(eyes6[1], eyes6[4]);
+                break;
+        }
+    })
 }
-
-
 
 ooxxGetHead = (headId, headData) => {
     // 載入頭頭
-    headId.innerHTML = `<div class="head">
+    headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
                         <div class="headEyes"></div>`;
@@ -683,4 +757,5 @@ ooxxGetHead = (headId, headData) => {
     //插入眼睛
     headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
+
 

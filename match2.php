@@ -1,3 +1,23 @@
+<?php
+session_start();
+// session_destroy();
+$errMsg = "";
+try {
+    require_once("connectBooks.php");
+    $sql = "select * from member";
+    $products = $pdo->query($sql);
+    $prodRow = $products->fetch(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    $errMsg .= "錯誤 : " . $e->getMessage() . "<br>";
+    $errMsg .= "行號 : " . $e->getLine() . "<br>";
+}
+
+
+    ?>
+    
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +35,11 @@
 </head>
 
 <body>
+<?php
+  if( $errMsg != ""){
+  	exit("<div><center>$errMsg</center></div>");
+  }
+?>	
     <script type="text/javascript">
         head_html();
     </script>
@@ -38,10 +63,17 @@
                 <div class="matchMem">
                     <div class="memFront">
                         <img src="images/match01.svg">
-                        <img src="images/body1.png" alt="body" class="matchBody">
-                        <img src="images/eye1.png" alt="eyes" class="matchEyes">
-                        <!-- <img src="" alt="clothes">
-                        <img src="" alt="hat"> -->
+                        <div id="matchMaji" class="roleBox"></div>
+                        <script>
+                            matchMaji = document.getElementById('matchMaji'); 
+                            ooxxGetRole(matchMaji,{
+                            animal: 1,
+                            color: 'aaaa99',
+                            eyes: 3,
+                            hat: 1,
+                            clothes: 3,
+                            });
+                        </script>
                     </div>
                     <div class="memBack">
                         <img src="images/matchBack.svg" class="back">
@@ -53,20 +85,28 @@
                         <span>/100</span>
                     </h2>
                     <h3>暱稱：
-                        <span class="colorG">動態資料</span><br>
+                        <span class="colorG">
+                            <?php  echo $prodRow["mName"];?>
+                        </span><br>
                         <span>LV.2 潛力股 / </span><span>MJ:100</span>
                     </h3>
                     <p>
                         <span>興趣：</span>
-                        <span class="colorG">動態資料</span>
+                        <span class="colorG">
+                            <?php  echo $prodRow["hobby"];?>
+                        </span>
                     </p>
                     <p>
                         <span>星座：</span>
-                        <span class="colorG">動態資料</span>
+                        <span class="colorG">
+                            <?php  echo $prodRow["constellation"];?>
+                        </span>
                     </p>
                     <p>
                         <span>自我介紹：</span>
-                        <span class="colorG">動態資料</span>
+                        <span class="colorG">
+                            <?php  echo $prodRow["self-intro"];?>
+                        </span>
                     </p>
                     <p>
                         <button class="matchNext">下一位</button>
@@ -128,7 +168,18 @@
             <div class="tabPanel active" id="tab-1">
                 <div class="rankContent">
                     <div class=" rankItem rank2">
-                        <img src="images/rank2.svg" class="rankRole">
+                        <div id="topFriend02" class="roleBox rankRole"></div>
+                        <script>
+                            var ddd = 2;
+                            topFriend02 = document.getElementById('topFriend02');
+                            ooxxGetRole(topFriend02, {
+                                animal: ddd,
+                                color: '005450',
+                                eyes: 3,
+                                hat: 1,
+                                clothes: 0,
+                            });
+                        </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -141,7 +192,18 @@
                         </div>
                     </div>
                     <div class="rankItem rank1">
-                        <img src="images/rank1.svg" class="rankRole">
+                            <div id="topFriend01" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 2;
+                                topFriend01 = document.getElementById('topFriend01');
+                                ooxxGetRole(topFriend01, {
+                                    animal: ddd,
+                                    color: '666666',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile rank1pro">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -154,7 +216,18 @@
                         </div>
                     </div>
                     <div class="rankItem rank3">
-                        <img src="images/rank3.svg" class="rankRole">
+                            <div id="topFriend03" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 2;
+                                topFriend03 = document.getElementById('topFriend03');
+                                ooxxGetRole(topFriend03, {
+                                    animal: ddd,
+                                    color: 'aaa666',
+                                    eyes: 6,
+                                    hat: 0,
+                                    clothes: 1,
+                                });
+                            </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -171,7 +244,18 @@
             <div class="tabPanel" id="tab-2">
                 <div class="rankContent">
                     <div class="rankItem rank2">
-                        <img src="images/rank1.svg" class="rankRole">
+                            <div id="topMoney01" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 2;
+                                topMoney01 = document.getElementById('topMoney01');
+                                ooxxGetRole(topMoney01, {
+                                    animal: ddd,
+                                    color: '6ccc66',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -184,7 +268,18 @@
                         </div>
                     </div>
                     <div class="rankItem rank1">
-                        <img src="images/rank3.svg" class="rankRole">
+                            <div id="topMoney02" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 1;
+                                topMoney02 = document.getElementById('topMoney02');
+                                ooxxGetRole(topMoney02, {
+                                    animal: ddd,
+                                    color: 'fa0',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile rank1pro">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -198,7 +293,18 @@
 
                     </div>
                     <div class="rankItem rank3">
-                        <img src="images/rank2.svg" class="rankRole">
+                            <div id="topMoney03" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 1;
+                                topMoney03 = document.getElementById('topMoney03');
+                                ooxxGetRole(topMoney03, {
+                                    animal: ddd,
+                                    color: 'fa0',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -215,7 +321,18 @@
             <div class="tabPanel" id="tab-3">
                 <div class="rankContent">
                     <div class="rankItem rank2">
-                        <img src="images/rank3.svg" class="rankRole">
+                        <div id="topMJ01" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 1;
+                                topMJ01 = document.getElementById('topMJ01');
+                                ooxxGetRole(topMJ01, {
+                                    animal: ddd,
+                                    color: 'fa0',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 OOO</h3>
@@ -228,7 +345,18 @@
                         </div>
                     </div>
                     <div class="rankItem rank1">
-                        <img src="images/rank2.svg" class="rankRole">
+                        <div id="topMJ02" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 1;
+                                topMJ02 = document.getElementById('topMJ02');
+                                ooxxGetRole(topMJ02, {
+                                    animal: ddd,
+                                    color: 'fa0',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile rank1pro">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
@@ -242,7 +370,18 @@
 
                     </div>
                     <div class="rankItem rank3">
-                        <img src="images/rank1.svg" class="rankRole">
+                        <div id="topMJ03" class="roleBox rankRole"></div>
+                            <script>
+                                var ddd = 1;
+                                topMJ03 = document.getElementById('topMJ03');
+                                ooxxGetRole(topMJ03, {
+                                    animal: ddd,
+                                    color: 'fa0',
+                                    eyes: 1,
+                                    hat: 2,
+                                    clothes: 2,
+                                });
+                            </script>
                         <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
