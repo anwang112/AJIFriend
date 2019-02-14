@@ -1,0 +1,43 @@
+//說明文件
+//注意注意 class一定要加喔roleBox
+    ooxxGetRole(你建立ㄉ角色區塊,{
+        animal: 值(數字),
+        color: '顏色代碼6位數',
+        eyes: 值(數字),
+        hat: 值(數字,沒有可以省略),
+        clothes: 值(數字,沒有可以省略),
+    });
+
+//注意注意 class一定要加喔headBox
+    ooxxGetHead(你建立ㄉ角色區塊,{
+        animal: 值(數字),
+        color: '顏色代碼6位數',
+        eyes: 值(數字),
+    });
+
+
+
+  //範例01 載入角色
+    <div id="取名子" class="roleBox"></div>
+	<script>
+		aji = document.getElementById('取名子');
+		ooxxGetRole(aji, {
+			animal: 1,
+			color: 'aaaa99',
+			eyes: 3,
+			hat: 1,
+			clothes: 3,
+		});
+	</script>
+
+
+//範例2 載入頭貼
+    <div class="headBox" id="自己取"></div>
+    <script>
+        rrr = document.getElementById('自己取');
+        ooxxGetHead(rrr, {
+            animal: 2,
+            color: 'aaaaaa',
+            eyes: 3,
+        })
+    </script>

@@ -1,8 +1,5 @@
 @import 'var';
 
-*{
-    outline: 1px solid #f00 !important;
-}
 .wrap {
     padding-top: 200px;
     margin: auto;
@@ -14,37 +11,20 @@
     background-position: center center;
     background-repeat: no-repeat;
 
-    .effectbox {
-        width: 100%;
-        height: 36vh;
-        overflow: hidden;
-        position: absolute;
-        left: 0;
-        top: 100px;
-        z-index: 1;
-    }
-
-    .effectbox img {
-        width: 40px;
-        height: auto;
-        position: relative;
-        top: 40px;
-        left: 5%;
-        transition: 2.5s;
-        animation: heartsFadeout 4s linear infinite forwards;
-    }
-
+    
     .searchMaji {
         text-align: center;
         position: relative;
         top: -80px;
-        input{
+
+        input {
             height: 30px;
             border-radius: 5px;
             border: none;
             font-size: 20px;
             vertical-align: middle;
         }
+
         .search {
             line-height: 0;
             background-color: #FBC5CF;
@@ -53,7 +33,8 @@
             border: none;
             cursor: pointer;
         }
-        .searchTxt{
+
+        .searchTxt {
             height: 32px;
             padding: 0 10px;
             width: 500px;
@@ -67,6 +48,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+
     .carousel {
         min-width: 960px;
         position: relative;
@@ -74,32 +56,39 @@
         margin: auto;
         text-align: center;
         margin-bottom: -200px;
-        .matchHorse{
+
+        .matchHorse {
             position: relative;
-            .matchItem{
+
+            .matchItem {
                 width: 200px;
                 position: absolute;
                 top: 50%;
                 left: 10%;
             }
-            .mi01{
-                animation: horse 10s infinite alternate;
+
+            .mi01 {
+                animation: horse 8s infinite alternate;
             }
-            .mi02{
+
+            .mi02 {
                 left: 20%;
-                z-index: 1;
-                animation: horse 13s infinite alternate;
-            }
-            .mi03{
-                left: 60%;
                 z-index: 1;
                 animation: horse 11s infinite alternate;
             }
-            .mi04{
+
+            .mi03 {
+                left: 60%;
+                z-index: 1;
+                animation: horse 10s infinite alternate;
+            }
+
+            .mi04 {
                 left: 70%;
-                animation: horse 15s infinite alternate;
+                animation: horse 12s infinite alternate;
             }
         }
+
         h1 {
             position: absolute;
             font-size: 40px;
@@ -127,18 +116,20 @@
                 top: 0;
                 left: 0;
             }
-            .matchBody{
+
+            #matchMaji {
                 position: relative;
-                top: 30px;
                 width: 250px;
             }
-            .matchEyes{
+
+            .matchEyes {
                 position: relative;
                 width: 80px;
                 top: -160px;
             }
 
             .back {
+                z-index: 10;
                 transform: rotateY(180deg);
             }
         }
@@ -173,7 +164,8 @@
         .matchMJ {
             font-size: 5vmin;
         }
-        .colorG{
+
+        .colorG {
             color: $black;
         }
 
@@ -220,86 +212,85 @@
     padding: 20px;
 
     .rankTitle {
-        position: relative;
+        @include LRcenter;
         top: -120px;
-        right: 0;
-        left: 0;
-        margin: 0 auto;
-        width: 400px;
+        width: 100%;
         height: 150px;
         background-image: url(../images/rankTitle.svg);
         background-repeat: no-repeat;
         background-position: center;
 
         h2 {
+            position: relative;
+            top: 100px;
             font-size: 45px;
             text-align: center;
-            line-height: 5.4;
             color: rgb(237, 237, 237);
             text-shadow: 1px 1px #333;
         }
     }
 
     .rankNav {
+        position: relative;
+        z-index: 2;
+        display: flex;
         text-align: center;
         margin-top: -50px;
         padding-bottom: 50px;
-    }
+        justify-content: center;
 
-    input,
-    button {
-        height: 24px;
-        margin: 0;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        vertical-align: middle;
-    }
+        li {
+            a {
+                position: relative;
+                display: block;
+                width: 100px;
+                height: 40px;
+                background-color: #EEF2EF;
+                color: #F05B79;
+                margin: 10px;
+                border-radius: 10px;
+                line-height: 2;
 
-    .rankNavBtn {
-        position: relative;
-
-        &::before {
-            content: '- 好友最多';
-            width: 80px;
-            height: 30px;
-            position: absolute;
-            top: -35px;
-            left: 20px;
-            border-radius: 10px;
-            color: #F05B79;
-            text-shadow: none;
-           
+                &::before {
+                    content: '- 好友最多';
+                    width: 80px;
+                    height: 30px;
+                    position: absolute;
+                    top: -35px;
+                    left: 10px;
+                    border-radius: 10px;
+                    color: #F05B79;
+                    text-shadow: none;
+                    font-size: 15px;
+                }
+            }
+            .moneyBtn {
+                &::before {
+                    content: '- 金幣最多';
+                }
+            }
+        
+            .mjTopBtn {
+                &::before {
+                    content: '- MJ值最高';
         }
     }
+}
+.active a {
+    background-color: #F3B9B4;
+    color: #EEF2EF;
+    text-shadow: #EB616D 1px 1px 1px;
+}
 
-    .moneyBtn {
-        &::before {
-            content: '- 金幣最多';
-        }
-    }
 
-    .mjTopBtn {
-        &::before {
-            content: '- MJ值最高';
-        }
-    }
+}
 
-    button {
-        cursor: pointer;
-        width: 100px;
-        background-color: #EEF2EF;
-        color: #F05B79;
-        font-size: 15px;
-        border: none;
-        border-radius: 5px;
-    }
+.tabPanel.active {
+    display: block;
+}
 
-    .achive {
-        background-color: #F3B9B4;
-        color:#EEF2EF;
-        text-shadow: #EB616D 1px 1px 1px;
-    }
+.tabPanel {
+    display: none;
 }
 
 .rankContent {
@@ -307,9 +298,11 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
-
+    
     .rankBtn {
+        height: 30px;
         margin: 5px;
+        line-height: 0;
         @include btn_standard (100px, $darkPink, $shadowPink);
     }
 
@@ -320,6 +313,7 @@
         margin: 10px;
         padding-top: 50px;
         border-radius: 20px;
+
         img {
             width: 50%;
             position: relative;
@@ -338,8 +332,8 @@
                 font-size: 18px;
                 line-height: 1.8;
                 color: rgb(116, 106, 89);
-                
-                h3{
+
+                h3 {
                     font-size: 30px;
                 }
             }
@@ -347,10 +341,11 @@
 
         .rank1pro {
             top: -30px;
-            
+
         }
 
         .rankRole {
+            width: 300px;
             z-index: 1;
         }
     }
@@ -361,18 +356,61 @@
         }
     }
 }
+
 @keyframes horse {
     0% {
-       top: 50%;
+        top: 50%;
     }
 
     25% {
         top: 55%;
     }
+
     75% {
         top: 45%;
     }
+
     100% {
         top: 50%;
     }
+}
+}
+
+@media only screen and (max-width: 768px){
+    .wrap{
+        
+    .searchMaji {
+        top: -100px;
+        width: 100%;
+        input {
+            height: 50px;
+        }
+        .search {
+            width: 20%;
+        }
+        .searchTxt {
+            height: 50px;
+            width: 70%;
+        }
+    }
+    .matchContent{
+    .profileInfo{
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 500px;
+        font-size: 20px;
+    }
+    .selectBtn{
+        left: 32%;
+        top: -8%;
+        flex-flow: row;
+        select{
+            height: 45px;
+        }
+    }
+
+}
+} 
 }
