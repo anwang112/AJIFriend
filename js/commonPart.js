@@ -147,6 +147,18 @@ function foot_html() {
 
 	document.write(str_tag2);
 }
+function loginPhoto(){
+	var photo = `
+	<script>
+	loginphoto = document.getElementById('loginphoto');
+	ooxxGetHead(loginphoto, {
+		animal:  <?php  echo  $stadRow["animal"];?>,
+		color: '<?php  echo $stadRow["mColor"];?>',
+		eyes: <?php  echo  $stadRow["eye"];?>,
+	})
+	</script>`;
+	document.write(photo);
+}
 
 function msgDB() {
 

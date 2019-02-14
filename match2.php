@@ -12,6 +12,15 @@ try {
     $sta->execute();
     $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
+    //等級判斷式
+    $lv = "LV.1 邊緣人";
+    if($stadRow["mMJ"] >= 1000){
+        $lv = "LV.3 萬人迷";
+    }else if($stadRow["mMJ"] >= 500){
+        $lv = "LV.2 潛力股";
+    }
+    //等級判斷式結束
+
 } catch (PDOException $e) {
     echo $e->getMessage();
     $errMsg .= "錯誤 : " . $e->getMessage() . "<br>";
@@ -90,18 +99,78 @@ try {
                         <span class="colorG">
                             <?php  echo  $stadRow["mName"];?>
                         </span><br>
-                        <span>LV.2 潛力股 / </span><span>MJ:100</span>
+                        <span>
+                            <?php echo $lv;?> / 
+                        </span>
+                        <span>MJ:
+                            <?php  echo  $stadRow["mMJ"];?>
+                        </span>
                     </h3>
                     <p>
-                        <span>興趣：</span>
+                        <span>興趣：<br></span>
                         <span class="colorG">
-                            <?php  echo  $stadRow["hobby"];?>
-                        </span>
+                        <?php
+                        //興趣判斷式
+                        $hobby = $stadRow["hobby"];
+                        $hobby = preg_split('//', $hobby, -1, PREG_SPLIT_NO_EMPTY);
+                        $hobbys=['打籃球','抓寶可夢','跑步','看電影','吃美食','游泳','唱歌','看書','爬山','健身'];
+                        $count = count($hobby);
+                        $c = [];
+                        for($i=0;$i<$count;$i++){
+                            $a = $hobby[$i];
+                            $b = $hobbys[$a];
+                            array_push($c,$b);
+                        }
+                        foreach ($c as $value){
+                            echo $value . '<br>';
+                        }
+                        ?>
+                    </span>
                     </p>
                     <p>
                         <span>星座：</span>
                         <span class="colorG">
-                            <?php  echo  $stadRow["constellation"];?>
+                            <?php
+                            $constellation = $stadRow["constellation"];
+                            switch($constellation){
+                                case 1 :
+                                echo "牡羊座";
+                                break;
+                                case 2 :
+                                echo "金牛座";
+                                break;
+                                case 3 :
+                                echo "雙子座";
+                                break;
+                                case 4 :
+                                echo "巨蟹座";
+                                break;
+                                case 5 :
+                                echo "獅子座";
+                                break;
+                                case 6 :
+                                echo "處女座";
+                                break;
+                                case 7 :
+                                echo "天秤座";
+                                break;
+                                case 8 :
+                                echo "天蠍座";
+                                break;
+                                case 9 :
+                                echo "射手座";
+                                break;
+                                case 10 :
+                                echo "摩羯座";
+                                break;
+                                case 11 :
+                                echo "水瓶座";
+                                break;
+                                case 12 :
+                                echo "雙魚座";
+                                break;
+                            }
+                            ?>
                         </span>
                     </p>
                     <p>
@@ -123,7 +192,6 @@ try {
                         <option value="">金牛座</option>
                         <option value="">雙子座</option>
                         <option value="">巨蟹座</option>
-                        <option value="">雙子座</option>
                         <option value="">獅子座</option>
                         <option value="">處女座</option>
                         <option value="">天秤座</option>
