@@ -1,3 +1,4 @@
+
 //搜尋好友
 $('.search').click(function(){
     alert('查無此麻吉');
@@ -30,6 +31,8 @@ $('.matchNext').click(function () {
         scoreDisplay.innerHTML = demo.score.toFixed(1);
     }
     //魅力值跑分結束
+ var mem = document.getElementById('mem');
+ mem.value = Math.ceil(Math.random() * 3);
 });
 //翻牌結束
 

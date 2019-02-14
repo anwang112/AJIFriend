@@ -168,8 +168,12 @@
         .colorG {
             color: $black;
         }
-
+    }
+    .proBtn{
+        display: flex;
+        flex-flow: row;
         button {
+            margin: 10px;
             @include btn_standard (100px, $darkPink, $shadowPink);
         }
     }

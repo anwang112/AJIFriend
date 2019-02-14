@@ -1,20 +1,22 @@
 <?php
 session_start();
 // session_destroy();
+$memNo =rand(1,3) ;
+$_SESSION["matchMaji"] = $memNo;
 $errMsg = "";
 try {
     require_once("connectBooks.php");
-    $sql = "select * from member";
-    $products = $pdo->query($sql);
-    $prodRow = $products->fetch(PDO::FETCH_ASSOC);
+    $sql = "select * from member where memNo = :memNo";
+    $sta = $pdo->prepare($sql);
+    $sta->bindParam(':memNo',$_SESSION["matchMaji"]);
+    $sta->execute();
+    $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
     echo $e->getMessage();
     $errMsg .= "錯誤 : " . $e->getMessage() . "<br>";
     $errMsg .= "行號 : " . $e->getLine() . "<br>";
 }
-
-
     ?>
     
 
@@ -67,11 +69,11 @@ try {
                         <script>
                             matchMaji = document.getElementById('matchMaji'); 
                             ooxxGetRole(matchMaji,{
-                            animal: 1,
-                            color: 'aaaa99',
-                            eyes: 3,
+                            animal:  <?php  echo  $stadRow["animal"];?>,
+                            color: '<?php  echo $stadRow["mColor"];?>',
+                            eyes: <?php  echo  $stadRow["eye"];?>,
                             hat: 1,
-                            clothes: 3,
+                            clothes: 1,
                             });
                         </script>
                     </div>
@@ -86,32 +88,32 @@ try {
                     </h2>
                     <h3>暱稱：
                         <span class="colorG">
-                            <?php  echo $prodRow["mName"];?>
+                            <?php  echo  $stadRow["mName"];?>
                         </span><br>
                         <span>LV.2 潛力股 / </span><span>MJ:100</span>
                     </h3>
                     <p>
                         <span>興趣：</span>
                         <span class="colorG">
-                            <?php  echo $prodRow["hobby"];?>
+                            <?php  echo  $stadRow["hobby"];?>
                         </span>
                     </p>
                     <p>
                         <span>星座：</span>
                         <span class="colorG">
-                            <?php  echo $prodRow["constellation"];?>
+                            <?php  echo  $stadRow["constellation"];?>
                         </span>
                     </p>
                     <p>
                         <span>自我介紹：</span>
                         <span class="colorG">
-                            <?php  echo $prodRow["self-intro"];?>
+                            <?php  echo  $stadRow["self-intro"];?>
                         </span>
                     </p>
-                    <p>
+                    <div class="proBtn">
                         <button class="matchNext">下一位</button>
                         <button id="btn_beFriend">加為朋友</button>
-                    </p>
+                    </div>
 
                 </div>
                 <div class="selectBtn">
@@ -222,7 +224,7 @@ try {
                                 topFriend03 = document.getElementById('topFriend03');
                                 ooxxGetRole(topFriend03, {
                                     animal: ddd,
-                                    color: 'aaa666',
+                                    color: 'ac4937',
                                     eyes: 6,
                                     hat: 0,
                                     clothes: 1,
@@ -401,6 +403,14 @@ try {
             foot_html();
         </script>
         <script src="js/match2.js"></script>
+        <script>
+						loginphoto = document.getElementById('loginphoto');
+						ooxxGetHead(loginphoto, {
+							animal:  <?php  echo  $stadRow["animal"];?>,
+							color: '<?php  echo $stadRow["mColor"];?>',
+							eyes: <?php  echo  $stadRow["eye"];?>,
+						})
+					</script>
 
 </body>
 

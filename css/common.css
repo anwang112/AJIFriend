@@ -39,7 +39,7 @@ html {
     width: 60px;
 }
 
-.loginImg img {
+.loginImg #loginphoto {
     width: 80%;
 }
 

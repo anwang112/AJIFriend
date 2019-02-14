@@ -6,68 +6,67 @@ function head_html() {
 
 	var str_tag = `
 	<div id="head" class="head mnone">
-        <div class="headWrap">
-            <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
-            <ul class="menu">
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
-                <li><a href="myRoom.html">我的窩</a></li>
-            </ul>
-            <div class="loginBox">
-                <div class="loginImg">
-                    <img src="images/loginPhoto.svg">
-                </div>
-                <div class="loginTxtWrap">
-                    <div class="loginNot">
-                        <a href="#"><span>登入</span></a> 
-                    </div>
-                    <div class="loginContent">
-                        <div class="loginTitle">
-                            <span>ID</span><span>等級</span>
-                        </div>
-                        <div class="loginMj">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="head_phone  dnone ">
-        <a href="#">
-            <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
-        </a>
-        <a href="index.html" class="logo_phone">
-            <img src="pic/logo_phone03.png" alt="">
-        </a>
-        <a href="#">
-            <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
-        </a>
-        <div id="menu_phone" class="menu_phone">
-            <ul>
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
-                <li><a href="#">登入</a></li>
-                <li><a href="#">魅力值</a></li>
-                <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
-            </ul>
-        </div>
-    </div>
-    <div id="loginBox" class="LightBoxMask"></div>
-    <div id="lightBoxInner" class="middleLightBox login_box">
-        <h2>登入/註冊</h2>
-        <form id="login_form" action="">
-            <input type="e-mail" placeholder="hi@gmail.com">
-            <input type="psw" placeholder="6位數密碼">
-            <input type="submit" value="送出" class="input_R">
-        </form>
-        <!-- 關掉按鈕 -->
-        <div id="loginBoxClose" class="lightBoxXX"></div>
-    </div>
+	<div class="headWrap">
+		<a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
+		<ul class="menu">
+			<li><a href="match2.php">找麻吉</a></li>
+			<li><a href="activity_v2.html">活動巴士</a></li>
+			<li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
+			<li><a href="photo.html">照片牆</a></li>
+			<li><a href="myRoom.html">我的窩</a></li>
+		</ul>
+		<div class="loginBox">
+			<div class="loginImg">
+					<div class="headBox" id="loginphoto"></div>
+			</div>
+			<div class="loginTxtWrap">
+				<div class="loginNot">
+					<a href="#"><span>登入</span></a>
+				</div>
+				<div class="loginContent">
+					<div class="loginTitle">
+						<span>ID</span><span>等級</span>
+					</div>
+					<div class="loginMj">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="head_phone  dnone ">
+	<a href="#">
+		<img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
+	</a>
+	<a href="index.html" class="logo_phone">
+		<img src="pic/logo_phone03.png" alt="">
+	</a>
+	<a href="#">
+		<img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
+	</a>
+	<div id="menu_phone" class="menu_phone">
+		<ul>
+			<li><a href="match.html">找麻吉</a></li>
+			<li><a href="activity_v2.html">活動巴士</a></li>
+			<li><a href="BearMJ_shop.html">造型商城</a></li>
+			<li><a href="photo.html">照片牆</a></li>
+			<li><a href="#">登入</a></li>
+			<li><a href="#">魅力值</a></li>
+			<li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
+		</ul>
+	</div>
+</div>
+<div id="loginBox" class="LightBoxMask"></div>
+<div id="lightBoxInner" class="middleLightBox login_box">
+	<h2>登入/註冊</h2>
+	<form id="login_form" action="">
+		<input type="e-mail" placeholder="hi@gmail.com">
+		<input type="psw" placeholder="6位數密碼">
+		<input type="submit" value="送出" class="input_R">
+	</form>
+	<!-- 關掉按鈕 -->
+	<div id="loginBoxClose" class="lightBoxXX"></div>
+</div>
 	`;
 
 	document.write(str_tag);
@@ -149,28 +148,28 @@ function foot_html() {
 	document.write(str_tag2);
 }
 
-function msgDB(){
-	
+function msgDB() {
+
 	var xhr = new XMLHttpRequest();
-	xhr.onload = function(){
-		if(xhr.responseText == "null"){
+	xhr.onload = function () {
+		if (xhr.responseText == "null") {
 			alert("xhr錯誤發生");
-		}else{
+		} else {
 			var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
 			var data = JSON.parse(xhr.responseText);
-			
+
 			console.log(data.content);
-			for(var i=0;data.content.length;i++){
+			for (var i = 0; data.content.length; i++) {
 				var msg_div = document.createElement("div");
 				var msg_span = document.createElement("span");
-				msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+				msg_span.innerText = data.content[i].replace(/\r\n|\n/g, "");
 				msg_div.appendChild(msg_span);
 				chatbox_show.appendChild(msg_div);
-				
-				if(data.sendMem[i]==1){ //我發的訊息:靠右
-					msg_div.className="iSaid";			
-				}else{
-					msg_div.className="youSaid";
+
+				if (data.sendMem[i] == 1) { //我發的訊息:靠右
+					msg_div.className = "iSaid";
+				} else {
+					msg_div.className = "youSaid";
 				}
 			}
 			// var mineMsg = data.mine.split("||");
@@ -178,13 +177,13 @@ function msgDB(){
 
 		}
 	};
-	xhr.open("Post","getChatMsg.php",true);
-	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	xhr.open("Post", "getChatMsg.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	var chatMems = {
 		sendMemId: 1,
 		taMemId: 2,
 	}; //聊天雙方會員ID組成物件
-	xhr.send("chatMems="+ JSON.stringify(chatMems));
+	xhr.send("chatMems=" + JSON.stringify(chatMems));
 }
 
 
@@ -192,10 +191,6 @@ function msgDB(){
 
 
 window.addEventListener('load', function () {
-
-	
-
-
 	//聊天室操控
 	var chatRoom_control = document.getElementById('chatRoom_control');
 	var chatroom_btn_open = document.getElementById('chatroom_btn_open');
@@ -210,7 +205,7 @@ window.addEventListener('load', function () {
 	//聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 	chatRoom_control.addEventListener('click', function () {
 
-		
+
 
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
@@ -642,8 +637,8 @@ window.addEventListener('load', function () {
 
 
 ooxxGetRole = (roleId, roleData) => {
-    // 載入角色
-    roleId.innerHTML = `<div class="role">
+	// 載入角色
+	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
                         <div class="roleEyes">
@@ -652,110 +647,118 @@ ooxxGetRole = (roleId, roleData) => {
                         <div class="roleHat"></div>
                         <div class="roleClothes"></div>`;
 
-    //填入顏色
-    roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
-        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
-        for (let i = 0; i < fillColor.length; i++) {
-            fillColor[i].style.fill = `#${roleData.color}`;
-        }
-    })
+	//填入顏色
+	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+		for (let i = 0; i < fillColor.length; i++) {
+			fillColor[i].style.fill = `#${roleData.color}`;
+		}
+	})
 
-    // 眼睛 帽帽 衣服喔 
-    // roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
-    if (roleData.hat) {
-        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
-    }
-    if (roleData.clothes) {
-        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
-    }
+	// 眼睛 帽帽 衣服喔 
+	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
+	if (roleData.hat) {
+		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+	}
+	if (roleData.clothes) {
+		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+	}
 
 	//眼睛動起來
-	function getRandom(min,max){
-        return Math.floor(Math.random()*(max-min+1))+min;
-    };
-    scaleY = 1;
+	function getRandom(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+	scaleY = 1;
 
-    eyesAnimate = (...eyesArray) => {
+	eyesAnimate = (...eyesArray) => {
 
-        eyesGo = () => {
-            eyesArray[0].animate([
-                { transform: 'scaleY(1)' },
-                { transform: 'scaleY(0.01)' },
-                { transform: 'scaleY(1)' }
-            ], {
-                    duration: 500,
-                    endDelay: 1000,
-                });
+		eyesGo = () => {
+			eyesArray[0].animate([{
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
+			], {
+				duration: 500,
+				endDelay: 1000,
+			});
 
-            eyesArray[1].animate([
-                { transform: 'scaleY(1)' },
-                { transform: 'scaleY(0.01)' },
-                { transform: 'scaleY(1)' }
-            ], {
-                    duration: 500,
-                    endDelay: 1000,
-                });
-        }
-        setInterval(eyesGo, getRandom(2000,3500));
-    }
+			eyesArray[1].animate([{
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
+			], {
+				duration: 500,
+				endDelay: 1000,
+			});
+		}
+		setInterval(eyesGo, getRandom(2000, 3500));
+	}
 
-    roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
-        switch (roleData.eyes) {
-            case 1:
-                eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes1[0].style.transformOrigin = `center 52%`;
-                eyes1[1].style.transformOrigin = `center 52%`;
+	roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
+		switch (roleData.eyes) {
+			case 1:
+				eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes1[0].style.transformOrigin = `center 52%`;
+				eyes1[1].style.transformOrigin = `center 52%`;
 
-                eyesAnimate(eyes1[0], eyes1[1]);
-                break;
-            case 2:
-                eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
-                eyes2[1].style.transformOrigin = `center 52%`;
-                eyes2[2].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes2[1], eyes2[2]);
-                break;
-            case 3:
-                eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
-                eyes3[1].style.transformOrigin = `center 52%`;
-                eyes3[2].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes3[1], eyes3[2]);
-                break;
-            case 4:
-                eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes4[1].style.transformOrigin = `center 52%`;
-                eyes4[3].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes4[1], eyes4[3]);
-                break;
-            case 5:
-                eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
-                eyes5[0].style.transformOrigin = `center 52%`;
-                eyes5[1].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes5[0], eyes5[1]);
-                break;
-            case 6:
-                eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes6[1].style.transformOrigin = `center 51%`;
-                eyes6[4].style.transformOrigin = `center 51%`;
-                eyesAnimate(eyes6[1], eyes6[4]);
-                break;
-        }
-    })
+				eyesAnimate(eyes1[0], eyes1[1]);
+				break;
+			case 2:
+				eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+				eyes2[1].style.transformOrigin = `center 52%`;
+				eyes2[2].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes2[1], eyes2[2]);
+				break;
+			case 3:
+				eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+				eyes3[1].style.transformOrigin = `center 52%`;
+				eyes3[2].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes3[1], eyes3[2]);
+				break;
+			case 4:
+				eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes4[1].style.transformOrigin = `center 52%`;
+				eyes4[3].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes4[1], eyes4[3]);
+				break;
+			case 5:
+				eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+				eyes5[0].style.transformOrigin = `center 52%`;
+				eyes5[1].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes5[0], eyes5[1]);
+				break;
+			case 6:
+				eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes6[1].style.transformOrigin = `center 51%`;
+				eyes6[4].style.transformOrigin = `center 51%`;
+				eyesAnimate(eyes6[1], eyes6[4]);
+				break;
+		}
+	})
 }
 
 ooxxGetHead = (headId, headData) => {
-    // 載入頭頭
-    headId.innerHTML = `<div class="roadHead">
+	// 載入頭頭
+	headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
                         <div class="headEyes"></div>`;
 
-    headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
-        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-        fillColor.style.fill = `#${headData.color}`;
-    })
+	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
+		fillColor.style.fill = `#${headData.color}`;
+	})
 
-    //插入眼睛
-    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
+	//插入眼睛
+	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
-
-
