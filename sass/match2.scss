@@ -117,9 +117,8 @@
                 left: 0;
             }
 
-            .matchBody {
+            #matchMaji {
                 position: relative;
-                top: 30px;
                 width: 250px;
             }
 
@@ -130,6 +129,7 @@
             }
 
             .back {
+                z-index: 10;
                 transform: rotateY(180deg);
             }
         }
@@ -345,6 +345,7 @@
         }
 
         .rankRole {
+            width: 300px;
             z-index: 1;
         }
     }

@@ -8,6 +8,16 @@ function boxScroll(o){
 
 
 window.addEventListener('load',function(){
+
+
+    // var r_act = document.getElementById('theUser');
+    // ooxxGetHead(r_act, {
+    //     animal: 2,
+    //     color: 'aaaaaa',
+    //     eyes: 3,
+    // })
+
+
     
     var tab_allAct = $id('tab_allAct');
     var tab_myAct = $id('tab_myAct');
