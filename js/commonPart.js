@@ -6,6 +6,7 @@ function boxScroll(o) {
 }
 
 var body = document.getElementsByTagName('body');
+var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 
 console.log(body);
 
@@ -91,8 +92,7 @@ function foot_html() {
 	    <h2 id="chatRoom_control">麻吉聊天室</h2>
 	    <div class="chatRoom_info">
 	        <img id="friendPic" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-			<span id="mem-2">An</span>
-			<input type="hidden" name="" id="friendId" value="2">
+			<span id="mem-2" class="2">測試帳號An</span>
 	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
 	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
@@ -116,6 +116,7 @@ function foot_html() {
 	        <input id="search_input" type="text" placeholder="搜尋好友">
 	        <div class="friendbox">
 				<label class="friendClick">
+					<input type="radio" name="friend" value="f1">
 					<img src="shop-images/gift.png" class="friendClick">
 					<p class="friendClick">管理員</p>
 				</label>
@@ -159,6 +160,8 @@ function foot_html() {
 	document.write(str_tag2);
 }
 
+var infoArr = new Array();
+infoArr = []; //朋友資料陣列
 
 function friendList(){ //Ajax撈朋友列表
 	
@@ -172,7 +175,7 @@ function friendList(){ //Ajax撈朋友列表
 		}else{ //成功取得
 			var friendArr = JSON.parse(xhr.responseText);
 
-			// var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼鏡||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+			var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼鏡||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
 			
 			
 			console.log(friendInfo);
@@ -180,11 +183,19 @@ function friendList(){ //Ajax撈朋友列表
 			
 
 			// // [暫代]創建label
-			// console.log(friendList[0][1]);
+			// console.log(friendList[1]);
+			
 			for(var i = 0;i<friendInfo.length;i++){
-				var infoArr = friendInfo[i].split("||",5);
+				for(var j = 0;j<5;j++){
+					infoArr[i] = friendInfo[i].split("||",5);
+				}
+				
 				var label = document.createElement("label");
 				label.className = "friendClick";
+					// var input = document.createElement("input");
+					// input.type = "radio";
+					// input.name = "friend";
+					// input.value =  infoArr[i][0];
 					//創建img_friend頭像
 					var img_friend = document.createElement("img");
 					img_friend.src = "shop-images/gift.png";
@@ -201,6 +212,7 @@ function friendList(){ //Ajax撈朋友列表
 
 
 				//將img_friend、p_memNam、input_submit塞進label
+				// label.appendChild(input);
 				label.appendChild(img_friend);
 				label.appendChild(p_memName);
 				label.appendChild(input);
@@ -211,7 +223,7 @@ function friendList(){ //Ajax撈朋友列表
 			
 			}
 			console.log('a');
-			//執行動作撰寫
+			// 執行動作撰寫
 			var friendLabels = document.getElementsByClassName("friendClick"); 
 			
 			for(var i = 0;i<friendLabels.length;i++){
@@ -225,24 +237,47 @@ function friendList(){ //Ajax撈朋友列表
 	xhr.send("me="+ '1');
 
 	//撈朋友資料並動態新增列表--end
-	
+	// return infoArr;
+}
+
+// 利用暱稱在infoArr陣列裡找會員編號
+function echoNo(name,arr){
+	// console.log( arr.length );
+	for(var i=0;i<arr.length;i++){
+		
+		for(var j=0;j<arr[i].length;j++){
+			if(arr[i][1]==name){
+				return arr[i][0];
+			}
+		}
+	}
 }
 
 //切換朋友聊天
 function changeChat(e){
+	// console.log(infoArr);
 	var taName = document.getElementById("mem-2");
 	if(e.target.children.length==0){
-		console.log(e.target.children[2].value);
+		// console.log(e.target.children[2].value);
 		taName.innerText = e.target.parentNode.children[1].innerText;
+		
 	}else{
 		taName.innerText = e.target.children[1].innerText;
 	}
 	// var taPic = document.getElementById("friendPic"); //頭像
 	// taPic.src = taPic.src; //頭像
 
-	msgDB(1,e.target.children[2].value);
 
-
+	var taNo = echoNo( taName.innerText ,infoArr);
+	 
+	console.log( taNo );
+	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
+	//先把聊天室清掉
+	while(chatbox_show.firstChild) {
+		chatbox_show.removeChild(chatbox_show.firstChild);
+	}
+	taName.className = taNo;
+	msgDB();
 
 }
 
@@ -251,6 +286,8 @@ function changeChat(e){
 function msgDB(){ //聊天歷史訊息
 	console.log("還在reload唷!");
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
+	var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
+	var friendName = echoNo(friend.innerText,infoArr); //聊天對象的編號
 
 	
 	var xhr = new XMLHttpRequest(); // 建立xhr
@@ -283,7 +320,7 @@ function msgDB(){ //聊天歷史訊息
 				boxScroll(chatbox_show);
 
 			}else{
-				for(var i=num-1;i<data.content.length;i++){
+				for(var i=num;i<data.content.length;i++){
 					var msg_div = document.createElement("div");
 					var msg_span = document.createElement("span");
 					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
@@ -305,10 +342,10 @@ function msgDB(){ //聊天歷史訊息
 	};
 	xhr.open("Post","getChatMsg.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-	
+	// console.log("me:"+me+"ta"+ta);
 	var chatMems = {
 		sendMemId: 1,
-		taMemId: 2,
+		taMemId: friendName,
 	}; //聊天雙方會員ID組成物件
 	
 	
@@ -331,6 +368,7 @@ window.addEventListener('load', function () {
 	//取得物件
 	var chatRoom = document.getElementById('chatRoom');
 	var chatboxLeft = document.getElementById('chatboxLeft');
+	var taName = document.getElementById("mem-2");
 	var ch = 0, //控制開關，0為初始關閉值，1為打開
 		ch1 = 0;
 
@@ -338,7 +376,7 @@ window.addEventListener('load', function () {
 
 	//聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 	chatRoom_control.addEventListener('click', function () {
-
+		var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 		
 
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
@@ -346,7 +384,7 @@ window.addEventListener('load', function () {
 			chatboxLeft.style.cssText = "opacity:1;";
 			msgDB();
 			chatBoxreload = setInterval(msgDB, 3000);
-			// friendList(); //呼叫撈朋友資料的函式
+			friendList(); //呼叫撈朋友資料的函式
 			boxScroll(chatbox_show);
 			return ch1 = 1;
 		} else {
@@ -421,7 +459,7 @@ window.addEventListener('load', function () {
 	//聊天室貼圖操作
 	var chatbox_faces = document.getElementById('chatbox_faces');
 	var chat_facesImgs = document.getElementsByClassName('chat_faces');
-	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
+	
 
 	for (var i = 0; i < chat_facesImgs.length; i++) {
 		chat_facesImgs[i].addEventListener('click', function () {
@@ -525,12 +563,14 @@ window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
 	var chatTxt_send = document.getElementById('chatTxt_send');
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
-	var friend = document.getElementById('friendId');
 
 	chatTxt_input.addEventListener('keydown', function (e) {
+		var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
+		var friendName = echoNo(friend.innerText,infoArr); //聊天對象的編號
+		console.log("friendName:"+infoArr);
 		if (e.keyCode == 13) { //enter代碼
 			var txt = chatTxt_input.value; //送出的訊息
-			var friendName = friend.value; //聊天對象的暱稱
+			
 
 			if (chatTxt_input.value != "") {
 				// 廷嘉寫的開始
@@ -553,8 +593,8 @@ window.addEventListener('load', function () {
 				console.log(timeStr);
 
 				var data = {
-					me : '1', //我的暱稱
-					chatTA : friendName, //聊天對象
+					me : '1', //我的編號
+					chatTA : friendName, //聊天對象編號
  					taIsWho : 'mem', //聊天對象是會員還是管理員
 					msg : txt, //送出的訊息
 					timeNow : timeStr, //送出訊息時間
@@ -570,14 +610,13 @@ window.addEventListener('load', function () {
 						console.log(xhr.responseText);
 						msgDB();
 						chatTxt_input.value = "";
-						
 						boxScroll(chatbox_show);
 					}
 				};
 				xhr.open("Post" , "msgInsert.php " , true );     
 				xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");    //參考董董講義
 				xhr.send("data="+JSON.stringify(data));
-				
+				msgDB();
 				// chatbox_show.scrollTop = chatbox_show.scrollHeight;
 
 

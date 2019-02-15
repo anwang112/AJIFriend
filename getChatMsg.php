@@ -20,7 +20,7 @@ $chatMems = json_decode($_REQUEST["chatMems"]);
             echo "null";
         }else{ //有聊天紀錄
             //從資料庫取回聊天紀錄
-            $num = 1;
+            // $num = 1;
             $i=0;
             while($msgRows = $msg ->fetch(PDO::FETCH_ASSOC)){
                 $arr["time"][$i] = $msgRows["time"];
