@@ -504,6 +504,7 @@
     50%{transform: scaleX(1) translate(30px, 80px);opacity: 0.5;}
     100%{transform: scaleX(-1) translate(-30px, -30px);opacity: 1;}
   }
+  /* 個人資料的燈箱 */
   #profileLightBox{
     background-color: rgba(0%,0%,0%,0.5);
     position: absolute;
@@ -522,7 +523,88 @@
     border-radius: 15px;
     background-color: #E5E2DD;
   }
+  #profile h3{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #E5E2DD;
+    text-align: center;
+    width: 40%;
+    margin: 2% 30%;
+    border: 1px solid #E5E2DD;
+    border-radius: 15px;
+  }
+  .proLeft{
+    width: 48%;
+    height: 50vh;
+    margin: 2% 0% 0% 2%;
+    float: left;
+    border-radius: 15px 0px 0px 15px;
+    background-color: #7487A2;
+  }
+  .leftcontent{
+    height: 49vh;
+    padding-top: 5%;
+    text-align: left;
+    position: relative;
+  }
+  .leftcontent div {
+    margin-left: 2%;
+    margin-bottom: 5%;
+    box-sizing: border-box;
+    height:10%;
+    }
   
+  .leftcontent input {
+    width:75%;
+    text-align:center;
+    display: inline-block;
+    border-radius: 15px;
+    letter-spacing:2px;
+  }
+  .leftcontent p{
+    width:75%;
+    text-align:center;
+    display:inline-block;
+    letter-spacing:1px;
+    vertical-align:text-top;
+  }
+  .leftcontent  div span{
+    width:20%;
+    display:inline-block;
+  }
+  #change_and_reset{
+    position: absolute;
+    top: 85%;
+    width: 197%;
+  }
+  .leftcontent button{
+    width: 9%;
+    height: 4vh;
+    color: #fff;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    border-radius: 15px;
+    background-color: #7487A2;
+    box-shadow: 0px 4px 0px #5F6F86;
+    position: absolute;
+  }
+  #change{
+    left: 45%;
+  }
+  #dataReset{
+    left: 34%;
+  }
+
+
+  .proRight{
+    width: 48%;
+    height: 50vh;
+    margin-top: 2%;
+    float: left;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #7487A2;
+  }
   #closeProfile{
     background-color: rgba(162,152,143,1);
     box-shadow: 0px 5px rgba(68,68,64,1);
@@ -735,23 +817,30 @@
   .bubble2{top:15%; right:72%;}
   .bubble3{top:22%; right:71%;}
   .bubble4{top:15%; right:70%;}
-  #profileLightBox{
+  #profile{
+    width: 32.8%;
+    height: 132vh;
     position: absolute;
-    top: 11%;
-    right: 63%;
-    width: 93vw;
-    height: 82vh;
-    z-index: 3;
+    top:10%;
+    left:1%;
+  }
+  .proLeft{
+    width: 94%;
+    height: 65vh;
     border-radius: 15px;
-    border: 2px solid rgba(229,226,221,.5);
-    background-color: rgba(85,84,80,.8);
+    margin: 3% 0 0 3%;
   }
-  #profileLightBox:after{
-    display: block;
-    content: '';
-    clear:both;
+  .proRight{
+    width: 94%;
+    height: 62vh;
+    border-radius: 15px;
+    margin: 3% 0 0 3%;
+    float: left;
   }
-  
+  #closeProfile{
+    top: 3vh;
+    right: 5vw;
+  }
 }
 
 @media screen and (max-width: 375px){ 
@@ -769,6 +858,9 @@
     width: 14%;
     top: 24%;
     right: 68%;
+  }
+  #profile{
+    width: 29.5%;
   }
 }
 
@@ -793,5 +885,8 @@
     width: 23%;
     top: 29%;
     left: -1%;
+  }
+  #profile{
+    width: 25%;
   }
 }
