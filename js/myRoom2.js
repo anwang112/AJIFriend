@@ -82,7 +82,7 @@ function init(){
 					$('#mName').val(str1);
 					$('#constellation').val(newStr2);
 					$('#hobby').val(newArrStr6);
-					$('#selfIntroText').val(str7);
+					$('#selfIntro').val(str7);
 
 			        }else{  
 			          // alert(xhr.status);
@@ -148,8 +148,8 @@ function init(){
 
 			mNameText.style.display = "";
 			constellationText.style.display = "";
-			memHobbyText.style.display = "";
-			memIntroduceText.style.display = "";
+			hobbyText.style.display = "";
+			selfIntroText.style.display = "";
 			
 			var xhr=new XMLHttpRequest();
 			xhr.onreadystatechange= function(){
