@@ -38,45 +38,6 @@
     <!-- 燈箱：衣櫃 -->
     <div id="wardrobeLightBox" style="display:none">
         <div id="closet">
-          <!-- 左半邊衣櫃 -->
-          <div class="clothCloset">
-            <div id="hatsSelf" class="self">
-              <div id="hatselfSlide">
-                <!-- 橫向的帽子格櫃 -->
-                <ul class="myhats">
-                  <!-- 最多10件帽子 -->
-                  <li><img src="images/hat/hat_meraCrown.png" class="hat"></li>
-                  <li><img src="images/hat/hat_nikeCapBlack.png" class="hat"></li>
-                  <li><img src="images/hat/hat_beanieOrange.png" class="hat"></li>
-                  <li><img src="images/hat/hat_nikeCapBlue.png" class="hat"></li>
-                  <li><img src="images/hat/hat_beanieBlack.png" class="hat"></li>
-                  <li><img src="images/hat/hat_beanieMustard.png" class="hat"></li>
-                </ul>
-              </div>
-            </div>
-            <div id="clothesSelf" class="self">
-              <div id="selfSlide">
-                <!-- 橫向的衣服格櫃 -->
-                <ul class="myClothes">
-                  <!-- 最多10件衣服 -->
-                  <li>
-                    <img class="hanger" src="images/cloth/hanger.png">
-                    <img src="images/cloth/cloth_sweaterWhite.png" class="cloth">
-                  </li>
-                  <li>
-                    <img class="hanger" src="images/cloth/hanger.png">
-                    <img src="images/cloth/cloth_coatofKOKO.png" class="cloth">
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="decoDrawer">
-              <div class="drawer"></div>
-              <div class="drawer"></div>
-              <div class="drawer"></div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
           <!-- 右半邊更衣室 -->
           <div class="fittingBox">
             <div id="fittingRoom">
@@ -93,6 +54,45 @@
               </div>
             </div>
           </div>
+          <!-- 左半邊衣櫃 -->
+          <div class="clothCloset">
+              <div id="hatsSelf" class="self">
+                <div id="hatselfSlide">
+                  <!-- 橫向的帽子格櫃 -->
+                  <ul class="myhats">
+                    <!-- 最多10件帽子 -->
+                    <li><img src="images/hat/hat_meraCrown.png" class="hat"></li>
+                    <li><img src="images/hat/hat_nikeCapBlack.png" class="hat"></li>
+                    <li><img src="images/hat/hat_beanieOrange.png" class="hat"></li>
+                    <li><img src="images/hat/hat_nikeCapBlue.png" class="hat"></li>
+                    <li><img src="images/hat/hat_beanieBlack.png" class="hat"></li>
+                    <li><img src="images/hat/hat_beanieMustard.png" class="hat"></li>
+                  </ul>
+                </div>
+              </div>
+              <div id="clothesSelf" class="self">
+                <div id="selfSlide">
+                  <!-- 橫向的衣服格櫃 -->
+                  <ul class="myClothes">
+                    <!-- 最多10件衣服 -->
+                    <li>
+                      <img class="hanger" src="images/cloth/hanger.png">
+                      <img src="images/cloth/cloth_sweaterWhite.png" class="cloth">
+                    </li>
+                    <li>
+                      <img class="hanger" src="images/cloth/hanger.png">
+                      <img src="images/cloth/cloth_coatofKOKO.png" class="cloth">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="decoDrawer">
+                <div class="drawer"></div>
+                <div class="drawer"></div>
+                <div class="drawer"></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>          
           <div class="clearfix"></div>
           <!-- 保存按鈕 -->
           <div id="btnSaveChageCloth">
@@ -115,7 +115,6 @@
     <!-- <img src="images/meNow.png"> -->
     <div id="meNow" class="roleBox"></div>
   </div>
- 
 	<script>
 		meNow = document.getElementById('meNow');
 		ooxxGetRole(meNow, {
@@ -126,13 +125,12 @@
 			clothes: 3,
 		});
 	</script>
-  <!-- ↓個人資訊區↓ -->
+  <!-- ↓電腦個人資訊區↓ -->
   <div id="wrapComputer">
     <div id="computer">
       <h2 style="display:none">我的個人資訊</h2>
       <img src="images/deskOff.png" class="deskOff">
       <img src="images/deskOn.png" class="deskOn">
-
     </div>
     <img src="images/deskbubble.png" class="bubble bubble1">
       <img src="images/deskbubble.png" class="bubble bubble2">
@@ -141,12 +139,72 @@
     <!-- 燈箱：我的個人資訊 -->
     <div id="profileLightBox" style="display:none">
       <div id="profile">
+        <!-- 左半邊個人資訊 -->
         <div class="profile-Left">
-          
+          <h3>我的個人資料</h3>
+          <div class="left-content">
+
+            <div id="inputbefore">
+              <span>帳號</span>
+              <p id="xhrAcctBack">Aji007</p>
+            </div>
+            <div>
+              <span>暱稱</span>
+              <input type="" name="" value="" id="mName">
+              <p id="mNameText">阿吉</p>
+            </div>
+            <div>
+              <span>星座</span>
+              <input type="" name="" value="" id="constellation">
+              <p id="constellationText">水瓶座</p>
+            </div>
+            <div>
+              <span>興趣</span>
+              <input type="" name="" value="" id="hobby">
+              <p id="hobbyText">運動、桌遊</p>
+            </div>
+            <div>
+              <span>自介</span>
+              <input type="" name="" value="" id="selfIntro">
+              <p id="selfIntroText">尋找春天的一把熊熊烈火</p>
+            </div>
+
+            <div id="change_and_reset">
+              <button id="change">編輯</button>
+              <button id="dataReset">復原</button>
+            </div>
+
+          </div>
         </div>
+
+        <!-- 右半邊活動紀錄 -->
         <div class="profile-Right">
-          
+            <h3>參加活動歷史紀錄</h3>
+            <div class="right-content">
+              <div class="activity">
+                <img id="act_Img" src="">
+                <div class="act_hover">
+                  <button id="readmore">查看</button>
+                  <button id="cancel">取消</button>
+                </div>
+              </div>
+              <div class="activity">
+                <img id="act_Img" src="">
+                <div class="act_hover">
+                  <button id="readmore">查看</button>
+                  <button id="cancel">取消</button>
+                </div>
+              </div>
+              <div class="activity">
+                <img id="act_Img" src="">
+                <div class="act_hover">
+                  <button id="readmore">查看</button>
+                  <button id="cancel">取消</button>
+                </div>
+              </div>
+            </div>
         </div>
+        <div class="clearfix"></div>
         <div id="closeProfile">
           <img src="images/2closeX.png">
         </div>

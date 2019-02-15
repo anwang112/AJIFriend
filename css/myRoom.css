@@ -19,7 +19,7 @@
     font-family: 'AdobeFanHeitiStd-Bold', serif;
   } 
   #myRoom{
-    min-width: 1100px;
+    min-width: 1200px;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -312,7 +312,7 @@
   .fittingBox{
     width: 30%;
     height: 62vh;
-    float: left;
+    float: right;
   }
   #fittingRoom{
     position: relative;
@@ -432,10 +432,10 @@
   }
   /*包住自己現在長什麼樣子的div*/
   #meNow{
-    width: 20vw;
+    width: 24%;
     position: absolute;
-    top: 28%;
-    left: 47%;
+    top: 9%;
+    left: 41%;
     z-index: 2;
   }
   #meNow img{
@@ -449,9 +449,9 @@
   }
   #computer{
     display: block;
-    width: 23vw;
+    width: 23%;
     position: absolute;
-    top: 38%;
+    top: 43%;
     right: 0%;
     z-index: 2;
     cursor:pointer;
@@ -543,233 +543,9 @@
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*iPad版--------------------------------------------------*/
-
-@media screen and (max-width: 768px){
-  #myRoom{
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  #myRoom .wheel{
-    width: 29%;
-    top: 14%;
-    left: 44%;
-  }
-  #myRoom .roomBG{display: none;}
-  #myRoom .RWDroomBG{
-    display: block;
-    width: 71%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    z-index: 2;
-    overflow-x: hidden;
-  }
-  .wardrobeTitle{
-    width: 23vw;
-    font-size: 4vw;
-    top: 16%;
-    left: 1%;
-  }
-  /*包住整個衣櫃開關的div*/
-  #wardrobe{
-    width: 25%;
-    top: 20%;
-  }
-  #wardrobe .Close{
-    opacity: 1;
-  }
-  #wardrobe .Open{
-    opacity: 0;
-  }
-  #wardrobe:hover{
-    width: 12%;
-    cursor:pointer;
-  }
-  #wardrobe:hover .Close{
-    width: 100%;
-    opacity: 1;
-  }
-  #wardrobe:hover .Open{
-    display: none;
-  }
-
-  /*-----------衣櫃燈箱-------------------*/
-  #wardrobeLightBox{
-    height: 194vh;
-  }
-  #closet{
-    width: 66%;
-    height: 62vh;
-    top: 9%;
-    left: 2%;
-  }
-  .clothCloset{
-    position: absolute;
-    top: 100%;
-    left: 0%;
-    width: 100%;
-    height: 65vh;
-    border-radius: 0px 0px 15px 15px;
-  }
-  #clothesSelf{
-    width: 89vw;
-  }
-  #selfSlide {
-    width: 84vw;
-  }
-  #hatsSelf{
-    width: 89vw;
-  }
-  #hatselfSlide{
-    width: 84vw;
-  }
-  .decoDrawer{
-    width: 95vw;
-    bottom: 9%;
-  }
-  .drawer:before{
-    width: 12vw;
-  }
-  .fittingBox{
-    width: 93vw;
-    border-radius: 15px 15px 0px 0px;
-  }
-  #fittingRoom{
-    width: 89vw;
-    margin: 2vh 2vw 0vh;
-  }
-  #myRole{
-    display: block;
-    width: 100%;
-  }
-  #myRole img{
-    z-index: 3;
-    position: absolute;
-    left: 22%;
-    display: block;
-    height: 100%;
-  }
-  #mybody img{
-    z-index: 9;
-  }
-  #myface img{
-    z-index: 12;
-  }
-  #myHat img{
-    z-index: 11;
-  }
-  #myCloth img{
-    z-index: 11;
-  }
-  /*保存按鈕*/
-  #btnSaveChageCloth{
-    width: 91vw;
-  }
-  #btnSaveChageCloth .btnSave{
-    width: 23vw;
-  }
-  #keepSaveClothes{
-    top: 45%;
-    left: 15%;
-    width: 272px;
-    height: 157px;
-    z-index: 30;
-  }
-  #btnkeepSaveClose{
-    position: absolute;
-    top: 40%;
-    left: 25%;
-    width: 123px;
-    height: 59px;
-    cursor:pointer;
-    text-align: center;
-    line-height: 59px;
-    text-decoration: none;
-    font-size: 26px;
-    color: #fff;
-    z-index: 30;
-    background-color: #E15974;
-    box-shadow: 0 1vh #C64D6A;
-    border-radius: 30px;
-  }
-  /*X關閉衣櫃的按鈕*/
-  #btnClosetCancel{
-    right: 6vw;
-  }
-  #btnClosetCancel img{
-    position: absolute;
-    top: 25%;
-    left: 19%;
-    width: 55%;
-  }
-  #meNow{
-    width: 55vw;
-    top: 65%;
-    left: 11%;
-  }
-  #computer{
-    width: 44vw;
-    top: 42%;
-    right: 26%;
-  }
-  .deskOff{opacity: 0;}
-  .deskOn{opacity: 1;}
-  .bubble{
-    width: 5%;
-    z-index: 30;
-  }
-  .bubble1{top:27%; right:16%;}
-  .bubble2{top:31%; right:2%;}
-  .bubble3{top:22%; right:7%;}
-  .bubble4{top:34%; right:11%;}
-  #profileLightBox{
-    position: absolute;
-    top: 11%;
-    right: 63%;
-    width: 93vw;
-    height: 82vh;
-    z-index: 3;
-    border-radius: 15px;
-    border: 2px solid rgba(229,226,221,.5);
-    background-color: rgba(85,84,80,.8);
-  }
-  #profileLightBox:after{
-    display: block;
-    content: '';
-    clear:both;
-  }
-  
-}
-
-
-
-
-
-
-
-
-
-
-/*RWD手機版--------------------------------------------------*/
+/* ----------------------------------- */
+/* ----------------------------------- */
+/*--RWD手機版--------------------------------------------------*/
 
 @media screen and (max-width: 476px){
   #myRoom {
@@ -787,7 +563,7 @@
   #myRoom .roomBG{display: none;}
   #myRoom .RWDroomBG{
     display: block;
-    width: 38%;
+    width: 35%;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -803,7 +579,7 @@
   /*包住整個衣櫃開關的div*/
   #wardrobe{
     width: 12%;
-    top: 22%;
+    top: 17%;
   }
   #wardrobe .Close{
     opacity: 1;
@@ -825,71 +601,64 @@
 
   /*-----------衣櫃燈箱-------------------*/
   #wardrobeLightBox{
-    width: 38%;
-    height: 168vh;
-    overflow-x: hidden;
+    height: 138vh;
   }
   #closet{
-    width: 36%;
-    height: 62vh;
-    top: 9%;
-    left: 1%;
+    width: 32.8%;
+    height: 127vh;
+    position: absolute;
+    top:7%;
+    left:1%;
   }
   .clothCloset{
-    position: absolute;
-    top: 99%;
-    left: 3%;
-    width: 261%;
+    width: 100%;
     height: 65vh;
     border-radius: 0px 0px 15px 15px;
   }
   #clothesSelf{
-    width: 90vw;
+    width: 94%;
+    height: 30vh;
+    margin:0vh 3vw;
   }
   #clothesSelf:before{
-    width: 290vw;
+    width: 125vw;
   }
   #selfSlide {
-    width: 277vw;
+    top: -1%;
+    left: 3%;
   }
   .myClothes li{
     width: 39vw;
+    height: 26vh;
   }
   #hatsSelf{
-    width: 90vw;
+    width: 94%;
+    margin: 0vh 3vw;
   }
   #hatsSelf:before{
-    width: 170vw;
+    width: 166%;
   }
   #hatselfSlide{
     width: 145vw;
   }
   .decoDrawer{
-    width: 95vw;
-    bottom: 9%;
-  }
-  .drawer:before{
-    width: 12vw;
+    width: 94%;
+    height: 7vh;
+    margin: 2vh 3vw 2vh;
   }
   .fittingBox{
-    right: -164%;
-    width: 94vw;
-    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 62vh;
+    float: left;
   }
   #fittingRoom{
-    width: 90vw;
-    margin: 2vh 2vw 0vh;
-  }
-  #myRole{
-    display: block;
-    width: 100%;
+    width: 94%;
+    margin: 2vh 3vw 0vh;
   }
   #myRole img{
-    z-index: 3;
-    position: absolute;
-    left: 11%;
+    width: 70%;
+    left: 15%;
     display: block;
-    height: 100%;
   }
   #mybody img{
     z-index: 9;
@@ -905,10 +674,9 @@
   }
   /*保存按鈕*/
   #btnSaveChageCloth{
-    width: 91vw;
-  }
-  #btnSaveChageCloth .btnSave{
-    width: 23vw;
+    width: 100%;
+    top:41%;
+    bottom: unset;
   }
   #keepSaveClothes{
     top: 45%;
@@ -945,17 +713,17 @@
     width: 55%;
   }
   #meNow{
-    width: 61vw;
-    top: 43%;
-    left: 5%;
+    width: 28%;
+    top: 28%;
+    left: 0%;
   }
   #wrapComputer{
     width: 38%;
   }
   #computer{
-    width: 40vw;
+    width: 14%;
     top: 26%;
-    right: 63%;
+    right: 65%;
   }
   .deskOff{opacity: 0;}
   .deskOn{opacity: 1;}
@@ -964,9 +732,9 @@
     z-index: 2;
   }
   .bubble1{top:27%; right:71%;}
-  .bubble2{top:31%; right:71%;}
+  .bubble2{top:15%; right:72%;}
   .bubble3{top:22%; right:71%;}
-  .bubble4{top:34%; right:71%;}
+  .bubble4{top:15%; right:70%;}
   #profileLightBox{
     position: absolute;
     top: 11%;
@@ -986,15 +754,44 @@
   
 }
 
-@media screen and (max-width: 375px){
-  #wardrobeLightBox{
-    height: 152vh;
+@media screen and (max-width: 375px){ 
+  /* iphone6/7/8/x */
+  #myRoom .RWDroomBG{
+    width: 32%;
   }
-  .fittingBox{
-    width: 94vw;
-    right: -140%;
+  #closet{
+    width: 29.5%;
   }
-  .clothCloset{
-    width: 90.5%;
+  #wardrobe{
+    top: 13%;
+  }
+  #computer{
+    width: 14%;
+    top: 24%;
+    right: 68%;
+  }
+}
+
+@media screen and (max-width: 320px){
+  /* iphone5 */
+  #myRoom .RWDroomBG{
+    width: 27%;
+  }
+  #closet{
+    width: 25%;
+  }
+  #wardrobe{
+    width: 10%;
+    top: 16%;
+  }
+  #computer{
+    width: 11%;
+    top: 25%;
+    right: 73%;
+  }
+  #meNow{
+    width: 23%;
+    top: 29%;
+    left: -1%;
   }
 }
