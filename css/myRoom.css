@@ -493,16 +493,16 @@
   .bubble1{animation: bubblepop 3s infinite; top:27%; right:16%;}
   .bubble2{animation: bubblepop2 6s infinite; top:31%; right:2%;}
   .bubble3{animation: bubblepop 5s infinite; top:22%; right:7%;}
-  .bubble4{animation: bubblepop2 6s infinite; top:34%; right:11%;}
+  .bubble4{animation: bubblepop2 6s infinite; top:22%; right:11%;}
   @keyframes bubblepop{
-    0%{transform: scaleX(-1) translate(-50px, 0) rotate(0deg);opacity: 1;}
-    50%{transform: scaleX(-1) translate(0, -30px) rotate(90deg);opacity: 1;}
-    100%{transform: scaleX(-1) translate(80px, 0) rotate(-110deg);opacity: 0;}
+    0%{transform: scaleX(-1) translate(-50px, 0);opacity: 1;}
+    50%{transform: scaleX(-1) translate(0, -30px);opacity: 0.5;}
+    100%{transform: scaleX(-1) translate(80px, 0);opacity: 1;}
   }
   @keyframes bubblepop2{
-    0%{transform: scaleX(-1) translate(0, 50px) rotate(-60deg);opacity: 0;}
-    50%{transform: scaleX(1) translate(30px, 80px) rotate(30deg);opacity: 1;}
-    100%{transform: scaleX(-1) translate(-30px, -30px) rotate(-90deg);opacity: 0;}
+    0%{transform: scaleX(-1) translate(0, 50px);opacity: 1;}
+    50%{transform: scaleX(1) translate(30px, 80px);opacity: 0.5;}
+    100%{transform: scaleX(-1) translate(-30px, -30px);opacity: 1;}
   }
   #profileLightBox{
     background-color: rgba(0%,0%,0%,0.5);
@@ -511,15 +511,14 @@
     left: 0%;
     width: 100%;
     height: 100vh;
-    z-index: 3;
+    z-index: 4;
   }
   #profile{
     position: absolute;
-    top: 20%;
-    right: 19%;
-    width: 60vw;
-    height: 69vh;
-    z-index: 3;
+    top: 21%;
+    right: 18.75%;
+    width: 62.5%;
+    height: 62vh;
     border-radius: 15px;
     background-color: #E5E2DD;
   }
