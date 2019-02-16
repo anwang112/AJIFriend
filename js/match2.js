@@ -30,14 +30,20 @@ ooxxGetRole(matchMaji, {
 });
 
 
-$('.searchWrap').click(function (e) {
-    $(this).hide();
-    e.stopPropagation();
+$('.searchClose').click(function () {
+    $('.searchWrap').hide();
+    
 });
-//搜尋好友
 
+//搜尋好友
+//enter
+function enter(){
+    if(event.keyCode=="13"){
+        $('.search').click();
+    }
+    }
 $('.search').click(function () {
-    $('.searchWrap').show();
+    
     profile = {
         memId: document.getElementById('sId').value,
     };
@@ -131,10 +137,11 @@ function showScore() {
 function searchMem(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        if (xhr.responseText == "null") {
-            alert("xhr錯誤發生");
+        if (xhr.responseText == 0) {
+            alert("找不到這個ID的麻吉唷，請重新輸入正確ID");
+           
         } else {
-
+            $('.searchWrap').show();
             var hobbyinfo = document.getElementById('hobby');
             var sNameinfo = document.getElementById('sName');
             var sMJinfo = document.getElementById('sMJ');
@@ -142,6 +149,7 @@ function searchMem(profile) {
             var sMemId = document.getElementById('sMemId');
             var info = JSON.parse(xhr.responseText);
             //興趣
+            hobbyinfo.innerText = '';
             var hobby = info.hobby.split("");
             var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
             var c = [];
@@ -215,6 +223,14 @@ function searchMem(profile) {
             });
             //id
             sMemId.innerText = info.memId;
+            if (parseInt(info.mj) >= 1000) {
+                lv = "LV.3 萬人迷";
+            } else if (parseInt(info.mj) >= 500) {
+                lv = "LV.2 潛力股";
+            }else{
+                lv = "LV.1 邊緣人";
+            }
+            document.getElementById('sLv').innerText = lv ;
         }
 
         // var mineMsg = data.mine.split("||");
@@ -232,11 +248,10 @@ function getMem(profile) {
     
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        if (xhr.responseText == "null") {
-            alert("xhr錯誤發生");
+        if (xhr.responseText == 0) {
+            alert("沒有符合條件的麻吉唷，請重新挑選");
         } else {
             var info = JSON.parse(xhr.responseText);
-            console.log(info);
             //角色
             mcEye = info.eye;
             mcBody = info.body;
@@ -266,9 +281,10 @@ function getMem(profile) {
             }else{
                 lv = "LV.1 邊緣人";
             }
-            document.getElementById('mcLv').innerText = lv + "/";
+            document.getElementById('mcLv').innerText = lv;
             //興趣
             var hobby = info.hobby.split("");
+            console.log(hobby);
             var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
             var c = [];
             document.getElementById('mcHobby').innerText = '';
@@ -281,7 +297,7 @@ function getMem(profile) {
                 var d = c[j] + ' | ';
                 document.getElementById('mcHobby').innerText += d;
             }
-        }
+        
         //星座
         constellation = info.constellation;
         switch (constellation) {
@@ -324,7 +340,8 @@ function getMem(profile) {
         }
         document.getElementById('mcIntro').innerText = info.intro;
 
-    };
+    }
+};
     xhr.open("Post", "matchMem.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("profile=" + JSON.stringify(profile));

@@ -14,35 +14,44 @@
 }
 
 #searData {
-  width: 70%;
+  width: 60%;
+  height: 450px;
   margin: auto;
-  background-color: #ecded9;
-  border: 1px solid #ccc;
+  background-color: #a2988f;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 30px;
   position: relative;
   top: 15%;
   z-index: 21;
 }
 
+#searData .searchClose {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  background-image: url(../images/XX.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #searData .sRole {
-  padding: 20px;
+  padding-top: 30px;
   width: 40%;
-  background-color: #a2988f;
-  border-radius: 20px;
+  background-image: url(../images/searbg.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 105%;
 }
 
 #searData .sRole #topMoney05 {
   width: 100%;
-}
-
-#searData .profileInfo {
-  width: 40%;
-  padding-left: 50px;
-  line-height: 2;
 }
 
 .wrap {
@@ -86,6 +95,108 @@
   width: 500px;
 }
 
+.profileInfo {
+  color: #333333;
+  width: 300px;
+  border-radius: 30px;
+  line-height: 2;
+  text-align: center;
+  padding: 20px;
+}
+
+.profileInfo.proAb {
+  position: absolute;
+  top: 10%;
+  right: -210px;
+  background-color: #EEF2EF;
+  border: 10px solid #FBC5CF;
+}
+
+.profileInfo.proAb table {
+  width: 100%;
+}
+
+.profileInfo.proAb th {
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  background-color: #FBC5CF;
+  border-radius: 5px;
+  margin: 5px;
+  color: #EB616D;
+  width: 90px;
+  padding: 0 5px;
+}
+
+.profileInfo.proAb td {
+  text-align: left;
+}
+
+.profileInfo.proAb .btnCol {
+  text-align: center;
+}
+
+.profileInfo.serPro {
+  border: 3px solid #a2988f;
+  width: 50%;
+  line-height: 2;
+}
+
+.profileInfo.serPro th {
+  display: block;
+  text-align: center;
+  background-color: #ecded9;
+  color: #a2988f;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 5px;
+  width: 100px;
+}
+
+.profileInfo.serPro #sMJ {
+  text-align: center;
+  background-color: #ecded9;
+  color: #a2988f;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+}
+
+.profileInfo.serPro td {
+  text-align: left;
+}
+
+.profileInfo button {
+  margin: 10px;
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+}
+
+.profileInfo button:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
+}
+
+.profileInfo .matchMJ {
+  font-size: 5vmin;
+}
+
+.profileInfo .colorG {
+  color: #f05c79;
+}
+
 .matchContent {
   width: 100%;
   position: relative;
@@ -95,6 +206,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  top: -35px;
 }
 
 .matchContent .carousel {
@@ -204,56 +316,6 @@
   width: 80%;
   position: relative;
   top: -13%;
-}
-
-.matchContent .profileInfo {
-  color: #F05B79;
-  position: absolute;
-  top: 20%;
-  right: -210px;
-  width: 300px;
-  background-color: #EEF2EF;
-  border: 10px solid #FBC5CF;
-  border-radius: 30px;
-  line-height: 2;
-  text-align: center;
-  padding: 20px;
-}
-
-.matchContent .profileInfo button {
-  margin: 10px;
-  width: 100px;
-  border-radius: 12px;
-  background-color: #f05c79;
-  -webkit-box-shadow: 0px 4px 0px #c84e6a;
-          box-shadow: 0px 4px 0px #c84e6a;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
-  border: none;
-  color: #e5e5e5;
-  height: 35px;
-}
-
-.matchContent .profileInfo button:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  -webkit-box-shadow: 0px 0px 0px transparent;
-          box-shadow: 0px 0px 0px transparent;
-}
-
-.matchContent .profileInfo .mainTxt {
-  background-color: #FBC5CF;
-  border-radius: 10px;
-}
-
-.matchContent .profileInfo .matchMJ {
-  font-size: 5vmin;
-}
-
-.matchContent .profileInfo .colorG {
-  color: #333333;
 }
 
 .matchContent .selectBtn {
@@ -440,7 +502,6 @@
   text-align: center;
   background-color: #fff;
   margin: 10px;
-  padding-top: 50px;
   border-radius: 20px;
 }
 
@@ -451,18 +512,19 @@
 
 .majiRank .rankContent .rankItem .rankProfile {
   position: relative;
-  top: -40px;
-  background-image: url(../images/rank1stage.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  top: -70px;
 }
 
 .majiRank .rankContent .rankItem .rankProfile .rankTxt {
-  padding: 70px 55px 30px 0px;
+  position: relative;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  margin: 10px;
   font-size: 18px;
   line-height: 1.8;
   color: #746a59;
+  top: 10%;
 }
 
 .majiRank .rankContent .rankItem .rankProfile .rankTxt h3 {
@@ -528,16 +590,16 @@
     width: 70%;
   }
   .wrap .matchContent .profileInfo {
-    top: -70px;
+    width: 300px;
+    top: 100vh;
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 500px;
     font-size: 20px;
   }
   .wrap .matchContent .selectBtn {
     left: 32%;
-    top: -8%;
+    top: -12%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row;
@@ -545,6 +607,35 @@
   }
   .wrap .matchContent .selectBtn select {
     height: 45px;
+    width: 110px;
+  }
+  .searchWrap #searData {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 1%;
+  }
+  .searchWrap #searData .sRole {
+    width: 100%;
+  }
+  .searchWrap #searData .profileInfo {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+  .searchWrap #searData .profileInfo table {
+    font-size: 18px;
+  }
+  .searchWrap #searData .profileInfo th {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .searchWrap #searData .profileInfo td {
+    padding: 0 10px;
   }
 }
 /*# sourceMappingURL=match2.css.map */
