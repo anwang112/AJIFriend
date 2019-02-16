@@ -1,3 +1,8 @@
+$lightPink:rgba(244,200,219,1);
+$darkPink:rgba(240,92,121,1);
+$shadowPink:rgba(200,78,106,1);
+$lightBrown:rgba(151,131,124,1);
+$shadowBrown:rgba(125,101,91,1);
 @charset "UTF-8";
 * {
     -webkit-tap-highlight-color: transparent;
@@ -387,6 +392,7 @@ html {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #friendPic {
@@ -396,16 +402,15 @@ html {
 }
 
 .chatRoom_info span {
-    width: 25%;
-    height: 50px;
+    width: 60%;
     color: #f05c79;
     position: relative;
-    padding: 15px 0;
+    padding: 15px 5px;
     left: 15px;
 }
 
 .chatRoom_info a {
-    width: 25%;
+    width: 20%;
 }
 
 .chatRoom_info a>img {
@@ -421,7 +426,6 @@ html {
     height: 295px;
     margin-left: 12%;
     width: 80%;
-    height: 265px;
     overflow-y: hidden;
     background-color: #e5e5e5;
     border-radius: 15px;
@@ -530,7 +534,8 @@ html {
 
         label{
             width: 97%;
-            display: block;
+            display: flex;
+            align-items: center;
             margin-bottom:6px;
             background-color: #eee;
             padding: 5px 0 5px 10px; 
@@ -542,14 +547,13 @@ html {
                 background-color: #ccc;
             }
             img{
-                width: 18%;
+                width: 90%;
                 margin-right:10px; 
             }
             p{
                 display: inline;
-            }
-            input[type="submit"]{
-                display: none;
+                padding: 5px 0 5px 10px; 
+
             }
         }
 
@@ -1167,6 +1171,14 @@ html {
     position: relative;
     max-width: 70px;
     max-height: 70px;
+}
+.headDiv{
+    margin: 0;
+    width: 18%;
+    border: 2px 
+}
+.chatTaHead{
+    border: 2px $darkPink solid;
 }
 
 .headEyes {

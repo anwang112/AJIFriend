@@ -91,8 +91,8 @@ function foot_html() {
 	    <!-- 聊天室右側主要顯示區  -->
 	    <h2 id="chatRoom_control">麻吉聊天室</h2>
 	    <div class="chatRoom_info">
-	        <img id="friendPic" src="pic/friend_demo_03.svg" alt="朋友大頭照">
-			<span id="mem-2" class="2">測試帳號An</span>
+	        <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
+			<span id="mem-2" class="2"></span>
 	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
 	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
@@ -116,8 +116,9 @@ function foot_html() {
 	        <input id="search_input" type="text" placeholder="搜尋好友">
 	        <div class="friendbox">
 				<label class="friendClick">
-					<input type="radio" name="friend" value="f1">
-					<img src="shop-images/gift.png" class="friendClick">
+					<div id="admin">
+						<img src="shop-images/gift.png" class="friendClick">
+					</div>
 					<p class="friendClick">管理員</p>
 				</label>
 	        </div>
@@ -163,7 +164,7 @@ function foot_html() {
 var infoArr = new Array();
 infoArr = []; //朋友資料陣列
 
-function friendList(){ //Ajax撈朋友列表
+function friendList(){  //Ajax撈朋友列表
 	
 	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
 	//撈朋友資料並動態新增列表--start
@@ -175,53 +176,63 @@ function friendList(){ //Ajax撈朋友列表
 		}else{ //成功取得
 			var friendArr = JSON.parse(xhr.responseText);
 
-			var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼鏡||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+			var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
 			
 			
 			console.log(friendInfo);
 			//產生朋友列表<label>*N
-			
 
-			// // [暫代]創建label
-			// console.log(friendList[1]);
-			
-			for(var i = 0;i<friendInfo.length;i++){
-				for(var j = 0;j<5;j++){
-					infoArr[i] = friendInfo[i].split("||",5);
+			var num = div_chooseBox.children.length;
+			var datalength = friendArr.length;
+			if(num==1){
+				for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
+					for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
+						infoArr[i] = friendInfo[i].split("||",5); 
+						//infoArr[i]:朋友資料陣列;
+						//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+					}
+
+					
+					var label = document.createElement("label");
+					label.className = "friendClick";
+
+						//頭貼div
+						var headImg_div = document.createElement("div");
+						headImg_div.className= "friendClick headBox headDiv";
+
+						//創建p_memName朋友暱稱
+						var p_memName = document.createElement("p");
+						p_memName.innerText = infoArr[i][1]; //會員暱稱
+						p_memName.className = "friendClick";
+						// p_memName.className = friendList[i-1];
+						var input = document.createElement("input");
+						input.type = "hidden";
+						input.value = infoArr[i][0]; //會員編號
+
+
+					//將img_friend、p_memNam、input_submit塞進label
+					// label.appendChild(input);
+					label.appendChild(headImg_div);
+					label.appendChild(p_memName);
+					label.appendChild(input);
+
+
+					//將label塞進div
+					div_chooseBox.appendChild(label);
+					console.log("頭:"+infoArr[i][2]);
+					console.log("眼:"+infoArr[i][3]);
+					console.log("頭:"+infoArr[i][2]);
+					//載入朋友頭像
+					// rrr = document.getElementById('自己取');
+					ooxxGetHead(headImg_div, {
+						animal: infoArr[i][2],
+						color: infoArr[i][4],
+						eyes: infoArr[i][3],
+					});
+					
 				}
-				
-				var label = document.createElement("label");
-				label.className = "friendClick";
-					// var input = document.createElement("input");
-					// input.type = "radio";
-					// input.name = "friend";
-					// input.value =  infoArr[i][0];
-					//創建img_friend頭像
-					var img_friend = document.createElement("img");
-					img_friend.src = "shop-images/gift.png";
-					img_friend.className = "friendClick";
-					// img_friend.className = friendList[i-1];
-					//創建p_memName朋友暱稱
-					var p_memName = document.createElement("p");
-					p_memName.innerText = infoArr[i][1]; //會員暱稱
-					p_memName.className = "friendClick";
-					// p_memName.className = friendList[i-1];
-					var input = document.createElement("input");
-					input.type = "hidden";
-					input.value = infoArr[i][0]; //會員編號
-
-
-				//將img_friend、p_memNam、input_submit塞進label
-				// label.appendChild(input);
-				label.appendChild(img_friend);
-				label.appendChild(p_memName);
-				label.appendChild(input);
-
-
-				//將label塞進div
-				div_chooseBox.appendChild(label);
-			
 			}
+			
 			console.log('a');
 			// 執行動作撰寫
 			var friendLabels = document.getElementsByClassName("friendClick"); 
@@ -264,19 +275,37 @@ function changeChat(e){
 	}else{
 		taName.innerText = e.target.children[1].innerText;
 	}
-	// var taPic = document.getElementById("friendPic"); //頭像
-	// taPic.src = taPic.src; //頭像
 
 
-	var taNo = echoNo( taName.innerText ,infoArr);
-	 
-	console.log( taNo );
+	
+	
+	var taPic = document.getElementById("friendPic"); //頭像div
+
+	//得到聊天對象資訊在朋友陣列infoArr的索引值
+	for(var i=0;i<infoArr.length;i++){
+		for(var j=0;j<infoArr[i].length;j++){
+			if(infoArr[i][1]==taName.innerText){
+				index = i;
+			}
+		}
+	}
+	console.log("index:"+index);
+	//載入聊天對象頭頭
+	ooxxGetHead(taPic, {
+		animal: infoArr[index][2],
+		color: infoArr[index][4],
+		eyes: infoArr[index][3],
+	})
+
+
+
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	//先把聊天室清掉
 	while(chatbox_show.firstChild) {
 		chatbox_show.removeChild(chatbox_show.firstChild);
 	}
-	taName.className = taNo;
+	var taNo = echoNo( taName.innerText ,infoArr);
+	taName.className = taNo; 
 	msgDB();
 
 }
@@ -343,6 +372,7 @@ function msgDB(){ //聊天歷史訊息
 	xhr.open("Post","getChatMsg.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 	// console.log("me:"+me+"ta"+ta);
+
 	var chatMems = {
 		sendMemId: 1,
 		taMemId: friendName,
@@ -377,20 +407,26 @@ window.addEventListener('load', function () {
 	//聊天室標題被點擊後要顯示出完整視窗，反之已顯示則關閉
 	chatRoom_control.addEventListener('click', function () {
 		var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
-		
+		var chatTa = document.getElementById('mem-2').innerText;
 
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
-			msgDB();
-			chatBoxreload = setInterval(msgDB, 3000);
+			if(chatTa!=null){
+				msgDB();
+				chatBoxreload = setInterval(msgDB,3000);
+			}
+
 			friendList(); //呼叫撈朋友資料的函式
 			boxScroll(chatbox_show);
 			return ch1 = 1;
 		} else {
 			chatRoom.style.cssText = "transform:translateY(82%)";
 			chatboxLeft.style.cssText = "opacity:1;";
-			clearInterval(chatBoxreload);
+			if(typeof(chatBoxreload)!= 'undefined'){
+				clearInterval(chatBoxreload);
+
+			}
 			return ch1 = 0, ch = 0;
 		}
 
