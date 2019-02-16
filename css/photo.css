@@ -3,6 +3,7 @@
     margin: 0;
     font-family: "微軟正黑體";
     outline: 1px solid red;
+    border: 1px solid red;
 }
 a{
     text-decoration: none;
@@ -21,16 +22,44 @@ body{
 /* #ead3cc */
 .bg{
     background:  rgba(98,167,236, .8) no-repeat scroll 100%;
-    background-size: 100%;
+    background-size: 100% 90%;
+
+}
+.wrap{
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: auto;
+    height: 100vh;
+    overflow: hidden;
+
 }
 .wrap .clouds1{
+    width: 100%;
+    position: relative;
+
+}
+.wrap .clouds2{
+    width: 100%;
+    position: relative;
+}
+.wrap .clouds1 img{
     width: 60%;
     position: absolute;
-    left: -20%;
+    left: -10%;
     top: 10vh;
     animation: cloudsMoving 50s infinite linear;
 }
-
+.wrap .clouds2 img{
+    width: 80%;
+    position: absolute;
+    left: -40%;
+    top: 65vh;
+    animation: cloudsMoving2 50s infinite linear forwards;
+}
+@keyframes cloudsMoving2{
+    0%{left: -40%;}
+    100%{left: 80%;}
+}
 @keyframes cloudsMoving {
     0%{left: -50%;}
     100%{left: 100%;}
@@ -41,16 +70,12 @@ body{
         color:rgba(240,92,121,1);  
     } */
 
-  .wrap,.postArea{
-    width: 100%;
-    margin: auto;
-    max-width: 1200px;
-  }
+
   .trophy{
         display: flex;
         align-items: center;
         width: 300px;
-        padding-top: 10%;
+        padding-top: 15vh;
         padding-left: 12%;
         /* padding-bottom: 2%; */
 
@@ -63,9 +88,11 @@ body{
 
   }
   .trophy h2{
+      font-size: 1rem;
       width: 70%;
       z-index: 3;
       text-align: center;
+      text-shadow: 1px 2px#aaa;
       
 
   }
@@ -190,6 +217,16 @@ body{
     border-radius: 10px;
 
   }
+  .top1,.top2,.tpp3{
+      position: relative;
+  }
+  .top1 .topbg,.top2 .topbg,.top3 .topbg{
+      width: 300px;
+      position: absolute;
+      left: -10%;
+      top: 64%;
+      z-index: -1;
+  }
   .top .member,.card .member{
     width: 18%;
     margin-left: 4%;
@@ -214,52 +251,13 @@ body{
   .top a:hover,.card a:hover{
     color:rgba(240,92,121,1);  
   }
-  .ground{
-    width: 100%;
-    height: 24vh;
-    margin-top: 2%;
-    position: relative;
-    /* background-color: #c9caca; */
-  }
-
-  .ground h2{
-    z-index: 3;
-
-    display: inline-block;
-    margin-top: 13%;
-    margin-right:  5%;
-    
-  }
-  .ground img{
-    width: 13%;
-  }
-  .ground .clouds2 img{
-      width: 100%;
-      /* opacity: 0.8; */
-  }
-  .ground .clouds2{
-      width: 100%;
-      position: absolute;
-      left: -40%;
-      top: -30%;
-      z-index: 0;
-      animation: cloudsMoving2 50s infinite linear forwards;
-  }
-  @keyframes cloudsMoving2{
-      0%{left: -40%;}
-      100%{left: 80%;}
-  }
-  .ground .clouds img{
-      width: 100%;
-      position: absolute;
-  }
   /* .content{
     margin-left: 20%;
   } */
   .content .aji{
       width: 20%;
       position: absolute;
-      top: 0%;
+      top: 53%;
       left: 20%;
       display: inline-block;
   }
@@ -267,19 +265,19 @@ body{
       width: 20%;
       position: absolute;
       left: 20%;
-      top: 0%;
+      top: 53%;
       display: inline-block;
   }
   .content .aji:hover{
       display: none;
   }
   
-
+/* 製作合照tab */
     #drawingTab{
         position: fixed;
         top: 35%;
         right: 3%;
-        width: 100px;
+        width: 110px;
         height: 50%;
         cursor: pointer;
         animation: camera 3s infinite;
@@ -291,68 +289,41 @@ body{
     }
     #drawingTab h1{
         width: 100px;
-        font-size: .8rem;
+        padding: 1vh;
+        font-size: .9rem;
         line-height: 1.3;
         color: #f05c79;
     }
     #drawingTab img{
         width: 150%;
     }
-    /* .switch{
-      z-index: 999;
-      position: fixed;
-      right: 3%;
-      top: 46%;
-      width: 13px;
-      height: 65px;
-    }
-  .switch .dot{
-      width: 13px;
-      height: 13px;
-      margin-bottom: 13px;
-      background-color: #fff;
-      opacity: 0.4;
-      border-radius: 50%;
-    }
-  .switch .dot:hover{
-      opacity: 0.9;
-  
-  } */
 
-
-
-
-
-
-  /* 第二屏照片區 */
-
-
-
-
-
+/* 第二屏照片區 */
 
   /* 背景 */
   .bg2{
-    background:rgba(98,167,236, .8) url("/images/buildingBg-19.png") no-repeat scroll 50% 5%;
+    background:rgba(98,167,236, .8) url("/images/bg2photo1-23.png") no-repeat scroll 50% 5%;
     background-size: 100%;
 }
-
-
 .postArea{
-    padding-top: 10%;
-    padding-bottom: 20%;
+    width: 100%;
+    /* padding-top: 10%; */
+    /* padding-bottom: 20%; */
     position: relative;
+    margin: auto;
+    max-width: 1200px;
+
 
 }
     .father{
         position: relative;
     }
     #myPhoto{
-        /* width: 100%; */
+        width: 100%;
         position: absolute;
         text-align: right;
         right: 15%;
-        /* top: 55%; */
+        margin-top: 40vh;
         animation: upndown 3s infinite;
     }
     @keyframes  upndown{
@@ -365,17 +336,16 @@ body{
     }
     #myPhoto a h3{
         width: 100px;
+        padding-top: 1vh;
         text-align: center;
         display: block;
         color: #f05c79;
-        right: 11%;
-        top: 12%;
+        
     }
     #myPhoto a img{
-        width: 120px;
+        width: 100px;
         display: block;
-        right: 10%;
-        top: 3%;
+       
 
     }
    #myPhoto:hover a{
@@ -396,11 +366,21 @@ body{
     /* 標題旗子～ */
     .topic{
         width: 300px;
-        position: absolute;
+        margin: auto;
+        padding-top: 10vh;
+        padding-bottom: 30vh;
+        position: relative;
+        /* position: absolute;
         left: 30%;
-        top: 10%;
+        top: 10%; */
     }
-
+    .topic h1{
+        position: absolute;
+        font-size: 1.5rem;
+        left: 8vh;
+        top: 10vh;
+        transform: rotate(-5deg);
+    }
 
     .card{  
         float: left;
@@ -444,7 +424,7 @@ body{
     }
 
     .card .heart{
-        opacity: .8;
+        opacity: .6;
     }
     .card .heart:hover{
         opacity: 1;
@@ -705,41 +685,231 @@ body{
     }
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
-    }
+    } 
 
-
-@media screen and (max-width: 476px){
+/* ipad RWD */
+@media screen and (max-width: 768px){
     .wrap{
-        width: 95%;
-        padding-top: 20px;
-        padding-bottom: 50px;
+        width: 100%;
+        height: 140vh;
     }
-    .ground,.switch {    
+    .wrap .trophy{  
+        width: 40%;}
+    .wrap .trophy h2{
+        font-size: 1rem;
+    }
+    .wrap .clouds2{   
+        display: none;}
+    .wrap .clouds1{  
+        position: fixed; 
+        width: 150%;}
+    .wrap .clouds1 img{    
+        width: 100%;}
+    .col3{
+        display: flex;
+        flex-direction: column;
+    }
+    .col3 .top{
+        width: 35%;
+        margin-bottom: 10vh;
+    }
+    .top .topbg{
+        width: 300px;
+        position: absolute;
+        left: -6%;
+        top: 75%;
+        z-index: 1;
+    }
+    .card{
+        margin-left: 11%;
+    }
+    .card img{
+        width: 100%;
+    }
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+        position: relative;
+        z-index: 3;
+    }
+    .top .heart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+        z-index: 3;
+        position: relative;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+        z-index: 3;
+        position: relative;
+    }
+    .top span,.card span{
+        z-index: 3;
+        position: relative;
+    }
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+        background-size: 100%;
+
+        
+    }
+    .postArea{
+        padding-top: 20%;
+    }
+    #myPhoto{
+        width: 70px;
+        position: absolute;
+    }
+    #myPhoto img{
+        width: 70px;
+       
+    }
+    #myPhoto h3{
+        font-size: 16px;
+        position: absolute;
+        right: 10%;
+        top: 34%;
+    }
+    .mkPhoto{
+        padding-top: 50px;
+    }
+    .bulletin{
         display: none;
     }
-    .col-3{
-        margin: auto;
+    .steps{
+        display: flex;
+        flex-direction: column;
     }
-    .top,.card{
-        margin: 10% 18%;
+    .drawing{
+        display: flex;
+        flex-direction: column;
+    }
+    .mkPhoto .drawing .upload span{
+        margin-top: 0;
+        margin-left: 0px;
+    }
+    .mkPhoto .drawing .next span{
+        margin-top: 20px;
+        margin-left: 0px;
+
+    }
+    .preview{
+        position: absolute;
+        left: 7.7%;
+        top: 22.3%;
+    }
+
+}
+
+/* phone RWD */
+@media screen and (max-width: 476px){
+    .wrap{
+        width: 100%;
+        height: 172vh;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        position: relative;
+    }
+    .wrap .clouds2{
+        display: none;
+    }
+    .wrap .clouds1,.wrap .clouds2{
+        width: 150%;
+    }
+    .wrap .clouds1 img, .wrap .clouds2 img{
+        width: 100%;
+        position: fixed;
+    }
+    .wrap .trophy{
+        width: 55%;
+        margin-left: 17%;
+    }
+    .wrap .trophy h2{
+        width: 140px;
+        padding: 4px;
+    }
+    .top {
+        margin-top: 20px;
+    }
+    .top .topbg{
+        width: 280px;
+        position: absolute;
+        left: -6%;
+        top: 67%;
+      
+        display: block;
+    }
+    .card{
+        margin-left: 19%;
+    }
+    .card img{
+        width: 100%;
+
+    }
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+    }
+    .top .heart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+    }
+    /* 壞掉不能調高度 */
+    #drawingTab{
+        width: 15%;
+        position: fixed;
+        top: -10%;right: 3px;
+    }
+    .topic{
+        width:  180px;
+    }
+    .topic h1{
+        font-size: 1rem;
+        position: absolute;
+        left: 7.5vh;
+        top: 10.5vh;
+    }
+  
+
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+        
     }
     .postArea{
         padding-top: 10%;
     }
     #myPhoto{
-        height: 100px;
-        padding-bottom: 50px;
-
+        width: 70px;
+        position: absolute;
     }
     #myPhoto img{
         width: 70px;
-        position: absolute;
-        right: 13%;
-        top: 8%;
-    }
-    h1{
-        text-align: left;
-        margin-left: 12%;
+       
     }
     #myPhoto h3{
         font-size: 16px;
