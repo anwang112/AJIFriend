@@ -1,3 +1,6 @@
+function $id(id){
+	return document.getElementById(id);
+}
 function boxScroll(o) {
 	o.scrollTop = o.scrollHeight;
 	o.scrollTop+=200;
@@ -13,6 +16,7 @@ console.log(body);
 function head_html() {
 
 	var str_tag = `
+	
 	<div id="head" class="head mnone">
         <div class="headWrap">
             <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
@@ -23,20 +27,37 @@ function head_html() {
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="myRoom.html">我的窩</a></li>
             </ul>
-            <div class="loginBox">
+			<div class="loginBox">
+				<input type="hidden" id="userNo" value="">
+				<input type="hidden" id="userId" value="">
+				<input type="hidden" id="userCoin" value="">
+				<input type="hidden" id="userAnimal" value="">
+				<input type="hidden" id="userEye" value="">
+				<input type="hidden" id="userColor" value="">
+				<input type="hidden" id="userStar" value="">
+				<input type="hidden" id="userHobby" value="">
+				<input type="hidden" id="userSelf" value="">
+				<input type="hidden" id="userHat" value="">
+				<input type="hidden" id="userClothes" value="">
+				<input type="hidden" id="userPlay" value="">
+				<input type="hidden" id="userLove" value=""> 
                 <div class="loginImg">
-                    <img src="images/loginPhoto.svg">
+                    
                 </div>
                 <div class="loginTxtWrap">
-                    <div class="loginNot">
-                        <a href="#"><span>登入</span></a> 
-                    </div>
                     <div class="loginContent">
                         <div class="loginTitle">
-                            <span>ID</span><span>等級</span>
+                            <span id="memName"></span><span id="mLv">LV</span>
                         </div>
-                        <div class="loginMj">
-                        </div>
+						<div class="loginMj">
+							<span>MJ</span>
+							
+							<span id="memMJ"></span>
+						</div>
+						<div class="Mjbar"></div>
+                    </div>
+                    <div class="loginNot">
+                        <span id="loginNot">登入</span> 
                     </div>
                 </div>
 
@@ -161,6 +182,62 @@ function foot_html() {
 	document.write(str_tag2);
 }
 
+//login Ajax
+function sendForm(){
+	//=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+		if( xhr.responseText == "error"){
+		alert("帳密錯誤，請重新輸入");
+		}else{ 
+			var user = JSON.parse(xhr.responseText); 
+			//header的使用者資料Show
+			document.getElementById("memName").innerText =  user.arr["mName"]; 
+			document.getElementById("memMJ").innerText =  user.arr["mMJ"]+"/"+"1000";
+			document.getElementsByClassName("Mjbar")[0].style.width =  (user.arr["mMJ"] / 1000 *100)+"%";
+			//載入頭像
+			var loginImg = document.getElementsByClassName("loginImg")[0];
+			ooxxGetHead(loginImg, {
+				animal: user.arr["animal"],
+				color: user.arr["mColor"],
+				eyes: user.arr["eye"],
+			});
+
+			//登入的使用者資料暗樁 --各頁面可直接複製取用
+			document.getElementById("userNo").value = user.arr["memNo"];
+			document.getElementById("userId").value = user.arr["memId"];
+			document.getElementById("userCoin").value = user.arr["mCoin"];
+			document.getElementById("userAnimal").value = user.arr["animal"];
+			document.getElementById("userEye").value = user.arr["eye"];
+			document.getElementById("userColor").value = user.arr["mColor"];
+			document.getElementById("userStar").value = user.arr["constellation"];
+			document.getElementById("userHobby").value = user.arr["hobby"];
+			document.getElementById("userSelf").value = user.arr["self-intro"];
+			document.getElementById("userHat").value = user.arr["wearHat"];
+			document.getElementById("userClothes").value = user.arr["wearClothes"];
+			document.getElementById("userPlay").value = user.arr["last_play"];
+			document.getElementById("userLove").value = user.arr["loveGiven"];
+
+			//登入登出字樣
+			document.getElementById("loginNot").innerText = "登出"; 
+
+			
+	  	}
+	}
+	xhr.open("Post", "ajaxLogin.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send(`memId=An&memPsw=22222222`);
+}
+
+
+
+sendForm();
+
+
+
+
+
+
 var infoArr = new Array();
 infoArr = []; //朋友資料陣列
 
@@ -168,84 +245,87 @@ function friendList(){  //Ajax撈朋友列表
 	
 	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
 	//撈朋友資料並動態新增列表--start
-	var xhr = new XMLHttpRequest(); // 建立xhr
-	xhr.onload = function(){
-		if(xhr.responseText == "null"){ //失敗狀態
-			alert("xhr錯誤發生");
+	if($id('userNo').value!=''){
+		alert($id('userNo').value);
+		var xhr = new XMLHttpRequest(); // 建立xhr
+		xhr.onload = function(){
+			if(xhr.responseText == "null"){ //失敗狀態
+				alert("xhr錯誤發生");
 
-		}else{ //成功取得
-			var friendArr = JSON.parse(xhr.responseText);
+			}else{ //成功取得
+				var friendArr = JSON.parse(xhr.responseText);
 
-			var friendInfo = friendArr.friendsInfo; //[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
-			
-			
-			console.log(friendInfo);
-			//產生朋友列表<label>*N
+				var friendInfo = friendArr.friendsInfo; 
+				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+				
+				
+				console.log(friendInfo);
+				//產生朋友列表<label>*N
 
-			var num = div_chooseBox.children.length;
-			var datalength = friendArr.length;
-			if(num==1){
-				for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
-					for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
-						infoArr[i] = friendInfo[i].split("||",5); 
-						//infoArr[i]:朋友資料陣列;
-						//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+				var num = div_chooseBox.children.length;
+				var datalength = friendArr.length;
+				if(num==1){
+					for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
+						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
+							infoArr[i] = friendInfo[i].split("||",5); 
+							//infoArr[i]:朋友資料陣列;
+							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+						}
+
+						
+						var label = document.createElement("label");
+						label.className = "friendClick";
+
+							//頭貼div
+							var headImg_div = document.createElement("div");
+							headImg_div.className= "friendClick headBox headDiv";
+
+							//創建p_memName朋友暱稱
+							var p_memName = document.createElement("p");
+							p_memName.innerText = infoArr[i][1]; //會員暱稱
+							p_memName.className = "friendClick";
+							// p_memName.className = friendList[i-1];
+							var input = document.createElement("input");
+							input.type = "hidden";
+							input.value = infoArr[i][0]; //會員編號
+
+
+						//將img_friend、p_memNam、input_submit塞進label
+						// label.appendChild(input);
+						label.appendChild(headImg_div);
+						label.appendChild(p_memName);
+						label.appendChild(input);
+
+
+						//將label塞進div
+						div_chooseBox.appendChild(label);
+						console.log("頭:"+infoArr[i][2]);
+						console.log("眼:"+infoArr[i][3]);
+						console.log("頭:"+infoArr[i][2]);
+						//載入朋友頭像
+						// rrr = document.getElementById('自己取');
+						ooxxGetHead(headImg_div, {
+							animal: infoArr[i][2],
+							color: infoArr[i][4],
+							eyes: infoArr[i][3],
+						});
+						
 					}
-
-					
-					var label = document.createElement("label");
-					label.className = "friendClick";
-
-						//頭貼div
-						var headImg_div = document.createElement("div");
-						headImg_div.className= "friendClick headBox headDiv";
-
-						//創建p_memName朋友暱稱
-						var p_memName = document.createElement("p");
-						p_memName.innerText = infoArr[i][1]; //會員暱稱
-						p_memName.className = "friendClick";
-						// p_memName.className = friendList[i-1];
-						var input = document.createElement("input");
-						input.type = "hidden";
-						input.value = infoArr[i][0]; //會員編號
-
-
-					//將img_friend、p_memNam、input_submit塞進label
-					// label.appendChild(input);
-					label.appendChild(headImg_div);
-					label.appendChild(p_memName);
-					label.appendChild(input);
-
-
-					//將label塞進div
-					div_chooseBox.appendChild(label);
-					console.log("頭:"+infoArr[i][2]);
-					console.log("眼:"+infoArr[i][3]);
-					console.log("頭:"+infoArr[i][2]);
-					//載入朋友頭像
-					// rrr = document.getElementById('自己取');
-					ooxxGetHead(headImg_div, {
-						animal: infoArr[i][2],
-						color: infoArr[i][4],
-						eyes: infoArr[i][3],
-					});
-					
+				}
+				
+				console.log('a');
+				// 執行動作撰寫
+				var friendLabels = document.getElementsByClassName("friendClick"); 
+				
+				for(var i = 0;i<friendLabels.length;i++){
+					friendLabels[i].addEventListener('click',changeChat,false);
 				}
 			}
-			
-			console.log('a');
-			// 執行動作撰寫
-			var friendLabels = document.getElementsByClassName("friendClick"); 
-			
-			for(var i = 0;i<friendLabels.length;i++){
-				friendLabels[i].addEventListener('click',changeChat,false);
-			}
-		}
-	};
-	xhr.open("Post","getFriend.php",true);
-	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-	
-	xhr.send("me="+ '1');
+		};
+		xhr.open("Post","getFriend.php",true);
+		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xhr.send("me="+ $id('userNo').value);
+	}
 
 	//撈朋友資料並動態新增列表--end
 	// return infoArr;
@@ -307,6 +387,7 @@ function changeChat(e){
 	var taNo = echoNo( taName.innerText ,infoArr);
 	taName.className = taNo; 
 	msgDB();
+	chatBoxreload = setInterval(msgDB,3000);
 
 }
 
@@ -339,7 +420,7 @@ function msgDB(){ //聊天歷史訊息
 					msg_div.appendChild(msg_span);
 					chatbox_show.appendChild(msg_div);
 					
-					if(data.sendMem[i]==1){ //我發的訊息:靠右
+					if(data.sendMem[i]==$id('userNo').value){ //我發的訊息:靠右
 						msg_div.className="iSaid";			
 					}else{ //我發的訊息:靠右
 						msg_div.className="youSaid";
@@ -356,7 +437,7 @@ function msgDB(){ //聊天歷史訊息
 					msg_div.appendChild(msg_span);
 					chatbox_show.appendChild(msg_div);
 					
-					if(data.sendMem[i]==1){ //我發的訊息:靠右
+					if(data.sendMem[i]==$id('userNo').value){ //我發的訊息:靠右
 						msg_div.className="iSaid";			
 					}else{ //我發的訊息:靠右
 						msg_div.className="youSaid";
@@ -374,7 +455,7 @@ function msgDB(){ //聊天歷史訊息
 	// console.log("me:"+me+"ta"+ta);
 
 	var chatMems = {
-		sendMemId: 1,
+		sendMemId: $id('userNo').value,
 		taMemId: friendName,
 	}; //聊天雙方會員ID組成物件
 	
@@ -412,13 +493,17 @@ window.addEventListener('load', function () {
 		if (ch1 == 0) { //如果視窗是關閉狀態，就打開
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
-			if(chatTa!=null){
-				msgDB();
-				chatBoxreload = setInterval(msgDB,3000);
-			}
+			if($id("loginNot").innerText=='登出'){
+				// console.log("chatTa:"+chatTa);
+				if(chatTa!=''){
+					msgDB();
+					chatBoxreload = setInterval(msgDB,3000);
+				}
 
-			friendList(); //呼叫撈朋友資料的函式
-			boxScroll(chatbox_show);
+				friendList(); //呼叫撈朋友資料的函式
+				boxScroll(chatbox_show);
+
+			}
 			return ch1 = 1;
 		} else {
 			chatRoom.style.cssText = "transform:translateY(82%)";
@@ -629,7 +714,7 @@ window.addEventListener('load', function () {
 				console.log(timeStr);
 
 				var data = {
-					me : '1', //我的編號
+					me : $id('userNo').value, //我的編號
 					chatTA : friendName, //聊天對象編號
  					taIsWho : 'mem', //聊天對象是會員還是管理員
 					msg : txt, //送出的訊息
@@ -845,9 +930,89 @@ ooxxLightBox = (...lightBoxArray) => {
 window.addEventListener('load', function () {
 
 
-	function $id(id) {
-		return document.getElementById(id);
-	}
+	$id("loginNot").addEventListener("click",function(){
+		if($id("loginNot").innerText=='登入'){
+			sendForm();
+			$id("loginNot").innerText='登出';
+			document.getElementsByClassName("loginContent")[0].style.display="";
+			var div_chooseBox = document.getElementsByClassName("friendbox")[0];
+			var label = document.createElement("label");
+			label.className = "friendClick";
+
+				//頭貼div
+				var headImg_div = document.createElement("div");
+				headImg_div.id="admin";
+				headImg_div.innerHTML='<img src="shop-images/gift.png" class="friendClick"></img>';
+				headImg_div.className= "friendClick";
+
+				//創建p_memName朋友暱稱
+				var p_memName = document.createElement("p");
+				p_memName.innerText = "管理員";
+				p_memName.className = "friendClick";
+
+
+			//將img_friend、p_memNam、input_submit塞進label
+			// label.appendChild(input);
+			label.appendChild(headImg_div);
+			label.appendChild(p_memName);
+			//將label塞進div
+			div_chooseBox.appendChild(label);
+		}else{
+			var xhr = new XMLHttpRequest(); // 建立xhr
+			xhr.onload = function(){
+				if(xhr.responseText == "null"){ //失敗狀態
+					alert("xhr錯誤發生");
+
+				}else{ //成功
+					alert("您已登出~");
+					$id("loginNot").innerText='登入';
+				}
+			};
+			xhr.open("Post","ajaxLogout.php",true);
+			xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+			xhr.send(null);
+
+			document.getElementById('mem-2').innerText='';
+			document.getElementById("memName").innerText =  ''; 
+			document.getElementById("memMJ").innerText =  '';
+			document.getElementsByClassName("Mjbar")[0].style.width = "0%";
+
+			document.getElementsByClassName("loginContent")[0].style.display="none";
+			document.getElementsByClassName("loginImg")[0].innerHTML= "<img src='images/loginPhoto.svg' >";
+
+			//登入的使用者資料暗樁 --各頁面可直接複製取用
+			document.getElementById("userNo").value = '';
+			document.getElementById("userId").value = '';
+			document.getElementById("userCoin").value = '';
+			document.getElementById("userAnimal").value = '';
+			document.getElementById("userEye").value = '';
+			document.getElementById("userColor").value = '';
+			document.getElementById("userStar").value = '';
+			document.getElementById("userHobby").value = '';
+			document.getElementById("userSelf").value = '';
+			document.getElementById("userHat").value = '';
+			document.getElementById("userClothes").value = '';
+			document.getElementById("userPlay").value = '';
+			document.getElementById("userLove").value = '';
+
+			var friendbox = document.getElementsByClassName("friendbox")[0];
+			var chatbox_show = document.getElementsByClassName("chatbox_show")[0];
+			while(friendbox.firstChild) {
+				friendbox.removeChild(friendbox.firstChild);
+			}
+			while(chatbox_show.firstChild) {
+				chatbox_show.removeChild(chatbox_show.firstChild);
+			}
+			
+
+
+			
+			
+		}
+		
+		
+		
+	});
 
 
 	$id('btn_login').addEventListener('click', function () {
