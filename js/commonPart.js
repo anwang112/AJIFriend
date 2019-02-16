@@ -226,7 +226,7 @@ function sendForm(){
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-	xhr.send(`memId=An&memPsw=22222222`);
+	xhr.send(`memId=ga&memPsw=11111111`);
 }
 
 
