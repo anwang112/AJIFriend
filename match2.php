@@ -11,27 +11,20 @@ try {
     $sta->execute();
     $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
-    //撈大富翁
-    $moneySql = "select * from member ORDER BY mCoin DESC";
-    $money = $pdo->prepare($moneySql);
-    $money->execute();
-    $moneyRow = $money->fetchAll(PDO::FETCH_ASSOC);
-
     //等級判斷式
-    $lvArr = [];
-    for ($i = 0; $i < 3; $i++) {
-        $mj = $moneyRow[$i]["mMJ"];
-        if ($mj >= 1000) {
-            $lv = "LV.3 萬人迷";;
-        } else if ($mj >= 500) {
-            $lv = "LV.2 潛力股";
-        } else {
-            $lv = "LV.1 邊緣人";
-        }
-        array_push($lvArr, $lv);
-    };
+    // $lvArr = [];
+    // for ($i = 0; $i < 3; $i++) {
+    //     $mj = $moneyRow[$i]["mMJ"];
+    //     if ($mj >= 1000) {
+    //         $lv = "LV.3 萬人迷";;
+    //     } else if ($mj >= 500) {
+    //         $lv = "LV.2 潛力股";
+    //     } else {
+    //         $lv = "LV.1 邊緣人";
+    //     }
+    //     array_push($lvArr, $lv);
+    // };
 
-   
     //等級判斷式結束
 
 } catch (PDOException $e) {
@@ -137,8 +130,8 @@ try {
     </div>
     </div>
     <div class="wrap">
-        <div  class="searchMaji">
-            <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId"onkeyup="enter();">
+        <div class="searchMaji">
+            <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
             <input type="button" value="搜尋" class="search">
         </div>
 
@@ -178,8 +171,8 @@ try {
                                 默契值:
                             </th>
                             <td>
-                                <span class="matchMJ" id="scoreDisplay"></span>
-                                <span>/100</span>
+                                <span class="matchMJ pink" id="scoreDisplay"></span>
+                                <span class="pink">/100</span>
                             </td>
                         </tr>
                         <tr>
@@ -198,7 +191,7 @@ try {
                                 <span id="mcLv"></span><br>
                                 (<span id="mcMJ"></span>)
                             </td>
-                          
+
                         </tr>
                         <tr>
                             <th>
@@ -270,19 +263,19 @@ try {
                 <h2>麻吉名人榜</h2>
             </div>
             <ul class="rankNav">
-                <li class="active">
+                <li class="active" id="topFriend">
                     <a href="#tab-1" class="tabControl ">人氣王</a>
                 </li>
-                <li>
+                <li id="topMoney">
                     <a href="#tab-2" class="tabControl moneyBtn">大富翁</a>
                 </li>
-                <li>
+                <li id="topMJ">
                     <a href="#tab-3" class="tabControl mjTopBtn">萬人迷</a>
                 </li>
             </ul>
             <div class="tabPanel active" id="tab-1">
                 <div class="rankContent">
-                    <div class=" rankItem rank2">
+                    <div class=" rankItem">
                         <div id="topFriend02" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 2;
@@ -291,8 +284,8 @@ try {
                                 animal: ddd,
                                 color: '005450',
                                 eyes: 3,
-                                hat: 1,
-                                clothes: 0,
+                                // hat: ,
+                                // clothes: ,
                             });
                         </script>
                         <div class="rankProfile">
@@ -301,12 +294,12 @@ try {
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
                     </div>
-                    <div class="rankItem rank2">
+                    <div class="rankItem">
                         <div id="topFriend01" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 2;
@@ -319,18 +312,18 @@ try {
                                 clothes: 2,
                             });
                         </script>
-                        <div class="rankProfile rank2">
+                        <div class="rankProfile">
                             <div class="rankTxt">
                                 <h3>LV.3 XXX</h3>
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
                     </div>
-                    <div class="rankItem rank2">
+                    <div class="rankItem">
                         <div id="topFriend03" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 2;
@@ -349,7 +342,7 @@ try {
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
@@ -358,122 +351,45 @@ try {
             </div>
             <div class="tabPanel" id="tab-2">
                 <div class="rankContent">
-                    <div class="rankItem rank2">
-                        <div id="topMoney01" class="roleBox rankRole"></div>
-                        <script>
-                            topMoney01 = document.getElementById('topMoney01');
-                            ooxxGetRole(topMoney01, {
-                                animal: <?php echo $moneyRow[0]["animal"]; ?>,
-                                color: <?php echo $moneyRow[0]["mColor"]; ?>,
-                                eyes: <?php echo $moneyRow[0]["eye"]; ?>,
-                                hat: <?php 
-                                    if ($moneyRow[0]["wearHat"] == '') {
-                                        $moneyRow[0]["wearHat"] = 0;
-                                    }
-                                    echo $moneyRow[0]["wearHat"]; ?>,
-                                clothes: <?php 
-                                        if ($moneyRow[0]["wearClothes"] == '') {
-                                            $moneyRow[0]["wearClothes"] = 0;
-                                        }
-                                        echo $moneyRow[0]["wearClothes"]; ?>,
-                            });
-                        </script>
+                    <div class="rankItem">
+                        <div id="topMoney0" class="roleBox rankRole"></div>
                         <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>
-                                    <?php echo $moneyRow[0]["mName"]; ?>
-                                </h3>
-                                <span>
-                                    <?php echo $lvArr[0]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "MJ(魅力)：" . $moneyRow[0]["mMJ"]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "金幣：" . $moneyRow[0]["mCoin"]; ?>
-                                </span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                            <div class="rankTxt0">
+                                <h3></h3>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
                     </div>
-                    <div class="rankItem rank2">
-                        <div id="topMoney02" class="roleBox rankRole"></div>
-                        <script>
-                            topMoney02 = document.getElementById('topMoney02');
-                            ooxxGetRole(topMoney02, {
-                                animal: <?php echo $moneyRow[1]["animal"]; ?>,
-                                color: <?php echo $moneyRow[1]["mColor"]; ?>,
-                                eyes: <?php echo $moneyRow[1]["eye"]; ?>,
-                                hat: <?php 
-                                    if ($moneyRow[1]["wearHat"] == '') {
-                                        $moneyRow[1]["wearHat"] = 0;
-                                    }
-                                    echo $moneyRow[1]["wearHat"]; ?>,
-                                clothes: <?php 
-                                        if ($moneyRow[1]["wearClothes"] == '') {
-                                            $moneyRow[1]["wearClothes"] = 0;
-                                        }
-                                        echo $moneyRow[1]["wearClothes"]; ?>,
-                            });
-                        </script>
+                    <div class="rankItem">
+                        <div id="topMoney1" class="roleBox rankRole"></div>
+
                         <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>
-                                    <?php echo $moneyRow[1]["mName"]; ?>
-                                </h3>
-                                <span>
-                                    <?php echo $lvArr[1]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "MJ(魅力)：" . $moneyRow[1]["mMJ"]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "金幣：" . $moneyRow[1]["mCoin"]; ?>
-                                </span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                            <div class="rankTxt1">
+                                <h3></h3>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
                     </div>
-                    <div class="rankItem rank2">
-                        <div id="topMoney03" class="roleBox rankRole"></div>
-                        <script>
-                            topMoney03 = document.getElementById('topMoney03');
-                            ooxxGetRole(topMoney03, {
-                                animal: <?php echo $moneyRow[2]["animal"]; ?>,
-                                color: <?php echo "'" . $moneyRow[2]["mColor"] . "'"; ?>,
-                                eyes: <?php echo $moneyRow[2]["eye"]; ?>,
-                                hat: <?php 
-                                    if ($moneyRow[2]["wearHat"] == '') {
-                                        $moneyRow[2]["wearHat"] = 0;
-                                    }
-                                    echo $moneyRow[2]["wearHat"]; ?>,
-                                clothes: <?php 
-                                        if ($moneyRow[2]["wearClothes"] == '') {
-                                            $moneyRow[2]["wearClothes"] = 0;
-                                        }
-                                        echo $moneyRow[2]["wearClothes"]; ?>,
-                            });
-                        </script>
+                    <div class="rankItem">
+                        <div id="topMoney2" class="roleBox rankRole"></div>
                         <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>
-                                    <?php echo $moneyRow[2]["mName"]; ?>
-                                </h3>
-                                <span>
-                                    <?php echo $lvArr[2]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "MJ(魅力)：" . $moneyRow[2]["mMJ"]; ?>
-                                </span><br>
-                                <span>
-                                    <?php echo "金幣：" . $moneyRow[2]["mCoin"]; ?>
-                                </span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                            <div class="rankTxt2">
+                                <h3></h3>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <span></span><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
@@ -482,7 +398,7 @@ try {
             </div>
             <div class="tabPanel" id="tab-3">
                 <div class="rankContent">
-                    <div class="rankItem rank2">
+                    <div class="rankItem">
                         <div id="topMJ01" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 1;
@@ -501,12 +417,12 @@ try {
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
                     </div>
-                    <div class="rankItem rank2">
+                    <div class="rankItem">
                         <div id="topMJ02" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 1;
@@ -525,13 +441,13 @@ try {
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
 
                     </div>
-                    <div class="rankItem rank2">
+                    <div class="rankItem">
                         <div id="topMJ03" class="roleBox rankRole"></div>
                         <script>
                             var ddd = 1;
@@ -550,7 +466,7 @@ try {
                                 <span>魅力值：300</span><br>
                                 <span>金幣：1400</span><br>
                                 <span>好友數：207</span><br>
-                                <button class="rankBtn">查看個人頁面</button><br>
+                                <button class="rankBtn showInfo">查看個人頁面</button><br>
                                 <button class="rankBtn">加為朋友</button>
                             </div>
                         </div>
@@ -559,18 +475,77 @@ try {
             </div>
         </div>
     </div>
+    <div class="searchWrap2">
+        <div id="searData">
+            <div class="searchClose"></div>
+            <div class="sRole">
+                <div id="topMoney05" class="roleBox sRoleBox"></div>
+            </div>
+
+            <div class="profileInfo serPro">
+                <table>
+                    <tr>
+                        <th>
+                            ID:
+                        </th>
+                        <td>
+                            <span id="sMemId"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            魅力等級
+                        </th>
+                        <td>
+                            <span id="sLv"></span>
+                            <span id="sMJ"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            暱稱：
+                        </th>
+                        <td>
+                            <span id="sName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            興趣:
+                        </th>
+                        <td>
+                            <div id="hobby"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            星座：
+                        </th>
+                        <td>
+                            <span id="sConstellation"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            自我介紹：
+                        </th>
+                        <td>
+                            <?php echo $stadRow["self-intro"]; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button id="btn_beFriend">加為朋友</button>
+                        </td>
+                </table>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         foot_html();
     </script>
     <script src="js/match2.js"></script>
-    <script>
-        loginphoto = document.getElementById('loginphoto');
-        ooxxGetHead(loginphoto, {
-            animal: <?php echo $stadRow["animal"]; ?>,
-            color: '<?php echo $stadRow["mColor"]; ?>',
-            eyes: <?php echo $stadRow["eye"]; ?>,
-        })
-    </script>
+    
 
 </body>
 

@@ -1072,6 +1072,7 @@ window.addEventListener('load', function () {
 
 
 ooxxGetRole = (roleId, roleData) => {
+	console.log('sss');
 	// 載入角色
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
@@ -1106,7 +1107,7 @@ ooxxGetRole = (roleId, roleData) => {
 	scaleY = 1;
 
 	eyesAnimate = (...eyesArray) => {
-
+		
 		eyesGo = () => {
 			eyesArray[0].animate([{
 					transform: 'scaleY(1)'
@@ -1180,6 +1181,7 @@ ooxxGetRole = (roleId, roleData) => {
 				break;
 		}
 	})
+	
 }
 
 ooxxGetHead = (headId, headData) => {
