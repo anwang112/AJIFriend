@@ -95,6 +95,10 @@
   width: 500px;
 }
 
+.pink {
+  color: #f05c79;
+}
+
 .profileInfo {
   color: #333333;
   width: 300px;
@@ -498,21 +502,23 @@
 }
 
 .majiRank .rankContent .rankItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 30%;
   text-align: center;
   background-color: #fff;
   margin: 10px;
   border-radius: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
 }
 
 .majiRank .rankContent .rankItem img {
   width: 50%;
   position: relative;
-}
-
-.majiRank .rankContent .rankItem .rankProfile {
-  position: relative;
-  top: -70px;
 }
 
 .majiRank .rankContent .rankItem .rankProfile .rankTxt {
@@ -538,10 +544,6 @@
 .majiRank .rankContent .rankItem .rankRole {
   width: 300px;
   z-index: 1;
-}
-
-.majiRank .rankContent .rank1 img {
-  width: 70%;
 }
 
 @-webkit-keyframes horse {
