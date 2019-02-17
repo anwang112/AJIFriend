@@ -85,17 +85,37 @@ profile = {
 getMem(profile);
 //翻牌
 var Y = 0;
+turn = true;
+
 $('.matchNext').click(function () {
-    Y += 360;
-    $('.matchMem').css({
-        'transform': 'rotateY(' + Y + 'deg)',
-    });
-    profile = {
-        con: document.getElementById('con').value,
-        hob: document.getElementById('hob').value
-    };
-    getMem(profile);
+    if (turn == true) {
+        turn = false;
+        setTimeout(() => {
+            Y += 360;
+            $('.matchMem').css({
+                'transform': 'rotateY(' + Y + 'deg)',
+            });
+        }, 0);
+        setTimeout(() => {
+            profile = {
+                con: document.getElementById('con').value,
+                hob: document.getElementById('hob').value
+            };
+            getMem(profile);
+        }, 500);
+
+        setTimeout(() => {
+            delay();
+        }, 1500);
+
+        function delay() {
+            turn = true;
+        }
+
+    }
 });
+
+
 //翻牌結束
 
 
@@ -406,11 +426,11 @@ function getRank(profile) {
                     clothes: rankClothes,
                 });
                 //id
-                infoTxtH3 = document.querySelectorAll('.rankTxt'+ i +' h3');
+                infoTxtH3 = document.querySelectorAll('.rankTxt' + i + ' h3');
                 infoTxtH3[0].innerText = info[i].memId;
 
                 //
-                
+
             }
             console.log(infoTxtH3);
 

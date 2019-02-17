@@ -276,8 +276,8 @@
           transform-style: preserve-3d;
   -webkit-transform-origin: 150px;
           transform-origin: 150px;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
   top: 300px;
   left: 320px;
   z-index: 2;
