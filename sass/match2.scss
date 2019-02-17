@@ -89,9 +89,7 @@
         }
     }
 }
-.pink{
-    color: $darkPink;
-}
+
 .profileInfo {
     color: $black;
     width: 300px;
@@ -99,7 +97,7 @@
     line-height: 2;
     text-align: center;
     padding: 20px;
-    
+
     &.proAb {
         position: absolute;
         top: 10%;
@@ -422,13 +420,11 @@
         }
 
         .rankItem {
-            display: flex;
             width: 30%;
             text-align: center;
             background-color: #fff;
             margin: 10px;
             border-radius: 20px;
-            flex-flow: column;
 
             img {
                 width: 50%;
@@ -436,7 +432,10 @@
             }
 
             .rankProfile {
-          
+                position: relative;
+                top: -70px;
+             
+
                 .rankTxt {
                     @include LRcenter(relative);
                     margin: 10px;
@@ -461,6 +460,11 @@
                 z-index: 1;
             }
         }
+
+        .rank1 {
+            img {
+                width: 70%;
+            }
         }
     }
 
@@ -480,7 +484,7 @@
         100% {
             top: 50%;
         }
-    
+    }
 }
 
 @media only screen and (max-width: 768px) {
