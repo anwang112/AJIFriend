@@ -618,7 +618,6 @@ body{
         /* border:4px solid coral; */
         /* opacity: 0; */
     }
-
     .bulletin img{
         width: 15%;
         height: 15%;
@@ -661,7 +660,6 @@ body{
         top: 0;        
         border: 5px solid rgba(240,92,121,.7);
         left: 0;
-
     }
     .upload img{
         display: none;
@@ -703,7 +701,7 @@ body{
         background: #aaa;
         box-shadow: 3px 5px 1px #797979;
     }
-    .upload span,#friendBox span,.next span{
+    .upload span,#friendBox span,.next span,#sharePhoto{
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
@@ -712,6 +710,9 @@ body{
         box-shadow: 3px 5px 1px rgba(200,78,106,1);
         border-radius: 10px;
         margin-bottom: 20px;
+    }
+    #sharePhoto{
+        display: none;
     }
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
