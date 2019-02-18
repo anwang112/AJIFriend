@@ -429,31 +429,11 @@
             margin: 10px;
             border-radius: 20px;
             flex-flow: column;
+            padding-bottom: 80px;
 
             img {
                 width: 50%;
                 position: relative;
-            }
-
-            .rankProfile {
-          
-                .rankTxt {
-                    @include LRcenter(relative);
-                    margin: 10px;
-                    font-size: 18px;
-                    line-height: 1.8;
-                    color: rgb(116, 106, 89);
-                    top: 10%;
-
-                    h3 {
-                        font-size: 30px;
-                    }
-                }
-            }
-
-            .rank1pro {
-                top: -30px;
-
             }
 
             .rankRole {
@@ -461,6 +441,21 @@
                 z-index: 1;
             }
         }
+        }
+    }
+    .rankTxtCs {
+        @include LRcenter(relative);
+        margin: 10px;
+        font-size: 18px;
+        line-height: 1.8;
+        color: rgb(116, 106, 89);
+        top: 10%;
+        border-radius: 10%;
+        padding: 10px;
+        background-color: rgba(251, 197, 207,.5);
+
+        h3 {
+            font-size: 30px;
         }
     }
 

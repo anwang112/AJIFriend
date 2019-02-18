@@ -514,6 +514,7 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  padding-bottom: 80px;
 }
 
 .majiRank .rankContent .rankItem img {
@@ -521,7 +522,12 @@
   position: relative;
 }
 
-.majiRank .rankContent .rankItem .rankProfile .rankTxt {
+.majiRank .rankContent .rankItem .rankRole {
+  width: 300px;
+  z-index: 1;
+}
+
+.rankTxtCs {
   position: relative;
   right: 0;
   left: 0;
@@ -531,19 +537,13 @@
   line-height: 1.8;
   color: #746a59;
   top: 10%;
+  border-radius: 10%;
+  padding: 10px;
+  background-color: rgba(251, 197, 207, 0.5);
 }
 
-.majiRank .rankContent .rankItem .rankProfile .rankTxt h3 {
+.rankTxtCs h3 {
   font-size: 30px;
-}
-
-.majiRank .rankContent .rankItem .rank1pro {
-  top: -30px;
-}
-
-.majiRank .rankContent .rankItem .rankRole {
-  width: 300px;
-  z-index: 1;
 }
 
 @-webkit-keyframes horse {
