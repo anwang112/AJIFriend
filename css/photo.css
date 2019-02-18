@@ -65,12 +65,6 @@ body{
     100%{left: 100%;}
 }
 
-/* @media screen and (max-width: 1200px){} */
-    /* a:hover{    
-        color:rgba(240,92,121,1);  
-    } */
-
-
   .trophy{
         display: flex;
         align-items: center;
@@ -93,8 +87,6 @@ body{
       z-index: 3;
       text-align: center;
       text-shadow: 1px 2px#aaa;
-      
-
   }
   .trophy img{
     width: 100%;
@@ -109,65 +101,87 @@ body{
   }
 
 /* 燈箱 */
-
+#LBbg,#cardLBbg{
+    background-color: rgba(0%,0%,0%,0.5);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
   #LB,#cardLB{
     width: 400px;
     height: 550px;
     margin: auto;
-    color: rgba(102,102,102,1);
+    color: rgb(253, 196, 196);
     /* border: 10px solid #fcc6d0; */
-    background-color: #ffffff;
-    border-radius: 10px;
+    background-color: #E5E2DD;
+    border-radius: 12px;
     opacity: 1;
-    box-shadow: 5px 10px 5px #aaa;
-    position: absolute;
+    /* box-shadow: 5px 1px 5px #eee; */
+    position: fixed;
     z-index: 999;
     left: 35%;
     top: 20%;
 }
-#LB .winnerPhoto img, #cardLB .cardPhoto img{
+/* #LB .winnerPhoto img{
     width:80%;
     padding: 2%;
     margin: auto;
     border-radius: 10px;
     vertical-align:middle;
 
+} */
+#LB .topPhoto ,#cardLB .cardPhoto{
+    width: 94%;
+    padding: 3%;
 }
 #LB .member ,#cardLB .member{
-    width: 18%;
-    margin-left: 4%;
+    width: 15%;
+    margin-left: 8%;
 }
 #LB .heart,.card .heart ,#cardLB .heart{
     width: 12%;
     margin-top: 1%;
   }
 #LB a , #cardLB a{
-    margin-right: 15%;
+    margin-left: 20px;
+    margin-right: 40px;
+    font-size: .8rem;
     cursor: pointer;
     color: rgba(102,102,102,1);
   }
 #LB a:hover, #cardLB a:hover {
     color:rgba(240,92,121,1);  
   }
+#cardLB span{
+    margin-left: 20px;
+    font-size: 0.8rem;
+}
 
 #LB p, #cardLB p{
     margin-left: 10%;
     margin-top: 5%;
 }
 #close {
-        width: 10%;
-        position: absolute;
-        right: 3%;
-        top: 1%;
-        cursor: pointer;
-        font-size: 1.3rem;
-        color:rgba(240,92,121,1);
-}
-#del{
-    width: 10%;
+    background-color: rgba(162,152,143,1);
+    box-shadow: 0px 5px rgba(68,68,64,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    left: 3%;
-    top: 1%;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+}
+
+#del{
+    width: 3vh;
+    position: absolute;
+    right: 3%;
+    top: 70%;
     cursor: pointer;
     font-size: 1.3rem;
     color:rgba(240,92,121,1);
@@ -187,6 +201,9 @@ body{
     cursor: pointer;
 } */
 
+
+
+
 .col3{
     display: flex;
     flex-direction: row;
@@ -194,7 +211,7 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
-  .top {
+  .top1, .top2 ,.top3 {
     cursor: pointer;
     margin: 3%;
     width: 240px;
@@ -205,11 +222,13 @@ body{
     /* float: left; */
     position: relative;
 }
-  .top span{
+  .top span,.tops span{
     font-size: .8rem;
+    margin-left: 10px;
+
 
   }
-  .top img{
+  .top1 img,.top2 img,.top3 img{
     width:94%;
     padding: 3%;
     margin: 0 auto;
@@ -231,12 +250,14 @@ body{
     width: 18%;
     margin-left: 4%;
   }
-  .top .heart,.card .heart{
+  .top .topheart,.card .heart{
     width: 12%;
     margin-top: 1%;
   }
   .top a,.card a{
-    margin-right: 10%;
+    margin-left: 5px;
+    margin-right: 20px;
+
     font-size: .8rem;
     width: 40px;
     display: inline-block;
@@ -394,6 +415,15 @@ body{
         font-size: .8rem;
         border-radius: 8px;
     }
+    .card .bigHeart{
+        display: none;
+        opacity: 0.9;
+    }
+    .card .bigHeart{
+        width: 100%;
+        position: absolute;
+        left: 0;top: 10px;
+    }
     .card .voteHeart{
         display: none;
         width: 200px;
@@ -443,7 +473,7 @@ body{
     /* max-width: 1200px; */
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 10;
     margin: auto;
     display: none;
     padding-top: 40px;
@@ -726,6 +756,7 @@ body{
     .card img{
         width: 100%;
     }
+
     .top img{
         width: 100%;
         margin-left: 8px;    
@@ -736,7 +767,7 @@ body{
         position: relative;
         z-index: 3;
     }
-    .top .heart,.card .heart{
+    .top .topheart,.card .heart{
         width: 20%;
         margin-top: 1%;
         z-index: 3;
@@ -761,8 +792,6 @@ body{
         background-position: 50% 100%;
         background-attachment: fixed;
         background-size: 100%;
-
-        
     }
     .postArea{
         padding-top: 20%;
@@ -809,7 +838,35 @@ body{
         left: 7.7%;
         top: 22.3%;
     }
-
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: fixed;
+        top: 28%;
+        left: 25%;
+        /* width: 85vw; */
+        /* height: 82vh; */
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+    }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+    }
+    #close{
+        position: absolute;
+        right: 2vw;
+        top: 2vh;
+    }
+    
 }
 
 /* phone RWD */
@@ -834,15 +891,18 @@ body{
     .wrap .trophy{
         width: 55%;
         margin-left: 17%;
+        margin-bottom: 20px;
     }
     .wrap .trophy h2{
-        width: 140px;
+        width: 150px;
         padding: 4px;
+        margin-left: 5px;
+        font-size: 1.2rem;
     }
-    .top {
-        margin-top: 20px;
+    .col3 .top {
+        width: 60%;
     }
-    .top .topbg{
+    .col3 .top .topbg{
         width: 280px;
         position: absolute;
         left: -6%;
@@ -865,7 +925,7 @@ body{
         width: 22%;
         margin-left: 4%;
     }
-    .top .heart,.card .heart{
+    .top .topheart,.card .heart{
         width: 20%;
         margin-top: 1%;
     }
@@ -903,19 +963,27 @@ body{
     .postArea{
         padding-top: 10%;
     }
+    .topic{
+        padding-bottom: 20vh;
+    }
+    .content .aji, .content .ajiY{
+        display: none;
+    }
     #myPhoto{
         width: 70px;
         position: absolute;
+        left: 20vw;
+        margin-top:30vh;
     }
     #myPhoto img{
         width: 70px;
        
     }
     #myPhoto h3{
-        font-size: 16px;
+        font-size: 14px;
         position: absolute;
-        right: 10%;
-        top: 34%;
+        right: -16%;
+        top: 91%;
     }
     .mkPhoto{
         padding-top: 50px;
@@ -944,6 +1012,49 @@ body{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
+    }
+
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: absolute;
+        top: 25%;
+        left: 13%;
+        width: 75vw;
+        height: 55vh;
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+      }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB a, #cardLB a{
+        margin-right: 25px;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+        color: rgba(102,102,102,1);
+    }
+    #LB p, #cardLB p{
+        color: rgba(102,102,102,1);
+    }
+    #close{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        right: 2vw;
+        top: 1vh;
+    }
+    #del{
+        position: absolute;
+        top: 40.5vh;
+
     }
 
 }  

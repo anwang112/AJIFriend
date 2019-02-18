@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
     <script src="js/drawing.js"></script>
     <script src="js/friendBox.js"></script>
-    <script src="js/lightbox.js"></script>
+    <script src="js/photolightbox.js"></script>
     <script src="js/vote.js"></script>
 </head>
 <body>
@@ -45,7 +45,7 @@
                     </div>
                     <img class="member" src="images/member4-20.png" alt="doggy">
                     <a href="#">AJI</a>
-                    <img class="heart" src="images/fullheart-16.png" alt="heart">
+                    <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span>105 </span>
                 </div>
                 <div class="top top2">
@@ -55,7 +55,7 @@
                     </div>
                     <img class="member" src="images/member2-18.png" alt="bunny">
                     <a href="#">Bunny</a>
-                    <img class="heart" src="images/fullheart-16.png" alt="heart">
+                    <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span>96 </span>
                 </div>
                 <div class="top top3">
@@ -65,7 +65,7 @@
                     </div>
                     <img class="member" src="images/member3-19.png" alt="dodo">
                     <a href="#">Dodo</a>
-                    <img class="heart" src="images/fullheart-16.png" alt="heart">
+                    <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span>85</span>
                 </div>
                 <!-- <div class="clear"></div> -->
@@ -223,7 +223,10 @@
                 <img class="member" src="images/member4-20.png" alt="doggy">
                 <a href="#">AJI</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
+                <span class="voteNum" id="voteNum">105 </span>
+                <div class="bigHeart" id="bigHeart">
+                    <img src="images/heart.svg" alt="bigHeart">
+                </div>
             </div>
             <div class="inform"></div>
             <div class="card" id="photo2">
@@ -232,7 +235,10 @@
                 <img class="member" src="images/member2-18.png" alt="bunny">
                 <a href="#">Bunny</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">96 </span>
+                <span class="voteNum" id="voteNum">96 </span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo3">
                 <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
@@ -240,7 +246,10 @@
                 <img class="member" src="images/member3-19.png" alt="dodo">
                 <a href="#">Dodo</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">85</span>
+                <span class="voteNum" id="voteNum">85</span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo4">
                 <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
@@ -248,7 +257,10 @@
                 <img class="member" src="images/member4-20.png" alt="doggy">
                 <a href="#">AJI</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
+                <span class="voteNum" id="voteNum">105 </span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo5">
                 <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
@@ -256,7 +268,10 @@
                 <img class="member" src="images/member2-18.png" alt="bunny">
                 <a href="#">Bunny</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">96 </span>
+                <span class="voteNum" id="voteNum">96 </span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo6">
                 <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
@@ -264,7 +279,10 @@
                 <img class="member" src="images/member3-19.png" alt="dodo">
                 <a href="#">Dodo</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">85</span>
+                <span class="voteNum" id="voteNum">85</span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo7">
                 <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
@@ -272,7 +290,10 @@
                 <img class="member" src="images/member4-20.png" alt="doggy">
                 <a href="#">AJI</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
+                <span class="voteNum" id="voteNum">105 </span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo8">
                 <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
@@ -280,7 +301,10 @@
                 <img class="member" src="images/member2-18.png" alt="bunny">
                 <a href="#">Bunny</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">96 </span>
+                <span class="voteNum" id="voteNum">96 </span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="card" id="photo9">
                 <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
@@ -288,7 +312,10 @@
                 <img class="member" src="images/member3-19.png" alt="dodo">
                 <a href="#">Dodo</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">85</span>
+                <span class="voteNum" id="voteNum">85</span>
+                <div class="bigHeart" id="bigHeart">
+                        <img src="images/heart.svg" alt="bigHeart">
+                    </div>
             </div>
             <div class="clear"></div>
             
