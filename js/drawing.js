@@ -20,11 +20,11 @@ function nextStep(){
     var step2=document.getElementById("step2");
     var step3=document.getElementById("step3");
     var upBtn=document.getElementById("upBtn");
+    var share=document.getElementById("sharePhoto");
     var chooseBtn=document.getElementById("chooseBtn");
-    var back=document.getElementById("back");
-
     //console.log(step2.style.filter);
-    // 判斷式 
+
+// 判斷式 
 // 1到2
     if (power02==false  && power03==false) {
         console.log(0);
@@ -49,6 +49,9 @@ function nextStep(){
         step2.style.filter="grayscale(100%)";
         step3.style.filter="grayscale(0%)";
         back.style.display="block";
+        chooseBtn.style.display="none";
+        share.style.display="block";
+        next.style.display="none";
         power02=false;
         power03=true;
     }
@@ -60,7 +63,12 @@ function backStep(){
     var step3=document.getElementById("step3");
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
-    var back=document.getElementById("back");
+    var share=document.getElementById("sharePhoto");
+    
+
+
+
+// 壞掉了～～～～～～～～～～～～
 // 2變1
     if(power02==true  && power03==false){
         console.log(2);
@@ -71,6 +79,9 @@ function backStep(){
         chooseBtn.style.display="none";
         back.style.display="none";
     }
+
+
+
 // 3變2
     else if(power02==false && power03==true ){
         console.log(3);
@@ -118,6 +129,7 @@ function init(){
     power01=true;
     power02=false;
     power03=false;
+    
 
 
 }	
