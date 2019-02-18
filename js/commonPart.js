@@ -648,16 +648,7 @@ function msgDB(){ //聊天歷史訊息
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
 	
 }
-
-
-
-
-
 window.addEventListener('load', function () {
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/ga
 	//聊天室操控
 	var chatRoom_control = document.getElementById('chatRoom_control');
 	var chatroom_btn_open = document.getElementById('chatroom_btn_open');
