@@ -1,5 +1,54 @@
 @import 'var';
 
+.searchWrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    transition: .5s;
+    @include LRcenter(fixed);
+    display: none;
+    z-index: 20;
+}
+
+#searData {
+    width: 60%;
+    height: 450px;
+    margin: auto;
+    background-color: #a2988f;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+    top: 15%;
+    z-index: 21;
+    .searchClose{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        background-image: url(../images/XX.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+
+    .sRole {
+        padding-top: 30px;
+        width: 40%;
+        background-image: url(../images/searbg.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 105%;
+       
+
+        #topMoney05 {
+            width: 100%;
+        }
+    }
+
+}
+
 .wrap {
     padding-top: 200px;
     margin: auto;
@@ -31,12 +80,45 @@
         animation: heartsFadeout 4s linear infinite forwards;
     }
 }
+.pink{
+    color: $darkPink;
+}
+.profileInfo {
+    color: $black;
+    width: 300px;
+    border-radius: 30px;
+    line-height: 2;
+    text-align: center;
+    padding: 20px;
+    
+    &.proAb {
+        position: absolute;
+        top: 10%;
+        right: -210px;
+        background-color: #EEF2EF;
+        border: 10px solid #FBC5CF;
+        table{
+            width: 100%;
+        }
+        th {
+            font-size: 18px;
+            display: block;
+            text-align: center;
+            background-color: #FBC5CF;
+            border-radius: 5px;
+            margin: 5px;
+            color: #EB616D;
+            width: 90px;
+            padding: 0 5px;
+        }
+
 
 .matchContent {
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
+    top: -35px;
 
     margin-top: -100px;
 
@@ -135,7 +217,7 @@
 
         }
 
-        input {
+        button {
             margin: 5px;
             @include btn_standard (100px, $darkPink, $shadowPink);
         }
@@ -235,26 +317,19 @@
     }
 }
 
-.rankContent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    
-    .rankBtn {
-        height: 30px;
-        margin: 5px;
-        line-height: 0;
-        @include btn_standard (100px, $darkPink, $shadowPink);
+    .tabPanel {
+        display: none;
     }
 
     .rankItem {
         width: 30%;
         text-align: center;
 
-        img {
-            width: 50%;
-            position: relative;
+        .rankBtn {
+            height: 30px;
+            margin: 5px;
+            line-height: 0;
+            @include btn_standard (100px, $darkPink, $shadowPink);
         }
 
         .rankProfile {
@@ -271,22 +346,31 @@
             line-height: 1.5;
             color: rgb(116, 106, 89);
             }
+
+            .rank1pro {
+                top: -30px;
+
+            }
+
+            .rankRole {
+                width: 300px;
+                z-index: 1;
+            }
         }
+        }
+    }
 
         .rank1pro {
             top: -30px;
             left: -10px;
         }
 
-        .rankRole {
-            width: 300px;
-            z-index: 1;
+        75% {
+            top: 45%;
         }
-    }
 
-    .rank1 {
-        img {
-            width: 70%;
+        100% {
+            top: 50%;
         }
     }
 }
