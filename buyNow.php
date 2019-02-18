@@ -12,18 +12,18 @@
             $order ->execute();
         }
 
-        echo "sucess order";
+        // echo "sucess order";
 
         //清除session
-        unset($_SESSION["proNo"][$no]);
-        unset($_SESSION["proName"][$no]);
-        unset($_SESSION["price"][$no]);
-        unset($_SESSION["img"][$no]);
+        unset($_SESSION["proNo"]);
+        unset($_SESSION["proName"]);
+        unset($_SESSION["price"]);
+        unset($_SESSION["img"]);
 
 
     }catch(PDOException $e){
         // echo $e->getMessage();
     }
-
-    // header("Location:BearMJ_addcart.php");
+    
+    header("Location:BearMJ_shop_addcart.php");
 ?>
