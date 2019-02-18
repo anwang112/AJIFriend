@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
+    <script src="js/commonPart.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,15 @@
             </ul>
             <div class="loginBox">
                 <div class="loginImg">
-                    <img src="images/loginPhoto.svg">
+                        <div class="headBox" id="loginphoto"></div>
+                        <script>
+                            loginphoto = document.getElementById('loginphoto');
+                            ooxxGetHead(loginphoto, {
+                                animal:  <?php  echo  $stadRow["animal"];?>,
+                                color: '<?php  echo $stadRow["mColor"];?>',
+                                eyes: <?php  echo  $stadRow["eye"];?>,
+                            })
+                        </script>
                 </div>
                 <div class="loginTxtWrap">
                     <div class="loginNot">

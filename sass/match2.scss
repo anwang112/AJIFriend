@@ -1,5 +1,54 @@
 @import 'var';
 
+.searchWrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    transition: .5s;
+    @include LRcenter(fixed);
+    display: none;
+    z-index: 20;
+}
+
+#searData {
+    width: 60%;
+    height: 450px;
+    margin: auto;
+    background-color: #a2988f;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+    top: 15%;
+    z-index: 21;
+    .searchClose{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        background-image: url(../images/XX.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+
+    .sRole {
+        padding-top: 30px;
+        width: 40%;
+        background-image: url(../images/searbg.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 105%;
+       
+
+        #topMoney05 {
+            width: 100%;
+        }
+    }
+
+}
+
 .wrap {
     padding-top: 200px;
     margin: auto;
@@ -11,7 +60,6 @@
     background-position: center center;
     background-repeat: no-repeat;
 
-    
     .searchMaji {
         text-align: center;
         position: relative;
@@ -41,13 +89,103 @@
         }
     }
 }
+.pink{
+    color: $darkPink;
+}
+.profileInfo {
+    color: $black;
+    width: 300px;
+    border-radius: 30px;
+    line-height: 2;
+    text-align: center;
+    padding: 20px;
+    
+    &.proAb {
+        position: absolute;
+        top: 10%;
+        right: -210px;
+        background-color: #EEF2EF;
+        border: 10px solid #FBC5CF;
+        table{
+            width: 100%;
+        }
+        th {
+            font-size: 18px;
+            display: block;
+            text-align: center;
+            background-color: #FBC5CF;
+            border-radius: 5px;
+            margin: 5px;
+            color: #EB616D;
+            width: 90px;
+            padding: 0 5px;
+        }
 
+
+        td {
+            text-align: left;
+        }
+
+        .btnCol {
+            text-align: center;
+        }
+    }
+
+    &.serPro {
+        border: 3px solid #a2988f;
+            width: 50%;
+            line-height: 2;
+        
+
+        th{
+            display: block;
+            text-align: center;
+            background-color: #ecded9;
+            color: #a2988f;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 0 5px;
+            width: 100px;
+        }
+        #sMJ{
+            text-align: center;
+            background-color: #ecded9;
+            color: #a2988f;
+            border-radius: 5px;
+            padding: 5px;
+            width: 100px;
+        }
+
+        
+        
+
+        td {
+            text-align: left;
+        }
+    }
+
+    button {
+        margin: 10px;
+        @include btn_standard (100px, $darkPink, $shadowPink);
+    }
+
+
+
+    .matchMJ {
+        font-size: 5vmin;
+    }
+
+    .colorG {
+        color: $darkPink;
+    }
+}
 
 .matchContent {
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
+    top: -35px;
 
     .carousel {
         min-width: 960px;
@@ -101,11 +239,11 @@
 
         .matchMem {
             width: 300px;
-            position: relative;
+            position: absolute;
             transform-style: preserve-3d;
             transform-origin: 150px;
-            transition: 1s;
-            top: -410px;
+            transition: 1.5s;
+            top: 300px;
             left: 320px;
             z-index: 2;
 
@@ -148,35 +286,10 @@
         }
     }
 
-    .profileInfo {
-        color: #F05B79;
-        position: absolute;
-        top: 20%;
-        right: -210px;
-        width: 230px;
-        background-color: #EEF2EF;
-        border: 10px solid #FBC5CF;
-        border-radius: 30px;
-        line-height: 2;
-        text-align: center;
-        padding: 20px;
-
-        .matchMJ {
-            font-size: 5vmin;
-        }
-
-        .colorG {
-            color: $black;
-        }
-
-        button {
-            @include btn_standard (100px, $darkPink, $shadowPink);
-        }
-    }
 
     .selectBtn {
         position: absolute;
-        top: 45%;
+        top: 60%;
         left: -80px;
         display: flex;
         flex-flow: column;
@@ -195,7 +308,7 @@
 
         }
 
-        input {
+        button {
             margin: 5px;
             @include btn_standard (100px, $darkPink, $shadowPink);
         }
@@ -208,11 +321,11 @@
     box-shadow: 2px 2px 5px #ccc;
     border-radius: 20px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30%;
     padding: 20px;
 
     .rankTitle {
-        @include LRcenter;
+        @include LRcenter(relative);
         top: -120px;
         width: 100%;
         height: 150px;
@@ -264,153 +377,179 @@
                     font-size: 15px;
                 }
             }
+
             .moneyBtn {
                 &::before {
                     content: '- 金幣最多';
                 }
             }
-        
+
             .mjTopBtn {
                 &::before {
                     content: '- MJ值最高';
-        }
-    }
-}
-.active a {
-    background-color: #F3B9B4;
-    color: #EEF2EF;
-    text-shadow: #EB616D 1px 1px 1px;
-}
-
-
-}
-
-.tabPanel.active {
-    display: block;
-}
-
-.tabPanel {
-    display: none;
-}
-
-.rankContent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    
-    .rankBtn {
-        height: 30px;
-        margin: 5px;
-        line-height: 0;
-        @include btn_standard (100px, $darkPink, $shadowPink);
-    }
-
-    .rankItem {
-        width: 30%;
-        text-align: center;
-        background-color: #fff;
-        margin: 10px;
-        padding-top: 50px;
-        border-radius: 20px;
-
-        img {
-            width: 50%;
-            position: relative;
-        }
-
-        .rankProfile {
-            position: relative;
-            top: -40px;
-            background-image: url(../images/rank1stage.svg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-
-            .rankTxt {
-                padding: 70px 55px 30px 0px;
-                font-size: 18px;
-                line-height: 1.8;
-                color: rgb(116, 106, 89);
-
-                h3 {
-                    font-size: 30px;
                 }
             }
         }
 
-        .rank1pro {
-            top: -30px;
-
+        .active a {
+            background-color: #F3B9B4;
+            color: #EEF2EF;
+            text-shadow: #EB616D 1px 1px 1px;
         }
 
-        .rankRole {
-            width: 300px;
-            z-index: 1;
-        }
+
     }
 
-    .rank1 {
-        img {
-            width: 70%;
-        }
-    }
-}
-
-@keyframes horse {
-    0% {
-        top: 50%;
+    .tabPanel.active {
+        display: block;
     }
 
-    25% {
-        top: 55%;
+    .tabPanel {
+        display: none;
     }
 
-    75% {
-        top: 45%;
-    }
-
-    100% {
-        top: 50%;
-    }
-}
-}
-
-@media only screen and (max-width: 768px){
-    .wrap{
-        
-    .searchMaji {
-        top: -100px;
+    .rankContent {
         width: 100%;
-        input {
-            height: 50px;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+
+        .rankBtn {
+            height: 30px;
+            margin: 5px;
+            line-height: 0;
+            @include btn_standard (100px, $darkPink, $shadowPink);
         }
-        .search {
-            width: 20%;
+
+        .rankItem {
+            display: flex;
+            width: 30%;
+            text-align: center;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 20px;
+            flex-flow: column;
+            padding-bottom: 80px;
+
+            img {
+                width: 50%;
+                position: relative;
+            }
+
+            .rankRole {
+                width: 300px;
+                z-index: 1;
+            }
         }
-        .searchTxt {
-            height: 50px;
-            width: 70%;
         }
     }
-    .matchContent{
-    .profileInfo{
-        top: -70px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 500px;
-        font-size: 20px;
-    }
-    .selectBtn{
-        left: 32%;
-        top: -8%;
-        flex-flow: row;
-        select{
-            height: 45px;
+    .rankTxtCs {
+        @include LRcenter(relative);
+        margin: 10px;
+        font-size: 18px;
+        line-height: 1.8;
+        color: rgb(116, 106, 89);
+        top: 10%;
+        border-radius: 10%;
+        padding: 10px;
+        background-color: rgba(251, 197, 207,.5);
+
+        h3 {
+            font-size: 30px;
         }
     }
 
+    @keyframes horse {
+        0% {
+            top: 50%;
+        }
+
+        25% {
+            top: 55%;
+        }
+
+        75% {
+            top: 45%;
+        }
+
+        100% {
+            top: 50%;
+        }
+    
 }
-} 
+
+@media only screen and (max-width: 768px) {
+    .wrap {
+
+        .searchMaji {
+            top: -100px;
+            width: 100%;
+
+            input {
+                height: 50px;
+            }
+
+            .search {
+                width: 20%;
+            }
+
+            .searchTxt {
+                height: 50px;
+                width: 70%;
+            }
+        }
+
+        .matchContent {
+            .profileInfo {
+                width: 300px;
+                top: 100vh;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                font-size: 20px;
+            }
+
+            .selectBtn {
+                left: 32%;
+                top: -12%;
+                flex-flow: row;
+
+                select {
+                    height: 45px;
+                    width: 110px;
+                }
+            }
+
+        }
+    }
+
+    .searchWrap {
+        #searData {
+            flex-flow: column;
+            align-items: center;
+            top: 1%;
+
+            .sRole {
+                width: 100%;
+            }
+
+            .profileInfo {
+                width: 100%;
+                border: none;
+                padding: 0;
+
+                table {
+                    font-size: 18px;
+                }
+
+                th {
+                    width: 100%;
+                    margin: 5px 0;
+                }
+                td{
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
 }

@@ -183,6 +183,18 @@ function foot_html() {
 
 	document.write(str_tag2);
 }
+function loginPhoto(){
+	var photo = `
+	<script>
+	loginphoto = document.getElementById('loginphoto');
+	ooxxGetHead(loginphoto, {
+		animal:  <?php  echo  $stadRow["animal"];?>,
+		color: '<?php  echo $stadRow["mColor"];?>',
+		eyes: <?php  echo  $stadRow["eye"];?>,
+	})
+	</script>`;
+	document.write(photo);
+}
 
 //login Ajax
 function sendForm(){
@@ -636,13 +648,7 @@ function msgDB(){ //聊天歷史訊息
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
 	
 }
-
-
-
-
-
 window.addEventListener('load', function () {
-
 	//聊天室操控
 	var chatRoom_control = document.getElementById('chatRoom_control');
 	var chatroom_btn_open = document.getElementById('chatroom_btn_open');
@@ -1230,8 +1236,9 @@ window.addEventListener('load', function () {
 
 
 ooxxGetRole = (roleId, roleData) => {
-    // 載入角色
-    roleId.innerHTML = `<div class="role">
+	console.log('sss');
+	// 載入角色
+	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
                         <div class="roleEyes">
@@ -1240,110 +1247,119 @@ ooxxGetRole = (roleId, roleData) => {
                         <div class="roleHat"></div>
                         <div class="roleClothes"></div>`;
 
-    //填入顏色
-    roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
-        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
-        for (let i = 0; i < fillColor.length; i++) {
-            fillColor[i].style.fill = `#${roleData.color}`;
-        }
-    })
+	//填入顏色
+	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+		for (let i = 0; i < fillColor.length; i++) {
+			fillColor[i].style.fill = `#${roleData.color}`;
+		}
+	})
 
-    // 眼睛 帽帽 衣服喔 
-    // roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
-    if (roleData.hat) {
-        roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
-    }
-    if (roleData.clothes) {
-        roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
-    }
+	// 眼睛 帽帽 衣服喔 
+	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
+	if (roleData.hat) {
+		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+	}
+	if (roleData.clothes) {
+		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+	}
 
 	//眼睛動起來
-	function getRandom(min,max){
-        return Math.floor(Math.random()*(max-min+1))+min;
-    };
-    scaleY = 1;
+	function getRandom(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+	scaleY = 1;
 
-    eyesAnimate = (...eyesArray) => {
+	eyesAnimate = (...eyesArray) => {
+		
+		eyesGo = () => {
+			eyesArray[0].animate([{
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
+			], {
+				duration: 500,
+				endDelay: 1000,
+			});
 
-        eyesGo = () => {
-            eyesArray[0].animate([
-                { transform: 'scaleY(1)' },
-                { transform: 'scaleY(0.01)' },
-                { transform: 'scaleY(1)' }
-            ], {
-                    duration: 500,
-                    endDelay: 1000,
-                });
+			eyesArray[1].animate([{
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
+			], {
+				duration: 500,
+				endDelay: 1000,
+			});
+		}
+		setInterval(eyesGo, getRandom(2000, 3500));
+	}
 
-            eyesArray[1].animate([
-                { transform: 'scaleY(1)' },
-                { transform: 'scaleY(0.01)' },
-                { transform: 'scaleY(1)' }
-            ], {
-                    duration: 500,
-                    endDelay: 1000,
-                });
-        }
-        setInterval(eyesGo, getRandom(2000,3500));
-    }
+	roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
+		switch (roleData.eyes) {
+			case 1:
+				eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes1[0].style.transformOrigin = `center 52%`;
+				eyes1[1].style.transformOrigin = `center 52%`;
 
-    roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
-        switch (roleData.eyes) {
-            case 1:
-                eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes1[0].style.transformOrigin = `center 52%`;
-                eyes1[1].style.transformOrigin = `center 52%`;
-
-                eyesAnimate(eyes1[0], eyes1[1]);
-                break;
-            case 2:
-                eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
-                eyes2[1].style.transformOrigin = `center 52%`;
-                eyes2[2].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes2[1], eyes2[2]);
-                break;
-            case 3:
-                eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
-                eyes3[1].style.transformOrigin = `center 52%`;
-                eyes3[2].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes3[1], eyes3[2]);
-                break;
-            case 4:
-                eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes4[1].style.transformOrigin = `center 52%`;
-                eyes4[3].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes4[1], eyes4[3]);
-                break;
-            case 5:
-                eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
-                eyes5[0].style.transformOrigin = `center 52%`;
-                eyes5[1].style.transformOrigin = `center 52%`;
-                eyesAnimate(eyes5[0], eyes5[1]);
-                break;
-            case 6:
-                eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
-                eyes6[1].style.transformOrigin = `center 51%`;
-                eyes6[4].style.transformOrigin = `center 51%`;
-                eyesAnimate(eyes6[1], eyes6[4]);
-                break;
-        }
-    })
+				eyesAnimate(eyes1[0], eyes1[1]);
+				break;
+			case 2:
+				eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+				eyes2[1].style.transformOrigin = `center 52%`;
+				eyes2[2].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes2[1], eyes2[2]);
+				break;
+			case 3:
+				eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+				eyes3[1].style.transformOrigin = `center 52%`;
+				eyes3[2].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes3[1], eyes3[2]);
+				break;
+			case 4:
+				eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes4[1].style.transformOrigin = `center 52%`;
+				eyes4[3].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes4[1], eyes4[3]);
+				break;
+			case 5:
+				eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+				eyes5[0].style.transformOrigin = `center 52%`;
+				eyes5[1].style.transformOrigin = `center 52%`;
+				eyesAnimate(eyes5[0], eyes5[1]);
+				break;
+			case 6:
+				eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+				eyes6[1].style.transformOrigin = `center 51%`;
+				eyes6[4].style.transformOrigin = `center 51%`;
+				eyesAnimate(eyes6[1], eyes6[4]);
+				break;
+		}
+	})
+	
 }
 
 ooxxGetHead = (headId, headData) => {
-    // 載入頭頭
-    headId.innerHTML = `<div class="roadHead">
+	// 載入頭頭
+	headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
                         <div class="headEyes"></div>`;
 
-    headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
-        let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-        fillColor.style.fill = `#${headData.color}`;
-    })
+	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
+		fillColor.style.fill = `#${headData.color}`;
+	})
 
-    //插入眼睛
-    headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
+	//插入眼睛
+	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
-
-
