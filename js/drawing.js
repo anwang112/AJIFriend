@@ -22,12 +22,13 @@ function nextStep(){
     var upBtn=document.getElementById("upBtn");
     var share=document.getElementById("sharePhoto");
     var chooseBtn=document.getElementById("chooseBtn");
+
     //console.log(step2.style.filter);
 
 // 判斷式 
 // 1到2
-    if (power02==false  && power03==false) {
-        console.log(0);
+    if (next.innerText=="選擇朋友"){
+        console.log(2);
         step1.style.filter="grayscale(100%)";
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
@@ -36,6 +37,8 @@ function nextStep(){
         back.style.display="block";
         power02=true;
         console.log(power02);
+        next.innerText="編輯塗鴉";
+        back.innerText="選擇背景";
     }
     // else if(step2.style.filter = " grayscale(0%)") {
     //     console.log('test');
@@ -43,17 +46,19 @@ function nextStep(){
     //     step3.style.filter="grayscale(0%)";
     // }
 // 2到3
-    else if(power02==true && power03==false){
-        console.log(1);
+    else if(next.innerText=="編輯塗鴉"){
+        console.log(3);
         step1.style.filter="grayscale(100%)";
         step2.style.filter="grayscale(100%)";
         step3.style.filter="grayscale(0%)";
         back.style.display="block";
+        upBtn.style.display="none";
         chooseBtn.style.display="none";
         share.style.display="block";
         next.style.display="none";
         power02=false;
         power03=true;
+        back.innerText="選擇朋友";
     }
     
 }
@@ -64,34 +69,34 @@ function backStep(){
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
-    
-
-
 
 // 壞掉了～～～～～～～～～～～～
 // 2變1
-    if(power02==true  && power03==false){
-        console.log(2);
+    if(back.innerText=="選擇背景"){
+        console.log("back1");
         step1.style.filter="grayscale(0%)";
         step2.style.filter="grayscale(100%)";
         step3.style.filter="grayscale(100%)";
         upBtn.style.display="block";
         chooseBtn.style.display="none";
         back.style.display="none";
+        next.innerText="選擇朋友";
     }
 
-
-
 // 3變2
-    else if(power02==false && power03==true ){
-        console.log(3);
+    else if(back.innerText=="選擇朋友"){
+        console.log("back2");
         // step3.style.filter="grayscale(0%)";
         step1.style.filter="grayscale( 100%)";
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
         back.style.display="block";
-        upBtn.style.display="block";
-        chooseBtn.style.display="none";
+        next.style.display="block";
+        upBtn.style.display="none";
+        chooseBtn.style.display="block";
+        share.style.display="none";
+        next.innerText="編輯塗鴉";
+        back.innerText="選擇背景";
     }
     // else {
     //     console.log(3);
