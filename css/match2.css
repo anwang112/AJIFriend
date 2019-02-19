@@ -3,8 +3,8 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   position: fixed;
   right: 0;
   left: 0;
@@ -72,27 +72,64 @@
   top: -80px;
 }
 
-.wrap .searchMaji input {
-  height: 30px;
-  border-radius: 5px;
+.wrap .searchMaji button {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
   border: none;
-  font-size: 20px;
-  vertical-align: middle;
+  color: #e5e5e5;
+  height: 35px;
+  position: relative;
+  top: -4px;
 }
 
-.wrap .searchMaji .search {
-  line-height: 0;
-  background-color: #FBC5CF;
-  width: 50px;
-  color: #F05B79;
-  border: none;
-  cursor: pointer;
+.wrap .searchMaji button:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
 }
 
 .wrap .searchMaji .searchTxt {
-  height: 32px;
+  height: 38px;
   padding: 0 10px;
   width: 500px;
+  border: none;
+  border-radius: 12px;
+}
+
+.heart {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  top: -30px;
+}
+
+.heart .heartItem {
+  margin: 0 3px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/heartlight.svg);
+}
+
+#drawing_canvas {
+  position: absolute;
+  margin: auto;
+  width: 512px;
+  height: 350px;
+  top: -95px;
+  left: -97px;
 }
 
 .pink {
@@ -112,8 +149,13 @@
   position: absolute;
   top: 10%;
   right: -210px;
-  background-color: #EEF2EF;
-  border: 10px solid #FBC5CF;
+  background-color: #eef2ef;
+  border: 10px solid #fbc5cf;
+}
+
+.profileInfo.proAb #MJstatus {
+  font-size: 15px;
+  margin-top: -15px;
 }
 
 .profileInfo.proAb table {
@@ -124,16 +166,18 @@
   font-size: 18px;
   display: block;
   text-align: center;
-  background-color: #FBC5CF;
+  background-color: #fbc5cf;
   border-radius: 5px;
   margin: 5px;
-  color: #EB616D;
-  width: 90px;
+  color: #eb616d;
+  width: 86%;
   padding: 0 5px;
 }
 
 .profileInfo.proAb td {
+  width: 65%;
   text-align: left;
+  padding: 0 10px;
 }
 
 .profileInfo.proAb .btnCol {
@@ -265,7 +309,7 @@
   left: -110px;
   top: 190px;
   z-index: 1;
-  color: #EB616D;
+  color: #eb616d;
   text-shadow: 2px 2px #333;
 }
 
@@ -278,8 +322,8 @@
           transform-origin: 150px;
   -webkit-transition: 1.5s;
   transition: 1.5s;
-  top: 300px;
-  left: 320px;
+  top: 321px;
+  left: 331px;
   z-index: 2;
 }
 
@@ -336,8 +380,8 @@
 }
 
 .matchContent .selectBtn select {
-  border: 3px solid #FBC5CF;
-  background: #EEF2EF;
+  border: 3px solid #fbc5cf;
+  background: #eef2ef;
   width: 100px;
   padding: 3px 10px;
   margin: 5px;
@@ -345,7 +389,7 @@
   line-height: 1;
   border-radius: 10px;
   height: 30px;
-  color: #EB616D;
+  color: #eb616d;
 }
 
 .matchContent .selectBtn button {
@@ -423,38 +467,38 @@
   display: block;
   width: 100px;
   height: 40px;
-  background-color: #EEF2EF;
-  color: #F05B79;
+  background-color: #eef2ef;
+  color: #f05b79;
   margin: 10px;
   border-radius: 10px;
   line-height: 2;
 }
 
 .majiRank .rankNav li a::before {
-  content: '- 好友最多';
+  content: "- 好友最多";
   width: 80px;
   height: 30px;
   position: absolute;
   top: -35px;
   left: 10px;
   border-radius: 10px;
-  color: #F05B79;
+  color: #f05b79;
   text-shadow: none;
   font-size: 15px;
 }
 
 .majiRank .rankNav li .moneyBtn::before {
-  content: '- 金幣最多';
+  content: "- 金幣最多";
 }
 
 .majiRank .rankNav li .mjTopBtn::before {
-  content: '- MJ值最高';
+  content: "- MJ值最高";
 }
 
 .majiRank .rankNav .active a {
-  background-color: #F3B9B4;
-  color: #EEF2EF;
-  text-shadow: #EB616D 1px 1px 1px;
+  background-color: #f3b9b4;
+  color: #eef2ef;
+  text-shadow: #eb616d 1px 1px 1px;
 }
 
 .majiRank .tabPanel.active {
@@ -591,17 +635,21 @@
     height: 50px;
     width: 70%;
   }
+  .wrap .matchContent {
+    top: -80px;
+  }
   .wrap .matchContent .profileInfo {
-    width: 300px;
-    top: 100vh;
-    left: 0;
+    width: 380px;
+    top: 17vh;
+    left: 70%;
     right: 0;
     margin: 0 auto;
     font-size: 20px;
+    z-index: 4;
   }
   .wrap .matchContent .selectBtn {
-    left: 32%;
-    top: -12%;
+    left: 70%;
+    top: 7%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row;
@@ -619,7 +667,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    top: 1%;
+    height: auto;
   }
   .searchWrap #searData .sRole {
     width: 100%;
@@ -638,6 +686,103 @@
   }
   .searchWrap #searData .profileInfo td {
     padding: 0 10px;
+  }
+  .matchContent .carousel {
+    left: -27%;
+  }
+  .profileInfo.proAb th {
+    width: 100px;
+  }
+  .majiRank {
+    width: 95%;
+    margin-top: 40%;
+  }
+  .majiRank .rankContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  .majiRank .rankContent .rankItem {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    width: 100%;
+    padding: 0;
+  }
+  .rankTxtCs {
+    width: 50%;
+  }
+  .majiRank .rankContent .rankItem .rankRole {
+    margin-bottom: 10px;
+  }
+  .majiRank .rankContent {
+    padding: 0;
+  }
+  #searData .searchClose {
+    top: 20px;
+  }
+  .heart {
+    top: 126px;
+    right: -40%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .wrap .searchMaji {
+    z-index: 3;
+  }
+  .wrap .matchContent {
+    top: -280px;
+  }
+  .matchContent .carousel {
+    left: 3%;
+  }
+  .wrap .matchContent .profileInfo {
+    left: -3%;
+    top: 98%;
+    padding-top: 35px;
+  }
+  .majiRank {
+    margin-top: 130%;
+  }
+  .wrap .matchContent .selectBtn {
+    left: 29%;
+    top: 28%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .rankTxtCs {
+    width: 95%;
+  }
+  .majiRank .rankContent {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #searData {
+    width: 93%;
+    top: -7%;
+    padding: 13px;
+  }
+  .majiRank .rankContent .rankItem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  .searchWrap #searData .sRole {
+    width: 73%;
+  }
+  #searData .searchClose {
+    right: 12px;
+    top: 61px;
+  }
+  .heart {
+    top: 747px;
+    right: 7%;
   }
 }
 /*# sourceMappingURL=match2.css.map */

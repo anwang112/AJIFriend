@@ -197,6 +197,7 @@ function loginPhoto(){
 //login Ajax
 function sendForm(){
 	//=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+	
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.responseText == "error"){
@@ -233,17 +234,39 @@ function sendForm(){
 			//登入登出字樣
 			document.getElementById("loginNot").innerText = "登出"; 
 
-			
+			heartItem = document.querySelectorAll('.heart div');
+			// heartM =  document.getElementById('userLove').value;
+			// alert(love);
+			// console.log(heartM);
+			if(heartItem){
+			switch(user.arr["loveGiven"]){
+				case '2':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '1':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '0':
+				heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+			   }
+			}
 	  	}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send(`memId=An&memPsw=22222222`);
+	// alert(document.getElementById('userLove').value);
+	
+
 }
 
 
 
-sendForm();
+// sendForm();
 
 
 
@@ -641,52 +664,52 @@ window.addEventListener('load', function () {
 }, false);
 
 //手機聊天室貼圖顯示控制
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
 
-	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
-	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
+// 	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
+// 	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
 
-	btn_chat_picbox.addEventListener('click', function () {
+// 	btn_chat_picbox.addEventListener('click', function () {
 
-		if (chatbox_faces_phone.style.opacity == 0) {
-			chatbox_faces_phone.style.cssText = "opacity:1";
-		} else {
-			chatbox_faces_phone.style.cssText = "opacity:0";
-		}
+// 		if (chatbox_faces_phone.style.opacity == 0) {
+// 			chatbox_faces_phone.style.cssText = "opacity:1";
+// 		} else {
+// 			chatbox_faces_phone.style.cssText = "opacity:0";
+// 		}
 
-	}, false);
-
-
-	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
-	var info_chatbox = document.getElementById('info_chatbox');
-
-	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
-		chat_facesImgs_phone[i].addEventListener('click', function () {
-			var src_face_phone = this.src;
-			var img_phone = document.createElement('img');
-			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
-			img_phone.src = src_face_phone;
-
-			var divImg = document.createElement('div');
-			divImg.appendChild(img_phone);
-			divImg.setAttribute('style', 'display:inline-block;width:100%;');
-
-			var clearbox = document.createElement('div');
-			divImg.appendChild(clearbox);
-			clearbox.setAttribute('class', 'clearbox');
+// 	}, false);
 
 
-			info_chatbox.appendChild(divImg);
+// 	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
+// 	var info_chatbox = document.getElementById('info_chatbox');
 
-			boxScroll(info_chatbox);
+// 	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
+// 		chat_facesImgs_phone[i].addEventListener('click', function () {
+// 			var src_face_phone = this.src;
+// 			var img_phone = document.createElement('img');
+// 			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
+// 			img_phone.src = src_face_phone;
 
-		}, false);
+// 			var divImg = document.createElement('div');
+// 			divImg.appendChild(img_phone);
+// 			divImg.setAttribute('style', 'display:inline-block;width:100%;');
+
+// 			var clearbox = document.createElement('div');
+// 			divImg.appendChild(clearbox);
+// 			clearbox.setAttribute('class', 'clearbox');
 
 
-	}
+// 			info_chatbox.appendChild(divImg);
+
+// 			boxScroll(info_chatbox);
+
+// 		}, false);
 
 
-}, false);
+// 	}
+
+
+// }, false);
 
 window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
@@ -1023,9 +1046,9 @@ window.addEventListener('load', function () {
 	});
 
 
-	$id('btn_login').addEventListener('click', function () {
-		ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
-	}, false);
+	// $id('btn_login').addEventListener('click', function () {
+	// 	ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
+	// }, false);
 
 }, false);
 
@@ -1141,7 +1164,7 @@ ooxxGetRole = (roleId, roleData) => {
 	}
 
 	roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
-		switch (roleData.eyes) {
+		switch (parseInt(roleData.eyes)) {
 			case 1:
 				eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
 				eyes1[0].style.transformOrigin = `center 52%`;
