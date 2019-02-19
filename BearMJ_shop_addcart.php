@@ -22,7 +22,7 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BearMJ_Shop</title>
     <link rel="stylesheet" href="css/reset.css">
-    <script src="js/lightbox.js"></script>
+    <!-- <script src="js/lightbox.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="slick/slick.css">
   	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/shop-style.css">
@@ -58,10 +58,7 @@ try {
             <div id="chooseId">
                 
                 <!-- 試穿預視 -->
-                <div id="showModel">
-                    <img src="shop-images/model_1.png" id="model_animal">
-                    <img src="shop-images/hat_1.png" id="model_hat">
-                    <!-- <img src="" id="model_clothes"> -->
+                <div id="showModel" class="roleBox">
                     
                 </div>
 
@@ -76,7 +73,7 @@ try {
                 <!-- 餘額顯示 -->
                 <div id="rwd_showCoin">
                     <img src="shop-images/coin.png">
-                    <span>30</span>
+                    <span><?php echo $_SESSION["mCoin"]?></span>
                 </div>
 
                 <div id="chooseArea">
@@ -87,7 +84,24 @@ try {
                     </div>
             
                     <!-- 試穿角色暱稱顯示區塊 -->
-                    <span id="showId">寂寞阿吉</span>
+                    <span id="showName">
+                        <?php 
+                            if(isset($_SESSION["gift_ta"])){
+                                echo $_SESSION["gift_ta"]["name"];
+                            }else{
+                                echo $_SESSION["mName"];
+                            }
+                        ?>
+                    </span>
+                    <input type="hidden" id="showId" value="<?php 
+                            if(isset($_SESSION["gift_ta"])){
+                                echo $_SESSION["gift_ta"]["id"];
+                            }else{
+                                echo $_SESSION["memId"];
+                            }
+                        ?>">
+                        
+                    
             
                     <!-- 選朋友來試穿(送禮) -->
                     <div id="choose-friend" class="btn_chooseModel gift" >
@@ -101,37 +115,18 @@ try {
                 
 
                 <!-- 選擇送禮對象燈箱 -->
-                <!-- <div id="a" class="LightBoxMask"></div>
-                <div id="b" class="middleLightBox">
-                    <div id="friend_LightBox" class="bg_friendBox">
-                        <img src="shop-images/friendBox.png">
-                        <div id="content_friendBox">
-                            <input type="text" id="searchBox" placeholder="搜尋朋友ID">
-                            <div id="chooseBox">
-                                    <label for="f_001">
-                                        <img src="shop-images/gift.png">
-                                        <p>煞氣阿吉</p>
-                                    </label>
-                                    <label for="f_002">
-                                        <img src="shop-images/gift.png">
-                                        <p>霹靂嬌媧</p>
-                                    </label>
-                                    <label for="f_003">
-                                        <img src="shop-images/gift.png">
-                                        <p>理科太太</p>
-                                    </label>
-                                    <label for="f_004">
-                                        <img src="shop-images/gift.png">
-                                        <p>蔡小英</p>
-                                    </label>
-                            </div>
-                        </div>
-                    </div>
+                <div id="friend_LightBox" class="bg_friendBox">
+                    <img src="shop-images/friendBox.png">
                     <div id="btn_friendBoxClose">
                         <img src="shop-images/close.png">
                     </div>
+                    <div id="content_friendBox">
+                        <input type="text" id="searchBox" placeholder="搜尋朋友ID">
+                        <div id="chooseBox">
+
+                        </div>
+                    </div>
                 </div>
-                <button id="aaa">點我</button> -->
         
             </div>  
         
@@ -148,17 +143,25 @@ try {
                         <div id="choose-friend" class="gift">
                             <div class="btn_chooseModel gift" >
                                 <img src="shop-images/gift.png" class="gift">
-                                <p class="gift">選朋友</p>
+                                <p class="gift">麻吉穿搭</p>
                             </div>
                             <!-- 試穿角色暱稱顯示區塊 -->
-                            <span id="rwd-showId">寂寞阿吉</span>
+                            <span id="rwd-showName">
+                                <?php 
+                                    if(isset($_SESSION["gift_ta"])){
+                                        echo $_SESSION["gift_ta"]["name"];
+                                    }else{
+                                        echo $_SESSION["mName"];
+                                    }
+                                ?>
+                            </span>
 
                         </div>
 
                         <!-- 餘額顯示 -->
                         <div id="showCoin">
                             <img src="shop-images/coin.png">
-                            <span>30</span>
+                            <span><?php echo $_SESSION["mCoin"]?></span>
                         </div>
                         <!-- 前往購物車 -->
                         <div id="showCart">
@@ -182,6 +185,7 @@ try {
                                 <input type="hidden" name="proName" value="<?php echo $prodRow["proName"];?>">
                                 <input type="hidden" name="price" value="<?php echo $prodRow["price"];?>">
                                 <input type="hidden" name="img" value="<?php echo $prodRow["img"];?>">
+                                <input type="hidden" name="mj" value="<?php echo $prodRow["proMJ"];?>">
                                 <!-- 商品項 -->
                                 <div class="productItem">
                                     <!-- 商品圖 -->
@@ -239,6 +243,7 @@ try {
     
     <script type="text/javascript">
 		foot_html();
+        sendForm();
 	</script>
 </body>
 </html>
@@ -282,10 +287,8 @@ try {
         return document.getElementById(id);
     }
     window.addEventListener("load",function(){
-
         
-        // $id("productBlock").style.width = window.innerWidth +"px";
-        // $id("productBlock").style.display = "";
+        changeModel(); //試穿角色顯示
         
         $(window).resize(function() {
             if(innerWidth<768){
@@ -325,7 +328,6 @@ try {
             $id("model_animal").src = "shop-images/model_1.png";
             $id("model_hat").src = "shop-images/hat_1.png";
             // $id("model_clothes").src = "";
-            $id("showId").innerText = "寂寞阿吉";
             TweenMax.fromTo('#showModel', 1.5, {
                 y:-45,
                 scale: .5,

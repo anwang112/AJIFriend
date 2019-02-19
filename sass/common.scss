@@ -3,7 +3,7 @@ $darkPink:rgba(240,92,121,1);
 $shadowPink:rgba(200,78,106,1);
 $lightBrown:rgba(151,131,124,1);
 $shadowBrown:rgba(125,101,91,1);
-@charset "UTF-8";
+// @charset "UTF-8";
 * {
     -webkit-tap-highlight-color: transparent;
     outline: none;
@@ -33,14 +33,14 @@ html {
 
 .loginBox {
     position: absolute;
-    top: 5px;
     right: 0%;
     text-align: center;
     display: flex;
+    align-content: center;
+
 }
 
 .loginImg {
-    padding: 10px 0px;
     width: 60px;
     position: relative;
 }
@@ -50,10 +50,10 @@ html {
 }
 
 .loginTxtWrap {
-    padding-top: 15px;
     width: 80%;
     position: relative;
     display: flex;
+
 }
 
 
@@ -65,6 +65,9 @@ html {
     display: block;
 }
 
+.loginContent {
+    margin-top: 9px;
+}
 
 .loginContent {
     font-size: 14px;
@@ -512,10 +515,12 @@ body{background-image:url(BG002.gif);}
     display: inline-block;
     width: 60%;
     height: 25px;
-    margin: 0 15px;
-    padding: 5px 10px;
-    border-radius: 15px;
-    border-color: #c84e6a;
+    margin: 0 10px;
+    padding: 2px 5px;
+    border-radius: 12px;
+    border:1px solid $darkPink;
+    background-color: $lightPink;
+
 }
 
 #chatTxt_send {
@@ -568,7 +573,8 @@ body{background-image:url(BG002.gif);}
         overflow: auto;
         height: 285px; 
         box-sizing: border-box;
-        padding: 5px 10px;  
+        padding: 5px 10px;
+        transition: height 2s;  
         @media all and (max-width: 768px) { 
             height: 140px;
         }
@@ -604,9 +610,11 @@ body{background-image:url(BG002.gif);}
     
 }
 
-.replybox {
+#replybox {
     display: inline-block;
     width: 90%;
+    height: 32px;
+    overflow: hidden;
     margin: 0 15px;
     border: 2px solid #f05c79;
     border-radius: 15px;
@@ -615,16 +623,42 @@ body{background-image:url(BG002.gif);}
     box-sizing: border-box;
     bottom: 8px;
     left: 0;
-}
-
-.replybox h4 {
     color: #f05c79;
     font-size: 0.9rem;
     padding: 5px 0;
+    transition:height 1s;
+    background-color: $lightPink;
     cursor: pointer;
+    .requireLabel{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ddd;
+        width: 90%;
+        border-radius: 10px;
+        padding: 2%;
+        margin: 6px auto;
+        p{
+            padding:  5px 0 5px 10px;
+            color: #555450;
+        }
+        
+        .reply_btnGroup .btn_reply{
+            border-radius: 5px;
+            border: transparent;
+            background-color: $lightPink;
+            color: #555;
+            margin: 0 3px;
+            justify-items: flex-end;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
 }
 
-.replybox h4::after {
+
+#replybox #replyboxTitle::after {
     content: '';
     width: 0;
     height: 0;

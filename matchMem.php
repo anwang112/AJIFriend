@@ -4,26 +4,56 @@ $profile = json_decode($_REQUEST["profile"]);
 $errMsg = "";
 try {
     require_once("connectBooks.php");
-    if ($profile->con != '' && $profile->hob == '') {
-        $sql = "select * from member where constellation = :constellation order by rand()";
-        $idSta = $pdo->prepare($sql);
-        $idSta->bindValue(':constellation', $profile->con);
-        $idSta->execute();
-    } else if ($profile->con == '' && $profile->hob != '') {
-        $sql = "select * from member where hobby like CONCAT('%', :hobby, '%') order by rand()";
-        $idSta = $pdo->prepare($sql);
-        $idSta->bindValue(':hobby', $profile->hob);
-        $idSta->execute();
-    } else if ($profile->con != '' && $profile->hob != '') {
-        $sql = "select * from member where (constellation = :constellation) and (hobby like CONCAT('%', :hobby, '%')) order by rand()";
-        $idSta = $pdo->prepare($sql);
-        $idSta->bindParam(':constellation', $profile->con);
-        $idSta->bindParam(':hobby', intval($profile->hob));
-        $idSta->execute();
+    
+    if ($profile->memNo == '') {
+        if ($profile->con != '' && $profile->hob == '') {
+            $sql = "select * from member where constellation = :constellation order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindValue(':constellation', $profile->con);
+            $idSta->execute();
+        } else if ($profile->con == '' && $profile->hob != '') {
+            $sql = "select * from member where hobby like CONCAT('%', :hobby, '%') order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindValue(':hobby', $profile->hob);
+            $idSta->execute();
+        } else if ($profile->con != '' && $profile->hob != '') {
+            $sql = "select * from member where (constellation = :constellation) and (hobby like CONCAT('%', :hobby, '%')) order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindParam(':constellation', $profile->con);
+            $idSta->bindParam(':hobby', intval($profile->hob));
+            $idSta->execute();
+        } else {
+            $sql = "select * from member order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->execute();
+        }
+
     } else {
-        $sql = "select * from member order by rand()";
-        $idSta = $pdo->prepare($sql);
-        $idSta->execute();
+        if ($profile->con != '' && $profile->hob == '') {
+            $sql = "select * from member m, relationship r where m.memNo=r.memNo constellation = :constellation and memNo != :memNo order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindParam(':constellation', $profile->con);
+            $idSta->bindParam(':memNo', $profile->memNo);
+            $idSta->execute();
+        } else if ($profile->con == '' && $profile->hob != '') {
+            $sql = "select * from member where hobby like CONCAT('%', :hobby, '%') and memNo != :memNo order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindParam(':hobby', $profile->hob);
+            $idSta->bindParam(':memNo', $profile->memNo);
+            $idSta->execute();
+        } else if ($profile->con != '' && $profile->hob != '') {
+            $sql = "select * from member where (constellation = :constellation) and (hobby like CONCAT('%', :hobby, '%')) and memNo != :memNo  order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindParam(':constellation', $profile->con);
+            $idSta->bindParam(':hobby', intval($profile->hob));
+            $idSta->bindParam(':memNo', $profile->memNo);
+            $idSta->execute();
+        } else {
+            $sql = "select * from member where memNo != :memNo order by rand()";
+            $idSta = $pdo->prepare($sql);
+            $idSta->bindValue(':memNo', $profile->memNo);
+            $idSta->execute();
+        }
     }
     if ($idSta->rowCount() == 0) {
         echo 0;
@@ -41,6 +71,7 @@ try {
             public $color;
             public $memId;
             public $intro;
+            public $memNo;
 
 
         }
@@ -57,6 +88,7 @@ try {
         $str->clothes = $IdRow["wearClothes"];
         $str->color = $IdRow["mColor"];
         $str->memId = $IdRow["memId"];
+        $str->memNo = $IdRow["memNo"];
         $send = json_encode($str);
         echo $send;
     }
