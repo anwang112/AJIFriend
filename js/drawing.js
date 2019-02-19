@@ -112,6 +112,8 @@ function mouseMove(evt) {
 };
 
 
+
+// 下載無法顯示圖片，求解！！！
 //利用toDataURL() 把canvas轉成data:image
 $('#save').on('click', function(){
     var _url = canvas.toDataURL();
@@ -175,6 +177,18 @@ function init(){
     },false);
     console.log("reset");
 
+    // // 一鍵下載
+    // download.onclick = function(){
+    //     var url = canvas.toDataURL('image/png');
+    //     var a = document.createElement('a');
+    //     document.body.appendChild(a);
+    //     a.href = url;
+    //     a.download = 'context';
+    //     a.click();
+    //     }
+
+
+    // 手機canvas功能 未成功～～～尚須努力
     canvas.addEventListener('touchstart',function(a){
         var x = a.touches[0].clientX;
         var y =a.touches[0].clientY;
