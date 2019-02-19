@@ -2,7 +2,9 @@
     session_start();
     try{
         require_once("connectBooks.php");
-        foreach($_SESSION["proNo"] as $index => $no){
+
+        foreach($_SESSION["proNo"] as $index => $no){ //寫入訂單明細資料庫
+           
             $sql_order = "INSERT INTO pro_orderitem(ItemNo, proNo, buyerNo , time , gift_memNo, message) 
                     VALUES (NULL , :proNo , :me , '2019-02-18', NULL , :msg)";
             $order = $pdo->prepare( $sql_order );
@@ -10,6 +12,26 @@
             $order -> bindValue( ":me",$_SESSION["memNo"]);
             $order -> bindValue( ":msg",NULL);
             $order ->execute();
+        }
+        
+        foreach($_SESSION["mj"] as $index => $mj){ // 增加魅力值(更新會員資料表)
+            $sql_mj = "update member set mMJ = mMJ + :mj where memNo = :me";
+            $memMJ = $pdo->prepare( $sql_mj );
+            $memMJ -> bindValue( ":mj" , $mj );
+            $memMJ -> bindValue( ":me",$_SESSION["memNo"]);
+            $memMJ ->execute();
+
+            $_SESSION["mMJ"] = $_SESSION["mMJ"]-$mj;//同步更新會員session
+        }
+
+        foreach($_SESSION["price"] as $index => $price){ // 減錢錢(更新會員資料表)
+            $sql_coin = "update member set mCoin = mCoin - :price where memNo = :me";
+            $memCoin = $pdo->prepare( $sql_coin );
+            $memCoin -> bindValue( ":price" , $price );
+            $memCoin -> bindValue( ":me",$_SESSION["memNo"]);
+            $memCoin ->execute();
+
+            $_SESSION["mCoin"] = $_SESSION["mCoin"]-$price;//同步更新會員session
         }
 
         // echo "sucess order";
@@ -19,6 +41,7 @@
         unset($_SESSION["proName"]);
         unset($_SESSION["price"]);
         unset($_SESSION["img"]);
+        unset($_SESSION["mj"]);
 
 
     }catch(PDOException $e){

@@ -244,14 +244,6 @@ function sendForm(){
 }
 
 
-
-sendForm();
-
-
-
-
-
-
 var infoArr = new Array();
 infoArr = []; //朋友資料陣列
 
@@ -810,52 +802,52 @@ window.addEventListener('load', function () {
 }, false);
 
 //手機聊天室貼圖顯示控制
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
 
-	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
-	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
+// 	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
+// 	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
 
-	btn_chat_picbox.addEventListener('click', function () {
+// 	btn_chat_picbox.addEventListener('click', function () {
 
-		if (chatbox_faces_phone.style.opacity == 0) {
-			chatbox_faces_phone.style.cssText = "opacity:1";
-		} else {
-			chatbox_faces_phone.style.cssText = "opacity:0";
-		}
+// 		if (chatbox_faces_phone.style.opacity == 0) {
+// 			chatbox_faces_phone.style.cssText = "opacity:1";
+// 		} else {
+// 			chatbox_faces_phone.style.cssText = "opacity:0";
+// 		}
 
-	}, false);
-
-
-	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
-	var info_chatbox = document.getElementById('info_chatbox');
-
-	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
-		chat_facesImgs_phone[i].addEventListener('click', function () {
-			var src_face_phone = this.src;
-			var img_phone = document.createElement('img');
-			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
-			img_phone.src = src_face_phone;
-
-			var divImg = document.createElement('div');
-			divImg.appendChild(img_phone);
-			divImg.setAttribute('style', 'display:inline-block;width:100%;');
-
-			var clearbox = document.createElement('div');
-			divImg.appendChild(clearbox);
-			clearbox.setAttribute('class', 'clearbox');
+// 	}, false);
 
 
-			info_chatbox.appendChild(divImg);
+// 	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
+// 	var info_chatbox = document.getElementById('info_chatbox');
 
-			boxScroll(info_chatbox);
+// 	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
+// 		chat_facesImgs_phone[i].addEventListener('click', function () {
+// 			var src_face_phone = this.src;
+// 			var img_phone = document.createElement('img');
+// 			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
+// 			img_phone.src = src_face_phone;
 
-		}, false);
+// 			var divImg = document.createElement('div');
+// 			divImg.appendChild(img_phone);
+// 			divImg.setAttribute('style', 'display:inline-block;width:100%;');
+
+// 			var clearbox = document.createElement('div');
+// 			divImg.appendChild(clearbox);
+// 			clearbox.setAttribute('class', 'clearbox');
 
 
-	}
+// 			info_chatbox.appendChild(divImg);
+
+// 			boxScroll(info_chatbox);
+
+// 		}, false);
 
 
-}, false);
+// 	}
+
+
+// }, false);
 
 window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
@@ -1079,6 +1071,7 @@ ooxxLightBox = (...lightBoxArray) => {
 }
 
 window.addEventListener('load', function () {
+	sendForm();
 	
 	//聊天室內的好友邀請box收合
 	reply_control = false;
@@ -1187,9 +1180,9 @@ window.addEventListener('load', function () {
 	});
 
 
-	$id('btn_login').addEventListener('click', function () {
-		ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
-	}, false);
+	// $id('btn_login').addEventListener('click', function () {
+	// 	ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
+	// }, false);
 
 }, false);
 
