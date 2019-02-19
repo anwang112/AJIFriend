@@ -14,16 +14,26 @@
     clear: both;
   }
   body{
-    background:linear-gradient(rgba(125,164,203,1), rgba(232,159,183,1));
+    /* background:linear-gradient(rgba(125,164,203,1), rgba(232,159,183,1)); */
+    background-color: #F3B9B4;
     overflow-x: hidden;
     font-family: 'AdobeFanHeitiStd-Bold', serif;
-  } 
+  }
+  body button{border:0;}
   #myRoom{
     min-width: 1200px;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
+  }
+  #myRoom .windowbackground{
+    background: linear-gradient(rgba(125,164,203,1), rgba(232,159,183,1));
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    top: 6%;
+    left: 60%;
   }
   #myRoom .wheel{
     display: block;
