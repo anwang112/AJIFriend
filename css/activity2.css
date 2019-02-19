@@ -14,6 +14,11 @@
   100% {
     transform: rotate(-5deg) translateX(1%) translateY(2%); } }
 
+.deleteFromPage {
+  transition: 1s;
+  transform-origin: left top;
+  animation: delete linear 1s forwards; }
+
 .wrap1 {
   width: 100%;
   height: 100vh;
@@ -41,11 +46,14 @@
     font-size: 2rem;
     letter-spacing: .15rem;
     color: #f05c79;
-    transform: rotate(-6deg);
+    line-height: 2.2rem;
     position: relative;
     z-index: 2;
     top: 20vh;
-    left: 30vh; }
+    left: 30vh;
+    text-align: center; }
+    .act_section01 h1 span {
+      font-size: 1.7rem; }
   .act_section01 .act_mainbox {
     width: 38%;
     height: 0;
@@ -74,7 +82,7 @@
       width: 100%;
       transform: rotate(2deg);
       position: relative;
-      top: 150px;
+      top: 120px;
       left: 10px;
       display: flex;
       justify-content: space-between; }
@@ -129,22 +137,26 @@
   justify-content: center;
   align-items: center; }
   .lightbox_act .lightbox_act_info {
-    width: 75%;
-    height: 60%;
+    width: 62%;
     max-width: 1200px;
+    height: 65%;
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #f05c79;
     border-radius: 15px;
+    background-color: #f0a0c8;
+    background-image: url("../images/activity/spanBg01.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     display: none;
     flex-wrap: wrap;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     position: relative; }
     .lightbox_act .lightbox_act_info img {
-      width: 45%;
+      width: 50%;
       transform: rotate(-1deg); }
     .lightbox_act .lightbox_act_info h2 {
       width: 70%;
@@ -152,22 +164,22 @@
       font-size: 1rem;
       color: #f05c79; }
     .lightbox_act .lightbox_act_info p {
-      width: 40%;
+      width: 35%;
       color: #f05c79;
-      font-size: .8rem;
+      font-size: 1.6rem;
       max-width: 600px;
-      line-height: 1rem; }
+      line-height: 2rem; }
     .lightbox_act .lightbox_act_info .spanbox {
-      width: 40%;
+      width: 50%;
       display: flex;
       justify-content: space-around;
       align-items: center; }
       .lightbox_act .lightbox_act_info .spanbox span {
         display: inline-block;
-        width: 20%;
         color: #f05c79;
-        font-size: .8rem;
-        line-height: 1rem; }
+        font-size: 1rem;
+        line-height: 1rem;
+        padding: 10px 15px; }
 
 @keyframes busMoving {
   0% {
@@ -220,13 +232,23 @@
     width: 80px;
     height: 25px;
     line-height: 25px;
-    background-color: #f05c79;
-    border-radius: 15px;
     text-align: center; }
   .act_tabBar span:hover {
     color: #fff; }
   .act_tabBar #tab_allAct {
-    color: #fff; }
+    padding: 7px 12px;
+    color: #fff;
+    background-image: url("../images/activity/spanBg03.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center; }
+  .act_tabBar #tab_myAct {
+    padding: 7px 12px;
+    color: #fff;
+    background-image: url("../images/activity/spanBg04.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center; }
   .act_tabBar #btn_holdAct {
     display: block;
     position: absolute;
@@ -239,7 +261,7 @@
   width: 100%;
   height: 100%;
   margin: auto;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -250,22 +272,33 @@
   justify-content: center;
   align-items: center; }
   .lightbox_holdact .lightbox_holdact_info {
-    width: 75%;
+    width: 62%;
     max-width: 1200px;
-    height: 60%;
+    height: 70%;
     padding: 20px 20px;
     color: #f05c79;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #f05c79;
     border-radius: 15px;
+    background-color: #f0a0c8;
+    background-image: url("../images/activity/spanBg01.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    right: 0;
     position: relative;
-    bottom: 20%; }
+    bottom: 21%; }
     .lightbox_holdact .lightbox_holdact_info h2 {
-      width: 100%;
-      text-align: left; }
+      width: 100%; }
     .lightbox_holdact .lightbox_holdact_info form {
       width: 90%;
       height: 90%;
+      margin: 10px 5%;
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -275,18 +308,16 @@
       .lightbox_holdact .lightbox_holdact_info form label {
         width: 90%;
         text-align: left;
-        vertical-align: top; }
+        vertical-align: top;
+        display: flex;
+        flex-direction: column; }
         .lightbox_holdact .lightbox_holdact_info form label input {
           width: 25%;
-          height: 20px;
+          height: 25px;
           margin-top: 10px;
           text-align: left;
-          font-size: .7rem; }
-        .lightbox_holdact .lightbox_holdact_info form label textarea {
-          width: 250px;
-          resize: none;
-          font-size: .8rem;
-          margin-top: 10px; }
+          font-size: .7rem;
+          text-align: center; }
     .lightbox_holdact .lightbox_holdact_info #input_actInfo {
       height: 50px;
       position: relative; }
@@ -300,13 +331,31 @@
       background-color: #ccc;
       position: absolute;
       top: 100px;
-      right: 10px; }
+      right: 10px;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat; }
+      .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox #act_holdActFileBox {
+        max-height: 300px;
+        padding: 10px 10px; }
 
 .partA {
   display: block; }
 
 .partB {
   display: none; }
+
+.partA #posH2 {
+  letter-spacing: .15rem;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0px;
+  color: #f05c79;
+  background-image: url("../images/activity/h2Bg01.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center; }
 
 .act_officialBanner {
   width: 80%;
@@ -363,7 +412,7 @@
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 55%;
+  padding-bottom: 100%;
   margin: 15px auto;
   display: flex;
   flex-wrap: wrap;
@@ -372,16 +421,22 @@
   .act_memberHold .act_memberHold_box {
     width: 30%;
     height: 0;
-    padding-bottom: 27%;
+    padding: 10px 10px;
+    padding-bottom: 33%;
     position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin-top: 10px;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.6); }
-    .act_memberHold .act_memberHold_box img {
-      width: 100%; }
+    background-color: rgba(249, 228, 238, 0.8); }
+    .act_memberHold .act_memberHold_box .Hold_box_img {
+      width: 95%;
+      padding: 95px 10px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 15px; }
     .act_memberHold .act_memberHold_box .act_memberHold_join {
       width: 100px;
       height: 50px;
@@ -391,13 +446,17 @@
       opacity: 0; }
       .act_memberHold .act_memberHold_box .act_memberHold_join button {
         width: 75px;
-        height: 30px; }
+        height: 30px;
+        position: relative;
+        right: 120%;
+        bottom: -15%; }
     .act_memberHold .act_memberHold_box h3 {
       width: 60%;
       margin: 5px auto;
-      font-size: .9rem;
+      font-size: 1rem;
       padding: 7px 0;
-      border-bottom: 1px solid #fff; }
+      border-bottom: 1px solid #fff;
+      color: #f05c79; }
     .act_memberHold .act_memberHold_box .spanbox {
       width: 80%;
       margin: 5px auto;
@@ -418,70 +477,215 @@
       text-align: right;
       cursor: pointer; }
   .act_memberHold .act_tab_pages {
-    width: 100px;
-    transform: translateX(-30%);
-    position: absolute;
-    left: 50%;
-    bottom: 30px; }
-    .act_memberHold .act_tab_pages span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 15px; }
+    .act_memberHold .act_tab_pages span a {
       width: 20px;
       padding: 2px 5px;
       font-size: 1rem;
       letter-spacing: 1.1rem;
-      color: rgba(102, 102, 102, 0.7);
+      color: #f05c79;
       cursor: pointer; }
-      .act_memberHold .act_tab_pages span:hover {
+      .act_memberHold .act_tab_pages span a:hover {
         color: #fff; }
 
-.act_memberHold_B {
-  width: 80%;
-  padding-bottom: 5%;
+.partB {
+  width: 100%;
+  padding-bottom: 40%;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 10px auto; }
-  .act_memberHold_B .act_myActs, .act_memberHold_B .act_joins {
+  margin: 10px auto;
+  flex-direction: column;
+  align-items: flex-start; }
+  .partB h2 {
+    letter-spacing: .15rem;
+    font-size: 1.2rem;
     width: 100%;
-    height: 320px;
-    margin-bottom: 20px;
-    color: rgba(102, 102, 102, 0.7);
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    position: relative;
-    display: flex; }
-    .act_memberHold_B .act_myActs h3, .act_memberHold_B .act_joins h3 {
-      display: inline-block;
-      padding: 10px 20px;
-      color: #f05c79;
-      position: absolute;
-      left: 10%;
-      top: 8%; }
-    .act_memberHold_B .act_myActs .act_memberCheckBox, .act_memberHold_B .act_joins .act_memberCheckBox {
-      width: 100%;
-      display: inline-block;
+    text-align: center;
+    padding: 30px 0px;
+    color: #f05c79;
+    background-image: url("../images/activity/h2Bg01.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center; }
+  .partB .partB_top, .partB .partB_down {
+    width: 100%; }
+    .partB .partB_top .partB_top_content, .partB .partB_top .partB_down_content, .partB .partB_down .partB_top_content, .partB .partB_down .partB_down_content {
+      width: 80%;
+      height: 180px;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(249, 228, 238, 0.8);
+      border-radius: 15px;
+      margin: 15px auto;
+      padding: 10px 15px;
       display: flex;
-      position: relative;
-      top: 20px;
-      left: 0%; }
-      .act_memberHold_B .act_myActs .act_memberCheckBox img, .act_memberHold_B .act_joins .act_memberCheckBox img {
-        width: 50%; }
-      .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo {
-        width: 40%;
-        padding: 20px 20px;
+      justify-content: space-between; }
+      .partB .partB_top .partB_top_content .contentImg, .partB .partB_top .partB_down_content .contentImg, .partB .partB_down .partB_top_content .contentImg, .partB .partB_down .partB_down_content .contentImg {
+        width: 35%;
+        display: block;
+        border-radius: 15px;
+        padding: 10px 15px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .partB .partB_top .partB_top_content .spanbox, .partB .partB_top .partB_down_content .spanbox, .partB .partB_down .partB_top_content .spanbox, .partB .partB_down .partB_down_content .spanbox {
+        width: 55%;
         display: flex;
-        flex-direction: column; }
-        .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo h4, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo h4 {
-          font-size: .9rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center; }
+        .partB .partB_top .partB_top_content .spanbox span, .partB .partB_top .partB_down_content .spanbox span, .partB .partB_down .partB_top_content .spanbox span, .partB .partB_down .partB_down_content .spanbox span {
+          width: 40%;
+          margin: 10px;
+          padding: 5px 10px;
           color: #f05c79;
-          padding: 10px 0; }
-        .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo .messagebox, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo .messagebox {
-          width: 100%;
-          height: 200px;
-          overflow-y: scroll; }
-        .act_memberHold_B .act_myActs .act_memberCheckBox .act_MCInfo input, .act_memberHold_B .act_joins .act_memberCheckBox .act_MCInfo input {
-          width: 80%;
-          height: 25px;
+          font-size: .9rem; }
+      .partB .partB_top .partB_top_content .buttonbox, .partB .partB_top .partB_down_content .buttonbox, .partB .partB_down .partB_top_content .buttonbox, .partB .partB_down .partB_down_content .buttonbox {
+        width: 30%;
+        display: flex;
+        position: relative;
+        top: 45%; }
+        .partB .partB_top .partB_top_content .buttonbox button, .partB .partB_top .partB_down_content .buttonbox button, .partB .partB_down .partB_top_content .buttonbox button, .partB .partB_down .partB_down_content .buttonbox button {
+          margin-left: 10px;
+          width: 75px;
+          height: 30px; }
+
+.lightbox_actsCheckout_outside {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout {
+    width: 62%;
+    max-width: 1200px;
+    height: 75%;
+    margin: 5px auto;
+    padding: 20px 20px;
+    color: #f05c79;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #f05c79;
+    border-radius: 15px;
+    background-color: #f0a0c8;
+    background-image: url("../images/activity/spanBg01.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+    right: 0; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout h2 {
+      color: rgba(102, 102, 102, 0.7);
+      font-size: .8rem; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top {
+      height: 330px;
+      display: flex;
+      justify-content: space-between; }
+      .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_topImg {
+        width: 35%;
+        height: 240px;
+        position: relative;
+        left: 40px;
+        padding: 10px 10px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        border-radius: 15px; }
+      .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_top_right {
+        width: 55%;
+        padding-top: 46px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        position: relative; }
+      .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+        position: absolute;
+        left: 34%;
+        top: 10px;
+        padding: 5px 0;
+        font-size: 1.3rem; }
+      .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top span {
+        width: 50%;
+        height: 30%;
+        font-size: .9rem; }
+  .lightbox_actsCheckout_outside .acts_lightbox_down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; }
+    .lightbox_actsCheckout_outside .acts_lightbox_down #btn_ActJoinToDB {
+      position: absolute;
+      right: 135px;
+      bottom: 150%;
+      width: 75px;
+      height: 30px; }
+    .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox {
+      width: 80%;
+      height: 155px;
+      text-align: left;
+      padding: 10px 20px;
+      border-radius: 15px;
+      margin: 0 auto;
+      overflow-y: scroll;
+      position: relative;
+      bottom: 35px; }
+      .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox span {
+        display: block;
+        font-size: .9rem;
+        padding: 5px 0px;
+        text-align: left;
+        border-bottom: 1px dotted #f05c79; }
+      .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
+        .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBoxOut {
+          position: absolute;
+          left: 0; }
+        .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBox {
+          width: 35px;
+          height: 35px; }
+        .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd span {
+          width: 90%;
+          padding: 5px 10px;
+          font-size: .8rem;
           position: relative;
-          bottom: 30px; }
+          left: 5px;
+          border-bottom: 1px dotted transparent; }
+    .lightbox_actsCheckout_outside .acts_lightbox_down #myMessagebox_input {
+      width: 86%;
+      position: absolute;
+      bottom: -12px;
+      left: 50px; }
+      .lightbox_actsCheckout_outside .acts_lightbox_down #myMessagebox_input:focus {
+        height: 35px -4px;
+        color: #444;
+        background-color: #fff; }
+    .lightbox_actsCheckout_outside .acts_lightbox_down #msgtitle {
+      margin: auto;
+      position: absolute;
+      left: 6%;
+      top: -39%;
+      bottom: 50%;
+      border-bottom: 1px solid transparent; }
 
 @media only screen and (max-width: 1200px) {
   .act_officialBanner {
@@ -752,14 +956,37 @@
     .lightbox_act .lightbox_act_info .spanbox {
       width: 60%; }
   .lightbox_holdact .lightbox_holdact_info {
-    width: 98%;
-    height: 30%; }
+    width: 95%;
+    height: 55%; }
     .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox {
       line-height: 130px; }
   .act_officialBanner img {
     height: 400px; }
   .act_officialBanner .act_info button {
-    bottom: 0px; } }
+    bottom: 0px; }
+  .act_memberHold .act_memberHold_box {
+    width: 48%;
+    height: 328px; }
+    .act_memberHold .act_memberHold_box h3 {
+      font-size: 1rem;
+      border-bottom: 2px solid #fff;
+      width: 35%; }
+  .act_memberHold .act_memberHold_join {
+    opacity: 1;
+    bottom: 30px; }
+  .act_memberHold .act_tab_pages {
+    left: 47%;
+    bottom: 7px;
+    width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    overflow-x: scroll; }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout {
+    width: 95%;
+    height: 55%; }
+  .partB .partB_top .partB_top_content {
+    width: 100%;
+    height: 195px; } }
 
 @media only screen and (max-width: 476px) {
   .act_section01 {
@@ -835,13 +1062,27 @@
     min-width: 400px; }
   .lightbox_holdact .lightbox_holdact_info {
     width: 95%;
-    height: 30%; }
+    height: 75%; }
     .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox {
-      width: 40%;
-      top: 16px;
-      right: 8px; }
-    .lightbox_holdact .lightbox_holdact_info label input {
-      width: 40%; }
+      width: 52%;
+      top: 50px;
+      right: 8px;
+      padding-bottom: 7%;
+      line-height: 0; }
+      .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox img {
+        position: relative;
+        right: 10px; }
+    .lightbox_holdact .lightbox_holdact_info form label input {
+      width: 75%;
+      height: 25px;
+      margin-top: 10px;
+      margin: 10px auto;
+      text-align: left;
+      font-size: .7rem;
+      text-align: center; }
+    .lightbox_holdact .lightbox_holdact_info form .label2 {
+      position: relative;
+      top: 50px; }
   .act_memberHold_B .act_myActs .act_memberCheckBox {
     top: 60px; }
   .act_memberHold_B .act_joins .act_memberCheckBox {
@@ -850,4 +1091,106 @@
     width: 80px;
     height: 30px; }
   .act_officialBanner img {
-    height: 300px; } }
+    height: 300px; }
+  .act_memberHold .act_memberHold_box {
+    width: 90%;
+    margin: 5px auto;
+    height: 340px; }
+  .act_memberHold .act_tab_pages {
+    width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    left: 50%;
+    bottom: 0px;
+    overflow-x: scroll; }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout {
+    width: 95%;
+    height: 75%;
+    top: 55px; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+      position: absolute;
+      left: -60%;
+      top: 10px;
+      font-size: .9rem;
+      color: rgba(102, 102, 102, 0.7); }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_top_right {
+      width: 60%;
+      padding-top: 20px;
+      display: flex;
+      /* flex-wrap: wrap; */
+      flex-direction: column;
+      align-items: center;
+      position: relative; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top span {
+      width: 65%;
+      height: 15%;
+      font-size: .8rem; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #btn_ActJoinToDB {
+      position: absolute;
+      right: 0px;
+      bottom: 100%;
+      width: 75px;
+      height: 30px; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down .messagebox {
+      width: 100%;
+      height: 155px;
+      text-align: left;
+      padding: 10px 20px;
+      border-radius: 15px;
+      overflow-y: scroll;
+      position: relative;
+      right: 0px;
+      bottom: 0px; }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #myMessagebox_input {
+      width: 74%; }
+  .act_tabBar #btn_holdAct {
+    display: block;
+    position: absolute;
+    right: -30px;
+    z-index: 4;
+    width: 75px;
+    height: 30px; }
+  .act_memberHold .act_memberHold_box .act_memberHold_join {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: -5%;
+    bottom: -5px;
+    opacity: 1; }
+    .act_memberHold .act_memberHold_box .act_memberHold_join button {
+      width: 75px;
+      height: 30px;
+      display: block; }
+  .partB .partB_top .partB_top_content {
+    width: 100%;
+    height: 250px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative; }
+    .partB .partB_top .partB_top_content .contentImg {
+      width: 47%;
+      height: 0;
+      padding-bottom: 55%;
+      display: block;
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat; }
+    .partB .partB_top .partB_top_content .buttonbox {
+      width: 45%;
+      display: flex;
+      position: absolute;
+      left: 2%;
+      top: 85%; }
+    .partB .partB_top .partB_top_content .spanbox {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center; }
+      .partB .partB_top .partB_top_content .spanbox span {
+        width: 100%;
+        padding: 5px 10px;
+        color: #f05c79;
+        font-size: .9rem;
+        line-height: 20px; } }
