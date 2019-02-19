@@ -47,7 +47,7 @@ try {
     <link rel="stylesheet" href="css/match2.css">
     <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="node_modules/gsap/src/minified/TweenLite.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
 </head>
 
