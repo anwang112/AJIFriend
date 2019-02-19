@@ -123,6 +123,7 @@ try {
                     <tr>
                         <td colspan="2">
                             <button id="btn_beFriend">成為麻吉</button>
+                            <button id="">檢舉麻吉</button>
                         </td>
                 </table>
             </div>
@@ -132,13 +133,19 @@ try {
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
-            <input type="button" value="搜尋" class="search">
+            <button class="search">搜尋</button>
         </div>
 
 
         <div class="matchContent">
             <div class="carousel">
                 <h1>轉轉找麻吉</h1>
+                <div class="heart">
+                    <span>今日剩餘麻吉數：</span>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                </div>
                 <img src="images/matchBoard.svg" class="board">
                 <div class="matchHorse">
                     <img src="images/matchHorse.svg">
@@ -148,6 +155,7 @@ try {
                     <img src="images/matchItem01.svg" class="matchItem mi04">
                 </div>
                 <div class="matchMem">
+                <canvas id="drawing_canvas"></canvas>
                     <div class="memFront">
                         <img src="images/match01.svg">
                         <div id="matchMaji" class="roleBox"></div>
@@ -172,9 +180,9 @@ try {
                                 默契值:
                             </th>
                             <td>
-                                <div class="MJstatus"></div>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
                                 <span class="pink">/100</span>
+                                <div id="MJstatus"></div>
                             </td>
                         </tr>
                         <tr>
@@ -414,11 +422,11 @@ try {
             </div>
         </div>
     </div>
-    
+    <script src="js/match2.js"></script>
     <script type="text/javascript">
         foot_html();
     </script>
-    <script src="js/match2.js"></script>
+    
 
 
 </body>
