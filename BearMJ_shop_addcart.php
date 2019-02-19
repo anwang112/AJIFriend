@@ -190,7 +190,7 @@ try {
                                 <div class="productItem">
                                     <!-- 商品圖 -->
                                     <div class="productImg">
-                                        <img class="click_wear" src="shop-images/<?php echo $prodRow["img"];?>" id="hat_1">
+                                        <img class="click_wear" src="shop-images/<?php echo $prodRow["img"];?>" id="hat_<?php echo $prodRow["proNo"];?>">
                                         <div class="rwd-proInfo">
                                             <h3><?php echo $prodRow["proName"];?></h3>
                                             <!-- 魅力值 -->
@@ -309,12 +309,6 @@ try {
         var choose = document.getElementsByClassName("gift");
         for(var i = 0 ; i < choose.length ; i++){
             choose[i].addEventListener("click",showfriendBox);
-        }
-        if(innerWidth<768){
-            productItem = document.getElementsByClassName("productItem");
-            for (var i = 0; i<productItem.length; i++) {
-                //productItem[i].addEventListener("click",showLightBox);
-            }
         }
 
         productImg = document.getElementsByClassName("click_wear");
