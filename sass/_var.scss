@@ -38,8 +38,8 @@ $roleSize: 15%;
     }
 }
 
-@mixin LRcenter {
-    position: relative;
+@mixin LRcenter($po) {
+    position: $po;
     right: 0;
     left: 0;
     margin: 0 auto;

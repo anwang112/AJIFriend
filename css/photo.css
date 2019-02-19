@@ -2,7 +2,8 @@
     padding: 0;
     margin: 0;
     font-family: "微軟正黑體";
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
+    border: 1px solid red;
 }
 a{
     text-decoration: none;
@@ -20,25 +21,55 @@ body{
 /* 第一屏背景 */
 /* #ead3cc */
 .bg{
-    background:  url("/images/buildingBg-19.png")  #ead3cc no-repeat scroll 100%;
-    background-size: 95%;
+    background:  rgba(98,167,236, .8) no-repeat scroll 100%;
+    background-size: 100% 90%;
+
+}
+.wrap{
+    width: 100%;
+    /* max-width: 1200px; */
+    margin: auto;
+    height: 100vh;
+    overflow: hidden;
+
+}
+.wrap .clouds1{
+    width: 100%;
+    position: relative;
+
+}
+.wrap .clouds2{
+    width: 100%;
+    position: relative;
+}
+.wrap .clouds1 img{
+    width: 60%;
+    position: absolute;
+    left: -10%;
+    top: 10vh;
+    animation: cloudsMoving 50s infinite linear;
+}
+.wrap .clouds2 img{
+    width: 80%;
+    position: absolute;
+    left: -40%;
+    top: 65vh;
+    animation: cloudsMoving2 50s infinite linear forwards;
+}
+@keyframes cloudsMoving2{
+    0%{left: -40%;}
+    100%{left: 80%;}
+}
+@keyframes cloudsMoving {
+    0%{left: -50%;}
+    100%{left: 100%;}
 }
 
-/* @media screen and (max-width: 1200px){} */
-    /* a:hover{    
-        color:rgba(240,92,121,1);  
-    } */
-
-  .wrap,.postArea{
-    width: 100%;
-    margin: auto;
-    max-width: 1200px;
-  }
   .trophy{
         display: flex;
         align-items: center;
         width: 300px;
-        padding-top: 10%;
+        padding-top: 15vh;
         padding-left: 12%;
         /* padding-bottom: 2%; */
 
@@ -51,10 +82,11 @@ body{
 
   }
   .trophy h2{
+      font-size: 1rem;
       width: 70%;
+      z-index: 3;
       text-align: center;
-      
-
+      text-shadow: 1px 2px#aaa;
   }
   .trophy img{
     width: 100%;
@@ -69,65 +101,87 @@ body{
   }
 
 /* 燈箱 */
-
+#LBbg,#cardLBbg{
+    background-color: rgba(0%,0%,0%,0.5);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
   #LB,#cardLB{
     width: 400px;
     height: 550px;
     margin: auto;
-    color: rgba(102,102,102,1);
+    color: rgb(253, 196, 196);
     /* border: 10px solid #fcc6d0; */
-    background-color: #ffffff;
-    border-radius: 10px;
+    background-color: #E5E2DD;
+    border-radius: 12px;
     opacity: 1;
-    box-shadow: 5px 10px 5px #aaa;
-    position: absolute;
+    /* box-shadow: 5px 1px 5px #eee; */
+    position: fixed;
     z-index: 999;
     left: 35%;
     top: 20%;
 }
-#LB .winnerPhoto img, #cardLB .cardPhoto img{
+/* #LB .winnerPhoto img{
     width:80%;
     padding: 2%;
     margin: auto;
     border-radius: 10px;
     vertical-align:middle;
 
+} */
+#LB .topPhoto ,#cardLB .cardPhoto{
+    width: 94%;
+    padding: 3%;
 }
 #LB .member ,#cardLB .member{
-    width: 18%;
-    margin-left: 4%;
+    width: 15%;
+    margin-left: 8%;
 }
 #LB .heart,.card .heart ,#cardLB .heart{
     width: 12%;
     margin-top: 1%;
   }
 #LB a , #cardLB a{
-    margin-right: 15%;
+    margin-left: 20px;
+    margin-right: 40px;
+    font-size: .8rem;
     cursor: pointer;
     color: rgba(102,102,102,1);
   }
 #LB a:hover, #cardLB a:hover {
     color:rgba(240,92,121,1);  
   }
+#cardLB span{
+    margin-left: 20px;
+    font-size: 0.8rem;
+}
 
 #LB p, #cardLB p{
     margin-left: 10%;
     margin-top: 5%;
 }
 #close {
-        width: 10%;
-        position: absolute;
-        right: 3%;
-        top: 1%;
-        cursor: pointer;
-        font-size: 1.3rem;
-        color:rgba(240,92,121,1);
-}
-#del{
-    width: 10%;
+    background-color: rgba(162,152,143,1);
+    box-shadow: 0px 5px rgba(68,68,64,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    left: 3%;
-    top: 1%;
+    top: 3vh;
+    right: 2vw;
+    cursor:pointer;
+    z-index: 15;
+}
+
+#del{
+    width: 3vh;
+    position: absolute;
+    right: 3%;
+    top: 70%;
     cursor: pointer;
     font-size: 1.3rem;
     color:rgba(240,92,121,1);
@@ -147,6 +201,9 @@ body{
     cursor: pointer;
 } */
 
+
+
+
 .col3{
     display: flex;
     flex-direction: row;
@@ -154,22 +211,24 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
-  .top {
+  .top1, .top2 ,.top3 {
     cursor: pointer;
     margin: 3%;
     width: 240px;
     height: 290px;
     color: rgba(102,102,102,1);
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 6px;
     /* float: left; */
     position: relative;
 }
-  .top span{
+  .top span,.tops span{
     font-size: .8rem;
+    margin-left: 10px;
+
 
   }
-  .top img{
+  .top1 img,.top2 img,.top3 img{
     width:94%;
     padding: 3%;
     margin: 0 auto;
@@ -177,16 +236,28 @@ body{
     border-radius: 10px;
 
   }
+  .top1,.top2,.tpp3{
+      position: relative;
+  }
+  .top1 .topbg,.top2 .topbg,.top3 .topbg{
+      width: 300px;
+      position: absolute;
+      left: -10%;
+      top: 64%;
+      z-index: -1;
+  }
   .top .member,.card .member{
     width: 18%;
     margin-left: 4%;
   }
-  .top .heart,.card .heart{
+  .top .topheart,.card .heart{
     width: 12%;
     margin-top: 1%;
   }
   .top a,.card a{
-    margin-right: 10%;
+    margin-left: 5px;
+    margin-right: 20px;
+
     font-size: .8rem;
     width: 40px;
     display: inline-block;
@@ -201,110 +272,79 @@ body{
   .top a:hover,.card a:hover{
     color:rgba(240,92,121,1);  
   }
-  .ground{
-    width: 100%;
-    height: 24vh;
-    margin-top: 2%;
-    position: relative;
-    /* background-color: #c9caca; */
-  }
-  .content{
-    margin-left: 35%;
-  }
-  .ground h2{
-    display: inline-block;
-    margin-top: 13%;
-    margin-right:  5%;
-    
-  }
-  .ground img{
-    width: 13%;
-  }
-  .ground .aji{
+  /* .content{
+    margin-left: 20%;
+  } */
+  .content .aji{
+      width: 20%;
       position: absolute;
-      top: -5%;
+      top: 53%;
+      left: 20%;
       display: inline-block;
-    }
-    .ground .ajiY{
+  }
+  .content .ajiY{
+      width: 20%;
       position: absolute;
-      top: -5%;
+      left: 20%;
+      top: 53%;
       display: inline-block;
-    }
-    .ground .aji:hover{
+  }
+  .content .aji:hover{
       display: none;
-    }
+  }
   
-
+/* 製作合照tab */
     #drawingTab{
         position: fixed;
-        top: 20%;
+        top: 35%;
         right: 3%;
-        width: 100px;
+        width: 110px;
         height: 50%;
         cursor: pointer;
         animation: camera 3s infinite;
     }
 
     @keyframes  camera{
-        0% {top: 110px;}
-        50% {top: 120px;}
-        100%{top: 110px;}
+        0% {top: 35%;}
+        100%{top: 36%;}
     }
     #drawingTab h1{
-        width: 30px;
-        font-size: 1rem;
+        width: 100px;
+        padding: 1vh;
+        font-size: .9rem;
         line-height: 1.3;
         color: #f05c79;
     }
     #drawingTab img{
         width: 150%;
     }
-    /* .switch{
-      z-index: 999;
-      position: fixed;
-      right: 3%;
-      top: 46%;
-      width: 13px;
-      height: 65px;
-    }
-  .switch .dot{
-      width: 13px;
-      height: 13px;
-      margin-bottom: 13px;
-      background-color: #fff;
-      opacity: 0.4;
-      border-radius: 50%;
-    }
-  .switch .dot:hover{
-      opacity: 0.9;
-  
-  } */
 
-
-  /* 第二屏照片區 */
+/* 第二屏照片區 */
 
   /* 背景 */
   .bg2{
-    background: #ead3cc url("/images/camera-16.png") no-repeat scroll ;
+    background:rgba(98,167,236, .8) url("/images/bg2photo1-23.png") no-repeat scroll 50% 5%;
     background-size: 100%;
 }
-
-
 .postArea{
-    padding-top: 10%;
-    padding-bottom: 20%;
+    width: 100%;
+    /* padding-top: 10%; */
+    /* padding-bottom: 20%; */
     position: relative;
+    margin: auto;
+    max-width: 1200px;
+
 
 }
     .father{
         position: relative;
     }
     #myPhoto{
-        /* width: 100%; */
+        width: 100%;
         position: absolute;
         text-align: right;
         right: 15%;
-        /* top: 55%; */
+        margin-top: 40vh;
         animation: upndown 3s infinite;
     }
     @keyframes  upndown{
@@ -317,22 +357,50 @@ body{
     }
     #myPhoto a h3{
         width: 100px;
+        padding-top: 1vh;
         text-align: center;
         display: block;
         color: #f05c79;
-        right: 11%;
-        top: 12%;
+        
     }
     #myPhoto a img{
-        width: 120px;
+        width: 100px;
         display: block;
-        right: 10%;
-        top: 3%;
+       
 
     }
    #myPhoto:hover a{
         transform: translateY(10px);
         transition: .5s;
+    }
+    .postArea h1{
+        /* display: inline-block; */
+        /* width: 300px; */
+        font-size: 1.4rem;
+        text-align: center;
+        color: #f05c79;
+        margin-top: 10%;
+        /* margin-left: 39%; */
+        margin-bottom: 5%;
+    }
+
+    /* 標題旗子～ */
+    .topic{
+        width: 300px;
+        margin: auto;
+        padding-top: 10vh;
+        padding-bottom: 30vh;
+        position: relative;
+        /* position: absolute;
+        left: 30%;
+        top: 10%; */
+    }
+    .topic h1{
+        position: absolute;
+        font-size: 1.5rem;
+        left: 8vh;
+        top: 10vh;
+        transform: rotate(-5deg);
     }
 
     .card{  
@@ -340,28 +408,37 @@ body{
         cursor: pointer;
         margin: 6%;
         width: 240px;
-        height: 225px;
+        height: 300px;
         color: rgba(102,102,102,1);
-        /* background-color: #fff; */
-        opacity: .9;
+        background-color: #fff;
         position: relative;
+        font-size: .8rem;
+        border-radius: 8px;
     }
-
+    .card .bigHeart{
+        display: none;
+        opacity: 0.9;
+    }
+    .card .bigHeart{
+        width: 100%;
+        position: absolute;
+        left: 0;top: 10px;
+    }
+    .card .voteHeart{
+        display: none;
+        width: 200px;
+        position: absolute;
+        left: 9%;
+        top: 9%;
+    }
     .card img, #cardLB .cardPhoto img{
-        width:100%;
+        width:94%;
         margin-bottom: 3%;
-        padding: 2%;
+        padding: 3%;
         vertical-align:middle;
+        border-radius: 10px;
+
       }
- .postArea h1{
-        /* display: inline-block; */
-        /* width: 300px; */
-        text-align: center;
-        color: #f05c79;
-        margin-top: 10%;
-        /* margin-left: 39%; */
-        margin-bottom: 5%;
-    }
 
     #trash{
         position: absolute;
@@ -375,8 +452,9 @@ body{
     #trash img{
         width: 15%;
     }
+
     .card .heart{
-        opacity: .8;
+        opacity: .6;
     }
     .card .heart:hover{
         opacity: 1;
@@ -395,7 +473,7 @@ body{
     /* max-width: 1200px; */
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 10;
     margin: auto;
     display: none;
     padding-top: 40px;
@@ -540,7 +618,6 @@ body{
         /* border:4px solid coral; */
         /* opacity: 0; */
     }
-
     .bulletin img{
         width: 15%;
         height: 15%;
@@ -583,7 +660,6 @@ body{
         top: 0;        
         border: 5px solid rgba(240,92,121,.7);
         left: 0;
-
     }
     .upload img{
         display: none;
@@ -625,7 +701,7 @@ body{
         background: #aaa;
         box-shadow: 3px 5px 1px #797979;
     }
-    .upload span,#friendBox span,.next span{
+    .upload span,#friendBox span,.next span,#sharePhoto{
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
@@ -635,43 +711,99 @@ body{
         border-radius: 10px;
         margin-bottom: 20px;
     }
-    .mkPhoto a:hover,input:hover{
-        background-color: rgba(200,78,106,1);
-    }
-
-
-@media screen and (max-width: 476px){
-    .wrap{
-        width: 95%;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .ground,.switch {    
+    #sharePhoto{
         display: none;
     }
-    .col-3{
-        margin: auto;
+    .mkPhoto a:hover,input:hover{
+        background-color: rgba(200,78,106,1);
+    } 
+
+/* ipad RWD */
+@media screen and (max-width: 768px){
+    .wrap{
+        width: 100%;
+        height: 140vh;
     }
-    .top,.card{
-        margin: 10% 18%;
+    .wrap .trophy{  
+        width: 40%;}
+    .wrap .trophy h2{
+        font-size: 1rem;
+    }
+    .wrap .clouds2{   
+        display: none;}
+    .wrap .clouds1{  
+        position: fixed; 
+        width: 150%;}
+    .wrap .clouds1 img{    
+        width: 100%;}
+    .col3{
+        display: flex;
+        flex-direction: column;
+    }
+    .col3 .top{
+        width: 35%;
+        margin-bottom: 10vh;
+    }
+    .top .topbg{
+        width: 300px;
+        position: absolute;
+        left: -6%;
+        top: 75%;
+        z-index: 1;
+    }
+    .card{
+        margin-left: 11%;
+    }
+    .card img{
+        width: 100%;
+    }
+
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+        position: relative;
+        z-index: 3;
+    }
+    .top .topheart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+        z-index: 3;
+        position: relative;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+        z-index: 3;
+        position: relative;
+    }
+    .top span,.card span{
+        z-index: 3;
+        position: relative;
+    }
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+        background-size: 100%;
     }
     .postArea{
-        padding-top: 10%;
+        padding-top: 20%;
     }
     #myPhoto{
-        height: 100px;
-        padding-bottom: 50px;
-
+        width: 70px;
+        position: absolute;
     }
     #myPhoto img{
         width: 70px;
-        position: absolute;
-        right: 13%;
-        top: 8%;
-    }
-    h1{
-        text-align: left;
-        margin-left: 12%;
+       
     }
     #myPhoto h3{
         font-size: 16px;
@@ -706,6 +838,224 @@ body{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
+    }
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: fixed;
+        top: 28%;
+        left: 25%;
+        /* width: 85vw; */
+        /* height: 82vh; */
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+    }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+    }
+    #close{
+        position: absolute;
+        right: 2vw;
+        top: 2vh;
+    }
+    
+}
+
+/* phone RWD */
+@media screen and (max-width: 476px){
+    .wrap{
+        width: 100%;
+        height: 172vh;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        position: relative;
+    }
+    .wrap .clouds2{
+        display: none;
+    }
+    .wrap .clouds1,.wrap .clouds2{
+        width: 150%;
+    }
+    .wrap .clouds1 img, .wrap .clouds2 img{
+        width: 100%;
+        position: fixed;
+    }
+    .wrap .trophy{
+        width: 55%;
+        margin-left: 17%;
+        margin-bottom: 20px;
+    }
+    .wrap .trophy h2{
+        width: 150px;
+        padding: 4px;
+        margin-left: 5px;
+        font-size: 1.2rem;
+    }
+    .col3 .top {
+        width: 60%;
+    }
+    .col3 .top .topbg{
+        width: 280px;
+        position: absolute;
+        left: -6%;
+        top: 67%;
+      
+        display: block;
+    }
+    .card{
+        margin-left: 19%;
+    }
+    .card img{
+        width: 100%;
+
+    }
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+    }
+    .top .topheart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+    }
+    /* 壞掉不能調高度 */
+    #drawingTab{
+        width: 15%;
+        position: fixed;
+        top: -10%;right: 3px;
+    }
+    .topic{
+        width:  180px;
+    }
+    .topic h1{
+        font-size: 1rem;
+        position: absolute;
+        left: 7.5vh;
+        top: 10.5vh;
+    }
+  
+
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+        
+    }
+    .postArea{
+        padding-top: 10%;
+    }
+    .topic{
+        padding-bottom: 20vh;
+    }
+    .content .aji, .content .ajiY{
+        display: none;
+    }
+    #myPhoto{
+        width: 70px;
+        position: absolute;
+        left: 20vw;
+        margin-top:30vh;
+    }
+    #myPhoto img{
+        width: 70px;
+       
+    }
+    #myPhoto h3{
+        font-size: 14px;
+        position: absolute;
+        right: -16%;
+        top: 91%;
+    }
+    .mkPhoto{
+        padding-top: 50px;
+    }
+    .bulletin{
+        display: none;
+    }
+    .steps{
+        display: flex;
+        flex-direction: column;
+    }
+    .drawing{
+        display: flex;
+        flex-direction: column;
+    }
+    .mkPhoto .drawing .upload span{
+        margin-top: 0;
+        margin-left: 0px;
+    }
+    .mkPhoto .drawing .next span{
+        margin-top: 20px;
+        margin-left: 0px;
+
+    }
+    .preview{
+        position: absolute;
+        left: 7.7%;
+        top: 22.3%;
+    }
+
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: absolute;
+        top: 25%;
+        left: 13%;
+        width: 75vw;
+        height: 55vh;
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+      }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB a, #cardLB a{
+        margin-right: 25px;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+        color: rgba(102,102,102,1);
+    }
+    #LB p, #cardLB p{
+        color: rgba(102,102,102,1);
+    }
+    #close{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        right: 2vw;
+        top: 1vh;
+    }
+    #del{
+        position: absolute;
+        top: 40.5vh;
+
     }
 
 }  

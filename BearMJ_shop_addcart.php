@@ -41,6 +41,7 @@ try {
 ?>	
         <script type="text/javascript">
             head_html();
+        
         </script>
     <div id="shop_background" class="background">
 
