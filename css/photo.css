@@ -3,7 +3,6 @@
     margin: 0;
     font-family: "微軟正黑體";
     outline: 1px solid red;
-    border: 1px solid red;
 }
 a{
     text-decoration: none;
@@ -465,7 +464,7 @@ body{
 
 
 
-/* fixed畫畫～ */
+/* fixed 合照功能彈出～ */
 
 .mkPhoto{
     position: fixed;
@@ -597,9 +596,7 @@ body{
     }
     #step3{
         display: block;
-
         filter: grayscale(100%);
-
     }
     #step3 img{
         width: 100px;
@@ -639,19 +636,45 @@ body{
         left: 20%;
         top: 30%; */
     }
+    .controlBar{
+        width: 40px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        display: none;
+
+    }
+    .color{
+        width: 40px;
+        height: 40px;
+        margin: 10%;
+        border-radius: 50%;
+        border: 2px solid #aaa;
+        cursor: pointer;
+    }
+    #red{ background-color:crimson;}
+    #coral{background-color: coral;}
+    #yellow{background-color: gold;}
+    #blue{background-color:skyblue;}
+    #green{background-color: seagreen;}
+    #black{background-color: black;}
+    .preCanvas{
+        position: relative;
+    }
     #canvas{
-        /* margin-top: 2%; */
+        cursor: cell;
+        position: absolute;
+        left: 0;top: 0;
         border: 5px solid rgba(240,92,121,.7);
-        background-color: #ffffff;
-        width:350px;
-        height:350px;
+        display: none;
+       
     }
     .preview{
         width: 350px;
         height: 350px;
-        position: relative;
-        /* left: 35.34%; */
+        border: 5px solid rgba(240,92,121,.7);
 
+        background-color: #ffffff;
     }
     .preview img{
         width: 100%;
@@ -664,12 +687,13 @@ body{
     .upload img{
         display: none;
         margin-left: 23%;
-        margin-bottom: 12%;
+        margin-bottom: 10%;
     }
     .mkPhoto .drawing #upBtn,#chooseBtn{ 
         display: block;
-        margin-top: 200%;
-        margin-left: -11%;
+        margin-top: 10%;
+        margin-left: 20%;
+
     }
     .upload #upBtn{
         display: block;
@@ -680,15 +704,15 @@ body{
     /* 下一步 btn */
     .next span{
         display: block;
-        margin-top: 200%;
+        margin-top: 0%;
         margin-left: 20%;
         margin-right: 10%;
     }
     /* 上一步 btn */
     .back span{
-        position: absolute;
+        /* position: absolute;
         right: 17.5%;
-        top: 60%;
+        top: 60%; */
         display: none;
         cursor: pointer;
         width: 80px;
@@ -916,7 +940,6 @@ body{
     }
     .card img{
         width: 100%;
-
     }
     .top img{
         width: 100%;
@@ -959,7 +982,6 @@ body{
     .bg2{
         background-position: 50% 100%;
         background-attachment: fixed;
-        
     }
     .postArea{
         padding-top: 10%;
@@ -978,7 +1000,6 @@ body{
     }
     #myPhoto img{
         width: 70px;
-       
     }
     #myPhoto h3{
         font-size: 14px;
@@ -987,33 +1008,90 @@ body{
         top: 91%;
     }
     .mkPhoto{
-        padding-top: 50px;
+        padding-top: 10px;
     }
     .bulletin{
         display: none;
     }
+    #exit{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #canvas{
+        margin-left: 36px;
+    }
+    .btns{
+        display: flex;
+        flex-direction: row;
+    }
+    .mkPhoto .drawing span{
+        font-size: 14px;
+        padding: 10px 10px;
+
+    }
+    .back span{
+        width: 90px;
+        position: unset;
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    #sharePhoto{
+        width: 90px;
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    .mkPhoto .drawing #upBtn,#chooseBtn,#friendBox span{
+        width: 90px;
+        padding: 10px 10px;
+
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    .btns a{
+        margin-top: 360px;
+    }
     .steps{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+    }
+    .step1{
+        width: 100px;
     }
     .drawing{
-        display: flex;
-        flex-direction: column;
+        position: relative;
+        display: block;
+    }
+    .controlBar{
+        position: absolute;
+        left: 0;top: 12px;
+    }
+    .controlBar .colorPack{
+
+        width: 40px;
+        height: 40px;
+    }
+    .controlBar .reset{
+        width: 40px;
+        margin: 10%;
+        cursor: pointer;
+
     }
     .mkPhoto .drawing .upload span{
+        width: 90px;
         margin-top: 0;
         margin-left: 0px;
     }
     .mkPhoto .drawing .next span{
-        margin-top: 20px;
-        margin-left: 0px;
-
+        width: 90px;
+        margin-top: 360px;
+        margin-left: 20px;
     }
-    .preview{
+    /* .preview{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
-    }
+    } */
 
     /* 燈箱 */
     #LB,#cardLB{

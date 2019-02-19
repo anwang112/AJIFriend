@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>照片牆</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
     <script src="js/drawing.js"></script>
     <script src="js/friendBox.js"></script>
@@ -134,36 +135,62 @@
                     </div>
                 </div>
             </div> -->
+
             <div class="drawing">
-                <label> 
-                    <div class="upload">
-                        <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
-                        <span id="upBtn">上傳背景</span>
-                        <input style="width:'30px'; " type="file" id="upFile" name="upfile" hidden>
-                    </div> 
-                </label>
-                <label id="friendBox">
-                    <span id="chooseBtn">選擇朋友</span>
-                </label>
-                <label>
-                    <span id="sharePhoto">分享至照片牆</span>
-                </label>
-                <div class="preview"><img id="imgPreview" src="" alt="">
-                    <canvas id="canvas"></canvas>
+                <!-- 選擇顏色 -->
+                <div class="controlBar">
+                    <div class="colorPack">
+                        <div class="color" id="red"></div>
+                        <div class="color" id="coral"></div>
+                        <div class="color" id="yellow"></div>
+                        <div class="color" id="blue"></div>
+                        <div class="color" id="green"></div>
+                        <div class="color" id="black"></div>
+                        <div class="reset color">
+                            <img id="reset" src="images/reset-26.svg" alt="reset">
+                        </div>
+
+                    </div>
+                 </div>
+                <!--畫布canvas 與 背景預覽  -->
+                <div class="preCanvas">
+                        <div class="preview"><img id="imgPreview" src="" alt="">
+                        </div>
+                        <canvas id="canvas" width="350px" height="350px"></canvas>
+                        
                 </div>
-                <div class="btn">
+                
+            <!-- 按鈕們 上傳背景 選擇朋友 分享 上一步 下一步 -->
+                <div class="btns">
                     <div class="back" >                
                         <span id="back">選擇背景</span>
                     </div>
+                    <label> 
+                        <div class="upload">
+                            <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
+                            <span id="upBtn">上傳背景</span>
+                            <input style="width:'30px'; " type="file" id="upFile" name="upfile" hidden>
+                        </div> 
+                    </label>
+                    <label id="friendBox">
+                        <span id="chooseBtn">選擇朋友</span>
+                    </label>
+                    <label>
+                        <span id="sharePhoto">分享至照片牆</span>
+                    </label>
                     <div class="next" >                
                         <span id="next">選擇朋友</span>
                     </div>
+
+                    <!-- 下載照片 -->
+                    <a id="save" href="#" download="friendPhoto.png">Save Photo</a>
                 </div>
             </div>
         </div>
     </div>
-            <!-- canvas -->
 
+
+    <!-- canvas tab -->
     <script>
         function $id(id){
             return document.getElementById(id);
@@ -182,7 +209,7 @@
 
                 }
 
-                }
+            }
         window.addEventListener("load", init, false);
     </script>
 
