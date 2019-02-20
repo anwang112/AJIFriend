@@ -707,6 +707,12 @@
     overflow-y: scroll;
     position: relative;
   }
+  #myRoom .windowbackground{
+    width: 300px;
+    height: 400px;
+    top: 6%;
+    left: 20%;
+  }
   #myRoom .wheel{
     width: 18%;
     top: 14%;
@@ -873,6 +879,13 @@
   #wrapComputer{
     width: 38%;
   }
+  .computerTitle{
+    width: 23vw;
+    line-height: 4vh;
+    font-size: 4vw;
+    top: 21%;
+    right: 68%;
+  }
   #computer{
     width: 14%;
     top: 26%;
@@ -931,6 +944,10 @@
     top: 11%;
     left: 20%;
   }
+  #myRoom .windowbackground{
+    top: 6%;
+    left: 13%;
+  }
   #myRoom .RWDroomBG{
     width: 32%;
   }
@@ -939,6 +956,10 @@
   }
   #wardrobe{
     top: 13%;
+  }
+  .computerTitle{
+    top: 20%;
+    right: 71%;
   }
   #computer{
     width: 14%;
@@ -966,6 +987,9 @@
   #wardrobe{
     width: 10%;
     top: 16%;
+  }
+  .computerTitle{
+    right: 75.5%;
   }
   #computer{
     width: 11%;
