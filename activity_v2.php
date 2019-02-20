@@ -225,6 +225,7 @@
                             <input type="date" class="input_R" name="act_begin" placeholder="開始時間">
                             <input type="date" class="input_R" name="act_end" placeholder="結束時間">
                             <input type="submit" class="btn_R" placeholder="確定">
+                            <input type="hidden" class="btn_R" name="memNo" value="<?php echo $_SESSION["memNo"]?>">
                         </label>
                     </form>
                     <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
@@ -252,7 +253,6 @@
                         }	
                         window.addEventListener("load", initss, false);	
                     </script>
-
                 </div>
             </div>
 

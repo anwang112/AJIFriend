@@ -4,7 +4,7 @@
     try {
         require_once("connectBooks.php");
         // 活動巴士
-        $sqlBUS = "SELECT * FROM `activity` WHERE `host_memNo` = 1";
+        $sqlBUS = "SELECT * FROM `activity` WHERE `host_memNo` = 1 AND showOrNot = '1' ";
         
 
 
@@ -35,11 +35,11 @@
 
         //所有活動-熊麻吉們主辦
         
-        $sqlactNo = "select * from activity where host_memNo != 1 ";
+        $sqlactNo = "select * from activity where host_memNo != 1 AND showOrNot = '1' ";
         $result = $pdo->query($sqlactNo);
         $totalRecord =  $result ->rowCount();
         //每頁有幾筆
-
+        // SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND `showOrNot` = '1' order by a.actNo limit $start,$recPerPage 加入邀請會員名字 跟 塞選掉已隱藏的活動
         // if (window.clientWidrh < 476) {
         //     $recPerPage = 3;
         // }else if(window.clientWidrh < 768){
@@ -62,7 +62,7 @@
         $start = ($pageNo-1) * $recPerPage;
 
         // $sql = "select * from activity ";
-        $sqlMemHold = "select * from activity  where host_memNo != 1 ORDER BY actNo DESC limit $start,$recPerPage";
+        $sqlMemHold = "select * from activity  where host_memNo != 1 AND showOrNot = '1' ORDER BY actNo DESC limit $start,$recPerPage";
         //
 
         
