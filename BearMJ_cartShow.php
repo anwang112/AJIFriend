@@ -77,7 +77,7 @@ session_start();
                 </div>
                 <div id="actionBtns">
                     <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
-                    <input type="submit" value="確認購買" class="btn-buy">
+                    <a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>
                 </div>
                 
             </form>

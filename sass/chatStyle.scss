@@ -1,0 +1,82 @@
+$lightPink:rgba(244,200,219,1);
+$darkPink:rgba(240,92,121,1);
+$shadowPink:rgba(200,78,106,1);
+$lightBrown:rgba(151,131,124,1);
+$shadowBrown:rgba(125,101,91,1);
+img{
+    vertical-align: middle;
+}
+@font-face {
+    font-family: 'AdobeFanHeitiStd-Bold';
+    src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype"); 
+}
+@mixin chatSpan {
+    display: inline-block;
+    border: 1px solid  $shadowPink;
+    background-color: $lightPink;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    font-size: 14px;    
+}
+
+// .friendbox{
+    
+//         overflow: auto;
+//             height: 180px;   
+//         @media all and (max-width: 768px) { 
+//             height: 140px;
+//         }
+//         @media all and (max-width: 476px) {
+//             height: 140px;
+//         }
+
+//         label{
+//             width: 80%;
+//             display: block;
+//             margin-bottom:6px;
+//             background-color: #eee;
+//             padding: 5px; 
+//             border-radius: 5px;
+//             text-align: left;
+//             // font-family: $fontFamily;
+//             cursor: pointer;
+//             &:hover{
+//                 background-color: #ccc;
+//             }
+//             img{
+//                 width: 20%;
+//                 margin-right:4px; 
+//             }
+//             p{
+//                 display: inline;
+//             }
+//             input[type="submit"]{
+//                 display: none;
+//             }
+//         }
+
+    
+// }
+
+
+
+
+.iSaid{
+    text-align: right;
+}
+
+.iSaid span{
+    @include chatSpan;
+    margin-right: 3%;
+    border-radius: 12px 5px 5px 12px;
+}
+.youSaid{
+    text-align: left;
+}
+
+.youSaid span{
+    @include chatSpan;
+    margin-left: 3%;
+    border-radius: 5px 12px 12px 5px;
+
+}
