@@ -1,3 +1,8 @@
+<?php
+    require_once("backAct_toDB.php");
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,14 +43,14 @@
 
                 </td>
                 <td colspan="2">
-                    <button type="button" class="btn btn-secondary">新增活動</button>
+                    <button id="holdAct01" type="button" class="btn btn-secondary">新增活動</button>
                 </td>
                 <td colspan="3">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="活動編號" aria-label="Recipient's username"
+                    <div  class="input-group mb-3">
+                        <input id="act_search_txt" type="text" class="form-control" placeholder="" aria-label="Recipient's username"
                             aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜尋
+                            <button id="act_search_btn" class="btn btn-outline-secondary" type="button" id="button-addon2">搜尋
                             </button>
                         </div>
                     </div>
@@ -57,65 +62,29 @@
                 <th scope="col">發起人</th>
                 <th scope="col">活動名稱</th>
                 <th scope="col">活動地點</th>
-                <th scope="col">活動BANNER</th>
+                <th scope="col">活動圖片</th>
                 <th scope="col">活動時間</th>
             </tr>
         </thead>
         <tbody>
+             <?php while($activityAll ->fetch(PDO::FETCH_ASSOC)){?>
             <tr>
                 <th scope="row">
-                    <a href="">1234567</a><br>
-                    <button type="button" class="btn btn-danger btn-sm">刪除活動</button>
+                    <?php echo $actNo ;?><br> 
+                    <button id="act_delet_btn<?php echo $actNo ;?>" type="button" class="btn btn-danger btn-sm">刪除</button>
                 </th>
-                <td>fsfsdfs</td>
-                <td>中央大學抓寶</td>
-                <td>中大湖</td>
+                <td>發起人//<?php echo $mName;?></td> 
+                <td>活動名稱//<?php echo $actTitle;?></td>
+                <td>地點<?php echo $actLoc;?></td>
                 <td>
-                    <img src="../images/indexItem1.png" style="width:100px;">
+                    <img src="../images/<?php echo $actImg;?>" style="width:100px;" alt="活動圖片">
                 </td>
                 <td>
-                    2019.03.25 <br>
-                    11:00~14:00
-                </td>
-                <td>
+                     <?php echo  substr($act_begin,0,10) ; ?>至<?php echo substr($act_end,0,10);?>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">
-                    <a href="">1234567</a><br>
-                    <button type="button" class="btn btn-danger btn-sm">刪除活動</button>
-                </th>
-                <td>fsfsdfs</td>
-                <td>中央大學抓寶</td>
-                <td>中大湖</td>
-                <td>
-                    <img src="../images/indexItem1.png" style="width:100px;">
-                </td>
-                <td>
-                    2019.03.25 <br>
-                    11:00~14:00
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <a href="">1234567</a><br>
-                    <button type="button" class="btn btn-danger btn-sm">刪除活動</button>
-                </th>
-                <td>fsfsdfs</td>
-                <td>中央大學抓寶</td>
-                <td>中大湖</td>
-                <td>
-                    <img src="../images/indexItem1.png" style="width:100px;">
-                </td>
-                <td>
-                    2019.03.25 <br>
-                    11:00~14:00
-                </td>
-                <td>
-                </td>
-            </tr>
+             <?php } ?>
+
         </tbody>
     </table>
 
