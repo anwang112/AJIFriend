@@ -3,7 +3,7 @@
 try {
 
     $actBoxObj = json_decode($_REQUEST["actBoxObj"]);
-    require_once("connect.php");
+    require_once("connectBooks.php");
     
     $sql = "select * from comment where actNo = :actNo ";
     $comment = $pdo -> prepare($sql);

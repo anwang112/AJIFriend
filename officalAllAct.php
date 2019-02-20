@@ -4,7 +4,7 @@
 
     //跟資料庫要資料
     try {
-        require_once("connect.php");
+        require_once("connectBooks.php");
 
         // 活動巴士
         // if( $officalAllObj -> actNo > 10){ //顆顆完蛋

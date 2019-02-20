@@ -10,7 +10,7 @@
 
     //跟資料庫要資料
     try {
-        require_once("connect.php");
+        require_once("connectBooks.php");
         $sql1 = 'select * from activity	';
         $actnum = $pdo -> query($sql1);
         $num =  $actnum ->rowCount();

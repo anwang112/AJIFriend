@@ -397,7 +397,6 @@ function countJoinNum(host_memNoValue,actNoValue){
 // }
 
 window.addEventListener('load',function(){
-
     //更換第一屏燈箱
     var btn_actL = $id('btn_actL');
     var btn_actR = $id('btn_actR');
