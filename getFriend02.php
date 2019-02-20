@@ -1,20 +1,11 @@
 <?php  
 // 聊天室朋友列表  --by ga
-<<<<<<< HEAD
-$data = $_REQUEST["me"];  //解碼js傳過來的值
-    try{
-        require_once("connectBooks.php");
-        $sql = "select * from relationship where (memNo=:mem or targetNo=:mem) and relaCate=TRUE";
-        $friend = $pdo->prepare( $sql );
-        $friend -> bindValue( ":mem",$data);
-=======
 // $data = $_REQUEST["me"];  //解碼js傳過來的值
     try{
         require_once("connectBooks.php");
         $sql = "select * from relationship where (memNo=1 or targetNo=1) and relaCate=1";
         $friend = $pdo->prepare( $sql );
         // $friend -> bindValue( ":mem",$data);
->>>>>>> master
         $friend ->execute();
 
         if( $friend->rowCount()==0){ //沒有任何好友
@@ -22,11 +13,7 @@ $data = $_REQUEST["me"];  //解碼js傳過來的值
         }else{ //有好友
             $i=0;
             while($friendRows = $friend ->fetch(PDO::FETCH_ASSOC)){
-<<<<<<< HEAD
-                if($friendRows["memNo"]==$data){ //如果此筆資料的memNo欄位是我
-=======
                 if($friendRows["memNo"]==1){ //如果此筆資料的memNo欄位是我
->>>>>>> master
                     $friendNo = $friendRows["targetNo"]; //則targetNo欄位就是朋友的編號
                 }else{ //反之
                     $friendNo = $friendRows["memNo"]; //則memNo欄位就是朋友的編號

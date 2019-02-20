@@ -47,7 +47,11 @@ try {
     <link rel="stylesheet" href="css/match2.css">
     <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+<<<<<<< HEAD
     <script src="node_modules/gsap/src/minified/TweenLite.min.js"></script>
+=======
+    <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
+>>>>>>> master
     <link rel="stylesheet" href="css/common.css">
 </head>
 
@@ -123,6 +127,10 @@ try {
                     <tr>
                         <td colspan="2">
                             <button id="btn_beFriend">成為麻吉</button>
+<<<<<<< HEAD
+=======
+                            <button id="">檢舉麻吉</button>
+>>>>>>> master
                         </td>
                 </table>
             </div>
@@ -132,13 +140,26 @@ try {
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
+<<<<<<< HEAD
             <input type="button" value="搜尋" class="search">
+=======
+            <button class="search">搜尋</button>
+>>>>>>> master
         </div>
 
 
         <div class="matchContent">
             <div class="carousel">
                 <h1>轉轉找麻吉</h1>
+<<<<<<< HEAD
+=======
+                <div class="heart">
+                    <span>今日剩餘麻吉數：</span>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                </div>
+>>>>>>> master
                 <img src="images/matchBoard.svg" class="board">
                 <div class="matchHorse">
                     <img src="images/matchHorse.svg">
@@ -148,6 +169,10 @@ try {
                     <img src="images/matchItem01.svg" class="matchItem mi04">
                 </div>
                 <div class="matchMem">
+<<<<<<< HEAD
+=======
+                <canvas id="drawing_canvas"></canvas>
+>>>>>>> master
                     <div class="memFront">
                         <img src="images/match01.svg">
                         <div id="matchMaji" class="roleBox"></div>
@@ -172,9 +197,15 @@ try {
                                 默契值:
                             </th>
                             <td>
+<<<<<<< HEAD
                                 <div class="MJstatus"></div>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
                                 <span class="pink">/100</span>
+=======
+                                <span class="matchMJ pink" id="scoreDisplay"></span>
+                                <span class="pink">/100</span>
+                                <div id="MJstatus"></div>
+>>>>>>> master
                             </td>
                         </tr>
                         <tr>
@@ -414,11 +445,19 @@ try {
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     
     <script type="text/javascript">
         foot_html();
     </script>
     <script src="js/match2.js"></script>
+=======
+    <script src="js/match2.js"></script>
+    <script type="text/javascript">
+        foot_html();
+    </script>
+    
+>>>>>>> master
 
 
 </body>

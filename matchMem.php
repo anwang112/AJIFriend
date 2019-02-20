@@ -4,6 +4,10 @@ $profile = json_decode($_REQUEST["profile"]);
 $errMsg = "";
 try {
     require_once("connectBooks.php");
+<<<<<<< HEAD
+=======
+    
+>>>>>>> master
     if ($profile->memNo == '') {
         if ($profile->con != '' && $profile->hob == '') {
             $sql = "select * from member where constellation = :constellation order by rand()";
@@ -29,7 +33,11 @@ try {
 
     } else {
         if ($profile->con != '' && $profile->hob == '') {
+<<<<<<< HEAD
             $sql = "select * from member where constellation = :constellation and memNo != :memNo order by rand()";
+=======
+            $sql = "select * from member m, relationship r where m.memNo=r.memNo constellation = :constellation and memNo != :memNo order by rand()";
+>>>>>>> master
             $idSta = $pdo->prepare($sql);
             $idSta->bindParam(':constellation', $profile->con);
             $idSta->bindParam(':memNo', $profile->memNo);

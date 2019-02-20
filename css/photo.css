@@ -3,7 +3,10 @@
     margin: 0;
     font-family: "微軟正黑體";
     outline: 1px solid red;
+<<<<<<< HEAD
     border: 1px solid red;
+=======
+>>>>>>> master
 }
 a{
     text-decoration: none;
@@ -465,7 +468,7 @@ body{
 
 
 
-/* fixed畫畫～ */
+/* fixed 合照功能彈出～ */
 
 .mkPhoto{
     position: fixed;
@@ -597,9 +600,7 @@ body{
     }
     #step3{
         display: block;
-
         filter: grayscale(100%);
-
     }
     #step3 img{
         width: 100px;
@@ -639,19 +640,45 @@ body{
         left: 20%;
         top: 30%; */
     }
+    .controlBar{
+        width: 40px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        display: none;
+
+    }
+    .color{
+        width: 40px;
+        height: 40px;
+        margin: 10%;
+        border-radius: 50%;
+        border: 2px solid #aaa;
+        cursor: pointer;
+    }
+    #red{ background-color:crimson;}
+    #coral{background-color: coral;}
+    #yellow{background-color: gold;}
+    #blue{background-color:skyblue;}
+    #green{background-color: seagreen;}
+    #black{background-color: black;}
+    .preCanvas{
+        position: relative;
+    }
     #canvas{
-        /* margin-top: 2%; */
+        cursor: cell;
+        position: absolute;
+        left: 0;top: 0;
         border: 5px solid rgba(240,92,121,.7);
-        background-color: #ffffff;
-        width:350px;
-        height:350px;
+        display: none;
+       
     }
     .preview{
         width: 350px;
         height: 350px;
-        position: relative;
-        /* left: 35.34%; */
+        border: 5px solid rgba(240,92,121,.7);
 
+        background-color: #ffffff;
     }
     .preview img{
         width: 100%;
@@ -664,12 +691,13 @@ body{
     .upload img{
         display: none;
         margin-left: 23%;
-        margin-bottom: 12%;
+        margin-bottom: 10%;
     }
     .mkPhoto .drawing #upBtn,#chooseBtn{ 
         display: block;
-        margin-top: 200%;
-        margin-left: -11%;
+        margin-top: 10%;
+        margin-left: 20%;
+
     }
     .upload #upBtn{
         display: block;
@@ -680,15 +708,15 @@ body{
     /* 下一步 btn */
     .next span{
         display: block;
-        margin-top: 200%;
+        margin-top: 0%;
         margin-left: 20%;
         margin-right: 10%;
     }
     /* 上一步 btn */
     .back span{
-        position: absolute;
+        /* position: absolute;
         right: 17.5%;
-        top: 60%;
+        top: 60%; */
         display: none;
         cursor: pointer;
         width: 80px;
@@ -717,6 +745,7 @@ body{
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
     } 
+<<<<<<< HEAD
 
 /* ipad RWD */
 @media screen and (max-width: 768px){
@@ -960,21 +989,104 @@ body{
         background-position: 50% 100%;
         background-attachment: fixed;
         
+=======
+
+/* ipad RWD */
+@media screen and (max-width: 768px){
+    .wrap{
+        width: 100%;
+        height: 140vh;
     }
-    .postArea{
-        padding-top: 10%;
+    .wrap .trophy{  
+        width: 40%;}
+    .wrap .trophy h2{
+        font-size: 1rem;
     }
+    .wrap .clouds2{   
+        display: none;}
+    .wrap .clouds1{  
+        position: fixed; 
+        width: 150%;}
+    .wrap .clouds1 img{    
+        width: 100%;}
+    .col3{
+        display: flex;
+        flex-direction: column;
+    }
+    .col3 .top{
+        width: 35%;
+        margin-bottom: 10vh;
+>>>>>>> master
+    }
+    .top .topbg{
+        width: 300px;
+        position: absolute;
+        left: -6%;
+        top: 75%;
+        z-index: 1;
+    }
+    .card{
+        margin-left: 11%;
+    }
+    .card img{
+        width: 100%;
+    }
+<<<<<<< HEAD
     .topic{
         padding-bottom: 20vh;
     }
     .content .aji, .content .ajiY{
         display: none;
+=======
+
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+        position: relative;
+        z-index: 3;
+    }
+    .top .topheart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+        z-index: 3;
+        position: relative;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+        z-index: 3;
+        position: relative;
+    }
+    .top span,.card span{
+        z-index: 3;
+        position: relative;
+    }
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+        background-size: 100%;
+    }
+    .postArea{
+        padding-top: 20%;
+>>>>>>> master
     }
     #myPhoto{
         width: 70px;
         position: absolute;
+<<<<<<< HEAD
         left: 20vw;
         margin-top:30vh;
+=======
+>>>>>>> master
     }
     #myPhoto img{
         width: 70px;
@@ -1013,6 +1125,278 @@ body{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
+    }
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: fixed;
+        top: 28%;
+        left: 25%;
+        /* width: 85vw; */
+        /* height: 82vh; */
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+    }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+    }
+    #close{
+        position: absolute;
+        right: 2vw;
+        top: 2vh;
+    }
+    
+}
+
+/* phone RWD */
+@media screen and (max-width: 476px){
+    .wrap{
+        width: 100%;
+        height: 172vh;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        position: relative;
+    }
+    .wrap .clouds2{
+        display: none;
+    }
+    .wrap .clouds1,.wrap .clouds2{
+        width: 150%;
+    }
+    .wrap .clouds1 img, .wrap .clouds2 img{
+        width: 100%;
+        position: fixed;
+    }
+    .wrap .trophy{
+        width: 55%;
+        margin-left: 17%;
+        margin-bottom: 20px;
+    }
+    .wrap .trophy h2{
+        width: 150px;
+        padding: 4px;
+        margin-left: 5px;
+        font-size: 1.2rem;
+    }
+    .col3 .top {
+        width: 60%;
+    }
+    .col3 .top .topbg{
+        width: 280px;
+        position: absolute;
+        left: -6%;
+        top: 67%;
+      
+        display: block;
+    }
+    .card{
+        margin-left: 19%;
+    }
+    .card img{
+        width: 100%;
+    }
+    .top img{
+        width: 100%;
+        margin-left: 8px;    
+    }
+    .top .member,.card .member{
+        width: 22%;
+        margin-left: 4%;
+    }
+    .top .topheart,.card .heart{
+        width: 20%;
+        margin-top: 1%;
+    }
+    .top a,.card a{
+        margin-right: 10%;
+        font-size: .8rem;
+        width: 40px;
+        display: inline-block;
+        color: rgba(102,102,102,1);
+    }
+    /* 壞掉不能調高度 */
+    #drawingTab{
+        width: 15%;
+        position: fixed;
+        top: -10%;right: 3px;
+    }
+    .topic{
+        width:  180px;
+    }
+    .topic h1{
+        font-size: 1rem;
+        position: absolute;
+        left: 7.5vh;
+        top: 10.5vh;
+    }
+  
+
+    /* 第二屏  */
+
+    .bg2{
+        background-position: 50% 100%;
+        background-attachment: fixed;
+    }
+    .postArea{
+        padding-top: 10%;
+    }
+    .topic{
+        padding-bottom: 20vh;
+    }
+    .content .aji, .content .ajiY{
+        display: none;
+    }
+    #myPhoto{
+        width: 70px;
+        position: absolute;
+        left: 20vw;
+        margin-top:30vh;
+    }
+    #myPhoto img{
+        width: 70px;
+    }
+    #myPhoto h3{
+        font-size: 14px;
+        position: absolute;
+        right: -16%;
+        top: 91%;
+    }
+    .mkPhoto{
+        padding-top: 10px;
+    }
+    .bulletin{
+        display: none;
+    }
+    #exit{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #canvas{
+        margin-left: 36px;
+    }
+    .btns{
+        display: flex;
+        flex-direction: row;
+    }
+    .mkPhoto .drawing span{
+        font-size: 14px;
+        padding: 10px 10px;
+
+    }
+    .back span{
+        width: 90px;
+        position: unset;
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    #sharePhoto{
+        width: 90px;
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    .mkPhoto .drawing #upBtn,#chooseBtn,#friendBox span{
+        width: 90px;
+        padding: 10px 10px;
+
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    .btns a{
+        margin-top: 360px;
+    }
+    .steps{
+        display: flex;
+        flex-direction: row;
+    }
+    .step1{
+        width: 100px;
+    }
+    .drawing{
+        position: relative;
+        display: block;
+    }
+    .controlBar{
+        position: absolute;
+        left: 0;top: 12px;
+    }
+    .controlBar .colorPack{
+
+        width: 40px;
+        height: 40px;
+    }
+    .controlBar .reset{
+        width: 40px;
+        margin: 10%;
+        cursor: pointer;
+
+    }
+    .mkPhoto .drawing .upload span{
+        width: 90px;
+        margin-top: 0;
+        margin-left: 0px;
+    }
+    .mkPhoto .drawing .next span{
+        width: 90px;
+        margin-top: 360px;
+        margin-left: 20px;
+    }
+    /* .preview{
+        position: absolute;
+        left: 7.7%;
+        top: 22.3%;
+    } */
+
+    /* 燈箱 */
+    #LB,#cardLB{
+        position: absolute;
+        top: 25%;
+        left: 13%;
+        width: 75vw;
+        height: 55vh;
+        z-index: 3;
+        border-radius: 15px;
+        border: 2px solid rgba(229,226,221,.5);
+        background-color: #E5E2DD;
+      }
+    #LB .topPhoto ,#cardLB .cardPhoto{
+        width:100%;
+        padding: 3%;
+    }
+    #LB a, #cardLB a{
+        margin-right: 25px;
+    }
+    #LB .heart, #cardLB .heart{
+        width: 11%;
+        margin-left: 25px;
+    }
+    #LB span,#cardLB span{
+        margin-left: 20px;
+        color: rgba(102,102,102,1);
+    }
+    #LB p, #cardLB p{
+        color: rgba(102,102,102,1);
+    }
+    #close{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        right: 2vw;
+        top: 1vh;
+    }
+    #del{
+        position: absolute;
+        top: 40.5vh;
+
     }
 
     /* 燈箱 */

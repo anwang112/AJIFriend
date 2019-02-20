@@ -5,6 +5,8 @@ unset($_SESSION["proNo"][$no]);
 unset($_SESSION["proName"][$no]);
 unset($_SESSION["price"][$no]);
 unset($_SESSION["img"][$no]);
+unset($_SESSION["mj"][$no]);
+
 
 header("Location:BearMJ_cartShow.php");
 ?>
