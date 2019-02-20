@@ -1,7 +1,6 @@
 var Today = new Date();
 nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 topFriend();
-
 // function getLove(love){
 //     heartItem = document.querySelectorAll('.heart div');
 //     heartM =  document.getElementById('userLove').value;
@@ -295,8 +294,11 @@ function searchMem(profile) {
                 c.push(b);
             }
             for (var j = 0; j < c.length; j++) {
-                var d = c[j] + ' | ';
-                hobbyinfo.innerText += d;
+                var d = c[j] + '&nbsp'+'|'+'&nbsp';
+                if(j==c.length-1){
+                    d = c[j];
+                }
+                hobbyinfo.innerHTML += d;
             }
             //暱稱
             sNameinfo.innerText = info.name;
@@ -360,11 +362,11 @@ function searchMem(profile) {
             //id
             sMemId.innerText = info.memId;
             if (parseInt(info.mj) >= 1000) {
-                lv = "LV.3 萬人迷";
+                lv = "LV.3 萬人迷 ";
             } else if (parseInt(info.mj) >= 500) {
-                lv = "LV.2 潛力股";
+                lv = "LV.2 潛力股 ";
             } else {
-                lv = "LV.1 邊緣人";
+                lv = "LV.1 邊緣人 ";
             }
             document.getElementById('sLv').innerText = lv;
             document.getElementById('sIntro').innerText = info.intro;
@@ -618,24 +620,20 @@ $('.showInfo2').click(function () {
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        alert(xhr.responseText);
         if (xhr.responseText >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
-
+            document.getElementById('userLove').value = heart;
+            console.log(document.getElementById('userLove').value);
            switch(parseInt(heart)){
             case 2:
-            heartM = heart;
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-            console.log(heartItem)[0];
             break;
             case 1:
-            heartM = heart;
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
             break;
             case 0:
-            heartM = heart;
             heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -652,6 +650,7 @@ function makeFriend(profile) {
 
 
 
+//撒花
 const TWO_PI = Math.PI * 2;
 const HALF_PI = Math.PI * 0.5;
 
