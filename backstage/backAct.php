@@ -25,7 +25,7 @@
         header();
         
    </script>
-    <table class="table table-hover">
+    <table id="maintable" class="table table-hover">
         <thead>
             <tr>
                 <td colspan="2">
@@ -66,7 +66,7 @@
                 <th scope="col">活動時間</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="clearTarget" class="dddd">
              <?php while($activityAll ->fetch(PDO::FETCH_ASSOC)){?>
             <tr>
                 <th scope="row">
@@ -84,7 +84,6 @@
                 </td>
             </tr>
              <?php } ?>
-
         </tbody>
     </table>
 

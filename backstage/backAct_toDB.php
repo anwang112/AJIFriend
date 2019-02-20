@@ -5,7 +5,7 @@
         require_once("../connectBooks.php");
 
         //所有
-        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo order by a.actNo ";
+        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo order by a.actNo limit 10";
         
         $activityAll = $pdo->query($sql); 
         $activityAll -> bindColumn("actNo", $actNo); 
@@ -29,6 +29,7 @@
             public $end;
             public $actIntro;
             public $img;
+            public $memName;
         }
 
         if($_REQUEST["actObj"]){
@@ -52,28 +53,38 @@
             //         $sendTxt =  "沒有找到" ;
             //         echo $sendTxt;
             //   }
-              $sqlSearch_actNO = "SELECT * FROM activity where actNo = :actNo";
-              $activityPDO = $pdo->prepare($sqlSearch_actNO); 
-              $activityPDO -> bindValue(":actNo", 1);
-              $aa -> execute();
-
-                $aaR = $activityPDO -> fetch(PDO::FETCH_ASSOC);
-                $aDB = new data ;
+            $sqlSearch_actNO = "SELECT * FROM activity where actNo = :actNo";
+            $aa = $pdo->prepare($sqlSearch_actNO); 
+            $aa -> bindValue(":actNo",  $actObj -> actValue);
+            $aa -> bindColumn("actNo", $actNo); 
+            $aa -> bindColumn("host_memNo", $host_memNo);      
+            $aa -> bindColumn("actTitle", $actTitle);
+            $aa -> bindColumn("actLoc", $actLoc);
+            $aa -> bindColumn("act_begin", $act_begin);
+            $aa -> bindColumn("act_end", $act_end);
+            $aa -> bindColumn("actIntro", $actIntro);
+            $aa -> bindColumn("actImg", $actImg);
+            $aa -> bindColumn("mName", $mName);
+            $aa -> execute();
     
-                for($i=0;$i<$aaR.length;$i++){
-                    $aDB -> no = $aaR["actNo"];
-                    $aDB -> memNo = $aaR["host_memNo"];
-                    $aDB -> title = $aaR["actTitle"];
-                    $aDB -> loc = $aaR["actLoc"];
-                    $aDB -> begin = $aaR["act_begin"];
-                    $aDB -> end = $aaR["act_end"];
-                    $aDB -> actIntro = $aaR["actIntro"];
-                    $aDB -> img = $aaR["actImg"];
-                }
-                $send = json_encode($aDB);
-                echo  $send ;
+              $aaR = $aa ->  fetch(PDO::FETCH_ASSOC);
+              $aDB = new data ;
+              
+              $aDB -> no =  $actNo;
+              $aDB -> memNo = $host_memNo;
+              $aDB -> title = $actTitle;
+              $aDB -> loc = $actLoc;
+              $aDB -> begin = $act_begin;
+              $aDB -> end =  $act_end;
+              $aDB -> actIntro =  $actIntro;
+              $aDB -> img = $actImg;
+              $aDB -> memName = $mName;
+    
+    
+              $send = json_encode($aDB);
+              echo  $send ;
         }
-  
+
 
 
 
