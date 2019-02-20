@@ -9,24 +9,6 @@ try {
         $sta = $pdo->prepare($sql);
         $sta->execute();
         $IdRow = $sta->fetchAll(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
-=======
-        
-    }
-    else if($profile->rank == 'topMJ'){
-        $sql = "select * from member ORDER BY mMJ DESC";
-        $sta = $pdo->prepare($sql);
-        $sta->execute();
-        $IdRow = $sta->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-    else if($profile->rank == 'friend'){
-        $sql = "select * from member ORDER BY friend DESC";
-        $sta = $pdo->prepare($sql);
-        $sta->execute();
-        $IdRow = $sta->fetchAll(PDO::FETCH_ASSOC);
-
->>>>>>> master
     }
 
     if ($sta->rowCount() == 0) {
@@ -45,10 +27,6 @@ try {
             public $color;
             public $memId;
             public $intro;
-<<<<<<< HEAD
-=======
-            public $friend;
->>>>>>> master
         }
         $rankArr=[];
         for ($i=0; $i <= 2; $i++) {
@@ -65,32 +43,20 @@ try {
             $str->clothes = $IdRow[$i]["wearClothes"];
             $str->color = $IdRow[$i]["mColor"];
             $str->memId = $IdRow[$i]["memId"];
-<<<<<<< HEAD
-=======
-            $str->coin = $IdRow[$i]["mCoin"];
-            $str->friend = $IdRow[$i]["friend"];
->>>>>>> master
             
             array_push ( $rankArr , $str);
         }
         $send = json_encode($rankArr);
         echo $send;
     }
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> master
 } catch (PDOException $e) {
     echo $e->getMessage();
     $errMsg .= "錯誤 : " . $e->getMessage() . "<br>";
     $errMsg .= "行號 : " . $e->getLine() . "<br>";
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 ?>
 

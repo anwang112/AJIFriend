@@ -107,27 +107,24 @@ indexInit = () => {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //第一部分
     firstScreenFunction = () => {
-        //邱比特射箭
+        /*
+        // 邱比特射箭
         var arrowSnap = Snap('#arrow');
-        // console.log(arrowSnap);
-        // var arrowSvg = arrowSnap.paper.path({ d: "M227.77176,240.7343l-99.193,29.323s3.755-7.04966-1.13358-7.84448-13.95248,13.56254-13.95248,13.56254,12.23794,7.60718,15.34584,7.09112,5.53565-5.7388,3.52826-8.61856l-2.00738-2.87976,97.86573-27.496Z", fill: '#a09d9d' });
+        console.log(arrowSnap);
+        var arrowSvg = arrowSnap.paper.path({ d: "M227.77176,240.7343l-99.193,29.323s3.755-7.04966-1.13358-7.84448-13.95248,13.56254-13.95248,13.56254,12.23794,7.60718,15.34584,7.09112,5.53565-5.7388,3.52826-8.61856l-2.00738-2.87976,97.86573-27.496Z", fill: '#a09d9d' });
         var arrowSvg = arrowSnap.select('path');
-
-        // console.log(arrowSvg);
+        console.log(arrowSvg);
         arrow = document.getElementById('arrow');
         ooo = arrow.getElementsByClassName('ooo')[0];
         ooo.style.transition = `.8s`;
-
-
-        // animate01 = () => {
-        //     arrow.style.right = '-13%';
-        //     if (arrow.style.right == `-13`) {
-        //         animate02()
-        //     }
-        // }
+        animate01 = () => {
+            arrow.style.right = '-13%';
+            if (arrow.style.right == `-13`) {
+                animate02()
+            }
+        }
         arrow.style.top = '53%';
         arrow.style.right = '25%';
-
         setTimeout(function () {
             arrowSvg.animate({ d: "M92.71,7.27L92.71,7.27c-9.71-9.69-25.46-9.69-35.18,0L50,14.79l-7.54-7.52C32.75-2.42,17-2.42,7.29,7.27v0 c-9.71,9.69-9.71,25.41,0,35.1L50,85l42.71-42.63C102.43,32.68,102.43,16.96,92.71,7.27z", fill: 'pink' }, 1000, mina.easeout(), function () {
                 arrow.style.top = '45%'
@@ -135,12 +132,32 @@ indexInit = () => {
 
             });
         }, 1700);
-
-
-        //叫出創建角色燈箱
+        // 叫出創建角色燈箱
         ooo.addEventListener('click', () => {
             ooxxLightBox($id('indexRoleMask'), $id('indexCreateRoleBox'), $id('indexCreateCloseBtn'));
         })
+        */
+        // $id('loveBtn').style.cursor = `pinter`;
+        $id('loveBtn').addEventListener('click', (e) => {
+            $id('indexCreateRoleBox').style.display = `flex`;
+        }, true)
+        $id('loveText').addEventListener('click', (e) => {
+            $id('indexCreateRoleBox').style.display = `flex`;
+        }, true)
+
+        $id('saveRoleBtn').addEventListener('click', () => {
+            $id('createMemberScreen').style.display = `block`;
+        })
+
+        cloudValue = 0;
+        cloudGo = () => {
+            cloudValue++;
+            
+            cloudId = requestAnimationFrame(cloudGo);
+
+        }
+        cloudId = requestAnimationFrame(cloudGo);
+
     }
     firstScreenFunction();
 
@@ -294,25 +311,25 @@ indexInit = () => {
         shopLightGo = () => {
             lightOpen++;
 
-            if (lightOpen < 300) {
+            if (lightOpen < 150) {
                 shopLight[1].style.transform = `skewX(20deg)`; //不照
                 shopLight[2].style.transform = `skewX(-25deg) translateX(-7%)`; //不照
                 shopLight[3].style.transform = `skewX(23deg)`; //不照
                 shopLight[0].style.transform = `skewX(-20deg) translateX(-2%)`; //不照
                 modelLight.style.boxShadow = `0px 0px 65px 25px Transparent`;
-            } else if (lightOpen > 300) {
+            } else if (lightOpen > 150) {
                 shopLight[1].style.transform = `skewX(0)`;
                 shopLight[2].style.transform = `skewX(0) translateX(0)`;
                 shopLight[3].style.transform = `skewX(0)`;
                 shopLight[0].style.transform = `skewX(0) translateX(0)`;
                 modelLight.style.boxShadow = `0px -45px 120px 65px white`;
-                if (lightOpen == 333) {
+                if (lightOpen == 188) {
 
                     ooxxChangeHat($id('indexModel'), ooxxRandom(1, 2));
                     ooxxChangeClothes($id('indexModel'), ooxxRandom(1, 3));
 
                 }
-                if (lightOpen > 600) {
+                if (lightOpen > 300) {
                     lightOpen = 0;
                 }
             }
@@ -416,154 +433,317 @@ indexInit = () => {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    // createKindList = document.getElementById('createKindList');
-    // createKindItem = createKindList.getElementsByTagName('li');
-    // for (let i = 0; i < createKindItem.length; i++) {
-    //     createKindItem[i].addEventListener('click', (e) => {
-    //         switch (e.target.value) {
-    //             case 1:
-    //                 $('animalKindList').
-    //                 break;
-    //         }
-    //     })
-    // }
+    //第五部分
 
 
 
 
 
 
-
-
-
-    /*
-        //建立角色
-        KindList = document.getElementById('KindList');
-        KindItem = KindList.getElementsByTagName('li');
-        role = document.getElementById('role');
-    
-        // 選身體
-        changeKind = (e) => {
-            role.innerHTML = "";
-            switch (e.currentTarget.id) {
-                case 'bodyBear':
-                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexBear.svg" style="display:block;" />`;
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //換角色
+    //關掉創角燈箱
+    indexCreateCloseBtn = document.getElementById('indexCreateCloseBtn');
+    indexCreateCloseBtn.addEventListener('click', () => {
+        $id('indexCreateRoleBox').style.display = `none`;
+    })
+    //tab切換
+    createKindList = document.getElementById('createKindList');
+    createKindItem = createKindList.getElementsByTagName('li');
+    for (let i = 0; i < createKindItem.length; i++) {
+        createKindItem[i].addEventListener('click', (e) => {
+            $id('animalKindList').style.display = 'none';
+            $id('eyesKindList').style.display = 'none';
+            $id('colorKindList').style.display = 'none';
+            for (let i = 0; i < createKindItem.length; i++) {
+                createKindItem[i].style.background = 'transparent';
+            }
+            switch (e.target.value) {
+                case 0:
+                    $id('animalKindList').style.display = 'flex';
                     break;
-                case 'bodyCat':
-                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexCat.svg" style="display:block;" />`;
+                case 1:
+                    $id('eyesKindList').style.display = 'flex';
                     break;
-                case 'bodyRabbit':
-                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexRabbit.svg" style="display:block;" />`;
-                    break;
-                case 'bodyDog':
-                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexDog.svg" style="display:block;" />`;
+                case 2:
+                    $id('colorKindList').style.display = 'flex';
                     break;
             }
-            bodySvg = document.getElementById("bodySvg");
-            bodySvg.addEventListener('load', () => {
-                nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
-            })
-    
+            e.target.style.background = '#F05C79';
+        })
+    }
+    //角色值
+
+    if (localStorage.getItem('role') === null) {
+        roleObject = {
+            animal: 1,
+            eyes: 1,
+            rColor: 80,
+            gColor: 66,
+            bColor: 59,
         }
-        for (let i = 0; i < KindItem.length; i++) {
-            KindItem[i].addEventListener('click', changeKind);
+        localStorage.setItem('role', JSON.stringify(roleObject));
+    } else {
+        var roleObject = JSON.parse(localStorage.getItem('role'));
+    }
+    $id('rRang').value = roleObject.rColor;
+    $id('gRang').value = roleObject.gColor;
+    $id('bRang').value = roleObject.bColor;
+    //顏色色碼轉換
+    ooxxGetColor16 = (r, g, b) => {
+        let color;
+        if ((r == 0) && (g == 0) && (b == 0)) {
+            color = '000000';
+        } else {
+            color = ((r << 16 | g << 8 | b).toString(16)).slice(-6);
         }
-    
-        //選顏色
-        rRang = document.getElementById('rRang');
-        gRang = document.getElementById('gRang');
-        bRang = document.getElementById('bRang');
-    
-        rRangValue = 80;
-        gRangValue = 66;
-        bRangValue = 59;
-        colorList = document.getElementById('colorList');
-        colorItem = colorList.getElementsByTagName('input');
-        colorMouseStatus = false;
-        bodySvg = document.getElementById("bodySvg");
-    
-        nowColor = (...getColor) => {
-            getColor[3] = getColor[3].getSVGDocument();
-            bodyColor = getColor[3].getElementsByClassName('cls-1');
-            for (let i = 0; i < bodyColor.length; i++) {
-                bodyColor[i].style.fill = `rgb(${getColor[0]},${getColor[1]},${getColor[2]})`;
+        return color;
+    }
+    ooxxChangeColor = (...changeColorArray) => {
+        let object = changeColorArray[0].getSVGDocument();
+
+        let colorValue = ooxxGetColor16(changeColorArray[1], changeColorArray[2], changeColorArray[3]);
+        insertColor = object.getElementsByClassName('cls-2');
+        for (let i = 0; i < insertColor.length; i++) {
+            insertColor[i].style.fill = `${colorValue}`;
+        }
+    }
+    ooxxGetRole(myRole, {
+        animal: roleObject.animal,
+        color: ooxxGetColor16(roleObject.rColor, roleObject.gColor, roleObject.bColor),
+        eyes: roleObject.eyes,
+    });
+    // ooxxChangeColor($id('myRole').getElementsByClassName('bodySvg')[0], roleObject.rColor, roleObject.gColor, roleObject.bColor);
+    ooxxChangeAnimal = (...changeAnimalArray) => {
+        let object = changeAnimalArray[0];
+        let animalValue = changeAnimalArray[1];
+        object.innerHTML = `<embed class="bodySvg" src="images/roleImages/body${animalValue}.svg" style="display:block;" />`;
+        let scaleValue = 0;
+        object.getElementsByClassName('bodySvg')[0].style.transition = `.8s`;
+        animalGo = () => {
+            if (scaleValue <= 1) {
+                scaleValue += 0.06;
+                object.getElementsByClassName('bodySvg')[0].style.transform = `scale(${scaleValue})`;
+                animalId = requestAnimationFrame(animalGo);
+            } else if (scaleValue >= 1.15) {
+                scaleValue = 1;
+                object.getElementsByClassName('bodySvg')[0].style.transform = `scale(${scaleValue})`;
+                cancelAnimationFrame(animalId);
             }
         }
-    
-        changeColor = (e) => {
-            bodySvg = document.getElementById("bodySvg");
-            switch (e.currentTarget.id) {
-                case 'rRang':
-                    rRangValue = e.currentTarget.value;
+        animalId = requestAnimationFrame(animalGo);
+    }
+    //換角色
+    nowRole = $id('myRole').getElementsByClassName('role')[0];
+    animalKindItem = $id('animalKindList').getElementsByTagName('li');
+    for (let i = 0; i < animalKindItem.length; i++) {
+        animalKindItem[i].addEventListener('click', (e) => {
+            nowRole.innerHTML = '';
+            ooxxChangeAnimal(nowRole, e.currentTarget.value);
+            // ooxxChangeColor($id('myRole').getElementsByClassName('bodySvg')[0], rColor, gColor, bColor);
+            $id('myRole').getElementsByClassName('bodySvg')[0].addEventListener('load', () => {
+                ooxxChangeColor($id('myRole').getElementsByClassName('bodySvg')[0], roleObject.rColor, roleObject.gColor, roleObject.bColor);
+            });
+            roleObject.animal = e.currentTarget.value;
+        })
+    }
+
+    ooxxChangeEyes = (...changeEyesArray) => {
+        let object = changeEyesArray[0];
+        let eyesValue = changeEyesArray[1];
+        object.innerHTML = `<embed class="roleEyes" src="images/roleImages/eyes${eyesValue}.svg" style="display:block;" />`;
+        let scaleValue = 0.5;
+        object.getElementsByClassName('roleEyes')[0].style.transition = `.8s`;
+        eyesIGo = () => {
+            if (scaleValue <= 1) {
+                scaleValue += 0.06;
+                object.getElementsByClassName('roleEyes')[0].style.transform = `scale(${scaleValue})`;
+                eyesId = requestAnimationFrame(eyesIGo);
+            } else if (scaleValue >= 1.25) {
+                scaleValue = 1;
+                object.getElementsByClassName('roleEyes')[0].style.transform = `scale(${scaleValue})`;
+                cancelAnimationFrame(animalId);
+            }
+        }
+        eyesId = requestAnimationFrame(eyesIGo);
+
+        object.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+            switch (eyesValue) {
+                case 1:
+                    eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                    eyes1[0].style.transformOrigin = `center 52%`;
+                    eyes1[1].style.transformOrigin = `center 52%`;
+
+                    eyesAnimate(eyes1[0], eyes1[1]);
                     break;
-                case 'gRang':
-                    gRangValue = e.currentTarget.value;
+                case 2:
+                    eyes2 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+                    eyes2[1].style.transformOrigin = `center 52%`;
+                    eyes2[2].style.transformOrigin = `center 52%`;
+                    eyesAnimate(eyes2[1], eyes2[2]);
                     break;
-                case 'bRang':
-                    bRangValue = e.currentTarget.value;
+                case 3:
+                    eyes3 = e.path[0].getSVGDocument().getElementsByClassName('cls-3');
+                    eyes3[1].style.transformOrigin = `center 52%`;
+                    eyes3[2].style.transformOrigin = `center 52%`;
+                    eyesAnimate(eyes3[1], eyes3[2]);
+                    break;
+                case 4:
+                    eyes4 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                    eyes4[1].style.transformOrigin = `center 52%`;
+                    eyes4[3].style.transformOrigin = `center 52%`;
+                    eyesAnimate(eyes4[1], eyes4[3]);
+                    break;
+                case 5:
+                    eyes5 = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
+                    eyes5[0].style.transformOrigin = `center 52%`;
+                    eyes5[1].style.transformOrigin = `center 52%`;
+                    eyesAnimate(eyes5[0], eyes5[1]);
+                    break;
+                case 6:
+                    eyes6 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
+                    eyes6[1].style.transformOrigin = `center 51%`;
+                    eyes6[4].style.transformOrigin = `center 51%`;
+                    eyesAnimate(eyes6[1], eyes6[4]);
                     break;
             }
-            nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+        })
+
+
+
+
+    }
+    //換眼睛
+    eyesKindItem = $id('eyesKindList').getElementsByTagName('li');
+    roleEyes = $id('myRole').getElementsByClassName('roleEyes')[0];
+    for (let i = 0; i < eyesKindItem.length; i++) {
+        eyesKindItem[i].addEventListener('click', (e) => {
+            ooxxChangeEyes(roleEyes, e.currentTarget.value);
+            roleObject.eyes = e.currentTarget.value;
+        })
+    }
+
+    //換顏色
+    coloeBar = $id('colorKindList').getElementsByTagName('input');
+    colorMouseStatus = false;
+    colorBarMove = () => {
+        if (colorMouseStatus == true) {
+            roleObject.rColor = $id('rRang').value;
+            roleObject.gColor = $id('gRang').value;
+            roleObject.bColor = $id('bRang').value;
+            ooxxChangeColor($id('myRole').getElementsByClassName('bodySvg')[0], roleObject.rColor, roleObject.gColor, roleObject.bColor);
         }
-        rRang.addEventListener('change', changeColor);
-        gRang.addEventListener('change', changeColor);
-        bRang.addEventListener('change', changeColor);
-    
-    
-        for (let i = 0; i < colorItem.length; i++) {
-            colorItem[i].addEventListener('mousedown', (e) => {
-                colorMouseStatus = true;
-                if (colorMouseStatus == true) {
-                    e.target.style.cursor = `grabbing`;
+    }
+    for (let i = 0; i < coloeBar.length; i++) {
+        coloeBar[i].addEventListener('mousedown', (e) => {
+            colorMouseStatus = true;
+            if (colorMouseStatus == true) {
+                e.target.style.cursor = `grabbing`;
+            }
+        })
+        coloeBar[i].addEventListener('touchstart', (e) => {
+            colorMouseStatus = true;
+            roleObject.rColor = $id('rRang').value;
+            roleObject.gColor = $id('gRang').value;
+            roleObject.bColor = $id('bRang').value;
+            ooxxChangeColor($id('myRole').getElementsByClassName('bodySvg')[0], roleObject.rColor, roleObject.gColor, roleObject.bColor);
+        });
+        coloeBar[i].addEventListener('mousemove', colorBarMove);
+        coloeBar[i].addEventListener('touchmove', colorBarMove);
+    }
+
+
+
+    //將角色值存到local裡面
+    saveRoleBtn = document.getElementById('saveRoleBtn');
+    saveRoleBtn.addEventListener('click', () => {
+        localStorage.setItem('role', JSON.stringify(roleObject));
+    })
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //創建角色
+    createMember = () => {
+        memIdKeyStatus = false;
+        mNameKeyStatus = false;
+        checkMemberData = (ooxxValue) => {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                checkInfo = JSON.parse(xhr.responseText);
+                if (checkInfo.checkmemId == '不能使用') {
+                    $id('getCheckmemId').style.color = 'red';
+                    $id('getCheckmemId').innerHTML = checkInfo.checkmemId;
                 }
-    
-            });
-            colorItem[i].addEventListener('mousemove', (e) => {
-    
-                if (colorMouseStatus == true) {
-                    e.target.style.cursor = `grabbing`;
-                    switch (e.currentTarget.id) {
-                        case 'rRang':
-                            rRangValue = e.currentTarget.value;
-                            break;
-                        case 'gRang':
-                            gRangValue = e.currentTarget.value;
-                            break;
-                        case 'bRang':
-                            bRangValue = e.currentTarget.value;
-                            break;
-                    }
-                    nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
-                    console.log(rRangValue, gRangValue, bRangValue);
-    
-                } else {
-                    e.target.style.cursor = `grab`;
-                }
-            });
-            colorItem[i].addEventListener('mouseup', (e) => {
-                colorMouseStatus = false;
-                e.target.style.cursor = `grab`;
-            });
-    
-        }
-    
-        //選眼睛
-        eyesList = document.getElementById('eyesList');
-        eyesItem = eyesList.getElementsByTagName('li');
-        roleEyes = document.getElementById('roleEyes');
-        for (let i = 0; i < eyesItem.length; i++) {
-            eyesItem[i].addEventListener('click', (e) => {
-                eyesSrc = e.currentTarget.children[0].src;
-                console.log(eyesSrc);
-                // roleEyes.innerHTML = `<img src="${eyesSrc}">`;
-                roleEyes.style.backgroundImage = `url(${eyesSrc})`;
-            });
-        }
-    
-    */
+                if (checkInfo.checkmName == '不能使用') {
 
+                    $id('getCheckmName').style.color = 'red';
+                    $id('getCheckmName').innerHTML = checkInfo.checkmName;
+                }
+            }
+            xhr.open("Post", "checkMember.php", true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.send("checkInfo=" + JSON.stringify(ooxxValue));
+        }
+
+        $id('memId').addEventListener('keydown', () => {
+            memIdKeyStatus = true;
+            if (memIdKeyStatus == true) {
+                $id('memId').addEventListener('keyup', () => {
+                    checkMemberData({
+                        memId: $id('memId').value,
+                        check: 'memId',
+                    });
+                    $id('getCheckmemId').innerHTML = '可以使用';
+                    $id('getCheckmemId').style.color = 'green';
+                });
+            }
+        });
+
+        $id('mName').addEventListener('keydown', () => {
+            mNameKeyStatus = true;
+            if (mNameKeyStatus == true) {
+                $id('mName').addEventListener('keyup', () => {
+                    checkMemberData({
+                        mName: $id('mName').value,
+                        check: 'mName',
+                    });
+                    $id('getCheckmName').innerHTML = '可以使用';
+                    $id('getCheckmName').style.color = 'green';
+                });
+            }
+        });
+
+        $id('createMemberBtn').addEventListener('click', () => {
+            var checkedValue = document.querySelector('.hobbyItem:checked').value;
+
+            createRoleData = {
+                memId: $id('memId').value,
+                memPsw: $id('memPsw').value,
+                mName: $id('mName').value,
+                constellation: $id('constellation').value,
+                hobby: checkedValue,
+                selfIntro: $id('selfIntro').value,
+                mColor: ooxxGetColor16(roleObject.rColor, roleObject.gColor, roleObject.bColor),
+                eye: roleObject.eyes,
+                animal: roleObject.animal,
+            }
+
+            var createxhr = new XMLHttpRequest();
+            createxhr.onload = function () {
+                // checkInfo = JSON.parse(createxhr.responseText);
+                console.log(createxhr.responseText);
+            }
+            createxhr.open("Post", "setUpMember.php", true);
+            createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
+        })
+
+    }
+    createMember();
+
+    // $id('memId').value,$id('mName').value
 
 
 
@@ -572,7 +752,6 @@ indexInit = () => {
 
     // 背景漸層
     activityFix = document.getElementsByClassName('firstScreenBg')[0];
-
     gradientStatus = false;
     gradient = {
         x1: 114,
@@ -683,3 +862,129 @@ indexInit = () => {
     window.addEventListener("scroll", scrollFourthScreen);
 }
 window.addEventListener('load', indexInit);
+
+//雜亂程式區
+/*
+        //建立角色
+        KindList = document.getElementById('KindList');
+        KindItem = KindList.getElementsByTagName('li');
+        role = document.getElementById('role');
+
+        // 選身體
+        changeKind = (e) => {
+            role.innerHTML = "";
+            switch (e.currentTarget.id) {
+                case 'bodyBear':
+                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexBear.svg" style="display:block;" />`;
+                    break;
+                case 'bodyCat':
+                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexCat.svg" style="display:block;" />`;
+                    break;
+                case 'bodyRabbit':
+                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexRabbit.svg" style="display:block;" />`;
+                    break;
+                case 'bodyDog':
+                    role.innerHTML = `<embed id="bodySvg" src="images/indexImages/indexDog.svg" style="display:block;" />`;
+                    break;
+            }
+            bodySvg = document.getElementById("bodySvg");
+            bodySvg.addEventListener('load', () => {
+                nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+            })
+
+        }
+        for (let i = 0; i < KindItem.length; i++) {
+            KindItem[i].addEventListener('click', changeKind);
+        }
+
+        //選顏色
+        rRang = document.getElementById('rRang');
+        gRang = document.getElementById('gRang');
+        bRang = document.getElementById('bRang');
+
+        rRangValue = 80;
+        gRangValue = 66;
+        bRangValue = 59;
+        colorList = document.getElementById('colorList');
+        colorItem = colorList.getElementsByTagName('input');
+        colorMouseStatus = false;
+        bodySvg = document.getElementById("bodySvg");
+
+        nowColor = (...getColor) => {
+            getColor[3] = getColor[3].getSVGDocument();
+            bodyColor = getColor[3].getElementsByClassName('cls-1');
+            for (let i = 0; i < bodyColor.length; i++) {
+                bodyColor[i].style.fill = `rgb(${getColor[0]},${getColor[1]},${getColor[2]})`;
+            }
+        }
+
+        changeColor = (e) => {
+            bodySvg = document.getElementById("bodySvg");
+            switch (e.currentTarget.id) {
+                case 'rRang':
+                    rRangValue = e.currentTarget.value;
+                    break;
+                case 'gRang':
+                    gRangValue = e.currentTarget.value;
+                    break;
+                case 'bRang':
+                    bRangValue = e.currentTarget.value;
+                    break;
+            }
+            nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+        }
+        rRang.addEventListener('change', changeColor);
+        gRang.addEventListener('change', changeColor);
+        bRang.addEventListener('change', changeColor);
+
+
+        for (let i = 0; i < colorItem.length; i++) {
+            colorItem[i].addEventListener('mousedown', (e) => {
+                colorMouseStatus = true;
+                if (colorMouseStatus == true) {
+                    e.target.style.cursor = `grabbing`;
+                }
+
+            });
+            colorItem[i].addEventListener('mousemove', (e) => {
+
+                if (colorMouseStatus == true) {
+                    e.target.style.cursor = `grabbing`;
+                    switch (e.currentTarget.id) {
+                        case 'rRang':
+                            rRangValue = e.currentTarget.value;
+                            break;
+                        case 'gRang':
+                            gRangValue = e.currentTarget.value;
+                            break;
+                        case 'bRang':
+                            bRangValue = e.currentTarget.value;
+                            break;
+                    }
+                    nowColor(rRangValue, gRangValue, bRangValue, bodySvg);
+                    console.log(rRangValue, gRangValue, bRangValue);
+
+                } else {
+                    e.target.style.cursor = `grab`;
+                }
+            });
+            colorItem[i].addEventListener('mouseup', (e) => {
+                colorMouseStatus = false;
+                e.target.style.cursor = `grab`;
+            });
+
+        }
+
+        //選眼睛
+        eyesList = document.getElementById('eyesList');
+        eyesItem = eyesList.getElementsByTagName('li');
+        roleEyes = document.getElementById('roleEyes');
+        for (let i = 0; i < eyesItem.length; i++) {
+            eyesItem[i].addEventListener('click', (e) => {
+                eyesSrc = e.currentTarget.children[0].src;
+                console.log(eyesSrc);
+                // roleEyes.innerHTML = `<img src="${eyesSrc}">`;
+                roleEyes.style.backgroundImage = `url(${eyesSrc})`;
+            });
+        }
+        */
