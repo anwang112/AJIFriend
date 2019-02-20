@@ -30,7 +30,7 @@ try {
 
     } else {
         if ($profile->con != '' && $profile->hob == '') {
-            $sql = "select * from member m, relationship r where m.memNo=r.memNo constellation = :constellation and memNo != :memNo order by rand()";
+            $sql = "select * from member where  constellation = :constellation and memNo != :memNo order by rand()";
             $idSta = $pdo->prepare($sql);
             $idSta->bindParam(':constellation', $profile->con);
             $idSta->bindParam(':memNo', $profile->memNo);

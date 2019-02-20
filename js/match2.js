@@ -249,15 +249,21 @@ $('#topMJ').click(function () {
 //名人榜切換結束
 
 //送出好友邀請
+console.log(document.getElementById('userLove').value);
 $('.btn_beFriend').click(function () {
-    profile = {
-        memNo: document.getElementById('userNo').value,
-        targetNo: document.getElementById('matchMemNo').value,
-        nowDay: nowDay,
-        action: 3,
-    };
-    makeFriend(profile);
-
+    
+    if(document.getElementById('userLove').value <= 0){
+        alert('本日已無愛心');
+    }else{
+        
+        profile = {
+            memNo: document.getElementById('userNo').value,
+            targetNo: document.getElementById('matchMemNo').value,
+            nowDay: nowDay,
+            action: 3,
+        };
+        makeFriend(profile);
+    }
 });
 
 
