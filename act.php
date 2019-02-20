@@ -62,7 +62,8 @@
         $start = ($pageNo-1) * $recPerPage;
 
         // $sql = "select * from activity ";
-        $sqlMemHold = "select * from activity  where host_memNo != 1 AND showOrNot = '1' ORDER BY actNo DESC limit $start,$recPerPage";
+        $sqlMemHold = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND a.host_memNo !=1 AND showOrNot = 1 ORDER BY a.actNo DESC limit $start,$recPerPage";
+        // SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND showOrNot = 1
         //
 
         
@@ -75,12 +76,13 @@
         $activityMemHold -> bindColumn("act_end", $act_end);
         $activityMemHold -> bindColumn("actIntro", $actIntro);
         $activityMemHold -> bindColumn("actImg", $actImg);
-
+        $activityMemHold -> bindColumn("memId", $memId); 
 
 
         //parB 已報名活動
-        $sqlmemJoin = "select* from activity_order o  JOIN activity a on o.actNo = a.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
+        $sqlmemJoin = "select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
         //
+        //select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo
 
 
         // $activitmemJoin = $pdo->query($sqlmemJoin); 
@@ -99,6 +101,7 @@
         $activitmemJoin -> bindColumn("act_begin", $act_begin);
         $activitmemJoin -> bindColumn("act_end", $act_end);
         $activitmemJoin -> bindColumn("actIntro", $actIntro);
+        $activitmemJoin -> bindColumn("memId", $memId); 
 
         $activitmemJoin -> execute();
 

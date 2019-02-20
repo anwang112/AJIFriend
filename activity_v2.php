@@ -21,6 +21,16 @@
     <link rel="stylesheet" href="css/activity2.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
     <title>activity</title>
+    <style>
+        .searchClose {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        background-image: url(../images/XX.svg);
+        background-repeat: no-repeat;
+        background-position: center;}
+    </style>
 </head>
 <body>
     <script type="text/javascript">
@@ -98,8 +108,8 @@
                 <img  id="act_bus" class="act_bus" src="images/activity/act_bus.svg" alt="bus">
 
                 <div id="lightbox_act" class="lightbox_act">
-                    
                     <div id="lightbox_act_info" class="lightbox_act_info">
+                        <div id="btn_xx01" class="searchClose"></div>
                         <?php if($actImg == null){?>
                             <img id="imgBoxImg_B" src="images/activity/act_number02B.svg" alt="資料庫預設圖">
                         <?php }else{ ?>
@@ -142,7 +152,7 @@
                                 <button class="btn_ActJoin btn_R" value="<?php echo $actNo ;?>"> 查看更多 </button>
                                 <input type="hidden" id="act_actTitleV<?php echo $actNo?>" value="<?php echo $actTitle ;?>">
                                 <input type="hidden" id="act_actNoV<?php echo $actNo?>" value="<?php echo $actNo ;?>">
-                                <input type="hidden" id="act_host_memNoV<?php echo $actNo?>" value="<?php echo $host_memNo ;?>">
+                                <input type="hidden" id="act_host_memNoV<?php echo $actNo?>" value="<?php echo $memId?>">
                                 <input type="hidden" id="act_actLocV<?php echo $actNo?>" value="<?php echo $actLoc ;?>">
                                 <input type="hidden" id="act_act_beginV<?php echo $actNo?>" value="<?php echo $act_begin ;?>">
                                 <input type="hidden" id="act_act_endV<?php echo $actNo?>" value="<?php echo $act_end ;?>">
@@ -150,7 +160,7 @@
                             </div>
                             <h3><?php echo $actTitle ; ?></h3>
                             <div class="spanbox">
-                                <span>發起人:<?php echo $host_memNo ;?></span>
+                                <span>發起人:<?php echo $memId?></span>
                                 <span>地點：<?php echo $actLoc ; ?></span>
                                 <span>時間：<?php echo  substr($act_begin,0,10) ; ?>至<?php echo substr($act_end,0,10);?></span>
                             </div>
@@ -185,7 +195,7 @@
                             <div class="spanbox">
                                 <span>活動名稱：<?php echo $actTitle ; ?> </span>
                                 <span>活動介紹：<?php echo $actIntro ; ?></span>
-                                <span>發起人:<?php echo $host_memNo ; ?></span>
+                                <span>發起人:<?php echo $memId ; ?></span>
                                 <span>地點：<?php echo $actLoc ; ?></span>
                                 <span>時間：<?php echo substr($act_end,0,10);?></span>
                                 <!-- <span>人數:{{}}</span> -->
@@ -195,7 +205,7 @@
                                 <button class="checkout_act btn_R " value="<?php echo $actNo ; ?>">查看</button>
                                 <input style="display:none" type="text" value="<?php echo $actTitle ;?>">
                                 <input style="display:none" type="text" value="<?php echo $actNo ;?>">
-                                <input style="display:none" type="text" value="<?php echo $host_memNo ;?>">
+                                <input style="display:none" type="text" value="<?php echo $memId ;?>">
                                 <input style="display:none" type="text" value="<?php echo $actLoc ;?>">
                                 <input style="display:none" type="text" value="<?php echo $act_begin ;?>">
                                 <input style="display:none" type="text" value="<?php echo $act_end ;?>">
@@ -213,6 +223,7 @@
 
             <div id="lightbox_holdact" class="lightbox_holdact">
                 <div id="lightbox_holdact_info" class="lightbox_holdact_info">
+                    <div id="btn_xx02" class="searchClose"></div>
                     <form action="actInser.php" method="post" enctype="multipart/form-data">
                     <h2>舉辦活動</h2>
                         <label class="label1" for="">Step1_上傳圖片<br>
@@ -259,6 +270,7 @@
             <!-- 活動的 動態燈箱 -->
             <div id="lightbox_actsCheckout_outside" class="lightbox_actsCheckout_outside">
                 <div id="lightbox_actsCheckout" class="lightbox_actsCheckout">
+                    <div id="btn_xx03" class="searchClose"></div>
                     <h2>熊麻吉活動資訊</h2>
                     <div class="acts_lightbox_top">
                         <div id="acts_lightbox_topImg" class="acts_lightbox_topImg" style="background-image: url('');"></div>
