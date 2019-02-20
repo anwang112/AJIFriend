@@ -5,7 +5,7 @@
 
     //跟資料庫要資料
     try {
-        require_once("connect.php");
+        require_once("connectBooks.php");
                 //parB 已報名活動
         $sqlmemJoin = "select* from activity_order o  JOIN activity a on o.actNo = a.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
 
