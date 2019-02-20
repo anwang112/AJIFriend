@@ -398,7 +398,6 @@ function countJoinNum(host_memNoValue,actNoValue){
 
 window.addEventListener('load',function(){
 
-<<<<<<< HEAD
     //更換第一屏燈箱
     var btn_actL = $id('btn_actL');
     var btn_actR = $id('btn_actR');
@@ -483,8 +482,6 @@ window.addEventListener('load',function(){
             sendCom(memNo,actNo,txt);
         }
     },false);
-=======
->>>>>>> master
 
     // var r_act = document.getElementById('theUser');
     // ooxxGetHead(r_act, {
