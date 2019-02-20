@@ -2,7 +2,7 @@
 
     //跟資料庫要資料
     try {
-        require_once("php/connect.php");
+        require_once("connect.php");
         // 活動巴士
         $sqlBUS = "SELECT * FROM `activity` WHERE `host_memNo` = 1";
         

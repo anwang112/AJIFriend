@@ -5,7 +5,7 @@
 
     //跟資料庫要資料
     try {
-        require_once("php/connect.php");
+        require_once("connect.php");
         // $sql1 = 'select * from comment';
         // $commNos = $pdo -> query($sql1);
         // $commNo =  $commNos ->rowCount();
