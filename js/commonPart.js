@@ -1,3 +1,5 @@
+
+
 function $id(id){
 	return document.getElementById(id);
 }
@@ -143,8 +145,8 @@ function foot_html() {
 					<p class="friendClick">管理員</p>
 				</label>
 	        </div>
-	        <div class="replybox">
-	            <h4>待回覆好友邀請</h4>
+			<div id="replybox">
+				<p id="replyboxTitle">回覆好友邀請</p>
 	        </div>
 	    </div>
 	</div>
@@ -197,6 +199,7 @@ function loginPhoto(){
 //login Ajax
 function sendForm(){
 	//=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+	
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.responseText == "error"){
@@ -233,17 +236,34 @@ function sendForm(){
 			//登入登出字樣
 			document.getElementById("loginNot").innerText = "登出"; 
 
-			
+			heartItem = document.querySelectorAll('.heart div');
+			// heartM =  document.getElementById('userLove').value;
+			// alert(love);
+			// console.log(heartM);
+			if(heartItem){
+			switch(user.arr["loveGiven"]){
+				case '2':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '1':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '0':
+				heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+			   }
+			}
 	  	}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send(`memId=An&memPsw=22222222`);
+	// alert(document.getElementById('userLove').value);
 }
-
-
-
-sendForm();
+// sendForm();
 
 
 
@@ -258,21 +278,15 @@ function friendList(){  //Ajax撈朋友列表
 	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
 	//撈朋友資料並動態新增列表--start
 	if($id('userNo').value!=''){
-		alert($id('userNo').value);
 		var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function(){
 			if(xhr.responseText == "null"){ //失敗狀態
-				alert("xhr錯誤發生");
+				console.log("沒有朋友");
 
 			}else{ //成功取得
 				var friendArr = JSON.parse(xhr.responseText);
-
 				var friendInfo = friendArr.friendsInfo; 
 				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
-				
-				
-				console.log(friendInfo);
-				//產生朋友列表<label>*N
 
 				var num = div_chooseBox.children.length;
 				var datalength = friendArr.length;
@@ -283,8 +297,6 @@ function friendList(){  //Ajax撈朋友列表
 							//infoArr[i]:朋友資料陣列;
 							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
 						}
-
-						
 						var label = document.createElement("label");
 						label.className = "friendClick";
 
@@ -308,7 +320,6 @@ function friendList(){  //Ajax撈朋友列表
 						label.appendChild(p_memName);
 						label.appendChild(input);
 
-
 						//將label塞進div
 						div_chooseBox.appendChild(label);
 						console.log("頭:"+infoArr[i][2]);
@@ -324,8 +335,6 @@ function friendList(){  //Ajax撈朋友列表
 						
 					}
 				}
-				
-				console.log('a');
 				// 執行動作撰寫
 				var friendLabels = document.getElementsByClassName("friendClick"); 
 				
@@ -337,6 +346,8 @@ function friendList(){  //Ajax撈朋友列表
 		xhr.open("Post","getFriend.php",true);
 		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 		xhr.send("me="+ $id('userNo').value);
+	}else{
+		console.log("沒有登入");
 	}
 
 	//撈朋友資料並動態新增列表--end
@@ -367,10 +378,6 @@ function changeChat(e){
 	}else{
 		taName.innerText = e.target.children[1].innerText;
 	}
-
-
-	
-	
 	var taPic = document.getElementById("friendPic"); //頭像div
 
 	//得到聊天對象資訊在朋友陣列infoArr的索引值
@@ -403,6 +410,190 @@ function changeChat(e){
 
 }
 
+function rejectRequire(e){
+	console.log(0);
+	var replybox = e.target.parentNode.parentNode.parentNode;
+	var label = e.target.parentNode.parentNode;
+	replybox.removeChild(label);
+	var taNo = label.children[1].value;
+	alert(taNo);
+	// 更新關係列表 Ajax 
+	var xhr = new XMLHttpRequest(); // 建立xhr
+	xhr.onload = function(){
+		if(xhr.responseText == "null"){ //失敗狀態
+			alert("xhr錯誤發生");
+
+		}else{ //成功取得
+			console.log(xhr.responseText);
+			//執行動作撰寫
+		}
+	};
+	xhr.open("Post","updateRelationship.php",true);
+	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	
+	var chatMems = {
+		sendMemId: 1,
+		taMemId: taNo,
+		action: 0 , // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
+	}; //物件範例
+	xhr.send("upMem="+ JSON.stringify(chatMems));
+}
+
+//撈出待回覆好友邀請的資料列表 Ajax 
+function requireBack(){
+
+	if($id('userNo').value!=''){
+		var xhr = new XMLHttpRequest(); // 建立xhr
+		xhr.onload = function(){
+			if(xhr.responseText == "null"){ //失敗狀態
+				alert("xhr錯誤發生");
+
+			}else{ //成功取得
+
+				var friendArr = JSON.parse(xhr.responseText);
+				var friendInfo = friendArr.friendsInfo; 
+				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+				var replybox = document.getElementById("replybox");
+				var num = replybox.children.length;
+				var datalength = friendArr.length;
+				var requireList = new Array();
+				if(num==1){
+					for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
+						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
+							requireList[i] = friendInfo[i].split("||",5); 
+							//infoArr[i]:朋友資料陣列;
+							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+						}
+						var label = document.createElement("label");
+						label.className = "requireLabel";
+
+							// //頭貼div
+							// var headImg_div = document.createElement("div");
+							// headImg_div.id= "requireHead";
+
+							//創建p_memName朋友暱稱
+							var p_memName = document.createElement("p");
+							p_memName.innerText = requireList[i][1]; //會員暱稱
+
+							var input = document.createElement("input");
+							input.type = "hidden";
+							input.value = requireList[i][0];
+
+							var reply_btnGroup = document.createElement("div");
+							reply_btnGroup.className = "reply_btnGroup" ;
+
+
+							var btn_Y = document.createElement("button");
+							btn_Y.innerText = "查看檔案";
+							btn_Y.className = "btn_reply";
+
+							var btn_N = document.createElement("button");
+							btn_N.innerText = "拒絕";
+							btn_N.className = "btn_reply";
+							
+							reply_btnGroup.appendChild(btn_Y);
+							reply_btnGroup.appendChild(btn_N);
+
+						//將img_friend、p_memNam、塞進label
+						// label.appendChild(input);
+						// label.appendChild(headImg_div);
+						label.appendChild(p_memName);
+						label.appendChild(input);
+						label.appendChild(reply_btnGroup);
+
+						//將label塞進div
+						replybox.appendChild(label);
+						
+						// //載入朋友頭像
+						// // rrr = document.getElementById('自己取');
+						// ooxxGetHead(headImg_div, {
+						// 	animal: infoArr[i][2],
+						// 	color: infoArr[i][4],
+						// 	eyes: infoArr[i][3],
+						// });
+						
+					}
+				}else{
+					for(var i=num;i<data.content.length;i++){
+						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
+							requireList[i] = friendInfo[i].split("||",5); 
+							//infoArr[i]:朋友資料陣列;
+							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+						}
+						var label = document.createElement("label");
+						label.className = "requireLabel";
+
+							// //頭貼div
+							// var headImg_div = document.createElement("div");
+							// headImg_div.id= "requireHead";
+
+							//創建p_memName朋友暱稱
+							var p_memName = document.createElement("p");
+							p_memName.innerText = requireList[i][1]; //會員暱稱
+
+							var input = document.createElement("input");
+							input.type = "hidden";
+							input.value = requireList[i][0];
+
+							var reply_btnGroup = document.createElement("div");
+							reply_btnGroup.className = "reply_btnGroup" ;
+
+
+							var btn_Y = document.createElement("button");
+							btn_Y.innerText = "查看檔案";
+							btn_Y.className = "btn_reply";
+
+							var btn_N = document.createElement("button");
+							btn_N.innerText = "拒絕";
+							btn_N.className = "btn_reply";
+
+							
+							reply_btnGroup.appendChild(btn_Y);
+							reply_btnGroup.appendChild(btn_N);
+
+						//將img_friend、p_memNam、塞進label
+						// label.appendChild(input);
+						// label.appendChild(headImg_div);
+						label.appendChild(p_memName);
+						label.appendChild(input);
+						label.appendChild(reply_btnGroup);
+
+						//將label塞進div
+						replybox.appendChild(label);
+						console.log("頭:"+infoArr[i][2]);
+						console.log("眼:"+infoArr[i][3]);
+						console.log("頭:"+infoArr[i][2]);
+						// //載入朋友頭像
+						// // rrr = document.getElementById('自己取');
+						// ooxxGetHead(headImg_div, {
+						// 	animal: infoArr[i][2],
+						// 	color: infoArr[i][4],
+						// 	eyes: infoArr[i][3],
+						// });
+					}
+					
+				}
+				var btn_N = document.getElementsByClassName("btn_reply");
+				console.log(btn_N);
+				for(var i = 0;i<btn_N.length;i++){
+					// alert('11');
+					// btn_N[i].addEventListener('click',rejectRequire);
+					btn_N[i].onclick=rejectRequire;
+				}
+			}
+		};
+		xhr.open("Post","getRequireList.php",true);
+		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xhr.send("me="+ $id('userNo').value);
+
+
+	}else{
+		console.log("沒有登入");
+	}
+
+
+
+}
 
 
 function msgDB(){ //聊天歷史訊息
@@ -475,11 +666,6 @@ function msgDB(){ //聊天歷史訊息
 	xhr.send("chatMems="+ JSON.stringify(chatMems));
 	
 }
-
-
-
-
-
 window.addEventListener('load', function () {
 	//聊天室操控
 	var chatRoom_control = document.getElementById('chatRoom_control');
@@ -508,6 +694,7 @@ window.addEventListener('load', function () {
 					chatBoxreload = setInterval(msgDB,3000);
 				}
 
+				requireBack();
 				friendList(); //呼叫撈朋友資料的函式
 				boxScroll(chatbox_show);
 
@@ -622,7 +809,7 @@ window.addEventListener('load', function () {
 	//登入燈箱操作
 	var login_box = document.getElementById('login_box');
 	var login_form = document.getElementById('login_form');
-	var btn_login = document.getElementById('btn_login');
+	var btn_login = document.getElementById('loginNot');
 	// btn_login.addEventListener('click',function(){
 
 	// 	login_box.style.cssText = 'opacity:1;z-index:15;';
@@ -641,52 +828,52 @@ window.addEventListener('load', function () {
 }, false);
 
 //手機聊天室貼圖顯示控制
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
 
-	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
-	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
+// 	var chatbox_faces_phone = document.getElementById('chatbox_faces_phone');
+// 	var btn_chat_picbox = document.getElementById('btn_chat_picbox');
 
-	btn_chat_picbox.addEventListener('click', function () {
+// 	btn_chat_picbox.addEventListener('click', function () {
 
-		if (chatbox_faces_phone.style.opacity == 0) {
-			chatbox_faces_phone.style.cssText = "opacity:1";
-		} else {
-			chatbox_faces_phone.style.cssText = "opacity:0";
-		}
+// 		if (chatbox_faces_phone.style.opacity == 0) {
+// 			chatbox_faces_phone.style.cssText = "opacity:1";
+// 		} else {
+// 			chatbox_faces_phone.style.cssText = "opacity:0";
+// 		}
 
-	}, false);
-
-
-	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
-	var info_chatbox = document.getElementById('info_chatbox');
-
-	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
-		chat_facesImgs_phone[i].addEventListener('click', function () {
-			var src_face_phone = this.src;
-			var img_phone = document.createElement('img');
-			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
-			img_phone.src = src_face_phone;
-
-			var divImg = document.createElement('div');
-			divImg.appendChild(img_phone);
-			divImg.setAttribute('style', 'display:inline-block;width:100%;');
-
-			var clearbox = document.createElement('div');
-			divImg.appendChild(clearbox);
-			clearbox.setAttribute('class', 'clearbox');
+// 	}, false);
 
 
-			info_chatbox.appendChild(divImg);
+// 	var chat_facesImgs_phone = document.getElementsByClassName('chat_faces_phone');
+// 	var info_chatbox = document.getElementById('info_chatbox');
 
-			boxScroll(info_chatbox);
+// 	for (var i = 0; i < chat_facesImgs_phone.length; i++) {
+// 		chat_facesImgs_phone[i].addEventListener('click', function () {
+// 			var src_face_phone = this.src;
+// 			var img_phone = document.createElement('img');
+// 			img_phone.setAttribute('style', 'float:right;width:12%;margin:5px 0;height:50px;position:relative;right:50px');
+// 			img_phone.src = src_face_phone;
 
-		}, false);
+// 			var divImg = document.createElement('div');
+// 			divImg.appendChild(img_phone);
+// 			divImg.setAttribute('style', 'display:inline-block;width:100%;');
+
+// 			var clearbox = document.createElement('div');
+// 			divImg.appendChild(clearbox);
+// 			clearbox.setAttribute('class', 'clearbox');
 
 
-	}
+// 			info_chatbox.appendChild(divImg);
+
+// 			boxScroll(info_chatbox);
+
+// 		}, false);
 
 
-}, false);
+// 	}
+
+
+// }, false);
 
 window.addEventListener('load', function () {
 	var chatTxt_input = document.getElementById('chatTxt_input');
@@ -746,29 +933,6 @@ window.addEventListener('load', function () {
 				xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");    //參考董董講義
 				xhr.send("data="+JSON.stringify(data));
 				msgDB();
-				// chatbox_show.scrollTop = chatbox_show.scrollHeight;
-
-
-
-
-				// 宗聖寫的開始-----
-				// var span = document.createElement('p');
-				// span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
-				// span.innerText = txt;
-
-				// var divspan = document.createElement('div');
-				// divspan.appendChild(span);
-				// divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
-
-				// var clearbox = document.createElement('div');
-				// divspan.appendChild(clearbox);
-				// clearbox.setAttribute('class', 'clearbox');
-
-				// chatbox_show.appendChild(divspan);
-				// chatTxt_input.value = '';
-
-				// boxScroll(chatbox_show);
-				// 宗聖寫的結束------
 			}
 
 		}
@@ -932,10 +1096,28 @@ ooxxLightBox = (...lightBoxArray) => {
 	})
 }
 
-
-
-
 window.addEventListener('load', function () {
+	
+	//聊天室內的好友邀請box收合
+	reply_control = false;
+	$id("replyboxTitle").addEventListener("click",function(){
+		if(reply_control==false){ //打開
+			$id("replybox").style.height = "83%";
+			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
+			document.getElementsByClassName("friendbox")[0].style.height = "0";
+			reply_control = true;
+		}else{ //收起來
+			$id("replybox").style.height = "32px";
+			$id("replybox").style.top = "";
+			$id("replybox").style.bottom = "8px";
+			document.getElementsByClassName("friendbox")[0].style.transition = "height 1s";
+			document.getElementsByClassName("friendbox")[0].style.height = "";
+			reply_control = false;
+
+		}
+		
+		
+	});
 
 
 	$id("loginNot").addEventListener("click",function(){
@@ -1023,9 +1205,9 @@ window.addEventListener('load', function () {
 	});
 
 
-	$id('btn_login').addEventListener('click', function () {
-		ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
-	}, false);
+	// $id('btn_login').addEventListener('click', function () {
+	// 	ooxxLightBox($id('loginBox'), $id('lightBoxInner'), $id('loginBoxClose'));
+	// }, false);
 
 }, false);
 
@@ -1141,7 +1323,7 @@ ooxxGetRole = (roleId, roleData) => {
 	}
 
 	roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
-		switch (roleData.eyes) {
+		switch (parseInt(roleData.eyes)) {
 			case 1:
 				eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
 				eyes1[0].style.transformOrigin = `center 52%`;
