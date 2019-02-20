@@ -7,6 +7,7 @@ function nextStep(){
     var share=document.getElementById("sharePhoto");
     var chooseBtn=document.getElementById("chooseBtn");
     var controlBar=document.getElementsByClassName("controlBar")[0];
+    var friendLightBox=document.getElementById("friend_LightBox");
 // 判斷式 
 // 1到2
     if (next.innerText=="選擇朋友"){
@@ -23,6 +24,8 @@ function nextStep(){
         console.log(power02);
         next.innerText="編輯塗鴉";
         back.innerText="選擇背景";
+        friendLightBox.style.display="block";
+
     }
   
 // 2到3
@@ -41,6 +44,7 @@ function nextStep(){
         power02=false;
         power03=true;
         back.innerText="選擇朋友";
+        friendLightBox.style.display="none";
     }
     
 }
@@ -63,6 +67,8 @@ function backStep(){
         chooseBtn.style.display="none";
         back.style.display="none";
         next.innerText="選擇朋友";
+        friendLightBox.style.display="none";
+
     }
 
 // 3變2
@@ -81,6 +87,8 @@ function backStep(){
         controlBar.style.display="none";
         next.innerText="編輯塗鴉";
         back.innerText="選擇背景";
+        friendLightBox.style.display="block";
+
     }
 }
 
