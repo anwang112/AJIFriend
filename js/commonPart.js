@@ -24,7 +24,7 @@ function head_html() {
             <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
             <ul class="menu">
                 <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="myRoom.html">我的窩</a></li>
@@ -79,7 +79,7 @@ function head_html() {
         <div id="menu_phone" class="menu_phone">
             <ul>
                 <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="#">登入</a></li>
