@@ -476,10 +476,16 @@ img{
         .tab-chooseCloth{
             float: left;
             padding:5px 25px;
-            background-color: rgba(255, 255, 255, .8);
+            background-color: $lightPink;
             margin-right: 1%;
             border-radius: 5px 5px 0 0 ;
             // font-family: $fontFamily;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .onclick{
+            background-color: rgba(255, 255, 255, .8);
         }
         .tab-chooseCloth:first-child{
                 margin-left: 20%;

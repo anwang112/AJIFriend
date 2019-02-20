@@ -2,6 +2,7 @@ function $id(id){
     return document.getElementById(id);
 }
 
+<<<<<<< HEAD
 function changeModel(e){
     var idList
     var ta = e.target;
@@ -17,6 +18,8 @@ function changeModel(e){
         scale: 1,
     });
 }
+=======
+>>>>>>> master
 
 //關掉選朋友燈箱
 function closeFriendBox(){
