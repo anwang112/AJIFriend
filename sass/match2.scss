@@ -10,6 +10,79 @@
   z-index: 20;
 }
 
+#reportData {
+  width: 60%;
+  height: 450px;
+  background-color: #a2988f;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 22;
+  padding: 30px;
+  backface-visibility: hidden;
+  transition: .5s;
+  transform: rotateY(180deg);
+
+  table {
+    margin: auto;
+
+    tr {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    td,
+    th {
+      padding: 10px;
+      margin: 10px;
+      display: block;
+    }
+
+
+    th {
+      text-align: center;
+      background-color: #ecded9;
+      color: #a2988f;
+      border-radius: 5px;
+      width: 120px;
+    }
+
+    .nop {
+      padding: 0 10px;
+    }
+
+    textarea {
+      &::placeholder {
+        color: #636363;
+        transition: all 0.2s ease-in-out;
+      }
+      resize:none;
+      border-radius: 5px;
+      border: none;
+      background-color: #ecded9;
+      color: #a2988f;
+      font-size: 15px;
+      padding: 0 10px;
+      margin: 0;
+
+      &:focus,
+      &.populated {
+
+        &::placeholder {
+          color: transparent;
+        }
+
+      }
+    }
+
+    button {
+      @include btn_standard(100px, $darkPink, $shadowPink);
+    }
+  }
+}
+
 #searData {
   width: 60%;
   height: 450px;
@@ -19,19 +92,14 @@
   display: flex;
   justify-content: center;
   padding: 30px;
-  position: relative;
+  position: absolute;
   top: 15%;
   z-index: 21;
+  transition: .5s;
+  left: 0;
+  right: 0;
+  transform: rotateY(0deg);
 
-  .searchClose {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 20px;
-    background-image: url(../images/XX.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
 
   .sRole {
     padding-top: 30px;
@@ -45,6 +113,15 @@
       width: 100%;
     }
   }
+}
+.searchClose {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  background-image: url(../images/XX.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .wrap {
@@ -75,6 +152,7 @@
       width: 500px;
       border: none;
       border-radius: 12px;
+      font-size: 15px;
     }
   }
 }
@@ -439,7 +517,7 @@
     justify-content: center;
     padding-top: 50px;
 
-    .rankBtn {
+    button {
       height: 30px;
       margin: 5px;
       line-height: 0;
@@ -508,7 +586,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
-  z-index: 5;
+  z-index: 25;
 
   .alert {
     width: 300px;
@@ -549,7 +627,7 @@
       }
 
       .searchTxt {
-        height: 50px;
+        height: 39px;
         width: 70%;
       }
     }
@@ -654,6 +732,9 @@
     top: 126px;
     right: -40%;
   }
+  #reportData{
+    height: 770px;
+  }
 }
 
 @media only screen and (max-width: 414px) {
@@ -697,8 +778,8 @@
   }
 
   #searData {
-    width: 93%;
-    top: -7%;
+    width: 100%;
+    top: 0%;
     padding: 13px;
   }
 
@@ -711,13 +792,25 @@
   }
 
   #searData .searchClose {
-    right: 12px;
-    top: 61px;
+    right: 16px;
+    top: 48px;
   }
 
   .heart {
     top: 747px;
     right: 7%;
     z-index: 5;
+  }
+  #reportData{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    table{
+      margin-top: 100px;
+      textarea{
+        width: 180px;
+      }
+    }
+  
   }
 }
