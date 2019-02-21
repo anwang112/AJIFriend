@@ -20,28 +20,6 @@
     <link rel="stylesheet" href="css/activity2.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
     <title>activity</title>
-    <style>
-        .searchClose {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top:20px;
-        right: 20px;
-        background-image: url(../images/XX.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        cursor: pointer;
-        z-index: 10;
-        }
-        .lightbox_act .lightbox_act_info .spanbox {
-            width: 30%;
-            display: flex;
-            flex-wrap: wrap;
-            /* justify-content: space-around; */
-            align-items: center;
-            padding: 5px 10px;
-        }
-    </style>
 </head>
 <body>
     <script type="text/javascript">
@@ -238,7 +216,7 @@
                     <div id="btn_xx02" class="searchClose"></div>
                     <form action="actInser.php" method="post" enctype="multipart/form-data">
                     <h2>舉辦活動</h2>
-                        <label class="label1" for="">Step1_上傳圖片<br>
+                        <label class="label1" for="">Step1_上傳活動圖片<br>
                         <input type="file" id="act_holdActFile" name="act_holdActFile">
                         </label>
                         <label class="label2" for="">Step2_填寫活動介紹<br>
@@ -251,7 +229,7 @@
                             <input type="hidden" class="btn_R" name="memNo" value="<?php echo $_SESSION["memNo"]?>">
                         </label>
                     </form>
-                    <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
+                    <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt=""></div>
                     <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
                     <script type="text/javascript">
                         function $id(id){
