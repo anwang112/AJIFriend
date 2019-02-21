@@ -1252,7 +1252,8 @@
   .lightbox_actsCheckout_outside .lightbox_actsCheckout span {
     width: auto;
     height: 15%;
-    font-size: .8rem; }
+    font-size: .8rem;
+    line-height: 1.1rem; }
   .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_topImg {
     width: 50%;
     height: 240px;
