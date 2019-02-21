@@ -713,6 +713,12 @@ body{background-image:url(BG002.gif);}
         display: block;
         position: relative;
     }
+    #btn_menu_menu{
+        margin-left:20px;
+    }
+    #control_rwdChat{
+        margin-right:20px;
+    }
     .head_phone .logo_phone img {
         width: 90px;
         height: 70px;
@@ -811,18 +817,49 @@ body{background-image:url(BG002.gif);}
     }
     .rwd_chatRoom #replybox_phone {
         width: 90%;
-        height: 30px;
         margin: 20px auto;
         border: 2px solid #f05c79;
-        border-radius: 15px;
+        border-radius: 10px;
         line-height: 30px;
+        padding: 10px 0;
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        .rwd_requireLabel{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ddd;
+            width: 90%;
+            border-radius: 10px;
+            padding: 2%;
+            margin: 6px auto;
+            p{
+                padding:  5px 0 5px 10px;
+                color: #555450;
+            }
+            
+            .reply_btnGroup .btn_reply{
+                border-radius: 5px;
+                border: transparent;
+                background-color: $lightPink;
+                color: #555;
+                margin: 0 3px;
+                justify-items: flex-end;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
     }
     .rwd_chatRoom #replybox_phone h4 {
-        color: #f05c79;
+        color: $shadowBrown;
         font-size: 0.9rem;
-        background-color: transparent;
         padding: 0px 0;
-        cursor: pointer;
+        font-size: 20px;
+        text-align: left;
+        padding-left: 18px;
     }
     #rwd_chatListBox{
         padding: 20px 0;

@@ -484,6 +484,7 @@ function requireBack(){
 				var friendInfo = friendArr.friendsInfo; 
 				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
 				var replybox = document.getElementById("replybox");
+				var replybox_phone =  document.getElementById("replybox_phone");
 				var num = replybox.children.length;
 				var requireList = new Array();
 				var i_start;
@@ -537,6 +538,20 @@ function requireBack(){
 						//將label塞進div
 						replybox.appendChild(label);
 						
+						// 手機
+						var str_rwdChat = replybox_phone.innerHTML;
+						str_rwdChat += 
+						`<label class="rwd_requireLabel">
+							<p>${requireList[i][1]}</p>
+							<input type="hidden" value="${requireList[i][0]}">
+							<div class="reply_btnGroup">
+								<button class="btn_reply">查看檔案</button>
+								<button class="btn_reply">拒絕</button>
+							</div>
+						</label>`;
+						//將label塞進div
+						replybox_phone.innerHTML = str_rwdChat;
+						
 						// //載入朋友頭像
 						// // rrr = document.getElementById('自己取');
 						// ooxxGetHead(headImg_div, {
@@ -583,7 +598,7 @@ function msgDB(){
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
 		if(xhr.responseText == "null"){ //失敗狀態
-			alert("xhr錯誤發生");
+			console.log("沒有聊天紀錄");
 
 		}else{ //成功取得
 
@@ -792,6 +807,8 @@ window.addEventListener('load', function () {
 	var control_openChat=false;
 	btn_chatroom_phone.addEventListener('click', function () {
 		if (control_openChat == false) {
+			
+			requireBack();
 			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
 			// msgDB();
 			control_openChat = true;

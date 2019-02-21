@@ -336,6 +336,7 @@ session_start();
         sendForm();
         getProducts(1,1);
         friendList();
+        requireBack();
 	</script>
 </body>
 </html>
