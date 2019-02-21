@@ -32,6 +32,28 @@
           transform: rotateY(180deg);
 }
 
+#reportData button {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+}
+
+#reportData button:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
+}
+
 #reportData table {
   margin: auto;
 }
@@ -113,28 +135,6 @@
 
 #reportData table textarea:focus::placeholder, #reportData table textarea.populated::placeholder {
   color: transparent;
-}
-
-#reportData table button {
-  width: 100px;
-  border-radius: 12px;
-  background-color: #f05c79;
-  -webkit-box-shadow: 0px 4px 0px #c84e6a;
-          box-shadow: 0px 4px 0px #c84e6a;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
-  border: none;
-  color: #e5e5e5;
-  height: 35px;
-}
-
-#reportData table button:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  -webkit-box-shadow: 0px 0px 0px transparent;
-          box-shadow: 0px 0px 0px transparent;
 }
 
 #searData {
@@ -285,6 +285,10 @@
   border: 10px solid #fbc5cf;
 }
 
+.profileInfo.proAb button {
+  margin: 10px;
+}
+
 .profileInfo.proAb #MJstatus {
   font-size: 15px;
   margin-top: -15px;
@@ -332,6 +336,29 @@
           justify-content: center;
 }
 
+.profileInfo.serPro button {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+  margin: 10px;
+}
+
+.profileInfo.serPro button:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
+}
+
 .profileInfo.serPro th {
   display: block;
   text-align: center;
@@ -358,29 +385,6 @@
 
 .profileInfo.serPro .btns {
   text-align: right;
-}
-
-.profileInfo button {
-  margin: 10px;
-  width: 100px;
-  border-radius: 12px;
-  background-color: #f05c79;
-  -webkit-box-shadow: 0px 4px 0px #c84e6a;
-          box-shadow: 0px 4px 0px #c84e6a;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
-  border: none;
-  color: #e5e5e5;
-  height: 35px;
-}
-
-.profileInfo button:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  -webkit-box-shadow: 0px 0px 0px transparent;
-          box-shadow: 0px 0px 0px transparent;
 }
 
 .profileInfo .matchMJ {
@@ -539,7 +543,6 @@
 }
 
 .matchContent .selectBtn button {
-  margin: 5px;
   width: 100px;
   border-radius: 12px;
   background-color: #f05c79;
@@ -552,6 +555,7 @@
   border: none;
   color: #e5e5e5;
   height: 35px;
+  margin: 5px;
 }
 
 .matchContent .selectBtn button:hover {
@@ -670,25 +674,6 @@
   height: 30px;
   margin: 5px;
   line-height: 0;
-  width: 100px;
-  border-radius: 12px;
-  background-color: #f05c79;
-  -webkit-box-shadow: 0px 4px 0px #c84e6a;
-          box-shadow: 0px 4px 0px #c84e6a;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
-  border: none;
-  color: #e5e5e5;
-  height: 35px;
-}
-
-.majiRank .rankContent button:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  -webkit-box-shadow: 0px 0px 0px transparent;
-          box-shadow: 0px 0px 0px transparent;
 }
 
 .majiRank .rankContent .rankItem {
@@ -715,6 +700,28 @@
 .majiRank .rankContent .rankItem .rankRole {
   width: 300px;
   z-index: 1;
+}
+
+.rankBtn {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+}
+
+.rankBtn:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
 }
 
 .rankTxtCs {
@@ -787,7 +794,6 @@
 }
 
 .alertWrap .alert #alertBtn {
-  display: block;
   width: 100px;
   border-radius: 12px;
   background-color: #f05c79;
@@ -800,6 +806,7 @@
   border: none;
   color: #e5e5e5;
   height: 35px;
+  display: block;
   position: absolute;
   right: 0;
   left: 0;
@@ -817,6 +824,43 @@
 .alertWrap .alert #alertText {
   text-align: center;
   line-height: 4;
+}
+
+.disable {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #878787;
+  -webkit-box-shadow: 0px 4px 0px #515151;
+          box-shadow: 0px 4px 0px #515151;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+}
+
+.btn {
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
 }
 
 @media only screen and (max-width: 768px) {

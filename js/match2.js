@@ -146,6 +146,7 @@ $('.matchNext').click(function () {
                 targetNo: document.getElementById('matchMemNo').value,
             };
             getMem(profile);
+            
         }, 500);
 
         setTimeout(() => {
@@ -268,10 +269,20 @@ $('#topMJ').click(function () {
 //名人榜切換結束
 
 //送出好友邀請
+//改好友BTN
+function changeBtn(btn){
+    btn.addClass('disable');
+    btn.removeClass('btn');
+    $('.disable').mouseover(function(){
+        $(this).css({
+            'transform':'translateY(0px)',
+            'box-shadow':' 0px 4px 0px #515151',
+        })
+    })
+    $('.disable').text('邀請中').attr("disabled",true);
+};
 //搜尋-送出好友邀請
-$('.btn_beFriend0').click(function () {
-    tarNo = document.getElementById('sMemNo').value;
-    loginNo = document.getElementById('userNo').value;
+function beFriend (tarNo,loginNo,btn) {
     if (document.getElementById('userId').value == '') {
         $('#alertText').text('請先登入!');
         $('.alertWrap').show();
@@ -288,255 +299,69 @@ $('.btn_beFriend0').click(function () {
                 targetNo: tarNo,
                 nowDay: nowDay,
                 action: 3,
+                btn: btn,
             };
             makeFriend(profile);
         }
     }
+}
+$('.btn_beFriend0').click(function(){
+    tarNo = document.getElementById('sMemNo').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
 });
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-                con: document.getElementById('con').value,
-                hob: document.getElementById('hob').value,
-            };
-            makeFriend(profile);
-            getMem(profile);
-        }
-    }
+    btn = $('.btn_beFriend1');
+    beFriend(tarNo,loginNo,btn);
 });
 //Rank送出好友邀請
 $('.btn_beFriend2').click(function () {
     tarNo = document.querySelector('.fans .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend3').click(function () {
     tarNo = document.querySelector('.fans .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend4').click(function () {
     tarNo = document.querySelector('.fans .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend5').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend6').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend7').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend8').click(function () {
     tarNo = document.querySelector('.MJs .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend9').click(function () {
     tarNo = document.querySelector('.MJs .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 $('.btn_beFriend10').click(function () {
     tarNo = document.querySelector('.MJs .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
-            $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-            };
-            makeFriend(profile);
-        }
-    }
+    beFriend(tarNo,loginNo);
 });
 
 
@@ -671,7 +496,9 @@ function searchMem(profile) {
 
 // 配對篩選
 function getMem(profile) {
-
+    $('.btn_beFriend1').removeClass('disable');
+    $('.btn_beFriend1').addClass('btn');
+    $('.btn_beFriend1').text('成為麻吉');
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
 
@@ -916,6 +743,7 @@ function makeFriend(profile) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
             document.getElementById('userLove').value = heart;
+            changeBtn(btn);
             switch (parseInt(heart)) {
                 case 2:
                     heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -931,6 +759,9 @@ function makeFriend(profile) {
                     break;
 
             }
+
+            $('#alertText').text('已送出邀請');
+            $('.alertWrap').show();
         } else {
             $('#alertText').text('請勿重複邀請唷!');
             $('.alertWrap').show();
