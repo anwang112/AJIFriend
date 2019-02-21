@@ -1000,7 +1000,7 @@ window.addEventListener('load', function () {
 		if (clientWidrh < 1000) {
 			while (chatbox_show.firstChild) {
 				chatbox_show.removeChild(chatbox_show.firstChild);
-				console.log('ddd');
+				
 			}
 		}
 		if (clientWidrh > 760) {
@@ -1254,7 +1254,7 @@ window.addEventListener('load', function () {
 
 
 ooxxGetRole = (roleId, roleData) => {
-	console.log('sss');
+
 	// 載入角色
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
