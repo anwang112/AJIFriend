@@ -43,7 +43,7 @@
 
 #searData .sRole {
   padding-top: 30px;
-  width: 40%;
+  width: 50%;
   background-image: url(../images/searbg.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -113,7 +113,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  top: -30px;
+  top: 35px;
+  right: -54%;
 }
 
 .heart .heartItem {
@@ -168,10 +169,10 @@
   text-align: center;
   background-color: #fbc5cf;
   border-radius: 5px;
-  margin: 5px;
+  margin: 5px 0px 5px -6px;
   color: #eb616d;
   width: 86%;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .profileInfo.proAb td {
@@ -188,6 +189,16 @@
   border: 3px solid #a2988f;
   width: 50%;
   line-height: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .profileInfo.serPro th {
@@ -212,6 +223,10 @@
 
 .profileInfo.serPro td {
   text-align: left;
+}
+
+.profileInfo.serPro .btns {
+  text-align: right;
 }
 
 .profileInfo button {
@@ -422,8 +437,9 @@
           box-shadow: 2px 2px 5px #ccc;
   border-radius: 20px;
   margin: auto;
-  margin-top: 30%;
+  margin-top: 375px;
   padding: 20px;
+  max-width: 1200px;
 }
 
 .majiRank .rankTitle {
@@ -619,6 +635,59 @@
   }
 }
 
+.alertWrap {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 5;
+}
+
+.alertWrap .alert {
+  width: 300px;
+  height: 150px;
+  background-color: #FAE7F0;
+  top: calc(50% - 75px);
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.alertWrap .alert #alertBtn {
+  display: block;
+  width: 100px;
+  border-radius: 12px;
+  background-color: #f05c79;
+  -webkit-box-shadow: 0px 4px 0px #c84e6a;
+          box-shadow: 0px 4px 0px #c84e6a;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: none;
+  color: #e5e5e5;
+  height: 35px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 30px;
+}
+
+.alertWrap .alert #alertBtn:hover {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-box-shadow: 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent;
+}
+
+.alertWrap .alert #alertText {
+  text-align: center;
+  line-height: 4;
+}
+
 @media only screen and (max-width: 768px) {
   .wrap .searchMaji {
     top: -100px;
@@ -690,7 +759,7 @@
     left: -27%;
   }
   .profileInfo.proAb th {
-    width: 100px;
+    width: 112px;
   }
   .majiRank {
     width: 95%;
@@ -752,6 +821,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
+    z-index: 3;
   }
   .rankTxtCs {
     width: 95%;
@@ -782,6 +852,7 @@
   .heart {
     top: 747px;
     right: 7%;
+    z-index: 5;
   }
 }
 /*# sourceMappingURL=match2.css.map */

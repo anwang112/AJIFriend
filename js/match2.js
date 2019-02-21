@@ -1,49 +1,11 @@
 var Today = new Date();
 nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 topFriend();
-// function getLove(love){
-//     heartItem = document.querySelectorAll('.heart div');
-//     heartM =  document.getElementById('userLove').value;
-//     alert(love);
-//     // console.log(heartM);
-//     switch(love){
-//         case 2:
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//         case 1:
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//         case 0:
-//         heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//        }
-// }
-
-
-
-// $('#loginNot').click(function(){
-//     heartItem = document.querySelectorAll('.heart div');
-//     heartM =  document.getElementById('userLove').value;
-//     console.log(heartM);
-//     switch(parseInt(heartM)){
-//         case 2:
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//         case 1:
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//         case 0:
-//         heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-//         break;
-//        }
-// })
-
+//alert
+$('.alertWrap').hide();
+$('#alertBtn').click(function(){
+    $('.alertWrap').hide();
+})
 //搜尋角色變數
 sEye = 1;
 sBody = 1;
@@ -104,6 +66,7 @@ profile = {
     con: document.getElementById('con').value,
     hob: document.getElementById('hob').value,
     memNo: document.getElementById('userNo').value,
+    targetNo: document.getElementById('matchMemNo').value,
 };
 getMem(profile);
 //翻牌
@@ -124,6 +87,7 @@ $('.matchNext').click(function () {
                 con: document.getElementById('con').value,
                 hob: document.getElementById('hob').value,
                 memNo: document.getElementById('userNo').value,
+                targetNo: document.getElementById('matchMemNo').value,
             };
             getMem(profile);
         }, 500);
@@ -249,10 +213,12 @@ $('#topMJ').click(function () {
 
 //送出好友邀請
 console.log(document.getElementById('userLove').value);
+
 $('.btn_beFriend').click(function () {
     
     if(document.getElementById('userLove').value <= 0){
-        alert('本日已無愛心');
+        $('#alertText').text('今天的愛心已經用完囉！');
+        $('.alertWrap').show();
     }else{
         
         profile = {
@@ -260,8 +226,12 @@ $('.btn_beFriend').click(function () {
             targetNo: document.getElementById('matchMemNo').value,
             nowDay: nowDay,
             action: 3,
+            con: document.getElementById('con').value,
+            hob: document.getElementById('hob').value,
+            
         };
         makeFriend(profile);
+        getMem(profile);
     }
 });
 
@@ -273,7 +243,8 @@ function searchMem(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.responseText == 0) {
-            alert("找不到這個ID的麻吉唷，請重新輸入正確ID");
+            $('#alertText').text('找不到這個ID的麻吉唷!');
+            $('.alertWrap').show();
 
         } else {
             $('.searchWrap').show();
@@ -388,9 +359,14 @@ function getMem(profile) {
 
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
+       
         if (xhr.responseText == 0) {
-            alert("沒有符合條件的麻吉唷，請重新挑選");
-        } else {
+            $('#alertText').text('沒有符合條件的麻吉唷!');
+            $('.alertWrap').show();
+            
+        
+        }else {
+           console.log(xhr.responseText);
             var info = JSON.parse(xhr.responseText);
             //角色
             mcEye = info.eye;
@@ -407,7 +383,6 @@ function getMem(profile) {
                 hat: mcHat,
                 clothes: mcClothes,
             });
-
             //id
             document.getElementById('mcId').innerText = info.memId;
             document.getElementById('mcName').innerText = info.name;
@@ -529,6 +504,7 @@ function getMem(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 
 }
+
 id = [];
 //rank
 function getRank(profile) {
@@ -620,11 +596,10 @@ $('.showInfo2').click(function () {
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        if (xhr.responseText >= 0) {
+        if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
             document.getElementById('userLove').value = heart;
-            console.log(document.getElementById('userLove').value);
            switch(parseInt(heart)){
             case 2:
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -640,7 +615,11 @@ function makeFriend(profile) {
             break;
 
            }
-        }
+        }else{
+            $('#alertText').text('請勿重複邀請唷!');
+            $('.alertWrap').show();
+           }
+        
     };
     xhr.open("Post", "makeFriend.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");

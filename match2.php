@@ -11,21 +11,6 @@ try {
     $sta->execute();
     $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
-    //等級判斷式
-    // $lvArr = [];
-    // for ($i = 0; $i < 3; $i++) {
-    //     $mj = $moneyRow[$i]["mMJ"];
-    //     if ($mj >= 1000) {
-    //         $lv = "LV.3 萬人迷";;
-    //     } else if ($mj >= 500) {
-    //         $lv = "LV.2 潛力股";
-    //     } else {
-    //         $lv = "LV.1 邊緣人";
-    //     }
-    //     array_push($lvArr, $lv);
-    // };
-
-    //等級判斷式結束
 
 } catch (PDOException $e) {
     echo $e->getMessage();
@@ -62,6 +47,14 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
+    <div class="alertWrap">
+        <div class="alert">
+            <p id="alertText">今天的愛心已經用完囉！</p>
+            <p>
+            <button id="alertBtn">確定</button>
+            </p>
+        </div>
+    </div>
     <div class="searchWrap">
         <div id="searData">
             <div class="searchClose"></div>
@@ -81,7 +74,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            魅力等級
+                            魅力等級:
                         </th>
                         <td>
                             <span id="sLv"></span>
@@ -98,7 +91,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            興趣:
+                            興趣：
                         </th>
                         <td>
                             <div id="hobby"></div>
@@ -121,8 +114,8 @@ try {
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <button id="btn_beFriend">成為麻吉</button>
+                        <td colspan="2" class="btns">
+                            <button id="btn_beFriend2">成為麻吉</button>
                             <button id="">檢舉麻吉</button>
                         </td>
                 </table>
@@ -169,7 +162,7 @@ try {
                         <input type="hidden"value=""id="matchMemNo">
                         <tr>
                             <th>
-                                ID:
+                                ID：
                             </th>
                             <td>
                                 <span id="mcId"></span>
@@ -177,7 +170,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                默契值:
+                                默契值：
                             </th>
                             <td>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
@@ -205,7 +198,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                興趣:
+                                興趣：
                             </th>
                             <td>
                                 <span id="mcHobby"></span>

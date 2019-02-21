@@ -1000,7 +1000,7 @@ window.addEventListener('load', function () {
 		if (clientWidrh < 1000) {
 			while (chatbox_show.firstChild) {
 				chatbox_show.removeChild(chatbox_show.firstChild);
-				console.log('ddd');
+				
 			}
 		}
 		if (clientWidrh > 760) {
