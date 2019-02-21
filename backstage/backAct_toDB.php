@@ -2,6 +2,7 @@
     //跟資料庫要資料
     $actObj = json_decode($_REQUEST["actObj"]); 
     $actDele = json_decode($_REQUEST["actDele"]); 
+    $actRe = json_decode($_REQUEST["actRe"]); 
     $actObjDelCheck = json_decode($_REQUEST["actObjDelCheck"]); 
     
     try {
@@ -112,6 +113,16 @@
             $bb = $pdo -> prepare($sqlDelete_actNO); 
             $bb -> bindValue(":actNo",  $actDele -> actNo);
             $bb -> execute();
+
+            echo "1"; //成功刪除
+
+        }
+        
+        if($_REQUEST["actRe"]){
+            $sqlre_actNO = "UPDATE `activity` SET `showOrNot` = '1' WHERE `activity`.`actNo` = :actNo ";
+            $cc = $pdo -> prepare($sqlre_actNO); 
+            $cc -> bindValue(":actNo",  $actRe -> actNo);
+            $cc -> execute();
 
             echo "1"; //成功刪除
 

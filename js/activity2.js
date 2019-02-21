@@ -49,21 +49,7 @@ function reBtn(){
             },false);
         },false);
     }
-    var btn_xx03 = $id('btn_xx03');
-    btn_xx03.addEventListener('click',function(){
-        lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
-        lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
-        btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
-        var myMessagebox = $id('myMessagebox');
-        if( myMessagebox.hasChildNodes){
-            divs = document.getElementsByClassName('dddd');
-            // console.log(divs);
-            for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
-                divs[i].remove();
-                console.log('dddd');
-            }
-        }
-    },false);
+
 
     var cancel_act = document.getElementsByClassName('cancel_act');
     for(var i = 0;i<cancel_act.length;i++){
@@ -417,6 +403,33 @@ window.addEventListener('load',function(){
     var btn_xx02 = $id('btn_xx02');//創立活動燈箱 lightbox_holdact
     var btn_xx03 = $id('btn_xx03');//查看活動燈箱 lightbox_actsCheckout
 
+    btn_xx01.addEventListener('click',function(){
+        lightbox_act.style.cssText="display:none;z-index:-1;";
+        lightbox_act_info.style.cssText="display:none;z-index:-1;";
+    },false);
+
+    btn_xx02.addEventListener('click',function(){
+        lightbox_holdact.style.cssText="display:none;z-index:-1;";
+        lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
+    },false);
+
+
+    var btn_xx03 = $id('btn_xx03');
+    btn_xx03.addEventListener('click',function(){
+        // alert('11');
+        lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
+        lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+        btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
+        var myMessagebox = $id('myMessagebox');
+        if( myMessagebox.hasChildNodes){
+            divs = document.getElementsByClassName('dddd');
+            // console.log(divs);
+            for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+                divs[i].remove();
+                console.log('dddd');
+            }
+        }
+    },false);
 
     //更換第一屏燈箱
     var btn_actL = $id('btn_actL');
@@ -802,21 +815,7 @@ window.addEventListener('load',function(){
         },false);
     }
     
-    var btn_xx03 = $id('btn_xx03');
-    btn_xx03.addEventListener('click',function(){
-        lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
-        lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
-        btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
-        var myMessagebox = $id('myMessagebox');
-        if( myMessagebox.hasChildNodes){
-            divs = document.getElementsByClassName('dddd');
-            // console.log(divs);
-            for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
-                divs[i].remove();
-                console.log('dddd');
-            }
-        }
-    },false);
+
 
 
     // $id('btn_holdAct').addEventListener('click',function(){

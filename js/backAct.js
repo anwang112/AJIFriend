@@ -41,7 +41,8 @@ function writeInTo(actObj){
         <tr>
             <th scope="row">
                 ${actObj.no}<br> 
-                <button id="act_delet_btn${actObj.no}" type="button" class="btn btn-danger btn-sm">刪除</button>
+                <button id="act_delet_btn${actObj.no}" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
+                <input type="hidden" value="${actObj.no}">
             </th>
             <td>${actObj.memName}</td> 
             <td>${actObj.title}</td>
@@ -57,7 +58,15 @@ function writeInTo(actObj){
         <a href="backAct.php">重新搜尋</a>
     `;
     maintable.innerHTML = txt ;
-
+    var act_delet_btn = document.getElementsByClassName('act_delet_btn');
+    for(var i=0;i<act_delet_btn.length;i++){
+        act_delet_btn[i].addEventListener('click',function(){
+            var actNo = this.nextSibling.nextSibling.value;
+            var target = this.parentNode.parentNode;
+            // alert('actNo:'+actNo);
+            deletAct(actNo,target);
+        },false);
+    }
 }
 
 function writeInTo2(txt_arr){
@@ -96,7 +105,9 @@ function writeInTo2(txt_arr){
         <tbody id="clearTarget" class="dddd">
             <tr>
                 <th scope="row">
-                    ${txt_arr[i][0]}<br> 
+                    ${txt_arr[i][0]}<br>
+                    <button id="act_delet_btn ${txt_arr[i][0]}" type="button" class="btn btn-danger btn-sm act_rebtn">復原</button> 
+                    <input type="hidden" value=" ${txt_arr[i][0]}">
                 </th>
                 <td>${txt_arr[i][12]}</td> 
                 <td>${txt_arr[i][2]}</td>
@@ -116,6 +127,17 @@ function writeInTo2(txt_arr){
     `;
     var maintable = $id('maintable');
     maintable.innerHTML = txt ;
+    
+    var act_rebtn = document.getElementsByClassName('act_rebtn');
+    // alert(act_rebtn );    
+    for(var i=0;i<act_rebtn.length;i++){
+        act_rebtn[i].addEventListener('click',function(){
+            var actNo = this.nextSibling.nextSibling.value;
+            var target = this.parentNode.parentNode;
+            // alert('actNo:'+actNo);
+            reAct(actNo,target);
+        },false);
+    }
 }
 
 
@@ -165,6 +187,27 @@ function deletAct(actNo,target){
     };
 
     xhr.send( "actDele=" + JSON.stringify(actDele));
+}
+
+function reAct(actNo,target){
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+         if( xhr.responseText == "null" ){
+            alert ('xhr有錯誤喔');
+         }else{
+            // var actObjback = JSON.parse(xhr.responseText);
+            //  alert (xhr.responseText);
+             target.style.display="none";
+         }
+    }
+
+    xhr.open("post", "../backstage/backAct_toDB.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    var actRe = {
+        actNo : actNo ,
+    };
+
+    xhr.send( "actRe=" + JSON.stringify(actRe));
 }
 
 function checkDeleAct(){
