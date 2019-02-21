@@ -1,16 +1,16 @@
 <?php
 session_start();
-// session_destroy();
-$errMsg = "";
-try {
-	require_once("connectBooks.php");
-	$sql = "select * from product";
- 	$products = $pdo->query($sql); 
-} catch (PDOException $e) {
-    echo $e -> getMessage();
-	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
-	$errMsg .= "行號 : ".$e -> getLine()."<br>";
-}
+// // session_destroy();
+// $errMsg = "";
+// try {
+// 	require_once("connectBooks.php");
+// 	$sql = "select * from product";
+//  	$products = $pdo->query($sql); 
+// } catch (PDOException $e) {
+//     echo $e -> getMessage();
+// 	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
+// 	$errMsg .= "行號 : ".$e -> getLine()."<br>";
+// }
  
 ?> 
 
@@ -32,13 +32,10 @@ try {
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <script src="js/shop.js"></script>
 </head>
 <body>
-<?php
-  if( $errMsg != ""){
-  	exit("<div><center>$errMsg</center></div>");
-  }
-?>	
+
         <script type="text/javascript">
             head_html();
         
@@ -133,8 +130,8 @@ try {
         
             <div id="productBlock">
                 <!-- 種類選擇Tab -->
-                <div class="tab-chooseCloth">頭飾</div>
-                <div class="tab-chooseCloth">衣服</div>
+                <div id="hatTab" class="tab-chooseCloth onclick" onclick="getProduct(1);" >頭飾</div>
+                <div id="clothesTab" class="tab-chooseCloth" onclick="getProduct(2);">衣服</div>
                 
                 <!-- 商品選擇 -->
                 <div id="productsArea">
@@ -247,6 +244,84 @@ try {
 	</script>
 </body>
 </html>
+
+<script>
+    
+    function $id(id){
+        return document.getElementById(id);
+    }
+    window.addEventListener("load",function(){
+        
+        changeModel(); //試穿角色顯示
+        
+        $(window).resize(function() {
+            if(innerWidth<768){
+                $id("shop_background").style.height =window.screen.height +"px";
+            }else{ 
+                $id("shop_background").style.height =window.innerHeight +"px";
+            }
+            // $id("productBlock").style.width = window.innerWidth +"px";
+
+    });
+
+    });
+    
+    console.log(document.body.clientHeight);
+    console.log(window.screen.availWidth);
+
+    function init(){
+        var choose = document.getElementsByClassName("gift");
+        for(var i = 0 ; i < choose.length ; i++){
+            choose[i].addEventListener("click",showfriendBox);
+        }
+
+        productImg = document.getElementsByClassName("click_wear");
+        for (var i = 0 ; i< productImg.length; i++){
+            // productImg[i].addEventListener("click",changeClothes);
+            if(innerWidth<768){
+                productImg[i].addEventListener("click",showInfo); //link:changeClothes.js
+            }
+        }
+        $id("choose-me").addEventListener("click",function(){
+            $id("model_animal").src = "shop-images/model_1.png";
+            $id("model_hat").src = "shop-images/hat_1.png";
+            // $id("model_clothes").src = "";
+            TweenMax.fromTo('#showModel', 1.5, {
+                y:-45,
+                scale: .5,
+            }, {
+                y:0,
+                scale: 1,
+                ease: Power2.easeIn
+            });
+        });
+
+        $id("hatTab").addEventListener("click",function(){
+
+        });
+
+        
+        
+        TweenMax.fromTo('#showModel', 1.5, {
+            y:-45,
+            scale: .5,
+            }, {
+                y:0,
+                scale: 1,
+                ease: Power2.easeIn
+            });
+        
+        
+        // $id('choose-friend').addEventListener('click', () => {
+        //     ooxxLightBox($id('a'), $id('b'), $id('btn_friendBoxClose'));
+        // });
+        
+    }
+
+    window.addEventListener("load",init,false);
+
+</script>
+
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
@@ -280,82 +355,4 @@ try {
       
 
   });
-</script>
-<script>
-    
-    function $id(id){
-        return document.getElementById(id);
-    }
-    window.addEventListener("load",function(){
-        
-        changeModel(); //試穿角色顯示
-        
-        $(window).resize(function() {
-            if(innerWidth<768){
-                $id("shop_background").style.height =window.screen.height +"px";
-            }else{ 
-                $id("shop_background").style.height =window.innerHeight +"px";
-            }
-            // $id("productBlock").style.width = window.innerWidth +"px";
-
-    });
-
-    });
-    
-    console.log(document.body.clientHeight);
-    console.log(window.screen.availWidth);
-
-    function init(){
-        var choose = document.getElementsByClassName("gift");
-        for(var i = 0 ; i < choose.length ; i++){
-            choose[i].addEventListener("click",showfriendBox);
-        }
-        if(innerWidth<768){
-            productItem = document.getElementsByClassName("productItem");
-            for (var i = 0; i<productItem.length; i++) {
-                //productItem[i].addEventListener("click",showLightBox);
-            }
-        }
-
-        productImg = document.getElementsByClassName("click_wear");
-        for (var i = 0 ; i< productImg.length; i++){
-            productImg[i].addEventListener("click",changeClothes);
-            if(innerWidth<768){
-                productImg[i].addEventListener("click",showInfo); //link:changeClothes.js
-            }
-        }
-        $id("choose-me").addEventListener("click",function(){
-            $id("model_animal").src = "shop-images/model_1.png";
-            $id("model_hat").src = "shop-images/hat_1.png";
-            // $id("model_clothes").src = "";
-            TweenMax.fromTo('#showModel', 1.5, {
-                y:-45,
-                scale: .5,
-            }, {
-                y:0,
-                scale: 1,
-                ease: Power2.easeIn
-            });
-        });
-
-        
-        
-        TweenMax.fromTo('#showModel', 1.5, {
-            y:-45,
-            scale: .5,
-            }, {
-                y:0,
-                scale: 1,
-                ease: Power2.easeIn
-            });
-        
-        
-        // $id('choose-friend').addEventListener('click', () => {
-        //     ooxxLightBox($id('a'), $id('b'), $id('btn_friendBoxClose'));
-        // });
-        
-    }
-
-    window.addEventListener("load",init,false);
-
 </script>

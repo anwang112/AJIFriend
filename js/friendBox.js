@@ -3,7 +3,10 @@ function $id(id){
 }
 
 function changeModel(){
+<<<<<<< HEAD
     console.log("11111111111111111");
+=======
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
     var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function(){
             var ta = JSON.parse(xhr.responseText);
@@ -27,6 +30,7 @@ function changeModel(){
 		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 		xhr.send("from="+"gift");
 
+<<<<<<< HEAD
 
     
 
@@ -41,6 +45,8 @@ function changeModel(){
     // $id("model_animal").src = "shop-images/model_" + no[1] +".png";
     // $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
     // closeFriendBox();
+=======
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
     TweenMax.fromTo('#showModel', 1.5, {
         y:-45,
         scale: .5,
@@ -104,12 +110,21 @@ function showfriendBox(){
                             var input = document.createElement("input");
                             input.type = "hidden";
                             input.value = infoArr[i][0]; //會員編號
+<<<<<<< HEAD
 
                         //將img_friend、p_memNam、input_submit塞進a_btn
                         a_btn.appendChild(headImg_div);
                         a_btn.appendChild(p_memName);
                         a_btn.appendChild(input);
 
+=======
+
+                        //將img_friend、p_memNam、input_submit塞進a_btn
+                        a_btn.appendChild(headImg_div);
+                        a_btn.appendChild(p_memName);
+                        a_btn.appendChild(input);
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
                         //將a_btn塞進form
                         giftTa_chooseBox.appendChild(a_btn);
                         
