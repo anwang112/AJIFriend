@@ -1,9 +1,8 @@
 <?php 
-    require_once('act.php');
     ob_start();
     session_start();
+    require_once('act.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

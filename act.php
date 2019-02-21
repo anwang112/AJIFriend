@@ -18,23 +18,9 @@
         $activityBUS -> bindColumn("actIntro", $actIntro);
         $activityBUS -> bindColumn("actImg", $actImg);
 
-        // 所有活動-官方活動
-        // $sqlOficial = "select * from activity where host_memNo = 1 ORDER BY actNo DESC ";
-        //
-
-        // $activityOficial = $pdo->query($sqlOficial); 
-        // $activityOficial -> bindColumn("actNo", $actNo); 
-        // $activityOficial -> bindColumn("host_memNo", $host_memNo);      
-        // $activityOficial -> bindColumn("actTitle", $actTitle);
-        // $activityOficial -> bindColumn("actLoc", $actLoc);
-        // $activityOficial -> bindColumn("act_begin", $act_begin);
-        // $activityOficial -> bindColumn("act_end", $act_end);
-        // $activityOficial -> bindColumn("actIntro", $actIntro);
-        // $activityOficial -> bindColumn("actImg", $actImg);
 
 
         //所有活動-熊麻吉們主辦
-        
         $sqlactNo = "select * from activity where host_memNo != 1 AND showOrNot = '1' ";
         $result = $pdo->query($sqlactNo);
         $totalRecord =  $result ->rowCount();
@@ -84,10 +70,10 @@
         //
         //select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo
 
-
+        
         // $activitmemJoin = $pdo->query($sqlmemJoin); 
         $activitmemJoin = $pdo->prepare($sqlmemJoin); 
-        $activitmemJoin -> bindValue(":member",2); 
+        $activitmemJoin -> bindValue(":member",$_SESSION["memNo"]); 
         //之後要改成bindParam
         $activitmemJoin -> bindColumn("act_orderNo", $act_orderNo); 
         $activitmemJoin -> bindColumn("order_memNo", $order_memNo);      
