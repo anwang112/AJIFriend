@@ -247,8 +247,8 @@ function sendForm(){
 }
 
 
-var infoArr = new Array();
-infoArr = []; //朋友資料陣列
+var friend_infoArr = new Array();
+friend_infoArr = []; //朋友資料陣列
 
 function friendList(){  //Ajax撈朋友列表
 	console.log("friendList()");
@@ -271,9 +271,9 @@ function friendList(){  //Ajax撈朋友列表
 				if(num==1){
 					for(var i = 0 ; i<friendInfo.length;i++){ // i:朋友數量
 						for(var j = 0 ; j < 6 ; j++){ // j:撈回的資料欄位數量
-							infoArr[i] = friendInfo[i].split("||",6); 
-							//infoArr[i]:朋友資料陣列;
-							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+							friend_infoArr[i] = friendInfo[i].split("||",6); 
+							//friend_infoArr[i]:朋友資料陣列;
+							//friend_infoArr[i][0]:會員編號; friend_infoArr[i][1]:會員暱稱 friend_infoArr[i][2]:動物
 						}
 						var label = document.createElement("label");
 						label.className = "friendClick";
@@ -284,12 +284,12 @@ function friendList(){  //Ajax撈朋友列表
 
 							//創建p_memName朋友暱稱
 							var p_memName = document.createElement("p");
-							p_memName.innerText = infoArr[i][1]; //會員暱稱
+							p_memName.innerText = friend_infoArr[i][1]; //會員暱稱
 							p_memName.className = "friendClick";
 							// p_memName.className = friendList[i-1];
 							var input = document.createElement("input");
 							input.type = "hidden";
-							input.value = infoArr[i][0]; //會員編號
+							input.value = friend_infoArr[i][0]; //會員編號
 
 
 						//將img_friend、p_memNam、input_submit塞進label
@@ -300,15 +300,15 @@ function friendList(){  //Ajax撈朋友列表
 
 						//將label塞進div
 						div_chooseBox.appendChild(label);
-						console.log("頭:"+infoArr[i][2]);
-						console.log("眼:"+infoArr[i][3]);
-						console.log("頭:"+infoArr[i][2]);
+						console.log("頭:"+friend_infoArr[i][2]);
+						console.log("眼:"+friend_infoArr[i][3]);
+						console.log("頭:"+friend_infoArr[i][2]);
 						//載入朋友頭像
 						// rrr = document.getElementById('自己取');
 						ooxxGetHead(headImg_div, {
-							animal: infoArr[i][2],
-							color: infoArr[i][4],
-							eyes: infoArr[i][3],
+							animal: friend_infoArr[i][2],
+							color: friend_infoArr[i][4],
+							eyes: friend_infoArr[i][3],
 						});
 						
 					}
@@ -329,10 +329,10 @@ function friendList(){  //Ajax撈朋友列表
 	}
 
 	//撈朋友資料並動態新增列表--end
-	// return infoArr;
+	// return friend_infoArr;
 }
 
-// 利用暱稱在infoArr陣列裡找會員編號
+// 利用暱稱在friend_infoArr陣列裡找會員編號
 function echoNo(name,arr){
 	// console.log( arr.length );
 	for(var i=0;i<arr.length;i++){
@@ -347,7 +347,7 @@ function echoNo(name,arr){
 
 //切換朋友聊天
 function changeChat(e){
-	// console.log(infoArr);
+	// console.log(friend_infoArr);
 	var taName = document.getElementById("mem-2");
 	if(e.target.children.length==0){
 		// console.log(e.target.children[2].value);
@@ -357,21 +357,23 @@ function changeChat(e){
 		taName.innerText = e.target.children[1].innerText;
 	}
 	var taPic = document.getElementById("friendPic"); //頭像div
-
-	//得到聊天對象資訊在朋友陣列infoArr的索引值
-	for(var i=0;i<infoArr.length;i++){
-		for(var j=0;j<infoArr[i].length;j++){
-			if(infoArr[i][1]==taName.innerText){
+	var index;
+	//得到聊天對象資訊在朋友陣列friend_infoArr的索引值
+	for(var i=0;i<friend_infoArr.length;i++){
+		for(var j=0;j<friend_infoArr[i].length;j++){
+			console.log("name:"+taName.innerText);
+			console.log("friend_infoArr[i][1]:"+friend_infoArr[i][2]);
+			if(friend_infoArr[i][1]==taName.innerText){
 				index = i;
 			}
 		}
 	}
-	console.log("index:"+index);
+	// console.log("index:"+index);
 	//載入聊天對象頭頭
 	ooxxGetHead(taPic, {
-		animal: infoArr[index][2],
-		color: infoArr[index][4],
-		eyes: infoArr[index][3],
+		animal: friend_infoArr[index][2],
+		color: friend_infoArr[index][4],
+		eyes: friend_infoArr[index][3],
 	})
 
 
@@ -381,7 +383,7 @@ function changeChat(e){
 	while(chatbox_show.firstChild) {
 		chatbox_show.removeChild(chatbox_show.firstChild);
 	}
-	var taNo = echoNo( taName.innerText ,infoArr);
+	var taNo = echoNo( taName.innerText ,friend_infoArr);
 	taName.className = taNo; 
 	msgDB();
 	chatBoxreload = setInterval(msgDB,3000);
@@ -439,8 +441,8 @@ function requireBack(){
 					for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
 						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
 							requireList[i] = friendInfo[i].split("||",5); 
-							//infoArr[i]:朋友資料陣列;
-							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+							//friend_infoArr[i]:朋友資料陣列;
+							//friend_infoArr[i][0]:會員編號; friend_infoArr[i][1]:會員暱稱 friend_infoArr[i][2]:動物
 						}
 						var label = document.createElement("label");
 						label.className = "requireLabel";
@@ -485,9 +487,9 @@ function requireBack(){
 						// //載入朋友頭像
 						// // rrr = document.getElementById('自己取');
 						// ooxxGetHead(headImg_div, {
-						// 	animal: infoArr[i][2],
-						// 	color: infoArr[i][4],
-						// 	eyes: infoArr[i][3],
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
 						// });
 						
 					}
@@ -495,8 +497,8 @@ function requireBack(){
 					for(var i=num;i<data.content.length;i++){
 						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
 							requireList[i] = friendInfo[i].split("||",5); 
-							//infoArr[i]:朋友資料陣列;
-							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+							//friend_infoArr[i]:朋友資料陣列;
+							//friend_infoArr[i][0]:會員編號; friend_infoArr[i][1]:會員暱稱 friend_infoArr[i][2]:動物
 						}
 						var label = document.createElement("label");
 						label.className = "requireLabel";
@@ -538,15 +540,15 @@ function requireBack(){
 
 						//將label塞進div
 						replybox.appendChild(label);
-						console.log("頭:"+infoArr[i][2]);
-						console.log("眼:"+infoArr[i][3]);
-						console.log("頭:"+infoArr[i][2]);
+						console.log("頭:"+friend_infoArr[i][2]);
+						console.log("眼:"+friend_infoArr[i][3]);
+						console.log("頭:"+friend_infoArr[i][2]);
 						// //載入朋友頭像
 						// // rrr = document.getElementById('自己取');
 						// ooxxGetHead(headImg_div, {
-						// 	animal: infoArr[i][2],
-						// 	color: infoArr[i][4],
-						// 	eyes: infoArr[i][3],
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
 						// });
 					}
 					
@@ -578,7 +580,7 @@ function msgDB(){ //聊天歷史訊息
 	console.log("還在reload唷!");
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
 	var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
-	var friendName = echoNo(friend.innerText,infoArr); //聊天對象的編號
+	var friendName = echoNo(friend.innerText,friend_infoArr); //聊天對象的編號
 
 	
 	var xhr = new XMLHttpRequest(); // 建立xhr
@@ -847,8 +849,8 @@ window.addEventListener('load', function () {
 
 	chatTxt_input.addEventListener('keydown', function (e) {
 		var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
-		var friendName = echoNo(friend.innerText,infoArr); //聊天對象的編號
-		console.log("friendName:"+infoArr);
+		var friendName = echoNo(friend.innerText,friend_infoArr); //聊天對象的編號
+		console.log("friendName:"+friend_infoArr);
 		if (e.keyCode == 13) { //enter代碼
 			var txt = chatTxt_input.value; //送出的訊息
 			
