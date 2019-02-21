@@ -77,6 +77,8 @@ function closeFriendBox(){ //關掉選朋友燈箱
 }
 
 function showfriendBox(){
+    var friendInfoArr = new Array;
+    friendInfoArr = [];
     //進資料庫撈朋友名單
     var giftTa_chooseBox = document.getElementById("chooseBox");
     var friend_LightBox = document.getElementById("friend_LightBox");
@@ -100,24 +102,24 @@ function showfriendBox(){
                     for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
                         var str=giftTa_chooseBox.innerHTML;
 						for(var j = 0;j<6;j++){ // j:撈回的資料欄位數量
-							infoArr[i] = friendInfo[i].split("||",6); 
-							//infoArr[i]:朋友資料陣列;
-							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+							friendInfoArr[i] = friendInfo[i].split("||",6); 
+							//friendInfoArr[i]:朋友資料陣列;
+							//friendInfoArr[i][0]:會員編號; friendInfoArr[i][1]:會員暱稱 friendInfoArr[i][2]:動物
 						}
                         str += 
-                            `<a class="gift_friendList" onClick="changeModel(${infoArr[i][0]})">
-                                <div class="headBox gift_headBox" id="headImg_div${infoArr[i][0]}">
+                            `<a class="gift_friendList" onClick="changeModel(${friendInfoArr[i][0]})">
+                                <div class="headBox gift_headBox" id="headImg_div${friendInfoArr[i][0]}">
                                 
                                 </div>
-                                <p>${infoArr[i][1]}</p>
-                                <input type="hidden" value=${infoArr[i][0]}>
+                                <p>${friendInfoArr[i][1]}</p>
+                                <input type="hidden" value=${friendInfoArr[i][0]}>
                             </a>`;
                         giftTa_chooseBox.innerHTML=str;
                         
-                        ooxxGetHead($id(`headImg_div${infoArr[i][0]}`), {
-							animal: infoArr[i][2],
-							color: infoArr[i][4],
-							eyes: infoArr[i][3],
+                        ooxxGetHead($id(`headImg_div${friendInfoArr[i][0]}`), {
+							animal: friendInfoArr[i][2],
+							color: friendInfoArr[i][4],
+							eyes: friendInfoArr[i][3],
 						});
 
                     }

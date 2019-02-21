@@ -2,7 +2,7 @@ function $id(id){
     return document.getElementById(id);
 }
 var productsInfoArr = new Array();
-productsInfoArr = []; //朋友資料陣列
+productsInfoArr = []; //產品資料陣列
 function getProducts(cate,pageNumber=1){ //撈出產品Ajax
     var xhr = new XMLHttpRequest(); // 建立xhr
     

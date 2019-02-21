@@ -310,7 +310,28 @@ function friendList(){  //Ajax撈朋友列表
 							color: friend_infoArr[i][4],
 							eyes: friend_infoArr[i][3],
 						});
-						
+						var rwd_chatList=$id("rwd_chatList").innerHTML;
+
+					// 手機聊天室的聊天列表生成
+					rwd_chatList +=	`<label for="" class="rwd_chatList">
+                        <!-- 頭貼 -->
+                        <div class="headBox rwd_chatListHead " id="rwd_chatListHead${friend_infoArr[i][0]}"></div>
+                        <div class="rwd_chatListItem">
+                            <!-- 暱稱 -->
+                            <p class="rwd_chatListName">${friend_infoArr[i][1]}</p>
+                            <!-- 最近一則訊息 -->
+                            <p class="rwd_chatListMsg">最近一則訊息</p>
+                            <!-- 會員編號 -->
+                            <input type="hidden" id="rwd_chatMem${friend_infoArr[i][0]}" value="${friend_infoArr[i][0]}">
+                        </div>
+					</label> `;
+					$id("rwd_chatList").innerHTML = rwd_chatList;
+
+					ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[i][0]}`), {
+						animal: friend_infoArr[i][2],
+						color: friend_infoArr[i][4],
+						eyes: friend_infoArr[i][3],
+					});
 					}
 				}
 				// 執行動作撰寫
@@ -578,7 +599,9 @@ function requireBack(){
 
 function msgDB(){ //聊天歷史訊息
 	console.log("還在reload唷!");
-	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //聊天內容顯示區域
+	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //桌機聊天內容顯示區域
+	var rwd_chatbox_show = document.getElementById("rwd_chatbox"); //手機聊天內容顯示區域
+
 	var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
 	var friendName = echoNo(friend.innerText,friend_infoArr); //聊天對象的編號
 
@@ -592,6 +615,71 @@ function msgDB(){ //聊天歷史訊息
 
 			//執行動作撰寫
 			var data = JSON.parse(xhr.responseText);
+			var num = chatbox_show.children.length;
+			
+			console.log(num);
+			if(num==0){
+				for(var i=0;i<data.content.length;i++){
+					var msg_div = document.createElement("div");
+					var msg_span = document.createElement("span");
+					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+					msg_div.appendChild(msg_span);
+					chatbox_show.appendChild(msg_div); //塞進桌機聊天室
+					rwd_chatbox_show.appendChild(msg_div); //塞進手機聊天室
+					
+					if(data.sendMem[i]==$id('userNo').value){ //我發的訊息:靠右
+						msg_div.className="iSaid";			
+					}else{ //我發的訊息:靠右
+						msg_div.className="youSaid";
+					}
+				
+				}
+				boxScroll(chatbox_show);
+
+			}else{
+				for(var i=num;i<data.content.length;i++){
+					var msg_div = document.createElement("div");
+					var msg_span = document.createElement("span");
+					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+					msg_div.appendChild(msg_span);
+					chatbox_show.appendChild(msg_div); //塞進桌機聊天室
+					rwd_chatbox_show.appendChild(msg_div); //塞進手機聊天室
+					
+					if(data.sendMem[i]==$id('userNo').value){ //我發的訊息:靠右
+						msg_div.className="iSaid";			
+					}else{ //我發的訊息:靠右
+						msg_div.className="youSaid";
+					}
+				
+				}
+
+			}
+			
+			
+		}
+	};
+	xhr.open("Post","getChatMsg.php",true);
+	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	// console.log("me:"+me+"ta"+ta);
+
+	var chatMems = {
+		sendMemId: $id('userNo').value,
+		taMemId: friendName,
+	}; //聊天雙方會員ID組成物件
+	
+	xhr.send("chatMems="+ JSON.stringify(chatMems));
+
+
+	// 手機聊天列表用  --尚未完成
+	var xhr2 = new XMLHttpRequest(); // 建立xhr
+	xhr2.onload = function(){
+		if(xhr2.responseText == "null"){ //失敗狀態
+			alert("xhr2錯誤發生");
+
+		}else{ //成功取得
+
+			//執行動作撰寫
+			var data = JSON.parse(xhr2.responseText);
 			var num = chatbox_show.children.length;
 			
 			console.log(num);
@@ -633,17 +721,13 @@ function msgDB(){ //聊天歷史訊息
 			
 		}
 	};
-	xhr.open("Post","getChatMsg.php",true);
-	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-	// console.log("me:"+me+"ta"+ta);
+	xhr2.open("GET","getChatMsg.php",true);
+	xhr2.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	
+	xhr2.send(null);
 
-	var chatMems = {
-		sendMemId: $id('userNo').value,
-		taMemId: friendName,
-	}; //聊天雙方會員ID組成物件
-	
-	
-	xhr.send("chatMems="+ JSON.stringify(chatMems));
+
+
 	
 }
 window.addEventListener('load', function () {

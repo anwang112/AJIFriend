@@ -256,7 +256,7 @@ session_start();
 	        </div>      
 	    </div> 
 	    <!-- 聊天室收合左側欄  -->
-	    <label for=""><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
+	    <label for="" id="closeLabel"><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
 	    <div id="chatboxLeft" class="chatboxLeft">
 	        <input id="search_input" type="text" placeholder="搜尋好友">
 	        <div class="friendbox">
@@ -272,41 +272,69 @@ session_start();
 	        </div>
 	    </div>
 	</div>
-	    <!-- 手機聊天室 -->
+        <!-- 手機聊天室 -->
+        <!-- 聊天列表分頁 -->
 	    <div class="rwd_chatRoom" id="chatRoom_phone_part1">
-	            <input id="search_input_phone" type="text" placeholder="搜尋好友">
-                <!-- 聊天列表 -->
-                <div id="rwd_chatList"> 
-                    <label for="" class="rwd_chatList">
-                        <!-- 頭貼 -->
-                        <div id="rwd_chatListHead"></div>
+            <input id="search_input_phone" type="text" placeholder="搜尋好友">
+            
+            <div id="rwd_chatList"> 
+                <label for="" class="rwd_chatList">
+                    <!-- 頭貼 -->
+                    <div class="rwd_chatListHead"></div>
+                    <div class="rwd_chatListItem">
                         <!-- 暱稱 -->
-                        <div></div>
-                        <p>寂寞阿吉</p>
+                        <p class="rwd_chatListName">寂寞阿吉</p>
                         <!-- 最近一則訊息 -->
-                        <p>最近一則訊息</p>
+                        <p class="rwd_chatListMsg">最近一則訊息</p>
                         <!-- 會員編號 -->
                         <input type="hidden" id="rwd_chatMem1" value="">
-                    </label> 
-                    <label for="" class="rwd_chatList">
-                        <!-- 頭貼 -->
-                        <div id="rwd_chatListHead"></div>
+                    </div>
+                </label> 
+                <label for="" class="rwd_chatList">
+                    <!-- 頭貼 -->
+                    <div class="rwd_chatListHead"></div>
+                    <div class="rwd_chatListItem">
                         <!-- 暱稱 -->
-                        <p>寂寞阿吉</p>
+                        <p class="rwd_chatListName">寂寞阿吉</p>
                         <!-- 最近一則訊息 -->
-                        <p>最近一則訊息</p>
+                        <p class="rwd_chatListMsg">最近一則訊息</p>
                         <!-- 會員編號 -->
                         <input type="hidden" id="rwd_chatMem1" value="">
-                    </label>
+                    </div>
+                </label> 
+                <label for="" class="rwd_chatList">
+                    <!-- 頭貼 -->
+                    <div class="rwd_chatListHead"></div>
+                    <div class="rwd_chatListItem">
+                        <!-- 暱稱 -->
+                        <p class="rwd_chatListName">寂寞阿吉</p>
+                        <!-- 最近一則訊息 -->
+                        <p class="rwd_chatListMsg">最近一則訊息</p>
+                        <!-- 會員編號 -->
+                        <input type="hidden" id="rwd_chatMem1" value="">
+                    </div>
+                </label> 
 
-                </div>
-	            <!-- <div id="friendbox_phone">
-	                friendbox//之後寫入
-	            </div> -->
-	            <div id="replybox_phone">
-	                <h4>待回覆好友邀請</h4>
-	            </div>
+            </div>
+            <div id="replybox_phone">
+                <h4>待回覆好友邀請</h4>
+            </div>
 	    </div>
+
+        <!-- 聊天室分頁 -->
+        <div id="rwd_chatContent">
+            <div id="rwd_chatTaHead" class="headBox" alt="朋友大頭照"></div>
+            <span id="" class="">寂寞阿吉</span>
+            <!-- 聊天室訊息 -->
+            <div id="rwd_chatbox">
+
+            </div>
+        </div>
+
+        <!-- 朋友列表分頁 -->
+        <div id="rwd_chatFriendList">
+
+        </div>
 	    <!-- <div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
 	        <div class="info_bar">
 	            <img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
