@@ -24,7 +24,7 @@ function head_html() {
             <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
             <ul class="menu">
                 <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="myRoom.html">我的窩</a></li>
@@ -79,7 +79,7 @@ function head_html() {
         <div id="menu_phone" class="menu_phone">
             <ul>
                 <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="#">登入</a></li>
@@ -349,6 +349,7 @@ function friendList(){  //Ajax撈朋友列表
 	}else{
 		console.log("沒有登入");
 	}
+<<<<<<< HEAD
 
 	//撈朋友資料並動態新增列表--end
 	// return infoArr;
@@ -398,6 +399,57 @@ function changeChat(e){
 
 
 
+=======
+
+	//撈朋友資料並動態新增列表--end
+	// return infoArr;
+}
+
+// 利用暱稱在infoArr陣列裡找會員編號
+function echoNo(name,arr){
+	// console.log( arr.length );
+	for(var i=0;i<arr.length;i++){
+		
+		for(var j=0;j<arr[i].length;j++){
+			if(arr[i][1]==name){
+				return arr[i][0];
+			}
+		}
+	}
+}
+
+//切換朋友聊天
+function changeChat(e){
+	// console.log(infoArr);
+	var taName = document.getElementById("mem-2");
+	if(e.target.children.length==0){
+		// console.log(e.target.children[2].value);
+		taName.innerText = e.target.parentNode.children[1].innerText;
+		
+	}else{
+		taName.innerText = e.target.children[1].innerText;
+	}
+	var taPic = document.getElementById("friendPic"); //頭像div
+
+	//得到聊天對象資訊在朋友陣列infoArr的索引值
+	for(var i=0;i<infoArr.length;i++){
+		for(var j=0;j<infoArr[i].length;j++){
+			if(infoArr[i][1]==taName.innerText){
+				index = i;
+			}
+		}
+	}
+	console.log("index:"+index);
+	//載入聊天對象頭頭
+	ooxxGetHead(taPic, {
+		animal: infoArr[index][2],
+		color: infoArr[index][4],
+		eyes: infoArr[index][3],
+	})
+
+
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	//先把聊天室清掉
 	while(chatbox_show.firstChild) {
@@ -585,14 +637,24 @@ function requireBack(){
 		xhr.open("Post","getRequireList.php",true);
 		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 		xhr.send("me="+ $id('userNo').value);
+<<<<<<< HEAD
+=======
 
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
+
+	}else{
+		console.log("沒有登入");
+	}
 
 	}else{
 		console.log("沒有登入");
 	}
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 }
 
 
@@ -607,6 +669,7 @@ function msgDB(){ //聊天歷史訊息
 	xhr.onload = function(){
 		if(xhr.responseText == "null"){ //失敗狀態
 			alert("xhr錯誤發生");
+<<<<<<< HEAD
 
 		}else{ //成功取得
 
@@ -632,6 +695,33 @@ function msgDB(){ //聊天歷史訊息
 				}
 				boxScroll(chatbox_show);
 
+=======
+
+		}else{ //成功取得
+
+			//執行動作撰寫
+			var data = JSON.parse(xhr.responseText);
+			var num = chatbox_show.children.length;
+			
+			console.log(num);
+			if(num==0){
+				for(var i=0;i<data.content.length;i++){
+					var msg_div = document.createElement("div");
+					var msg_span = document.createElement("span");
+					msg_span.innerText = data.content[i].replace(/\r\n|\n/g,"");
+					msg_div.appendChild(msg_span);
+					chatbox_show.appendChild(msg_div);
+					
+					if(data.sendMem[i]==$id('userNo').value){ //我發的訊息:靠右
+						msg_div.className="iSaid";			
+					}else{ //我發的訊息:靠右
+						msg_div.className="youSaid";
+					}
+				
+				}
+				boxScroll(chatbox_show);
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 			}else{
 				for(var i=num;i<data.content.length;i++){
 					var msg_div = document.createElement("div");
@@ -1000,7 +1090,7 @@ window.addEventListener('load', function () {
 		if (clientWidrh < 1000) {
 			while (chatbox_show.firstChild) {
 				chatbox_show.removeChild(chatbox_show.firstChild);
-				console.log('ddd');
+				
 			}
 		}
 		if (clientWidrh > 760) {
@@ -1254,7 +1344,11 @@ window.addEventListener('load', function () {
 
 
 ooxxGetRole = (roleId, roleData) => {
+<<<<<<< HEAD
 	console.log('sss');
+=======
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 	// 載入角色
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">

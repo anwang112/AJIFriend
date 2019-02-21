@@ -1,6 +1,7 @@
 var Today = new Date();
 nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 topFriend();
+<<<<<<< HEAD
 
 // function getLove(love){
 //     heartItem = document.querySelectorAll('.heart div');
@@ -45,6 +46,69 @@ topFriend();
 //        }
 // })
 
+=======
+var loginNo;
+var tarNo;
+//alert
+$('.alertWrap').hide();
+$('#alertBtn').click(function () {
+    $('.alertWrap').hide();
+})
+
+//report
+td = document.querySelectorAll('#reportData table tr td');
+$('#report').click(function () {
+    document.getElementById('fname').value = '';
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+
+    }else{
+        var R = 0;
+        $('#searData').css({
+            'transform': 'rotateY(' + (R + 180) + 'deg)',
+        });
+        $('#reportData').css({
+            'transform': 'rotateY(' + R + 'deg)',
+        });
+        td[0].innerText = document.getElementById('userId').value;
+        td[2].innerText = nowDay;
+    }
+    
+})
+$('#reportSmt').click(function(){
+    if( td[0].innerText== td[1].innerText){
+        $('#alertText').text('不能檢舉自己唷！');
+        $('.alertWrap').show();
+    }else if(document.getElementById('fname').value == ''){
+        $('#alertText').text('請輸入檢舉原因');
+        $('.alertWrap').show();
+    }else{
+        profile = {
+            memNo: document.getElementById('userNo').value,
+            ta_memNo: document.getElementById('sMemNo').value,
+            reason: document.getElementById('fname').value,
+        };
+        report(profile);
+    }
+})
+
+//placeholder
+$(function () {
+    $('textarea').on('change', function () {
+        var textarea = $(this);
+        if (textarea.val().length) {
+            textarea.addClass('populated');
+        } else {
+            textarea.removeClass('populated');
+        }
+    });
+
+    setTimeout(function () {
+        $('#fname').trigger('focus');
+    }, 500);
+});
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 //搜尋角色變數
 sEye = 1;
 sBody = 1;
@@ -105,6 +169,10 @@ profile = {
     con: document.getElementById('con').value,
     hob: document.getElementById('hob').value,
     memNo: document.getElementById('userNo').value,
+<<<<<<< HEAD
+=======
+    targetNo: document.getElementById('matchMemNo').value,
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 };
 getMem(profile);
 //翻牌
@@ -125,8 +193,15 @@ $('.matchNext').click(function () {
                 con: document.getElementById('con').value,
                 hob: document.getElementById('hob').value,
                 memNo: document.getElementById('userNo').value,
+<<<<<<< HEAD
             };
             getMem(profile);
+=======
+                targetNo: document.getElementById('matchMemNo').value,
+            };
+            getMem(profile);
+            
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
         }, 500);
 
         setTimeout(() => {
@@ -249,6 +324,7 @@ $('#topMJ').click(function () {
 //名人榜切換結束
 
 //送出好友邀請
+<<<<<<< HEAD
 $('.btn_beFriend').click(function () {
     profile = {
         memNo: document.getElementById('userNo').value,
@@ -258,6 +334,101 @@ $('.btn_beFriend').click(function () {
     };
     makeFriend(profile);
 
+=======
+//改好友BTN
+function changeBtn(btn){
+    btn.addClass('disable');
+    btn.removeClass('btn');
+    $('.disable').mouseover(function(){
+        $(this).css({
+            'transform':'translateY(0px)',
+            'box-shadow':' 0px 4px 0px #515151',
+        })
+    })
+    $('.disable').text('邀請中').attr("disabled",true);
+};
+//搜尋-送出好友邀請
+function beFriend (tarNo,loginNo,btn) {
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+                btn: btn,
+            };
+            makeFriend(profile);
+        }
+    }
+}
+$('.btn_beFriend0').click(function(){
+    tarNo = document.getElementById('sMemNo').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+//配對-送出好友邀請
+$('.btn_beFriend1').click(function () {
+    tarNo = document.getElementById('matchMemNo').value;
+    loginNo = document.getElementById('userNo').value;
+    btn = $('.btn_beFriend1');
+    beFriend(tarNo,loginNo,btn);
+});
+//Rank送出好友邀請
+$('.btn_beFriend2').click(function () {
+    tarNo = document.querySelector('.fans .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend3').click(function () {
+    tarNo = document.querySelector('.fans .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend4').click(function () {
+    tarNo = document.querySelector('.fans .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend5').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend6').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend7').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend8').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend9').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+});
+$('.btn_beFriend10').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    beFriend(tarNo,loginNo);
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 });
 
 
@@ -268,9 +439,23 @@ function searchMem(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.responseText == 0) {
+<<<<<<< HEAD
             alert("找不到這個ID的麻吉唷，請重新輸入正確ID");
 
         } else {
+=======
+            $('#alertText').text('找不到這個ID的麻吉唷!');
+            $('.alertWrap').show();
+
+        } else {
+            var R = 0;
+            $('#searData').css({
+                'transform': 'rotateY(' + R + 'deg)',
+            });
+            $('#reportData').css({
+                'transform': 'rotateY(' + (R + 180) + 'deg)',
+            });
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
             $('.searchWrap').show();
             var hobbyinfo = document.getElementById('hobby');
             var sNameinfo = document.getElementById('sName');
@@ -278,6 +463,12 @@ function searchMem(profile) {
             var conste = document.getElementById('sConstellation');
             var sMemId = document.getElementById('sMemId');
             var info = JSON.parse(xhr.responseText);
+<<<<<<< HEAD
+=======
+            //no
+            document.getElementById('sMemNo').value = info.memNo;
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
             //興趣
             hobbyinfo.innerText = '';
             var hobby = info.hobby.split("");
@@ -289,8 +480,16 @@ function searchMem(profile) {
                 c.push(b);
             }
             for (var j = 0; j < c.length; j++) {
+<<<<<<< HEAD
                 var d = c[j] + ' | ';
                 hobbyinfo.innerText += d;
+=======
+                var d = c[j] + '&nbsp' + '|' + '&nbsp';
+                if (j == c.length - 1) {
+                    d = c[j];
+                }
+                hobbyinfo.innerHTML += d;
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
             }
             //暱稱
             sNameinfo.innerText = info.name;
@@ -353,12 +552,22 @@ function searchMem(profile) {
             });
             //id
             sMemId.innerText = info.memId;
+<<<<<<< HEAD
             if (parseInt(info.mj) >= 1000) {
                 lv = "LV.3 萬人迷";
             } else if (parseInt(info.mj) >= 500) {
                 lv = "LV.2 潛力股";
             } else {
                 lv = "LV.1 邊緣人";
+=======
+            td[1].innerText = info.memId;
+            if (parseInt(info.mj) >= 1000) {
+                lv = "LV.3 萬人迷 ";
+            } else if (parseInt(info.mj) >= 500) {
+                lv = "LV.2 潛力股 ";
+            } else {
+                lv = "LV.1 邊緣人 ";
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
             }
             document.getElementById('sLv').innerText = lv;
             document.getElementById('sIntro').innerText = info.intro;
@@ -377,11 +586,25 @@ function searchMem(profile) {
 
 // 配對篩選
 function getMem(profile) {
+<<<<<<< HEAD
 
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.responseText == 0) {
             alert("沒有符合條件的麻吉唷，請重新挑選");
+=======
+    $('.btn_beFriend1').removeClass('disable');
+    $('.btn_beFriend1').addClass('btn');
+    $('.btn_beFriend1').text('成為麻吉');
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+
+        if (xhr.responseText == 0) {
+            $('#alertText').text('沒有符合條件的麻吉唷!');
+            $('.alertWrap').show();
+
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
         } else {
             var info = JSON.parse(xhr.responseText);
             //角色
@@ -399,7 +622,10 @@ function getMem(profile) {
                 hat: mcHat,
                 clothes: mcClothes,
             });
+<<<<<<< HEAD
 
+=======
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
             //id
             document.getElementById('mcId').innerText = info.memId;
             document.getElementById('mcName').innerText = info.name;
@@ -425,8 +651,13 @@ function getMem(profile) {
                 c.push(b);
             }
             for (var j = 0; j < c.length; j++) {
+<<<<<<< HEAD
                 var d = c[j] + '&nbsp'+'|'+'&nbsp';
                 if(j==c.length-1){
+=======
+                var d = c[j] + '&nbsp' + '|' + '&nbsp';
+                if (j == c.length - 1) {
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
                     d = c[j];
                 }
                 document.getElementById('mcHobby').innerHTML += d;
@@ -439,6 +670,7 @@ function getMem(profile) {
                     totalMatch += 9;
                 }
             }
+<<<<<<< HEAD
             if(totalMatch==100){
                 document.getElementById('MJstatus').innerText = '令人驚艷的完美麻吉!';
                 document.getElementById('MJstatus').style.color = '#f56a38'
@@ -452,6 +684,21 @@ function getMem(profile) {
                 document.getElementById('MJstatus').innerText = '有共同興趣的麻吉!';
                 document.getElementById('MJstatus').style.color = '#5f892f'
             }else{
+=======
+            if (totalMatch == 100) {
+                document.getElementById('MJstatus').innerText = '令人驚艷的完美麻吉!';
+                document.getElementById('MJstatus').style.color = '#f56a38'
+            } else if (totalMatch > 90) {
+                document.getElementById('MJstatus').innerText = '默契超群的麻吉!';
+                document.getElementById('MJstatus').style.color = '#a02cb5'
+            } else if (totalMatch > 80) {
+                document.getElementById('MJstatus').innerText = '很聊得來的麻吉!';
+                document.getElementById('MJstatus').style.color = '#2258af'
+            } else if (totalMatch > 55) {
+                document.getElementById('MJstatus').innerText = '有共同興趣的麻吉!';
+                document.getElementById('MJstatus').style.color = '#5f892f'
+            } else {
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
                 document.getElementById('MJstatus').innerText = '好好聊天培養默契吧!';
                 document.getElementById('MJstatus').style.color = '#555450'
             }
@@ -521,6 +768,10 @@ function getMem(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 id = [];
 //rank
 function getRank(profile) {
@@ -549,6 +800,7 @@ function getRank(profile) {
                     clothes: rankClothes,
                 });
 
+<<<<<<< HEAD
 
                 //暱稱
                 infoTxtH3 = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' h3');
@@ -750,10 +1002,161 @@ Exploader = function(x, y) {
     this.time = 0;
     this.duration = 0.4;
     this.progress = 0;
+=======
+                //no
+                document.querySelector('.rankNo' + i ).value = info[i].memNo;
+
+                //暱稱
+                infoTxtH3 = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' h3');
+                infoTxtH3[0].innerText = info[i].name;
+                //id
+                infoTxtH4 = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' h4');
+                infoTxtH4[0].innerText = 'ID: ' + info[i].memId;
+
+                //lv
+                infoTxtHSpan = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' span');
+                if (parseInt(info[i].mj) >= 1000) {
+                    lv = "LV.3 萬人迷";
+                } else if (parseInt(info[i].mj) >= 500) {
+                    lv = "LV.2 潛力股";
+                } else {
+                    lv = "LV.1 邊緣人";
+                }
+                infoTxtHSpan[0].innerText = lv;
+
+                //MJ
+                infoTxtHSpan[1].innerText = 'MJ: ' + info[i].mj;
+
+
+                //money
+                infoTxtHSpan[2].innerText = '金幣數: ' + info[i].coin;
+
+                //好友數
+                infoTxtHSpan[3].innerText = '麻吉數: ' + info[i].friend;
+                id.push(info[i].memId);
+
+            }
+        }
+    };
+    xhr.open("Post", "getRankMem.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+//showInfo
+$('.showInfo0').click(function () {
+    profile = {
+        memId: id[0],
+    };
+    searchMem(profile);
+});
+$('.showInfo1').click(function () {
+    profile = {
+        memId: id[1],
+    };
+    searchMem(profile);
+});
+$('.showInfo2').click(function () {
+    profile = {
+        memId: id[2],
+    };
+    searchMem(profile);
+});
+
+//送出好友邀請ajax
+function makeFriend(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (parseInt(xhr.responseText) >= 0) {
+            heart = xhr.responseText;
+            heartItem = document.querySelectorAll('.heart div');
+            document.getElementById('userLove').value = heart;
+            changeBtn(btn);
+            switch (parseInt(heart)) {
+                case 2:
+                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    break;
+                case 1:
+                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    break;
+                case 0:
+                    heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+                    break;
+
+            }
+
+            $('#alertText').text('已送出邀請');
+            $('.alertWrap').show();
+        } else {
+            $('#alertText').text('請勿重複邀請唷!');
+            $('.alertWrap').show();
+        }
+
+    };
+    xhr.open("Post", "makeFriend.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+//檢舉
+function report(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (parseInt(xhr.responseText) == 1) {
+            $('#alertText').text('已經檢舉過囉!');
+            $('.alertWrap').show();
+        } else if(parseInt(xhr.responseText) == 0){ 
+            $('#alertText').text('已收到您的檢舉!');
+            $('.alertWrap').show();
+            $('.searchWrap').hide();
+        }
+
+    };
+    xhr.open("Post", "report.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+//撒花
+const TWO_PI = Math.PI * 2;
+const HALF_PI = Math.PI * 0.5;
+
+// canvas settings
+var viewWidth = 512,
+    viewHeight = 350,
+    drawingCanvas = document.getElementById("drawing_canvas"),
+    ctx,
+    timeStep = (1 / 60);
+
+Point = function (x, y) {
+    this.x = x || 0;
+    this.y = y || 0;
+};
+
+Particle = function (p0, p1, p2, p3) {
+    this.p0 = p0;
+    this.p1 = p1;
+    this.p2 = p2;
+    this.p3 = p3;
+
+    this.time = 0;
+    this.duration = 3 + Math.random() * 2;
+    this.color = '#' + Math.floor((Math.random() * 0xffffff)).toString(16);
+
+    this.w = 8;
+    this.h = 6;
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 
     this.complete = false;
 };
 
+<<<<<<< HEAD
 Exploader.prototype = {
     reset:function() {
         this.time = 0;
@@ -761,12 +1164,102 @@ Exploader.prototype = {
         this.complete = false;
     },
     update:function() {
+=======
+Particle.prototype = {
+    update: function () {
+        this.time = Math.min(this.duration, this.time + timeStep);
+
+        var f = Ease.outCubic(this.time, 0, 1, this.duration);
+        var p = cubeBezier(this.p0, this.p1, this.p2, this.p3, f);
+
+        var dx = p.x - this.x;
+        var dy = p.y - this.y;
+
+        this.r = Math.atan2(dy, dx) + HALF_PI;
+        this.sy = Math.sin(Math.PI * f * 10);
+        this.x = p.x;
+        this.y = p.y;
+
+        this.complete = this.time === this.duration;
+    },
+    draw: function () {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.r);
+        ctx.scale(1, this.sy);
+
+        ctx.fillStyle = this.color;
+        ctx.fillRect(-this.w * 0.5, -this.h * 0.5, this.w, this.h);
+
+        ctx.restore();
+    }
+};
+
+Loader = function (x, y) {
+    this.x = x;
+    this.y = y;
+
+    this.r = 24;
+    this._progress = 0;
+
+    this.complete = false;
+};
+
+Loader.prototype = {
+    reset: function () {
+        this._progress = 0;
+        this.complete = false;
+    },
+    set progress(p) {
+        this._progress = p < 0 ? 0 : (p > 1 ? 1 : p);
+
+        this.complete = this._progress === 1;
+    },
+    get progress() {
+        return this._progress;
+    },
+    draw: function () {
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, -HALF_PI, TWO_PI * this._progress - HALF_PI);
+        ctx.lineTo(this.x, this.y);
+        ctx.closePath();
+        ctx.fill();
+    }
+};
+
+// pun intended
+Exploader = function (x, y) {
+    this.x = x;
+    this.y = y;
+
+    this.startRadius = 24;
+
+    this.time = 0;
+    this.duration = 0.4;
+    this.progress = 0;
+
+    this.complete = false;
+};
+
+Exploader.prototype = {
+    reset: function () {
+        this.time = 0;
+        this.progress = 0;
+        this.complete = false;
+    },
+    update: function () {
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
         this.time = Math.min(this.duration, this.time + timeStep);
         this.progress = Ease.inBack(this.time, 0, 1, this.duration);
 
         this.complete = this.time === this.duration;
     },
+<<<<<<< HEAD
     draw:function() {
+=======
+    draw: function () {
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
         ctx.fillStyle = '#000';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.startRadius * (1 - this.progress), 0, TWO_PI);
@@ -787,6 +1280,7 @@ function initDrawingCanvas() {
     createLoader();
     createExploader();
     createParticles();
+<<<<<<< HEAD
 }
 
 function createLoader() {
@@ -825,6 +1319,46 @@ function update() {
     }
 }
 
+=======
+}
+
+function createLoader() {
+    loader = new Loader(viewWidth * 0.5, viewHeight * 0.5);
+}
+
+function createExploader() {
+    exploader = new Exploader(viewWidth * 0.5, viewHeight * 0.5);
+}
+
+function createParticles() {
+    for (var i = 0; i < 128; i++) {
+        var p0 = new Point(viewWidth * 0.5, viewHeight * 0.5);
+        var p1 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
+        var p2 = new Point(Math.random() * viewWidth, Math.random() * viewHeight);
+        var p3 = new Point(Math.random() * viewWidth, viewHeight + 64);
+
+        particles.push(new Particle(p0, p1, p2, p3));
+    }
+}
+
+function update() {
+
+    switch (phase) {
+        case 0:
+            loader.progress += (1 / 45);
+            break;
+        case 1:
+            exploader.update();
+            break;
+        case 2:
+            particles.forEach(function (p) {
+                p.update();
+            });
+            break;
+    }
+}
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
 function draw() {
     ctx.clearRect(0, 0, viewWidth, viewHeight);
 
@@ -836,6 +1370,7 @@ function draw() {
             exploader.draw();
             break;
         case 2:
+<<<<<<< HEAD
             particles.forEach(function(p) {
                 p.draw();
             });
@@ -844,6 +1379,16 @@ function draw() {
 }
 
 window.onload = function() {
+=======
+            particles.forEach(function (p) {
+                p.draw();
+            });
+            break;
+    }
+}
+
+window.onload = function () {
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
     initDrawingCanvas();
     requestAnimationFrame(loop);
 };
@@ -854,6 +1399,7 @@ function loop() {
 
     if (phase === 0 && loader.complete) {
         phase = 1;
+<<<<<<< HEAD
     }
     else if (phase === 1 && exploader.complete) {
         phase = 2;
@@ -862,6 +1408,14 @@ function loop() {
         // reset
         phase = 0;
         
+=======
+    } else if (phase === 1 && exploader.complete) {
+        phase = 2;
+    } else if (phase === 2 && checkParticlesComplete()) {
+        // reset
+        phase = 0;
+
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
         exploader.reset();
         particles.length = 0;
         createParticles();
@@ -887,6 +1441,7 @@ function checkParticlesComplete() {
  * d = duration
  */
 var Ease = {
+<<<<<<< HEAD
     inCubic:function (t, b, c, d) {
         t /= d;
         return c*t*t*t + b;
@@ -905,6 +1460,26 @@ var Ease = {
     inBack: function (t, b, c, d, s) {
         s = s || 1.70158;
         return c*(t/=d)*t*((s+1)*t - s) + b;
+=======
+    inCubic: function (t, b, c, d) {
+        t /= d;
+        return c * t * t * t + b;
+    },
+    outCubic: function (t, b, c, d) {
+        t /= d;
+        t--;
+        return c * (t * t * t + 1) + b;
+    },
+    inOutCubic: function (t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
+    },
+    inBack: function (t, b, c, d, s) {
+        s = s || 1.70158;
+        return c * (t /= d) * t * ((s + 1) * t - s) + b;
+>>>>>>> da79c88c697e968491b7611dfcd5024eee3c9058
     }
 };
 
