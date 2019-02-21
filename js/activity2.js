@@ -96,28 +96,31 @@ function comDB (memNo, actNoGet , txtGet){
                     //印出來名字跟聊天內容
                     strAll[i] = comments.arr[i].split(",");
                     // str += `<div>`;
-                    // str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
+                    str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
                     str +=`<span style="padding:10px 10px;">`;
                     str += `${strAll[i][0]}:`;
                     str += `${strAll[i][4]}`;
                     str += `</span>`;
-    
-                    //印出大頭
-        
-                    // rrr = document.getElementById('theUserBBB'+i);
-                    // ooxxGetHead(rrr, {
-                    //     animal:  strAll[i][1],
-                    //     color: strAll[i][3],
-                    //     eyes: strAll[i][2],
-                    // });  
                 }
             }
+            // var num = giftTa_chooseBox.children.length;
+            // var datalength = friendArr.length;
             
             var myMessagebox = $id('myMessagebox');
             var div = document.createElement('div');
             div.setAttribute('class','dddd');
             div.innerHTML =  str;
             myMessagebox.appendChild(div);
+
+            for(var i=0;i<comments.arr.length;i++){
+                //印出大頭
+                rrr = document.getElementById('theUserBBB'+i);
+                ooxxGetHead(rrr, {
+                    animal:  strAll[i][1],
+                    color: strAll[i][3],
+                    eyes: strAll[i][2],
+                });  
+            }
 
             
             // console.log( strAll );
@@ -139,7 +142,7 @@ function comDB (memNo, actNoGet , txtGet){
 
     xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));
 }
-
+var numm=0;
 function sendCom(memNo,actNo,txt){
     // alert(txt);
     var xhr = new XMLHttpRequest();
@@ -149,8 +152,54 @@ function sendCom(memNo,actNo,txt){
         }else{
             // console.log("xhr:"+xhr.responseText);
             // console.log(txt);
-            comDB(memNo,actNo , txt);
+            // comDB(memNo,actNo,txt);
 
+            //印出一筆
+            var comments= JSON.parse(xhr.responseText);
+            // alert(xhr.responseText);
+            var str ='';
+            // alert(comments.arr);
+            var strAll = [];
+
+            if( comments.arr == undefined){//沒有內容 印尚未有留言
+                str += "尚未有留言喔～～"
+            }else{
+                for( var i=0;i<comments.arr.length;i++){
+                    //印出來名字跟聊天內容
+                    strAll[i] = comments.arr[i].split(",");
+                    // str += `<div>`;
+                    str += `<div class="headBoxOut"><div class="headBox" id="theUserCCC${numm}"></div></div>`;
+                    str +=`<span style="padding:10px 10px;">`;
+                    str += `${strAll[i][0]}:`;
+                    str += `${strAll[i][4]}`;
+                    str += `</span>`;
+                }
+            }
+            // var num = giftTa_chooseBox.children.length;
+            // var datalength = friendArr.length;
+            
+            var myMessagebox = $id('myMessagebox');
+            var div = document.createElement('div');
+            div.setAttribute('class','dddd');
+            div.innerHTML =  str;
+            myMessagebox.appendChild(div);
+
+            for(var i=0;i<comments.arr.length;i++){
+                //印出大頭
+                rrr = document.getElementById('theUserCCC'+numm);
+                ooxxGetHead(rrr, {
+                    animal:  strAll[i][1],
+                    color: strAll[i][3],
+                    eyes: strAll[i][2],
+                });  
+            }
+            numm++;
+            
+            // console.log( strAll );
+            var myMessagebox_input = $id('myMessagebox_input');
+            myMessagebox_input.value = '';
+
+            boxScroll(myMessagebox);
         }
    }
 

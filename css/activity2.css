@@ -677,9 +677,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBoxOut {
+        /* .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBoxOut {
           position: absolute;
-          left: 0; }
+          left: 0; } */
         .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBox {
           width: 35px;
           height: 35px; }
