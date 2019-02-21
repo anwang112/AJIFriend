@@ -4,17 +4,12 @@ function addHeart(e){
     e.target.parentNode.children[5].innerText=parseInt(e.target.parentNode.children[5].innerText)+1;
     // voteNum[i].innerText=parseInt(voteNum.innerText)+1;
     console.log(e.target.parentNode.children[5]);
-
-
 }
 
 function showHeart(e){
     // var bigHeart=document.getElementsByClassName("bigHeart");
-
     e.target.parentNode.children[6].style.display=="block";
 
-    // bigHeart[j].style.display="block";
-    // bigHeart[j].style.opicity="0.5";
     console.log("in");
     e.target.parentNode.children[6].addEventListener("click",addHeart,false);
 

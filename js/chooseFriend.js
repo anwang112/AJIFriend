@@ -2,24 +2,21 @@ function $id(id){
     return document.getElementById(id);
 }
 
-<<<<<<< HEAD
-function changeModel(e){
-    var idList
-    var ta = e.target;
-    var no = ta.className.split(",");
-    console.log(no[1]);
-    $id("showId").innerText = no[0];
-    $id("model_animal").src = "shop-images/model_" + no[1] +".png";
-    $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
-    closeFriendBox();
-    TweenMax.fromTo('#showModel', 1.5, {
-        scale: 0,
-    }, {
-        scale: 1,
-    });
-}
-=======
->>>>>>> master
+// function changeModel(e){
+//     var idList
+//     var ta = e.target;
+//     var no = ta.className.split(",");
+//     console.log(no[1]);
+//     $id("showId").innerText = no[0];
+//     $id("model_animal").src = "shop-images/model_" + no[1] +".png";
+//     $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
+//     closeFriendBox();
+//     TweenMax.fromTo('#showModel', 1.5, {
+//         scale: 0,
+//     }, {
+//         scale: 1,
+//     });
+// }
 
 //關掉選朋友燈箱
 function closeFriendBox(){

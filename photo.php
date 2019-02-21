@@ -1,3 +1,17 @@
+<?php
+//連線資料庫
+$errMsg = "";
+try {
+	require_once("connectBooks.php");
+	$sql = "select * from picture where pic_cateNo=1 order by vote desc";
+ 	$photo = $pdo->query($sql); 
+} catch (PDOException $e) {
+	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
+	$errMsg .= "行號 : ".$e -> getLine()."<br>";
+}
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +23,8 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <script src="js/commonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
@@ -24,7 +36,7 @@
 <body>
     <script type="text/javascript">
 		head_html();
-    </script>
+	</script>
 <!-- 第一屏 上月票選得名 -->
     <div class="bg">
         <div class="wrap">
@@ -36,41 +48,33 @@
             </div>   
             <div class="trophy">
                 <div><img src="images/trophy-11.png" alt="獎盃"></div>
-                <h2>12月票選得名</h2>
+                <h2>上月票選得名</h2>
             </div>
+            <?php
+                if( $errMsg != ""){
+                    exit("<div><center>$errMg</center></div>");
+                }
+            ?>	
+           
             <div class="col3">
+            <?php	
+                while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
+            ?>
                 <div  class="top top1">
-                    <img id="top1" class="winnerPhoto" src="images/rank1-13.png" alt="no1">
+                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
                     <div class="topbg">
                         <img src="images/photoclouds-24.png" alt="bg">
                     </div>
                     <img class="member" src="images/member4-20.png" alt="doggy">
                     <a href="#">AJI</a>
                     <img class="topheart" src="images/fullheart-16.png" alt="heart">
-                    <span>105 </span>
+                    <span><?php echo $photoRow["vote"];?></span>
                 </div>
-                <div class="top top2">
-                    <img class="winnerPhoto" src="images/rank2-14.png" alt="no2">
-                    <div class="topbg">
-                        <img src="images/photoclouds-24.png" alt="bg">
-                    </div>
-                    <img class="member" src="images/member2-18.png" alt="bunny">
-                    <a href="#">Bunny</a>
-                    <img class="topheart" src="images/fullheart-16.png" alt="heart">
-                    <span>96 </span>
-                </div>
-                <div class="top top3">
-                    <img class="winnerPhoto" src="images/rank3-15.png" alt="no3">
-                    <div class="topbg">
-                        <img src="images/photoclouds-24.png" alt="bg">
-                    </div>
-                    <img class="member" src="images/member3-19.png" alt="dodo">
-                    <a href="#">Dodo</a>
-                    <img class="topheart" src="images/fullheart-16.png" alt="heart">
-                    <span>85</span>
-                </div>
-                <!-- <div class="clear"></div> -->
+            <?php
+                }
+            ?>
             </div>
+           
             <!-- canvas -->
             <div id="drawingTab">
                 <img src="images/camera-17.png" alt="camera">
@@ -247,6 +251,13 @@
         </div>
     </div>
 
+
+<?php
+    // $sql = "select * from picture_category c join picture p on c.pic_cateNo = p.pic_cateNo where p.pic_cateNo=2 order by p.time desc";
+    $sql = "select * from picture_category  where pic_cateNo=2 order by time desc";
+    $photo = $pdo->query($sql); 
+
+?>
 <!-- 第二屏 相片牆 -->
     <div class="bg2">
         <div class="postArea">
@@ -256,10 +267,17 @@
                     <img class="ajiY" src="images/yellowheart-10.png" alt="y">
                     <img class="aji" src="images/jiFriend.png" alt="og">
                 </div>
+
+<?php	
+	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
+?>	
                 <div class="topic">
                     <img src="images/flag.png" alt="flag">
-                    <h1>LOVE STORY</h1>
+                    <h1><?php echo $photoRow["pic_cateName"];?></h1>
                 </div>
+<?php
+	}
+?>   
                 <div id="myPhoto">
                     <a href="#">
                         <img src="images/myPhoto-30.png" alt="photo">
@@ -267,108 +285,30 @@
                     </a>
                 </div>
             </div>
+<?php
+    $sql = "select * from picture  where pic_cateNo=2 order by time desc";
+    $photo = $pdo->query($sql); 
+?>
+<?php	
+	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
+?>	
             <div class="card" id="photo1">
-                <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
+                <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
                 <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
                 <img class="member" src="images/member4-20.png" alt="doggy">
                 <a href="#">AJI</a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">105 </span>
+                <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
                 <div class="bigHeart" id="bigHeart">
                     <img src="images/heart.svg" alt="bigHeart">
                 </div>
             </div>
-            <div class="inform"></div>
-            <div class="card" id="photo2">
-                <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member2-18.png" alt="bunny">
-                <a href="#">Bunny</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">96 </span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo3">
-                <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member3-19.png" alt="dodo">
-                <a href="#">Dodo</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">85</span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo4">
-                <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">105 </span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo5">
-                <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member2-18.png" alt="bunny">
-                <a href="#">Bunny</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">96 </span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo6">
-                <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member3-19.png" alt="dodo">
-                <a href="#">Dodo</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">85</span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo7">
-                <img class="cardPhoto" src="images/rank1-13.png" alt="no1">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">105 </span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo8">
-                <img class="cardPhoto" src="images/rank2-14.png" alt="no2">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member2-18.png" alt="bunny">
-                <a href="#">Bunny</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">96 </span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
-            <div class="card" id="photo9">
-                <img class="cardPhoto" src="images/rank3-15.png" alt="no3">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
-                <img class="member" src="images/member3-19.png" alt="dodo">
-                <a href="#">Dodo</a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
-                <span class="voteNum" id="voteNum">85</span>
-                <div class="bigHeart" id="bigHeart">
-                        <img src="images/heart.svg" alt="bigHeart">
-                    </div>
-            </div>
+<?php
+	}
+?>   
             <div class="clear"></div>
-            
+            </form>
+         
             <!-- <div id="cardLB" class="照片id ex:card-photo7">
                 <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
                 <div id="left">%%</div>

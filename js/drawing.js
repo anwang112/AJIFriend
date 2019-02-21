@@ -4,8 +4,8 @@ function nextStep(){
     var step2=document.getElementById("step2");
     var step3=document.getElementById("step3");
     var upBtn=document.getElementById("upBtn");
-    var share=document.getElementById("sharePhoto");
     var chooseBtn=document.getElementById("chooseBtn");
+    var share=document.getElementById("sharePhoto");
     var controlBar=document.getElementsByClassName("controlBar")[0];
     var friendLightBox=document.getElementById("friend_LightBox");
 // 判斷式 
@@ -24,7 +24,7 @@ function nextStep(){
         console.log(power02);
         next.innerText="編輯塗鴉";
         back.innerText="選擇背景";
-        friendLightBox.style.display="block";
+        // friendLightBox.style.display="block";
 
     }
   
@@ -121,13 +121,57 @@ function mouseMove(evt) {
 
 
 
-// 下載無法顯示圖片，求解！！！
+// 如何一鍵下載4個圖層背景＋人偶＊2＋canvas，求解！！！
+
+//this only use for downloading canvas
 //利用toDataURL() 把canvas轉成data:image
-$('#save').on('click', function(){
-    var _url = canvas.toDataURL();
-    //再把href載入上面的Data:image
-    this.href = _url;
-});
+// $('#save').on('click', function(){
+//     var _url = canvas.toDataURL();
+//     //再把href載入上面的Data:image
+//     this.href = _url;
+// });
+
+// 關閉提示已分享照片燈箱
+// function closeHint(){
+//     var btn=document.getElementsByClassName("btns")[5];
+//     var divBg=document.getElementById("LBbg");
+//     btn.removeChild(divBg);
+// }
+
+
+function showShareLB(){
+    //如果點擊(btnSaveChageCloth)就顯示確定的燈箱(keepSaveClothes)
+    var share = document.getElementById("sharePhoto");
+    var share_Hint = document.getElementById("shareHint");
+    share_Hint.style.display="";
+  }
+  function sureClose(){
+    var share_Hint = document.getElementById("shareHint");
+
+    share_Hint.style.display="none";
+  }
+
+
+// ajax 分享至照片牆
+function shareToPhotoWall(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if( xhr.status == 200){
+          $id('memName').innerHTML = '&nbsp';
+          $id('spanLogin').innerHTML = '登入';
+          alert(xhr.responseText);
+        }else{
+          alert( xhr.status );
+        }
+      }
+      xhr.open("get", "ajaxLogout.php",true);
+      xhr.send(null);
+    
+
+
+}
+
+
 
 
 function $id(id){
@@ -196,7 +240,7 @@ function init(){
     //     }
 
 
-    // 手機canvas功能 未成功～～～尚須努力
+    // 手機canvas功能 三步驟 未成功～～～尚須努力
     canvas.addEventListener('touchstart',function(a){
         var x = a.touches[0].clientX;
         var y =a.touches[0].clientY;
@@ -222,6 +266,35 @@ function init(){
     // canvas.addEventListener('mousemove',usePen);
     // console.log(0);
 
+    //分享至照片牆出現燈箱 提示已分享
+    // share.addEventListener("click",function(){
+    //     var divBg=document.createElement("div");
+    //         divBg.id="LBbg";
+    //     var divHint=document.createElement("div");
+    //         divHint.id="Hint";
+    //     var btn=document.getElementsByClassName("btns")[5];
+    //         var pHint=document.createElement("p");
+    //         pHint.innerText="已分享合照至塗鴉牆";
+    //         var spanSure =document.createElement("span");
+    //         spanSure.innerText="確定";
+    //         spanSure.addEventListener("click",closeHint,false);
+
+    //     btn.appendChild("divBg");
+    //     divBg.appendChild("divHint");
+    //     divHint.appendChild("pHint");
+    //     divHint.appendChild("spanSure");
+    // },false);
+
+
+
+    var share=document.getElementById("sharePhoto");
+    share.onclick = showShareLB;
+    share.addEventListener("click",shareToPhotoWall,false);
+
+    var sure_Close=document.getElementById("sureClose");
+    sure_Close.onclick =sureClose;
+    
+    
 
 }	
 window.addEventListener("load", init, false);

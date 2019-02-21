@@ -300,6 +300,7 @@ body{
         width: 110px;
         height: 50%;
         cursor: pointer;
+        z-index: 888;
         animation: camera 3s infinite;
     }
 
@@ -322,9 +323,9 @@ body{
 
   /* 背景 */
   .bg2{
-    background:rgba(98,167,236, .8) url("/images/bg2photo1-23.png") no-repeat scroll 50% 5%;
+    background:rgba(98,167,236, .8)  url("../images/bg2photo1-23.png") no-repeat scroll 50% 5%;
     background-size: 100%;
-}
+} 
 .postArea{
     width: 100%;
     /* padding-top: 10%; */
@@ -332,8 +333,6 @@ body{
     position: relative;
     margin: auto;
     max-width: 1200px;
-
-
 }
     .father{
         position: relative;
@@ -464,7 +463,7 @@ body{
 
 
 
-/* fixed 合照功能彈出～ */
+/* 合照功能滑出～ */
 
 .mkPhoto{
     position: fixed;
@@ -477,7 +476,7 @@ body{
     display: none;
     padding-top: 40px;
     padding-bottom: 200px;
-    background: #ccc;
+    background: #b2b2b2;
     opacity: 1;
     text-align: center;
 }
@@ -565,7 +564,19 @@ body{
    }
    #friend_LightBox #content_friendBox #chooseBox label p {
     display: inline;
+   }
 
+   #chooseId #showModel {
+       width: 11%;
+       position: absolute;
+       z-index: 1;
+       left: 40%;
+       top: 50%;
+   }
+   #chooseId #showModel #model_hat{
+    position: absolute;
+    left: 0;
+    top: -10px;
    }
     .steps{
         display: flex;
@@ -584,7 +595,6 @@ body{
         width: 100px;
         margin: 5%;
         box-shadow: 5px 10px 5px #aaa;
-
     }
     #step2{
         display: block;
@@ -641,7 +651,7 @@ body{
         height: 300px;
         position: absolute;
         left: 27vw;
-        top: 36vh;
+        top: 40vh;
         display: flex;
         flex-direction: column;
         display: none;
@@ -658,7 +668,7 @@ body{
     #red{ background-color:crimson;}
     #coral{background-color: coral;}
     #yellow{background-color: gold;}
-    #blue{background-color:skyblue;}
+    #blue{background-color:rgb(68, 176, 219);}
     #green{background-color: seagreen;}
     #black{background-color: black;}
     .preCanvas{
@@ -668,6 +678,7 @@ body{
         cursor: cell;
         position: absolute;
         left: 0;top: 0;
+        z-index: 1;
         /* border: 5px solid rgba(240,92,121,.7); */
         display: none;       
     }
@@ -690,26 +701,26 @@ body{
         margin-left: 23%;
         margin-bottom: 10%;
     }
-    .mkPhoto .drawing #upBtn,#chooseBtn{ 
+
+    /* btn 按鈕：上傳 選擇朋友 */
+    .mkPhoto .drawing .upload #upBtn{
         display: block;
         margin-top: 10%;
         margin-left: 20%;
-
-    }
-    .upload #upBtn{
-        display: block;
     }
     #chooseBtn{
         display: none;
+        margin-top: 10%;
+        margin-left: 20%;
     }
-    /* 下一步 btn */
+    /* btn :下一步  */
     .next span{
         display: block;
         margin-top: 0%;
         margin-left: 20%;
         margin-right: 10%;
     }
-    /* 上一步 btn */
+    /* btn 上一步  */
     .back span{
         display: none;
         cursor: pointer;
@@ -719,29 +730,60 @@ body{
         margin-bottom: 20px;
         margin-left: 20%;
         margin-right: 10%;
-        border-radius: 10px;
         background: #aaa;
-        box-shadow: 3px 5px 1px #797979;
+        box-shadow: 0 1vh #797979;
+        text-align: center;
+        line-height: 1.6;
+        color: #fff;
+        z-index: 30;
+        border-radius: 30px;
     }
-    #sharePhoto{
-        width: 100px;
-        padding: 10px;
-        margin-top: 20px;
-        margin-left: 20%;
 
-    }
+/* 提示燈箱 */
+    #shareHint{
+        position: absolute;
+        top: 45%;
+        left: 37%;
+        width: 30vw;
+        height: 20vh;
+        z-index: 30;
+        border-radius: 12px;
+        background-color: #E5E2DD;
+      }
+      /* btn 關閉提示燈箱按鈕 */
+      #sureClose{
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        width: 80px;
+        height: 30px;
+        cursor:pointer;
+        text-align: center;
+        line-height: 1.6;
+        font-size: 14px;
+        color: #fff;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
+      }
+
+/* btn style :上傳 選擇朋友 下一步 分享照片  */
     .upload span,#friendBox span,.next span,#sharePhoto{
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
+        text-align: center;
+        line-height: 1.6;
         color: #fff;
-        background: rgba(240,92,121,1);
-        box-shadow: 3px 5px 1px rgba(200,78,106,1);
-        border-radius: 10px;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
         margin-bottom: 20px;
     }
     #sharePhoto{
-        display: none;
+        width: 130px;
     }
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
@@ -848,25 +890,97 @@ body{
     }
     .steps{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
-    .drawing{
-        display: flex;
-        flex-direction: column;
-    }
-    .mkPhoto .drawing .upload span{
-        margin-top: 0;
-        margin-left: 0px;
-    }
-    .mkPhoto .drawing .next span{
-        margin-top: 20px;
-        margin-left: 0px;
+    #exit{
+        position: absolute;
+        top: 4vh;
+        right: 2vw;
 
     }
-    .preview{
+    .drawing{
+        display: block;
+        position: relative;
+        left: 27vw;
+    }
+
+    /* 登入會員 紙娃娃 */
+    #chooseId #showModel{
+        width: 19%;
         position: absolute;
-        left: 7.7%;
-        top: 22.3%;
+        z-index: 1;
+        left: 13%;
+        top: 42%;
+    }
+    .controlBar{
+        position: absolute;
+        left: -7vw;
+        top: 11vh;
+
+    }
+    /* #canvas{
+        margin-top: 10vh; 
+    } */
+    .btns{
+        display: flex;
+        flex-direction: row;
+    }
+    .mkPhoto .drawing .upload #upBtn{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0;
+        margin-right: 30px;
+    }
+    .mkPhoto .drawing .next span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .preCanvas{
+        width: 350px;
+        height: 350px;
+        margin-top: 7vh;
+    }
+    .back span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    #friendBox span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    #sharePhoto{
+        width: 150px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    /* 選擇朋友燈箱 */
+    #friend_LightBox{
+        width: 45%;
+        position: absolute;
+        top: 15%;
+        left: 0%;
+        z-index: 3;
+    }
+    /* 提示 已分享至照片牆 */
+    #shareHint{
+        position: absolute;
+        top: 45%;
+        left: 37%;
+        width: 30vw;
+        height: 20vh;
+
     }
     /* 燈箱 */
     #LB,#cardLB{
@@ -896,7 +1010,7 @@ body{
         right: 2vw;
         top: 2vh;
     }
-    
+
 }
 
 /* phone RWD */
@@ -1019,9 +1133,15 @@ body{
         display: none;
     }
     #exit{
+        width: 45px;
         position: absolute;
         right: 10px;
         top: 10px;
+    }
+    .preCanvas{
+        width: 350px;
+        height: 350px;
+        margin: auto;
     }
     #canvas{
         margin-left: 36px;
@@ -1033,28 +1153,26 @@ body{
     .mkPhoto .drawing span{
         font-size: 14px;
         padding: 10px 10px;
-
     }
     .back span{
         width: 90px;
         position: unset;
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 30px;
     }
     #sharePhoto{
-        width: 90px;
-        margin-top: 360px;
-        margin-left: 20px;
+        width: 130px;
+        margin-top: 60px;
+        margin-left: 30px;
     }
-    .mkPhoto .drawing #upBtn,#chooseBtn,#friendBox span{
+    .mkPhoto .drawing .upload #upBtn,#chooseBtn,#friendBox span{
         width: 90px;
         padding: 10px 10px;
-
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 30px;
     }
     .btns a{
-        margin-top: 360px;
+        margin-top: 20px;
     }
     .steps{
         display: flex;
@@ -1067,37 +1185,67 @@ body{
         position: relative;
         display: block;
     }
-    .controlBar{
+    /* .controlBar{
         position: absolute;
         left: 0;top: 12px;
+    } */
+    #chooseId #showModel{
+        width: 35%;
+        position: absolute;
+        left: 33vw;
+        top: 25vh;
+    }
+    #friend_LightBox{
+        width: 65%;
+        position: absolute;
+        top: 10vh;
+        left: 15vw;
     }
     .controlBar .colorPack{
+        width: 350px;
+        height: 50px;
+        position: absolute;
+        top: 50vh;
+        left: -1vw;
 
-        width: 40px;
-        height: 40px;
+        display: flex;
+        flex-direction: row;
+    }
+    .controlBar .colorPack .color{
+        margin: 0%;
     }
     .controlBar .reset{
         width: 40px;
-        margin: 10%;
+        margin: 0%;
         cursor: pointer;
 
     }
     .mkPhoto .drawing .upload span{
         width: 90px;
-        margin-top: 0;
-        margin-left: 0px;
+        margin-top: 60px;
+        margin-left: 30px;
     }
     .mkPhoto .drawing .next span{
         width: 90px;
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 30px;
     }
     /* .preview{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
     } */
-
+    /* 提示燈箱：已分享合照至塗鴉牆  */
+    #shareHint{
+        width: 40vw;
+        position: absolute;
+        left: 30vw;
+        top: 20vh;
+    }
+    #sureClose{
+        position: absolute;
+        top: 12vh;
+    }
     /* 燈箱 */
     #LB,#cardLB{
         position: absolute;
