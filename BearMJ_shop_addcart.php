@@ -236,7 +236,8 @@ session_start();
 	    <!-- 聊天室右側主要顯示區  -->
 	    <h2 id="chatRoom_control">麻吉聊天室</h2>
 	    <div class="chatRoom_info">
-	        <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
+            <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
+            <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
 	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
 	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
@@ -275,66 +276,44 @@ session_start();
         <!-- 手機聊天室 -->
         <!-- 聊天列表分頁 -->
 	    <div class="rwd_chatRoom" id="chatRoom_phone_part1">
-            <input id="search_input_phone" type="text" placeholder="搜尋好友">
+            <div id="rwd_chatListBox">
+                <input id="search_input_phone" type="text" placeholder="搜尋好友">
             
-            <div id="rwd_chatList"> 
-                <label for="" class="rwd_chatList">
-                    <!-- 頭貼 -->
-                    <div class="rwd_chatListHead"></div>
-                    <div class="rwd_chatListItem">
-                        <!-- 暱稱 -->
-                        <p class="rwd_chatListName">寂寞阿吉</p>
-                        <!-- 最近一則訊息 -->
-                        <p class="rwd_chatListMsg">最近一則訊息</p>
-                        <!-- 會員編號 -->
-                        <input type="hidden" id="rwd_chatMem1" value="">
-                    </div>
-                </label> 
-                <label for="" class="rwd_chatList">
-                    <!-- 頭貼 -->
-                    <div class="rwd_chatListHead"></div>
-                    <div class="rwd_chatListItem">
-                        <!-- 暱稱 -->
-                        <p class="rwd_chatListName">寂寞阿吉</p>
-                        <!-- 最近一則訊息 -->
-                        <p class="rwd_chatListMsg">最近一則訊息</p>
-                        <!-- 會員編號 -->
-                        <input type="hidden" id="rwd_chatMem1" value="">
-                    </div>
-                </label> 
-                <label for="" class="rwd_chatList">
-                    <!-- 頭貼 -->
-                    <div class="rwd_chatListHead"></div>
-                    <div class="rwd_chatListItem">
-                        <!-- 暱稱 -->
-                        <p class="rwd_chatListName">寂寞阿吉</p>
-                        <!-- 最近一則訊息 -->
-                        <p class="rwd_chatListMsg">最近一則訊息</p>
-                        <!-- 會員編號 -->
-                        <input type="hidden" id="rwd_chatMem1" value="">
-                    </div>
-                </label> 
+                <div id="rwd_chatList"> 
+
+                </div>
 
             </div>
-            <div id="replybox_phone">
-                <h4>待回覆好友邀請</h4>
+            <!-- 聊天室分頁 -->
+            <div id="rwd_chatContent">
+                <div id="rwd_chatContentTitle">
+                    <span onclick="close_rwdChat();" style="font-size:30px">^</span>
+                    <div id="rwd_chatTaHead" class="headBox" alt="朋友大頭照"></div>
+                    <p id="rwd_chatTaName" class="">寂寞阿吉</p>
+                    <input type="hidden" id="rwd_chatTaNo" >
+                </div>
+                <!-- 聊天室訊息 -->
+                <div id="rwd_chatbox">
+
+                </div>
+                <div id="rwd_sendMsgBox">
+                    <input id="rwd_chatTxt_input" type="text">
+                    <input id="rwd_chatTxt_send" type="button" value="送出">
+                </div>
             </div>
+
+            <!-- 朋友列表分頁 -->
+            <div id="rwd_chatFriendList">
+                <div id="replybox_phone">
+                    <h4>待回覆好友邀請</h4>
+                </div>
+
+            </div>
+            
+            
 	    </div>
 
-        <!-- 聊天室分頁 -->
-        <div id="rwd_chatContent">
-            <div id="rwd_chatTaHead" class="headBox" alt="朋友大頭照"></div>
-            <span id="" class="">寂寞阿吉</span>
-            <!-- 聊天室訊息 -->
-            <div id="rwd_chatbox">
-
-            </div>
-        </div>
-
-        <!-- 朋友列表分頁 -->
-        <div id="rwd_chatFriendList">
-
-        </div>
+        
 	    <!-- <div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
 	        <div class="info_bar">
 	            <img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
@@ -356,7 +335,7 @@ session_start();
     <script>
         sendForm();
         getProducts(1,1);
-        
+        friendList();
 	</script>
 </body>
 </html>
@@ -368,7 +347,8 @@ session_start();
     }
     window.addEventListener("load",function(){
         
-        changeModel(1); //試穿角色顯示
+        changeModel(1); //試穿角色顯示		
+        
         
         $(window).resize(function() {
             if(innerWidth<768){
