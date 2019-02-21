@@ -72,7 +72,8 @@ session_start();
             <form id="cartForm">
                 <div id="totalCost">
                     <span>總數量:
-                        <?php echo count($_SESSION["img"])?>
+                        <?php if(isset($_SESSION["img"])){echo count($_SESSION["img"]);}else{
+                            echo 0;}?>
                     </span>
                     <img src="shop-images/coin.png">
                     <span>支付代幣金額:

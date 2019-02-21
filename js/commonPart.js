@@ -712,28 +712,28 @@ window.addEventListener('load', function () {
 	var btn_chat_prev = document.getElementById('btn_chat_prev');
 	var control_checkbox = document.getElementById('control_checkbox');
 
-	var control_open=false;
+	var control_openChat=false;
 	btn_chatroom_phone.addEventListener('click', function () {
-		if (control_open == false) {
+		if (control_openChat == false) {
 			chatRoom_phone_part1.style.cssText = " top: 8vh;;opacity:1";
-			control_open = true;
+			control_openChat = true;
 		} else {
 			chatRoom_phone_part1.style.cssText = " top: -100vh;;opacity:0";
-			control_open = false;
+			control_openChat = false;
 		}
 
 	}, false);
 
 
 	//手機版menu操控
+	var control_openMenu=false;
 	btn_menu_menu.addEventListener('click', function () {
-
-		if (menu_phone.hasAttribute('value') == false) {
+		if (control_openMenu == false) {
 			menu_phone.style.cssText = "transform: scale(1);opacity:1";
-			menu_phone.setAttribute('value', '打開');
+			control_openMenu = true;
 		} else {
 			menu_phone.style.cssText = "transform: scale(0);opacity:0";
-			menu_phone.removeAttribute('value', '打開');
+			control_openMenu = false;
 		}
 	});
 
@@ -930,34 +930,34 @@ window.addEventListener('load', function () {
 
 	//手機聊天室輸入
 
-	var info_input_phone = document.getElementById('info_input_phone');
-	var info_chatbox = document.getElementById('info_chatbox');
+	// var info_input_phone = document.getElementById('info_input_phone');
+	// var info_chatbox = document.getElementById('info_chatbox');
 
-	info_input_phone.addEventListener('keydown', function (e) {
-		if (e.keyCode == 13) { //enter代碼
-			var txt = info_input_phone.value;
+	// info_input_phone.addEventListener('keydown', function (e) {
+	// 	if (e.keyCode == 13) { //enter代碼
+	// 		var txt = info_input_phone.value;
 
-			if (info_input_phone.value != "") {
-				var span = document.createElement('p');
-				span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
-				span.innerText = txt;
+	// 		if (info_input_phone.value != "") {
+	// 			var span = document.createElement('p');
+	// 			span.setAttribute('style', 'float:right;display:block;height:30px;position:relative;right:50px');
+	// 			span.innerText = txt;
 
-				var divspan = document.createElement('div');
-				divspan.appendChild(span);
-				divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
+	// 			var divspan = document.createElement('div');
+	// 			divspan.appendChild(span);
+	// 			divspan.setAttribute('style', 'display:inline-block;width:100%;height:30px;margin:5px 0;');
 
-				var clearbox = document.createElement('div');
-				divspan.appendChild(clearbox);
-				clearbox.setAttribute('class', 'clearbox');
+	// 			var clearbox = document.createElement('div');
+	// 			divspan.appendChild(clearbox);
+	// 			clearbox.setAttribute('class', 'clearbox');
 
-				info_chatbox.appendChild(divspan);
-				info_input_phone.value = '';
+	// 			info_chatbox.appendChild(divspan);
+	// 			info_input_phone.value = '';
 
-				boxScroll(info_chatbox);
-			}
+	// 			boxScroll(info_chatbox);
+	// 		}
 
-		}
-	}, false);
+	// 	}
+	// }, false);
 
 	window.addEventListener('resize', function () { //可能要再改
 		var clientWidrh = document.body.clientWidth;

@@ -669,7 +669,7 @@ body{background-image:url(BG002.gif);}
     top: -17px;
     left: 5px;
 }
-
+.menu_phone,
 .head_phone,
 .chatRoom_phone,
 .rwd_chatRoom,
@@ -679,6 +679,9 @@ body{background-image:url(BG002.gif);}
 }
 
 @media only screen and (max-width: 768px) {
+    .menu_phone{
+        display: block;
+    }
     * {
         box-sizing: border-box;
     }

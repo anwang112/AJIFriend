@@ -82,7 +82,7 @@ session_start();
             <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
         </label>
         
-
+ 
     </div>        
     <div id="menu_phone" class="menu_phone">
             <ul>
@@ -281,6 +281,7 @@ session_start();
                         <!-- 頭貼 -->
                         <div id="rwd_chatListHead"></div>
                         <!-- 暱稱 -->
+                        <div></div>
                         <p>寂寞阿吉</p>
                         <!-- 最近一則訊息 -->
                         <p>最近一則訊息</p>
@@ -331,8 +332,9 @@ session_start();
 	</script>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script>
-    
+
     function $id(id){
         return document.getElementById(id);
     }
