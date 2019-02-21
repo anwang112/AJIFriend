@@ -343,7 +343,6 @@ img{
         #rwd_showCoin{
                 display: none; 
             @media all and (max-width: 768px) {
-                width: 20%;
                 border-radius:12px; 
                 background-color: $lightPink;
                 text-align: center;
@@ -359,14 +358,13 @@ img{
                     width: 30%;
                 }
                 span{
-                    width: 50%;
+                    display: inline-block;
                     font-size: 24px;
                     font-family: Impact;
                     color: $darkPink;
                 }
             }
             @media all and (max-width: 476px) {
-                width: 20%;
                 border-radius:12px; 
                 background-color: $lightPink;
                 text-align: center;
@@ -382,7 +380,7 @@ img{
                     width: 30%;
                 }
                 span{
-                    width: 50%;
+                    display: inline-block;
                     font-size: 24px;
                     font-family: Impact;
                     color: $darkPink;
@@ -466,10 +464,10 @@ img{
         width: 100%;
         bottom: 50px;   
         @media all and (max-width: 768px) {
-            bottom: 40px;
+            bottom: 20px;
         }
         @media all and (max-width: 476px) {
-            bottom: 40px;
+            bottom: 20px;
         }
         
         
@@ -509,10 +507,19 @@ img{
             box-shadow: 0px 4px 6px #ccc;
             #actionPanel{
                 display: flex;
+                width: 22%;
                 align-items: center;
                 flex-wrap: wrap;
-                #choose-friend{
-                    width: 82%;
+                flex-shrink: 0;
+                flex-grow: 0;
+                @media all and (max-width: 768px) {                    
+                    display: none;
+                }
+                @media all and (max-width: 476px) {
+                    display: none;
+                }
+                .choose-friend{
+                    width: 31%;
                     margin: 2%;
                     display: flex;
                     align-items: center;
@@ -524,12 +531,6 @@ img{
                     border:2px solid transparent;
                     
                     
-                    @media all and (max-width: 768px) {                    
-                        display: none;
-                    }
-                    @media all and (max-width: 476px) {
-                        display: none;
-                    }
                     &:hover{
                         border:2px solid $darkPink;
                         // color: white;
@@ -537,47 +538,46 @@ img{
                     cursor: pointer;
                 }
                 .btn_chooseModel{
-                    width: 30%;
-                    height: 30%;
+                    width: 100%;
                     text-align: center;
                     img{
-                        width: 60%;
-                        margin-top: 4px;
+                        width: 46%;
+                        margin:4% 0%;
                     }
-                    p{
+                    span{
                         color: $darkPink;
-                        // font-family:$fontFamily; 
                         font-weight: bolder;
-                        font-size: 12px;
-                        margin: 2px 0;
+                        font-size: 16px;
+                        margin: 2% 0;
                         transition:all .3s;
                     }
                 }
                 #rwd-showName{
                     
-                    width: 50%;
-                    margin-left: 3%;
+                    width: 55%;
                     text-align: center;
-                    // font-family: $fontFamily;
-                    padding: 8px;
+                    padding: 6% 0%;
                     background-color: $lightPink;
-                    // border: 2px solid $darkPink;
                     border-radius: 12px;
+                    @media all and (max-width: 768px) {                    
+                        display: none;
+                    }
+                    @media all and (max-width: 476px) {
+                        display: none;
+                    }
                 }
                 #showCoin{
-                    width: 40%;
-                    margin: 2%;
-                    border-radius:12px; 
-                    background-color: $lightPink;
+                    width: 55%;
+                    text-align: center;
+                    padding: 3% 0%;
+                    background-color: #f4c8db;
+                    border-radius: 12px;
                     display: flex;
-                    flex-direction: row;
                     justify-content: center;
                     align-items: center;
-                    flex-wrap: nowrap;
-                    align-items: center;
                     img{
-                        width: 35%;
-                        margin: 7% 0;
+                        width: 20%;
+                        margin:0;
                     }
                     span{
                         font-size: 24px;
@@ -594,17 +594,16 @@ img{
                     
                 }
                 #showCart{
-                    width: 40%;
-                    margin: 10px 0;
-                    border-radius:12px; 
-                    background-color: $lightPink;
+                    width: 31%;
+                    margin: 2%;
                     display: flex;
-                    flex-direction: row;
-                    justify-content: center;
                     align-items: center;
                     flex-wrap: nowrap;
+                    border-radius: 12px;
+                    background-color: #f4c8db;
+                    transition: all .3s;
+                    border: 2px solid transparent;
                     cursor: pointer;
-                    border:2px solid transparent;
                     &:hover{
                         border:2px solid $darkPink;
                         color: white;
@@ -620,16 +619,16 @@ img{
                         justify-content: center;
                         align-items: center;
                         flex-wrap: nowrap;
-                        img{
-                            width: 35%;
-                            margin: 5% ;
-                            display: inline-block;
+                        img{    
+                            width: 39%;
+                            margin: 4% 4%;
                         }
                         p{
-                            font-size: 20px;
-                            // font-family: $fontFamily;
+                            color: #f05c79;
                             font-weight: bolder;
-                            color: $shadowBrown;
+                            font-size: 16px;
+                            margin: 2% 0;
+                            transition: all .3s;
                         } 
                     }
                     @media all and (max-width: 768px) {
@@ -645,23 +644,38 @@ img{
             #productsShow{
                 width: 80%;
                 padding-top: 15px;
+                padding-bottom: 15px;
+                .pro_form{
+                    width: 20%;
+                    flex-shrink: 0;
+                    @media all and (max-width: 768px) {  
+                        width: 33%;
+                    }
+                    @media all and (max-width: 476px) { 
+                        width: 33%;
+                    }
+                }
                 .id_iframe{
                     display: none;
                 }
                 @media all and (max-width: 768px) {
                     width: 95%;
-                    padding-top: 5px;
+                    padding-top: 10px;
                 }
                 @media all and (max-width: 476px) {
                     width: 95%;
-                    padding-top: 5px;
+                    padding-top: 10px;
                 }
                 section{
                     display: flex;
                     flex-direction: row;
                     box-shadow: inset 3px 0 10px #ccc,
                                 inset -3px 0 10px #ccc;
-                    @media all and (max-width: 768px) {
+                    @media all and (max-width: 768px) {                    
+                        overflow-X: auto;
+                    }
+                    @media all and (max-width: 476px) {                    
+                        overflow-X: auto;
                     }
                     .id_iframe{
                         display: none;
@@ -783,6 +797,14 @@ img{
                                         border-radius:5px;
                                         background-color: $darkPink; 
                                     }
+                                    .btn_buy_having{
+                                        width: 90%;
+                                        border: 0px transparent;
+                                        padding:0 10px;
+                                        color: white; 
+                                        border-radius:5px;
+                                        background-color: $shadowBrown; 
+                                    }
                                     
                                 }
                             }
@@ -849,7 +871,39 @@ img{
                                     transform: translateY(4px);
                                 }
                             }
+                            .having{
+                                width: 90%;
+                                border-radius: 12px;
+                                background-color: $shadowBrown;
+                                text-align: center;
+                                transition: .3s;
+                                border: transparent;
+                                padding: 3% 0;
+                                transition: all .3s;  
+                                color: #fff;                                       
+                                img{
+                                    width: 20%;
+                                    display: inline;
+                                }
+                            }
                         }
+                    }
+                }
+                #pages{
+                    text-align: center;
+                    .page_span{
+                        display: inline-block;
+                        margin: 2px 5px;
+                        padding: 3px 5px;
+                        border-radius:5px; 
+                        cursor: pointer;
+                    }
+                    
+                    @media all and (max-width: 768px) {                    
+                        display: none;
+                    }
+                    @media all and (max-width: 476px) {
+                        display: none;
                     }
                 }
                 
@@ -1021,6 +1075,15 @@ img{
                         margin: 5px;
                         padding: 8px 0;
                         @include btn_standard(90px,$darkPink,$shadowPink);
+                    }
+                    .notEnough{
+                        width: 90%;
+                        border: 0px transparent;
+                        padding:10px 10px;
+                        color: white; 
+                        border-radius:5px;
+                        background-color: $shadowBrown; 
+
                     }
                 }
             // }

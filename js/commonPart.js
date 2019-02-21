@@ -241,6 +241,9 @@ function sendForm(){
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send(`memId=ga&memPsw=11111111`);
+
+	
+	friendList();
 }
 
 
@@ -248,6 +251,7 @@ var infoArr = new Array();
 infoArr = []; //朋友資料陣列
 
 function friendList(){  //Ajax撈朋友列表
+	console.log("friendList()");
 	
 	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
 	//撈朋友資料並動態新增列表--start
@@ -260,14 +264,14 @@ function friendList(){  //Ajax撈朋友列表
 			}else{ //成功取得
 				var friendArr = JSON.parse(xhr.responseText);
 				var friendInfo = friendArr.friendsInfo; 
-				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+				//[memNo||暱稱||動物||眼睛||毛色||帳號 , ...... , ....... , ....... ]
 
 				var num = div_chooseBox.children.length;
 				var datalength = friendArr.length;
 				if(num==1){
-					for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
-						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
-							infoArr[i] = friendInfo[i].split("||",5); 
+					for(var i = 0 ; i<friendInfo.length;i++){ // i:朋友數量
+						for(var j = 0 ; j < 6 ; j++){ // j:撈回的資料欄位數量
+							infoArr[i] = friendInfo[i].split("||",6); 
 							//infoArr[i]:朋友資料陣列;
 							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
 						}
@@ -394,7 +398,7 @@ function rejectRequire(e){
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
-		if(xhr.responseText == "null"){ //失敗狀態
+		if(xhr.responseText == "null"){
 			alert("xhr錯誤發生");
 
 		}else{ //成功取得
@@ -419,8 +423,8 @@ function requireBack(){
 	if($id('userNo').value!=''){
 		var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function(){
-			if(xhr.responseText == "null"){ //失敗狀態
-				alert("xhr錯誤發生");
+			if(xhr.responseText == "null"){ //
+				console.log("沒有待回覆邀請");
 
 			}else{ //成功取得
 
@@ -702,35 +706,22 @@ window.addEventListener('load', function () {
 	var btn_chatroom_phone = document.getElementById('btn_chatroom_phone');
 	var chatRoom_phone_part1 = document.getElementById('chatRoom_phone_part1');
 	var chatRoom_phone_part2 = document.getElementById('chatRoom_phone_part2');
-	var fr_demo = document.getElementById('fr_demo');
+	// var fr_demo = document.getElementById('fr_demo');
 	var btn_menu_menu = document.getElementById('btn_menu_menu');
 	var menu_phone = document.getElementById('menu_phone');
 	var btn_chat_prev = document.getElementById('btn_chat_prev');
+	var control_checkbox = document.getElementById('control_checkbox');
 
-
+	var control_open=false;
 	btn_chatroom_phone.addEventListener('click', function () {
-		if (chatRoom_phone_part1.hasAttribute('value') == false) {
+		if (control_open == false) {
 			chatRoom_phone_part1.style.cssText = " top: 8vh;;opacity:1";
-			chatRoom_phone_part2.style.cssText = "opacity:0";
-			chatRoom_phone_part1.setAttribute('value', '打開');
+			control_open = true;
 		} else {
 			chatRoom_phone_part1.style.cssText = " top: -100vh;;opacity:0";
-			chatRoom_phone_part2.style.cssText = "opacity:0";
-			chatRoom_phone_part1.removeAttribute('value', '打開');
+			control_open = false;
 		}
 
-	}, false);
-
-
-	//手機版聊天室操控_02
-	fr_demo.addEventListener('click', function () {
-		chatRoom_phone_part1.style.cssText = " top:8vh;left:0%;opacity:1; ";
-		chatRoom_phone_part2.style.cssText = " left: 0;display:flex;opacity:1;z-index:11";
-	});
-
-	btn_chat_prev.addEventListener('click', function () {
-		chatRoom_phone_part1.style.cssText = " top:8vh;left:0;opacity:1; ";
-		chatRoom_phone_part2.style.cssText = "opacity:0;z-index:-1";
 	}, false);
 
 

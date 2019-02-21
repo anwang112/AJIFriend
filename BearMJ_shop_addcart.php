@@ -1,17 +1,6 @@
 <?php
 session_start();
-// // session_destroy();
-// $errMsg = "";
-// try {
-// 	require_once("connectBooks.php");
-// 	$sql = "select * from product";
-//  	$products = $pdo->query($sql); 
-// } catch (PDOException $e) {
-//     echo $e -> getMessage();
-// 	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
-// 	$errMsg .= "行號 : ".$e -> getLine()."<br>";
-// }
- 
+
 ?> 
 
 <!DOCTYPE html>
@@ -22,23 +11,105 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BearMJ_Shop</title>
     <link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="slick/slick.css">
-  	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/shop-style.css">
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/friendBox.js"></script>
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
+    <script src="js/shop.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
-    <script src="js/shop.js"></script>
 </head>
-<body>
+<body>	
+    <!-- Header開始 -->
+        <div id="head" class="head mnone">
+        <div class="headWrap">
+            <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo"></a>
+            <ul class="menu">
+                <li><a href="match2.php">找麻吉</a></li>
+                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
+                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="myRoom.html">我的窩</a></li>
+            </ul>
+			<div class="loginBox">
+				<input type="hidden" id="userNo" value="">
+				<input type="hidden" id="userId" value="">
+				<input type="hidden" id="userCoin" value="">
+				<input type="hidden" id="userAnimal" value="">
+				<input type="hidden" id="userEye" value="">
+				<input type="hidden" id="userColor" value="">
+				<input type="hidden" id="userStar" value="">
+				<input type="hidden" id="userHobby" value="">
+				<input type="hidden" id="userSelf" value="">
+				<input type="hidden" id="userHat" value="">
+				<input type="hidden" id="userClothes" value="">
+				<input type="hidden" id="userPlay" value="">
+				<input type="hidden" id="userLove" value=""> 
+                <div class="loginImg">
+                    
+                </div>
+                <div class="loginTxtWrap">
+                    <div class="loginContent">
+                        <div class="loginTitle">
+                            <span id="memName"></span><span id="mLv"></span>
+                        </div>
+						<div class="loginMj">
+							<span></span>
+							
+							<span id="memMJ"></span>
+						</div>
+						<div class="Mjbar"></div>
+                    </div>
+                    <div class="loginNot">
+                        <span id="loginNot">登入</span> 
+                    </div>
+                </div>
 
-        <script type="text/javascript">
-            head_html();
-            getProduct(1);
-        </script>
+            </div>
+        </div>
+    </div>
+    <div class="head_phone  dnone ">
+        <a href="#">
+            <img id="btn_menu_menu" src="pic/phone_icon_menu.svg" alt="">
+        </a>
+        <a href="index.html" class="logo_phone">
+            <img src="pic/logo_phone03.png" alt="">
+        </a>
+        <input type="checkbox" id="control_checkbox">
+        <!-- 手機聊天室開合控制 -->
+        <label for="control_checkbox" id="control_rwdChat">
+            <img id="btn_chatroom_phone" src="pic/phone_icon_chat.svg" alt="">
+        </label>
+        
+
+    </div>        
+    <div id="menu_phone" class="menu_phone">
+            <ul>
+                <li><a href="match2.php">找麻吉</a></li>
+                <li><a href="activity_v2.html">活動巴士</a></li>
+                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
+                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="#">登入</a></li>
+                <li><a href="#">魅力值</a></li>
+                <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
+            </ul>
+        </div>
+    <!--  -->
+    <div id="loginBox" class="LightBoxMask"></div>
+    <div id="lightBoxInner" class="middleLightBox login_box">
+        <h2>登入/註冊</h2>
+        <form id="login_form" action="">
+            <input type="e-mail" placeholder="hi@gmail.com">
+            <input type="psw" placeholder="6位數密碼">
+            <input type="submit" value="送出" class="input_R">
+        </form>
+        <!-- 關掉按鈕 -->
+        <div id="loginBoxClose" class="lightBoxXX"></div>
+    </div>
+
+<!-- Header結束 -->
+
     <div id="shop_background" class="background">
 
     <script>
@@ -69,7 +140,7 @@ session_start();
                 <!-- 餘額顯示 -->
                 <div id="rwd_showCoin">
                     <img src="shop-images/coin.png">
-                    <span><?php if(isset($_SESSION["mCoin"])){ echo $_SESSION["mCoin"]; }?></span>
+                    <span><?php echo $_SESSION["mCoin"]?></span>
                 </div>
 
                 <div id="chooseArea">
@@ -80,31 +151,15 @@ session_start();
                     </div>
             
                     <!-- 試穿角色暱稱顯示區塊 -->
-                    <span id="showName">
-                        <?php if(isset($_SESSION["memNo"])){
-                            if(isset($_SESSION["gift_ta"])){
-                                echo $_SESSION["gift_ta"]["name"];
-                            }else{
-                                echo $_SESSION["mName"];
-                            }
-                        }
-                        ?>
-                    </span>
-                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memNo"])){
-                            if(isset($_SESSION["gift_ta"])){
-                                echo $_SESSION["gift_ta"]["id"];
-                            }else{
-                                echo $_SESSION["memId"];
-                            }
-                        }
-                        ?>">
+                    <span id="showName"class="gift"><?php echo $_SESSION["mName"]; ?></span>
+                    <input type="hidden" id="showId" value="<?php echo $_SESSION["memId"];?>">
                         
                     
             
                     <!-- 選朋友來試穿(送禮) -->
-                    <div id="choose-friend" class="btn_chooseModel gift" >
-                        <img src="shop-images/gift.png" class="gift">
-                        <p class="gift">選朋友</p>
+                    <div class="choose-friend btn_chooseModel gift" >
+                        <img src="shop-images/gift.png">
+                        <p class="wearChange">麻吉</p>
                     </div>
 
 
@@ -131,38 +186,24 @@ session_start();
         
             <div id="productBlock">
                 <!-- 種類選擇Tab -->
-                <div id="hatTab" class="tab-chooseCloth onclick" onclick="getProduct(1);" >頭飾</div>
-                <div id="clothesTab" class="tab-chooseCloth" onclick="getProduct(2);">衣服</div>
+                <div class="tab-chooseCloth" id="hatTab" onclick="getProducts(1,1)">頭飾</div>
+                <div class="tab-chooseCloth" id="clothesTab" onclick="getProducts(2,1)">衣服</div>
                 
                 <!-- 商品選擇 -->
                 <div id="productsArea">
                     <div id="actionPanel">
                         <!-- 選朋友來試穿(送禮) -->
-                        <div id="choose-friend" class="gift">
-                            <div class="btn_chooseModel gift" >
-                                <img src="shop-images/gift.png" class="gift">
-                                <p class="gift">麻吉穿搭</p>
+                        <div id="" class="choose-friend gift">
+                            <div class="btn_chooseModel" >
+                                <img src="shop-images/gift.png">
+                                <span class="wearChange">麻吉</span>
                             </div>
+
+                        </div>
                             <!-- 試穿角色暱稱顯示區塊 -->
-                            <span id="rwd-showName">
-                                <?php 
-                                if(isset($_SESSION["memNo"])){
-                                    if(isset($_SESSION["gift_ta"])){
-                                        echo $_SESSION["gift_ta"]["name"];
-                                    }else{
-                                        echo $_SESSION["mName"];
-                                    }
-                                }
-                                ?>
-                            </span>
-
-                        </div>
-
-                        <!-- 餘額顯示 -->
-                        <div id="showCoin">
-                            <img src="shop-images/coin.png">
-                            <span><?php if(isset($_SESSION["mCoin"])){ echo $_SESSION["mCoin"]; }?></span>
-                        </div>
+                            <p id="rwd-showName" class="gift">
+                                <?php echo $_SESSION["mName"]; ?>
+                            </p>
                         <!-- 前往購物車 -->
                         <div id="showCart">
                             <a href="BearMJ_cartShow.php">
@@ -171,26 +212,125 @@ session_start();
                             </a>
                         </div>
 
+                        <!-- 餘額顯示 -->
+                        <div id="showCoin">
+                            <img src="shop-images/coin.png">
+                            <span><?php echo $_SESSION["mCoin"]?></span>
+                        </div>
+
                     </div>
 
                     <!-- 商品區 -->
                     <div id="productsShow">
-                        <section class="regular slider" id="productsSection">
+                        <section class="regular slider" id="prductsSection">
                         </section>
+                        <div id="pages"></div>
                     </div>
                 </div>
 
             </div> 
         
     </div>
-    
-    <script type="text/javascript">
-		foot_html();
+    <!-- 桌機聊天室 -->
+    <div id="chatRoom" class="chatRoom">
+	    <!-- 聊天室右側主要顯示區  -->
+	    <h2 id="chatRoom_control">麻吉聊天室</h2>
+	    <div class="chatRoom_info">
+	        <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
+			<span id="mem-2" class="2"></span>
+	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
+	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
+	    </div> 
+	    <div class="chatboxRight">
+	        <div class="chatbox_show">
+	        </div>
+	        <div class="chatbox_faces">
+	            <img src="pic/chatroom_face_01.svg" alt="喜">
+	            <img src="pic/chatroom_face_02.svg" alt="怒">
+	            <img src="pic/chatroom_face_03.svg" alt="哀">
+	            <img src="pic/chatroom_face_04.svg" alt="樂">
+	        </div>
+	        <div class="chatbox_input">
+	            <input id="chatTxt_input" type="text">
+	            <input id="chatTxt_send" type="button" value="送出">
+	        </div>      
+	    </div> 
+	    <!-- 聊天室收合左側欄  -->
+	    <label for=""><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
+	    <div id="chatboxLeft" class="chatboxLeft">
+	        <input id="search_input" type="text" placeholder="搜尋好友">
+	        <div class="friendbox">
+				<label class="friendClick">
+					<div id="admin">
+						<img src="shop-images/gift.png" class="friendClick">
+					</div>
+					<p class="friendClick">管理員</p>
+				</label>
+	        </div>
+			<div id="replybox">
+				<p id="replyboxTitle">回覆好友邀請</p>
+	        </div>
+	    </div>
+	</div>
+	    <!-- 手機聊天室 -->
+	    <div class="rwd_chatRoom" id="chatRoom_phone_part1">
+	            <input id="search_input_phone" type="text" placeholder="搜尋好友">
+                <!-- 聊天列表 -->
+                <div id="rwd_chatList"> 
+                    <label for="" class="rwd_chatList">
+                        <!-- 頭貼 -->
+                        <div id="rwd_chatListHead"></div>
+                        <!-- 暱稱 -->
+                        <p>寂寞阿吉</p>
+                        <!-- 最近一則訊息 -->
+                        <p>最近一則訊息</p>
+                        <!-- 會員編號 -->
+                        <input type="hidden" id="rwd_chatMem1" value="">
+                    </label> 
+                    <label for="" class="rwd_chatList">
+                        <!-- 頭貼 -->
+                        <div id="rwd_chatListHead"></div>
+                        <!-- 暱稱 -->
+                        <p>寂寞阿吉</p>
+                        <!-- 最近一則訊息 -->
+                        <p>最近一則訊息</p>
+                        <!-- 會員編號 -->
+                        <input type="hidden" id="rwd_chatMem1" value="">
+                    </label>
+
+                </div>
+	            <!-- <div id="friendbox_phone">
+	                friendbox//之後寫入
+	            </div> -->
+	            <div id="replybox_phone">
+	                <h4>待回覆好友邀請</h4>
+	            </div>
+	    </div>
+	    <!-- <div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
+	        <div class="info_bar">
+	            <img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
+	            <span id="friend_id_show">傻眼貓咪</span>
+	        </div>
+	        <div class="info_chatbox">
+	            <span>hi~~</span>
+	        </div>
+	        <div class="info_controlbox">
+	            <img id="" src="pic/btn_chat_gift.svg" alt="">
+	            <img src="pic/btn_chat_profile.svg" alt="">
+	            <img src="pic/btn_chat_send.svg" alt="">
+	            <input id="info_input_phone" type="text">
+	        </div>
+	    </div> -->
+	    <!-- 手機聊天室結束 -->
+	    
+	</div>
+    <script>
         sendForm();
+        getProducts(1,1);
+        
 	</script>
 </body>
 </html>
-
 <script>
     
     function $id(id){
@@ -198,8 +338,7 @@ session_start();
     }
     window.addEventListener("load",function(){
         
-        
-        changeModel(); //試穿角色顯示
+        changeModel(1); //試穿角色顯示
         
         $(window).resize(function() {
             if(innerWidth<768){
@@ -222,13 +361,7 @@ session_start();
             choose[i].addEventListener("click",showfriendBox);
         }
 
-        productImg = document.getElementsByClassName("click_wear");
-        for (var i = 0 ; i< productImg.length; i++){
-            // productImg[i].addEventListener("click",changeClothes);
-            if(innerWidth<768){
-                productImg[i].addEventListener("click",showInfo); //link:changeClothes.js
-            }
-        }
+
         $id("choose-me").addEventListener("click",function(){
             $id("model_animal").src = "shop-images/model_1.png";
             $id("model_hat").src = "shop-images/hat_1.png";
@@ -242,11 +375,6 @@ session_start();
                 ease: Power2.easeIn
             });
         });
-
-        $id("hatTab").addEventListener("click",function(){
-
-        });
-
         
         
         TweenMax.fromTo('#showModel', 1.5, {
@@ -267,39 +395,4 @@ session_start();
 
     window.addEventListener("load",init,false);
 
-</script>
-
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-<script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-
-  $(document).on('ready', function() {
-      if(innerWidth<768){
-          $(".regular").slick({
-              dots: false,
-              infinite: true,
-              slidesToShow: 3,
-              slidesToScroll: 2
-
-          });
-      }else if(innerWidth<1200){
-          $(".regular").slick({
-              dots: true,
-              infinite: true,
-              slidesToShow: 3,
-              slidesToScroll: 3
-
-          });
-      }else{
-          $(".regular").slick({
-              dots: true,
-              infinite: true,
-              slidesToShow: 5,
-              slidesToScroll: 3
-
-          });
-      }
-      
-
-  });
 </script>
