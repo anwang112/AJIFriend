@@ -115,7 +115,6 @@ $('.search').click(function () {
         loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
-    console.log(profile);
 });
 
 
@@ -189,89 +188,6 @@ $('.rankNav').each(function () {
     })
 });
 
-
-function topFriend() {
-    txtBox = '.fans';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topFan = document.getElementById('topFriend' + i);
-        ooo.push(topFan);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'friend',
-    };
-    getRank(profile);
-}
-
-$('#topFriend').click(function () {
-    topFriend();
-});
-$('#topMoney').click(function () {
-    txtBox = '.moneyS';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topMoney = document.getElementById('topMoney' + i);
-        ooo.push(topMoney);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'money',
-    };
-    getRank(profile);
-});
-$('#topMJ').click(function () {
-    txtBox = '.MJs';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topMJ = document.getElementById('topMJ' + i);
-        ooo.push(topMJ);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'topMJ',
-    };
-    getRank(profile);
-});
 //名人榜切換結束
 
 //送出好友邀請
@@ -319,7 +235,7 @@ function beFriend (tarNo,loginNo,btn) {
     }else if(btn.text() == '解除麻吉關係'){
         data= {
             sendMemId: document.getElementById('userNo').value,
-            taMemId: document.getElementById('sMemNo').value,
+            taMemId: tarNo,
             action: 2,
             btn: btn,
         };
@@ -330,7 +246,7 @@ function beFriend (tarNo,loginNo,btn) {
 $('.btn_beFriend0').click(function(){
     tarNo = document.getElementById('sMemNo').value;
     loginNo = document.getElementById('userNo').value;
-    btn = $('.btn_beFriend0');
+    btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 //配對-送出好友邀請
@@ -341,50 +257,59 @@ $('.btn_beFriend1').click(function () {
     beFriend(tarNo,loginNo,btn);
 });
 //Rank送出好友邀請
-$('.btn_beFriend2').click(function () {
+$('.fans .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.fans .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend3').click(function () {
+$('.fans .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.fans .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend4').click(function () {
+$('.fans .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.fans .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend5').click(function () {
+$('.moneyS.rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend6').click(function () {
+$('.moneyS .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend7').click(function () {
+$('.moneyS .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend8').click(function () {
+$('.MJs .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.MJs .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend9').click(function () {
+$('.MJs .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.MJs .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend10').click(function () {
+$('.MJs .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.MJs .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
 
 
@@ -703,7 +628,7 @@ function getRank(profile) {
                 });
 
                 //no
-                document.querySelector('.rankNo' + i ).value = info[i].memNo;
+                document.querySelector(txtBox + ' .rankNo' + i ).value = info[i].memNo;
 
                 //暱稱
                 infoTxtH3 = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' h3');
@@ -734,6 +659,13 @@ function getRank(profile) {
                 infoTxtHSpan[3].innerText = '麻吉數: ' + info[i].friend;
                 id.push(info[i].memId);
 
+                data = {
+                    loginNo: document.getElementById('userNo').value,
+                    tarMemNo: info[i].memNo,
+                }
+                btn= $(txtBox+' .rankFriendBtn'+i);
+                relationBtn(data,btn);
+
             }
         }
     };
@@ -745,23 +677,33 @@ function getRank(profile) {
 
 //showInfo
 $('.showInfo0').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[0],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
 $('.showInfo1').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[1],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
 $('.showInfo2').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[2],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
+
 
 //送出好友邀請ajax
 function makeFriend(profile) {
@@ -825,7 +767,6 @@ function report(profile) {
 function unFriend(data){
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        console.log(xhr.responseText);
         if (xhr.responseText == "delete friend~") {
             $('#alertText').text('已解除麻吉關係!');
             $('.alertWrap').show();
@@ -838,6 +779,112 @@ function unFriend(data){
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("upMem=" + JSON.stringify(data));
 
+
+}
+
+//判斷好友按鈕
+function topFriend() {
+    txtBox = '.fans';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topFan = document.getElementById('topFriend' + i);
+        ooo.push(topFan);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'friend',
+    };
+    getRank(profile);
+}
+
+$('#topFriend').click(function () {
+    topFriend();
+});
+$('#topMoney').click(function () {
+    txtBox = '.moneyS';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topMoney = document.getElementById('topMoney' + i);
+        ooo.push(topMoney);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'money',
+    };
+    getRank(profile);
+});
+$('#topMJ').click(function () {
+    txtBox = '.MJs';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topMJ = document.getElementById('topMJ' + i);
+        ooo.push(topMJ);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'topMJ',
+    };
+    getRank(profile);
+    
+});
+function relationBtn(data,btn){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.responseText == 'login') {
+            changeBtnNomal(btn);
+            
+        }else if(xhr.responseText == 'not friend'){
+            changeBtnNomal(btn);
+        }else if(xhr.responseText == 0){
+            changeBtn(btn);
+
+        }else if(xhr.responseText == 1){
+            changeBtnUnf(btn)
+        }
+
+    };
+    xhr.open("Post", "relationship.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("rela=" + JSON.stringify(data));
 
 }
 //撒花
