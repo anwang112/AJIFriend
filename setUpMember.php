@@ -18,7 +18,10 @@ try {
     $createRole->bindValue(":eye", $createRoleData->eye);
     $createRole->bindValue(":animal", $createRoleData->animal);
     $createRole->execute();
-    echo "成功加入";
+    
+
+        
+
     // }
 } catch (PDOException $e) {
     echo $e->getMessage();

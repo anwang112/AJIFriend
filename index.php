@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,8 +44,7 @@
                 <embed id="indexCupid" src="images/indexImages/indexCupid.svg" style="display:block;" />
                 <svg xmlns="http://www.w3.org/2000/svg" id="cupidLight" viewBox="0 0 519 868.02883">
                     <defs>
-                        <linearGradient id="cupidLightGradient" y1="0%" x2="0%" y2="100%" x1="0%"
-                            gradientUnits="objectBoundingBox">
+                        <linearGradient id="cupidLightGradient" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox">
                             <stop offset="0%" id="cupidLight02" stop-color="#f092a6" />
                             <stop offset="0%" id="cupidLight01" stop-color="rgba(255,255,255,0.6)" />
                         </linearGradient>
@@ -50,8 +52,7 @@
                     <title>資產 15</title>
                     <g id="圖層_2" data-name="圖層 2">
                         <g id="圖層_1-2" data-name="圖層 1">
-                            <path class="cls-1"
-                                d="M140.30211,0,0,803.55949s173,123.0168,519,29.19043L394.10458,9.75679Z" />
+                            <path class="cls-1" d="M140.30211,0,0,803.55949s173,123.0168,519,29.19043L394.10458,9.75679Z" />
                         </g>
                     </g>
                 </svg>
@@ -84,8 +85,7 @@
         <title>資產 5</title>
         <g id="圖層_2" data-name="圖層 2">
             <g id="圖層_1-2" data-name="圖層 1">
-                <path class="cls-1"
-                    d="M1127.9861,0S210.50267,166.61364,49.44775,402.61364s115.95954,324,196.487,324c66.91892,0,1152.7333-105.2096,1400.80129,244.67926,49.85676,70.32074-97.59692,275.76205-211.7104,317.32074-414.52261,150.9639-1302.18839,158.18185-1423.42579,355-115.467,187.45037,761.56075,275.85807,1409.5548,451,219.68366,59.37681-79.93125,356.00445-383.43368,442-580.13234,164.37694-1010.19989,297.64517-1030.41609,612-55.56395,864,795.05151,400.77059,1345.48563,777,156.544,107,74.30885,433,1.202,486-302.47536,219.28456-461.91693,294-1012.79323,499-216.06192,80.40407-333.89444,478-333.89444,478l1722.9746,4s83.22591-1497-264.53952-1671c-689.09245-344.77862-586.05413-199-557.86952-479,24.34172-241.82282,594.90663-328.51739,738.17832-500.00532,146.201-174.99409,93.89219-646.3872-31.69109-836.99468-27.18729-41.26426-189.09413-127.0005-184.286-182,8.91706-102,49.19587-141.752,126.82044-196,219.65675-153.5072,243.36179-586.07019,37.64982-754-183.44881-149.75562-820.34711-307-885.57435-394C543.99354,159.57145,1127.9861,0,1127.9861,0Z" />
+                <path class="cls-1" d="M1127.9861,0S210.50267,166.61364,49.44775,402.61364s115.95954,324,196.487,324c66.91892,0,1152.7333-105.2096,1400.80129,244.67926,49.85676,70.32074-97.59692,275.76205-211.7104,317.32074-414.52261,150.9639-1302.18839,158.18185-1423.42579,355-115.467,187.45037,761.56075,275.85807,1409.5548,451,219.68366,59.37681-79.93125,356.00445-383.43368,442-580.13234,164.37694-1010.19989,297.64517-1030.41609,612-55.56395,864,795.05151,400.77059,1345.48563,777,156.544,107,74.30885,433,1.202,486-302.47536,219.28456-461.91693,294-1012.79323,499-216.06192,80.40407-333.89444,478-333.89444,478l1722.9746,4s83.22591-1497-264.53952-1671c-689.09245-344.77862-586.05413-199-557.86952-479,24.34172-241.82282,594.90663-328.51739,738.17832-500.00532,146.201-174.99409,93.89219-646.3872-31.69109-836.99468-27.18729-41.26426-189.09413-127.0005-184.286-182,8.91706-102,49.19587-141.752,126.82044-196,219.65675-153.5072,243.36179-586.07019,37.64982-754-183.44881-149.75562-820.34711-307-885.57435-394C543.99354,159.57145,1127.9861,0,1127.9861,0Z" />
             </g>
         </g>
     </svg>
@@ -191,8 +191,7 @@
                 <embed id="ajiThree" src="images/indexImages/indexAJIThree.svg" style="display:block;" />
                 <embed id="springThree" src="images/indexImages/indexspringThree.svg" style=" display:block;" />
                 <embed id="springThreeLeft" src="images/indexImages/indexspringThreeLeft.svg" style="display:block;" />
-                <embed id="springThreeRight" src="images/indexImages/indexspringThreeRight.svg"
-                    style="display:block;" />
+                <embed id="springThreeRight" src="images/indexImages/indexspringThreeRight.svg" style="display:block;" />
             </div>
             <div class="showShop">
                 <embed id="shop" class="shop" src="images/indexImages/indexShop.svg" style="display:block;" />
@@ -221,36 +220,29 @@
             </div>
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
-                <svg id="lineStory" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 -30 900 500" preserveAspectRatio="xMinYMin meet">
+                <svg id="lineStory" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -30 900 500" preserveAspectRatio="xMinYMin meet">
                     <defs>
-                        <linearGradient id="loveGradient" y1="214.28912" x2="831.87264" y2="214.28912"
-                            gradientUnits="userSpaceOnUse">
+                        <linearGradient id="loveGradient" y1="214.28912" x2="831.87264" y2="214.28912" gradientUnits="userSpaceOnUse">
                             <stop offset="0" stop-color="#e8436f" />
                             <stop offset="1" stop-color="#f3a6a8" />
                         </linearGradient>
                     </defs>
-                    <path class="cls-1" id="indexLine"
-                        d="M.42274,428.31125s60-95,88-94v61s90-106,107-96c8.5,32.5.5,56.5.5,56.5s51-59,81-71c7,18,17,50,17,50s111-118,112-165,2.2113,167.7395,0,170c-1.08759,1.11182,165-164,165-252s108-151,105,23c8,73-32,89-32,89s143-252,181-134-103,213-134,210" />
+                    <path class="cls-1" id="indexLine" d="M.42274,428.31125s60-95,88-94v61s90-106,107-96c8.5,32.5.5,56.5.5,56.5s51-59,81-71c7,18,17,50,17,50s111-118,112-165,2.2113,167.7395,0,170c-1.08759,1.11182,165-164,165-252s108-151,105,23c8,73-32,89-32,89s143-252,181-134-103,213-134,210" />
                 </svg>
                 <!-- 小相片 -->
                 <svg xmlns="http://www.w3.org/2000/svg" id="indexPhotoPaper" viewBox="0 0 397.85249 292.04484">
                     <defs>
-                        <linearGradient id="photoPaperGradientWhite" y1="0%" x2="0%" y2="100%" x1="0%"
-                            gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
+                        <linearGradient id="photoPaperGradientWhite" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
                             <stop offset="0%" id="photoPaperGradient01" stop-color="#fdfdfd" />
                             <stop offset="1%" id="photoPaperGradient02" stop-color="transparent" />
                         </linearGradient>
-                        <linearGradient id="photoPaperGradientRed" y1="0%" x2="0%" y2="100%" x1="0%"
-                            gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
+                        <linearGradient id="photoPaperGradientRed" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
                             <stop offset="0%" id="photoPaperGradient03" stop-color="#ef5c79" />
                             <stop offset="1%" id="photoPaperGradient04" stop-color="transparent" />
                         </linearGradient>
                     </defs>
-                    <path class="cls-1"
-                        d="M0,84.09751s114.03052,81.24675,139.68739,206.68032c0,0,2.85076,2.85076,11.40305,0s156.792-76.9706,239.4641-96.92594c0,0,11.40305,0,5.70153-11.40305S353.49462,65.56755,290.77783,25.65687c0,0-39.91068-25.65687-51.31374-25.65687S0,84.09751,0,84.09751Z" />
-                    <path class="cls-2" id="PhotoInfoRed"
-                        d="M25.95534,97.37365S82.9706,111.62747,154.23968,251.31486c0,0,196.70265-74.11984,222.35952-76.9706,0,0,5.70153,0,0-11.40305S319.58394,40.35839,245.4641,14.70153Z" />
+                    <path class="cls-1" d="M0,84.09751s114.03052,81.24675,139.68739,206.68032c0,0,2.85076,2.85076,11.40305,0s156.792-76.9706,239.4641-96.92594c0,0,11.40305,0,5.70153-11.40305S353.49462,65.56755,290.77783,25.65687c0,0-39.91068-25.65687-51.31374-25.65687S0,84.09751,0,84.09751Z" />
+                    <path class="cls-2" id="PhotoInfoRed" d="M25.95534,97.37365S82.9706,111.62747,154.23968,251.31486c0,0,196.70265-74.11984,222.35952-76.9706,0,0,5.70153,0,0-11.40305S319.58394,40.35839,245.4641,14.70153Z" />
                 </svg>
                 <embed id="PhotoInfo" src="images/indexImages/indexPhotoInfo.svg" style="display:block;" />
             </div>
@@ -281,8 +273,7 @@
                     <img src="images/indexImages/indexPhoto01.png" alt="activityphoto" class="activityphoto">
                 </li> -->
             </ul>
-            <embed id="indexActivityCart" class="indexActivityCart" src="images/indexImages/indexActivityCar.svg"
-                style="display:block;" />
+            <embed id="indexActivityCart" class="indexActivityCart" src="images/indexImages/indexActivityCar.svg" style="display:block;" />
             <div class="indexBtn">
                 <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
             </div>
@@ -463,4 +454,4 @@
     <script src="js/index.js"></script>
 </body>
 
-</html>
+</html> 
