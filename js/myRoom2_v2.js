@@ -2,17 +2,18 @@ function $id(id) {
 	return document.getElementById(id);
 }
 
-window.addEventListener('load',function(){
+window.addEventListener('load', function () {
 	//查看
 	var act_readmore = document.getElementsByClassName('act_readmore');
 
-	for(var i = 0;i<act_readmore.length;i++){
-			act_readmore[i].addEventListener('click',function(){
-				// location.href('http://localhost/activity_v2.php');
-				alert('1');
-			},false);
+	for (var i = 0; i < act_readmore.length; i++) {
+		act_readmore[i].addEventListener('click', function () {
+			// location.href('http://localhost/activity_v2.php');
+			alert('1');
+		}, false);
 	}
-},false);
+	console.log('ooxx');
+}, false);
 
 	// <input style="display:none" type="text" value="<?php echo $actTitle ;?>">
 	// <input style="display:none" type="text" value="<?php echo $actNo ;?>">
