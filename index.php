@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,43 +32,26 @@
         <div class="firstScreenBg">
             <img alt="city" class="city" src="images/indexImages/indexCity.svg">
             <img alt="fwOO" class="fwOO" src="images/indexImages/indexFW.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud1.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud2.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud3.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud4.png">
+            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud.png">
+            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud.png">
+            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud.png">
         </div>
         <!-- 主要內容 -->
         <section class="firstScreenInfo">
             <!-- indexCupidnew.svg -->
-            <div class="indexGod">
-                <embed id="indexCupid" src="images/indexImages/indexCupid.svg" style="display:block;" />
-                <svg xmlns="http://www.w3.org/2000/svg" id="cupidLight" viewBox="0 0 519 868.02883">
-                    <defs>
-                        <linearGradient id="cupidLightGradient" y1="0%" x2="0%" y2="100%" x1="0%"
-                            gradientUnits="objectBoundingBox">
-                            <stop offset="0%" id="cupidLight02" stop-color="#f092a6" />
-                            <stop offset="0%" id="cupidLight01" stop-color="rgba(255,255,255,0.6)" />
-                        </linearGradient>
-                    </defs>
-                    <title>資產 15</title>
-                    <g id="圖層_2" data-name="圖層 2">
-                        <g id="圖層_1-2" data-name="圖層 1">
-                            <path class="cls-1"
-                                d="M140.30211,0,0,803.55949s173,123.0168,519,29.19043L394.10458,9.75679Z" />
-                        </g>
-                    </g>
-                </svg>
-                <button class="btn_R" id="createBtn">立即創角</button>
-            </div>
-
-            <div class="indexSlogan">
+            <embed id="indexCupid" src="images/indexImages/indexCupidNew.svg" style="display:block;" />
+            <!-- <div class="indexSlogan">
                 <h2>
                     <span>找到對的人</span>
                     <span>聊到變麻吉</span>
                 </h2>
-            </div>
-            <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:1;" />
+            </div> -->
+            <svg id="firstScreenLove" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 50 100">
+                <path id="loveBtn" class="path-2" fill="#ECDED9" stroke="#EF5C79" stroke-width="1"
+                    stroke-miterlimit="10"
+                    d="M27 0c-2.476 0-4.856 0.921-6.704 2.595-0.702 0.635-1.303 1.357-1.796 2.154-0.493-0.797-1.094-1.519-1.796-2.155-1.848-1.673-4.228-2.594-6.704-2.594-5.514 0-10 4.486-10 10 0 3.722 1.158 6.66 3.871 9.825 3.942 4.6 13.919 11.62 14.342 11.917 0.086 0.061 0.187 0.091 0.287 0.091s0.201-0.030 0.287-0.091c0.423-0.297 10.4-7.317 14.343-11.917 2.712-3.165 3.87-6.103 3.87-9.825 0-5.514-4.486-10-10-10z" />
+                <text id="loveText" x="5" y="17" fill="#EF5C79" style="font-size:7px;">創建角色</text>
+            </svg>
             <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" />
         </section>
         <!-- 地板 -->
@@ -77,10 +63,35 @@
 
     <!-- 走道 -->
     <!-- 舊版 -->
-    <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" id="road" viewBox="0 0 2362.31 5394.47">
         <defs>
         </defs>
         <title>資產 5</title>
+        <g id="圖層_2" data-name="圖層 2">
+            <g id="圖層_1-2" data-name="圖層 1">
+                <path class="cls-1"
+                    d="M1472.88,0S333.54,166.61,133.54,402.61s144,324,244,324c83.1,0,1262.83,52.49,1739.53,244.68,96.94,39.09,141.41,251.56-.3,293.12C1602,1415.38,237.09,1446.8,86.54,1643.61-56.85,1831.06,1311.77,1958.84,2116.46,2134c272.8,59.38,378.09,387.15,1.19,473.14C1397.24,2771.5,27.64,2852.26,2.54,3166.61c-69,864,1285.2,599.55,2083,772,12,2.59,33.17,8.44,33.17,8.44l-2.17,284.56s-279.26,140.28-363,180c-399.42,189.47-1554,453-1554,453l-3.28,529.86,1920.28-4.86s412.22-1509.1,2-1644c-665.34-218.79-954-223-919-503,30.23-241.82,916.68-500,916.68-500l1.21-915.62s-215.61-73.27-189.89-124.38c20.36-40.47,92.69-89.6,189.08-143.85,272.77-153.51-.08-1068.15-.08-1068.15s-1083-24-1164-111C747.67,159.57,1472.88,0,1472.88,0Z" />
+            </g>
+        </g>
+    </svg> -->
+
+
+    <!-- 新版 -->
+    <svg xmlns="http://www.w3.org/2000/svg" id="textRoad" viewBox="0 0 1739 5392.61364">
+        <defs>
+            <style>
+                .cls-1 {
+                    fill: url(#ooo);
+                    transition: 3s;
+                }
+            </style>
+        </defs>
+        <linearGradient id="ooo" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox">
+            <stop offset="2%" id="sssss01" stop-color="#f3b9b4" />
+            <!-- <stop offset="1" stop-color="#f3a6a8" /> -->
+            <stop offset="7%" id="sssss02" stop-color="#ecded9" />
+        </linearGradient>
+        <title>資產 2</title>
         <g id="圖層_2" data-name="圖層 2">
             <g id="圖層_1-2" data-name="圖層 1">
                 <path class="cls-1"
@@ -89,11 +100,15 @@
         </g>
     </svg>
 
+
     <!-- 第二部分 找麻吉 -->
     <div class="secondScreen">
         <!-- 主要內容 -->
         <section class="secondScreenSlider">
-
+            <div class="sliderTitle indexTitle">
+                <h2>旋轉找麻吉</h2>
+                <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
+            </div>
             <div id="trojanList">
                 <div class="trojanItem">
                     <div class="trojanItemRolebox">
@@ -140,75 +155,45 @@
                 </div>
             </div>
 
-            <div class="sliderTitle indexTitle" id="ChairPerspective">
-                <!-- 默契值 -->
-                <div class="donut">
-                    <svg id="circleProcess" xmlns="http://www.w3.org/2000/svg">
-                        <circle id="circle" cx="50%" cy="50%" r="40%" stroke-width="10%" stroke-dashoffset="110%">
-                        </circle>
-                    </svg>
-                    <div class="donut-copy">
-                        <span class="donut-title" id="showCircle">66</span>
-                        <span class="donut-spic">%</span>
-                        <p>默契值</p>
-                    </div>
+            <!-- 默契值 -->
+            <div class="donut">
+                <svg id="circleProcess" xmlns="http://www.w3.org/2000/svg">
+                    <circle id="circle" cx="50%" cy="50%" r="40%" stroke-width="10%" stroke-dashoffset="110%"></circle>
+                </svg>
+
+                <div class="donut-copy">
+                    <span class="donut-title" id="showCircle">66</span><span class="donut-spic">%</span>
                 </div>
-                <ul class="chairInfoList">
-                    <li>姓名 : <span id="chairName">挖底加</span></li>
-                    <li>星座 : <span id="chairstar">金牛座</span></li>
-                    <li>興趣 : <span id="chairHobby">看書</span></li>
-                </ul>
-                <!-- 坐椅子 -->
-                <embed id="chair" src="images/indexImages/indexChair.svg" style="display:block;" />
             </div>
-            <div class="secondTitle">
-                <h2>旋轉找麻吉</h2>
-                <div class="indexBtn">
-                    <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
-                </div>
+
+            <div class="indexBtn">
+                <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
             </div>
         </section>
     </div>
-
-
 
     <!-- 第三部分 商城 -->
     <div class="thirdScreen">
         <!-- 主要內容 -->
         <section class="thirdScreenShop">
-            <div class="AjiShopSpring">
-                <div class="shopEnergy">
-                    <h2>魅力值</h2>
-                    <embed id="energy" src="images/indexImages/indexEnergy.svg" style="display:block;" />
-                    <p>
-                        購買新造型服裝
-                        增加個人魅力值
-                        吸引更多新朋友
-                        成為萬人迷!!
-                    </p>
-                </div>
-                <embed id="ajiThree" src="images/indexImages/indexAJIThree.svg" style="display:block;" />
-                <embed id="springThree" src="images/indexImages/indexspringThree.svg" style=" display:block;" />
-                <embed id="springThreeLeft" src="images/indexImages/indexspringThreeLeft.svg" style="display:block;" />
-                <embed id="springThreeRight" src="images/indexImages/indexspringThreeRight.svg"
-                    style="display:block;" />
+            <div class="shopTitle indexTitle">
+                <h2>打造魅力形象</h2>
+                <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
             </div>
             <div class="showShop">
+                <!-- <img alt="shop" class="shop" src="images/indexImages/indexShop.svg"> -->
                 <embed id="shop" class="shop" src="images/indexImages/indexShop.svg" style="display:block;" />
+                <!-- <img alt="model" class="model" src="images/indexImages/indexModel01.png"> -->
                 <div class="model">
                     <div id="indexModel" class="roleBox"></div>
                     <div id="modelLight"></div>
                 </div>
-                <div class="shopTitle indexTitle">
-                    <h2>打造魅力形象</h2>
-                    <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
-                </div>
             </div>
-
+            <div class="indexBtn">
+                <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
+            </div>
         </section>
     </div>
-
-
 
     <!-- 第四部分 塗鴉合照 -->
     <div class="fourthScreen" id="fourthScreen">
@@ -252,6 +237,9 @@
                         d="M25.95534,97.37365S82.9706,111.62747,154.23968,251.31486c0,0,196.70265-74.11984,222.35952-76.9706,0,0,5.70153,0,0-11.40305S319.58394,40.35839,245.4641,14.70153Z" />
                 </svg>
                 <embed id="PhotoInfo" src="images/indexImages/indexPhotoInfo.svg" style="display:block;" />
+            </div>
+            <div class="indexBtn">
+                <a href="photo.html" title="照片牆" class="btn_R">照片牆</a>
             </div>
             <div id="flash"></div>
 
@@ -345,6 +333,7 @@
                 </div>
             </div>
         </div>
+
         <button id="saveRoleBtn">製作完成</button>
 
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
@@ -394,6 +383,8 @@
                 <option value="11">水瓶座</option>
                 <option value="12">雙魚座</option>
             </select>
+
+
 
             <span>興趣</span>
             <label>
