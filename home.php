@@ -9,11 +9,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- 共通 -->
     <script src="js/commonPart.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    
     <link rel="stylesheet" type="text/css" href="css/common.css">
     
     <title>熊麻吉</title>

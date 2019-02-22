@@ -100,7 +100,7 @@
     }
 }
 
-@keyframes atop{
+@keyframes atop {
     0% {
         transform: translateY(0%);
     }
@@ -111,7 +111,8 @@
         transform: translateY(0%);
     }
 }
-@keyframes abottom{
+
+@keyframes abottom {
     0% {
         transform: translateY(-20%);
     }
@@ -121,4 +122,12 @@
     100% {
         transform: translateY(-20%);
     }
+}
+
+.toOur {
+    position: absolute;
+    left: 3%;
+    bottom: 9%;
+    color: #EF5C79;
+    font-size: 1.6rem;
 }
