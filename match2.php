@@ -30,10 +30,12 @@ try {
     <title>找麻吉</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
-    <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/commonPart.js"></script>
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
+
 </head>
 
 <body>
@@ -47,7 +49,8 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
-    <div class="alertWrap">
+    
+    <!-- <div class="alertWrap">
         <div class="alert">
             <p id="alertText">今天的愛心已經用完囉！</p>
             <p>
@@ -152,8 +155,8 @@ try {
             </table>
 
         </div>
-    </div>
-    </div>
+    </div> -->
+    
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">

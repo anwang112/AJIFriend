@@ -12,6 +12,8 @@ session_start();
     <title>BearMJ_Shop</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/shop-style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/match2.css">
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/friendBox.js"></script>
     <script src="js/changeClothes.js"></script>
@@ -150,7 +152,7 @@ session_start();
             </div> 
         
     </div>
-
+ 
 
     <script>
         foot_html();  
@@ -162,7 +164,6 @@ session_start();
 	</script>
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script>
 
     function $id(id){

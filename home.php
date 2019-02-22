@@ -10,14 +10,16 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
     <!-- 共通 -->
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/match2.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    
     <title>熊麻吉</title>
-</head>
+</head> 
 
 <body>
 
@@ -322,15 +324,15 @@ session_start();
                         <li value="6"></li>
                     </ul>
                     <ul id="colorKindList">
-                        <il>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="rRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="gRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="bRang">
-                        </il>
+                        </li>
                     </ul>
                 </div>
             </div>
