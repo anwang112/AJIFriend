@@ -25,6 +25,7 @@ try {
             public $color;
             public $memId;
             public $intro;
+            public $memNo;
 
         }
         $IdRow = $idSta->fetch(PDO::FETCH_ASSOC);
@@ -40,6 +41,7 @@ try {
         $str->clothes = $IdRow["wearClothes"];
         $str->color = $IdRow["mColor"];
         $str->memId = $IdRow["memId"];
+        $str->memNo = $IdRow["memNo"];
         $send = json_encode($str);
         echo $send;
     }

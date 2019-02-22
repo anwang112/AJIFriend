@@ -11,21 +11,6 @@ try {
     $sta->execute();
     $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
-    //等級判斷式
-    // $lvArr = [];
-    // for ($i = 0; $i < 3; $i++) {
-    //     $mj = $moneyRow[$i]["mMJ"];
-    //     if ($mj >= 1000) {
-    //         $lv = "LV.3 萬人迷";;
-    //     } else if ($mj >= 500) {
-    //         $lv = "LV.2 潛力股";
-    //     } else {
-    //         $lv = "LV.1 邊緣人";
-    //     }
-    //     array_push($lvArr, $lv);
-    // };
-
-    //等級判斷式結束
 
 } catch (PDOException $e) {
     echo $e->getMessage();
@@ -47,7 +32,7 @@ try {
     <link rel="stylesheet" href="css/match2.css">
     <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="node_modules/gsap/src/minified/TweenLite.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
 </head>
 
@@ -62,6 +47,14 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
+    <div class="alertWrap">
+        <div class="alert">
+            <p id="alertText">今天的愛心已經用完囉！</p>
+            <p>
+            <button id="alertBtn">確定</button>
+            </p>
+        </div>
+    </div>
     <div class="searchWrap">
         <div id="searData">
             <div class="searchClose"></div>
@@ -71,6 +64,7 @@ try {
 
             <div class="profileInfo serPro">
                 <table>
+                <input type="hidden"value=""id="sMemNo">
                     <tr>
                         <th>
                             ID:
@@ -81,7 +75,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            魅力等級
+                            魅力等級:
                         </th>
                         <td>
                             <span id="sLv"></span>
@@ -98,7 +92,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            興趣:
+                            興趣：
                         </th>
                         <td>
                             <div id="hobby"></div>
@@ -121,24 +115,61 @@ try {
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <button id="btn_beFriend">成為麻吉</button>
+                        <td colspan="2" class="btns">
+                            <button class="btn_beFriend0">成為麻吉</button>
+                            <button id="report">檢舉麻吉</button>
                         </td>
                 </table>
             </div>
+        </div>
+        <div id="reportData">
+            <div class="searchClose reportClose"></div>
+            <table>
+                <tr>
+                    <th>檢舉人ID：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉對象ID：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉時間：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉原因：</th>
+                    <td class="nop">
+                        <textarea  id="fname" cols="25" rows="4"placeholder="請輸入檢舉原因(20字)"onkeydown="this.value=this.value.substr(0,20)"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="nop"></th>
+                    <td class='nop'>
+                        <button id="reportSmt">送出</button>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
     </div>
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
-            <input type="button" value="搜尋" class="search">
+            <button class="search">搜尋</button>
         </div>
 
 
         <div class="matchContent">
             <div class="carousel">
                 <h1>轉轉找麻吉</h1>
+                <div class="heart">
+                    <span>今日可找麻吉數：</span>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                </div>
                 <img src="images/matchBoard.svg" class="board">
                 <div class="matchHorse">
                     <img src="images/matchHorse.svg">
@@ -148,6 +179,7 @@ try {
                     <img src="images/matchItem01.svg" class="matchItem mi04">
                 </div>
                 <div class="matchMem">
+                <canvas id="drawing_canvas"></canvas>
                     <div class="memFront">
                         <img src="images/match01.svg">
                         <div id="matchMaji" class="roleBox"></div>
@@ -161,7 +193,7 @@ try {
                         <input type="hidden"value=""id="matchMemNo">
                         <tr>
                             <th>
-                                ID:
+                                ID：
                             </th>
                             <td>
                                 <span id="mcId"></span>
@@ -169,12 +201,12 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                默契值:
+                                默契值：
                             </th>
                             <td>
-                                <div class="MJstatus"></div>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
                                 <span class="pink">/100</span>
+                                <div id="MJstatus"></div>
                             </td>
                         </tr>
                         <tr>
@@ -197,7 +229,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                興趣:
+                                興趣：
                             </th>
                             <td>
                                 <span id="mcHobby"></span>
@@ -221,7 +253,7 @@ try {
                         </tr>
                         <tr>
                             <td colspan="2" class="btnCol">
-                                <button class="btn_beFriend">成為麻吉</button>
+                                <button class="btn_beFriend1">成為麻吉</button>
                             </td>
                     </table>
 
@@ -280,6 +312,7 @@ try {
                     <div class=" rankItem fans">
                         <div id="topFriend0" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -288,13 +321,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend2">成為麻吉</button>
                         </div>
                         
                     </div>
                     <div class="rankItem fans">
                         <div id="topFriend1" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -303,13 +337,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend3">成為麻吉</button>
                         </div>
                         
                     </div>
                     <div class="rankItem fans">
                         <div id="topFriend2" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -318,7 +353,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend4">成為麻吉</button>
                         </div>
                         
                     </div>
@@ -328,6 +363,7 @@ try {
                 <div class="rankContent">
                     <div class="rankItem moneyS">
                         <div id="topMoney0" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -336,11 +372,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend5">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
                         <div id="topMoney1" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -349,11 +386,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend6">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
                         <div id="topMoney2" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -362,7 +400,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend7">成為麻吉</button>
                         </div>
                     </div>
                 </div>
@@ -371,6 +409,7 @@ try {
                 <div class="rankContent">
                     <div class="rankItem MJs">
                         <div id="topMJ0" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -379,11 +418,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend8">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem MJs">
                         <div id="topMJ1" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -392,13 +432,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend9">成為麻吉</button>
                         </div>
                         
 
                     </div>
                     <div class="rankItem MJs">
                         <div id="topMJ2" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -407,18 +448,18 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend10">成為麻吉</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+    <script src="js/match2.js"></script>
     <script type="text/javascript">
         foot_html();
     </script>
-    <script src="js/match2.js"></script>
+    
 
 
 </body>

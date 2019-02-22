@@ -43,6 +43,7 @@ try {
             public $memId;
             public $intro;
             public $friend;
+            public $memNo;
         }
         $rankArr=[];
         for ($i=0; $i <= 2; $i++) {
@@ -61,6 +62,7 @@ try {
             $str->memId = $IdRow[$i]["memId"];
             $str->coin = $IdRow[$i]["mCoin"];
             $str->friend = $IdRow[$i]["friend"];
+            $str->memNo = $IdRow[$i]["memNo"];
             
             array_push ( $rankArr , $str);
         }
