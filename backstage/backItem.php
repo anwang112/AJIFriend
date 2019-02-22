@@ -49,7 +49,9 @@
         }
         td,th{
             text-align:center;
+            vertical-align: middle;
             width:120px;
+            
         }
         .lightbox_holdact .lightbox_holdact_info form {
             width: 90%;
@@ -125,6 +127,18 @@
             text-align: center;
             margin-left: 8px;
         }
+        /* #myTable button{
+            position: relative;
+            top: 50px;
+        } */
+        #myTable input{
+            position: relative;
+            top: 20px;
+        }
+        #myTable input[type="submit"]{
+            position: relative;
+            top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -132,7 +146,7 @@
 <script>
 header();
 </script>
-    <table class="table table-hover">
+    <table id="myTable" class="table table-hover">
         <thead>
             <tr>
             <td colspan="6"></td>
@@ -171,11 +185,11 @@ header();
             <tr>
             <form action="backItemToDB.php" method="post" enctype="multipart/form-data">
                 <th scope="row">
-                    <?php echo $proNo ;?>
+                    <a href="#"><?php echo $proNo ;?></a>
                     <input type="hidden" name="proNo" value="<?php echo $proNo ;?>">
                 </th>
                 <td>
-                    <img  id="act_holdActFileBox" src="../images/<?php echo $img;?>" style="width:100px; height:150px;" alt="活動圖片">
+                    <img  id="act_holdActFileBox" src="../images/<?php echo $img;?>" style="width:190px; height:140px;" alt="活動圖片">
                 </td> 
                 <td><?php echo $proName ;?><br><input type="text" name="proName" value="<?php echo $proName ;?>"></td>
                 <td><?php echo $price ;?><br><input type="text" name="price" value="<?php echo $price ;?>"></td>

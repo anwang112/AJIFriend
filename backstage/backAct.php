@@ -26,11 +26,15 @@
             vertical-align: bottom;
             border-bottom: 2px solid #dee2e6;
             width: 15%;
-            font-size: 16px;
+            font-size: 20px;
         }
         td,th{
             text-align:center;
-            width:150px;
+            
+
+        }
+        #maintable{
+            width: 110%;
         }
     </style>
 </head>
@@ -39,7 +43,6 @@
     <!-- Just an image -->
     <script>
         header();
-        
    </script>
     <table id="maintable" class="table table-hover">
         <thead>
