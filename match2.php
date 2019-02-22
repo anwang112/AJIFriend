@@ -11,21 +11,6 @@ try {
     $sta->execute();
     $stadRow = $sta->fetch(PDO::FETCH_ASSOC);
 
-    //等級判斷式
-    // $lvArr = [];
-    // for ($i = 0; $i < 3; $i++) {
-    //     $mj = $moneyRow[$i]["mMJ"];
-    //     if ($mj >= 1000) {
-    //         $lv = "LV.3 萬人迷";;
-    //     } else if ($mj >= 500) {
-    //         $lv = "LV.2 潛力股";
-    //     } else {
-    //         $lv = "LV.1 邊緣人";
-    //     }
-    //     array_push($lvArr, $lv);
-    // };
-
-    //等級判斷式結束
 
 } catch (PDOException $e) {
     echo $e->getMessage();
@@ -62,6 +47,14 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
+    <div class="alertWrap">
+        <div class="alert">
+            <p id="alertText">今天的愛心已經用完囉！</p>
+            <p>
+            <button id="alertBtn">確定</button>
+            </p>
+        </div>
+    </div>
     <div class="searchWrap">
         <div id="searData">
             <div class="searchClose"></div>
@@ -71,6 +64,7 @@ try {
 
             <div class="profileInfo serPro">
                 <table>
+                <input type="hidden"value=""id="sMemNo">
                     <tr>
                         <th>
                             ID:
@@ -81,7 +75,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            魅力等級
+                            魅力等級:
                         </th>
                         <td>
                             <span id="sLv"></span>
@@ -98,7 +92,7 @@ try {
                     </tr>
                     <tr>
                         <th>
-                            興趣:
+                            興趣：
                         </th>
                         <td>
                             <div id="hobby"></div>
@@ -121,23 +115,49 @@ try {
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <button id="btn_beFriend">成為麻吉</button>
-                            <button id="">檢舉麻吉</button>
+                        <td colspan="2" class="btns">
+                            <button class="btn_beFriend0 btn">成為麻吉</button>
+                            <button id="report">檢舉麻吉</button>
                         </td>
                 </table>
             </div>
+        </div>
+        <div id="reportData">
+            <div class="searchClose reportClose"></div>
+            <table>
+                <tr>
+                    <th>檢舉人ID：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉對象ID：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉時間：</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>檢舉原因：</th>
+                    <td class="nop">
+                        <textarea  id="fname" cols="25" rows="4"placeholder="請輸入檢舉原因(20字)"onkeydown="this.value=this.value.substr(0,20)"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="nop"></th>
+                    <td class='nop'>
+                        <button id="reportSmt">送出</button>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
     </div>
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
-<<<<<<< HEAD
-            <input type="button" value="搜尋" class="search">
-=======
             <button class="search">搜尋</button>
->>>>>>> master
         </div>
 
 
@@ -145,7 +165,7 @@ try {
             <div class="carousel">
                 <h1>轉轉找麻吉</h1>
                 <div class="heart">
-                    <span>今日剩餘麻吉數：</span>
+                    <span>今日可找麻吉數：</span>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
@@ -173,7 +193,7 @@ try {
                         <input type="hidden"value=""id="matchMemNo">
                         <tr>
                             <th>
-                                ID:
+                                ID：
                             </th>
                             <td>
                                 <span id="mcId"></span>
@@ -181,15 +201,12 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                默契值:
+                                默契值：
                             </th>
                             <td>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
                                 <span class="pink">/100</span>
-<<<<<<< HEAD
-=======
                                 <div id="MJstatus"></div>
->>>>>>> master
                             </td>
                         </tr>
                         <tr>
@@ -212,7 +229,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                興趣:
+                                興趣：
                             </th>
                             <td>
                                 <span id="mcHobby"></span>
@@ -236,7 +253,7 @@ try {
                         </tr>
                         <tr>
                             <td colspan="2" class="btnCol">
-                                <button class="btn_beFriend">成為麻吉</button>
+                                <button class="btn_beFriend1 btn">成為麻吉</button>
                             </td>
                     </table>
 
@@ -292,33 +309,10 @@ try {
             </ul>
             <div class="tabPanel active" id="tab-1">
                 <div class="rankContent">
-<<<<<<< HEAD
-                    <div class=" rankItem">
-                        <div id="topFriend02" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 2;
-                            topFriend02 = document.getElementById('topFriend02');
-                            ooxxGetRole(topFriend02, {
-                                animal: ddd,
-                                color: '005450',
-                                eyes: 3,
-                                // hat: ,
-                                // clothes: ,
-                            });
-                        </script>
-                        <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>LV.3 XXX</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class=" rankItem fans">
                         <div id="topFriend0" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -327,38 +321,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend2 btn">成為麻吉</button>
                         </div>
                         
                     </div>
-<<<<<<< HEAD
-                    <div class="rankItem">
-                        <div id="topFriend01" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 2;
-                            topFriend01 = document.getElementById('topFriend01');
-                            ooxxGetRole(topFriend01, {
-                                animal: ddd,
-                                color: '666666',
-                                eyes: 1,
-                                hat: 2,
-                                clothes: 2,
-                            });
-                        </script>
-                        <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>LV.3 XXX</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class="rankItem fans">
                         <div id="topFriend1" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -367,38 +337,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend3 btn">成為麻吉</button>
                         </div>
                         
                     </div>
-<<<<<<< HEAD
-                    <div class="rankItem">
-                        <div id="topFriend03" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 2;
-                            topFriend03 = document.getElementById('topFriend03');
-                            ooxxGetRole(topFriend03, {
-                                animal: ddd,
-                                color: 'ac4937',
-                                eyes: 6,
-                                hat: 0,
-                                clothes: 1,
-                            });
-                        </script>
-                        <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>LV.3 XXX</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class="rankItem fans">
                         <div id="topFriend2" class="roleBox rankRole"></div>
                         
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -407,8 +353,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend4 btn">成為麻吉</button>
                         </div>
                         
                     </div>
@@ -416,51 +361,9 @@ try {
             </div>
             <div class="tabPanel" id="tab-2">
                 <div class="rankContent">
-<<<<<<< HEAD
-                    <div class="rankItem">
-                        <div id="topMoney0" class="roleBox rankRole"></div>
-                        <div class="rankProfile">
-                            <div class="rankTxt0">
-                                <h3></h3>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rankItem">
-                        <div id="topMoney1" class="roleBox rankRole"></div>
-
-                        <div class="rankProfile">
-                            <div class="rankTxt1">
-                                <h3></h3>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rankItem">
-                        <div id="topMoney2" class="roleBox rankRole"></div>
-                        <div class="rankProfile">
-                            <div class="rankTxt2">
-                                <h3></h3>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <span></span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class="rankItem moneyS">
                         <div id="topMoney0" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -469,11 +372,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend5 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
                         <div id="topMoney1" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -482,11 +386,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend6 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
                         <div id="topMoney2" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -495,64 +400,16 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend7 btn">成為麻吉</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tabPanel" id="tab-3">
                 <div class="rankContent">
-<<<<<<< HEAD
-                    <div class="rankItem">
-                        <div id="topMJ01" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 1;
-                            topMJ01 = document.getElementById('topMJ01');
-                            ooxxGetRole(topMJ01, {
-                                animal: ddd,
-                                color: 'fa0',
-                                eyes: 1,
-                                hat: 2,
-                                clothes: 2,
-                            });
-                        </script>
-                        <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>LV.3 OOO</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rankItem">
-                        <div id="topMJ02" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 1;
-                            topMJ02 = document.getElementById('topMJ02');
-                            ooxxGetRole(topMJ02, {
-                                animal: ddd,
-                                color: 'fa0',
-                                eyes: 1,
-                                hat: 2,
-                                clothes: 2,
-                            });
-                        </script>
-                        <div class="rankProfile rank1pro">
-                            <div class="rankTxt">
-                                <h3>LV.3 XXX</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class="rankItem MJs">
                         <div id="topMJ0" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo0">
                         <div class="rankTxt0 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -561,11 +418,12 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
+                            <button class="btn_beFriend8 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem MJs">
                         <div id="topMJ1" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo1">
                         <div class="rankTxt1 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -574,38 +432,14 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend9 btn">成為麻吉</button>
                         </div>
                         
 
                     </div>
-<<<<<<< HEAD
-                    <div class="rankItem">
-                        <div id="topMJ03" class="roleBox rankRole"></div>
-                        <script>
-                            var ddd = 1;
-                            topMJ03 = document.getElementById('topMJ03');
-                            ooxxGetRole(topMJ03, {
-                                animal: ddd,
-                                color: 'fa0',
-                                eyes: 1,
-                                hat: 2,
-                                clothes: 2,
-                            });
-                        </script>
-                        <div class="rankProfile">
-                            <div class="rankTxt">
-                                <h3>LV.3 XXX</h3>
-                                <span>魅力值：300</span><br>
-                                <span>金幣：1400</span><br>
-                                <span>好友數：207</span><br>
-                                <button class="rankBtn showInfo">查看個人頁面</button><br>
-                                <button class="rankBtn">加為朋友</button>
-                            </div>
-=======
                     <div class="rankItem MJs">
                         <div id="topMJ2" class="roleBox rankRole"></div>
+                        <input type="hidden"value=""class="rankNo2">
                         <div class="rankTxt2 rankTxtCs">
                             <h3></h3>
                             <h4></h4>
@@ -614,94 +448,19 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="rankBtn">成為麻吉</button>
->>>>>>> master
+                            <button class="btn_beFriend10 btn">成為麻吉</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <div class="searchWrap2">
-        <div id="searData">
-            <div class="searchClose"></div>
-            <div class="sRole">
-                <div id="topMoney05" class="roleBox sRoleBox"></div>
-            </div>
-
-            <div class="profileInfo serPro">
-                <table>
-                    <tr>
-                        <th>
-                            ID:
-                        </th>
-                        <td>
-                            <span id="sMemId"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            魅力等級
-                        </th>
-                        <td>
-                            <span id="sLv"></span>
-                            <span id="sMJ"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            暱稱：
-                        </th>
-                        <td>
-                            <span id="sName"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            興趣:
-                        </th>
-                        <td>
-                            <div id="hobby"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            星座：
-                        </th>
-                        <td>
-                            <span id="sConstellation"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            自我介紹：
-                        </th>
-                        <td>
-                            <?php echo $stadRow["self-intro"]; ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button id="btn_beFriend">加為朋友</button>
-                        </td>
-                </table>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        foot_html();
-    </script>
-    <script src="js/match2.js"></script>
-    
-=======
     <script src="js/match2.js"></script>
     <script type="text/javascript">
         foot_html();
     </script>
     
 
->>>>>>> master
 
 </body>
 

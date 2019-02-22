@@ -3,7 +3,6 @@ function $id(id){
 }
 
 function changeModel(){
-    console.log("11111111111111111");
     var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function(){
             var ta = JSON.parse(xhr.responseText);
@@ -27,20 +26,6 @@ function changeModel(){
 		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 		xhr.send("from="+"gift");
 
-
-    
-
-
-    // var idList
-    // var ta = e.target;
-    // var no = ta.className.split(",");
-    // console.log(ta.className);
-    // $id("rwd-showId").innerText = no[0];
-    // $id("showId").innerText = no[0];
-    // // console.log(no);
-    // $id("model_animal").src = "shop-images/model_" + no[1] +".png";
-    // $id("model_hat").src = "shop-images/hat_" + no[2] +".png";
-    // closeFriendBox();
     TweenMax.fromTo('#showModel', 1.5, {
         y:-45,
         scale: .5,
