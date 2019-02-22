@@ -1,5 +1,5 @@
 <?php
-
+    //要抓到會員值 $_SESSION["memNo"]
     
     try {
         //跟資料庫要資料
@@ -29,6 +29,17 @@
         $activitmemJoin -> bindColumn("memId", $memId); 
 
         $activitmemJoin -> execute();
+
+        //載入穿搭的值
+
+        //載入衣櫃
+        $sqlhat = "SELECT * FROM product join  WHERE `category` = 1";
+        $pdohat -> $pdo->prepare($sqlhat); 
+        $pdohat-> bindColumn("img", $imgHat);
+        $pdohat-> execute();
+
+
+        //寫入穿好的
 
     } catch (PDOException $e) {
         echo "錯誤 : ", $e -> getMessage(), "<br>";

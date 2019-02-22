@@ -95,12 +95,14 @@
                   <!-- 橫向的帽子格櫃 -->
                   <ul class="myhats">
                     <!-- 最多10件帽子 -->
-                    <li><img src="images/hat/hat_meraCrown.png" class="hat"></li>
-                    <li><img src="images/hat/hat_nikeCapBlack.png" class="hat"></li>
+                    <?php while($pdohat ->fetch(PDO::FETCH_ASSOC)){?>
+                    <li><img src="images/hat/<?php echo $imgHat?>" class="hat"></li>
+                    <!-- <li><img src="images/hat/hat_nikeCapBlack.png" class="hat"></li>
                     <li><img src="images/hat/hat_beanieOrange.png" class="hat"></li>
                     <li><img src="images/hat/hat_nikeCapBlue.png" class="hat"></li>
                     <li><img src="images/hat/hat_beanieBlack.png" class="hat"></li>
-                    <li><img src="images/hat/hat_beanieMustard.png" class="hat"></li>
+                    <li><img src="images/hat/hat_beanieMustard.png" class="hat"></li> -->
+                    <?}?>
                   </ul>
                 </div>
               </div>
