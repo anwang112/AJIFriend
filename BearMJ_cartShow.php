@@ -77,18 +77,20 @@ session_start();
                     </span>
                     <img src="shop-images/coin.png">
                     <span>支付代幣金額:
-                        <?php echo array_sum($_SESSION["price"]) ?>
+                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
                     </span>
                 </div>
                 <div id="actionBtns">
                     <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
                     
                         <?php
-                            if(array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
+                            if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
                                 $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
                                 
-                            }else{
+                            }else if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
                                 $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>';
+                            }else{
+                                $str = '';
                             }
                         echo $str;
                         ?>
