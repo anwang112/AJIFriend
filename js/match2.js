@@ -115,6 +115,7 @@ $('.search').click(function () {
         loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
+    console.log(profile);
 });
 
 
@@ -292,7 +293,8 @@ function changeBtnUnf(btn){
 };
 //搜尋-送出好友邀請
 function beFriend (tarNo,loginNo,btn) {
-    if(btn.innerText == '成為麻吉'){
+    
+    if(btn.text() == '成為麻吉'){
         if (document.getElementById('userId').value == '') {
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
@@ -314,11 +316,10 @@ function beFriend (tarNo,loginNo,btn) {
                 makeFriend(profile);
             }
         }
-    }else if(btn.innerText == '解除麻吉關係'){
+    }else if(btn.text() == '解除麻吉關係'){
         data= {
-            memNo: sendMemId,
-            taMemId: taMemId,
-            nowDay: nowDay,
+            sendMemId: document.getElementById('userNo').value,
+            taMemId: document.getElementById('sMemNo').value,
             action: 2,
             btn: btn,
         };
@@ -824,19 +825,18 @@ function report(profile) {
 function unFriend(data){
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        if (parseInt(xhr.responseText) == 1) {
-            $('#alertText').text('已經檢舉過囉!');
+        console.log(xhr.responseText);
+        if (xhr.responseText == "delete friend~") {
+            $('#alertText').text('已解除麻吉關係!');
             $('.alertWrap').show();
-        } else if(parseInt(xhr.responseText) == 0){ 
-            $('#alertText').text('已收到您的檢舉!');
-            $('.alertWrap').show();
-            $('.searchWrap').hide();
+            changeBtnNomal(btn);
+
         }
 
     };
     xhr.open("Post", "updateRelationship.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("data=" + JSON.stringify(data));
+    xhr.send("upMem=" + JSON.stringify(data));
 
 
 }
