@@ -64,9 +64,10 @@
                     <span>聊到變麻吉</span>
                 </h2>
             </div>
-            <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:1;" />
-            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" />
+            <!-- <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
+            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:0;" />
+            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" /> -->
+            <embed id="AjiSpring" src="images/indexImages/AjiSpring.svg" style="display:block; opacity:0;" />
         </section>
         <!-- 地板 -->
         <div class="firstScreenFloor">
@@ -295,7 +296,6 @@
 
 
     <!-- 創建角色 -->
-    <div id="indexRoleMask"></div>
     <div id="indexCreateRoleBox" class="indexCreateRoleBox">
         <h2>創建專屬角色</h2>
         <div class="createRoleScreen">
@@ -355,96 +355,102 @@
     <div id="createMemberScreen">
         <h2>註冊會員</h2>
         <div class="createMemberBox">
-            <div class="createLeftFrom">
-
-            </div>
-            <div class="createRightForm">
-
-            </div>
-            <label>
-                <span>會員帳號 :</span>
-                <input type="text" required name="memId" id="memId">
-                <span id="getCheckmemId"></span>
-            </label>
-
-            <label>
-                <span>會員密碼 :</span>
-                <input type="password" required name="memPsw" id="memPsw">
-            </label>
-
-            <label>
-                <span>會員暱稱 :</span>
-                <input type="text" required name="mName" id="mName">
-                <span id="getCheckmName"></span>
-            </label>
-
-            <label>選擇星座</label>
-            <select name="constellation" id="constellation">
-                <option value="0">選擇星座</option>
-                <option value="1">牡羊座</option>
-                <option value="2">金牛座</option>
-                <option value="3">雙子座</option>
-                <option value="4">巨蟹座</option>
-                <option value="5">獅子座</option>
-                <option value="6">處女座</option>
-                <option value="7">天秤座</option>
-                <option value="8">天蠍座</option>
-                <option value="9">射手座</option>
-                <option value="10">摩羯座</option>
-                <option value="11">水瓶座</option>
-                <option value="12">雙魚座</option>
-            </select>
-
-            <span>興趣</span>
-            <label>
-                <span>打籃球</span>
-                <input type="checkbox" name="hobby" value="0" class="hobbyItem">
-            </label>
-            <label>
-                <span>抓寶可夢</span>
-                <input type="checkbox" name="hobby" value="1" class="hobbyItem">
-            </label>
-            <label>
-                <span>跑步</span>
-                <input type="checkbox" name="hobby" value="2" class="hobbyItem">
-            </label>
-            <label>
-                <span>看電影</span>
-                <input type="checkbox" name="hobby" value="3" class="hobbyItem">
-            </label>
-            <label>
-                <span>吃美食</span>
-                <input type="checkbox" name="hobby" value="4" class="hobbyItem">
-            </label>
-            <label>
-                <span>游泳</span>
-                <input type="checkbox" name="hobby" value="5" class="hobbyItem">
-            </label>
-            <label>
-                <span>唱歌</span>
-                <input type="checkbox" name="hobby" value="6" class="hobbyItem">
-            </label>
-            <label>
-                <span>看書</span>
-                <input type="checkbox" name="hobby" value="7" class="hobbyItem">
-            </label>
-            <label>
-                <span>爬山</span>
-                <input type="checkbox" name="hobby" value="8" class="hobbyItem">
-            </label>
-            <label>
-                <span>健身</span>
-                <input type="checkbox" name="hobby" value="9" class="hobbyItem">
-            </label>
-
-            <span>自我介紹</span>
-            <textarea name="self-intro" id="selfIntro" maxlength="50">
-
-                </textarea>
-
-            <button id="createMemberBtn">送出</button>
-
+            <ul class="createLeftForm">
+                <li>
+                    <label>會員帳號 :</label>
+                </li>
+                <li>
+                    <label>會員密碼 :</label>
+                </li>
+                <li>
+                    <label>會員暱稱 :</label>
+                </li>
+                <li>
+                    <label>選擇星座</label>
+                </li>
+                <li>
+                    <span>興趣</span>
+                </li>
+                <li>
+                    <span>自我介紹</span>
+                </li>
+            </ul>
+            <ul class="createRightForm">
+                <li>
+                    <input type="text" required name="memId" id="memId">
+                    <span id="getCheckmemId"></span>
+                </li>
+                <li>
+                    <input type="password" required name="memPsw" id="memPsw">
+                </li>
+                <li>
+                    <input type="text" required name="mName" id="mName"><span id="getCheckmName" style="display:none;"></span>
+                </li>
+                <li>
+                    <select name="constellation" id="constellation">
+                        <option value="0">選擇星座</option>
+                        <option value="1">牡羊座</option>
+                        <option value="2">金牛座</option>
+                        <option value="3">雙子座</option>
+                        <option value="4">巨蟹座</option>
+                        <option value="5">獅子座</option>
+                        <option value="6">處女座</option>
+                        <option value="7">天秤座</option>
+                        <option value="8">天蠍座</option>
+                        <option value="9">射手座</option>
+                        <option value="10">摩羯座</option>
+                        <option value="11">水瓶座</option>
+                        <option value="12">雙魚座</option>
+                    </select>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="hobby" value="0" class="hobbyItem">
+                        <span>打籃球</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="1" class="hobbyItem">
+                        <span>抓寶可夢</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="2" class="hobbyItem">
+                        <span>跑步</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="3" class="hobbyItem">
+                        <span>看電影</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="4" class="hobbyItem">
+                        <span>吃美食</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="5" class="hobbyItem">
+                        <span>游泳</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="6" class="hobbyItem">
+                        <span>唱歌</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="7" class="hobbyItem">
+                        <span>看書</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="8" class="hobbyItem">
+                        <span>爬山</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="hobby" value="9" class="hobbyItem">
+                        <span>健身</span>
+                    </label>
+                </li>
+                <li>
+                    <textarea name="self-intro" id="selfIntro" maxlength="50"></textarea>
+                </li>
+            </ul>
         </div>
+        <button id="createMemberBtn" class="btn_R">送出</button>
     </div>
 
 

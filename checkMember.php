@@ -19,7 +19,7 @@ try {
     $oo->mName = 'mName';
 
     if ($checkInfo->check == 'memId') {
-        $sql = "select * from member where BINARY memId=:memId";
+        $sql = "select * from member where memId=:memId";
         $member = $pdo->prepare($sql);
         $member->bindValue(":memId", $checkInfo->memId);
         $member->execute();
@@ -31,7 +31,7 @@ try {
             $oo->checkmemId = '不能使用';
         }
     } elseif ($checkInfo->check == 'mName') {
-        $sql = "select * from member where BINARY mName=:mName";
+        $sql = "select * from member where mName=:mName";
         $member = $pdo->prepare($sql);
         $member->bindValue(":mName", $checkInfo->mName);
         $member->execute();
