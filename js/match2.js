@@ -285,29 +285,46 @@ function changeBtnNomal(btn){
     btn.addClass('btn');
     btn.text('成為麻吉').attr("disabled",false);
 };
+function changeBtnUnf(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('解除麻吉關係').attr("disabled",false);
+};
 //搜尋-送出好友邀請
 function beFriend (tarNo,loginNo,btn) {
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
+    if(btn.innerText == '成為麻吉'){
+        if (document.getElementById('userId').value == '') {
+            $('#alertText').text('請先登入!');
             $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-                btn: btn,
-            };
-            makeFriend(profile);
+        }else if(loginNo == tarNo){
+            $('#alertText').text('不能選擇自己唷!');
+            $('.alertWrap').show();
+        }else{
+            if (document.getElementById('userLove').value <= 0) {
+                $('#alertText').text('今天的愛心已經用完囉！');
+                $('.alertWrap').show();
+            } else {
+                profile = {
+                    memNo: loginNo,
+                    targetNo: tarNo,
+                    nowDay: nowDay,
+                    action: 3,
+                    btn: btn,
+                };
+                makeFriend(profile);
+            }
         }
+    }else if(btn.innerText == '解除麻吉關係'){
+        data= {
+            memNo: sendMemId,
+            taMemId: taMemId,
+            nowDay: nowDay,
+            action: 2,
+            btn: btn,
+        };
+        unFriend(data);
     }
+    
 }
 $('.btn_beFriend0').click(function(){
     tarNo = document.getElementById('sMemNo').value;
@@ -490,6 +507,9 @@ function searchMem(profile) {
             if(info.friendRe == 0){
                 btn = $('.btn_beFriend0');
                 changeBtn(btn);
+            }else if (info.friendRe == 1){
+                btn = $('.btn_beFriend0');
+                changeBtnUnf(btn);
             }
 
 
@@ -800,7 +820,26 @@ function report(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 
 }
+//unfriend
+function unFriend(data){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (parseInt(xhr.responseText) == 1) {
+            $('#alertText').text('已經檢舉過囉!');
+            $('.alertWrap').show();
+        } else if(parseInt(xhr.responseText) == 0){ 
+            $('#alertText').text('已收到您的檢舉!');
+            $('.alertWrap').show();
+            $('.searchWrap').hide();
+        }
 
+    };
+    xhr.open("Post", "updateRelationship.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" + JSON.stringify(data));
+
+
+}
 //撒花
 const TWO_PI = Math.PI * 2;
 const HALF_PI = Math.PI * 0.5;
