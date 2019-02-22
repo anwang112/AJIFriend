@@ -264,14 +264,8 @@ function sendForm(){
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-<<<<<<< HEAD
-	xhr.send(`memId=An&memPsw=22222222`);
-	// alert(document.getElementById('userLove').value);
-=======
 	xhr.send(`memId=ga&memPsw=11111111`);
-
 	friendList();
->>>>>>> ga
 }
 // sendForm();
 
@@ -1054,23 +1048,6 @@ rwd_chatTxt_send.addEventListener('click', function () {
 		sendMsg(txt);
 	}, false);
 
-<<<<<<< HEAD
-	window.addEventListener('resize', function () { //可能要再改
-		var clientWidrh = document.body.clientWidth;
-		console.log(clientWidrh);
-		if (clientWidrh < 1000) {
-			while (chatbox_show.firstChild) {
-				chatbox_show.removeChild(chatbox_show.firstChild);
-				
-			}
-		}
-		if (clientWidrh > 760) {
-			while (info_chatbox.firstChild) {
-				info_chatbox.removeChild(info_chatbox.firstChild);
-				console.log('ddd');
-			}
-		}
-=======
 	// --by 宗聖
 	// window.addEventListener('resize', function () { //可能要再改
 	// 	var clientWidrh = document.body.clientWidth;
@@ -1087,7 +1064,6 @@ rwd_chatTxt_send.addEventListener('click', function () {
 	// 			console.log('ddd');
 	// 		}
 	// 	}
->>>>>>> ga
 
 
 	// }, false);
