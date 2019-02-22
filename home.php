@@ -64,9 +64,6 @@ session_start();
                     <span>聊到變麻吉</span>
                 </h2>
             </div>
-            <!-- <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:0;" />
-            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" /> -->
             <embed id="AjiSpring" src="images/indexImages/AjiSpring.svg" style="display:block; opacity:0;" />
         </section>
         <!-- 地板 -->
@@ -77,7 +74,7 @@ session_start();
 
 
     <!-- 走道 -->
-    <!-- 舊版 -->
+    <!-- 石頭 -->
     <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
         <defs>
         </defs>
@@ -88,6 +85,7 @@ session_start();
             </g>
         </g>
     </svg>
+    
 
     <!-- 第二部分 找麻吉 -->
     <div class="secondScreen">
