@@ -16,8 +16,9 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/myRoom.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="js/myRoom2_v2.js"></script>
 <script src="js/myRoom2.js"></script>
-<script src="js/myRoom_v2.js"></script>
+
 <style>
   .act_Img{
     width:80%;
