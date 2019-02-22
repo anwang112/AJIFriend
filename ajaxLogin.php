@@ -30,7 +30,8 @@ try{
   	$_SESSION["wearHat"] = $memRow["wearHat"];
   	$_SESSION["wearClothes"] = $memRow["wearClothes"];
   	$_SESSION["last_play"] = $memRow["last_play"];
-  	$_SESSION["power"] = $memRow["power"];
+    $_SESSION["power"] = $memRow["power"];
+
 
     class data{
       public $arr;
@@ -41,6 +42,7 @@ try{
     //送出登入者的姓名資料
     $send = json_encode($user);
     echo $send;
+
   }
 }catch(PDOException $e){
   echo $e->getMessage();

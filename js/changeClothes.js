@@ -4,14 +4,12 @@ function changeClothes(no,cate){
     // console.log(wearNo);
 
     var hat_div = document.getElementsByClassName("roleHat")[0];
-    var clothes_div = document.getElementsByClassName("roleClothes")[0];
-    
+    var eye_div = document.getElementsByClassName("roleClothes")[0];
     if(cate==1){
         hat_div.style.backgroundImage = `url("images/hatImages/hat${no}.png")`;
 
     }else{
-        clothes_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
-
+        eye_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
     }
 
     // 更衣動畫
@@ -49,10 +47,6 @@ function removeInfo(e){  //移除產品訊息
 
     var taImg = e.target.parentNode.parentNode.childNodes[1];
     taImg.removeEventListener("click",showInfo);
-    
-
-
-
     var imgs = document.getElementsByClassName("click_wear");
     for(var i=0;i<imgs.length;i++){
         // imgs[i].style.opacity = 1;
@@ -67,8 +61,6 @@ function removeInfo(e){  //移除產品訊息
 var check=false;
 
 function showInfo(e){
-
-
     // [重置]先將外框全部拿掉
     var img = document.getElementsByClassName("click_wear");
     for(var i=0;i<img.length;i++){
