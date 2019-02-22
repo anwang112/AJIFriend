@@ -658,15 +658,18 @@
     top: 0px;
   }
   .act_hoverBox button{
-    width: 15%;
-    height: 4vh;
+    width: 25%;
+    height: 6vh;
     color: #fff;
     text-align: center;
     font-size: 0.7rem;
     line-height: 1rem;
     border-radius: 15px;
-    margin-top:28%;
     cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    bottom: 24px;
+    left: 8%;
   }
   .act_readmore{
     background-color: #E15974;
