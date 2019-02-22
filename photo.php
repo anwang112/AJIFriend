@@ -3,7 +3,8 @@
 $errMsg = "";
 try {
 	require_once("connectBooks.php");
-	$sql = "select * from picture where pic_cateNo=1 order by vote desc";
+    $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=1 order by p.vote desc";
+
  	$photo = $pdo->query($sql); 
 } catch (PDOException $e) {
 	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
@@ -58,20 +59,32 @@ try {
            
             <div class="col3">
             <?php	
-                while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
+                // $i=0;
+                while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){     
             ?>
                 <div  class="top top1">
-                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
+                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="rank">
                     <div class="topbg">
                         <img src="images/photoclouds-24.png" alt="bg">
                     </div>
-                    <img class="member" src="images/member4-20.png" alt="doggy">
-                    <a href="#">AJI</a>
+                    <div class="headBox member" id="sticker"  ></div>
+                    <script>
+                     head = document.getElementById('sticker');         
+                        ooxxGetHead(head, {
+                            animal: <?php echo $photoRow["animal"]; ?>,
+                            color: '<?php echo $photoRow["mColor"]; ?>',
+                            eyes: <?php echo $photoRow["eye"]; ?>,
+                        })
+                        
+                    </script>
+                    <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
+                    <a href="#"><?php echo $photoRow["memId"];?></a>
                     <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span><?php echo $photoRow["vote"];?></span>
                 </div>
             <?php
-                }
+                // $i ++;
+            }
             ?>
             </div>
            
@@ -286,7 +299,7 @@ try {
                 </div>
             </div>
 <?php
-    $sql = "select * from picture  where pic_cateNo=2 order by time desc";
+    $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
     $photo = $pdo->query($sql); 
 ?>
 <?php	
@@ -296,7 +309,7 @@ try {
                 <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
                 <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
                 <img class="member" src="images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
+                <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
                 <div class="bigHeart" id="bigHeart">
@@ -307,7 +320,7 @@ try {
 	}
 ?>   
             <div class="clear"></div>
-            </form>
+            
          
             <!-- <div id="cardLB" class="照片id ex:card-photo7">
                 <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
@@ -323,7 +336,64 @@ try {
             </div> -->
         </div>
     </div>
+    <div class="headBox member" id="sticker3"></div>
+<script>
+//１.未登入者跳視窗 :登入才能按讚   alert請先登入
+//2-1.登入者先回去資料庫檢查資料會員帳號 照片標號 判斷是否按過讚 未按讚數＋1
+//2-2.已按顯示 ：你~已經按過了
 
+function addHeart(e){
+    var login=document.getElementById("loginNot");
+    if(login.innerText=="登入"){
+        alert("請先登入！");
+    }else if(login.innerText=="登出"){
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if( xhr.status == 200){
+            xhr.responseText == "null"{ //失敗狀態
+
+          }else{
+            alert( xhr.status );
+            alert("Dear你已經投過了～");
+          }
+        }
+        xhr.open("get", "ajaxCheckVote.php",true);
+        xhr.send(null);
+      }
+}
+
+        
+		// xhr.open("Post","getMemData.php",true);
+		// xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+
+
+
+function init(){
+    
+
+    var heart =document.getElementsByClassName("heart");
+    for(var i = 0; i < heart.length; i++){
+        heart[i].addEventListener("click",addHeart,false);
+    }
+    var card=document.getElementsByClassName("card");
+    for(var j=0;j<card.length;j++){
+        card[j].addEventListener("mouseover",showHeart,false);
+        card[j].addEventListener("mouseout",hiddenHeart,false);
+    }
+
+   
+    
+
+}
+
+window.addEventListener("load",init,false);
+
+
+       
+
+
+</script>
     
             
 

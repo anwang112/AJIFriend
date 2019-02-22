@@ -18,10 +18,12 @@ function topLB(e){
     var imgTop=document.createElement("img");
     imgTop.className="topPhoto";
     imgTop.src = parent.childNodes[1].src;
-    // 創建img member
-    var imgMem=document.createElement("img");
-    imgMem.className="member";
-    imgMem.src=parent.childNodes[5].src;
+    // 創建div member
+    var divMem=document.createElement("div");
+    divMem.className="member";
+    divMem.className="headBox";
+    divMem.id="sticker"
+    divMem.src=parent.childNodes[5].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
@@ -48,7 +50,7 @@ function topLB(e){
     wrap.appendChild(divBg);
     divBg.appendChild(divTop);
     divTop.appendChild(imgTop);
-    divTop.appendChild(imgMem);
+    divTop.appendChild(divMem);
     divTop.appendChild(aMem);
     divTop.appendChild(imgHeart);
     divTop.appendChild(spanVote);
