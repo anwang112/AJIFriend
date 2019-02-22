@@ -10,6 +10,77 @@
   z-index: 20;
 }
 
+#reportData {
+  width: 60%;
+  height: 450px;
+  background-color: #a2988f;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 22;
+  padding: 30px;
+  backface-visibility: hidden;
+  transition: .5s;
+  transform: rotateY(180deg);
+  button{
+    @include btn_standard(100px, $darkPink, $shadowPink);
+  }
+  table {
+    margin: auto;
+
+    tr {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    td,
+    th {
+      padding: 10px;
+      margin: 10px;
+      display: block;
+    }
+
+
+    th {
+      text-align: center;
+      background-color: #ecded9;
+      color: #a2988f;
+      border-radius: 5px;
+      width: 120px;
+    }
+
+    .nop {
+      padding: 0 10px;
+    }
+
+    textarea {
+      &::placeholder {
+        color: #636363;
+        transition: all 0.2s ease-in-out;
+      }
+      resize:none;
+      border-radius: 5px;
+      border: none;
+      background-color: #ecded9;
+      color: #a2988f;
+      font-size: 15px;
+      padding: 0 10px;
+      margin: 0;
+
+      &:focus,
+      &.populated {
+
+        &::placeholder {
+          color: transparent;
+        }
+
+      }
+    }
+  }
+}
+
 #searData {
   width: 60%;
   height: 450px;
@@ -19,23 +90,18 @@
   display: flex;
   justify-content: center;
   padding: 30px;
-  position: relative;
+  position: absolute;
   top: 15%;
   z-index: 21;
+  transition: .5s;
+  left: 0;
+  right: 0;
+  transform: rotateY(0deg);
 
-  .searchClose {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 20px;
-    background-image: url(../images/XX.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
 
   .sRole {
     padding-top: 30px;
-    width: 40%;
+    width: 50%;
     background-image: url(../images/searbg.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -45,6 +111,15 @@
       width: 100%;
     }
   }
+}
+.searchClose {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  background-image: url(../images/XX.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .wrap {
@@ -75,6 +150,7 @@
       width: 500px;
       border: none;
       border-radius: 12px;
+      font-size: 15px;
     }
   }
 }
@@ -84,8 +160,9 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: -30px;
-  
+  top: 35px;
+  right: -54%;
+
 
   .heartItem {
     margin: 0 3px;
@@ -123,6 +200,9 @@
     background-color: #eef2ef;
     border: 10px solid #fbc5cf;
 
+    button {
+      margin: 10px
+    }
     #MJstatus {
       font-size: 15px;
       margin-top: -15px;
@@ -138,10 +218,10 @@
       text-align: center;
       background-color: #fbc5cf;
       border-radius: 5px;
-      margin: 5px;
+      margin: 5px 0px 5px -6px;
       color: #eb616d;
       width: 86%;
-      padding: 0 5px;
+      padding: 0 10px;
     }
 
     td {
@@ -159,6 +239,13 @@
     border: 3px solid #a2988f;
     width: 50%;
     line-height: 2;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    #report {
+      @include btn_standard(100px, $darkPink, $shadowPink);
+      margin: 10px
+    }
 
     th {
       display: block;
@@ -182,13 +269,15 @@
 
     td {
       text-align: left;
+
+    }
+
+    .btns {
+      text-align: right;
     }
   }
 
-  button {
-    margin: 10px;
-    @include btn_standard(100px, $darkPink, $shadowPink);
-  }
+  
 
   .matchMJ {
     font-size: 5vmin;
@@ -326,8 +415,8 @@
     }
 
     button {
-      margin: 5px;
       @include btn_standard(100px, $darkPink, $shadowPink);
+      margin: 5px;
     }
   }
 }
@@ -338,8 +427,9 @@
   box-shadow: 2px 2px 5px #ccc;
   border-radius: 20px;
   margin: auto;
-  margin-top: 30%;
+  margin-top: 375px;
   padding: 20px;
+  max-width: 1200px;
 
   .rankTitle {
     @include LRcenter(relative);
@@ -366,7 +456,6 @@
     display: flex;
     text-align: center;
     margin-top: -50px;
-    padding-bottom: 50px;
     justify-content: center;
 
     li {
@@ -429,11 +518,10 @@
     justify-content: center;
     padding-top: 50px;
 
-    .rankBtn {
+    button {
       height: 30px;
       margin: 5px;
       line-height: 0;
-      @include btn_standard(100px, $darkPink, $shadowPink);
     }
 
     .rankItem {
@@ -458,7 +546,9 @@
     }
   }
 }
-
+.rankBtn{
+  @include btn_standard(100px, $darkPink, $shadowPink);
+}
 .rankTxtCs {
   @include LRcenter(relative);
   margin: 10px;
@@ -493,6 +583,43 @@
   }
 }
 
+.alertWrap {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  z-index: 25;
+
+  .alert {
+    width: 300px;
+    height: 150px;
+    background-color: #FAE7F0;
+    top: calc(50% - 75px);
+    @include LRcenter(absolute);
+    border-radius: 20px;
+
+    #alertBtn {
+      @include btn_standard(100px, $darkPink, $shadowPink);
+      display: block;
+      @include LRcenter(absolute);
+      bottom: 30px;
+
+    }
+
+    #alertText {
+      text-align: center;
+      line-height: 4;
+    }
+
+  }
+}
+.disable{
+  @include btn_dis(100px);
+}
+.btn{
+  @include btn_standard(100px, $darkPink, $shadowPink);
+} 
+
 @media only screen and (max-width: 768px) {
   .wrap {
     .searchMaji {
@@ -508,7 +635,7 @@
       }
 
       .searchTxt {
-        height: 50px;
+        height: 39px;
         width: 70%;
       }
     }
@@ -575,7 +702,7 @@
   }
 
   .profileInfo.proAb th {
-    width: 100px;
+    width: 112px;
   }
 
   .majiRank {
@@ -608,9 +735,13 @@
   #searData .searchClose {
     top: 20px;
   }
+
   .heart {
     top: 126px;
     right: -40%;
+  }
+  #reportData{
+    height: 770px;
   }
 }
 
@@ -643,6 +774,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
+    z-index: 3;
   }
 
   .rankTxtCs {
@@ -654,8 +786,8 @@
   }
 
   #searData {
-    width: 93%;
-    top: -7%;
+    width: 100%;
+    top: 0%;
     padding: 13px;
   }
 
@@ -668,12 +800,25 @@
   }
 
   #searData .searchClose {
-    right: 12px;
-    top: 61px;
+    right: 16px;
+    top: 48px;
   }
 
   .heart {
     top: 747px;
     right: 7%;
+    z-index: 5;
+  }
+  #reportData{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    table{
+      margin-top: 100px;
+      textarea{
+        width: 180px;
+      }
+    }
+  
   }
 }

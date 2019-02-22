@@ -21,6 +21,7 @@ session_start();
 <body>
         <script type="text/javascript">
             head_html();
+            sendForm();
         </script>
     <div id="cart_background" class="background">
         <div class="title">
@@ -71,13 +72,34 @@ session_start();
                 <hr>
             <form id="cartForm">
                 <div id="totalCost">
-                    <span>總數量:{$}</span>
+                    <span>總數量:
+                        <?php if(isset($_SESSION["img"])){echo count($_SESSION["img"]);}else{
+                            echo 0;}?>
+                    </span>
                     <img src="shop-images/coin.png">
-                    <span>支付代幣金額:{$}</span>
+                    <span>支付代幣金額:
+                        <?php if(isset($_SESSION["price"])){echo array_sum($_SESSION["price"]);}else{
+                            echo 0;
+                        } ?>
+                    </span>
                 </div>
                 <div id="actionBtns">
                     <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
-                    <a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>
+                    
+                        <?php
+                            if(isset($_SESSION["price"]) && array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
+                                $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
+                                
+                            }else if(isset($_SESSION["price"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
+                                $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>';
+                            }else{
+                                $str = '';
+                            }
+                        echo $str;
+                        ?>
+                    
+                    
+                    
                 </div>
                 
             </form>

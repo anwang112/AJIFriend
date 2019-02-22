@@ -1,12 +1,21 @@
 <?php
 session_start();
-$chatMems = json_decode($_REQUEST["chatMems"]);
+
     try{
         require_once("connectBooks.php");
-        $sql = "select * from message where (send_memNo=:sendMemId && to_memNo=:taMemId) or (send_memNo=:taMemId && to_memNo=:sendMemId) ORDER by msgNo";
-        $msg = $pdo->prepare( $sql );
-        $msg -> bindValue( ":sendMemId",$chatMems->sendMemId);
-        $msg -> bindValue( ":taMemId",$chatMems->taMemId);
+        if(isset($_REQUEST["chatMems"])){
+            $chatMems = json_decode($_REQUEST["chatMems"]);
+            $sql = "select * from message where (send_memNo=:sendMemId && to_memNo=:taMemId) or (send_memNo=:taMemId && to_memNo=:sendMemId) ORDER by msgNo";
+            $msg = $pdo->prepare( $sql );
+            $msg -> bindValue( ":sendMemId",$chatMems->sendMemId);
+            $msg -> bindValue( ":taMemId",$chatMems->taMemId);
+
+        }else{
+            $sql = "select * from message where send_memNo=:me or to_memNo=:me ORDER by time";
+            $msg = $pdo->prepare( $sql );
+            $msg -> bindValue( ":me",$_SESSION["memNo"]);
+
+        }
         $msg ->execute();
 
         class data{

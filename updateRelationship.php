@@ -2,7 +2,7 @@
 // 更新關係表   // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
 
 $data = json_decode($_REQUEST["upMem"]);  //解碼js傳過來的值
-$data->action=0;
+// $data->action=0;
 try{
     require_once("connectBooks.php");
     if($data->action==0){ //拒絕加好友

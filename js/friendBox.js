@@ -2,10 +2,16 @@ function $id(id){
     return document.getElementById(id);
 }
 
-function changeModel(){
+function changeModel(no){
+    console.log(typeof no);
+    if(typeof no == 'object'){
+        no = $id("userNo").value;
+    }
     var xhr = new XMLHttpRequest(); // 建立xhr
-		xhr.onload = function(){
+		xhr.onload = function (){
+            console.log(xhr.responseText);
             var ta = JSON.parse(xhr.responseText);
+            // alert(0);
 			if(xhr.responseText == "null"){ //失敗狀態
 				console.log("沒有資料");
 
@@ -17,14 +23,39 @@ function changeModel(){
                         hat: ta.hat,
                         clothes: ta.clothes,
                     });
-                // closeFriendBox();
+                    $id("rwd-showName").innerText=ta.name;
+                    $id("showName").innerText=ta.name;
+                    $id("showId").value = ta.no;
+                    // alert("me"+ta.no);
+                        var span = document.getElementsByClassName("wearChange");
+
+                    if(ta.no==$id("userNo").value){
+                        span[0].innerText="麻吉";
+                        span[1].innerText="麻吉";
+                        var divChoose = document.getElementsByClassName("choose-friend") ;
+                        for(var i = 0 ; i < divChoose.length ; i++){
+                            divChoose[i].removeEventListener("click",changeModel,false);
+                            divChoose[i].addEventListener("click",showfriendBox,false);
+                        }
+                    }else{
+                        span[0].innerText="自己";
+                        span[1].innerText="自己";
+                        var divChoose = document.getElementsByClassName("choose-friend") ;
+                        for(var i = 0 ; i < divChoose.length ; i++){
+                            divChoose[i].addEventListener("click",changeModel,false);
+                            divChoose[i].removeEventListener("click",showfriendBox,false);
+                        }
+                    }
+                    
+                closeFriendBox();
                 
+                getProducts(1);
             }
         };
-        
-		xhr.open("Post","getMemData.php",true);
-		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-		xhr.send("from="+"gift");
+        // console.log("8 8 8 8 8 "+b);
+        url = `getMemData.php?no=${no}`;
+		xhr.open("get",url,true);
+		xhr.send(null);
 
     TweenMax.fromTo('#showModel', 1.5, {
         y:-45,
@@ -46,6 +77,8 @@ function closeFriendBox(){ //關掉選朋友燈箱
 }
 
 function showfriendBox(){
+    var friendInfoArr = new Array;
+    friendInfoArr = [];
     //進資料庫撈朋友名單
     var giftTa_chooseBox = document.getElementById("chooseBox");
     var friend_LightBox = document.getElementById("friend_LightBox");
@@ -60,50 +93,33 @@ function showfriendBox(){
 			}else{ //成功取得
 				var friendArr = JSON.parse(xhr.responseText);
 				friendInfo = friendArr.friendsInfo; 
-				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
+				//[memNo||暱稱||動物||眼睛||毛色||帳號,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
 
 				var num = giftTa_chooseBox.children.length;
                 var datalength = friendArr.length;
 				if(num==0){
-					for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
-						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
-							infoArr[i] = friendInfo[i].split("||",5); 
-							//infoArr[i]:朋友資料陣列;
-							//infoArr[i][0]:會員編號; infoArr[i][1]:會員暱稱 infoArr[i][2]:動物
+                    
+                    for(var i = 0;i<friendInfo.length;i++){ // i:朋友數量
+                        var str=giftTa_chooseBox.innerHTML;
+						for(var j = 0;j<6;j++){ // j:撈回的資料欄位數量
+							friendInfoArr[i] = friendInfo[i].split("||",6); 
+							//friendInfoArr[i]:朋友資料陣列;
+							//friendInfoArr[i][0]:會員編號; friendInfoArr[i][1]:會員暱稱 friendInfoArr[i][2]:動物
 						}
-
+                        str += 
+                            `<a class="gift_friendList" onClick="changeModel(${friendInfoArr[i][0]})">
+                                <div class="headBox gift_headBox" id="headImg_div${friendInfoArr[i][0]}">
+                                
+                                </div>
+                                <p>${friendInfoArr[i][1]}</p>
+                                <input type="hidden" value=${friendInfoArr[i][0]}>
+                            </a>`;
+                        giftTa_chooseBox.innerHTML=str;
                         
-                        // 產生朋友列表<label>*N
-                        var a_btn = document.createElement("a");
-                        a_btn.className = "gift_friendList";
-                        a_btn.href=`getMemData.php?no=${infoArr[i][0]}`;
-                        
-                            //頭貼div
-                            var headImg_div = document.createElement("div");
-                            headImg_div.className="headBox gift_headBox";
-
-                            //創建p_memName朋友暱稱
-                            var p_memName = document.createElement("p");
-                            p_memName.innerText = infoArr[i][1];
-                            // p_memName.className = friendList[i-1];
-                            var input = document.createElement("input");
-                            input.type = "hidden";
-                            input.value = infoArr[i][0]; //會員編號
-
-                        //將img_friend、p_memNam、input_submit塞進a_btn
-                        a_btn.appendChild(headImg_div);
-                        a_btn.appendChild(p_memName);
-                        a_btn.appendChild(input);
-
-                        //將a_btn塞進form
-                        giftTa_chooseBox.appendChild(a_btn);
-                        
-                        a_btn.addEventListener("click",changeModel);
-                        
-                        ooxxGetHead(headImg_div, {
-							animal: infoArr[i][2],
-							color: infoArr[i][4],
-							eyes: infoArr[i][3],
+                        ooxxGetHead($id(`headImg_div${friendInfoArr[i][0]}`), {
+							animal: friendInfoArr[i][2],
+							color: friendInfoArr[i][4],
+							eyes: friendInfoArr[i][3],
 						});
 
                     }
