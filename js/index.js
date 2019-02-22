@@ -171,9 +171,9 @@ indexInit = () => {
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
-            indexAjiSpring = document.getElementById('indexAjiSpring').getSVGDocument();
+            indexAjiSpring = document.getElementById('AjiSpring').getSVGDocument();
             //春天ㄉ手手
-            springHand = indexAjiSpring.getElementsByClassName('cls-2')[0];
+            springHand = indexAjiSpring.getElementsByClassName('cls-9')[0];
             springHand.style.transformBox = `fill-box`;
             springHand.style.transformOrigin = `right bottom`;
             //春天ㄉ手手揮起來
@@ -242,31 +242,54 @@ indexInit = () => {
         cupidLightstartId = requestAnimationFrame(cupidLightstart);
 
         //阿吉與春天對話開始
-        SpringDialog = $id('SpringDialog').getSVGDocument();  //春天對話框
-        SpringDialogSvg = SpringDialog.getElementsByClassName('cls-2')[0];  //春天對話文字
+        SpringDialogWrap = indexAjiSpring.getElementsByClassName('cls-1')[0];  //春天對話框
+        SpringDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[0];  //春天對話文字
 
-        AjiDialog = $id('AjiDialog').getSVGDocument();  //春天對話框
-        AjiDialogSvg = AjiDialog.getElementsByClassName('cls-2')[0];  //春天對話文字
-
-        $id('SpringDialog').style.transition = `1s`;
-        $id('AjiDialog').style.transition = `1s`;
+        AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0];  //阿吉對話框
+        AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1];  //阿吉對話文字
 
         SpringDialogTime = 0;
         SpringDialogGo = () => {
             SpringDialogTime += 1;
-            console.log(SpringDialogTime);
             if (SpringDialogTime == 10) {
-                $id('SpringDialog').style.opacity = `1`;
+                AjiDialogWrap.style.opacity = `0`;
+                AjiDialogWord.style.opacity = `0`;
+                SpringDialogWrap.style.opacity = `0`;
+                SpringDialogWord.style.opacity = `0`;
+                $id('AjiSpring').style.opacity = `1`;
+            }
+            if (SpringDialogTime == 30) {
+                SpringDialogWrap.style.transition = `1s`;
+                SpringDialogWord.style.transition = `1s`;
+                SpringDialogWrap.style.opacity = `1`;
+                SpringDialogWord.style.opacity = `1`;
             }
             if (SpringDialogTime == 200) {
-                $id('SpringDialog').style.opacity = `0`;
-                $id('AjiDialog').style.opacity = `1`;
+                AjiDialogWrap.style.transition = `1s`;
+                AjiDialogWord.style.transition = `1s`;
+                SpringDialogWrap.style.opacity = `0`;
+                SpringDialogWord.style.opacity = `0`;
+                AjiDialogWrap.style.opacity = `1`;
+                AjiDialogWord.style.opacity = `1`;
+            }
+            if (SpringDialogTime == 380) {
+                SpringDialogWrap.style.opacity = `0`;
+                SpringDialogWord.style.opacity = `0`;
+                AjiDialogWrap.style.opacity = `0`;
+                AjiDialogWord.style.opacity = `0`;
             }
             if (SpringDialogTime == 400) {
-                $id('SpringDialog').style.opacity = `1`;
-                
+                AjiDialogWrap.style.opacity = `1`;
+                AjiDialogWord.style.opacity = `1`;
+                AjiDialogWord.innerHTML = `我就是<tspan x="0" y="32.10254">什麼都不懂啦</tspan>`;
             }
-            if (SpringDialogTime > 601) {
+            if (SpringDialogTime == 650) {
+                AjiDialogWrap.style.opacity = `0`;
+                AjiDialogWord.style.opacity = `0`;
+            }
+            if (SpringDialogTime > 700) {
+                AjiDialogWord.innerHTML = `大笨蛋
+                <tspan xmlns="http://www.w3.org/2000/svg" x="0" y="32.10254">才能追妳這麼久</tspan>`;
                 SpringDialogTime = 1;
             }
             // console.log(SpringDialog);
@@ -274,8 +297,14 @@ indexInit = () => {
         }
         SpringDialogId = requestAnimationFrame(SpringDialogGo);
 
+        $id('createBtn').addEventListener('click', () => {
+            $id('indexCreateRoleBox').style.display = 'flex';
 
-
+        })
+        $id('saveRoleBtn').addEventListener('click', () => {
+            $id('indexCreateRoleBox').style.display = 'none';
+            $id('createMemberScreen').style.display = 'flex';
+        })
 
 
     }
@@ -505,16 +534,6 @@ indexInit = () => {
         shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
         modelLight = document.getElementById('modelLight');
 
-        lightChangeScreen = () => {
-            shopLight[1].style.transform = `skewX(20deg)`; //不照
-            shopLight[2].style.transform = `skewX(-25deg) translateX(-7%)`; //不照
-            shopLight[3].style.transform = `skewX(23deg)`; //不照
-            shopLight[0].style.transform = `skewX(-20deg) translateX(-2%)`; //不照
-            modelLight.style.boxShadow = `0px 0px 65px 25px Transparent`;
-            cancelAnimationFrame(shopLightId);
-            thirdScreenFunctionn();
-        }
-
         for (let i = 0; i < shopLight.length - 1; i++) {
             shopLight[i].style.transformOrigin = `left bottom`;
             shopLight[i].style.transformBox = `fill-box`;
@@ -566,7 +585,33 @@ indexInit = () => {
         // thirdGetItem =window.he
     }
     thirdScreenFunctionn();
+    lightChangeScreen = () => {
+        // showShop = document.getElementsByClassName('showShop')[0];
+        // showShop.removeChild($id('shop'));
+        $id('shop').addEventListener('load', () => {
+            shop = document.getElementById('shop').getSVGDocument();
+            shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
+            for (let i = 0; i < shopLight.length - 1; i++) {
+                shopLight[i].style.transformOrigin = `left bottom`;
+                shopLight[i].style.transformBox = `fill-box`;
+                shopLight[i].style.transition = `.8s`;
+            }
+            setTimeout(() => {
+                shopLight[1].style.transform = `skewX(20deg)`; //不照
+                shopLight[2].style.transform = `skewX(-25deg) translateX(-7%)`; //不照
+                shopLight[3].style.transform = `skewX(23deg)`; //不照
+                shopLight[0].style.transform = `skewX(-20deg) translateX(-2%)`; //不照
+                modelLight.style.boxShadow = `0px 0px 65px 25px Transparent`;
 
+            }, 10);
+        });
+
+
+
+
+        cancelAnimationFrame(shopLightId);
+        thirdScreenFunctionn();
+    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 第四部分
@@ -904,6 +949,7 @@ indexInit = () => {
                 if (checkInfo.checkmemId == '不能使用') {
                     $id('getCheckmemId').style.color = 'red';
                     $id('getCheckmemId').innerHTML = checkInfo.checkmemId;
+                    $id('createMemberBtn').disabled = true;
                 }
                 if (checkInfo.checkmName == '不能使用') {
 
@@ -926,6 +972,7 @@ indexInit = () => {
                     });
                     $id('getCheckmemId').innerHTML = '可以使用';
                     $id('getCheckmemId').style.color = 'green';
+                    $id('createMemberBtn').disabled = false;
                 });
             }
         });
@@ -946,6 +993,9 @@ indexInit = () => {
 
         $id('createMemberBtn').addEventListener('click', () => {
             var checkedValue = document.querySelector('.hobbyItem:checked').value;
+            if ($id('createMemberBtn').disabled == true) {
+                alert("不能喔");
+            }
 
             createRoleData = {
                 memId: $id('memId').value,
