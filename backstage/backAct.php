@@ -28,23 +28,9 @@
             width: 15%;
             font-size: 16px;
         }
-        #tab_under{
-            width: 100%;
-            display:flex;
-            justify-content: center;
-        }
-        #tab_under tr{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        .table td{
-            /* max-height: 150px; */
-            /* height: max-content; */
-        }
-        td img{
-            /* height: max-content;
-            width: max-content; */
+        td,th{
+            text-align:center;
+            width:150px;
         }
     </style>
 </head>

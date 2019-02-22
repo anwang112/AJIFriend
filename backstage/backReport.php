@@ -16,6 +16,12 @@
     <script src="../js/package/popover.js"></script>
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
+    <style>
+        td,th{
+            text-align:center;
+            width:120px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +32,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <td colspan="4">
+                <!-- <td colspan="4">
                         <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                  處理狀態
@@ -37,8 +43,8 @@
                                   <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                               </div>
-                </td>
-                <td colspan="3">
+                </td> -->
+                <!-- <td colspan="3">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="會員編號" aria-label="Recipient's username"
                             aria-describedby="button-addon2">
@@ -47,14 +53,14 @@
                             </button>
                         </div>
                     </div>
-                </td>
+                </td> -->
             </tr>
             <tr>
                 <th scope="col">案例編號</th>
                 <th scope="col">檢舉內容</th>
                 <th scope="col">檢舉人</th>
                 <th scope="col">被檢舉會員</th>
-                <th scope="col">處理狀態</th>
+                <th scope="col">停權狀態</th>
                 <th scope="col">備註</th>
             </tr>
         </thead>

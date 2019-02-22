@@ -15,7 +15,7 @@
             //每頁有幾筆
         $recPerPage = 10;
         //共有幾頁
-        $totalPage = ceil($totalRecord/$recPerPage);  //    
+        $totalPage = ceil($totalRecord/$recPerPage)+1;  //    
         //設定好要開始抓取的位置
         if(isset($_GET["pageNo"])==false){
             $pageNo=1;
@@ -38,7 +38,6 @@
         $activityAll -> bindColumn("actIntro", $actIntro);
         $activityAll -> bindColumn("actImg", $actImg);
         $activityAll -> bindColumn("mName", $mName);
-
 
 
         //搜尋
@@ -130,7 +129,6 @@
 
         //新增活動
         if($_POST["newAct"]){
-            echo 1;
             $actTitle = $_POST["actTitle"];
             $actIntro = $_POST["actIntro"];
             $actLoc = $_POST["actLoc"];
