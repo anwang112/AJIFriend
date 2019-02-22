@@ -29,7 +29,7 @@ try {
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="js/drawing.js"></script>
+    <script src="js/drawing-2.js"></script>
     <script src="js/chooseFriend.js"></script>
     <script src="js/photolightbox.js"></script>
     <script src="js/vote.js"></script>
