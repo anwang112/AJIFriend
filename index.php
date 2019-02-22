@@ -8,450 +8,259 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <!-- 共通 -->
-    <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <!-- snap 函式庫 -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script> -->
-    <title>熊麻吉</title>
+    <link rel="stylesheet" type="text/css" href="css/leading.css">
+    <title>熊麻吉前導頁</title>
 </head>
 
 <body>
+    <div class="wrap">
 
-    <script type="text/javascript">
-        head_html();
-    </script>
-
-    <!-- 第一部分城市 -->
-    <div class="firstScreen">
-        <!-- 背景 -->
-        <div class="firstScreenBg">
-            <img alt="city" class="city" src="images/indexImages/indexCity.svg">
-            <img alt="fwOO" class="fwOO" src="images/indexImages/indexFW.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud1.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud2.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud3.png">
-            <img alt="cloud" class="cloud" src="images/indexImages/indexCloud4.png">
-        </div>
-        <!-- 主要內容 -->
-        <section class="firstScreenInfo">
-            <!-- indexCupidnew.svg -->
-            <div class="indexGod">
-                <embed id="indexCupid" src="images/indexImages/indexCupid.svg" style="display:block;" />
-                <svg xmlns="http://www.w3.org/2000/svg" id="cupidLight" viewBox="0 0 519 868.02883">
+        <div class="loadWrap">
+            <embed id="leadCity" src="images/indexImages/leadingCity.svg" style="display:block;" />
+            <embed id="leadInfo" src="images/indexImages/leadingInfo.svg" style="display:block;" />
+            <!-- 前端按鈕 -->
+            <a title="前端" href="home.php" id="leadingFront">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Front" viewBox="0 0 307.53273 227.03966">
                     <defs>
-                        <linearGradient id="cupidLightGradient" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox">
-                            <stop offset="0%" id="cupidLight02" stop-color="#f092a6" />
-                            <stop offset="0%" id="cupidLight01" stop-color="rgba(255,255,255,0.6)" />
-                        </linearGradient>
+                        <style>
+                            .cls-1 {
+                                fill: #f05c79;
+                            }
+
+                            .cls-2 {
+                                font-size: 66.80322px;
+                                fill: #fae8f0;
+                                font-family: AdobeFanHeitiStd-Bold-B5pc-H, Adobe Fan Heiti Std;
+                            }
+                        </style>
                     </defs>
-                    <title>資產 15</title>
+                    <title>前端</title>
                     <g id="圖層_2" data-name="圖層 2">
                         <g id="圖層_1-2" data-name="圖層 1">
-                            <path class="cls-1" d="M140.30211,0,0,803.55949s173,123.0168,519,29.19043L394.10458,9.75679Z" />
-                        </g>
+                            <path class="cls-1" d="M90.80527.00205,218.0386.87979c49.58145.342,89.85244,43.40425,89.49173,95.69393V96.574c-.36071,52.28967-41.22195,94.79246-90.8034,94.45042l3.08229-.04041c-2.92,9.46333-2.16409,18.30923-5.0846,27.77227-2.46894,8.00094-10.40865,11.39193-16.2428,4.77575-8.42958-9.55942-10.60943-22.34527-16.39984-33.51387l-92.58837.12853C39.91267,189.80464-.35831,146.74215.0024,94.45247v-.00028C.36312,42.16252,41.22435-.34,90.80527.00205Z" /><text class="cls-2" transform="translate(37.66877 128.7511)">前端</text></g>
                     </g>
                 </svg>
-                <button class="btn_R" id="createBtn">立即創角</button>
-            </div>
-
-            <div class="indexSlogan">
-                <h2>
-                    <span>找到對的人</span>
-                    <span>聊到變麻吉</span>
-                </h2>
-            </div>
-            <!-- <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:0;" />
-            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" /> -->
-            <embed id="AjiSpring" src="images/indexImages/AjiSpring.svg" style="display:block; opacity:0;" />
-        </section>
-        <!-- 地板 -->
-        <div class="firstScreenFloor">
-            <!-- <img class="ooStone" src="images/indexImages/indexStoneOne.png"> -->
-        </div>
-    </div>
-
-
-    <!-- 走道 -->
-    <!-- 舊版 -->
-    <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
-        <defs>
-        </defs>
-        <title>資產 5</title>
-        <g id="圖層_2" data-name="圖層 2">
-            <g id="圖層_1-2" data-name="圖層 1">
-                <path class="cls-1" d="M1127.9861,0S210.50267,166.61364,49.44775,402.61364s115.95954,324,196.487,324c66.91892,0,1152.7333-105.2096,1400.80129,244.67926,49.85676,70.32074-97.59692,275.76205-211.7104,317.32074-414.52261,150.9639-1302.18839,158.18185-1423.42579,355-115.467,187.45037,761.56075,275.85807,1409.5548,451,219.68366,59.37681-79.93125,356.00445-383.43368,442-580.13234,164.37694-1010.19989,297.64517-1030.41609,612-55.56395,864,795.05151,400.77059,1345.48563,777,156.544,107,74.30885,433,1.202,486-302.47536,219.28456-461.91693,294-1012.79323,499-216.06192,80.40407-333.89444,478-333.89444,478l1722.9746,4s83.22591-1497-264.53952-1671c-689.09245-344.77862-586.05413-199-557.86952-479,24.34172-241.82282,594.90663-328.51739,738.17832-500.00532,146.201-174.99409,93.89219-646.3872-31.69109-836.99468-27.18729-41.26426-189.09413-127.0005-184.286-182,8.91706-102,49.19587-141.752,126.82044-196,219.65675-153.5072,243.36179-586.07019,37.64982-754-183.44881-149.75562-820.34711-307-885.57435-394C543.99354,159.57145,1127.9861,0,1127.9861,0Z" />
-            </g>
-        </g>
-    </svg>
-
-    <!-- 第二部分 找麻吉 -->
-    <div class="secondScreen">
-        <!-- 主要內容 -->
-        <section class="secondScreenSlider">
-
-            <div id="trojanList">
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole01" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole02" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole03" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole04" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <img alt="carousel" class="carousel" src="images/indexImages/indexCarousel.svg">
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole05" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole06" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-                <div class="trojanItem">
-                    <div class="trojanItemRolebox">
-                        <div id="trojanItemRole07" class="roleBox"></div>
-                    </div>
-                    <img alt="trojan" class="trojan" src="images/indexImages/indexTrojan.svg">
-                </div>
-            </div>
-
-            <div class="sliderTitle indexTitle" id="ChairPerspective">
-                <!-- 默契值 -->
-                <div class="donut">
-                    <svg id="circleProcess" xmlns="http://www.w3.org/2000/svg">
-                        <circle id="circle" cx="50%" cy="50%" r="40%" stroke-width="10%" stroke-dashoffset="110%">
-                        </circle>
-                    </svg>
-                    <div class="donut-copy">
-                        <span class="donut-title" id="showCircle">66</span>
-                        <span class="donut-spic">%</span>
-                        <p>默契值</p>
-                    </div>
-                </div>
-                <ul class="chairInfoList">
-                    <li>姓名 : <span id="chairName">挖底加</span></li>
-                    <li>星座 : <span id="chairstar">金牛座</span></li>
-                    <li>興趣 : <span id="chairHobby">看書</span></li>
-                </ul>
-                <!-- 坐椅子 -->
-                <embed id="chair" src="images/indexImages/indexChair.svg" style="display:block;" />
-            </div>
-            <div class="secondTitle">
-                <h2>旋轉找麻吉</h2>
-                <div class="indexBtn">
-                    <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-
-    <!-- 第三部分 商城 -->
-    <div class="thirdScreen">
-        <!-- 主要內容 -->
-        <section class="thirdScreenShop">
-            <div class="AjiShopSpring">
-                <div class="shopEnergy">
-                    <h2>魅力值</h2>
-                    <embed id="energy" src="images/indexImages/indexEnergy.svg" style="display:block;" />
-                    <p>
-                        購買新造型服裝
-                        增加個人魅力值
-                        吸引更多新朋友
-                        成為萬人迷!!
-                    </p>
-                </div>
-                <embed id="ajiThree" src="images/indexImages/indexAJIThree.svg" style="display:block;" />
-                <embed id="springThree" src="images/indexImages/indexspringThree.svg" style=" display:block;" />
-                <embed id="springThreeLeft" src="images/indexImages/indexspringThreeLeft.svg" style="display:block;" />
-                <embed id="springThreeRight" src="images/indexImages/indexspringThreeRight.svg" style="display:block;" />
-            </div>
-            <div class="showShop">
-                <embed id="shop" class="shop" src="images/indexImages/indexShop.svg" style="display:block;" />
-                <div class="model">
-                    <div id="indexModel" class="roleBox"></div>
-                    <div id="modelLight"></div>
-                </div>
-                <div class="shopTitle indexTitle">
-                    <h2>打造魅力形象</h2>
-                    <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
-                </div>
-            </div>
-
-        </section>
-    </div>
-
-
-
-    <!-- 第四部分 塗鴉合照 -->
-    <div class="fourthScreen" id="fourthScreen">
-        <!-- 主要內容 -->
-        <section class="fourthScreenPhoto">
-            <div class="photoTitle indexTitle">
-                <h2>塗鴉編輯麻吉合照</h2>
-                <a href="photo.html" title="照片牆" class="btn_R">照片牆</a>
-            </div>
-            <div class="camera">
-                <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
-                <svg id="lineStory" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -30 900 500" preserveAspectRatio="xMinYMin meet">
+            </a>
+            <!-- 後端按鈕 -->
+            <a title="前端" href="backstage/backstage.html" id="leadingBack">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Back" viewBox="0 0 307.53273 227.03966">
                     <defs>
-                        <linearGradient id="loveGradient" y1="214.28912" x2="831.87264" y2="214.28912" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#e8436f" />
-                            <stop offset="1" stop-color="#f3a6a8" />
-                        </linearGradient>
+                        <style>
+                            .cls-3 {
+                                fill: #fae8f0;
+                            }
+
+                            .cls-4 {
+                                font-size: 66.80322px;
+                                fill: #f05c79;
+                                font-family: AdobeFanHeitiStd-Bold-B5pc-H, Adobe Fan Heiti Std;
+                            }
+                        </style>
                     </defs>
-                    <path class="cls-1" id="indexLine" d="M.42274,428.31125s60-95,88-94v61s90-106,107-96c8.5,32.5.5,56.5.5,56.5s51-59,81-71c7,18,17,50,17,50s111-118,112-165,2.2113,167.7395,0,170c-1.08759,1.11182,165-164,165-252s108-151,105,23c8,73-32,89-32,89s143-252,181-134-103,213-134,210" />
+                    <title>後端</title>
+                    <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                            <path class="cls-3" d="M216.72746.00205,89.49413.87979C39.91268,1.22183-.35831,44.284.0024,96.57372V96.574c.36071,52.28967,41.22195,94.79246,90.8034,94.45042l-3.08229-.04041c2.92,9.46333,2.16409,18.30923,5.0846,27.77227,2.46894,8.00094,10.40865,11.39193,16.2428,4.77575,8.42958-9.55942,10.60943-22.34527,16.39984-33.51387l92.58837.12853c49.58092-.342,89.8519-43.40453,89.49119-95.69421v-.00028C307.16961,42.16252,266.30838-.34,216.72746.00205Z" /><text class="cls-4" transform="translate(101.02247 117.94048)">後端</text></g>
+                    </g>
                 </svg>
-                <!-- 小相片 -->
-                <svg xmlns="http://www.w3.org/2000/svg" id="indexPhotoPaper" viewBox="0 0 397.85249 292.04484">
-                    <defs>
-                        <linearGradient id="photoPaperGradientWhite" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
-                            <stop offset="0%" id="photoPaperGradient01" stop-color="#fdfdfd" />
-                            <stop offset="1%" id="photoPaperGradient02" stop-color="transparent" />
-                        </linearGradient>
-                        <linearGradient id="photoPaperGradientRed" y1="0%" x2="0%" y2="100%" x1="0%" gradientUnits="objectBoundingBox" gradientTransform="rotate(-30)">
-                            <stop offset="0%" id="photoPaperGradient03" stop-color="#ef5c79" />
-                            <stop offset="1%" id="photoPaperGradient04" stop-color="transparent" />
-                        </linearGradient>
-                    </defs>
-                    <path class="cls-1" d="M0,84.09751s114.03052,81.24675,139.68739,206.68032c0,0,2.85076,2.85076,11.40305,0s156.792-76.9706,239.4641-96.92594c0,0,11.40305,0,5.70153-11.40305S353.49462,65.56755,290.77783,25.65687c0,0-39.91068-25.65687-51.31374-25.65687S0,84.09751,0,84.09751Z" />
-                    <path class="cls-2" id="PhotoInfoRed" d="M25.95534,97.37365S82.9706,111.62747,154.23968,251.31486c0,0,196.70265-74.11984,222.35952-76.9706,0,0,5.70153,0,0-11.40305S319.58394,40.35839,245.4641,14.70153Z" />
-                </svg>
-                <embed id="PhotoInfo" src="images/indexImages/indexPhotoInfo.svg" style="display:block;" />
-            </div>
-            <div id="flash"></div>
+            </a>
 
-
-        </section>
-    </div>
-
-    <!--第五部分 聯誼揪團活動-->
-    <div class="fifthScreen">
-        <section class="fifthScreenActivity">
-            <div class="activityTitle indexTitle">
-                <h2>聯誼揪團活動</h2>
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
-            </div>
-            <ul class="signList">
-                <li class="signItem">
-                    <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
-                    <img src="images/indexImages/indexPhoto01.png" alt="activityphoto" class="activityphoto">
-                </li>
-                <li class="signItem">
-                    <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
-                    <img src="images/indexImages/indexPhoto02.png" alt="activityphoto" class="notphoto">
-                </li>
-                <!-- <li class="signItem">
-                    <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
-                    <img src="images/indexImages/indexPhoto01.png" alt="activityphoto" class="activityphoto">
-                </li> -->
-            </ul>
-            <embed id="indexActivityCart" class="indexActivityCart" src="images/indexImages/indexActivityCar.svg" style="display:block;" />
-            <div class="indexBtn">
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
-            </div>
-        </section>
-    </div>
-
-
-
-
-
-
-
-    <!-- 創建角色 -->
-    <div id="indexCreateRoleBox" class="indexCreateRoleBox">
-        <h2>創建專屬角色</h2>
-        <div class="createRoleScreen">
-            <div class="showMyRole">
-                <div id="myRole" class="roleBox myRole"></div>
-            </div>
-            <div class="createNavList">
-                <ul id="createKindList">
-                    <li value="0">種族</li>
-                    <li value="1">眼睛</li>
-                    <li value="2">毛色</li>
-                </ul>
-                <div class="createKindAll">
-                    <ul id="animalKindList">
-                        <li value="1">
-                            <!-- <img src="images/indexImages/indexBearIcon.svg" alt="bear"> -->
-                        </li>
-                        <li value="2">
-                            <!-- <img src="images/indexImages/indexRabbitIcon.svg" alt="rabbit"> -->
-                        </li>
-                        <li value="3">
-                            <!-- <img src="images/indexImages/indexCatIcon.svg" alt="cat"> -->
-                        </li>
-                        <li value="4">
-                            <!-- <img src="images/indexImages/indexDogIcon.svg" alt="dog"> -->
-                        </li>
-                    </ul>
-                    <ul id="eyesKindList">
-                        <li value="1"></li>
-                        <li value="2"></li>
-                        <li value="3"></li>
-                        <li value="4"></li>
-                        <li value="5"></li>
-                        <li value="6"></li>
-                    </ul>
-                    <ul id="colorKindList">
-                        <il>
-                            <input type="range" min="0" max="255" value="255" step="1" id="rRang">
-                        </il>
-                        <il>
-                            <input type="range" min="0" max="255" value="255" step="1" id="gRang">
-                        </il>
-                        <il>
-                            <input type="range" min="0" max="255" value="255" step="1" id="bRang">
-                        </il>
-                    </ul>
-                </div>
-            </div>
         </div>
-        <button id="saveRoleBtn">製作完成</button>
-
-        <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
-    </div>
-
-
-    <!-- 註冊帳號 -->
-    <div id="createMemberScreen">
-        <h2>註冊會員</h2>
-        <div class="createMemberBox">
-            <ul class="createLeftForm">
-                <li>
-                    <label>會員帳號 :</label>
-                </li>
-                <li>
-                    <label>會員密碼 :</label>
-                </li>
-                <li>
-                    <label>會員暱稱 :</label>
-                </li>
-                <li>
-                    <label>選擇星座</label>
-                </li>
-                <li>
-                    <span>興趣</span>
-                </li>
-                <li>
-                    <span>自我介紹</span>
-                </li>
-            </ul>
-            <ul class="createRightForm">
-                <li>
-                    <input type="text" required name="memId" id="memId">
-                    <span id="getCheckmemId"></span>
-                </li>
-                <li>
-                    <input type="password" required name="memPsw" id="memPsw">
-                </li>
-                <li>
-                    <input type="text" required name="mName" id="mName"><span id="getCheckmName" style="display:none;"></span>
-                </li>
-                <li>
-                    <select name="constellation" id="constellation">
-                        <option value="0">選擇星座</option>
-                        <option value="1">牡羊座</option>
-                        <option value="2">金牛座</option>
-                        <option value="3">雙子座</option>
-                        <option value="4">巨蟹座</option>
-                        <option value="5">獅子座</option>
-                        <option value="6">處女座</option>
-                        <option value="7">天秤座</option>
-                        <option value="8">天蠍座</option>
-                        <option value="9">射手座</option>
-                        <option value="10">摩羯座</option>
-                        <option value="11">水瓶座</option>
-                        <option value="12">雙魚座</option>
-                    </select>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="hobby" value="0" class="hobbyItem">
-                        <span>打籃球</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="1" class="hobbyItem">
-                        <span>抓寶可夢</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="2" class="hobbyItem">
-                        <span>跑步</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="3" class="hobbyItem">
-                        <span>看電影</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="4" class="hobbyItem">
-                        <span>吃美食</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="5" class="hobbyItem">
-                        <span>游泳</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="6" class="hobbyItem">
-                        <span>唱歌</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="7" class="hobbyItem">
-                        <span>看書</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="8" class="hobbyItem">
-                        <span>爬山</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="hobby" value="9" class="hobbyItem">
-                        <span>健身</span>
-                    </label>
-                </li>
-                <li>
-                    <textarea name="self-intro" id="selfIntro" maxlength="50"></textarea>
-                </li>
-            </ul>
+        <div class="loadFloor">
+            <embed id="leadStone" src="images/indexImages/leadingStone.svg" style="display:block;" />
         </div>
-        <button id="createMemberBtn" class="btn_R">送出</button>
-    </div>
 
 
 
 
+        <script>
+            $id = (id) => {
+                return document.getElementById(id);
+            }
 
-    <script type="text/javascript">
-        foot_html();
-    </script>
-    <script src="js/index.js"></script>
+
+
+            window.addEventListener('load', () => {
+                leadInfo = $id('leadInfo').getSVGDocument();
+
+                FrontHandOne = leadInfo.getElementsByClassName('cls-2')[0];
+                FrontHandTwo = leadInfo.getElementsByClassName('cls-12')[0];
+
+                BackHandOne = leadInfo.getElementsByClassName('cls-8')[0];
+                BackTwo = leadInfo.getElementsByTagName('path')[41];
+                BackTwo.style.transition = '.4s';
+
+                FrontHandOne.style.transformBox = `fill-box`;
+                FrontHandOne.style.transformOrigin = `right top`;
+                FrontHandOne.style.transition = '1s';
+
+                FrontHandTwo.style.transformBox = `fill-box`;
+                FrontHandTwo.style.transformOrigin = `right bottom`;
+                FrontHandTwo.style.transition = '1s';
+
+                BackHandOne.style.transformBox = `fill-box`;
+                BackHandOne.style.transformOrigin = `left top`;
+                BackHandOne.style.transition = '1s';
+
+                frontTime = 0;
+                frontGo = () => {
+                    frontTime++;
+                    if (frontTime == 1) { //rotate(-40deg) translateX(20%) translateY(-19%)
+                        FrontHandOne.style.transform = `rotate(-25deg) translateX(10%) translateY(-11%)`;
+                        FrontHandTwo.style.transform = `rotate(-40deg) translateX(20%) translateY(-19%)`;
+                    }
+                    if (frontTime == 30) {
+                        FrontHandOne.style.transform = `rotate(0deg) translateX(0%)  translateY(0%)`;
+                        FrontHandTwo.style.transform = `rotate(0deg) translateX(0%) translateY(0%)`;
+                    }
+                    if (frontTime == 50) {
+                        frontTime = 0;
+                    }
+                    frontId = requestAnimationFrame(frontGo);
+                }
+                backTime = 0;
+                backGo = () => {
+                    backTime++;
+                    if (backTime == 1) { //rotate(-40deg) translateX(20%) translateY(-19%)
+                        BackHandOne.style.transform = `rotate(-25deg) translateX(-14%) translateY(24%)`;
+                        BackTwo.style.transform = `translateY(-1%)`;
+                    }
+                    if (backTime == 30) {
+                        BackHandOne.style.transform = `rotate(0deg) translateX(0%) translateY(0%)`;
+                        BackTwo.style.transform = `translateY(0%)`;
+                    }
+                    if (backTime == 50) {
+                        backTime = 0;
+                    }
+                    backId = requestAnimationFrame(backGo);
+                }
+
+
+                $id('Front').addEventListener('mouseenter', () => {
+                    frontId = requestAnimationFrame(frontGo);
+                })
+                $id('Front').addEventListener('mouseleave', () => {
+                    cancelAnimationFrame(frontId);
+                    FrontHandOne.style.transform = `rotate(0deg) translateX(0%)  translateY(0%)`;
+                    FrontHandTwo.style.transform = `rotate(0deg) translateX(0%) translateY(0%)`;
+                })
+                $id('Back').addEventListener('mouseenter', () => {
+                    backId = requestAnimationFrame(backGo);
+
+                })
+                $id('Back').addEventListener('mouseleave', () => {
+                    BackTwo.style.transform = `translateY(0%)`;
+                    BackHandOne.style.transform = `rotate(0deg) translateX(0%) translateY(0%)`;
+                    cancelAnimationFrame(backId);
+                })
+
+
+                //角色出現  //106白底 105黑框 104白框
+                ooRole = leadInfo.getElementsByTagName('path'); //107-123
+                ooRoleWrap = leadInfo.getElementsByClassName('cls-22')[0];
+                ooRoleWrap.style.transition = '1.2s';
+
+                //掉下去
+                for (let i = 107; i < 124; i++) {
+                    ooRole[i].style.transform = `translateY(20%)`;
+                    ooRole[i].style.transition = '1s';
+                }
+                for (let i = 104; i < 107; i++) {
+                    ooRole[i].style.transition = '1s';
+                }
+                setTimeout(() => {
+                    ooRole[106].style.opacity = '1';
+                    ooRole[104].style.opacity = '1';
+                    ooRole[105].style.opacity = '1';
+                    ooRoleWrap.style.opacity = '1';
+                }, 400);
+                // ooRoleTime = 0;
+                // ooRoleGo = () => {
+                //     ooRoleTime++
+                //     if (ooRoleTime == 1) {
+                //         for (let i = 107; i < 124; i++) {
+                //             ooRole[i].style.transform = `translateY(0%)`;
+                //         }
+                //     }
+                //     if (ooRoleTime == 150) {
+                //         for (let i = 107; i < 124; i++) {
+                //             ooRole[i].style.transform = `translateY(15%)`;
+                //         }
+                //     }
+                //     if (ooRoleTime == 175) {
+                //         ooRoleTime = 0;
+                //     }
+                //     ooRoleId = requestAnimationFrame(ooRoleGo);
+                // }
+                // ooRoleId = requestAnimationFrame(ooRoleGo);
+
+                setTimeout(() => {
+                    for (let i = 107; i < 124; i++) {
+                        ooRole[i].style.transform = `translateY(0%)`;
+                    }
+                }, 700);
+
+                // ooRole[106].style.opacity = '1';
+                // ooRole[104].style.opacity = '1';
+                // ooRole[105].style.opacity = '1';
+
+                xxRole = leadInfo.getElementsByTagName('circle');
+                console.log(xxRole);
+
+                // 眼睛動起來
+                ooxxRandom = (min, max) => {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                ooxxEyesGo = (...eyesArray) => {
+                    eyesArray[0].style.transformBox = `fill-box`;
+                    eyesArray[1].style.transformBox = `fill-box`;
+                    eyesArray[0].style.transformOrigin = `center`;
+                    eyesArray[1].style.transformOrigin = `center`;
+                    eyesArray[0].setAttribute('transform', `translate(0) rotate(45)`);
+                    eyesArray[1].setAttribute('transform', `translate(0) rotate(45)`);
+                    eyesGo = () => {
+                        eyesArray[0].animate([{
+                                transform: 'scaleY(1)'
+                            },
+                            {
+                                transform: 'scaleY(0.01)'
+                            },
+                            {
+                                transform: 'scaleY(1)'
+                            }
+                        ], {
+                            duration: 200,
+                            endDelay: 1000,
+                        });
+
+                        eyesArray[1].animate([{
+                                transform: 'scaleY(1)'
+                            },
+                            {
+                                transform: 'scaleY(0.01)'
+                            },
+                            {
+                                transform: 'scaleY(1)'
+                            }
+                        ], {
+                            duration: 200,
+                            endDelay: 1000,
+                        });
+                    }
+                    setInterval(eyesGo, ooxxRandom(2000, 3500));
+                }
+
+                ooxxEyesGo(xxRole[1], xxRole[3]);
+                ooxxEyesGo(xxRole[12], xxRole[13]);
+                ooxxEyesGo(xxRole[5], xxRole[7]);
+                ooxxEyesGo(xxRole[10], xxRole[11]);
+
+                //載入出現ㄉ對話框
+                // document.getElementsByClassName('cls-22');
+            })
+        </script>
+
 </body>
 
 </html> 

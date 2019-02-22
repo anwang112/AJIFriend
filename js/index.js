@@ -196,7 +196,8 @@ indexInit = () => {
 
             //春天阿吉眼睛動起來
             springEye = indexAjiSpring.getElementsByTagName('circle'); //0145
-            ooxxEyesGo(springEye[0], springEye[1]);
+
+            ooxxEyesGo(springEye[2], springEye[3]);
             ooxxEyesGo(springEye[4], springEye[5]);
         }
         AJITalkSpring();
