@@ -982,16 +982,12 @@ window.addEventListener('load', function () {
 function sendMsg(str) {
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	var rwd_chatbox_show = document.getElementById('rwd_chatbox');
-	var friend = document.getElementById('mem-2'); //聊天對象的暱稱欄位
-	var friendName = echoNo(friend.innerText,friend_infoArr); //聊天對象的編號
-	console.log("friendName:"+friend_infoArr);
 	// 廷嘉寫的開始
 	// 送出訊息：
 	// step1>>寫進資料庫
 	
 	// 取得發送訊息時間
 	var time = new Date();
-	console.log(time);
 	var YY = time.getFullYear();
 	var MM = time.getMonth()+1;
 	var DD = time.getDate();
@@ -1000,13 +996,10 @@ function sendMsg(str) {
 	var ss = time.getSeconds();
 	var ms = time.getMilliseconds();  
 	var timeStr =`${YY}-${MM}-${DD} ${hh}:${mm}:${ss}.${ms}`;
-	console.log(timeStr);
-
-	console.log(JSON.stringify(data));
 
 	var data = {
 		me : storage.getItem("memNo"), //我的編號
-		chatTA : $id("rwd_chatTaNo").value, //聊天對象編號
+		chatTA : storage.getItem("chatTaNo"), //聊天對象編號
 		taIsWho : 'mem', //聊天對象是會員還是管理員
 		msg : str, //送出的訊息
 		timeNow : timeStr, //送出訊息時間
