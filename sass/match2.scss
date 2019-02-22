@@ -242,7 +242,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    button {
+    #report {
       @include btn_standard(100px, $darkPink, $shadowPink);
       margin: 10px
     }

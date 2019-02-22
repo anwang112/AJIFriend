@@ -107,9 +107,12 @@ function enter() {
     }
 }
 $('.search').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
 
     profile = {
         memId: document.getElementById('sId').value,
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
@@ -130,6 +133,8 @@ var Y = 0;
 turn = true;
 
 $('.matchNext').click(function () {
+    btn = $('.btn_beFriend1');
+    changeBtnNomal(btn);
     if (turn == true) {
         turn = false;
         setTimeout(() => {
@@ -273,13 +278,12 @@ $('#topMJ').click(function () {
 function changeBtn(btn){
     btn.addClass('disable');
     btn.removeClass('btn');
-    $('.disable').mouseover(function(){
-        $(this).css({
-            'transform':'translateY(0px)',
-            'box-shadow':' 0px 4px 0px #515151',
-        })
-    })
-    $('.disable').text('邀請中').attr("disabled",true);
+    btn.text('邀請中').attr("disabled",true);
+};
+function changeBtnNomal(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('成為麻吉').attr("disabled",false);
 };
 //搜尋-送出好友邀請
 function beFriend (tarNo,loginNo,btn) {
@@ -308,7 +312,8 @@ function beFriend (tarNo,loginNo,btn) {
 $('.btn_beFriend0').click(function(){
     tarNo = document.getElementById('sMemNo').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $('.btn_beFriend0');
+    beFriend(tarNo,loginNo,btn);
 });
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
@@ -482,6 +487,11 @@ function searchMem(profile) {
             document.getElementById('sLv').innerText = lv;
             document.getElementById('sIntro').innerText = info.intro;
 
+            if(info.friendRe == 0){
+                btn = $('.btn_beFriend0');
+                changeBtn(btn);
+            }
+
 
         }
 
@@ -496,9 +506,6 @@ function searchMem(profile) {
 
 // 配對篩選
 function getMem(profile) {
-    $('.btn_beFriend1').removeClass('disable');
-    $('.btn_beFriend1').addClass('btn');
-    $('.btn_beFriend1').text('成為麻吉');
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
 
