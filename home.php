@@ -85,7 +85,6 @@ session_start();
             </g>
         </g>
     </svg>
-    
 
     <!-- 第二部分 找麻吉 -->
     <div class="secondScreen">
