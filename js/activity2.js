@@ -90,16 +90,16 @@ function comDB (memNo, actNoGet , txtGet){
             var strAll = [];
 
             if( comments.arr == undefined){//沒有內容 印尚未有留言
-                str += "尚未有留言喔～～"
+                str += ""
             }else{
                 for( var i=0;i<comments.arr.length;i++){
                     //印出來名字跟聊天內容
                     strAll[i] = comments.arr[i].split(",");
                     // str += `<div>`;
                     str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
-                    str +=`<span style="padding:10px 10px;">`;
+                    str +=`<span style="padding:10px 10px;color:#444">`;
                     str += `${strAll[i][0]}:`;
-                    str += `${strAll[i][4]}`;
+                    str += `${strAll[i][4].toString()}`;
                     str += `</span>`;
                 }
             }
@@ -153,7 +153,7 @@ function sendCom(memNo,actNo,txt){
             // console.log("xhr:"+xhr.responseText);
             // console.log(txt);
             // comDB(memNo,actNo,txt);
-
+            
             //印出一筆
             var comments= JSON.parse(xhr.responseText);
             // alert(xhr.responseText);
@@ -169,7 +169,7 @@ function sendCom(memNo,actNo,txt){
                     strAll[i] = comments.arr[i].split(",");
                     // str += `<div>`;
                     str += `<div class="headBoxOut"><div class="headBox" id="theUserCCC${numm}"></div></div>`;
-                    str +=`<span style="padding:10px 10px;">`;
+                    str +=`<span style="padding:10px 10px;color:#444">`;
                     str += `${strAll[i][0]}:`;
                     str += `${strAll[i][4]}`;
                     str += `</span>`;
