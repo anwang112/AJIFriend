@@ -99,6 +99,22 @@ function changeColor(e){
     var colorCode = window.getComputedStyle(e.target).getPropertyValue("background-color");
     ctx.strokeStyle = colorCode ;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //getBoundingClientRect 取得物件完整座標資訊，包含寬高等
 function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -119,7 +135,8 @@ function mouseMove(evt) {
     ctx.stroke();
 };
 
-
+function drawLine(x1, y1, x2, y2) {
+}
 
 // 如何一鍵下載4個圖層背景＋人偶＊2＋canvas，求解！！！
 
@@ -164,10 +181,8 @@ function shareToPhotoWall(){
           alert( xhr.status );
         }
       }
-      xhr.open("get", "ajaxLogout.php",true);
+      xhr.open("get", "ajaxShareToPhotoWall.php",true);
       xhr.send(null);
-    
-
 
 }
 

@@ -336,31 +336,33 @@ try {
             </div> -->
         </div>
     </div>
-    <div class="headBox member" id="sticker3"></div>
 <script>
 //１.未登入者跳視窗 :登入才能按讚   alert請先登入
 //2-1.登入者先回去資料庫檢查資料會員帳號 照片標號 判斷是否按過讚 未按讚數＋1
 //2-2.已按顯示 ：你~已經按過了
 
-function addHeart(e){
-    var login=document.getElementById("loginNot");
-    if(login.innerText=="登入"){
-        alert("請先登入！");
-    }else if(login.innerText=="登出"){
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-          if( xhr.status == 200){
-            xhr.responseText == "null"{ //失敗狀態
+// function addHeart(e){
+//     var login=document.getElementById("loginNot");
+//     if(login.innerText=="登入"){
+//         alert("請先登入！");
+//     }else if(login.innerText=="登出"){
+//         var xhr = new XMLHttpRequest();
+//         xhr.onload = function(){
+//           if( xhr.status == 200){
+//             xhr.responseText == "null"{ //失敗狀態
 
-          }else{
-            alert( xhr.status );
-            alert("Dear你已經投過了～");
-          }
-        }
-        xhr.open("get", "ajaxCheckVote.php",true);
-        xhr.send(null);
-      }
-}
+//           }else{
+//             alert( xhr.status );
+//             alert("Dear你已經投過了～");
+//           }
+//         }
+//         xhr.open("Post", "ajaxCheckVote.php", true);
+//         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+// 	    // xhr.send(`memId=ga&memPsw=11111111`);
+//         xhr.send(null);
+	
+//       }
+// }
 
         
 		// xhr.open("Post","getMemData.php",true);
@@ -369,25 +371,25 @@ function addHeart(e){
 
 
 
-function init(){
+// function init(){
     
 
-    var heart =document.getElementsByClassName("heart");
-    for(var i = 0; i < heart.length; i++){
-        heart[i].addEventListener("click",addHeart,false);
-    }
-    var card=document.getElementsByClassName("card");
-    for(var j=0;j<card.length;j++){
-        card[j].addEventListener("mouseover",showHeart,false);
-        card[j].addEventListener("mouseout",hiddenHeart,false);
-    }
+//     var heart =document.getElementsByClassName("heart");
+//     for(var i = 0; i < heart.length; i++){
+//         heart[i].addEventListener("click",addHeart,false);
+//     }
+//     var card=document.getElementsByClassName("card");
+//     for(var j=0;j<card.length;j++){
+//         card[j].addEventListener("mouseover",showHeart,false);
+//         card[j].addEventListener("mouseout",hiddenHeart,false);
+//     }
 
    
     
 
-}
+// }
 
-window.addEventListener("load",init,false);
+// window.addEventListener("load",init,false);
 
 
        
