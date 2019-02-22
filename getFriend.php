@@ -1,4 +1,5 @@
 <?php  
+session_start();
 // 聊天室朋友列表  --by ga
 // $data = $_REQUEST["me"];  //解碼js傳過來的值
     try{
@@ -18,7 +19,7 @@
                 }else{ //反之
                     $friendNo = $friendRows["memNo"]; //則memNo欄位就是朋友的編號
                 }
-                $sql2 = "select memNo , mName , animal , eye , mColor from member 
+                $sql2 = "select memNo , mName , animal , eye , mColor ,memId  from member 
                           where memNo=:no";
                 $friendData = $pdo->prepare( $sql2 );
                 $friendData -> bindValue( ":no",$friendNo);
@@ -34,6 +35,14 @@
                     }
                     
                 }
+                    
+                $_SESSION["friendNo"][$friendDataRows["memNo"]] = $friendDataRows["memNo"];
+                $_SESSION["friendId"][$friendDataRows["memNo"]] = $friendDataRows["memId"];
+                $_SESSION["friendName"][$friendDataRows["memNo"]] = $friendDataRows["mName"];
+                $_SESSION["friendAnimal"][$friendDataRows["memNo"]] = $friendDataRows["animal"];
+                $_SESSION["friendEye"][$friendDataRows["memNo"]] = $friendDataRows["eye"];
+                $_SESSION["friendColor"][$friendDataRows["memNo"]] = $friendDataRows["mColor"];
+
                 $i++;
             }
             class data{
