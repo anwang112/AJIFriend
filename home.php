@@ -203,7 +203,6 @@ session_start();
                     <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
                 </div>
             </div>
-
         </section>
     </div>
 
