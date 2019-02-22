@@ -1012,7 +1012,9 @@ indexInit = () => {
             var createxhr = new XMLHttpRequest();
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);
-                console.log(createxhr.responseText);
+                alert('註冊成功!!');
+                sendForm();
+                $id('createMemberScreen').style.display = 'none';
             }
             createxhr.open("Post", "setUpMember.php", true);
             createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
