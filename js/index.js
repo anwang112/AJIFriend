@@ -68,7 +68,6 @@ ooxxEyesGo = (...eyesArray) => {
                 duration: 500,
                 endDelay: 1000,
             });
-
         eyesArray[1].animate([{
             transform: 'scaleY(1)'
         },
@@ -129,6 +128,9 @@ ooxxChangeClothes = (...changeClothesArray) => {
 }
 
 
+
+
+
 //首頁載入完畢 開始瞜 ~~
 indexInit = () => {
 
@@ -168,7 +170,7 @@ indexInit = () => {
             }
             cloudId = requestAnimationFrame(cloudGo);
         }
-        cloudId = requestAnimationFrame(cloudGo);
+        // cloudId = requestAnimationFrame(cloudGo);
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
@@ -311,6 +313,8 @@ indexInit = () => {
 
     }
     firstScreenFunction();
+
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -529,6 +533,7 @@ indexInit = () => {
     secondScreenFunction();
 
 
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -584,14 +589,9 @@ indexInit = () => {
         }
         shopLightId = requestAnimationFrame(shopLightGo);
 
-        // 獎勵介紹
-        // thirdGetMoney = document.getElementsByClassName('ajiThree');
-        // thirdGetItem =window.he
     }
     thirdScreenFunctionn();
     lightChangeScreen = () => {
-        // showShop = document.getElementsByClassName('showShop')[0];
-        // showShop.removeChild($id('shop'));
         $id('shop').addEventListener('load', () => {
             shop = document.getElementById('shop').getSVGDocument();
             shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
@@ -616,6 +616,9 @@ indexInit = () => {
         cancelAnimationFrame(shopLightId);
         thirdScreenFunctionn();
     }
+
+
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -656,8 +659,6 @@ indexInit = () => {
         PhotoInfo = document.getElementById('PhotoInfo');
         PhotoInfoRed = document.getElementById('PhotoInfoRed');
         indexPhotoPaper = document.getElementById('indexPhotoPaper');
-        // var indexPhotoPaper = Snap('#indexPhotoPaper');
-        // var paperSvg = indexPhotoPaper.select('.cls-1');
 
 
         //紙張動畫開始
@@ -709,6 +710,7 @@ indexInit = () => {
         }
         lineId = requestAnimationFrame(lineGo);
     }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -894,9 +896,6 @@ indexInit = () => {
             }
         })
 
-
-
-
     }
     //換眼睛
     eyesKindItem = $id('eyesKindList').getElementsByTagName('li');
@@ -936,6 +935,8 @@ indexInit = () => {
         coloeBar[i].addEventListener('mousemove', colorBarMove);
         coloeBar[i].addEventListener('touchmove', colorBarMove);
     }
+
+
 
 
 
@@ -1027,6 +1028,7 @@ indexInit = () => {
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);
                 alert('註冊成功!!');
+                $id('createMemberScreen').display = 'none';
                 sendForm();
                 $id('createMemberScreen').style.display = 'none';
             }

@@ -13,9 +13,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- 共通 -->
     <script src="js/commonPart.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    
+
     <title>熊麻吉</title>
 </head>
 
@@ -85,6 +85,11 @@ session_start();
             </g>
         </g>
     </svg>
+    <div class="stoneWrap">
+        <img src="images/indexImages/indexStoneArray.svg" id="StoneArray">
+    </div>
+
+
 
     <!-- 第二部分 找麻吉 -->
     <div class="secondScreen">
@@ -263,15 +268,8 @@ session_start();
                     <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
                     <img src="images/indexImages/indexPhoto02.png" alt="activityphoto" class="notphoto">
                 </li>
-                <!-- <li class="signItem">
-                    <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
-                    <img src="images/indexImages/indexPhoto01.png" alt="activityphoto" class="activityphoto">
-                </li> -->
             </ul>
             <embed id="indexActivityCart" class="indexActivityCart" src="images/indexImages/indexActivityCar.svg" style="display:block;" />
-            <div class="indexBtn">
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
-            </div>
         </section>
     </div>
 
@@ -318,15 +316,15 @@ session_start();
                         <li value="6"></li>
                     </ul>
                     <ul id="colorKindList">
-                        <il>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="rRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="gRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="bRang">
-                        </il>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -435,6 +433,7 @@ session_start();
                     <textarea name="self-intro" id="selfIntro" maxlength="50"></textarea>
                 </li>
             </ul>
+            <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
         <button id="createMemberBtn" class="btn_R">送出</button>
     </div>
