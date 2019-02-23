@@ -458,11 +458,11 @@ try {
             </div>
         </div>
     </div>
-    <script src="js/match2.js"></script>
+
     <script type="text/javascript">
         foot_html();
     </script>
-    
+        <script src="js/match2.js"></script>
 
 
 </body>

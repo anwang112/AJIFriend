@@ -3,8 +3,9 @@ session_start();
 $profile = json_decode($_REQUEST["profile"]);
 $errMsg = "";
 try {
+    // echo $profile->aaa;
     require_once("connectBooks.php");
-    if ($profile->action == 3) {
+    if (true) {
         $Rsql = "select count(*) from relationship where (memNo = :memNo and targetNo = :targetNo) or (memNo = :targetNo and targetNo = :memNo)";
         $RSta = $pdo->prepare($Rsql);
         $RSta->bindParam(':targetNo',$profile->targetNo);
