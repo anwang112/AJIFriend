@@ -23,7 +23,6 @@ session_start();
 <body>
         <script type="text/javascript">
             head_html();
-            sendForm();
         </script>
     <div id="cart_background" class="background">
         <div class="title">
@@ -80,30 +79,17 @@ session_start();
                     </span>
                     <img src="shop-images/coin.png">
                     <span>支付代幣金額:
-<<<<<<< HEAD
                         <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
-=======
-                        <?php if(isset($_SESSION["price"])){echo array_sum($_SESSION["price"]);}else{
-                            echo 0;
-                        } ?>
->>>>>>> ooxx
                     </span>
                 </div>
                 <div id="actionBtns">
                     <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
                     
                         <?php
-<<<<<<< HEAD
                             if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
                                 $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
                                 
                             }else if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
-=======
-                            if(isset($_SESSION["price"]) && array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
-                                $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
-                                
-                            }else if(isset($_SESSION["price"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
->>>>>>> ooxx
                                 $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>';
                             }else{
                                 $str = '';
@@ -175,6 +161,10 @@ session_start();
     </div>
     <script type="text/javascript">
 		foot_html();
+        if( storage.getItem("memNo") ){
+            getProducts(1,storage.getItem("memNo"));
+            changeModel(storage.getItem("memNo"));
+        }
 	</script>
 </body>
 </html>

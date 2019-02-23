@@ -32,11 +32,8 @@ try{
   	$_SESSION["last_play"] = $memRow["last_play"];
     $_SESSION["power"] = $memRow["power"];
 
-<<<<<<< HEAD
     // echo "登入成功";
     
-=======
->>>>>>> ooxx
 
     class data{
       public $arr;

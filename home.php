@@ -9,11 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<<<<<<< HEAD
-    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
-=======
     <link rel="stylesheet" type="text/css" href="css/reset.css">
->>>>>>> ooxx
     <link rel="stylesheet" type="text/css" href="css/index.css">
     
     <link rel="stylesheet" href="css/match2.css">
@@ -21,12 +17,8 @@ session_start();
     
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> ooxx
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
 
     <title>熊麻吉</title>
 </head>
@@ -178,7 +170,7 @@ session_start();
             <div class="secondTitle">
                 <h2>旋轉找麻吉</h2>
                 <div class="indexBtn">
-                    <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
+                    <a href="match2.php" title="找麻吉" class="btn_R">找麻吉</a>
                 </div>
             </div>
         </section>
@@ -214,7 +206,7 @@ session_start();
                 </div>
                 <div class="shopTitle indexTitle">
                     <h2>打造魅力形象</h2>
-                    <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
+                    <a href="BearMJ_shop_addcart.php" title="造型商城" class="btn_R">造型商城</a>
                 </div>
             </div>
         </section>
@@ -228,7 +220,7 @@ session_start();
         <section class="fourthScreenPhoto">
             <div class="photoTitle indexTitle">
                 <h2>塗鴉編輯麻吉合照</h2>
-                <a href="photo.html" title="照片牆" class="btn_R">照片牆</a>
+                <a href="photo.php" title="照片牆" class="btn_R">照片牆</a>
             </div>
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
@@ -269,7 +261,7 @@ session_start();
         <section class="fifthScreenActivity">
             <div class="activityTitle indexTitle">
                 <h2>聯誼揪團活動</h2>
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
+                <a href="activity_v2.php" title="活動巴士" class="btn_R">活動巴士</a>
             </div>
             <ul class="signList">
                 <li class="signItem">

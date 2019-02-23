@@ -288,8 +288,8 @@ function head_html() {
 
 
 	$id("memName").innerText = storage.getItem("mName");
-	// $id("mLv").innerText = 1;
 	$id("memMJ").innerText = storage.getItem("mMJ");
+
 	if(!storage.getItem("mName")){
 		$id("loginNot").innerText = '登入';
 	}else{
@@ -460,12 +460,148 @@ function loginPhoto(){
 }
 
 //  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
+function searchMem(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.responseText == 0) {
+            $('#alertText').text('找不到這個ID的麻吉唷!');
+            $('.alertWrap').show();
+
+        } else {
+            var R = 0;
+            $('#searData').css({
+                'transform': 'rotateY(' + R + 'deg)',
+            });
+            $('#reportData').css({
+                'transform': 'rotateY(' + (R + 180) + 'deg)',
+            });
+            $('.searchWrap').show();
+            var hobbyinfo = document.getElementById('hobby');
+            var sNameinfo = document.getElementById('sName');
+            var sMJinfo = document.getElementById('sMJ');
+            var conste = document.getElementById('sConstellation');
+            var sMemId = document.getElementById('sMemId');
+            var info = JSON.parse(xhr.responseText);
+            //no
+            document.getElementById('sMemNo').value = info.memNo;
+
+            //興趣
+            hobbyinfo.innerText = '';
+            var hobby = info.hobby.split("");
+            var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+            var c = [];
+            for (var i = 0; i < hobby.length; i++) {
+                var a = hobby[i];
+                var b = hobbys[a];
+                c.push(b);
+            }
+            for (var j = 0; j < c.length; j++) {
+                var d = c[j] + '&nbsp' + '|' + '&nbsp';
+                if (j == c.length - 1) {
+                    d = c[j];
+                }
+                hobbyinfo.innerHTML += d;
+            }
+            //暱稱
+            sNameinfo.innerText = info.name;
+            //MJ
+            sMJinfo.innerText = 'MJ: ' + info.mj;
+            //星座
+            constellation = info.constellation;
+            switch (constellation) {
+                case '1':
+                    conste.innerText = "牡羊座";
+                    break;
+                case '2':
+                    conste.innerText = "金牛座";
+                    break;
+                case '3':
+                    conste.innerText = "雙子座";
+                    break;
+                case '4':
+                    conste.innerText = "巨蟹座";
+                    break;
+                case '5':
+                    conste.innerText = "獅子座";
+                    break;
+                case '6':
+                    conste.innerText = "處女座";
+                    break;
+                case '7':
+                    conste.innerText = "天秤座";
+                    break;
+                case '8':
+                    conste.innerText = "天蠍座";
+                    break;
+                case '9':
+                    conste.innerText = "射手座";
+                    break;
+                case '10':
+                    conste.innerText = "摩羯座";
+                    break;
+                case '11':
+                    conste.innerText = "水瓶座";
+                    break;
+                case '12':
+                    conste.innerText = "雙魚座";
+                    break;
+            }
+            //角色
+            sEye = info.eye;
+            sBody = info.body;
+            sColor = info.color;
+            sHat = info.hat;
+            sClothes = info.clothes;
+
+            //test write
+            ooxxGetRole(topMoney05, {
+                animal: sBody,
+                color: sColor,
+                eyes: sEye,
+                hat: sHat,
+                clothes: sClothes,
+            });
+            //id
+            sMemId.innerText = info.memId;
+            td[1].innerText = info.memId;
+            if (parseInt(info.mj) >= 1000) {
+                lv = "LV.3 萬人迷 ";
+            } else if (parseInt(info.mj) >= 500) {
+                lv = "LV.2 潛力股 ";
+            } else {
+                lv = "LV.1 邊緣人 ";
+            }
+            document.getElementById('sLv').innerText = lv;
+            document.getElementById('sIntro').innerText = info.intro;
+
+            if(info.friendRe == 0){
+                btn = $('.btn_beFriend0');
+                changeBtn(btn);
+            }else if (info.friendRe == 1){
+                btn = $('.btn_beFriend0');
+                changeBtnUnf(btn);
+            }
+
+
+        }
+
+
+
+    };
+    xhr.open("Post", "search.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+
 
 
 function openLB_memData(memId=-1){
 
 	profile = {
 		memId: memId,
+        loginMemNo:storage.getItem("memNo"),
 	};
 	if(memId!=-1)
 		searchMem(profile);
@@ -479,7 +615,8 @@ function sendForm(memId,memPsw){
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.responseText == "error"){
-		alert("帳密錯誤，請重新輸入");
+			$('#alertText').text('帳密錯誤，請重新輸入!');
+			$('.alertWrap').show();
 		}else{ 
 			var user = JSON.parse(xhr.responseText); 
 
@@ -505,16 +642,13 @@ function sendForm(memId,memPsw){
 				storage.setItem(key,user.arr[key]);
 			}
 			$id("loginNot").innerText='登出';
-			ooxxGetHead(loginImg, {
+			ooxxGetHead($id("loginHead"), {
 				animal: storage.getItem("animal") ,
 				color: storage.getItem("mColor") ,
 				eyes: storage.getItem("eye"),
 			});
 
 			heartItem = document.querySelectorAll('.heart div');
-			// heartM =  document.getElementById('userLove').value;
-			// alert(love);
-			// console.log(heartM);
 			if(heartItem){
 			switch(user.arr["loveGiven"]){
 				case '2':
@@ -736,7 +870,6 @@ function rejectRequire(e){
 	var label = e.target.parentNode.parentNode;
 	replybox.removeChild(label);
 	var taNo = label.children[1].value;
-	alert(taNo);
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
@@ -744,8 +877,8 @@ function rejectRequire(e){
 			alert("xhr錯誤發生");
 
 		}else{ //成功取得
-			alert("已拒絕邀請");
-			//執行動作撰寫
+			$('#alertText').text('已拒絕邀請!');
+			$('.alertWrap').show();
 		}
 	};
 	xhr.open("Post","updateRelationship.php",true);
@@ -1006,13 +1139,25 @@ window.addEventListener('load', function () {
 				if(chatTa!=''){
 					msgDB();
 					chatBoxreload = setInterval(msgDB,3000);
+				}	
+				var div_chooseBox = document.getElementsByClassName("friendbox")[0];
+				while(div_chooseBox.children.length>1) {
+					console.log("+++刪朋友列表");
+					div_chooseBox.removeChild(div_chooseBox.lastChild);
 				}
+				while($id("replybox").children.length>1) {
+					console.log("+++刪邀請列表");
+					$id("replybox").removeChild($id("replybox").lastChild);
+				}
+				friendList(storage.getItem("memNo"));
+				requireBack(storage.getItem("memNo")); 
 
 				boxScroll(chatbox_show);
 
 			}
 			return ch1 = 1;
 		} else {
+			chatTa=''
 			chatRoom.style.cssText = "transform:translateY(82%)";
 			chatboxLeft.style.cssText = "opacity:1;";
 			if(typeof(chatBoxreload)!= 'undefined'){
@@ -1258,7 +1403,6 @@ rwd_chatTxt_send.addEventListener('click', function () {
 
 
 	$id("btn_memData").addEventListener("click",function(){
-		alert(storage.getItem("chatTaId"));
 		if(storage.getItem("chatTaId")){
 			openLB_memData(storage.getItem("chatTaId"));
 		}
@@ -1277,6 +1421,8 @@ window.addEventListener('load', function () {
 			$id("replybox").style.height = "83%";
 			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
 			document.getElementsByClassName("friendbox")[0].style.height = "0";
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo")); 
 			reply_control = true;
 		}else{ //收起來
 			$id("replybox").style.height = "32px";
@@ -1326,7 +1472,8 @@ window.addEventListener('load', function () {
 					alert("xhr錯誤發生");
 
 				}else{ //成功
-					alert("您已登出~");
+					$('#alertText').text('已登出!');
+					$('.alertWrap').show();
 					$id("loginNot").innerText='登入';
 				}
 			};

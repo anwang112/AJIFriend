@@ -178,13 +178,15 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
-                    alert('完成報名 你可以在我的活動看到新增喔！') ;
+                    $('#alertText').text('已完成報名~');
+                    $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
                     renewJoin(actNo,member);
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
-                    alert('你已經報名過嘍'+actNo);
+                    $('#alertText').text('記性不好齁~已經報名過囉!');
+                    $('.alertWrap').show();}
                     var btn_ActJoinToDB = $id('btn_ActJoinToDB');
                     CloseLightActBox();
                 }else{
@@ -525,12 +527,9 @@ function comDB (memNo, actNoGet){
 }
 
 function sendCom(memNo,actNo,txt){
-    alert(memNo);
     var xhr = new XMLHttpRequest();
     xhr.onload=function (){
         if( xhr.responseText == "123" ){
-
-           alert(xhr.responseText);
         }else{
             comDB(memNo,actNo);
 
@@ -562,13 +561,15 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
-                    alert('完成報名 你可以在我的活動看到新增喔！') ;
+                    $('#alertText').text('記性不好唷，已經報名過!');
+                    $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
                     // renewJoin(actNo,member);
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
-                    alert('你已經報名過嘍!看看其他活動吧!');
+                    $('#alertText').text('已報名過，看看其他活動吧!');
+                    $('.alertWrap').show();
                     var btn_ActJoinToDB = $id('btn_ActJoinToDB');
                     CloseLightActBox();
                 }else{
@@ -659,8 +660,8 @@ function CancelActTo(actNo,member){
         if( xhr.responseText == "null" ){
             alert('xhr有錯誤喔');
          }else{
-            // alert(JSON.parse(xhr.responseText));
-            alert('已取消參加活動');
+            $('#alertText').text('已取消參加這個活動!');
+            $('.alertWrap').show();
             // alert(target);
             // location.reload();
             // target.class
@@ -685,7 +686,6 @@ function CancelActTo(actNo,member){
 var keyTotal;
 function officialTotal(num){
     keyTotal = num;
-    alert(keyTotal);
 }
 // var key = 1;
 function officalAllAct(member,key){
@@ -829,7 +829,8 @@ function checkMyAct(){
         var xhr = new XMLHttpRequest(); // 建立xhr
         xhr.onload = function(){
             if(xhr.responseText == "null"){
-                alert("快去參加活動認識新朋友吧 ^________^ ");
+                $('#alertText').text('快去參加活動認識新朋友!');
+                $('.alertWrap').show();
 
             }else{ //成功取得
 
@@ -909,7 +910,6 @@ function checkMyAct(){
 }
 
 function myAct_more(no){
-    alert($id(`actTitle${no}`).value);
     lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
     lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
     btn_ActJoinToDB.style.cssText = "background-color:#ccc";
@@ -960,7 +960,6 @@ function myAct_more(no){
     elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
     elements[3].innerHTML='活動介紹：'+actIntroValue;
     myMessagebox_inputNone.setAttribute('value',actNoValue);
-    alert(actNoValue);
     $id('lightBox_actNo').value = actNoValue;
     
     // acts_lightbox_top_img.src = actImgValue;
@@ -1026,7 +1025,6 @@ window.addEventListener('load',function(){
     // 官方活動報名按鈕註冊事件  
     btn_Actjoin.addEventListener('click',function(){    
         if(storage.getItem("memNo")){ //有登入的話
-            alert("註冊");
             var actNo = $id("box_actNo").value; 
             JoinActTo(actNo,storage.getItem("memNo"));
             // renewJoin(actNo,storage.getItem("memNo"));
@@ -1225,7 +1223,6 @@ window.addEventListener('load',function(){
           
         if(storage.getItem("memNo")){ //有登入
             var actNo = $id("lightBox_actNo").value; 
-            alert(actNo);
             JoinActTo(actNo,storage.getItem("memNo"));
         }else{ //沒登入就跳登入燈箱
             $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
