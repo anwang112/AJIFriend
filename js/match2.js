@@ -731,11 +731,7 @@ function makeFriend(profile) {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
-<<<<<<< HEAD
             storage.setItem("loveGiven" ,heart);
-=======
-            storage.setItem("loveGiven",heart);
->>>>>>> index
             changeBtn(btn);
             loadHeart(heart)
             $('#alertText').text('已送出邀請');
