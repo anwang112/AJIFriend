@@ -30,12 +30,10 @@ try {
     <title>找麻吉</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/chatStyle.css">
-
 </head>
 
 <body>
@@ -49,7 +47,6 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
-    
     <!-- <div class="alertWrap">
         <div class="alert">
             <p id="alertText">今天的愛心已經用完囉！</p>
@@ -57,8 +54,8 @@ try {
             <button id="alertBtn">確定</button>
             </p>
         </div>
-    </div>
-    <div class="searchWrap">
+    </div> -->
+    <!-- <div class="searchWrap">
         <div id="searData">
             <div class="searchClose"></div>
             <div class="sRole">
@@ -119,7 +116,7 @@ try {
                     </tr>
                     <tr>
                         <td colspan="2" class="btns">
-                            <button class="btn_beFriend0">成為麻吉</button>
+                            <button class="btn_beFriend0 btn">成為麻吉</button>
                             <button id="report">檢舉麻吉</button>
                         </td>
                 </table>
@@ -256,7 +253,7 @@ try {
                         </tr>
                         <tr>
                             <td colspan="2" class="btnCol">
-                                <button class="btn_beFriend1">成為麻吉</button>
+                                <button class="btn_beFriend1 btn">成為麻吉</button>
                             </td>
                     </table>
 
@@ -324,7 +321,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="btn_beFriend2">成為麻吉</button>
+                            <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                         
                     </div>
@@ -340,7 +337,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="btn_beFriend3">成為麻吉</button>
+                            <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                         
                     </div>
@@ -356,7 +353,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="btn_beFriend4">成為麻吉</button>
+                            <button class="rankFriendBtn2 btn">成為麻吉</button>
                         </div>
                         
                     </div>
@@ -375,7 +372,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="btn_beFriend5">成為麻吉</button>
+                            <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
@@ -389,7 +386,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="btn_beFriend6">成為麻吉</button>
+                            <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem moneyS">
@@ -403,7 +400,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="btn_beFriend7">成為麻吉</button>
+                            <button class="rankFriendBtn2 btn">成為麻吉</button>
                         </div>
                     </div>
                 </div>
@@ -421,7 +418,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo0">查看個人頁面</button><br>
-                            <button class="btn_beFriend8">成為麻吉</button>
+                            <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                     </div>
                     <div class="rankItem MJs">
@@ -435,7 +432,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo1">查看個人頁面</button><br>
-                            <button class="btn_beFriend9">成為麻吉</button>
+                            <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                         
 
@@ -451,18 +448,18 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
-                            <button class="btn_beFriend10">成為麻吉</button>
+                            <button class="rankFriendBtn2 btn">成為麻吉</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="js/match2.js"></script>
     <script type="text/javascript">
         foot_html();
     </script>
-        <script src="js/match2.js"></script>
+    
 
 
 </body>

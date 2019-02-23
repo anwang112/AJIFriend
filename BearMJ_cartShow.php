@@ -24,6 +24,7 @@ session_start();
 <body>
         <script type="text/javascript">
             head_html();
+            sendForm();
         </script>
     <div id="cart_background" class="background">
         <div class="title">

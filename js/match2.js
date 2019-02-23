@@ -13,7 +13,7 @@ $('#alertBtn').click(function () {
 td = document.querySelectorAll('#reportData table tr td');
 $('#report').click(function () {
     document.getElementById('fname').value = '';
-    if (storage.getItem("memNo") == '') {
+    if (!storage.getItem("memNo")) {
         $('#alertText').text('請先登入!');
         $('.alertWrap').show();
 
@@ -25,7 +25,7 @@ $('#report').click(function () {
         $('#reportData').css({
             'transform': 'rotateY(' + R + 'deg)',
         });
-        td[0].innerText = storage.getItem("memNo")
+        td[0].innerText = storage.getItem("memId");
         td[2].innerText = nowDay;
     }
     
@@ -211,7 +211,7 @@ function changeBtnUnf(btn){
 function beFriend (tarNo,loginNo,btn) {
     
     if(btn.text() == '成為麻吉'){
-        if (storage.getItem("memNo")== '') {
+        if (!storage.getItem("memNo")) {
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
         }else if(loginNo == tarNo){
@@ -227,9 +227,7 @@ function beFriend (tarNo,loginNo,btn) {
                     targetNo: tarNo,
                     nowDay: nowDay,
                     action: 3,
-                    btn: btn,
                 };
-                // console.log(profile);
                 makeFriend(profile);
             }
         }
@@ -705,34 +703,41 @@ $('.showInfo2').click(function () {
     };
     searchMem(profile);
 });
+//heart
+heart =  storage.getItem("loveGiven");
+function loadHeart(heart){
 
+    switch (parseInt(heart)) {
+        case 2:
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+        case 1:
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+        case 0:
+            heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+
+    }
+}
 
 //送出好友邀請ajax
 function makeFriend(profile) {
-    // console.log(profile);
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
+<<<<<<< HEAD
             storage.setItem("loveGiven" ,heart);
+=======
+            storage.setItem("loveGiven",heart);
+>>>>>>> index
             changeBtn(btn);
-            switch (parseInt(heart)) {
-                case 2:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 1:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 0:
-                    heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-
-            }
-
+            loadHeart(heart)
             $('#alertText').text('已送出邀請');
             $('.alertWrap').show();
         } else {
@@ -741,11 +746,9 @@ function makeFriend(profile) {
         }
 
     };
-    console.log(profile);
     xhr.open("Post", "makeFriend.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("profile=" + JSON.stringify(profile));
-
 }
 
 //檢舉

@@ -449,6 +449,7 @@ function loginPhoto(){
 function searchMem(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
+		
         if (xhr.responseText == 0) {
             $('#alertText').text('找不到這個ID的麻吉唷!');
             $('.alertWrap').show();
@@ -467,7 +468,8 @@ function searchMem(profile) {
             var sMJinfo = document.getElementById('sMJ');
             var conste = document.getElementById('sConstellation');
             var sMemId = document.getElementById('sMemId');
-            var info = JSON.parse(xhr.responseText);
+			var info = JSON.parse(xhr.responseText);
+			
             //no
             document.getElementById('sMemNo').value = info.memNo;
 
@@ -487,7 +489,8 @@ function searchMem(profile) {
                     d = c[j];
                 }
                 hobbyinfo.innerHTML += d;
-            }
+			}
+			console.log(hobbyinfo.innerHTML);
             //暱稱
             sNameinfo.innerText = info.name;
             //MJ
