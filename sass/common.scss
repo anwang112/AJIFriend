@@ -32,27 +32,28 @@ html {
 }
 
 .loginBox {
+    width: 20%;
     position: absolute;
     right: 0%;
     text-align: center;
     display: flex;
-    align-content: center;
+    align-items: center;
+    padding-top: 5px;
 
 }
 
-.loginImg {
-    width: 60px;
-    position: relative;
-}
+
 
 .loginImg img {
-    width: 80%;
+    width: 67%;
+    transform: translateY(8px);
 }
 
 .loginTxtWrap {
     width: 80%;
     position: relative;
     display: flex;
+    align-items: center;
 
 }
 
@@ -61,21 +62,23 @@ html {
 .loginNot span {
     color: #f05c79;
     font-size: 15px;
-    padding-top: 12px;
     display: block;
 }
 
 .loginContent {
     margin-top: 9px;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 10px;
 }
 
 .loginContent {
-    font-size: 14px;
+    width: 65%;
 }
 
-.loginContent span {
-    padding: 0 10px;
-}
+// .loginContent span {
+//     padding: 0 10px;
+// }
 
 .loginMj {
     width: 100%;
@@ -83,12 +86,16 @@ html {
     display: flex;
     font-size: 12px;
 }
+.loginMj span{
+    
+    padding: 5px 15px 0 0px;
+    display: inline-block;
+}
 .Mjbar {
     width: 50%;
     height: 10px;
     background-color: #f05c79;
     border-radius: 10px;
-    margin-left: 10px;
 }
 
 
@@ -1039,6 +1046,7 @@ body{background-image:url(BG002.gif);}
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: pink;
+    opacity: .4;
 }
 
 ::-moz-placeholder {
@@ -1360,6 +1368,9 @@ body{background-image:url(BG002.gif);}
     position: relative;
     max-width: 70px;
     max-height: 70px;
+}
+.loginImg {
+    width: 30%;
 }
 .headDiv{
     margin: 0;

@@ -2,7 +2,7 @@
 session_start();
 try{
   require_once("connectBooks.php");
-  $sql = "select * from member where memId=:memId and memPsw = :memPsw";
+  $sql = "select * from member where memId=:memId and memPsw =:memPsw";
   $member = $pdo->prepare( $sql );
   $member -> bindValue( ":memId", $_REQUEST["memId"]);
   $member -> bindValue( ":memPsw", $_REQUEST["memPsw"]);
@@ -32,6 +32,8 @@ try{
   	$_SESSION["last_play"] = $memRow["last_play"];
     $_SESSION["power"] = $memRow["power"];
 
+    // echo "登入成功";
+    
 
     class data{
       public $arr;

@@ -17,13 +17,13 @@ function header() {
 <div class="row justify-content-center">
     <div class="col-3">
         <div class="list-group">
-            <a href="backStage.html" class="list-group-item list-group-item-action">
+            <a href="backStage.php" class="list-group-item list-group-item-action">
                 管理員帳號管理
             </a>
-            <a href="backMember.html" class="list-group-item list-group-item-action">會員管理</a>
-            <a href="backItem.html" class="list-group-item list-group-item-action">商品管理</a>
-            <a href="backReport.html" class="list-group-item list-group-item-action">檢舉管理</a>
-            <a href="backAct.html" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
+            <a href="backMember.php" class="list-group-item list-group-item-action">會員管理</a>
+            <a href="backItem.php" class="list-group-item list-group-item-action">商品管理</a>
+            <a href="backReport.php" class="list-group-item list-group-item-action">檢舉管理</a>
+            <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
         </div>
     </div>
     <div class="col-9">`;

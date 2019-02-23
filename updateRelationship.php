@@ -20,10 +20,10 @@ try{
         $friend ->execute();
         echo "get friend~";
     }else if($data->action==2){ //刪除好友
-        $sql = "delete from relationship where memNo=:sendMemId and targetNo=:taMemId and relaCate=1";
+        $sql = "delete from relationship where (memNo = :sendMemId and targetNo = :taMemId ) or (memNo = :taMemId and targetNo= :sendMemId) and relaCate=1";
         $friend = $pdo->prepare( $sql );
-        $friend -> bindValue( ":sendMemId",$data->taMemId);
-        $friend -> bindValue( ":taMemId",$data->sendMemId);
+        $friend -> bindValue( ":sendMemId",$data->sendMemId);
+        $friend -> bindValue( ":taMemId",$data->taMemId);
         $friend ->execute();
         echo "delete friend~";
     }

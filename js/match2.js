@@ -188,89 +188,6 @@ $('.rankNav').each(function () {
     })
 });
 
-
-function topFriend() {
-    txtBox = '.fans';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topFan = document.getElementById('topFriend' + i);
-        ooo.push(topFan);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'friend',
-    };
-    getRank(profile);
-}
-
-$('#topFriend').click(function () {
-    topFriend();
-});
-$('#topMoney').click(function () {
-    txtBox = '.moneyS';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topMoney = document.getElementById('topMoney' + i);
-        ooo.push(topMoney);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'money',
-    };
-    getRank(profile);
-});
-$('#topMJ').click(function () {
-    txtBox = '.MJs';
-    ooo = [];
-    for (i = 0; i <= 2; i++) {
-        rankEye = 1;
-        rankBody = 1;
-        rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
-
-        topMJ = document.getElementById('topMJ' + i);
-        ooo.push(topMJ);
-
-        ooxxGetRole(ooo[i], {
-            animal: rankBody,
-            color: rankColor,
-            eyes: rankEye,
-            hat: rankHat,
-            clothes: rankClothes,
-        });
-    }
-    profile = {
-        rank: 'topMJ',
-    };
-    getRank(profile);
-});
 //名人榜切換結束
 
 //送出好友邀請
@@ -285,34 +202,51 @@ function changeBtnNomal(btn){
     btn.addClass('btn');
     btn.text('成為麻吉').attr("disabled",false);
 };
+function changeBtnUnf(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('解除麻吉關係').attr("disabled",false);
+};
 //搜尋-送出好友邀請
 function beFriend (tarNo,loginNo,btn) {
-    if (document.getElementById('userId').value == '') {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
-    }else if(loginNo == tarNo){
-        $('#alertText').text('不能選擇自己唷!');
-        $('.alertWrap').show();
-    }else{
-        if (document.getElementById('userLove').value <= 0) {
-            $('#alertText').text('今天的愛心已經用完囉！');
+    
+    if(btn.text() == '成為麻吉'){
+        if (document.getElementById('userId').value == '') {
+            $('#alertText').text('請先登入!');
             $('.alertWrap').show();
-        } else {
-            profile = {
-                memNo: loginNo,
-                targetNo: tarNo,
-                nowDay: nowDay,
-                action: 3,
-                btn: btn,
-            };
-            makeFriend(profile);
+        }else if(loginNo == tarNo){
+            $('#alertText').text('不能選擇自己唷!');
+            $('.alertWrap').show();
+        }else{
+            if (document.getElementById('userLove').value <= 0) {
+                $('#alertText').text('今天的愛心已經用完囉！');
+                $('.alertWrap').show();
+            } else {
+                profile = {
+                    memNo: loginNo,
+                    targetNo: tarNo,
+                    nowDay: nowDay,
+                    action: 3,
+                    btn: btn,
+                };
+                makeFriend(profile);
+            }
         }
+    }else if(btn.text() == '解除麻吉關係'){
+        data= {
+            sendMemId: document.getElementById('userNo').value,
+            taMemId: tarNo,
+            action: 2,
+            btn: btn,
+        };
+        unFriend(data);
     }
+    
 }
 $('.btn_beFriend0').click(function(){
     tarNo = document.getElementById('sMemNo').value;
     loginNo = document.getElementById('userNo').value;
-    btn = $('.btn_beFriend0');
+    btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 //配對-送出好友邀請
@@ -323,50 +257,59 @@ $('.btn_beFriend1').click(function () {
     beFriend(tarNo,loginNo,btn);
 });
 //Rank送出好友邀請
-$('.btn_beFriend2').click(function () {
+$('.fans .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.fans .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend3').click(function () {
+$('.fans .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.fans .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend4').click(function () {
+$('.fans .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.fans .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend5').click(function () {
+$('.moneyS.rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend6').click(function () {
+$('.moneyS .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend7').click(function () {
+$('.moneyS .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend8').click(function () {
+$('.MJs .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.MJs .rankNo0').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend9').click(function () {
+$('.MJs .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.MJs .rankNo1').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
-$('.btn_beFriend10').click(function () {
+$('.MJs .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.MJs .rankNo2').value;
     loginNo = document.getElementById('userNo').value;
-    beFriend(tarNo,loginNo);
+    btn = $(this);
+    beFriend(tarNo,loginNo,btn);
 });
 
 
@@ -490,6 +433,9 @@ function searchMem(profile) {
             if(info.friendRe == 0){
                 btn = $('.btn_beFriend0');
                 changeBtn(btn);
+            }else if (info.friendRe == 1){
+                btn = $('.btn_beFriend0');
+                changeBtnUnf(btn);
             }
 
 
@@ -682,7 +628,7 @@ function getRank(profile) {
                 });
 
                 //no
-                document.querySelector('.rankNo' + i ).value = info[i].memNo;
+                document.querySelector(txtBox + ' .rankNo' + i ).value = info[i].memNo;
 
                 //暱稱
                 infoTxtH3 = document.querySelectorAll(txtBox + ' .rankTxt' + i + ' h3');
@@ -713,6 +659,13 @@ function getRank(profile) {
                 infoTxtHSpan[3].innerText = '麻吉數: ' + info[i].friend;
                 id.push(info[i].memId);
 
+                data = {
+                    loginNo: document.getElementById('userNo').value,
+                    tarMemNo: info[i].memNo,
+                }
+                btn= $(txtBox+' .rankFriendBtn'+i);
+                relationBtn(data,btn);
+
             }
         }
     };
@@ -724,23 +677,33 @@ function getRank(profile) {
 
 //showInfo
 $('.showInfo0').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[0],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
 $('.showInfo1').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[1],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
 $('.showInfo2').click(function () {
+    btn = $('.btn_beFriend0');
+    changeBtnNomal(btn);
     profile = {
         memId: id[2],
+        loginMemNo:document.getElementById('userNo').value,
     };
     searchMem(profile);
 });
+
 
 //送出好友邀請ajax
 function makeFriend(profile) {
@@ -800,7 +763,130 @@ function report(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 
 }
+//unfriend
+function unFriend(data){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.responseText == "delete friend~") {
+            $('#alertText').text('已解除麻吉關係!');
+            $('.alertWrap').show();
+            changeBtnNomal(btn);
 
+        }
+
+    };
+    xhr.open("Post", "updateRelationship.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("upMem=" + JSON.stringify(data));
+
+
+}
+
+//判斷好友按鈕
+function topFriend() {
+    txtBox = '.fans';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topFan = document.getElementById('topFriend' + i);
+        ooo.push(topFan);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'friend',
+    };
+    getRank(profile);
+}
+
+$('#topFriend').click(function () {
+    topFriend();
+});
+$('#topMoney').click(function () {
+    txtBox = '.moneyS';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topMoney = document.getElementById('topMoney' + i);
+        ooo.push(topMoney);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'money',
+    };
+    getRank(profile);
+});
+$('#topMJ').click(function () {
+    txtBox = '.MJs';
+    ooo = [];
+    for (i = 0; i <= 2; i++) {
+        rankEye = 1;
+        rankBody = 1;
+        rankColor = 'aaaaaa';
+        rankHat = 1;
+        rankClothes = 1;
+
+        topMJ = document.getElementById('topMJ' + i);
+        ooo.push(topMJ);
+
+        ooxxGetRole(ooo[i], {
+            animal: rankBody,
+            color: rankColor,
+            eyes: rankEye,
+            hat: rankHat,
+            clothes: rankClothes,
+        });
+    }
+    profile = {
+        rank: 'topMJ',
+    };
+    getRank(profile);
+    
+});
+function relationBtn(data,btn){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.responseText == 'login') {
+            changeBtnNomal(btn);
+            
+        }else if(xhr.responseText == 'not friend'){
+            changeBtnNomal(btn);
+        }else if(xhr.responseText == 0){
+            changeBtn(btn);
+
+        }else if(xhr.responseText == 1){
+            changeBtnUnf(btn)
+        }
+
+    };
+    xhr.open("Post", "relationship.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("rela=" + JSON.stringify(data));
+
+}
 //撒花
 const TWO_PI = Math.PI * 2;
 const HALF_PI = Math.PI * 0.5;
