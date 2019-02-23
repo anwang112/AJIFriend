@@ -68,7 +68,6 @@ ooxxEyesGo = (...eyesArray) => {
                 duration: 500,
                 endDelay: 1000,
             });
-
         eyesArray[1].animate([{
             transform: 'scaleY(1)'
         },
@@ -129,6 +128,9 @@ ooxxChangeClothes = (...changeClothesArray) => {
 }
 
 
+
+
+
 //首頁載入完畢 開始瞜 ~~
 indexInit = () => {
 
@@ -168,7 +170,7 @@ indexInit = () => {
             }
             cloudId = requestAnimationFrame(cloudGo);
         }
-        cloudId = requestAnimationFrame(cloudGo);
+        // cloudId = requestAnimationFrame(cloudGo);
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
@@ -225,8 +227,8 @@ indexInit = () => {
             }
         }
         cupidLightstart = () => {
-            if (cupidLightopacity > 0.6) {
-                cupidLightopacity = 0.6;
+            if (cupidLightopacity > 1) {
+                cupidLightopacity = 1;
                 cupidLightOffset += 0.48;
                 cupidLight01.setAttribute('offset', `${cupidLightOffset}%`);
             } else {
@@ -311,6 +313,8 @@ indexInit = () => {
 
     }
     firstScreenFunction();
+
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -529,6 +533,7 @@ indexInit = () => {
     secondScreenFunction();
 
 
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -584,14 +589,9 @@ indexInit = () => {
         }
         shopLightId = requestAnimationFrame(shopLightGo);
 
-        // 獎勵介紹
-        // thirdGetMoney = document.getElementsByClassName('ajiThree');
-        // thirdGetItem =window.he
     }
     thirdScreenFunctionn();
     lightChangeScreen = () => {
-        // showShop = document.getElementsByClassName('showShop')[0];
-        // showShop.removeChild($id('shop'));
         $id('shop').addEventListener('load', () => {
             shop = document.getElementById('shop').getSVGDocument();
             shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
@@ -616,6 +616,9 @@ indexInit = () => {
         cancelAnimationFrame(shopLightId);
         thirdScreenFunctionn();
     }
+
+
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -656,8 +659,6 @@ indexInit = () => {
         PhotoInfo = document.getElementById('PhotoInfo');
         PhotoInfoRed = document.getElementById('PhotoInfoRed');
         indexPhotoPaper = document.getElementById('indexPhotoPaper');
-        // var indexPhotoPaper = Snap('#indexPhotoPaper');
-        // var paperSvg = indexPhotoPaper.select('.cls-1');
 
 
         //紙張動畫開始
@@ -709,6 +710,7 @@ indexInit = () => {
         }
         lineId = requestAnimationFrame(lineGo);
     }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -894,9 +896,6 @@ indexInit = () => {
             }
         })
 
-
-
-
     }
     //換眼睛
     eyesKindItem = $id('eyesKindList').getElementsByTagName('li');
@@ -936,6 +935,8 @@ indexInit = () => {
         coloeBar[i].addEventListener('mousemove', colorBarMove);
         coloeBar[i].addEventListener('touchmove', colorBarMove);
     }
+
+
 
 
 
@@ -1008,7 +1009,8 @@ indexInit = () => {
         $id('createMemberBtn').addEventListener('click', () => {
             var checkedValue = document.querySelector('.hobbyItem:checked').value;
             if ($id('createMemberBtn').disabled == true) {
-                alert("不能喔");
+                $('#alertText').text('不能唷!');
+                $('.alertWrap').show();
             }
             //把表單值塞入物件傳到php
             createRoleData = {
@@ -1026,8 +1028,21 @@ indexInit = () => {
             var createxhr = new XMLHttpRequest();
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);
-                alert('註冊成功!!');
-                sendForm();
+                $('#alertText').text('註冊成功!');
+                $('.alertWrap').show();
+                $id('createMemberScreen').display = 'none';
+                sendForm($id('memId').value,$id('memPsw').value);
+                // 更新登入者面板
+                document.getElementsByClassName("loginContent")[0].style.display="";
+
+                ooxxGetHead($id("loginHead"), {
+                    animal: storage.getItem("animal"),
+                    color: storage.getItem("mColor"),
+                    eyes: storage.getItem("eye"),
+                });
+                $id("memName").innerText = $id('mName').value;
+                $id("memMJ").innerText = 0;
+                
                 $id('createMemberScreen').style.display = 'none';
             }
             createxhr.open("Post", "setUpMember.php", true);

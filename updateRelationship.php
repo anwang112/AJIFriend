@@ -13,7 +13,7 @@ try{
         $friend ->execute();
         echo "reject require~";
     }else if($data->action==1){ //加為好友
-        $sql = "update relationship set relaCate=TRUE where memNo=:sendMemId and targetNo=:taMemId and relaCate=0";
+        $sql = "update relationship set relaCate=1 where memNo=:sendMemId and targetNo=:taMemId and relaCate=0";
         $friend = $pdo->prepare( $sql );
         $friend -> bindValue( ":sendMemId",$data->taMemId);
         $friend -> bindValue( ":taMemId",$data->sendMemId);

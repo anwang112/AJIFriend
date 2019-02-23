@@ -1,4 +1,5 @@
-
+var Today = new Date();
+nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 
 function $id(id){
 	return document.getElementById(id);
@@ -6,7 +7,6 @@ function $id(id){
 function boxScroll(o) {
 	o.scrollTop = o.scrollHeight;
 	o.scrollTop+=200;
-	console.log(o.scrollTop+':'+o.scrollHeight);
 	
 }
 
@@ -14,7 +14,6 @@ var body = document.getElementsByTagName('body');
 var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 var friend_infoArr = new Array();
 friend_infoArr = []; //朋友資料陣列
-console.log(body);
 var storage = sessionStorage;
 // by 宗聖
 function head_html() {
@@ -100,8 +99,9 @@ function head_html() {
                 <li><a href="#">登入</a></li>
                 
             </ul>
-        </div>
-    <!--  -->
+		</div>
+	<!-- Header結束 -->
+    <!-- 登入燈箱開始 -->
     <div id="loginBox" class="LightBoxMask"></div>
     <div id="lightBoxInner" class="middleLightBox login_box">
         <h2>登入/註冊</h2>
@@ -112,15 +112,184 @@ function head_html() {
         </form>
         <!-- 關掉按鈕 -->
         <div id="loginBoxClose" class="lightBoxXX" ></div>
-    </div>
+	</div>
+	<div class="alertWrap">
+	<div class="alert">
+		<p id="alertText">今天的愛心已經用完囉！</p>
+		<p>
+		<button id="alertBtn">確定</button>
+		</p>
+	</div>
+</div>
+<!-- 個人頁面燈箱開始 -->
+<div class="searchWrap">
+	<div id="searData">
+		<div class="searchClose"></div>
+		<div class="sRole">
+			<div id="topMoney05" class="roleBox sRoleBox"></div>
+		</div>
 
-<!-- Header結束 -->
+		<div class="profileInfo serPro">
+			<table>
+			<input type="hidden"value=""id="sMemNo">
+				<tr>
+					<th>
+						ID:
+					</th>
+					<td>
+						<span id="sMemId"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						魅力等級:
+					</th>
+					<td>
+						<span id="sLv"></span>
+						<span id="sMJ"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						暱稱：
+					</th>
+					<td>
+						<span id="sName"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						興趣：
+					</th>
+					<td>
+						<div id="hobby"></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						星座：
+					</th>
+					<td>
+						<span id="sConstellation"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						自我介紹：
+					</th>
+					<td>
+						<span id="sIntro"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="btns">
+						<button class="btn_beFriend0">成為麻吉</button>
+						<button id="report">檢舉麻吉</button>
+					</td>
+			</table>
+		</div>
+	</div>
+<!-- 個人頁面燈箱開始 -->
+
+<!-- 檢舉燈箱開始 -->
+	<div id="reportData">
+		<div class="searchClose reportClose"></div>
+		<table>
+			<tr>
+				<th>檢舉人ID：</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>檢舉對象ID：</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>檢舉時間：</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>檢舉原因：</th>
+				<td class="nop">
+					<textarea  id="fname" cols="25" rows="4"placeholder="請輸入檢舉原因(20字)"onkeydown="this.value=this.value.substr(0,20)"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th class="nop"></th>
+				<td class='nop'>
+					<button id="reportSmt">送出</button>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+</div>
+
+<!-- 檢舉燈箱結束 -->
+
 	`;
-
+	// 植入聊天室、個人頁燈箱、愛心發送alert、檢舉燈箱
 	document.write(str_tag);
+
+	//愛心發完的燈箱隱藏--match.js第7行移植過來
+	$('.alertWrap').hide(); 
+	$('#alertBtn').click(function () {
+		$('.alertWrap').hide();
+	})
+	// 燈箱關掉  --match.js
+	$('.searchClose').click(function () {
+		$('.searchWrap').hide();
+	
+	});
+
+	//檢舉
+
+
+
+
+
+	// report  --match.js第12行移植過來
+	td = document.querySelectorAll('#reportData table tr td');
+	$('#report').click(function () {
+		document.getElementById('fname').value = '';
+		if (storage.getItem("memId") == '') {
+			$('#alertText').text('請先登入!');
+			$('.alertWrap').show();
+
+		}else{
+			var R = 0;
+			$('#searData').css({
+				'transform': 'rotateY(' + (R + 180) + 'deg)',
+			});
+			$('#reportData').css({
+				'transform': 'rotateY(' + R + 'deg)',
+			});
+			td[0].innerText = storage.getItem("memId");
+			td[2].innerText = nowDay;
+		}
+		
+	})
+	$('#reportSmt').click(function(){
+		if( td[0].innerText== td[1].innerText){
+			$('#alertText').text('不能檢舉自己唷！');
+			$('.alertWrap').show();
+		}else if(document.getElementById('fname').value == ''){
+			$('#alertText').text('請輸入檢舉原因');
+			$('.alertWrap').show();
+		}else{
+			profile = {
+				memNo: storage.getItem("memNo"),
+				ta_memNo: document.getElementById('sMemNo').value,
+				reason: document.getElementById('fname').value,
+			};
+			report(profile);
+		}
+	})
+// report結束  --match.js第12行移植過來
+
+
 	$id("memName").innerText = storage.getItem("mName");
-	// $id("mLv").innerText = 1;
 	$id("memMJ").innerText = storage.getItem("mMJ");
+
 	if(!storage.getItem("mName")){
 		$id("loginNot").innerText = '登入';
 	}else{
@@ -128,7 +297,7 @@ function head_html() {
 	}
 	$id("login_send").addEventListener("click",function(){
 		
-		alert($id("memId_input").value+":::"+$id("memPsw_input").value);
+		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value , $id("memPsw_input").value);
 	},false);
 	
@@ -141,7 +310,6 @@ function head_html() {
 	}
 
 }
-
 
 // by 宗聖
 function foot_html() {
@@ -156,7 +324,7 @@ function foot_html() {
             <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
 	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
-	        <a href="#"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
+	        <a id="btn_memData"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
 	    <div class="chatboxRight">
 	        <div class="chatbox_show">
@@ -230,21 +398,7 @@ function foot_html() {
 	    </div>
 
         
-	    <!-- <div class="chatRoom_phone_part2" id="chatRoom_phone_part2">
-	        <div class="info_bar">
-	            <img id="btn_chat_prev" src="pic/btn_chat_prev.svg" alt="搜尋朋友">
-	            <span id="friend_id_show">傻眼貓咪</span>
-	        </div>
-	        <div class="info_chatbox">
-	            <span>hi~~</span>
-	        </div>
-	        <div class="info_controlbox">
-	            <img id="" src="pic/btn_chat_gift.svg" alt="">
-	            <img src="pic/btn_chat_profile.svg" alt="">
-	            <img src="pic/btn_chat_send.svg" alt="">
-	            <input id="info_input_phone" type="text">
-	        </div>
-	    </div> -->
+	    
 	    <!-- 手機聊天室結束 -->
 	    
 	</div>
@@ -258,7 +412,24 @@ function foot_html() {
 	}
 }
 
+function report(profile) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		if (parseInt(xhr.responseText) == 1) {
+			$('#alertText').text('已經檢舉過囉!');
+			$('.alertWrap').show();
+		} else if(parseInt(xhr.responseText) == 0){ 
+			$('#alertText').text('已收到您的檢舉!');
+			$('.alertWrap').show();
+			$('.searchWrap').hide();
+		}
 
+	};
+	xhr.open("Post", "report.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("profile=" + JSON.stringify(profile));
+
+}
 
 // 不知道誰寫的
 function loginPhoto(){
@@ -274,6 +445,159 @@ function loginPhoto(){
 	document.write(photo);
 }
 
+//  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
+function searchMem(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+		
+        if (xhr.responseText == 0) {
+            $('#alertText').text('找不到這個ID的麻吉唷!');
+            $('.alertWrap').show();
+
+        } else {
+            var R = 0;
+            $('#searData').css({
+                'transform': 'rotateY(' + R + 'deg)',
+            });
+            $('#reportData').css({
+                'transform': 'rotateY(' + (R + 180) + 'deg)',
+            });
+            $('.searchWrap').show();
+            var hobbyinfo = document.getElementById('hobby');
+            var sNameinfo = document.getElementById('sName');
+            var sMJinfo = document.getElementById('sMJ');
+            var conste = document.getElementById('sConstellation');
+            var sMemId = document.getElementById('sMemId');
+			var info = JSON.parse(xhr.responseText);
+			
+            //no
+            document.getElementById('sMemNo').value = info.memNo;
+
+            //興趣
+            hobbyinfo.innerText = '';
+            var hobby = info.hobby.split("");
+            var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+            var c = [];
+            for (var i = 0; i < hobby.length; i++) {
+                var a = hobby[i];
+                var b = hobbys[a];
+                c.push(b);
+            }
+            for (var j = 0; j < c.length; j++) {
+                var d = c[j] + '&nbsp' + '|' + '&nbsp';
+                if (j == c.length - 1) {
+                    d = c[j];
+                }
+                hobbyinfo.innerHTML += d;
+			}
+			console.log(hobbyinfo.innerHTML);
+            //暱稱
+            sNameinfo.innerText = info.name;
+            //MJ
+            sMJinfo.innerText = 'MJ: ' + info.mj;
+            //星座
+            constellation = info.constellation;
+            switch (constellation) {
+                case '1':
+                    conste.innerText = "牡羊座";
+                    break;
+                case '2':
+                    conste.innerText = "金牛座";
+                    break;
+                case '3':
+                    conste.innerText = "雙子座";
+                    break;
+                case '4':
+                    conste.innerText = "巨蟹座";
+                    break;
+                case '5':
+                    conste.innerText = "獅子座";
+                    break;
+                case '6':
+                    conste.innerText = "處女座";
+                    break;
+                case '7':
+                    conste.innerText = "天秤座";
+                    break;
+                case '8':
+                    conste.innerText = "天蠍座";
+                    break;
+                case '9':
+                    conste.innerText = "射手座";
+                    break;
+                case '10':
+                    conste.innerText = "摩羯座";
+                    break;
+                case '11':
+                    conste.innerText = "水瓶座";
+                    break;
+                case '12':
+                    conste.innerText = "雙魚座";
+                    break;
+            }
+            //角色
+            sEye = info.eye;
+            sBody = info.body;
+            sColor = info.color;
+            sHat = info.hat;
+            sClothes = info.clothes;
+
+            //test write
+            ooxxGetRole(topMoney05, {
+                animal: sBody,
+                color: sColor,
+                eyes: sEye,
+                hat: sHat,
+                clothes: sClothes,
+            });
+            //id
+            sMemId.innerText = info.memId;
+            td[1].innerText = info.memId;
+            if (parseInt(info.mj) >= 1000) {
+                lv = "LV.3 萬人迷 ";
+            } else if (parseInt(info.mj) >= 500) {
+                lv = "LV.2 潛力股 ";
+            } else {
+                lv = "LV.1 邊緣人 ";
+            }
+            document.getElementById('sLv').innerText = lv;
+            document.getElementById('sIntro').innerText = info.intro;
+
+            if(info.friendRe == 0){
+                btn = $('.btn_beFriend0');
+                changeBtn(btn);
+            }else if (info.friendRe == 1){
+                btn = $('.btn_beFriend0');
+                changeBtnUnf(btn);
+            }
+
+
+        }
+
+
+
+    };
+    xhr.open("Post", "search.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+
+
+
+function openLB_memData(memId=-1){
+	profile = {
+		memId: memId,
+        loginMemNo:storage.getItem("memNo"),
+	};
+	if(memId!=-1)
+		searchMem(profile);
+
+}
+
+
+
 //login Ajax --by ga
 function sendForm(memId,memPsw){
 	//=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
@@ -281,17 +605,10 @@ function sendForm(memId,memPsw){
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.responseText == "error"){
-		alert("帳密錯誤，請重新輸入");
+			$('#alertText').text('帳密錯誤，請重新輸入!');
+			$('.alertWrap').show();
 		}else{ 
 			var user = JSON.parse(xhr.responseText); 
-			alert(user.arr["mName"]);
-			//header的使用者資料Show
-			// document.getElementById("memName").innerText =  user.arr["mName"]; 
-			// document.getElementById("memMJ").innerText =  user.arr["mMJ"]+"/"+"1000";
-			// document.getElementsByClassName("Mjbar")[0].style.width =  (user.arr["mMJ"] / 1000 *100)+"%";
-			//載入頭像
-			// var loginImg = document.getElementsByClassName("loginImg")[0];
-
 
 			//登入的使用者資料暗樁 --各頁面可直接複製取用
 			document.getElementById("userNo").value = user.arr["memNo"];
@@ -315,16 +632,13 @@ function sendForm(memId,memPsw){
 				storage.setItem(key,user.arr[key]);
 			}
 			$id("loginNot").innerText='登出';
-			ooxxGetHead(loginImg, {
+			ooxxGetHead($id("loginHead"), {
 				animal: storage.getItem("animal") ,
 				color: storage.getItem("mColor") ,
 				eyes: storage.getItem("eye"),
 			});
 
 			heartItem = document.querySelectorAll('.heart div');
-			// heartM =  document.getElementById('userLove').value;
-			// alert(love);
-			// console.log(heartM);
 			if(heartItem){
 			switch(user.arr["loveGiven"]){
 				case '2':
@@ -341,6 +655,7 @@ function sendForm(memId,memPsw){
 				break;
 			   }
 			}
+			window.location.reload();
 	  	}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
@@ -359,8 +674,6 @@ function sendForm(memId,memPsw){
 
 //撈朋友列表 Ajax -- by ga 
 function friendList(myNo=-1){  
-	console.log("friendList():"+myNo);
-	// console.log(friend_infoArr[i]);
 	
 	var div_chooseBox = document.getElementsByClassName("friendbox")[0];
 	//撈朋友資料並動態新增列表--start
@@ -409,7 +722,6 @@ function friendList(myNo=-1){
 					}
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
-				console.log("hjsfL:"+friendInfo.length);
 				if(rwd_num==0){
 					for(var i = 0 ; i<friendInfo.length;i++){ // i:朋友數量
 						for(var j = 0 ; j < 6 ; j++){ // j:撈回的資料欄位數量
@@ -461,7 +773,6 @@ function friendList(myNo=-1){
 
 // 利用暱稱在friend_infoArr陣列裡找會員編號
 function echoNo(name,arr){
-	// console.log( arr.length );
 	for(var i=0;i<arr.length;i++){
 		
 		for(var j=0;j<arr[i].length;j++){
@@ -474,8 +785,6 @@ function echoNo(name,arr){
 
 //桌機聊天室切換朋友聊天 -- by ga
 function changeChat(taNo){
-	// alert(friend_infoArr[i][0]);
-	// console.log(friend_infoArr);
 	var taName = document.getElementById("mem-2");
 	var taPic = document.getElementById("friendPic"); //頭像div
 	var index;
@@ -490,7 +799,8 @@ function changeChat(taNo){
 	$id("mem-2").innerText=friend_infoArr[index][1];
 	storage.setItem("chatTaNo" , taNo);
 	storage.setItem("chatTaName", friend_infoArr[index][1]);
-	// console.log("index:"+index);
+	storage.setItem("chatTaId",friend_infoArr[index][5]);
+	
 	//載入聊天對象頭頭
 	ooxxGetHead(taPic, {
 		animal: friend_infoArr[index][2],
@@ -510,8 +820,6 @@ function changeChat(taNo){
 
 }
 function rwd_changeChat(taNo){
-	// console.log(friend_infoArr);
-	// var taName = document.getElementById("mem-2");
 	var taPic = document.getElementById("rwd_chatTaHead"); //頭像div
 	var index;
 	//得到聊天對象資訊在朋友陣列friend_infoArr的索引值
@@ -525,10 +833,7 @@ function rwd_changeChat(taNo){
 	$id("rwd_chatTaName").innerText=friend_infoArr[index][1];
 	storage.setItem("chatTaNo" , taNo);
 	storage.setItem("chatTaName",friend_infoArr[index][1]);
-	// $id("rwd_chatTaName").innerText=friend_infoArr[index][1];
-	// $id("rwd_chatTaNo").value = friend_infoArr[index][0];
-	// $id("chatTaNo").value = friend_infoArr[index][0];
-	// console.log("index:"+index);
+	storage.setItem("chatTaId",friend_infoArr[index][5]);
 	//載入聊天對象頭頭
 	ooxxGetHead(taPic, {
 		animal: friend_infoArr[index][2],
@@ -551,13 +856,11 @@ function rwd_changeChat(taNo){
 
 }
 // 拒絕交友邀請(更新關係資料表)Ajax -- by ga
-function rejectRequire(e){
-	console.log(0);
-	var replybox = e.target.parentNode.parentNode.parentNode;
-	var label = e.target.parentNode.parentNode;
-	replybox.removeChild(label);
-	var taNo = label.children[1].value;
-	alert(taNo);
+function answerRequire(taNo,action){
+	// window.addEventListener('click',(e)=>{
+	// 	alert(e.target);	
+	// })
+	$id("replybox").removeChild($id(`requireItem${taNo}`));
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function(){
@@ -565,17 +868,24 @@ function rejectRequire(e){
 			alert("xhr錯誤發生");
 
 		}else{ //成功取得
-			console.log(xhr.responseText);
-			//執行動作撰寫
+			if(action==0){
+				$('#alertText').text('已拒絕邀請!');
+
+			}else{
+				$('#alertText').text('交到朋友了!');
+				
+			}
+			$('.alertWrap').show();
+			friendList(storage.getItem("memNo"));
 		}
 	};
 	xhr.open("Post","updateRelationship.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 	
 	var chatMems = {
-		sendMemId: 1,
+		sendMemId: storage.getItem("memNo"),
 		taMemId: taNo,
-		action: 0 , // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
+		action: action , // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
 	}; //物件範例
 	xhr.send("upMem="+ JSON.stringify(chatMems));
 }
@@ -596,7 +906,6 @@ function requireBack(myNo=-1){
 				//[memNo||暱稱||動物||眼睛||毛色,霹靂嬌媧||2||1||1,理科太太||3||3||2,蔡小英||1||3||1]
 				var replybox = document.getElementById("replybox");
 				var replybox_phone =  document.getElementById("replybox_phone");
-				console.log(replybox_phone);
 				var num = replybox.children.length;
 				var requireList = new Array();
 				var i_start;
@@ -607,81 +916,63 @@ function requireBack(myNo=-1){
 				}
 				// alert(friendInfo);
 					for(var i = i_start;i<friendInfo.length;i++){ // i:朋友數量
-						for(var j = 0;j<5;j++){ // j:撈回的資料欄位數量
-							requireList[i] = friendInfo[i].split("||",5); 
-							//friend_infoArr[i]:朋友資料陣列;
-							//friend_infoArr[i][0]:會員編號; friend_infoArr[i][1]:會員暱稱 friend_infoArr[i][2]:動物
+						for(var j = 0;j<6;j++){ // j:撈回的資料欄位數量
+							requireList[i] = friendInfo[i].split("||",6); 
+							//requireList[i]:朋友資料陣列;
+							//requireList[i][0]:會員編號; requireList[i][1]:會員暱稱 requireList[i][2]:動物
 						}
-						var label = document.createElement("label");
-						label.className = "requireLabel";
+						var str = replybox.innerHTML;
+						str += `
+						<div class="requireLabel" id="requireItem${requireList[i][0]}">
+							<div id="requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
+								<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
+								<input type="hidden" value="${requireList[i][0]}">
+								<div class="reply_btnGroup">
+								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},1)">麻吉</button>
+								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},0)">拒絕</button>
+							</div>
+						</div>`;
 
-							// //頭貼div
-							// var headImg_div = document.createElement("div");
-							// headImg_div.id= "requireHead";
+						replybox.innerHTML = str;
 
-							//創建p_memName朋友暱稱
-							var p_memName = document.createElement("p");
-							p_memName.innerText = requireList[i][1]; //會員暱稱
-
-							var input = document.createElement("input");
-							input.type = "hidden";
-							input.value = requireList[i][0];
-
-							var reply_btnGroup = document.createElement("div");
-							reply_btnGroup.className = "reply_btnGroup" ;
-
-
-							var btn_Y = document.createElement("button");
-							btn_Y.innerText = "查看檔案";
-							btn_Y.className = "btn_reply";
-
-							var btn_N = document.createElement("button");
-							btn_N.innerText = "拒絕";
-							btn_N.className = "btn_reply";
-							
-							reply_btnGroup.appendChild(btn_Y);
-							reply_btnGroup.appendChild(btn_N);
-
-						//將img_friend、p_memNam、塞進label
-						label.appendChild(p_memName);
-						label.appendChild(input);
-						label.appendChild(reply_btnGroup);
-
-						//將label塞進div
-						replybox.appendChild(label);
+						//載入朋友頭像
+						ooxxGetHead($id(`requireHead${requireList[i][0]}`), {
+							animal: requireList[i][2],
+							color: requireList[i][4],
+							eyes: requireList[i][3],
+						});
 						
 						// 手機
 						var str_rwdChat = replybox_phone.innerHTML;
 						str_rwdChat += 
-						`<label class="rwd_requireLabel">
-							<p>${requireList[i][1]}</p>
+						`<div class="rwd_requireLabel">
+							<div id="rwd_requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
+							<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
 							<input type="hidden" value="${requireList[i][0]}">
 							<div class="reply_btnGroup">
-								<button class="btn_reply">查看檔案</button>
-								<button class="btn_reply">拒絕</button>
+								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},1)">麻吉</button>
+								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},0)">拒絕</button>
 							</div>
-						</label>`;
+						</div>`;
 						//將label塞進div
 						replybox_phone.innerHTML = str_rwdChat;
 						
-						// //載入朋友頭像
-						// // rrr = document.getElementById('自己取');
-						// ooxxGetHead(headImg_div, {
-						// 	animal: friend_infoArr[i][2],
-						// 	color: friend_infoArr[i][4],
-						// 	eyes: friend_infoArr[i][3],
-						// });
+						//載入朋友頭像
+						ooxxGetHead($id(`rwd_requireHead${requireList[i][0]}`), {
+							animal: requireList[i][2],
+							color: requireList[i][4],
+							eyes: requireList[i][3],
+						});
 						
 					}
 					
 				
-				var btn_N = document.getElementsByClassName("btn_reply");
-				console.log(btn_N);
-				for(var i = 0;i<btn_N.length;i++){
-					// alert('11');
-					// btn_N[i].addEventListener('click',rejectRequire);
-					btn_N[i].onclick=rejectRequire;
-				}
+				// var btn_N = document.getElementsByClassName("btn_reply");
+				// for(var i = 0;i<btn_N.length;i++){
+				// 	// alert('11');
+				// 	// btn_N[i].addEventListener('click',rejectRequire);
+				// 	btn_N[i].onclick=rejectRequire;
+				// }
 			}
 		};
 		xhr.open("Post","getRequireList.php",true);
@@ -716,7 +1007,6 @@ function msgDB(){
 			
 			var i_start = 0;
 			var i_end = data.content.length;
-			console.log(num);
 			// 桌機聊天室
 			if(num==0){
 				i_start = 0;
@@ -773,7 +1063,6 @@ function msgDB(){
 	};
 	xhr.open("Post","getChatMsg.php",true);
 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-	// console.log("me:"+me+"ta"+ta);
 
 	var chatMems = {
 		sendMemId: storage.getItem("memNo"),
@@ -790,6 +1079,7 @@ function close_rwdChat(){
 }
 
 window.addEventListener('load', function () {
+	
 	
 
 	if($id("loginNot").innerText=='登入'){
@@ -827,17 +1117,29 @@ window.addEventListener('load', function () {
 			chatRoom.style.cssText = "transform:translateY(0%)";
 			chatboxLeft.style.cssText = "opacity:1;";
 			if($id("loginNot").innerText=='登出'){
-				// console.log("chatTa:"+chatTa);
 				if(chatTa!=''){
 					msgDB();
 					chatBoxreload = setInterval(msgDB,3000);
+				}	
+				var div_chooseBox = document.getElementsByClassName("friendbox")[0];
+				while(div_chooseBox.children.length>1) {
+					console.log("+++刪朋友列表");
+					div_chooseBox.removeChild(div_chooseBox.lastChild);
 				}
+				while($id("replybox").children.length>1) {
+					console.log("+++刪邀請列表");
+					$id("replybox").removeChild($id("replybox").lastChild);
+				}
+				friendList(storage.getItem("memNo"));
+				requireBack(storage.getItem("memNo")); 
 
 				boxScroll(chatbox_show);
+				//邀請列表 
 
 			}
 			return ch1 = 1;
 		} else {
+			chatTa=''
 			chatRoom.style.cssText = "transform:translateY(82%)";
 			chatboxLeft.style.cssText = "opacity:1;";
 			if(typeof(chatBoxreload)!= 'undefined'){
@@ -854,6 +1156,7 @@ window.addEventListener('load', function () {
 		if (ch == 0) { //要顯示出來
 			chatboxLeft.style.cssText = "opacity:0;";
 			return ch = 1;
+			
 		} else { //要關閉
 			chatboxLeft.style.cssText = "opacity:1;";
 			return ch = 0;
@@ -1037,7 +1340,6 @@ function sendMsg(str) {
 	     if(xhr.responseText != "sucess"){      // 失敗狀態
 	            alert("xhr錯誤發生");     
 		}else{      //成功取得
-			console.log(xhr.responseText);
 			msgDB();
 			chatTxt_input.value = "";
 			rwd_chatTxt_input.value = "";
@@ -1061,6 +1363,30 @@ window.addEventListener('load', function () {
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	var rwd_chatbox_show = document.getElementById('rwd_chatbox');
 
+	reply_control = false;
+	$id("replybox").addEventListener("click",function(e){
+		// alert("HI");
+		if(reply_control==false){ //打開
+			$id("replybox").style.cssText = "height:83%";
+			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
+			document.getElementsByClassName("friendbox")[0].style.height = "0";
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo")); 
+			reply_control = true;
+		}else{ //收起來
+			$id("replybox").style.height = "32px";
+			$id("replybox").style.top = "";
+			$id("replybox").style.bottom = "8px";
+			document.getElementsByClassName("friendbox")[0].style.transition = "height 1s";
+			document.getElementsByClassName("friendbox")[0].style.height = "";
+			reply_control = false;
+
+		}
+		e.stopPropagation();
+
+	});
+
+
 // 桌機送出訊息(按Enter) --ga
 	chatTxt_input.addEventListener('keydown',function(e){
 		if (e.keyCode == 13) { //enter代碼
@@ -1083,29 +1409,20 @@ rwd_chatTxt_send.addEventListener('click', function () {
 	}, false);
 
 
+	$id("btn_memData").addEventListener("click",function(){
+		if(storage.getItem("chatTaId")){
+			openLB_memData(storage.getItem("chatTaId"));
+		}
+	},false);
+
+
 }, false);
 
 window.addEventListener('load', function () {
 	// sendForm();
 	
 	//聊天室內的好友邀請box收合 --by ga
-	reply_control = false;
-	$id("replyboxTitle").addEventListener("click",function(){
-		if(reply_control==false){ //打開
-			$id("replybox").style.height = "83%";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
-			document.getElementsByClassName("friendbox")[0].style.height = "0";
-			reply_control = true;
-		}else{ //收起來
-			$id("replybox").style.height = "32px";
-			$id("replybox").style.top = "";
-			$id("replybox").style.bottom = "8px";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height 1s";
-			document.getElementsByClassName("friendbox")[0].style.height = "";
-			reply_control = false;
 
-		}
-	});
 	// 登入start --by ga
 	$id("loginNot").addEventListener("click",function(){
 		if($id("loginNot").innerText=='登入'){
@@ -1144,8 +1461,10 @@ window.addEventListener('load', function () {
 					alert("xhr錯誤發生");
 
 				}else{ //成功
-					alert("您已登出~");
+					$('#alertText').text('已登出!');
+					$('.alertWrap').show();
 					$id("loginNot").innerText='登入';
+					window.location.reload();
 				}
 			};
 			xhr.open("Post","ajaxLogout.php",true);
@@ -1282,6 +1601,7 @@ ooxxLightBox = (...lightBoxArray) => {
 //燈箱function end --介庸
 
 
+<<<<<<< HEAD
 window.addEventListener('load', function () {
 	
 	//聊天室內的好友邀請box收合 --by ga
@@ -1391,9 +1711,10 @@ window.addEventListener('load', function () {
 }, false);
 
 
+=======
+>>>>>>> ga
 // 角色外觀載入函式start -- 介庸
 ooxxGetRole = (roleId, roleData) => {
-
 	// 載入角色
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">

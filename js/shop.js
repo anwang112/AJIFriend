@@ -101,6 +101,7 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                 
 
                 }
+                
                 for(var i = 1 ; i <= pageTotal ; i++){
                     if(i==pageNumber){
                         page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" style="color:white;background:rgba(200,78,106,1)" class="page_span">${i}</span>`;

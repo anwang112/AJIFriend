@@ -11,7 +11,7 @@ try {
         $RSta->bindParam(':memNo', $profile->memNo);
         $RSta->execute();
         $RStaRow = $RSta->fetch(PDO::FETCH_ASSOC);
-
+        
         if ($RStaRow["count(*)"] == 0) {
 
             $sql = "INSERT INTO relationship (relaNo, memNo, targetNo, relaCate, relaTime) VALUES (NULL, :memNo, :targetNo, 0, :nowDay)";

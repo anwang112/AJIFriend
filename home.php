@@ -11,11 +11,15 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <link rel="stylesheet" href="css/match2.css">
     <!-- 共通 -->
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
-    
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    
+    <link rel="stylesheet" href="css/chatStyle.css">
+
     <title>熊麻吉</title>
 </head>
 
@@ -85,6 +89,11 @@ session_start();
             </g>
         </g>
     </svg>
+    <div class="stoneWrap">
+        <img src="images/indexImages/indexStoneArray.svg" id="StoneArray">
+    </div>
+
+
 
     <!-- 第二部分 找麻吉 -->
     <div class="secondScreen">
@@ -161,7 +170,7 @@ session_start();
             <div class="secondTitle">
                 <h2>旋轉找麻吉</h2>
                 <div class="indexBtn">
-                    <a href="match.html" title="找麻吉" class="btn_R">找麻吉</a>
+                    <a href="match2.php" title="找麻吉" class="btn_R">找麻吉</a>
                 </div>
             </div>
         </section>
@@ -197,7 +206,7 @@ session_start();
                 </div>
                 <div class="shopTitle indexTitle">
                     <h2>打造魅力形象</h2>
-                    <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
+                    <a href="BearMJ_shop_addcart.php" title="造型商城" class="btn_R">造型商城</a>
                 </div>
             </div>
         </section>
@@ -211,7 +220,7 @@ session_start();
         <section class="fourthScreenPhoto">
             <div class="photoTitle indexTitle">
                 <h2>塗鴉編輯麻吉合照</h2>
-                <a href="photo.html" title="照片牆" class="btn_R">照片牆</a>
+                <a href="photo.php" title="照片牆" class="btn_R">照片牆</a>
             </div>
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
@@ -252,7 +261,7 @@ session_start();
         <section class="fifthScreenActivity">
             <div class="activityTitle indexTitle">
                 <h2>聯誼揪團活動</h2>
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
+                <a href="activity_v2.php" title="活動巴士" class="btn_R">活動巴士</a>
             </div>
             <ul class="signList">
                 <li class="signItem">
@@ -263,15 +272,8 @@ session_start();
                     <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
                     <img src="images/indexImages/indexPhoto02.png" alt="activityphoto" class="notphoto">
                 </li>
-                <!-- <li class="signItem">
-                    <img src="images/indexImages/indexSign.svg" alt="activitySign" class="activitySign">
-                    <img src="images/indexImages/indexPhoto01.png" alt="activityphoto" class="activityphoto">
-                </li> -->
             </ul>
             <embed id="indexActivityCart" class="indexActivityCart" src="images/indexImages/indexActivityCar.svg" style="display:block;" />
-            <div class="indexBtn">
-                <a href="activity.html" title="活動巴士" class="btn_R">活動巴士</a>
-            </div>
         </section>
     </div>
 
@@ -318,15 +320,15 @@ session_start();
                         <li value="6"></li>
                     </ul>
                     <ul id="colorKindList">
-                        <il>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="rRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="gRang">
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <input type="range" min="0" max="255" value="255" step="1" id="bRang">
-                        </il>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -435,6 +437,7 @@ session_start();
                     <textarea name="self-intro" id="selfIntro" maxlength="50"></textarea>
                 </li>
             </ul>
+            <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
         <button id="createMemberBtn" class="btn_R">送出</button>
     </div>

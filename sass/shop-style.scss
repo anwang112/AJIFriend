@@ -934,8 +934,9 @@ img{
             }
         }
         #cart-content{
-            margin:0 5%;
-            width: 55%;
+            margin:0px auto;
+            width: 85%;
+
             @media all and (max-width: 768px) {
                 width: 90%;
             }

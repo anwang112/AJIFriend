@@ -1,4 +1,5 @@
 <?php
+session_start();
     //新增資料    
     $actTitle = $_POST["actTitle"];
     $actIntro = $_POST["actIntro"];
@@ -7,6 +8,7 @@
     $act_end = $_POST["act_end"];
     $actImg = $_FILES["act_holdActFile"]["name"];
 
+    $userNo = $_SESSION['memNo'];
 
     //跟資料庫要資料
     try {
@@ -16,7 +18,7 @@
         $num =  $actnum ->rowCount();
         $num =  $num + 1;
 
-        $sql = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'2','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
+        $sql = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'$userNo','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
         $activity = $pdo ->query($sql);
 
         //上傳檔案處理

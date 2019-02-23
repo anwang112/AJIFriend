@@ -12,11 +12,14 @@ session_start();
     <title>BearMJ_Shop</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/shop-style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/match2.css">
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/friendBox.js"></script>
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
     <script src="js/shop.js"></script>
+<script src="js/match2.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 </head>
@@ -150,19 +153,18 @@ session_start();
             </div> 
         
     </div>
-
+ 
 
     <script>
         foot_html();  
         if( storage.getItem("memNo") ){
-            getProducts(1,storage.getItem("memNo"));
+            getProducts(1,1);
             changeModel(storage.getItem("memNo"));
         }
      //試穿角色顯示	
 	</script>
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script>
 
     function $id(id){

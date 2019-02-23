@@ -14,13 +14,12 @@
 
         $sql3 = "insert into `comment`(`commNo`, `memNo`, `actNo`, `time`, `content`) VALUES (NULL,:memNo,:actNo,:time,:txt)";
         $comment = $pdo -> prepare($sql3);
-        // $comment -> bindValue(":commNo", $commNo );
         $comment -> bindValue(":memNo", $actBoxObj -> memNo);
         $comment -> bindValue(":actNo", $actBoxObj -> actNO);
         $comment -> bindValue(":txt", $actBoxObj -> txt);  
         $comment -> bindValue(":time", $time);  
         $comment -> execute();
-
+        echo "123";
         // $send = json_encode($actBoxObj);//送出一包
         
     } catch (PDOException $e) {
