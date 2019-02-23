@@ -702,35 +702,37 @@ $('.showInfo2').click(function () {
     };
     searchMem(profile);
 });
+//heart
+heart =  storage.getItem("loveGiven");
+function loadHeart(heart){
 
+    switch (parseInt(heart)) {
+        case 2:
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+        case 1:
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+        case 0:
+            heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            break;
+
+    }
+}
 
 //送出好友邀請ajax
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
-        console.log(xhr.responseText);
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
-            storage.getItem("loveGiven",heart);
-            console.log(heart);
+            storage.setItem("loveGiven",heart);
             changeBtn(btn);
-            switch (parseInt(heart)) {
-                case 2:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 1:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 0:
-                    heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-
-            }
-
+            loadHeart(heart)
             $('#alertText').text('已送出邀請');
             $('.alertWrap').show();
         } else {
