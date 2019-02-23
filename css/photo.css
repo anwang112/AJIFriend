@@ -798,6 +798,7 @@ body{
     }
     #sharePhoto{
         width: 130px;
+        margin-left: 20%
     }
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
