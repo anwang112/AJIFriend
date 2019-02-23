@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'var';
 * {
     margin: 0;
@@ -807,10 +808,323 @@ li {
         }
         .heart{
             color: #F05C79;
+=======
+@import "var.scss";
+// @import "reset.scss";
+@mixin wrap() {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+//絕對定位 absolute(方向,值)
+@mixin absolute($direction, $value) {
+    #{$direction}: $value;
+    position: absolute;
+}
+
+html {
+    overflow-x: hidden;
+    position: relative;
+    body {
+        overflow: hidden;
+    }
+}
+
+// 共通部分
+.indexTitle {
+    position: relative;
+    padding: 0 0 20px 0;
+    color: #EF5C79;
+    text-align: center;
+    h2 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.5rem;
+        @media only screen and (min-width: 768px) {
+            padding: 25px;
+        }
+    }
+    a {
+        display: none;
+        line-height: 35px;
+        @media only screen and (min-width: 768px) {
+            display: inline-block;
         }
     }
 }
 
+//按鈕樣式
+.btn_R {
+    width: 100px;
+    border-radius: 12px;
+    background-color: #f05c79;
+    box-shadow: 0px 4px 0px #c84e6a;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+    color: #e5e5e5;
+    height: 35px;
+}
+
+.btn_R:hover {
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px transparent;
+}
+
+.indexBtn {
+    a {
+        padding: 10px 20px;
+    }
+}
+
+//animate
+@keyframes cabin-transit {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1);
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+// 第一屏
+.firstScreen {
+    @include wrap();
+    height: 100vh; //背景
+    background-color: #81b9f0;
+    .firstScreenBg {
+        height: 100vh;
+        @include wrap();
+        img {
+            @include absolute(bottom, 28%);
+            z-index: 3;
+        }
+        .city {
+            min-width: 1600px;
+            transition: .8s;
+            @media only screen and (min-width: 768px) {
+                max-width: none;
+                width: 115%;
+                height: auto;
+                min-width: 1600px;
+            }
+        }
+        .fwOO {
+            z-index: 2;
+            width: 27%;
+            right: 8%;
+            transform: scale(0);
+            transition: .24s;
+            max-width: 450px;
+            max-width: 400px;
+            transform-origin: center;
+            transform-box: fill-box;
+            @media only screen and (min-width: 768px) {
+                transform: scale(1);
+                transition: 1.66s;
+                animation: cabin-transit 60s linear infinite;
+            }
+        }
+        .cloud {
+            position: absolute;
+            top: 0;
+            left: -25%;
+            z-index: 1;
+        }
+    } //資料
+    .firstScreenInfo {
+        @include absolute(top, 0);
+        height: 100vh;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        z-index: 6;
+        .indexSlogan {
+            @include absolute(left, 3.5%);
+            bottom: 53%;
+            transition: .8s;
+            z-index: 5;
+            @media only screen and (min-width: 476px) {
+                left: 15%;
+            }
+            @media only screen and (min-width: 768px) {
+                left: -37%;
+                right: 0;
+                margin: auto;
+                text-align: center;
+                bottom: 52%;
+            }
+            h2 {
+                font-size: 2.7rem;
+                span {
+                    display: block;
+                    color: white;
+                    font-weight: 600;
+                    line-height: 1.6;
+                    text-shadow: 0px 0px 5px #EF5C79;
+                }
+            }
+        }
+        .indexGod {
+            height: 80vh;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            #indexCupid {
+                position: absolute;
+                display: block;
+                width: 45%;
+                right: -12%;
+                bottom: 5%;
+                min-width: 260px;
+                transition: .8s;
+                z-index: 3;
+                @media only screen and (min-width: 768px) {
+                    bottom: 0%;
+                    top: 13vh;
+                    right: 2%;
+                    max-width: 460px;
+                }
+                @media only screen and (min-width: 1045px) {
+                    right: 6%;
+                }
+            }
+            #cupidLight {
+                z-index: 4;
+                width: 75%;
+                position: absolute;
+                right: -14%;
+                top: 7%;
+                transition: 1s;
+                @media only screen and (min-height: 750px) and (max-width: 768px) {
+                    width: 0;
+                    opacity: 0;
+                }
+                @media only screen and (min-width: 768px) {
+                    width: 50%;
+                    right: 0%;
+                }
+                @media only screen and (min-width: 960px) {
+                    width: 47%;
+                    right: 1%;
+                }
+                @media only screen and (min-width: 1200px) {
+                    width: 40%;
+                    right: 4%;
+                }
+                .cls-1 {
+                    fill: url(#cupidLightGradient);
+                    opacity: 0.3;
+                }
+            }
+            #createBtn {
+                bottom: 33%;
+                position: absolute;
+                right: 11%;
+                z-index: 5;
+                width: 12%;
+                min-width: 85px;
+                height: 5%;
+                @media only screen and (min-width: 768px) {
+                    right: 16.5%;
+                    bottom: 18%;
+                    max-width: 120px;
+                }
+                @media only screen and (min-width: 1200px) {
+                    right: 19%;
+                    bottom: 14%;
+                    height: 6%;
+                }
+            }
+        }
+        #AjiSpring {
+            transition: .8s;
+            position: absolute;
+            display: block;
+            width: 30%;
+            right: 0%;
+            left: 0;
+            margin: auto;
+            bottom: 8%;
+            min-width: 350px;
+            z-index: 5;
+            @media only screen and (min-width: 768px) {
+                bottom: 7%;
+                min-width: 300px;
+                right: 36%;
+                width: 60%;
+            }
+        }
+        #indexAjiSpring {
+            transition: .8s;
+            position: absolute;
+            display: block;
+            width: 30%;
+            right: 0%;
+            left: 0;
+            margin: auto;
+            bottom: 15%;
+            min-width: 250px;
+            z-index: 5;
+            @media only screen and (min-width: 768px) {
+                bottom: 7%;
+                min-width: 300px;
+                right: 36%;
+                width: 40%;
+            }
+        }
+        #SpringDialog {
+            position: absolute;
+            width: 13%;
+            right: 5%;
+            bottom: 36%;
+            z-index: 5;
+            opacity: 0;
+            @media only screen and (min-width: 768px) {
+                opacity: 1;
+                right: 37%;
+            }
+        }
+        #AjiDialog {
+            position: absolute;
+            width: 15%;
+            right: 82%;
+            bottom: 39%;
+            z-index: 5;
+            opacity: 0;
+            @media only screen and (min-width: 768px) {
+                opacity: 1;
+                right: 86%;
+                bottom: 37%;
+            }
+        }
+    } //地板
+    .firstScreenFloor {
+        background-color: #ECDED9;
+        height: 35%;
+        z-index: 4;
+        @include absolute(bottom, 0);
+        width: 100%;
+        overflow: hidden;
+        transition: .8s;
+        border-radius: 45% 45% 0 0 / 15px 15px 0 0; // background-image: url('../images/indexImages/indexStoneOne.png');
+        // background-repeat: no-repeat;
+        // background-size: 0%;
+        // background-position: right top;
+        @media only screen and (min-width: 768px) {
+            background-size: 66%;
+>>>>>>> ooxx
+        }
+    }
+}
+
+<<<<<<< HEAD
 #indexMatch .matchObj {
     position: absolute;
     width: 300px;
@@ -981,10 +1295,469 @@ li {
 
         .light4 {
             right: 0;
+=======
+// 道路
+#indexRoad {
+    position: absolute;
+    top: 65vh;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: .8s;
+    height: 0;
+    width: 0;
+    @media only screen and (min-width: 768px) {
+        height: auto;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .cls-1 {
+        fill: #f3b9b4; // stroke: #f3b9b4;
+        // stroke-width: 20px;
+        // stroke-linejoin: round;
+        // stroke-linecap: round;
+        // stroke-dasharray: 0, 26901.775390625;
+        // -webkit-animation: roadGo 10s ease-in-out forwards;
+    }
+}
+
+//路ㄉ石頭
+.stoneWrap {
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    top: 66vh;
+}
+
+#StoneArray {
+    width: 100%;
+    height: auto;
+    min-width: 1200px;
+}
+
+#textRoad {
+    position: absolute;
+    top: 70vh;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: .8s;
+}
+
+// .roleShow {
+//     animation: .8s roleShowAnimate;
+// }
+// @keyframes roleShowAnimate {
+//     0%{
+//         opacity: 0;
+//     }
+//     50%{
+//         opacity: 0.5;
+//     }
+//     100% {
+//         opacity: 1;
+//     }
+// }
+// *{
+//     transform: translate();
+// }
+// @media only screen and (min-width:768px) {}
+// 第二屏
+.secondScreen {
+    @include wrap();
+    background-color: #ECDED9;
+    padding-bottom: 50px;
+    .secondScreenSlider {
+        width: 95%;
+        margin: auto;
+        z-index: 6;
+        position: relative;
+        max-width: 1200px;
+        @media only screen and (min-width: 768px) {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sliderTitle {
+            @media only screen and (min-width: 768px) {
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+        }
+        #trojanList {
+            perspective: 800px;
+            max-width: 700px;
+            transform-style: preserve-3d;
+            width: 100%;
+            margin: auto;
+            @media only screen and (min-width: 768px) {
+                order: -1;
+                width: 60%;
+            }
+            @media only screen and (min-width:1200px) {
+                transform: translateX(-10%);
+            }
+            .trojanItem {
+                position: absolute;
+                width: 20%;
+                left: 38%;
+                top: 47.3%;
+                transition: 1s;
+                .trojanItemRolebox {
+                    opacity: 0;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    .roleBox {
+                        width: 76%;
+                        top: 12%;
+                    }
+                }
+                .carousel {
+                    width: 90%;
+                } // @media only screen and (min-width: 768px) {
+                //     left: 40%;
+                // }
+            }
+        }
+        #ChairPerspective {
+            #chair {
+                position: absolute;
+                display: block;
+                width: 60%;
+                bottom: 20%;
+                right: -6%;
+                bottom: 10%;
+                @media only screen and(min-width: 768px) {
+                    width: 100%;
+                    bottom: -15%;
+                    right: 0;
+                }
+            }
+            .donut {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 150px;
+                height: 150px;
+                @media only screen and (min-width: 768px) {
+                    width: 300px;
+                    height: 300px;
+                    position: absolute;
+                    top: 9%;
+                }
+                #circleProcess {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    stroke-dasharray: 255%;
+                    stroke-dashoffset: 255%;
+                    stroke: #eb616d;
+                    fill: none;
+                    -webkit-transform: rotate(-90deg);
+                    -moz-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                    -o-transform: rotate(-90deg);
+                    transform: rotate(-90deg);
+                }
+                .donut-copy {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    @media only screen and (min-width: 768px) {
+                        font-size: 35px;
+                    }
+                }
+            }
+            .chairInfoList {
+                flex-direction: column;
+                display: none;
+                bottom: 27%;
+                font-size: 1rem;
+                left: -15%;
+                @media only screen and (min-width: 768px) {
+                    display: flex;
+                    position: absolute;
+                    left: -30%;
+                    bottom: 29%;
+                }
+                @media only screen and (min-width: 1200px) {
+                    left: -42%;
+                    bottom: 30%;
+                    font-size: 1.2rem;
+                }
+                li {
+                    text-align: left;
+                    padding: 5px;
+                }
+            }
+        }
+        .secondTitle {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            @media only screen and (min-width: 768px) {
+                width: 50%;
+            }
+            h2 {
+                position: relative;
+                padding: 0 0 20px 0;
+                color: #EF5C79;
+                font-size: 2.5rem;
+            }
         }
     }
 }
 
+// 第三部分
+.thirdScreen {
+    @include wrap();
+    background-color: #ECDED9;
+    .thirdScreenShop {
+        padding: 25px 0;
+        width: 95%;
+        margin: auto;
+        z-index: 6;
+        position: relative;
+        max-width: 1200px;
+        @media only screen and (min-width: 768px) {
+            display: flex;
+        }
+        .AjiShopSpring {
+            position: relative;
+            @media only screen and (min-width: 768px) {
+                width: 25%;
+            }
+            h2 {
+                color: #EF5C79;
+                position: absolute;
+                left: 0;
+            }
+            .shopEnergy {
+                position: absolute;
+                left: 0;
+                top: 15%;
+                #energy {
+                    width: 40%;
+                }
+                p {
+                    display: none;
+                }
+                @media only screen and (min-width: 768px) {
+                    #energy {
+                        width: 100%;
+                    }
+                    p {
+                        display: block;
+                        color: #ef5c79;
+                        line-height: 1.6;
+                    }
+                }
+            }
+            #ajiThree {
+                position: absolute;
+                width: 0%;
+                right: -62%;
+                bottom: 15%;
+                z-index: 6;
+                @media only screen and (min-width: 768px) {
+                    width: 100%;
+                }
+            }
+            #springThree {
+                position: absolute;
+                width: 0%;
+                right: -160%;
+                bottom: 6%;
+                z-index: 5;
+                @media only screen and (min-width: 768px) {
+                    width: 65%;
+                }
+            }
+            #springThreeRight {
+                position: absolute;
+                display: block;
+                width: 0%;
+                right: -201%;
+                bottom: 7%;
+                z-index: 6;
+                @media only screen and (min-width: 768px) {
+                    width: 45%;
+                }
+            }
+            #springThreeLeft {
+                display: block;
+                position: absolute;
+                width: 0%;
+                right: -105%;
+                bottom: 9%;
+                z-index: 5;
+                @media only screen and (min-width: 768px) {
+                    width: 45%;
+                }
+            }
+        }
+        .showShop {
+            padding: 30px 0;
+            width: 100%;
+            position: relative;
+            @media only screen and (min-width: 768px) {
+                width: 75%;
+            }
+            .model {
+                @include absolute(left, 44%);
+                top: 2%;
+                width: 18%;
+                @media only screen and (min-width: 768px) {
+                    left: 54%;
+                    top: 0%;
+                }
+                #indexModel {
+                    width: 100%;
+                }
+                #modelLight {
+                    transition: .8s;
+                }
+            }
+            .shopTitle {
+                @media only screen and (min-width: 768px) {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
+            }
+            #shop {
+                transform: translateX(10%);
+                @media only screen and (min-width: 768px) {
+                    transform: translateX(20%);
+                }
+            }
+            h2 {
+                transform: translateX(0%);
+                @media only screen and (min-width: 768px) {
+                    transform: translateX(20%);
+                }
+            }
+        }
+    }
+}
+
+// 第四部分
+.fourthScreen {
+    @include wrap();
+    background-color: #ECDED9;
+    overflow: visible;
+    .fourthScreenPhoto {
+        // overflow: hidden;
+        padding: 25px 0;
+        width: 95%;
+        margin: auto;
+        z-index: 6;
+        position: relative;
+        max-width: 1200px;
+        @media only screen and (min-width: 768px) {
+            display: flex; // padding-bottom: 10%;
+        }
+        .photoTitle {
+            @media only screen and (min-width: 768px) {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .camera {
+            position: relative;
+            padding: 20px 0 15% 0;
+            overflow: hidden;
+            @media only screen and (min-width: 768px) {
+                width: 70%;
+                order: -1;
+                padding: 20px 0 10.2% 0;
+            }
+            .photo {
+                width: 90%;
+            }
+            #indexPhotoPaper {
+                width: 32%;
+                right: 2%;
+                bottom: 2%;
+                transition: 1.4s;
+                position: absolute;
+                transform-origin: center;
+                transform-box: fill-box;
+                .cls-1 {
+                    // fill: #fdfdfd;
+                    fill: url(#photoPaperGradientWhite);
+                }
+                .cls-2 {
+                    // fill: #ef5c79;
+                    fill: url(#photoPaperGradientRed);
+                }
+            }
+            #PhotoInfo {
+                position: absolute;
+                width: 51%;
+                display: block;
+                bottom: 3%;
+                right: -8%;
+                opacity: 0;
+                transition: 1.6s;
+                transform-origin: center;
+                transform-box: fill-box;
+            }
+        }
+        #lineStory {
+            position: absolute;
+            left: 10%;
+            top: 15%;
+            width: 51%;
+            .cls-1 {
+                fill: none;
+                stroke-miterlimit: 10;
+                stroke: url(#loveGradient);
+                stroke-width: 30px; // 2146.82861328125
+                stroke-dasharray: 2146.82861328125, 2146.82861328125;
+                stroke-dashoffset: 2146.82861328125;
+            }
+        }
+        #flash {
+            // border: 4px solid #9E9388;
+            // background-color: #978956;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 80%;
+            top: 45%;
+            z-index: 19;
+            @media only screen and (min-width: 768px) {
+                top: 33.5%;
+                left: 56%;
+            }
+>>>>>>> ooxx
+        }
+    }
+}
+
+<<<<<<< HEAD
 @keyframes item {
 
     0%,
@@ -1131,3 +1904,541 @@ li {
 }
 
  
+=======
+.flashGo {
+    animation: flash 8s 0s infinite;
+}
+
+@keyframes flash {
+    0% {
+        background-color: #D5C7AC;
+        border-color: #D5C7AC;
+        transform: scale(1);
+        opacity: 1;
+    }
+    2% {
+        opacity: .8;
+        transform: scale(2);
+    }
+    5% {
+        opacity: 1;
+        background-color: white;
+        border-color: white;
+        transform: scale(50);
+    }
+    13% {
+        // border: 4px solid #9E9388;
+        // position: fixed;
+        background-color: transparent;
+        transform: scale(100);
+        opacity: 0;
+    }
+    8% {
+        opacity: 1;
+    }
+    100% {
+        // border: 4px solid #9E9388;
+        background-color: transparent;
+        transform: scale(1);
+        position: absolute;
+    }
+}
+
+// 第五部分
+.fifthScreen {
+    @include wrap();
+    background-color: #ECDED9;
+    .fifthScreenActivity {
+        padding: 50px 0;
+        width: 75%;
+        margin: auto;
+        max-width: 1200px;
+        z-index: 6;
+        position: relative;
+        @media only screen and (min-width: 768px) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .activityTitle {
+            @media only screen and (min-width: 768px) {
+                width: 50%;
+            }
+            @media only screen and (min-width: 976px) {
+                @include absolute(bottom, 0);
+            }
+        }
+        .signList {
+            position: relative;
+            @media only screen and (min-width: 768px) {
+                width: 50%;
+            }
+            @media only screen and (min-width: 976px) {
+                width: 100%;
+                padding: 50px 0;
+            }
+            li {
+                @media only screen and (min-width: 976px) {
+                    max-width: 350px;
+                }
+                &:nth-child(n+2) {
+                    display: none;
+                    @media only screen and (min-width: 976px) {
+                        display: block;
+                        @include absolute(top, 0);
+                    }
+                }
+                &:nth-of-type(1) {
+                    @media only screen and (min-width: 976px) {
+                        margin-top: 20%;
+                    }
+                }
+                &:nth-of-type(2) {
+                    @media only screen and (min-width: 976px) {
+                        left: 29%;
+                        right: auto;
+                    }
+                }
+                &:nth-of-type(3) {
+                    @media only screen and (min-width: 976px) {
+                        top: 60px;
+                        right: 2%;
+                    }
+                }
+            }
+            .signItem {
+                position: relative;
+                @media only screen and (min-width: 976px) {
+                    width: 30%;
+                }
+                .activityphoto {
+                    @include absolute(top, -7px);
+                    left: 2%;
+                    position: absolute;
+                    width: 92%;
+                }
+                .notphoto {
+                    top: 3%;
+                    left: -1%;
+                    position: absolute;
+                    width: 95%;
+                }
+            }
+        }
+        #indexActivityCart {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 0%;
+            margin: auto;
+            animation: bounce 0.5s infinite;
+            transform-origin: center center;
+            @media only screen and (min-width: 768px) {
+                width: 40%;
+            }
+        }
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(0px, -0.25px);
+    }
+    75% {
+        transform: translate(-0.4px, 0.25px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+#lineLove {
+    stroke: url(#lineGradient);
+    fill: none;
+    stroke-width: 22px;
+    stroke-dasharray: 0, 3463.16650390625;
+    -webkit-animation: go 10s ease-in-out forwards;
+}
+
+@-webkit-keyframes go {
+    100% {
+        stroke-dasharray: 3463.16650390625, 3463.16650390625;
+    }
+}
+
+//共通關掉按鈕
+.lightBoxXX {
+    background-color: #a2988f;
+    box-shadow: 2px 3px #444440;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 1.5%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 111;
+}
+
+.lightBoxXX:after {
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    display: block;
+    border-radius: 5px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.lightBoxXX::before {
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    display: block;
+    border-radius: 5px;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+//創建角色
+.indexCreateRoleBox {
+    border-radius: 15px;
+    background-color: #F4FADD;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 90%;
+    z-index: 106;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    max-width: 400px;
+    max-height: 500px;
+    height: 80%;
+    @media only screen and (min-width: 768px) {
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+        height: 65%;
+    }
+    h2 {
+        display: block;
+        color: #EF5C79;
+        font-weight: 600;
+        line-height: 1.6;
+        font-size: 32px;
+        text-align: center;
+    }
+    .createRoleScreen {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .showMyRole {
+            background-image: linear-gradient(0deg, #CD9E9A 30%, #FBC5CF 30%);
+            padding-bottom: 70%;
+            width: 100%;
+            height: 0;
+            .myRole {
+                width: 50%;
+                margin-top: -15px;
+                @media only screen and (min-width: 768px) {
+                    width: 70%;
+                }
+            }
+            @media only screen and (min-width: 768px) {
+                width: 45%;
+                order: 2;
+                padding-bottom: 45%;
+                height: 0;
+            }
+        }
+        .createNavList {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+            @media only screen and (min-width: 768px) {
+                width: 50%;
+            }
+            #createKindList {
+                display: flex;
+                li {
+                    cursor: pointer;
+                    padding: 15px;
+                    transition: .8s;
+                    &:nth-of-type(1) {
+                        background-color: rgb(240, 92, 121);
+                    }
+                }
+            }
+            .createKindAll {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: center;
+                @media only screen and (min-width: 400px) and (max-width: 830px) {
+                    overflow-y: scroll;
+                }
+                #animalKindList {
+                    display: flex;
+                    height: 100%;
+                    @media only screen and (min-width: 768px) {
+                        height: 100%;
+                        flex-wrap: wrap;
+                    }
+                    li {
+                        width: 25%;
+                        height: 100%;
+                        cursor: pointer;
+                        background-size: 80%;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        &:nth-of-type(1) {
+                            background-image: url('../images/indexImages/indexBearIcon.svg');
+                        }
+                        &:nth-of-type(2) {
+                            background-image: url('../images/indexImages/indexRabbitIcon.svg');
+                        }
+                        &:nth-of-type(3) {
+                            background-image: url('../images/indexImages/indexCatIcon.svg');
+                        }
+                        &:nth-of-type(4) {
+                            background-image: url('../images/indexImages/indexDogIcon.svg');
+                        }
+                        @media only screen and (min-width: 768px) {
+                            width: 42%;
+                            height: 50%;
+                            flex: auto;
+                            margin: 5px;
+                        }
+                    }
+                }
+                #eyesKindList {
+                    display: none;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    @media only screen and (min-width: 768px) {
+                        height: 100%;
+                    }
+                    li {
+                        width: 26%;
+                        cursor: pointer;
+                        background-size: 200%;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        height: 0;
+                        padding-bottom: 23%;
+                        background-size: 200%;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        &:nth-of-type(1) {
+                            background-image: url('../images/roleImages/eyes1.svg');
+                        }
+                        &:nth-of-type(2) {
+                            background-image: url('../images/roleImages/eyes2.svg');
+                        }
+                        &:nth-of-type(3) {
+                            background-image: url('../images/roleImages/eyes3.svg');
+                        }
+                        &:nth-of-type(4) {
+                            background-image: url('../images/roleImages/eyes4.svg');
+                        }
+                        &:nth-of-type(5) {
+                            background-image: url('../images/roleImages/eyes5.svg');
+                        }
+                        &:nth-of-type(6) {
+                            background-image: url('../images/roleImages/eyes6.svg');
+                        }
+                        @media only screen and (min-width: 768px) {
+                            box-sizing: border-box;
+                            padding: 60px;
+                            width: 42%;
+                        }
+                    }
+                }
+                #colorKindList {
+                    display: none;
+                    flex-direction: column;
+                    input[type="range"]::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        background: #F05C79;
+                        border-radius: 50%;
+                        transition: .2s;
+                    }
+                    li {
+                        width: 50%;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        input {
+                            width: 100%;
+                            height: 55%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #rRang {
+        background: linear-gradient(to right, black, red);
+        appearance: none;
+        -webkit-appearance: none;
+        border-radius: 2rem;
+    }
+    #gRang {
+        background: linear-gradient(to right, black, green);
+        appearance: none;
+        -webkit-appearance: none;
+        border-radius: 2rem;
+    }
+    #bRang {
+        background: linear-gradient(to right, black, blue);
+        appearance: none;
+        -webkit-appearance: none;
+        border-radius: 2rem;
+    }
+    #saveRoleBtn {
+        padding: 7px;
+        border-radius: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: .7rem;
+        background-color: #f05c79;
+        box-shadow: 0px 4px 0px rgba(255, 255, 255, 0.5);
+        text-align: center;
+        cursor: pointer;
+        transition: .3s;
+        position: absolute;
+        right: 1%;
+        top: 59%;
+        outline: none;
+        border: none;
+        @media only screen and (min-width: 768px) {
+            right: 3%;
+            top: 72%;
+        }
+    }
+}
+
+//註冊會員
+#createMemberScreen {
+    display: none;
+    flex-direction: column;
+    width: 90%;
+    z-index: 106;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    max-height: 500px;
+    min-height: 80%;
+    background-color: #F4FADD;
+    position: fixed;
+    padding: 20px;
+    max-width: 500px;
+    @media only screen and (min-width: 768px) {
+        max-height: 650px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 26px;
+        padding: 10px;
+    }
+    .createMemberBox {
+        width: 100%;
+        display: flex;
+        height: 85%;
+        @media only screen and (min-width: 768px) {
+            height: 75%;
+        }
+        .createLeftForm {
+            flex: 1;
+            li {
+                height: 10%;
+                padding: 5px 0;
+                display: flex;
+                align-items: center;
+                &:nth-of-type(5) {
+                    height: 30%;
+                }
+                &:nth-of-type(6) {
+                    height: 25%;
+                }
+            }
+        }
+        .createRightForm {
+            flex: 2;
+            li {
+                height: 10%;
+                padding: 5px 0;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                &:nth-of-type(4) {
+                    select {
+                        height: 80%;
+                        min-height: 30px;
+                    }
+                }
+                &:nth-of-type(5) {
+                    height: 30%;
+                    label {
+                        width: 50%;
+                    }
+                }
+                &:nth-of-type(6) {
+                    height: 25%;
+                    textarea {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                input {
+                    padding: 0 10px;
+                    border: none;
+                    border-radius: 12px;
+                    -webkit-tap-highlight-color: transparent;
+                    outline: none;
+                }
+            }
+        }
+    }
+    #createMemberBtn {
+        position: absolute;
+        width: 80%;
+        bottom: 18px;
+        height: 7%;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+>>>>>>> ooxx
