@@ -9,14 +9,13 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- 共通 -->
     <script src="js/commonPart.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <!-- snap 函式庫 -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script> -->
+    
     <title>熊麻吉</title>
 </head>
 
@@ -65,9 +64,6 @@ session_start();
                     <span>聊到變麻吉</span>
                 </h2>
             </div>
-            <!-- <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:0;" />
-            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" /> -->
             <embed id="AjiSpring" src="images/indexImages/AjiSpring.svg" style="display:block; opacity:0;" />
         </section>
         <!-- 地板 -->
@@ -78,7 +74,7 @@ session_start();
 
 
     <!-- 走道 -->
-    <!-- 舊版 -->
+    <!-- 石頭 -->
     <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
         <defs>
         </defs>
@@ -204,7 +200,6 @@ session_start();
                     <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
                 </div>
             </div>
-
         </section>
     </div>
 
