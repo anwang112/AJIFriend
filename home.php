@@ -9,18 +9,19 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     
+    <link rel="stylesheet" href="css/match2.css">
     <!-- 共通 -->
+    
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" href="css/match2.css">
-    <link rel="stylesheet" href="css/chatStyle.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    
     <title>熊麻吉</title>
-</head> 
+</head>
 
 <body>
 
@@ -67,9 +68,6 @@ session_start();
                     <span>聊到變麻吉</span>
                 </h2>
             </div>
-            <!-- <embed id="SpringDialog" src="images/indexImages/indexSpringDialog.svg" style="display:block; opacity:0;" />
-            <embed id="AjiDialog" src="images/indexImages/indexAjiDialog.svg" style="display:block; opacity:0;" />
-            <embed id="indexAjiSpring" src="images/indexImages/indexAjiSpring.svg" style="display:block;" /> -->
             <embed id="AjiSpring" src="images/indexImages/AjiSpring.svg" style="display:block; opacity:0;" />
         </section>
         <!-- 地板 -->
@@ -80,7 +78,7 @@ session_start();
 
 
     <!-- 走道 -->
-    <!-- 舊版 -->
+    <!-- 石頭 -->
     <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
         <defs>
         </defs>
@@ -206,7 +204,6 @@ session_start();
                     <a href="BearMJ_shop.html" title="造型商城" class="btn_R">造型商城</a>
                 </div>
             </div>
-
         </section>
     </div>
 
@@ -325,15 +322,15 @@ session_start();
                         <li value="6"></li>
                     </ul>
                     <ul id="colorKindList">
-                        <li>
+                        <il>
                             <input type="range" min="0" max="255" value="255" step="1" id="rRang">
-                        </li>
-                        <li>
+                        </il>
+                        <il>
                             <input type="range" min="0" max="255" value="255" step="1" id="gRang">
-                        </li>
-                        <li>
+                        </il>
+                        <il>
                             <input type="range" min="0" max="255" value="255" step="1" id="bRang">
-                        </li>
+                        </il>
                     </ul>
                 </div>
             </div>

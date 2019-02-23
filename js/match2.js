@@ -431,6 +431,7 @@ function searchMem(profile) {
             document.getElementById('sLv').innerText = lv;
             document.getElementById('sIntro').innerText = info.intro;
 
+            alert(info.friendRe);
             if(info.friendRe == 0){
                 btn = $('.btn_beFriend0');
                 changeBtn(btn);
