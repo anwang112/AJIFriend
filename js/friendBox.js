@@ -5,7 +5,8 @@ function $id(id){
 function changeModel(no){
     console.log(typeof no);
     if(typeof no == 'object'){
-        no = $id("userNo").value;
+        
+        no = storage.getItem("memNo");
     }
     var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function (){
@@ -29,7 +30,7 @@ function changeModel(no){
                     // alert("me"+ta.no);
                         var span = document.getElementsByClassName("wearChange");
 
-                    if(ta.no==$id("userNo").value){
+                    if(ta.no==storage.getItem("memNo")){
                         span[0].innerText="麻吉";
                         span[1].innerText="麻吉";
                         var divChoose = document.getElementsByClassName("choose-friend") ;
@@ -83,10 +84,12 @@ function showfriendBox(){
     var giftTa_chooseBox = document.getElementById("chooseBox");
     var friend_LightBox = document.getElementById("friend_LightBox");
     friend_LightBox.style.display ="block";
-    if($id('userNo').value!=''){
+    // console.log("------------"+storage.getItem("memNo"));
+    if(storage.getItem("memNo")){
 
         var xhr = new XMLHttpRequest(); // 建立xhr
 		xhr.onload = function(){
+    
 			if(xhr.responseText == "null"){ //失敗狀態
 				console.log("沒有朋友");
 
@@ -128,7 +131,8 @@ function showfriendBox(){
         }            
         xhr.open("Post","getFriend.php",true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        xhr.send("me="+ $id('userNo').value);  
+        
+        xhr.send("me="+ storage.getItem("memNo"));  
 
     }
 

@@ -449,6 +449,9 @@ try {
                             <span></span><br>
                             <button class="rankBtn showInfo2">查看個人頁面</button><br>
                             <button class="rankFriendBtn2 btn">成為麻吉</button>
+=======
+                            <button class="btn_beFriend10">成為麻吉</button>
+>>>>>>> origin/ga
                         </div>
                     </div>
                 </div>
