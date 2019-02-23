@@ -199,13 +199,13 @@ html {
                     width: 50%;
                     right: 0%;
                 }
-                @media only screen and (min-width: 1200px) {
-                    width: 40%;
-                    right: 1%;
-                }
                 @media only screen and (min-width: 960px) {
                     width: 47%;
                     right: 1%;
+                }
+                @media only screen and (min-width: 1200px) {
+                    width: 40%;
+                    right: 4%;
                 }
                 .cls-1 {
                     fill: url(#cupidLightGradient);
@@ -226,8 +226,8 @@ html {
                     max-width: 120px;
                 }
                 @media only screen and (min-width: 1200px) {
-                    right: 15%;
-                    bottom: 16%;
+                    right: 19%;
+                    bottom: 14%;
                     height: 6%;
                 }
             }

@@ -227,8 +227,8 @@ indexInit = () => {
             }
         }
         cupidLightstart = () => {
-            if (cupidLightopacity > 0.6) {
-                cupidLightopacity = 0.6;
+            if (cupidLightopacity > 1) {
+                cupidLightopacity = 1;
                 cupidLightOffset += 0.48;
                 cupidLight01.setAttribute('offset', `${cupidLightOffset}%`);
             } else {
