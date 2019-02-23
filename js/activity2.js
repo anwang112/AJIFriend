@@ -6,6 +6,395 @@ function boxScroll(o){
     o.scrollTop = o.scrollHeight;
 }
 
+function CloseLightActBox(){
+    var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
+    var lightbox_actsCheckout = $id('lightbox_actsCheckout');
+    lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;";
+    lightbox_actsCheckout.style.cssText="display:none;z-index:-1;";
+    var myMessagebox = $id('myMessagebox');
+    if( myMessagebox.hasChildNodes){
+        divs = document.getElementsByClassName('dddd');
+        // console.log(divs )
+        for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+            divs[i].remove();
+            console.log('dddd')
+        }
+    }
+}
+
+function reBtn(){
+    var checkout_act=document.getElementsByClassName('checkout_act') ;
+    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
+    for(var i=0;i<checkout_act.length;i++){
+        checkout_act[i].addEventListener('click',function(){
+            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
+            lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
+            btn_ActJoinToDB.style.cssText = "background-color:#ccc";
+            lightbox_actsCheckout.addEventListener('click',function(e){
+                e.stopPropagation();
+            },false);
+            lightbox_actsCheckout_outside.addEventListener('click',function(){
+                lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
+                lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+                btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
+                var myMessagebox = $id('myMessagebox');
+                if( myMessagebox.hasChildNodes){
+                    divs = document.getElementsByClassName('dddd');
+                    // console.log(divs);
+                    for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+                        divs[i].remove();
+                        console.log('dddd');
+                    }
+                }
+            },false);
+        },false);
+    }
+
+    var cancel_act = document.getElementsByClassName('cancel_act');
+    for(var i = 0;i<cancel_act.length;i++){
+        cancel_act[i].addEventListener('click',function(){
+
+            var actNo = this.nextSibling.nextSibling.value;
+            var member = this.nextSibling.nextSibling.nextSibling.nextSibling.value;
+            var target = this.parentNode.parentNode;
+            // member = 2;
+            // alert('actNo:'+actNo); //8
+            // alert('member:'+member); //2
+            CancelActTo(actNo,member,target);
+
+        },false);
+    }
+}
+
+function comDB (memNo, actNoGet , txtGet){
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+         if( xhr.responseText == "null" ){
+            alert ('xhr有錯誤喔');
+         }else{
+            //寫入前清除
+            var myMessagebox = $id('myMessagebox');
+            if( myMessagebox.hasChildNodes){
+                divs = document.getElementsByClassName('dddd');
+                console.log(divs )
+                for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+                    divs[i].remove();
+                    console.log('dddd')
+                }
+            }
+            //寫入
+            var comments= JSON.parse(xhr.responseText);
+            var str ='';
+            // alert(comments.arr);
+            var strAll = [];
+
+            if( comments.arr == undefined){//沒有內容 印尚未有留言
+                str += "尚未有留言喔～～"
+            }else{
+                for( var i=0;i<comments.arr.length;i++){
+                    //印出來名字跟聊天內容
+                    strAll[i] = comments.arr[i].split(",");
+                    // str += `<div>`;
+                    // str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
+                    str +=`<span style="padding:10px 10px;">`;
+                    str += `${strAll[i][0]}:`;
+                    str += `${strAll[i][4]}`;
+                    str += `</span>`;
+    
+                    //印出大頭
+        
+                    // rrr = document.getElementById('theUserBBB'+i);
+                    // ooxxGetHead(rrr, {
+                    //     animal:  strAll[i][1],
+                    //     color: strAll[i][3],
+                    //     eyes: strAll[i][2],
+                    // });  
+                }
+            }
+            
+            var myMessagebox = $id('myMessagebox');
+            var div = document.createElement('div');
+            div.setAttribute('class','dddd');
+            div.innerHTML =  str;
+            myMessagebox.appendChild(div);
+
+            
+            // console.log( strAll );
+            var myMessagebox_input = $id('myMessagebox_input');
+            myMessagebox_input.value = '';
+
+            boxScroll(myMessagebox);
+
+         }
+    }
+    xhr.open("post", "comment.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+    var actBoxObj = {
+        memNo : memNo ,
+        actNO : actNoGet ,
+        txt:txtGet,
+    };
+
+    xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));
+}
+
+function sendCom(memNo,actNo,txt){
+    // alert(txt);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+           alert('xhr有錯誤喔');
+        }else{
+            // console.log("xhr:"+xhr.responseText);
+            // console.log(txt);
+            comDB(memNo,actNo , txt);
+
+        }
+   }
+
+   var actBoxObj = {
+        memNo : memNo ,
+        actNO : actNo ,
+        txt: txt,
+    };
+
+
+    xhr.open("post", "comInsert.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
+}
+
+function JoinActTo(actNo,member){
+        console.log(actNo);
+        console.log(member);
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.responseText == "null" ){
+                alert('xhr有錯誤喔');
+             }else{
+
+                // alert(JSON.parse(xhr.responseText));
+                var JoinActBackToJs = JSON.parse(xhr.responseText);
+                // alert(JoinActBackToJs.DBmsg);
+                if( JoinActBackToJs.DBmsg == '1111'){
+                    alert('完成報名 你可以在我的活動看到新增喔！') ;
+                    // location.reload();
+                    CloseLightActBox();
+                    renewJoin(actNo,member);
+                    
+                }else if(JoinActBackToJs.DBmsg == '2222'){
+                    alert('你已經報名過嘍'+actNo);
+                    var btn_ActJoinToDB = $id('btn_ActJoinToDB');
+                    CloseLightActBox();
+                }else{
+                    alert('錯誤');
+                }
+             }
+
+       }
+       var JoinActObj = {
+            actNo: actNo ,
+            member: member,
+        };
+    
+    
+        xhr.open("post", "JoinDelAct.php", true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+}
+
+function renewJoin(actNo,member){ 
+    console.log(actNo);
+    console.log(member);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+            // alert(JSON.parse(xhr.responseText));
+            // var JoinActBackToJs = JSON.parse(xhr.responseText);
+            // alert(xhr.responseText);
+            //印在已報名活動
+            var str =[];
+            var str_a = xhr.responseText;
+            
+            str = str_a.split(',');
+            console.log(str);
+            var partB_top = $id('partB_top');
+            var partB_top_content = document.getElementsByClassName('partB_top_content');
+            var div = document.createElement('div');
+            htmlappendTo=`
+                <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
+                <div class="spanbox">
+                    <span>活動名稱：${str[5]} </span>
+                    <span>活動介紹：${str[8]} </span>
+                    <span>發起人:${str[4]}</span>
+                    <span>地點：${str[9]}</span>
+                    <span>時間：${str[6]}</span>
+                    <span>獎勵:100MJ</span>
+                </div>
+                <div class="buttonbox">
+                <button class="checkout_act btn_R " value="${str[1]}">查看</button>
+                <input style="display:none" type="text" value="${str[5]}">
+                <input style="display:none" type="text" value="${str[1]}">
+                <input style="display:none" type="text" value="${str[4]}">
+                <input style="display:none" type="text" value="${str[9]}">
+                <input style="display:none" type="text" value="${str[6]}">
+                <input style="display:none" type="text" value="${str[7]}">
+                <input style="display:none" type="text" value="${str[8]}">
+                <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
+                <input style="display:none" type="text" value="${str[1]}">
+                <input class="userInput02" style="display:none" type="text" value="${str[0]}">
+            </div>
+            `;
+            div.setAttribute('class','partB_top_content');
+            div.innerHTML=htmlappendTo;
+            // partB_top.appendChild(div);
+            partB_top.insertBefore(div,partB_top_content[0]);
+            reBtn();
+            // alert('ok');
+        }
+    }
+   var JoinActObj = {
+        actNo: actNo ,
+        member: member,
+    };
+    
+
+    xhr.open("post", "renewJoin.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+}
+
+function CancelActTo(actNo,member,target){
+    console.log(actNo);
+    console.log(member);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+            // alert(JSON.parse(xhr.responseText));
+            // alert('已取消參加活動');
+            // alert(target);
+            // location.reload();
+            // target.class
+            target.setAttribute('class','deleteFromPage');
+            target.style.display="none";
+         }
+
+   }
+   var CancelActObj = {
+        actNo: actNo ,
+        member: member,
+    };
+
+
+    xhr.open("post", "JoinDelAct.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "CancelActObj=" + JSON.stringify(CancelActObj));//轉成字串送到php
+
+}
+var keyTotal = 3 ;
+// var key = 1;
+function officalAllAct(actNo,member,key){
+    console.log(actNo);
+    console.log(member);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+             
+            // alert(JSON.parse(xhr.responseText));
+            // alert( xhr.responseText);
+            var fromAllAct_obj = JSON.parse(xhr.responseText);
+            // alert(xhr.responseText);
+            console.log(fromAllAct_obj.total);
+            var box_Loc =$id('box_Loc');
+            var box_Intro =$id('box_Intro');
+            var box_actNo =$id('box_actNo');
+            var imgBoxImg_B = $id('imgBoxImg_B');
+            var imgBoxImg = $id('imgBoxImg');
+            box_Loc.innerHTML=fromAllAct_obj.loc;
+            box_Intro.innerHTML=fromAllAct_obj.actIntro;
+            box_actNo.value=fromAllAct_obj.no;
+            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+
+            return keyTotal = fromAllAct_obj.total;
+            
+
+         }
+
+   }
+   var officalAllObj = {
+        actNo: actNo ,
+        member: member,
+        key: key,
+    };
+
+
+    xhr.open("post", "officalAllAct.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "officalAllObj=" + JSON.stringify(officalAllObj));//轉成字串送到php            
+             
+}
+
+function countJoinNum(host_memNoValue,actNoValue){
+    console.log(host_memNoValue);
+    console.log(actNoValue);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+            // alert(JSON.parse(xhr.responseText));
+            // alert('參加人數：' + xhr.responseText);
+            // var n = xhr.responseText
+            // var actJoinCount = $id('actJoinCount');
+            // actJoinCount.innerHTML="參加人數："+ n;
+
+         }
+
+   }
+   var ActJoinObj = {
+        host_memNoValue: host_memNoValue ,
+        actNoValue: actNoValue,
+    };
+
+
+    xhr.open("post", "actNumSelect.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "ActJoinObj=" + JSON.stringify(ActJoinObj));//轉成字串送到php   
+}
+
+//大頭方法 要放到對話輸入欄
+// rrract = document.getElementById('theUser');
+// ooxxGetHead(rrract, {
+//     animal: 2,
+//     color: 'aaaaaa',
+//     eyes: 2,
+// })
+
+// function innerMemValue(){
+//     var userNo = document.getElementById('userNo');
+//     console.log(userNo.value );
+
+//     var userInput01= $id('userInput01');
+//     userInput01.value = userNo.value ;
+
+//     console.log(userInput01);
+
+//     var userInput02 = document.getElementsByClassName('userInput02');
+//     console.log(userInput02);
+//     for(var i = 0;i<userInput02.length;i++){
+//         userInput02[i].value = userNo.value;
+//     }
+//     var userInput03 = $id('userInput03');
+//         userInput03.value = userNo.value;
+// }
 
 function CloseLightActBox(){
     var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');

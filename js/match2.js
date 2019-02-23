@@ -542,6 +542,346 @@ $('.btn_beFriend10').click(function () {
 
 
 
+//ajax
+function searchMem(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.responseText == 0) {
+            $('#alertText').text('找不到這個ID的麻吉唷!');
+            $('.alertWrap').show();
+
+        } else {
+            var R = 0;
+            $('#searData').css({
+                'transform': 'rotateY(' + R + 'deg)',
+            });
+            $('#reportData').css({
+                'transform': 'rotateY(' + (R + 180) + 'deg)',
+            });
+            $('.searchWrap').show();
+            var hobbyinfo = document.getElementById('hobby');
+            var sNameinfo = document.getElementById('sName');
+            var sMJinfo = document.getElementById('sMJ');
+            var conste = document.getElementById('sConstellation');
+            var sMemId = document.getElementById('sMemId');
+            var info = JSON.parse(xhr.responseText);
+            //no
+            document.getElementById('sMemNo').value = info.memNo;
+
+            //興趣
+            hobbyinfo.innerText = '';
+            var hobby = info.hobby.split("");
+            var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+            var c = [];
+            for (var i = 0; i < hobby.length; i++) {
+                var a = hobby[i];
+                var b = hobbys[a];
+                c.push(b);
+            }
+            for (var j = 0; j < c.length; j++) {
+                var d = c[j] + '&nbsp' + '|' + '&nbsp';
+                if (j == c.length - 1) {
+                    d = c[j];
+                }
+                hobbyinfo.innerHTML += d;
+            }
+            //暱稱
+            sNameinfo.innerText = info.name;
+            //MJ
+            sMJinfo.innerText = 'MJ: ' + info.mj;
+            //星座
+            constellation = info.constellation;
+            switch (constellation) {
+                case '1':
+                    conste.innerText = "牡羊座";
+                    break;
+                case '2':
+                    conste.innerText = "金牛座";
+                    break;
+                case '3':
+                    conste.innerText = "雙子座";
+                    break;
+                case '4':
+                    conste.innerText = "巨蟹座";
+                    break;
+                case '5':
+                    conste.innerText = "獅子座";
+                    break;
+                case '6':
+                    conste.innerText = "處女座";
+                    break;
+                case '7':
+                    conste.innerText = "天秤座";
+                    break;
+                case '8':
+                    conste.innerText = "天蠍座";
+                    break;
+                case '9':
+                    conste.innerText = "射手座";
+                    break;
+                case '10':
+                    conste.innerText = "摩羯座";
+                    break;
+                case '11':
+                    conste.innerText = "水瓶座";
+                    break;
+                case '12':
+                    conste.innerText = "雙魚座";
+                    break;
+            }
+            //角色
+            sEye = info.eye;
+            sBody = info.body;
+            sColor = info.color;
+            sHat = info.hat;
+            sClothes = info.clothes;
+
+            //test write
+            ooxxGetRole(topMoney05, {
+                animal: sBody,
+                color: sColor,
+                eyes: sEye,
+                hat: sHat,
+                clothes: sClothes,
+            });
+            //id
+            sMemId.innerText = info.memId;
+            td[1].innerText = info.memId;
+            if (parseInt(info.mj) >= 1000) {
+                lv = "LV.3 萬人迷 ";
+            } else if (parseInt(info.mj) >= 500) {
+                lv = "LV.2 潛力股 ";
+            } else {
+                lv = "LV.1 邊緣人 ";
+            }
+            document.getElementById('sLv').innerText = lv;
+            document.getElementById('sIntro').innerText = info.intro;
+
+
+        }
+    }
+}
+//Rank送出好友邀請
+$('.btn_beFriend2').click(function () {
+    tarNo = document.querySelector('.fans .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend3').click(function () {
+    tarNo = document.querySelector('.fans .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend4').click(function () {
+    tarNo = document.querySelector('.fans .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend5').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend6').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend7').click(function () {
+    tarNo = document.querySelector('.moneyS .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend8').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo0').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend9').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo1').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+$('.btn_beFriend10').click(function () {
+    tarNo = document.querySelector('.MJs .rankNo2').value;
+    loginNo = document.getElementById('userNo').value;
+    if (document.getElementById('userId').value == '') {
+        $('#alertText').text('請先登入!');
+        $('.alertWrap').show();
+    }else if(loginNo == tarNo){
+        $('#alertText').text('不能選擇自己唷!');
+        $('.alertWrap').show();
+    }else{
+        if (document.getElementById('userLove').value <= 0) {
+            $('#alertText').text('今天的愛心已經用完囉！');
+            $('.alertWrap').show();
+        } else {
+            profile = {
+                memNo: loginNo,
+                targetNo: tarNo,
+                nowDay: nowDay,
+                action: 3,
+            };
+            makeFriend(profile);
+        }
+    }
+});
+
+
+
+
 // ajax   --已經移植過去共同物件
 // function searchMem(profile) {
 //     var xhr = new XMLHttpRequest();
@@ -938,6 +1278,26 @@ function makeFriend(profile) {
 
     };
     xhr.open("Post", "makeFriend.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("profile=" + JSON.stringify(profile));
+
+}
+
+//檢舉
+function report(profile) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (parseInt(xhr.responseText) == 1) {
+            $('#alertText').text('已經檢舉過囉!');
+            $('.alertWrap').show();
+        } else if(parseInt(xhr.responseText) == 0){ 
+            $('#alertText').text('已收到您的檢舉!');
+            $('.alertWrap').show();
+            $('.searchWrap').hide();
+        }
+
+    };
+    xhr.open("Post", "report.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("profile=" + JSON.stringify(profile));
 

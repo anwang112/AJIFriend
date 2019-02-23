@@ -138,7 +138,6 @@
                 <div id="partA" class="partA">
                     <h2 id="posH2">熊麻吉們的主辦活動</h2>
                     <div id="act_memberHold" class="act_memberHold"><?php $i = 1;?>
-
                         <?php while($activityMemHold ->fetch(PDO::FETCH_ASSOC)){?>
                         <div id="Hold_box" class="act_memberHold_box act_memberHold_box<?php echo $i?>">
                             <?php if($actImg == null){?>

@@ -535,13 +535,18 @@ img {
       #productBlock #productsArea #productsShow section {
         display: flex;
         flex-direction: row;
-        box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; }
+<<<<<<< .merge_file_a24932
+        box-shadow: inset 3px 0 10px #ccc,
+ inset -3px 0 10px #ccc; }
         @media all and (max-width: 768px) {
           #productBlock #productsArea #productsShow section {
             overflow-X: auto; } }
         @media all and (max-width: 476px) {
           #productBlock #productsArea #productsShow section {
             overflow-X: auto; } }
+=======
+        box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; }
+>>>>>>> .merge_file_a18640
         #productBlock #productsArea #productsShow section .id_iframe {
           display: none;
           width: 0; }

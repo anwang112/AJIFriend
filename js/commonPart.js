@@ -597,6 +597,7 @@ function openLB_memData(memId=-1){
 //login Ajax --by ga
 function sendForm(memId,memPsw){
 	//=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+	
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.responseText == "error"){
@@ -632,7 +633,26 @@ function sendForm(memId,memPsw){
 				eyes: storage.getItem("eye"),
 			});
 
-			
+			heartItem = document.querySelectorAll('.heart div');
+			// heartM =  document.getElementById('userLove').value;
+			// alert(love);
+			// console.log(heartM);
+			if(heartItem){
+			switch(user.arr["loveGiven"]){
+				case '2':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '1':
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+				case '0':
+				heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+				heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+				break;
+			   }
+			}
 	  	}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
@@ -641,6 +661,11 @@ function sendForm(memId,memPsw){
 
 	// friendList();
 }
+// sendForm();
+
+
+
+
 
 
 
@@ -1631,7 +1656,7 @@ ooxxGetRole = (roleId, roleData) => {
 	}
 
 	roleId.getElementsByTagName('embed')[1].addEventListener('load', (e) => {
-		switch (roleData.eyes) {
+		switch (parseInt(roleData.eyes)) {
 			case 1:
 				eyes1 = e.path[0].getSVGDocument().getElementsByClassName('cls-4');
 				eyes1[0].style.transformOrigin = `center 52%`;
