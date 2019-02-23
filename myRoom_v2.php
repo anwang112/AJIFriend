@@ -95,14 +95,14 @@
                   <!-- 橫向的帽子格櫃 -->
                   <ul class="myhats">
                     <!-- 最多10件帽子 -->
-                    <?php while($pdohat ->fetch(PDO::FETCH_ASSOC)){?>
-                    <li><img src="images/hat/<?php echo $imgHat?>" class="hat"></li>
+                    <?php while( $aaa -> fetch(PDO::FETCH_ASSOC)) { ?>
+                    <li><img src="images/hat/<?php echo $imgHat ;?>" class="hat"></li>
+                    <?php } ?>
                     <!-- <li><img src="images/hat/hat_nikeCapBlack.png" class="hat"></li>
                     <li><img src="images/hat/hat_beanieOrange.png" class="hat"></li>
                     <li><img src="images/hat/hat_nikeCapBlue.png" class="hat"></li>
                     <li><img src="images/hat/hat_beanieBlack.png" class="hat"></li>
                     <li><img src="images/hat/hat_beanieMustard.png" class="hat"></li> -->
-                    <?}?>
                   </ul>
                 </div>
               </div>
@@ -111,14 +111,16 @@
                   <!-- 橫向的衣服格櫃 -->
                   <ul class="myClothes">
                     <!-- 最多10件衣服 -->
+                    <?php while( $bbb -> fetch(PDO::FETCH_ASSOC)) { ?>
                     <li>
                       <img class="hanger" src="images/cloth/hanger.png">
-                      <img src="images/cloth/cloth_sweaterWhite.png" class="cloth">
+                      <img src="images/cloth/<?php echo $clothbb ;?>" class="cloth">
                     </li>
-                    <li>
+                    <?php } ?>
+                    <!-- <li>
                       <img class="hanger" src="images/cloth/hanger.png">
                       <img src="images/cloth/cloth_coatofKOKO.png" class="cloth">
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -132,7 +134,7 @@
           <div class="clearfix"></div>
           <!-- 保存按鈕 -->
           <div id="btnSaveChageCloth">
-            <button class="btnSave">保存設定</button>
+            <button id="btnSave" class="btnSave">保存設定</button>
           </div>
           <!-- 保存造型成功 燈箱 -->
           <div id="keepSaveClothes" style="display:none">保存造型成功!

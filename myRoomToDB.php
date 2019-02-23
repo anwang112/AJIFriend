@@ -4,7 +4,7 @@
     try {
         //跟資料庫要資料
         require_once("connectBooks.php");
-        //已報名活動
+        // 已報名活動
         $sqlmemJoin = "select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
         //
         //select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo
@@ -13,7 +13,7 @@
         // $activitmemJoin = $pdo->query($sqlmemJoin); 
         $activitmemJoin = $pdo->prepare($sqlmemJoin); 
         $activitmemJoin -> bindValue(":member",$_SESSION["memNo"]); 
-        //之後要改成bindParam
+
         $activitmemJoin -> bindColumn("act_orderNo", $act_orderNo); 
         $activitmemJoin -> bindColumn("order_memNo", $order_memNo);      
         $activitmemJoin -> bindColumn("actNo", $actNo);
@@ -30,13 +30,23 @@
 
         $activitmemJoin -> execute();
 
-        //載入穿搭的值
+        //載入會員買的帽子
+        // if($_SESSION["memNo"]){
+            $sqlaa = "select * FROM pro_orderitem p JOIN product a on (p.proNo  =  a.proNo)  WHERE p.buyerNo = :buyerNo  AND a.category = 1 limit 10 ";
+            $aaa = $pdo->prepare($sqlaa); 
+            $aaa -> bindValue(':buyerNo',2);//$_SESSION["memNo"] 
+            $aaa -> bindColumn('img', $imgHat);
+            $aaa -> execute();
+    
+            //載入會員買的衣服
+            $sqlbb = "select * FROM pro_orderitem p JOIN product a on (p.proNo = a.proNo) WHERE p.buyerNo = :buyerNo AND a.category = 2 limit 10";
+            $bbb = $pdo->prepare($sqlbb); 
+            $bbb -> bindValue(':buyerNo',2);//$_SESSION["memNo"] 
+            $bbb -> bindColumn('img', $clothbb);
+            $bbb -> execute();
+        // }
 
-        //載入衣櫃
-        $sqlhat = "SELECT * FROM product join  WHERE `category` = 1";
-        $pdohat -> $pdo->prepare($sqlhat); 
-        $pdohat-> bindColumn("img", $imgHat);
-        $pdohat-> execute();
+
 
 
         //寫入穿好的
