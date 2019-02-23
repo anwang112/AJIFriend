@@ -13,7 +13,7 @@ $('#alertBtn').click(function () {
 td = document.querySelectorAll('#reportData table tr td');
 $('#report').click(function () {
     document.getElementById('fname').value = '';
-    if (document.getElementById('userId').value == '') {
+    if (storage.getItem("memId") == '') {
         $('#alertText').text('請先登入!');
         $('.alertWrap').show();
 
@@ -25,7 +25,7 @@ $('#report').click(function () {
         $('#reportData').css({
             'transform': 'rotateY(' + R + 'deg)',
         });
-        td[0].innerText = document.getElementById('userId').value;
+        td[0].innerText = storage.getItem("memId");
         td[2].innerText = nowDay;
     }
     
@@ -39,7 +39,7 @@ $('#reportSmt').click(function(){
         $('.alertWrap').show();
     }else{
         profile = {
-            memNo: document.getElementById('userNo').value,
+            memNo: storage.getItem("memNo"),
             ta_memNo: document.getElementById('sMemNo').value,
             reason: document.getElementById('fname').value,
         };
@@ -112,7 +112,7 @@ $('.search').click(function () {
 
     profile = {
         memId: document.getElementById('sId').value,
-        loginMemNo:document.getElementById('userNo').value,
+        loginMemNo:storage.getItem("memNo"),
     };
     searchMem(profile);
 });
@@ -124,7 +124,7 @@ $('.search').click(function () {
 profile = {
     con: document.getElementById('con').value,
     hob: document.getElementById('hob').value,
-    memNo: document.getElementById('userNo').value,
+    memNo: storage.getItem("memNo"),
     targetNo: document.getElementById('matchMemNo').value,
 };
 getMem(profile);
@@ -147,7 +147,7 @@ $('.matchNext').click(function () {
             profile = {
                 con: document.getElementById('con').value,
                 hob: document.getElementById('hob').value,
-                memNo: document.getElementById('userNo').value,
+                memNo: storage.getItem("memNo"),
                 targetNo: document.getElementById('matchMemNo').value,
             };
             getMem(profile);
@@ -211,14 +211,14 @@ function changeBtnUnf(btn){
 function beFriend (tarNo,loginNo,btn) {
     
     if(btn.text() == '成為麻吉'){
-        if (document.getElementById('userId').value == '') {
+        if (storage.getItem("memId") == '') {
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
         }else if(loginNo == tarNo){
             $('#alertText').text('不能選擇自己唷!');
             $('.alertWrap').show();
         }else{
-            if (document.getElementById('userLove').value <= 0) {
+            if (storage.getItem("loveGiven") <= 0) {
                 $('#alertText').text('今天的愛心已經用完囉！');
                 $('.alertWrap').show();
             } else {
@@ -234,7 +234,7 @@ function beFriend (tarNo,loginNo,btn) {
         }
     }else if(btn.text() == '解除麻吉關係'){
         data= {
-            sendMemId: document.getElementById('userNo').value,
+            sendMemId: storage.getItem("memNo"),
             taMemId: tarNo,
             action: 2,
             btn: btn,
@@ -245,69 +245,69 @@ function beFriend (tarNo,loginNo,btn) {
 }
 $('.btn_beFriend0').click(function(){
     tarNo = document.getElementById('sMemNo').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $('.btn_beFriend1');
     beFriend(tarNo,loginNo,btn);
 });
 //Rank送出好友邀請
 $('.fans .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.fans .rankNo0').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.fans .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.fans .rankNo1').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.fans .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.fans .rankNo2').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.moneyS.rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.moneyS .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo1').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.moneyS .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo2').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.MJs .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.MJs .rankNo0').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.MJs .rankFriendBtn1').click(function () {
     tarNo = document.querySelector('.MJs .rankNo1').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
 $('.MJs .rankFriendBtn2').click(function () {
     tarNo = document.querySelector('.MJs .rankNo2').value;
-    loginNo = document.getElementById('userNo').value;
+    loginNo = storage.getItem("memNo");
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
@@ -510,7 +510,7 @@ function getMem(profile) {
             }
             //默契值
             totalMatch = 55;
-            var userHobby = document.getElementById('userHobby').value.split("");
+            var userHobby = storage.getItem("hobby").split("");
             for (i = 0; i < userHobby.length; i++) {
                 if (hobby.indexOf(userHobby[i]) != -1) {
                     totalMatch += 9;
@@ -660,7 +660,7 @@ function getRank(profile) {
                 id.push(info[i].memId);
 
                 data = {
-                    loginNo: document.getElementById('userNo').value,
+                    loginNo: storage.getItem("memNo"),
                     tarMemNo: info[i].memNo,
                 }
                 btn= $(txtBox+' .rankFriendBtn'+i);
@@ -681,7 +681,7 @@ $('.showInfo0').click(function () {
     changeBtnNomal(btn);
     profile = {
         memId: id[0],
-        loginMemNo:document.getElementById('userNo').value,
+        loginMemNo:storage.getItem("memNo"),
     };
     searchMem(profile);
 });
@@ -690,7 +690,7 @@ $('.showInfo1').click(function () {
     changeBtnNomal(btn);
     profile = {
         memId: id[1],
-        loginMemNo:document.getElementById('userNo').value,
+        loginMemNo:storage.getItem("memNo"),
     };
     searchMem(profile);
 });
@@ -699,7 +699,7 @@ $('.showInfo2').click(function () {
     changeBtnNomal(btn);
     profile = {
         memId: id[2],
-        loginMemNo:document.getElementById('userNo').value,
+        loginMemNo:storage.getItem("memNo"),
     };
     searchMem(profile);
 });
@@ -712,7 +712,7 @@ function makeFriend(profile) {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
-            document.getElementById('userLove').value = heart;
+            storage.getItem("loveGiven",heart);
             changeBtn(btn);
             switch (parseInt(heart)) {
                 case 2:
