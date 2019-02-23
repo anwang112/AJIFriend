@@ -3,16 +3,15 @@ session_start();
 $profile = json_decode($_REQUEST["profile"]);
 $errMsg = "";
 try {
-    // echo $profile->aaa;
     require_once("connectBooks.php");
-    if (true) {
+    if ($profile->action == 3) {
         $Rsql = "select count(*) from relationship where (memNo = :memNo and targetNo = :targetNo) or (memNo = :targetNo and targetNo = :memNo)";
         $RSta = $pdo->prepare($Rsql);
         $RSta->bindParam(':targetNo',$profile->targetNo);
         $RSta->bindParam(':memNo', $profile->memNo);
         $RSta->execute();
         $RStaRow = $RSta->fetch(PDO::FETCH_ASSOC);
-
+        
         if ($RStaRow["count(*)"] == 0) {
 
             $sql = "INSERT INTO relationship (relaNo, memNo, targetNo, relaCate, relaTime) VALUES (NULL, :memNo, :targetNo, 0, :nowDay)";

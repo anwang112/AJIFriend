@@ -24,7 +24,9 @@
   backface-visibility: hidden;
   transition: .5s;
   transform: rotateY(180deg);
-
+  button{
+    @include btn_standard(100px, $darkPink, $shadowPink);
+  }
   table {
     margin: auto;
 
@@ -75,10 +77,6 @@
         }
 
       }
-    }
-
-    button {
-      @include btn_standard(100px, $darkPink, $shadowPink);
     }
   }
 }
@@ -202,6 +200,9 @@
     background-color: #eef2ef;
     border: 10px solid #fbc5cf;
 
+    button {
+      margin: 10px
+    }
     #MJstatus {
       font-size: 15px;
       margin-top: -15px;
@@ -241,7 +242,10 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-
+    #report {
+      @include btn_standard(100px, $darkPink, $shadowPink);
+      margin: 10px
+    }
 
     th {
       display: block;
@@ -273,10 +277,7 @@
     }
   }
 
-  button {
-    margin: 10px;
-    @include btn_standard(100px, $darkPink, $shadowPink);
-  }
+  
 
   .matchMJ {
     font-size: 5vmin;
@@ -414,8 +415,8 @@
     }
 
     button {
-      margin: 5px;
       @include btn_standard(100px, $darkPink, $shadowPink);
+      margin: 5px;
     }
   }
 }
@@ -521,7 +522,6 @@
       height: 30px;
       margin: 5px;
       line-height: 0;
-      @include btn_standard(100px, $darkPink, $shadowPink);
     }
 
     .rankItem {
@@ -546,7 +546,9 @@
     }
   }
 }
-
+.rankBtn{
+  @include btn_standard(100px, $darkPink, $shadowPink);
+}
 .rankTxtCs {
   @include LRcenter(relative);
   margin: 10px;
@@ -597,8 +599,8 @@
     border-radius: 20px;
 
     #alertBtn {
-      display: block;
       @include btn_standard(100px, $darkPink, $shadowPink);
+      display: block;
       @include LRcenter(absolute);
       bottom: 30px;
 
@@ -611,6 +613,12 @@
 
   }
 }
+.disable{
+  @include btn_dis(100px);
+}
+.btn{
+  @include btn_standard(100px, $darkPink, $shadowPink);
+} 
 
 @media only screen and (max-width: 768px) {
   .wrap {
