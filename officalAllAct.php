@@ -12,11 +12,7 @@
         // }else{
         //     $sqlBUS = "select * from activity where host_memNo = 1 AND actNo != :actNo ";
         // }
-<<<<<<< .merge_file_a18340
         $sqlBUS = "select * from activity where host_memNo IS NULL";
-=======
-        $sqlBUS = "select * from activity where host_memNo = 1";
->>>>>>> .merge_file_a27144
         
         //
         // $officalAll = $pdo -> prepare($sqlBUS);
@@ -25,11 +21,7 @@
         // $offical = $officalAll -> fetchObject();
         // echo '0';
         $aa = $pdo->prepare($sqlBUS); 
-<<<<<<< .merge_file_a18340
         // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
-=======
-        $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
->>>>>>> .merge_file_a27144
         
 
         // $aa -> bindColumn("actNo", $actNo); 
