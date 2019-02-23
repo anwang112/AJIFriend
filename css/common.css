@@ -529,7 +529,6 @@ body {
   display: inline-block;
   width: 90%;
   height: 32px;
-  max-height: 82%;
   overflow: hidden;
   margin: 0 15px;
   border: 2px solid #f05c79;
@@ -544,10 +543,12 @@ body {
   padding: 5px 0;
   transition: height 1s;
   background-color: #f4c8db;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 7;
+ }
   #replybox .requireLabel {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #ddd;
     width: 90%;
@@ -555,15 +556,21 @@ body {
     padding: 2%;
     margin: 6px auto; }
     #replybox .requireLabel p {
-      padding: 5px 0 5px 10px;
-      color: #555450; }
+      padding: 5px 0 5px 0px;
+      color: #555450; 
+      text-align: left;
+    flex-grow: 1;}
+    #replybox .requireLabel .reply_btnGroup{
+      justify-items: flex-end;
+      }  
     #replybox .requireLabel .reply_btnGroup .btn_reply {
       border-radius: 5px;
       border: transparent;
       background-color: #f4c8db;
       color: #555;
       margin: 0 3px;
-      justify-items: flex-end; }
+      justify-items: flex-end;
+     }
       #replybox .requireLabel .reply_btnGroup .btn_reply:hover {
         cursor: pointer; }
 
@@ -1165,7 +1172,7 @@ body {
   border-radius: 50%;
   overflow: hidden;
   width: 17%;
-  margin: 0 15px;
+  margin: 0 12px 0 5px;
   position: relative;
   max-width: 70px;
   max-height: 70px; }

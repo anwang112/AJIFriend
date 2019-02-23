@@ -13,6 +13,7 @@ session_start();
     <link rel="stylesheet" href="css/reset.css">
     <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/shop-style.css">
@@ -104,7 +105,7 @@ session_start();
             </form>
 
         </div>
-        <div id="giftBox">
+        <!-- <div id="giftBox">
             <div id="btn_giftBoxClose">
                 <img src="shop-images/close.png">
             </div>
@@ -156,7 +157,7 @@ session_start();
                 <input type="button" id="choose_ok" value="確定">
                 <input type="button" id="choose_delete"value="全部清除">
             </div>
-        </div>
+        </div> -->
 
     </div>
     <script type="text/javascript">
@@ -206,3 +207,5 @@ session_start();
 
 </script>
 <script src="js/cart.js"></script>
+
+<script src="js/match2.js"></script>

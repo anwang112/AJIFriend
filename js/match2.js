@@ -241,6 +241,7 @@ function beFriend (tarNo,loginNo,btn) {
             btn: btn,
         };
         unFriend(data);
+        
     }
     
 }
@@ -714,7 +715,7 @@ function makeFriend(profile) {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
-            storage.getItem("loveGiven") = heart;
+            storage.setItem("loveGiven" ,heart);
             changeBtn(btn);
             switch (parseInt(heart)) {
                 case 2:

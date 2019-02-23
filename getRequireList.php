@@ -19,7 +19,7 @@ $data = $_REQUEST["me"];  //解碼js傳過來的值
                 }else{ //反之
                     $friendNo = $friendRows["memNo"]; //則memNo欄位就是朋友的編號
                 }
-                $sql2 = "select memNo , mName , animal , eye , mColor from member 
+                $sql2 = "select memNo , mName , animal , eye , mColor ,memId from member 
                           where memNo=:no";
                 $friendData = $pdo->prepare( $sql2 );
                 $friendData -> bindValue( ":no",$friendNo);
