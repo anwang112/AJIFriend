@@ -461,6 +461,7 @@ function loginPhoto(){
 
 //  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
 function searchMem(profile) {
+	alert("=====");
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.responseText == 0) {
@@ -577,7 +578,8 @@ function searchMem(profile) {
 
         }
 
-    };
+	};
+	
     xhr.open("Post", "search.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("profile=" + JSON.stringify(profile));

@@ -11,10 +11,12 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/shop-style.css">
-    <script src="js/commonPart.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/commonPart.js"></script>
+    <link rel="stylesheet" href="css/match2.css">
+    <link rel="stylesheet" href="css/shop-style.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
     
     
 </head>

@@ -99,6 +99,7 @@ $('.searchClose').click(function () {
 
 });
 
+
 //搜尋好友
 //enter
 function enter() {
@@ -107,12 +108,13 @@ function enter() {
     }
 }
 $('.search').click(function () {
-
     profile = {
         memId: document.getElementById('sId').value,
     };
+    console.log(profile);
     searchMem(profile);
 });
+
 
 
 //搜尋好友結束
