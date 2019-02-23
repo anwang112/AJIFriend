@@ -782,6 +782,20 @@ body{
         border-radius: 30px;
         margin-bottom: 20px;
     }
+    input[type=button]{
+        margin-left: 20%;
+        cursor: pointer;
+        width: 80px;
+        padding: 10px 20px;
+        text-align: center;
+        line-height: 1.6;
+        color: #fff;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
+        margin-bottom: 20px;
+    }
     #sharePhoto{
         width: 130px;
     }

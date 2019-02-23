@@ -124,6 +124,19 @@ try {
                 <p>2.死神頭套</p><img src="images/ghostCap-28.png" alt="ghostCap">
                 <p>3.海盜頭套</p><img src="images/pirateCap-29.png" alt="pirateCap">
             </div>
+
+            <div id="friend_LightBox" class="bg_friendBox" style="display:none">
+                    <img src="shop-images/friendBox.png">
+                    <div id="btn_friendBoxClose">
+                        <img src="shop-images/close.png">
+                    </div>
+                    <div id="content_friendBox">
+                        <input type="text" id="searchBox" placeholder="搜尋朋友ID">
+                        <div id="chooseBox">
+
+                        </div>
+                    </div>
+                </div>
             <!-- <div id="friend_LightBox" class="bg_friendBox">
                 <img src="images/chooseF-31.png" alt="bg">
                 <div id="btn_friendBoxClose">
@@ -158,7 +171,7 @@ try {
                     <div id="chooseId">
                             <!-- 試穿預視 -->
                             <div id="showModel">
-                                <img src="shop-images/model_1.png" id="model_animal">
+                                <img src="shop-images/model_1.png" id="model_animal" >
                                 <img src="shop-images/hat_1.png" id="model_hat">
                                 <!-- <img src="" id="model_clothes"> -->
                             </div>
@@ -168,8 +181,10 @@ try {
 
                             </div>
                     </div>
-
-
+                <!-- 下載照片要get php -->
+                <form method="get" accept-charset="utf-8" name="form1">
+                    <input name="hidden_data" id='hidden_data' type="hidden"/>
+                </form>
                 <!-- 選擇顏色 -->
                 <div class="controlBar">
                     <div class="colorPack">
@@ -185,6 +200,7 @@ try {
 
                     </div>
                  </div>
+                 
                 <!--畫布canvas 與 背景預覽  -->
                 <div class="preCanvas">
                         <div class="preview"><img id="imgPreview" src="" alt="">
@@ -214,9 +230,9 @@ try {
                     <div class="next" >                
                         <span id="next">選擇朋友</span>
                     </div>
-
-                    <!-- 下載照片
-                    <a id="save" href="#" download="photo.png">儲存合照</a> -->
+                    <!-- 下載照片 -->
+                 <input type="button" value="下載照片" onclick="saveImage()" />
+                    
                     <div id="shareHint" style="display:none">已分享合照至塗鴉牆!
                             <!-- 確定後燈箱消失 -->
                         <div id="sureClose">確定</div>
@@ -266,7 +282,6 @@ try {
 
 
 <?php
-    // $sql = "select * from picture_category c join picture p on c.pic_cateNo = p.pic_cateNo where p.pic_cateNo=2 order by p.time desc";
     $sql = "select * from picture_category  where pic_cateNo=2 order by time desc";
     $photo = $pdo->query($sql); 
 
@@ -276,7 +291,6 @@ try {
         <div class="postArea">
             <div class="father">                
                 <div class="content">
-                    <!-- <h2>立刻製作你跟麻吉的合照</h2> -->
                     <img class="ajiY" src="images/yellowheart-10.png" alt="y">
                     <img class="aji" src="images/jiFriend.png" alt="og">
                 </div>
@@ -307,10 +321,9 @@ try {
 ?>	
             <div class="card" id="photo1">
                 <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>
                 <img class="member" src="images/member4-20.png" alt="doggy">
                 <a href="#"><?php echo $photoRow["memId"];?></a>
-                <img id="heart" class="heart" src="images/fullheart-16.png" alt="heart">
+                <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
                 <div class="bigHeart" id="bigHeart">
                     <img src="images/heart.svg" alt="bigHeart">
@@ -319,9 +332,7 @@ try {
 <?php
 	}
 ?>   
-            <div class="clear"></div>
-            
-         
+            <div class="clear"></div>        
             <!-- <div id="cardLB" class="照片id ex:card-photo7">
                 <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
                 <div id="left">%%</div>
@@ -336,70 +347,6 @@ try {
             </div> -->
         </div>
     </div>
-<script>
-//１.未登入者跳視窗 :登入才能按讚   alert請先登入
-//2-1.登入者先回去資料庫檢查資料會員帳號 照片標號 判斷是否按過讚 未按讚數＋1
-//2-2.已按顯示 ：你~已經按過了
-
-// function addHeart(e){
-//     var login=document.getElementById("loginNot");
-//     if(login.innerText=="登入"){
-//         alert("請先登入！");
-//     }else if(login.innerText=="登出"){
-//         var xhr = new XMLHttpRequest();
-//         xhr.onload = function(){
-//           if( xhr.status == 200){
-//             xhr.responseText == "null"{ //失敗狀態
-
-//           }else{
-//             alert( xhr.status );
-//             alert("Dear你已經投過了～");
-//           }
-//         }
-//         xhr.open("Post", "ajaxCheckVote.php", true);
-//         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-// 	    // xhr.send(`memId=ga&memPsw=11111111`);
-//         xhr.send(null);
-	
-//       }
-// }
-
-        
-		// xhr.open("Post","getMemData.php",true);
-		// xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-
-
-
-
-// function init(){
-    
-
-//     var heart =document.getElementsByClassName("heart");
-//     for(var i = 0; i < heart.length; i++){
-//         heart[i].addEventListener("click",addHeart,false);
-//     }
-//     var card=document.getElementsByClassName("card");
-//     for(var j=0;j<card.length;j++){
-//         card[j].addEventListener("mouseover",showHeart,false);
-//         card[j].addEventListener("mouseout",hiddenHeart,false);
-//     }
-
-   
-    
-
-// }
-
-// window.addEventListener("load",init,false);
-
-
-       
-
-
-</script>
-    
-            
-
-
     <script type="text/javascript">
 		foot_html();
 	</script>

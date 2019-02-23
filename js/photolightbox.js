@@ -88,14 +88,14 @@ function cardLB(e){
     // 創建img member
     var imgMem=document.createElement("img");
     imgMem.className="member";
-    imgMem.src=e.target.parentNode.children[2].src;
+    imgMem.src=e.target.parentNode.children[1].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=e.target.parentNode.children[3].innerText;
+    aMem.innerText=e.target.parentNode.children[2].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[5].innerText;
+    spanVote.innerText=e.target.parentNode.children[4].innerText;
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";

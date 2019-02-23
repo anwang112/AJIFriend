@@ -7,7 +7,7 @@ function nextStep(){
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
     var controlBar=document.getElementsByClassName("controlBar")[0];
-    var friendLightBox=document.getElementById("friend_LightBox");
+    // var friendLightBox=document.getElementById("friend_LightBox");
 // 判斷式 
 // 1到2
     if (next.innerText=="選擇朋友"){
@@ -44,7 +44,7 @@ function nextStep(){
         power02=false;
         power03=true;
         back.innerText="選擇朋友";
-        friendLightBox.style.display="none";
+        // friendLightBox.style.display="none";
     }
     
 }
@@ -67,7 +67,7 @@ function backStep(){
         chooseBtn.style.display="none";
         back.style.display="none";
         next.innerText="選擇朋友";
-        friendLightBox.style.display="none";
+        // friendLightBox.style.display="none";
 
     }
 
@@ -87,7 +87,7 @@ function backStep(){
         controlBar.style.display="none";
         next.innerText="編輯塗鴉";
         back.innerText="選擇背景";
-        friendLightBox.style.display="block";
+        // friendLightBox.style.display="block";
 
     }
 }
@@ -101,6 +101,39 @@ function changeColor(e){
 };
 
 
+  
+function drawImg(){
+    var img = document.getElementById("model_animal");
+    var img2 = document.getElementById("model_hat");
+    var imgPrev = document.getElementById("imgPreview");
+    // imgPrev.style.width="350px";
+    // imgPrev.style.height="350px";
+    // img.style.width="11%";
+    // img2.style.width="11%";
+    ctx.drawImage(imgPrev,0,0,350,350);  
+    ctx.drawImage(img,0,0,180,190);  
+    ctx.drawImage(img2,0,0,180,190);  
+}
+function saveImage() {
+    var dataURL = canvas.toDataURL("image/png");
+    document.getElementById('hidden_data').value = dataURL;
+    var formData = new FormData(document.forms["form1"]);
+    
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'savePhoto.php', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if( xhr.status == 200 ){
+                alert('Succesfully uploaded');  
+            }else{
+                alert(xhr.status);
+            }
+        }
+    };
+        
+    xhr.send(formData);
+}
 function init(){
     $id("upFile").onchange = function(e){
         var file = e.target.files[0];
@@ -168,6 +201,7 @@ function init(){
 
 
 function renderCanvas() {
+
     if (drawing) {
       ctx.moveTo(lastPos.x, lastPos.y);
       ctx.lineTo(mousePos.x, mousePos.y);
@@ -184,25 +218,25 @@ function renderCanvas() {
   })();
   canvas.addEventListener("touchstart", function (e) {
     mousePos = getTouchPos(canvas, e);
-var touch = e.touches[0];
-var mouseEvent = new MouseEvent("mousedown", {
-clientX: touch.clientX,
-clientY: touch.clientY
-});
-canvas.dispatchEvent(mouseEvent);
-}, false);
-canvas.addEventListener("touchend", function (e) {
-var mouseEvent = new MouseEvent("mouseup", {});
-canvas.dispatchEvent(mouseEvent);
-}, false);
-canvas.addEventListener("touchmove", function (e) {
-var touch = e.touches[0];
-var mouseEvent = new MouseEvent("mousemove", {
-clientX: touch.clientX,
-clientY: touch.clientY
-});
-canvas.dispatchEvent(mouseEvent);
-}, false);
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mousedown", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+    }, false);
+    canvas.addEventListener("touchend", function (e) {
+    var mouseEvent = new MouseEvent("mouseup", {});
+    canvas.dispatchEvent(mouseEvent);
+    }, false);
+    canvas.addEventListener("touchmove", function (e) {
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mousemove", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+    }, false);
 
 // Get the position of a touch relative to the canvas
 function getTouchPos(canvasDom, touchEvent) {
@@ -265,8 +299,8 @@ document.body.addEventListener("touchstart", function (e) {
 
 
     var share=document.getElementById("sharePhoto");
-    share.onclick = showShareLB;
-    share.addEventListener("click",shareToPhotoWall,false);
+    // share.onclick = showShareLB;
+    // share.addEventListener("click",shareToPhotoWall,false);
 
     var sure_Close=document.getElementById("sureClose");
     sure_Close.onclick =sureClose;
