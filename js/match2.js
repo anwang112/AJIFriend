@@ -13,7 +13,7 @@ $('#alertBtn').click(function () {
 td = document.querySelectorAll('#reportData table tr td');
 $('#report').click(function () {
     document.getElementById('fname').value = '';
-    if (storage.getItem("memId") == '') {
+    if (!storage.getItem("memNo")) {
         $('#alertText').text('請先登入!');
         $('.alertWrap').show();
 
@@ -211,7 +211,7 @@ function changeBtnUnf(btn){
 function beFriend (tarNo,loginNo,btn) {
     
     if(btn.text() == '成為麻吉'){
-        if (storage.getItem("memId") == '') {
+        if (!storage.getItem("memNo")) {
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
         }else if(loginNo == tarNo){
@@ -227,7 +227,6 @@ function beFriend (tarNo,loginNo,btn) {
                     targetNo: tarNo,
                     nowDay: nowDay,
                     action: 3,
-                    btn: btn,
                 };
                 makeFriend(profile);
             }
@@ -316,139 +315,139 @@ $('.MJs .rankFriendBtn2').click(function () {
 
 
 //ajax
-function searchMem(profile) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.responseText == 0) {
-            $('#alertText').text('找不到這個ID的麻吉唷!');
-            $('.alertWrap').show();
+// function searchMem(profile) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (xhr.responseText == 0) {
+//             $('#alertText').text('找不到這個ID的麻吉唷!');
+//             $('.alertWrap').show();
 
-        } else {
-            var R = 0;
-            $('#searData').css({
-                'transform': 'rotateY(' + R + 'deg)',
-            });
-            $('#reportData').css({
-                'transform': 'rotateY(' + (R + 180) + 'deg)',
-            });
-            $('.searchWrap').show();
-            var hobbyinfo = document.getElementById('hobby');
-            var sNameinfo = document.getElementById('sName');
-            var sMJinfo = document.getElementById('sMJ');
-            var conste = document.getElementById('sConstellation');
-            var sMemId = document.getElementById('sMemId');
-            var info = JSON.parse(xhr.responseText);
-            //no
-            document.getElementById('sMemNo').value = info.memNo;
+//         } else {
+//             var R = 0;
+//             $('#searData').css({
+//                 'transform': 'rotateY(' + R + 'deg)',
+//             });
+//             $('#reportData').css({
+//                 'transform': 'rotateY(' + (R + 180) + 'deg)',
+//             });
+//             $('.searchWrap').show();
+//             var hobbyinfo = document.getElementById('hobby');
+//             var sNameinfo = document.getElementById('sName');
+//             var sMJinfo = document.getElementById('sMJ');
+//             var conste = document.getElementById('sConstellation');
+//             var sMemId = document.getElementById('sMemId');
+//             var info = JSON.parse(xhr.responseText);
+//             //no
+//             document.getElementById('sMemNo').value = info.memNo;
 
-            //興趣
-            hobbyinfo.innerText = '';
-            var hobby = info.hobby.split("");
-            var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
-            var c = [];
-            for (var i = 0; i < hobby.length; i++) {
-                var a = hobby[i];
-                var b = hobbys[a];
-                c.push(b);
-            }
-            for (var j = 0; j < c.length; j++) {
-                var d = c[j] + '&nbsp' + '|' + '&nbsp';
-                if (j == c.length - 1) {
-                    d = c[j];
-                }
-                hobbyinfo.innerHTML += d;
-            }
-            //暱稱
-            sNameinfo.innerText = info.name;
-            //MJ
-            sMJinfo.innerText = 'MJ: ' + info.mj;
-            //星座
-            constellation = info.constellation;
-            switch (constellation) {
-                case '1':
-                    conste.innerText = "牡羊座";
-                    break;
-                case '2':
-                    conste.innerText = "金牛座";
-                    break;
-                case '3':
-                    conste.innerText = "雙子座";
-                    break;
-                case '4':
-                    conste.innerText = "巨蟹座";
-                    break;
-                case '5':
-                    conste.innerText = "獅子座";
-                    break;
-                case '6':
-                    conste.innerText = "處女座";
-                    break;
-                case '7':
-                    conste.innerText = "天秤座";
-                    break;
-                case '8':
-                    conste.innerText = "天蠍座";
-                    break;
-                case '9':
-                    conste.innerText = "射手座";
-                    break;
-                case '10':
-                    conste.innerText = "摩羯座";
-                    break;
-                case '11':
-                    conste.innerText = "水瓶座";
-                    break;
-                case '12':
-                    conste.innerText = "雙魚座";
-                    break;
-            }
-            //角色
-            sEye = info.eye;
-            sBody = info.body;
-            sColor = info.color;
-            sHat = info.hat;
-            sClothes = info.clothes;
+//             //興趣
+//             hobbyinfo.innerText = '';
+//             var hobby = info.hobby.split("");
+//             var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+//             var c = [];
+//             for (var i = 0; i < hobby.length; i++) {
+//                 var a = hobby[i];
+//                 var b = hobbys[a];
+//                 c.push(b);
+//             }
+//             for (var j = 0; j < c.length; j++) {
+//                 var d = c[j] + '&nbsp' + '|' + '&nbsp';
+//                 if (j == c.length - 1) {
+//                     d = c[j];
+//                 }
+//                 hobbyinfo.innerHTML += d;
+//             }
+//             //暱稱
+//             sNameinfo.innerText = info.name;
+//             //MJ
+//             sMJinfo.innerText = 'MJ: ' + info.mj;
+//             //星座
+//             constellation = info.constellation;
+//             switch (constellation) {
+//                 case '1':
+//                     conste.innerText = "牡羊座";
+//                     break;
+//                 case '2':
+//                     conste.innerText = "金牛座";
+//                     break;
+//                 case '3':
+//                     conste.innerText = "雙子座";
+//                     break;
+//                 case '4':
+//                     conste.innerText = "巨蟹座";
+//                     break;
+//                 case '5':
+//                     conste.innerText = "獅子座";
+//                     break;
+//                 case '6':
+//                     conste.innerText = "處女座";
+//                     break;
+//                 case '7':
+//                     conste.innerText = "天秤座";
+//                     break;
+//                 case '8':
+//                     conste.innerText = "天蠍座";
+//                     break;
+//                 case '9':
+//                     conste.innerText = "射手座";
+//                     break;
+//                 case '10':
+//                     conste.innerText = "摩羯座";
+//                     break;
+//                 case '11':
+//                     conste.innerText = "水瓶座";
+//                     break;
+//                 case '12':
+//                     conste.innerText = "雙魚座";
+//                     break;
+//             }
+//             //角色
+//             sEye = info.eye;
+//             sBody = info.body;
+//             sColor = info.color;
+//             sHat = info.hat;
+//             sClothes = info.clothes;
 
-            //test write
-            ooxxGetRole(topMoney05, {
-                animal: sBody,
-                color: sColor,
-                eyes: sEye,
-                hat: sHat,
-                clothes: sClothes,
-            });
-            //id
-            sMemId.innerText = info.memId;
-            td[1].innerText = info.memId;
-            if (parseInt(info.mj) >= 1000) {
-                lv = "LV.3 萬人迷 ";
-            } else if (parseInt(info.mj) >= 500) {
-                lv = "LV.2 潛力股 ";
-            } else {
-                lv = "LV.1 邊緣人 ";
-            }
-            document.getElementById('sLv').innerText = lv;
-            document.getElementById('sIntro').innerText = info.intro;
+//             //test write
+//             ooxxGetRole(topMoney05, {
+//                 animal: sBody,
+//                 color: sColor,
+//                 eyes: sEye,
+//                 hat: sHat,
+//                 clothes: sClothes,
+//             });
+//             //id
+//             sMemId.innerText = info.memId;
+//             td[1].innerText = info.memId;
+//             if (parseInt(info.mj) >= 1000) {
+//                 lv = "LV.3 萬人迷 ";
+//             } else if (parseInt(info.mj) >= 500) {
+//                 lv = "LV.2 潛力股 ";
+//             } else {
+//                 lv = "LV.1 邊緣人 ";
+//             }
+//             document.getElementById('sLv').innerText = lv;
+//             document.getElementById('sIntro').innerText = info.intro;
 
-            if(info.friendRe == 0){
-                btn = $('.btn_beFriend0');
-                changeBtn(btn);
-            }else if (info.friendRe == 1){
-                btn = $('.btn_beFriend0');
-                changeBtnUnf(btn);
-            }
-
-
-        }
+//             if(info.friendRe == 0){
+//                 btn = $('.btn_beFriend0');
+//                 changeBtn(btn);
+//             }else if (info.friendRe == 1){
+//                 btn = $('.btn_beFriend0');
+//                 changeBtnUnf(btn);
+//             }
 
 
+//         }
 
-    };
-    xhr.open("Post", "search.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("profile=" + JSON.stringify(profile));
 
-}
+
+//     };
+//     xhr.open("Post", "search.php", true);
+//     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+//     xhr.send("profile=" + JSON.stringify(profile));
+
+// }
 
 // 配對篩選
 function getMem(profile) {
@@ -709,10 +708,12 @@ $('.showInfo2').click(function () {
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
+        console.log(xhr.responseText);
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
             heartItem = document.querySelectorAll('.heart div');
             storage.getItem("loveGiven",heart);
+            console.log(heart);
             changeBtn(btn);
             switch (parseInt(heart)) {
                 case 2:
@@ -741,7 +742,6 @@ function makeFriend(profile) {
     xhr.open("Post", "makeFriend.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("profile=" + JSON.stringify(profile));
-
 }
 
 //檢舉

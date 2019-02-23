@@ -178,13 +178,15 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
-                    alert('完成報名 你可以在我的活動看到新增喔！') ;
+                    $('#alertText').text('已完成報名~');
+                    $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
                     renewJoin(actNo,member);
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
-                    alert('你已經報名過嘍'+actNo);
+                    $('#alertText').text('記性不好齁~已經報名過囉!');
+                    $('.alertWrap').show();}
                     var btn_ActJoinToDB = $id('btn_ActJoinToDB');
                     CloseLightActBox();
                 }else{
@@ -396,6 +398,585 @@ function countJoinNum(host_memNoValue,actNoValue){
 //         userInput03.value = userNo.value;
 // }
 
+function CloseLightActBox(){
+    var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
+    var lightbox_actsCheckout = $id('lightbox_actsCheckout');
+    lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;";
+    while($id("myMessagebox").firstChild) {
+        $id("myMessagebox").removeChild($id("myMessagebox").firstChild);
+    }
+    lightbox_actsCheckout.style.cssText="display:none;z-index:-1;";
+    var myMessagebox = $id('myMessagebox');
+    if( myMessagebox.hasChildNodes){
+        divs = document.getElementsByClassName('dddd');
+        // console.log(divs )
+        for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+            divs[i].remove();
+            console.log('dddd')
+        }
+    }
+}
+
+function reBtn(){
+    // 我的活動--打開查看
+    var checkout_act=document.getElementsByClassName('checkout_act') ;
+    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
+    for(var i=0;i<checkout_act.length;i++){
+        checkout_act[i].addEventListener('click',function(){
+            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
+            lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
+            btn_ActJoinToDB.style.cssText = "background-color:#ccc";
+            lightbox_actsCheckout.addEventListener('click',function(e){
+                e.stopPropagation();
+            },false);
+            lightbox_actsCheckout_outside.addEventListener('click',function(){
+                lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
+
+                while($id("myMessagebox").firstChild) {
+                    $id("myMessagebox").removeChild($id("myMessagebox").firstChild);
+                }
+                lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+                btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
+                var myMessagebox = $id('myMessagebox');
+                if( myMessagebox.hasChildNodes){
+                    divs = document.getElementsByClassName('dddd');
+                    // console.log(divs);
+                    for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+                        divs[i].remove();
+                        console.log('dddd');
+                    }
+                }
+            },false);
+        },false);
+    }
+
+
+}
+// 留言
+function comDB (memNo, actNoGet){
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        
+         if( xhr.responseText == "null" ){
+            alert ('xhr有錯誤喔');
+         }else{
+            //寫入
+            var str ='';
+
+            if( xhr.responseText == "null"){//沒有內容 印尚未有留言
+                $id("myMessagebox").innerHTML = "<p>尚未有留言喔～～</p>";
+            }else{
+                var objData = JSON.parse(xhr.responseText);
+
+                var name = JSON.parse(objData.name);
+                var animal = JSON.parse(objData.animal);
+                var eye= JSON.parse(objData.eye);
+                var color= JSON.parse(objData.color);
+                var comment = JSON.parse(objData.comment);
+                var memNo = JSON.parse(objData.memNo);
+
+                
+                var num = $id("myMessagebox").children.length;
+                var i_start = 0;
+                // 桌機聊天室
+                if(num==0){
+                    i_start = 0;
+                    
+                }else{
+                    i_start = num;
+                }
+                for(var i=i_start;i<name.length;i++){
+                    //印出來名字跟聊天內容
+                    var str = $id("myMessagebox").innerHTML;
+                    str += `
+                    <div class="commentItem" style="border:1px red solid">
+                        <div id="commentHead${i}" class="headBox commentHead"></div> 
+                        <input type="hidden" id="commentMemNo${i}" value=${memNo[i]}>
+                        <div class="commentBox">
+                            <p class="commentName">${name[i]}</p>
+                            <p class="commentText">${comment[i]}</p>
+                        </div>
+                    </div>`
+                    ;  
+    
+                    $id("myMessagebox").innerHTML = str;
+                    //印出大頭
+        
+                    ooxxGetHead($id(`commentHead${i}`), {
+                        animal:  animal[i],
+                        color: color[i],
+                        eyes: eye[i],
+                    });  
+                }
+            }
+            
+            $id("myMessagebox_input").value = '';
+            boxScroll($id("myMessagebox"));
+
+         }
+    }
+    xhr.open("post", "comment.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+    var actBoxObj = {
+        memNo : memNo ,
+        actNO : actNoGet 
+    };
+
+    xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));
+}
+
+function sendCom(memNo,actNo,txt){
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "123" ){
+        }else{
+            comDB(memNo,actNo);
+
+        }
+   };
+
+   var actBoxObj = {
+        memNo : memNo ,
+        actNO : actNo ,
+        txt: txt,
+    };
+
+
+    xhr.open("post", "comInsert.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
+}
+
+function JoinActTo(actNo,member){
+        console.log(actNo);
+        console.log(member);
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.responseText == "null" ){
+                alert('xhr有錯誤喔');
+             }else{
+
+                // alert(JSON.parse(xhr.responseText));
+                var JoinActBackToJs = JSON.parse(xhr.responseText);
+                // alert(JoinActBackToJs.DBmsg);
+                if( JoinActBackToJs.DBmsg == '1111'){
+                    $('#alertText').text('記性不好唷，已經報名過!');
+                    $('.alertWrap').show();
+                    // location.reload();
+                    CloseLightActBox();
+                    // renewJoin(actNo,member);
+                    
+                }else if(JoinActBackToJs.DBmsg == '2222'){
+                    $('#alertText').text('已報名過，看看其他活動吧!');
+                    $('.alertWrap').show();
+                    var btn_ActJoinToDB = $id('btn_ActJoinToDB');
+                    CloseLightActBox();
+                }else{
+                    alert('錯誤');
+                }
+             }
+
+       }
+       var JoinActObj = {
+            actNo: actNo ,
+            member: member,
+        };
+    
+    
+        xhr.open("post", "JoinDelAct.php", true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+}
+
+// function renewJoin(actNo,member){ 
+//     console.log(actNo);
+//     console.log(member);
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload=function (){
+//         if( xhr.responseText == "null" ){
+//             alert('xhr有錯誤喔');
+//          }else{
+//             // alert(JSON.parse(xhr.responseText));
+//             // var JoinActBackToJs = JSON.parse(xhr.responseText);
+//             // alert(xhr.responseText);
+//             //印在已報名活動
+//             var str =[];
+//             var str_a = xhr.responseText;
+            
+//             str = str_a.split(',');
+//             console.log(str);
+//             var partB_top = $id('partB_top');
+//             var partB_top_content = document.getElementsByClassName('partB_top_content');
+//             var div = document.createElement('div');
+//             htmlappendTo=`
+//                 <div class="contentImg" style="background-image: url();"></div>
+//                 <div class="spanbox">
+//                     <span>活動名稱：${str[5]} </span>
+//                     <span>活動介紹：${str[8]} </span>
+//                     <span>發起人:${str[4]}</span>
+//                     <span>地點：${str[9]}</span>
+//                     <span>時間：${str[6]}</span>
+//                     <span>獎勵:100MJ</span>
+//                 </div>
+//                 <div class="buttonbox">
+//                 <button class="checkout_act btn_R " value="${str[1]}">查看</button>
+//                 <input style="display:none" type="text" value="${str[5]}">
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input style="display:none" type="text" value="${str[4]}">
+//                 <input style="display:none" type="text" value="${str[9]}">
+//                 <input style="display:none" type="text" value="${str[6]}">
+//                 <input style="display:none" type="text" value="${str[7]}">
+//                 <input style="display:none" type="text" value="${str[8]}">
+//                 <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input class="userInput02" style="display:none" type="text" value="${str[0]}">
+//             </div>
+//             `;
+//             div.setAttribute('class','partB_top_content');
+//             div.innerHTML=htmlappendTo;
+//             // partB_top.appendChild(div);
+//             partB_top.insertBefore(div,partB_top_content[0]);
+//             reBtn();
+//             // alert('ok');
+//         }
+//     }
+//    var JoinActObj = {
+//         actNo: actNo ,
+//         member: member,
+//     };
+    
+
+//     xhr.open("post", "renewJoin.php", true);
+//     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//     xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+// }
+
+function CancelActTo(actNo,member){
+    console.log("============="+actNo);
+    // console.log(member);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+            $('#alertText').text('已取消參加這個活動!');
+            $('.alertWrap').show();
+            // alert(target);
+            // location.reload();
+            // target.class
+            // target.setAttribute('class','deleteFromPage');
+            // target.style.display="none";
+         }
+         checkMyAct();
+
+   }
+   var CancelActObj = {
+        actNo: actNo ,
+        member: member,
+    };
+
+
+    xhr.open("post", "JoinDelAct.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "CancelActObj=" + JSON.stringify(CancelActObj));//轉成字串送到php
+
+}
+
+var keyTotal;
+function officialTotal(num){
+    keyTotal = num;
+}
+// var key = 1;
+function officalAllAct(member,key){
+    // console.log(actNo);
+    console.log(member);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+             
+            var fromAllAct_obj = JSON.parse(xhr.responseText);
+            console.log(fromAllAct_obj.total);
+            var box_Loc =$id('box_Loc');
+            var box_Intro =$id('box_Intro');
+            var box_actNo =$id('box_actNo');
+            var imgBoxImg_B = $id('imgBoxImg_B');
+            var imgBoxImg = $id('imgBoxImg');
+            box_Loc.innerHTML=fromAllAct_obj.loc;
+            box_Intro.innerHTML=fromAllAct_obj.actIntro;
+            box_actNo.value=fromAllAct_obj.no;
+            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+            officialTotal(fromAllAct_obj.total);
+            return keyTotal = fromAllAct_obj.total;
+            
+         }
+
+   }
+   var officalAllObj = {
+        member: member,
+        key: key,
+    };
+
+
+    xhr.open("post", "officalAllAct.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "officalAllObj=" + JSON.stringify(officalAllObj));//轉成字串送到php            
+             
+}
+
+function countJoinNum(host_memNoValue,actNoValue){
+    console.log(host_memNoValue);
+    console.log(actNoValue);
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+            alert('xhr有錯誤喔');
+         }else{
+            // alert(JSON.parse(xhr.responseText));
+            // alert('參加人數：' + xhr.responseText);
+            // var n = xhr.responseText
+            // var actJoinCount = $id('actJoinCount');
+            // actJoinCount.innerHTML="參加人數："+ n;
+
+         }
+
+   }
+   var ActJoinObj = {
+        host_memNoValue: host_memNoValue ,
+        actNoValue: actNoValue,
+    };
+
+
+    xhr.open("post", "actNumSelect.php", true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "ActJoinObj=" + JSON.stringify(ActJoinObj));//轉成字串送到php   
+}
+
+//大頭方法 要放到對話輸入欄
+// rrract = document.getElementById('theUser');
+// ooxxGetHead(rrract, {
+//     animal: 2,
+//     color: 'aaaaaa',
+//     eyes: 2,
+// })
+
+// function innerMemValue(){
+//     var userNo = document.getElementById('userNo');
+//     console.log(userNo.value );
+
+//     var userInput01= $id('userInput01');
+//     userInput01.value = userNo.value ;
+
+//     console.log(userInput01);
+
+//     var userInput02 = document.getElementsByClassName('userInput02');
+//     console.log(userInput02);
+//     for(var i = 0;i<userInput02.length;i++){
+//         userInput02[i].value = userNo.value;
+//     }
+//     var userInput03 = $id('userInput03');
+//         userInput03.value = userNo.value;
+// }
+
+function allAct_more(no){
+    var checkout_act=document.getElementsByClassName('checkout_act') ;
+    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
+    // //來源 
+        var actTitleValue = $id(`act_actTitleV${no}`).value;  
+        var actNoValue = no;  
+        var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
+        var actLocValue = $id(`act_actLocV${no}`).value; 
+        var act_beginValue = $id(`act_act_beginV${no}`).value; 
+        var act_endValue = $id(`act_act_endV${no}`).value;  
+        var actIntroValue = $id(`act_actIntroV${no}`).value; 
+        var actImgValue = $id(`act_actImgV${no}`).value; 
+
+  
+        // //放置目標
+        var acts_lightbox_top_right = $id('acts_lightbox_top_right');
+        var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
+        var elements = document.querySelectorAll("#acts_lightbox_top_right span")
+        element_actTitle[0].innerHTML=actTitleValue;
+        elements[0].innerHTML='發起人：'+host_memNoValue;
+        elements[1].innerHTML='地點：'+actLocValue;
+        elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
+        elements[3].innerHTML='活動介紹：'+actIntroValue;
+        $id("lightBox_actNo").value = no;
+        myMessagebox_inputNone.setAttribute('value',actNoValue);
+        var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+        acts_lightbox_topImg.style.backgroundImage = actImgValue;
+        // alert(acts_lightbox_topImg);
+        // alert(actImgValue);
+
+        var memNo = storage.getItem("memNo");
+        comDB(memNo,no);
+}
+
+
+function checkMyAct(){
+    while($id("partB_top").firstChild) {
+        $id("partB_top").removeChild($id("partB_top").firstChild);
+    }
+    // alert(0);
+    if(storage.getItem("memNo")){ //有登入
+        partB.style.cssText="display:block;";
+        partA.style.cssText="display:none;";
+        btn_holdAct.style.cssText="display:none;";
+
+        var xhr = new XMLHttpRequest(); // 建立xhr
+        xhr.onload = function(){
+            if(xhr.responseText == "null"){
+                $('#alertText').text('快去參加活動認識新朋友!');
+                $('.alertWrap').show();
+
+            }else{ //成功取得
+
+                var objData = JSON.parse(xhr.responseText);
+                var orderNo = JSON.parse(objData.orderNo);
+                var memNo = JSON.parse(objData.memNo);
+                var no= JSON.parse(objData.no);
+                var time= JSON.parse(objData.time);
+                var img = JSON.parse(objData.img);
+                var hostNo = JSON.parse(objData.hostNo);
+                var title = JSON.parse(objData.title);
+                var loc = JSON.parse(objData.loc);
+                var begin = JSON.parse(objData.begin);
+                var end = JSON.parse(objData.end);
+                var intro = JSON.parse(objData.intro);
+
+                console.log(orderNo);
+                for(var i = 0; i<intro.length;i++){
+                    var str = $id("partB_top").innerHTML;
+                    str += `
+                    <div class="partB_top_content">                       
+                        <div class="contentImg" style="background-image: url();">
+                        </div>
+                            <div class="spanbox">
+                                <span>活動名稱：${title[i]}</span>
+                                <span>活動介紹：${intro[i]}</span>
+                                <span>發起人:</span>
+                                <span>地點：${loc[i]}</span>
+                                <span>時間：${begin[i]}至${end[i]}</span>
+                                <!-- <span>人數:{{}}</span> -->
+                            </div>
+                            <div class="buttonbox">
+                                <button class="checkout_act btn_R " value=${no[i]} onclick="myAct_more(${i});">查看</button>
+                                <input type="hidden" id="actTitle${i}" value=${title[i]}>
+                                <input type="hidden" id="hostNo${i}" value=${hostNo[i]}>
+                                <input type="hidden" id="actImg${i}" value=${img[i]}>
+                                <input type="hidden" id="actLoc${i}" value=${loc[i]}>
+                                <input type="hidden" id="actBegin${i}" value=${begin[i]}>
+                                <input type="hidden" id="actEnd${i}" value=${end[i]}>
+                                <input type="hidden" id="actIntro${i}" value=${intro[i]}>
+                                <button class="btn_R cancel_act" style="background-color:#ccc;" onclick="CancelActTo(${no[i]},${storage.getItem("memNo")});">取消參加</button>
+                                <input type="hidden" id="actNo${i}" value=${no[i]}>
+                            </div>
+                        </div>`;
+                        $id("partB_top").innerHTML = str;
+                }
+                    
+    
+                
+                
+            }
+        };
+        xhr.open("Post","act.php",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+        xhr.send("action=checkMyAct");
+
+    }else{ //沒登入的跳登入燈箱
+        $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
+        $id("loginBox").style.cssText = 'display: block;z-index:14;';
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // tab_myAct.style.cssText='color:#fff;';
+    // tab_allAct.style.cssText='color:rgba(255, 255, 255,.5);';
+}
+
+function myAct_more(no){
+    lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
+    lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
+    btn_ActJoinToDB.style.cssText = "background-color:#ccc";
+    lightbox_actsCheckout.addEventListener('click',function(e){
+        e.stopPropagation();
+    },false);
+    lightbox_actsCheckout_outside.addEventListener('click',function(){
+        lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
+
+        while($id("myMessagebox").firstChild) {
+            $id("myMessagebox").removeChild($id("myMessagebox").firstChild);
+        }
+        lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+        btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
+        var myMessagebox = $id('myMessagebox');
+        if( myMessagebox.hasChildNodes){
+            divs = document.getElementsByClassName('dddd');
+            // console.log(divs);
+            for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
+                divs[i].remove();
+                console.log('dddd')
+            }
+        }
+        
+    },false);
+
+    var actTitleValue = $id(`actTitle${no}`).value;  
+    var actNoValue = $id(`actNo${no}`).value;  
+    var host_memNoValue = $id(`hostNo${no}`).value; 
+    var actLocValue = $id(`actLoc${no}`).value; 
+    var act_beginValue = $id(`actBegin${no}`).value; 
+    var act_endValue = $id(`actEnd${no}`).value;  
+    var actIntroValue = $id(`actIntro${no}`).value; 
+    var actImgValue = $id(`actImg${no}`).value; 
+    // alert(actImgValue);
+
+    //放置目標
+    var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+    var acts_lightbox_top_right = $id('acts_lightbox_top_right');
+    var acts_lightbox_top_img = $id('acts_lightbox_top_img');
+    var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
+    var elements = document.querySelectorAll("#acts_lightbox_top_right span");
+    console.log(elements);
+    var myMessagebox_inputNone = $id('myMessagebox_inputNone');
+    element_actTitle[0].innerHTML=actTitleValue;
+    elements[0].innerHTML='發起人：';
+    elements[1].innerHTML='地點：'+actLocValue;
+    elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
+    elements[3].innerHTML='活動介紹：'+actIntroValue;
+    myMessagebox_inputNone.setAttribute('value',actNoValue);
+    $id('lightBox_actNo').value = actNoValue;
+    
+    // acts_lightbox_top_img.src = actImgValue;
+    acts_lightbox_topImg.style.backgroundImage = actImgValue;
+    // alert('actNoValue:'+actNoValue);
+    var memNo = storage.getItem("memNo");
+    // alert('memNo:'+memNo);
+    // console.log(memNo);
+    comDB(memNo,actNoValue);
+    // countJoinNum(host_memNoValue,actNoValue);
+
+
+    // var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
+    // lightbox_actsCheckout_outside.addEventListener('click',function(){
+    // },false);
+}
+
 window.addEventListener('load',function(){
     //更換第一屏燈箱
     var btn_actL = $id('btn_actL');
@@ -404,12 +985,11 @@ window.addEventListener('load',function(){
 
     btn_actL.addEventListener('click',function(){
         var btn_Actjoin = $id('btn_Actjoin');
-        actNo = btn_Actjoin.nextSibling.nextSibling.value;
-        member = btn_Actjoin.nextSibling.nextSibling.nextSibling.nextSibling.value;
+        member = storage.getItem("memNo");
         // alert('actNo:'+actNo);
-        officalAllAct(actNo,member,key);
-        if(key == 4){
-            key = 1;
+        officalAllAct(member,key);
+        if(key == keyTotal){
+            key = 0;
         }else{
             key++;
         }  
@@ -417,34 +997,18 @@ window.addEventListener('load',function(){
     },false);
     btn_actR.addEventListener('click',function(){
         var btn_Actjoin = $id('btn_Actjoin');
-        actNo = btn_Actjoin.nextSibling.nextSibling.value;
-        member = btn_Actjoin.nextSibling.nextSibling.nextSibling.nextSibling.value;
+        member = storage.getItem("memNo");
         // alert('actNo:'+actNo);
-        officalAllAct(actNo,member,key);
-        if(key == 1){
-            key = 4;
+        officalAllAct(member,key);
+        if(key == 0){
+            key = keyTotal;
         }else{
             key--;
         }  
     },false);
 
 
-    //取消報名
-    var cancel_act = document.getElementsByClassName('cancel_act');
-    for(var i = 0;i<cancel_act.length;i++){
-        cancel_act[i].addEventListener('click',function(){
-
-            var actNo = this.nextSibling.nextSibling.value;
-            var member = this.nextSibling.nextSibling.nextSibling.nextSibling.value;
-            var target = this.parentNode.parentNode;
-            // member = 2;
-            // alert('actNo:'+actNo); //8
-            // alert('member:'+member); //2
-            CancelActTo(actNo,member,target);
-
-        },false);
-
-    }
+    
 
     //報名功能
     // var btn_actJoin = $id('btn_actJoin');
@@ -457,26 +1021,29 @@ window.addEventListener('load',function(){
     // },false);
     
     var btn_Actjoin =$id('btn_Actjoin');
-    btn_Actjoin.addEventListener('click',function(){
-        console.log("註冊");
-        var actNo = btn_Actjoin.nextSibling.nextSibling.value; 
-        var member = btn_Actjoin.nextSibling.nextSibling.nextSibling.nextSibling.value;
-        // var userInputA = $id('userInputA');
-        // var member = userInputA.value;
-        // alert('actNo:'+actNo); //8
-        // alert('member:'+member); //2
-        JoinActTo(actNo,member);
-        renewJoin(actNo,member);
+
+    // 官方活動報名按鈕註冊事件  
+    btn_Actjoin.addEventListener('click',function(){    
+        if(storage.getItem("memNo")){ //有登入的話
+            var actNo = $id("box_actNo").value; 
+            JoinActTo(actNo,storage.getItem("memNo"));
+            // renewJoin(actNo,storage.getItem("memNo"));
+
+        }else{ //沒登入的跳登入燈箱
+            $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
+            $id("loginBox").style.cssText = 'display: block;z-index:14;';
+        }
     },false);
 
+// 寫入留言
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     myMessagebox_input.addEventListener('keydown',function(e){
         if(e.keyCode == 13 ){//enter代碼
             var txt = '';
-            txt += myMessagebox_input.value;
+            txt = myMessagebox_input.value;
             actNo = myMessagebox_inputNone.value;
-            var memNo = myMessagebox_input.nextSibling.nextSibling.nextSibling.nextSibling.value;
+            var memNo = storage.getItem("memNo");
             // alert('memNo:'+ memNo);
             sendCom(memNo,actNo,txt);
         }
@@ -505,13 +1072,9 @@ window.addEventListener('load',function(){
         // tab_allAct.style.cssText='color:#fff;';        
 
     },false);
-    tab_myAct.addEventListener('click',function(){
-        partB.style.cssText="display:block;";
-        partA.style.cssText="display:none;";
-        btn_holdAct.style.cssText="display:none;";
-        // tab_myAct.style.cssText='color:#fff;';
-        // tab_allAct.style.cssText='color:rgba(255, 255, 255,.5);';
-    },false);
+
+    // 查看我的活動事件註冊
+    tab_myAct.addEventListener('click',checkMyAct,false);
 
     // if(partA.style.cssText == cTab){
     //     tab_allAct.style.cssText='color:#fff;border-bottom:1px solid #fff';
@@ -650,136 +1213,31 @@ window.addEventListener('load',function(){
         },false);
 
         //活動燈箱打開 載入活動資訊   Ajax載入留言
-        btn_ActJoin[i].addEventListener('click',function(e){
-            
-            // <button class="btn_ActJoin btn_R" value="<?php echo $actNo ;?>"> 查看更多 </button>
-            // <input style="display:none" type="text" value="<?php echo $actTitle ;?>">
-            // <input style="display:none" type="text" value="<?php echo $actNo ;?>">
-            // <input style="display:none" type="text" value="<?php echo $host_memNo ;?>">
-            // <input style="display:none" type="text" value="<?php echo $actLoc ;?>">
-            // <input style="display:none" type="text" value="<?php echo $act_begin ;?>">
-            // <input style="display:none" type="text" value="<?php echo $act_end ;?>">
-            // <input style="display:none" type="text" value="<?php echo $actIntro ;?>">
-            //來源 
-            // var elements = document.querySelectorAll("#acts_lightbox_top_right span");
-
-            var actTitleValue = this.nextSibling.nextSibling.value; //
-            var actNoValue = this.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var host_memNoValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var actLocValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var act_beginValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var act_endValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var actIntroValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-            var actImgValue = this.parentNode.previousSibling.previousSibling.style.backgroundImage;
-            // alert(actImgValue);
-  
-            //放置目標
-            var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-            var acts_lightbox_top_right = $id('acts_lightbox_top_right');
-            var acts_lightbox_top_img = $id('acts_lightbox_top_img');
-            var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
-            var elements = document.querySelectorAll("#acts_lightbox_top_right span");
-            var myMessagebox_inputNone = $id('myMessagebox_inputNone');
-            element_actTitle[0].innerHTML=actTitleValue;
-            elements[0].innerHTML='發起人：'+host_memNoValue;
-            elements[1].innerHTML='地點：'+actLocValue;
-            elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-            elements[3].innerHTML='活動介紹：'+actIntroValue;
-            myMessagebox_inputNone.setAttribute('value',actNoValue);
-            $id('lightBox_actNo').value = actNoValue;
-            
-            // acts_lightbox_top_img.src = actImgValue;
-            acts_lightbox_topImg.style.backgroundImage = actImgValue;
-            // alert('actNoValue:'+actNoValue);
-            var memNo = $id('userInput04').value;
-            // alert('memNo:'+memNo);
-            // console.log(memNo);
-            comDB(memNo,this.value,'');
-            countJoinNum(host_memNoValue,actNoValue);
-
-
-            // var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
-            // lightbox_actsCheckout_outside.addEventListener('click',function(){
-            // },false);
-        },false);
+        // btn_ActJoin[i].addEventListener('click',,false);
 
     }
+
+    // 所有活動區的報名按鈕 --已確認
     var btn_ActJoinToDB = $id('btn_ActJoinToDB');
-        
     btn_ActJoinToDB.addEventListener('click',function(){
-        // var actNo = actNoValue;
-        // var member = this.nextSibling.nextSibling.nextSibling.nextSibling.value; //之後要改動態
-        // alert('actNo:'+actNoValue); 
-        // alert('member:'+member); 
-        console.log("5j4");
-        JoinActTo($id("lightBox_actNo").value,$id("userNo").value);
-        this.disabled=true; 
+          
+        if(storage.getItem("memNo")){ //有登入
+            var actNo = $id("lightBox_actNo").value; 
+            JoinActTo(actNo,storage.getItem("memNo"));
+        }else{ //沒登入就跳登入燈箱
+            $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
+            $id("loginBox").style.cssText = 'display: block;z-index:14;';
+        }
 
     },false);
 
-    //actbox03-2
-    var checkout_act=document.getElementsByClassName('checkout_act') ;
-    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
-    for(var i=0;i<checkout_act.length;i++){
-        checkout_act[i].addEventListener('click',function(){
-            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
-            lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
-            btn_ActJoinToDB.style.cssText = "background-color:#ccc";
-            lightbox_actsCheckout.addEventListener('click',function(e){
-                e.stopPropagation();
-            },false);
-            lightbox_actsCheckout_outside.addEventListener('click',function(){
-                lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
-                lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
-                btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
-                var myMessagebox = $id('myMessagebox');
-                if( myMessagebox.hasChildNodes){
-                    divs = document.getElementsByClassName('dddd');
-                    // console.log(divs);
-                    for(var i=0;i<document.getElementsByClassName('dddd').length;i++){
-                        divs[i].remove();
-                        console.log('dddd')
-                    }
-                }
-                
-            },false);
-        },false);
 
-        //活動燈箱打開 載入活動資訊   Ajax載入留言
-        checkout_act[i].addEventListener('click',function(e){
-            
-        //來源 
-        var actTitleValue = this.nextSibling.nextSibling.value; 
-        var actNoValue = this.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var host_memNoValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var actLocValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var act_beginValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var act_endValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var actIntroValue = this.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value; 
-        var actImgValue = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.style.backgroundImage;
 
-  
-        // //放置目標
-        var acts_lightbox_top_right = $id('acts_lightbox_top_right');
-        var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
-        var elements = document.querySelectorAll("#acts_lightbox_top_right span")
-        element_actTitle[0].innerHTML=actTitleValue;
-        elements[0].innerHTML='發起人：'+host_memNoValue;
 
-        elements[1].innerHTML='地點：'+actLocValue;
-        elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-        elements[3].innerHTML='活動介紹：'+actIntroValue;
-        myMessagebox_inputNone.setAttribute('value',actNoValue);
-        var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-        
-        acts_lightbox_topImg.style.backgroundImage = actImgValue;
-        // alert(acts_lightbox_topImg);
-        // alert(actImgValue);
 
-        var memNo = $id('userInput04').value;
-        comDB(memNo,this.value,'');
-        },false);
-    }
+
+
+
     
     
 
@@ -815,6 +1273,8 @@ window.addEventListener('load',function(){
     //         },false);
     //     }
     // }
+
+    //按鈕動畫事件 
         for(var i=0; i < act_memberHold_joins.length;i++){
             act_memberHold_boxs[i].addEventListener('mouseenter',function(e){
                 var target = e.target.firstChild.nextSibling.nextSibling.nextSibling;
@@ -827,11 +1287,12 @@ window.addEventListener('load',function(){
             },false);
         }
         
-        for(var i=0; i < act_memberHold_joins.length;i++){
-            act_memberHold_boxs[i].addEventListener('mouseleave',function(e){
-                tar.style.cssText=`opacity:0;`;
-            },false);
-        }
+        // for(var i=0; i < act_memberHold_joins.length;i++){
+        //     act_memberHold_boxs[i].addEventListener('mouseleave',function(e){
+        //         console.log("=========="+tar);
+        //         tar.style.cssText=`opacity:0;`;
+        //     },false);
+        // }
 
 
     //分頁操作

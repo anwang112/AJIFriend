@@ -68,7 +68,6 @@ ooxxEyesGo = (...eyesArray) => {
                 duration: 500,
                 endDelay: 1000,
             });
-
         eyesArray[1].animate([{
             transform: 'scaleY(1)'
         },
@@ -129,6 +128,9 @@ ooxxChangeClothes = (...changeClothesArray) => {
 }
 
 
+
+
+
 //首頁載入完畢 開始瞜 ~~
 indexInit = () => {
 
@@ -140,7 +142,8 @@ indexInit = () => {
         winWidth = document.body.clientWidth;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //第一部分
     firstScreenFunction = () => {
 
@@ -167,7 +170,7 @@ indexInit = () => {
             }
             cloudId = requestAnimationFrame(cloudGo);
         }
-        cloudId = requestAnimationFrame(cloudGo);
+        // cloudId = requestAnimationFrame(cloudGo);
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
@@ -196,7 +199,8 @@ indexInit = () => {
 
             //春天阿吉眼睛動起來
             springEye = indexAjiSpring.getElementsByTagName('circle'); //0145
-            ooxxEyesGo(springEye[0], springEye[1]);
+
+            ooxxEyesGo(springEye[2], springEye[3]);
             ooxxEyesGo(springEye[4], springEye[5]);
         }
         AJITalkSpring();
@@ -223,8 +227,8 @@ indexInit = () => {
             }
         }
         cupidLightstart = () => {
-            if (cupidLightopacity > 0.6) {
-                cupidLightopacity = 0.6;
+            if (cupidLightopacity > 1) {
+                cupidLightopacity = 1;
                 cupidLightOffset += 0.48;
                 cupidLight01.setAttribute('offset', `${cupidLightOffset}%`);
             } else {
@@ -310,7 +314,10 @@ indexInit = () => {
     }
     firstScreenFunction();
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //  第二屏slider
     secondScreenFunction = () => {
         const trojanList = document.getElementById('trojanList');
@@ -527,6 +534,8 @@ indexInit = () => {
 
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 第三部分
     thirdScreenFunctionn = () => {
@@ -580,14 +589,9 @@ indexInit = () => {
         }
         shopLightId = requestAnimationFrame(shopLightGo);
 
-        // 獎勵介紹
-        // thirdGetMoney = document.getElementsByClassName('ajiThree');
-        // thirdGetItem =window.he
     }
     thirdScreenFunctionn();
     lightChangeScreen = () => {
-        // showShop = document.getElementsByClassName('showShop')[0];
-        // showShop.removeChild($id('shop'));
         $id('shop').addEventListener('load', () => {
             shop = document.getElementById('shop').getSVGDocument();
             shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
@@ -613,6 +617,10 @@ indexInit = () => {
         thirdScreenFunctionn();
     }
 
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 第四部分
     // 判斷開始執行第四部份動畫
@@ -651,8 +659,6 @@ indexInit = () => {
         PhotoInfo = document.getElementById('PhotoInfo');
         PhotoInfoRed = document.getElementById('PhotoInfoRed');
         indexPhotoPaper = document.getElementById('indexPhotoPaper');
-        // var indexPhotoPaper = Snap('#indexPhotoPaper');
-        // var paperSvg = indexPhotoPaper.select('.cls-1');
 
 
         //紙張動畫開始
@@ -705,16 +711,23 @@ indexInit = () => {
         lineId = requestAnimationFrame(lineGo);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //第五部分
 
+    //還沒有寫唷//
 
 
 
 
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //換角色
     //關掉創角燈箱
     indexCreateCloseBtn = document.getElementById('indexCreateCloseBtn');
@@ -883,9 +896,6 @@ indexInit = () => {
             }
         })
 
-
-
-
     }
     //換眼睛
     eyesKindItem = $id('eyesKindList').getElementsByTagName('li');
@@ -928,6 +938,8 @@ indexInit = () => {
 
 
 
+
+
     //將角色值存到local裡面
     saveRoleBtn = document.getElementById('saveRoleBtn');
     saveRoleBtn.addEventListener('click', () => {
@@ -936,12 +948,14 @@ indexInit = () => {
 
 
 
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //創建角色
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //創建會員唷
     createMember = () => {
         memIdKeyStatus = false;
         mNameKeyStatus = false;
+        //判斷是否重複
         checkMemberData = (ooxxValue) => {
             var xhr = new XMLHttpRequest();
             xhr.onload = function () {
@@ -978,6 +992,7 @@ indexInit = () => {
         });
 
         $id('mName').addEventListener('keydown', () => {
+            //多打ㄉ原本想說姓名不能一樣ㄉ
             mNameKeyStatus = true;
             if (mNameKeyStatus == true) {
                 $id('mName').addEventListener('keyup', () => {
@@ -990,13 +1005,14 @@ indexInit = () => {
                 });
             }
         });
-
+        //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
             var checkedValue = document.querySelector('.hobbyItem:checked').value;
             if ($id('createMemberBtn').disabled == true) {
-                alert("不能喔");
+                $('#alertText').text('不能唷!');
+                $('.alertWrap').show();
             }
-
+            //把表單值塞入物件傳到php
             createRoleData = {
                 memId: $id('memId').value,
                 memPsw: $id('memPsw').value,
@@ -1012,8 +1028,21 @@ indexInit = () => {
             var createxhr = new XMLHttpRequest();
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);
-                alert('註冊成功!!');
-                sendForm();
+                $('#alertText').text('註冊成功!');
+                $('.alertWrap').show();
+                $id('createMemberScreen').display = 'none';
+                sendForm($id('memId').value,$id('memPsw').value);
+                // 更新登入者面板
+                document.getElementsByClassName("loginContent")[0].style.display="";
+
+                ooxxGetHead($id("loginHead"), {
+                    animal: storage.getItem("animal"),
+                    color: storage.getItem("mColor"),
+                    eyes: storage.getItem("eye"),
+                });
+                $id("memName").innerText = $id('mName').value;
+                $id("memMJ").innerText = 0;
+                
                 $id('createMemberScreen').style.display = 'none';
             }
             createxhr.open("Post", "setUpMember.php", true);
@@ -1024,13 +1053,7 @@ indexInit = () => {
     }
     createMember();
 
-    // $id('memId').value,$id('mName').value
 
-    // background: linear-gradient(49deg, rgba(255, 240, 237, 1)0%, rgba(204, 231, 255, 0.8)100%); 
-    // background: -moz-linear-gradient(49deg, rgba(255, 240, 237, 1)0%, rgba(204, 231, 255, 0.8)100%); 
-    // background: -webkit-linear-gradient(49deg, rgba(255, 240, 237, 1)0%, rgba(204, 231, 255, 0.8)100%); 
-    // background: -o-linear-gradient(49deg, rgba(255, 240, 237, 1)0%, rgba(204, 231, 255, 0.8)100%); 
-    // }
 
 
 

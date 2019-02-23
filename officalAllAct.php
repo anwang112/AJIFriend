@@ -12,7 +12,7 @@
         // }else{
         //     $sqlBUS = "select * from activity where host_memNo = 1 AND actNo != :actNo ";
         // }
-        $sqlBUS = "select * from activity where host_memNo = 1";
+        $sqlBUS = "select * from activity where host_memNo IS NULL";
         
         //
         // $officalAll = $pdo -> prepare($sqlBUS);
@@ -21,7 +21,7 @@
         // $offical = $officalAll -> fetchObject();
         // echo '0';
         $aa = $pdo->prepare($sqlBUS); 
-        $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
+        // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
         
 
         // $aa -> bindColumn("actNo", $actNo); 

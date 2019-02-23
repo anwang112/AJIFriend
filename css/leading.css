@@ -1,0 +1,133 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    /*手機按藍光 */
+}
+
+.wrap {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/indexImages/leadingBg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.loadWrap {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+
+.loadFloor {
+    width: 100%;
+    height: 20vh;
+    position: relative;
+}
+
+#leadCity {
+    width: 100%;
+    position: absolute;
+    bottom: 2%;
+    min-width: 1500px;
+    margin: auto;
+}
+
+#leadStone {
+    top: -5%;
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    margin: auto;
+}
+
+#leadInfo {
+    width: 95%;
+    left: 0;
+    right: 4%;
+    bottom: -5%;
+    margin: auto;
+    position: absolute;
+    min-width: 350px;
+    z-index: 2;
+    max-width: 500px;
+}
+
+#Front {
+    min-width: 100px;
+    width: 15%;
+    left: 11%;
+    top: 38%;
+    position: absolute;
+    z-index: 1;
+    animation: atop 4s infinite linear;
+}
+
+#Back {
+    min-width: 100px;
+    width: 15%;
+    right: 9%;
+    top: 38%;
+    position: absolute;
+    z-index: 1;
+    animation: abottom 4s infinite linear;
+}
+
+@media only screen and (min-width:768px) and (min-height:750px) {
+    #leadInfo {
+        width: 55%;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    #leadCity {
+        min-width: auto;
+    }
+}
+
+@media only screen and (min-width:800px) {
+    #leadInfo {
+        width: 45%;
+        max-width: 700px;
+    }
+    #Front {
+        left: 17%;
+        top: 42%;
+    }
+    #Back {
+        right: 21%;
+        top: 42%;
+    }
+}
+
+@keyframes atop {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-20%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes abottom {
+    0% {
+        transform: translateY(-20%);
+    }
+    50% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-20%);
+    }
+}
+
+.toOur {
+    position: absolute;
+    left: 3%;
+    bottom: 9%;
+    color: #EF5C79;
+    font-size: 1.6rem;
+}

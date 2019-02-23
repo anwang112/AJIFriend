@@ -47,15 +47,15 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
-    <div class="alertWrap">
+    <!-- <div class="alertWrap">
         <div class="alert">
             <p id="alertText">今天的愛心已經用完囉！</p>
             <p>
             <button id="alertBtn">確定</button>
             </p>
         </div>
-    </div>
-    <div class="searchWrap">
+    </div> -->
+    <!-- <div class="searchWrap">
         <div id="searData">
             <div class="searchClose"></div>
             <div class="sRole">
@@ -152,8 +152,8 @@ try {
             </table>
 
         </div>
-    </div>
-    </div>
+    </div> -->
+    
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
