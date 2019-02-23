@@ -1464,6 +1464,7 @@ window.addEventListener('load', function () {
 					$('#alertText').text('已登出!');
 					$('.alertWrap').show();
 					$id("loginNot").innerText='登入';
+					window.location.reload();
 				}
 			};
 			xhr.open("Post","ajaxLogout.php",true);

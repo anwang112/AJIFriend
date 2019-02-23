@@ -1,4 +1,3 @@
-
 function $id(id) {
     return document.getElementById(id);
 }
@@ -186,7 +185,7 @@ function JoinActTo(actNo,member){
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
                     $('#alertText').text('記性不好齁~已經報名過囉!');
-                    $('.alertWrap').show();}
+                    $('.alertWrap').show();
                     var btn_ActJoinToDB = $id('btn_ActJoinToDB');
                     CloseLightActBox();
                 }else{
@@ -1303,7 +1302,6 @@ window.addEventListener('load',function(){
             if(target.innerHTML ==1){
                 var act_memberHold =$id('act_memberHold');
                 act_memberHold.innerHTML=`
-
                 `;
             }
         },false);
@@ -1482,4 +1480,3 @@ window.addEventListener('load',function(){
     addTo(controller);
 
 },false);
-
