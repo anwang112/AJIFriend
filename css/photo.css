@@ -140,7 +140,7 @@ body{
     width: 15%;
     margin-left: 8%;
 }
-#LB .heart,.card .heart ,#cardLB .heart{
+#LB .heart, .heart ,#cardLB .heart{
     width: 12%;
     margin-top: 1%;
     display: unset;
@@ -470,6 +470,7 @@ body{
 .mkPhoto{
     position: fixed;
     width: 100%;
+    height: 100%;
     /* max-width: 1200px; */
     right: 0;
     top: 0;
@@ -569,11 +570,12 @@ body{
    }
 
    #chooseId #showModel {
-       width: 11%;
+       width: 152px;
+       height: 160px;
        position: absolute;
        z-index: 1;
-       left: 40%;
-       top: 50%;
+       left: 105px;
+       top: 110px;
    }
    #chooseId #showModel #model_hat{
     position: absolute;
@@ -606,9 +608,15 @@ body{
         width: 100px;
         margin: 5%;
     }
+
+
+
+
+
+    /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        filter: grayscale(100%);
+        /* filter: grayscale(100%); */
     }
     #step3 img{
         width: 100px;
@@ -623,9 +631,7 @@ body{
         border-radius: 20px;
         box-shadow: 5px 10px 10px #aaa;
         background:linear-gradient(-45deg,rgba(240,92,121,1),rgba(125,164,203,1));
-        /* animation: upndown 3s infinite; */
-        /* border:4px solid coral; */
-        /* opacity: 0; */
+
     }
     .bulletin img{
         width: 15%;
@@ -656,7 +662,7 @@ body{
         top: 40vh;
         display: flex;
         flex-direction: column;
-        display: none;
+        /* display: none; */
 
     }
     .color{
@@ -682,7 +688,7 @@ body{
         left: 0;top: 0;
         z-index: 1;
         /* border: 5px solid rgba(240,92,121,.7); */
-        display: none;       
+        /* display: none;        */
     }
     .preview{
         width: 350px;

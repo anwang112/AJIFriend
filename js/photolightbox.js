@@ -18,28 +18,31 @@ function topLB(e){
     var imgTop=document.createElement("img");
     imgTop.className="topPhoto";
     imgTop.src = parent.childNodes[1].src;
+    
     // 創建div member
+    // 數學不好數不出節點來！！！！！！
     var divMem=document.createElement("div");
     divMem.className="member";
     divMem.className="headBox";
-    divMem.id="sticker"
-    divMem.src=parent.childNodes[5].src;
+    divMem.id="stickerLB";
+    divMem.style = parent.children[3].style;
+    alert(parent.className);
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=parent.childNodes[7].innerText;
+    aMem.innerText=parent.childNodes[11].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=parent.childNodes[11].innerText;
+    spanVote.innerText=parent.childNodes[15].innerText;
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";
-    imgHeart.src =parent.childNodes[9].src;
+    imgHeart.src="images/fullheart-16.png"
+    // imgHeart.src =parent.childNodes[13].src;
     // 創建p
-    var pContent=document.createElement("p");
-    console.log(parent.childNodes[11]);
+    // var pContent=document.createElement("p");
         // pContent.innerText=parent.childNodes[10].innerText;
-    pContent.innerText="整個城市都是我們的伸展台";
+    // pContent.innerText="";
 
     //創建svg關閉圖片
     var imgclose=document.createElement("img");
@@ -54,7 +57,7 @@ function topLB(e){
     divTop.appendChild(aMem);
     divTop.appendChild(imgHeart);
     divTop.appendChild(spanVote);
-    divTop.appendChild(pContent);
+    // divTop.appendChild(pContent);
     divTop.appendChild(imgclose);
 }
 function closeTop(){
@@ -85,26 +88,28 @@ function cardLB(e){
     imgCard.className="cardPhoto";
     ;
 
-    // 創建img member
-    var imgMem=document.createElement("img");
-    imgMem.className="member";
-    imgMem.src=e.target.parentNode.children[1].src;
+    // 創建div member
+    var divMem=document.createElement("div");
+    divMem.className="member";
+    divMem.className="headBox";
+    divMem.id="stickerLB";
+    divMem.src=e.target.parentNode.children[1].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=e.target.parentNode.children[2].innerText;
+    aMem.innerText=e.target.parentNode.children[3].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[4].innerText;
+    spanVote.innerText=e.target.parentNode.children[5].innerText;
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";
     imgHeart.src ="images/fullheart-16.png";
     // 創建p
-    var pContent=document.createElement("p");
+    // var pContent=document.createElement("p");
     //console.log(parent.childNodes[11]);
         // pContent.innerText=parent.childNodes[10].innerText;
-    pContent.innerText="整個城市都是我們的伸展台";
+    // pContent.innerText="整個城市都是我們的伸展台";
 
     //創建svg關閉圖片
     var imgClose=document.createElement("img");
@@ -122,11 +127,11 @@ function cardLB(e){
     postArea.appendChild(divBg);
     divBg.appendChild(divCard);
     divCard.appendChild(imgCard);
-    divCard.appendChild(imgMem);
+    divCard.appendChild(divMem);
     divCard.appendChild(aMem);
     divCard.appendChild(imgHeart);
     divCard.appendChild(spanVote);
-    divCard.appendChild(pContent);
+    // divCard.appendChild(pContent);
     divCard.appendChild(imgClose);
     divCard.appendChild(imgDel);
 

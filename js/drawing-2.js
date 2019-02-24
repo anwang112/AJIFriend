@@ -1,96 +1,96 @@
-function nextStep(){
-    // 註冊三個步驟
-    var step1=document.getElementById("step1");
-    var step2=document.getElementById("step2");
-    var step3=document.getElementById("step3");
-    var upBtn=document.getElementById("upBtn");
-    var chooseBtn=document.getElementById("chooseBtn");
-    var share=document.getElementById("sharePhoto");
-    var controlBar=document.getElementsByClassName("controlBar")[0];
-    // var friendLightBox=document.getElementById("friend_LightBox");
-// 判斷式 
-// 1到2
-    if (next.innerText=="選擇朋友"){
-        // console.log(2);
-        step1.style.filter="grayscale(100%)";
-        step2.style.filter="grayscale(0%)";
-        step3.style.filter="grayscale(100%)";
-        upBtn.style.display="none";
-        chooseBtn.style.display="block";
-        back.style.display="block";
-        canvas.style.display="none";
-        controlBar.style.display="none";
-        power02=true;
-        console.log(power02);
-        next.innerText="編輯塗鴉";
-        back.innerText="選擇背景";
-        // friendLightBox.style.display="block";
+// function nextStep(){
+//     // 註冊三個步驟
+//     var step1=document.getElementById("step1");
+//     var step2=document.getElementById("step2");
+//     var step3=document.getElementById("step3");
+//     var upBtn=document.getElementById("upBtn");
+//     var chooseBtn=document.getElementById("chooseBtn");
+//     var share=document.getElementById("sharePhoto");
+//     var controlBar=document.getElementsByClassName("controlBar")[0];
+//     // var friendLightBox=document.getElementById("friend_LightBox");
+// // 判斷式 
+// // 1到2
+//     if (next.innerText=="選擇朋友"){
+//         // console.log(2);
+//         step1.style.filter="grayscale(100%)";
+//         step2.style.filter="grayscale(0%)";
+//         step3.style.filter="grayscale(100%)";
+//         upBtn.style.display="none";
+//         chooseBtn.style.display="block";
+//         back.style.display="block";
+//         canvas.style.display="none";
+//         controlBar.style.display="none";
+//         power02=true;
+//         console.log(power02);
+//         next.innerText="編輯塗鴉";
+//         back.innerText="選擇背景";
+//         // friendLightBox.style.display="block";
 
-    }
+//     }
   
-// 2到3
-    else if(next.innerText=="編輯塗鴉"){
-        // console.log(3);
-        step1.style.filter="grayscale(100%)";
-        step2.style.filter="grayscale(100%)";
-        step3.style.filter="grayscale(0%)";
-        back.style.display="block";
-        upBtn.style.display="none";
-        chooseBtn.style.display="none";
-        share.style.display="block";
-        canvas.style.display="block";
-        controlBar.style.display="flex";
-        next.style.display="none";
-        power02=false;
-        power03=true;
-        back.innerText="選擇朋友";
-        // friendLightBox.style.display="none";
-    }
+// // 2到3
+//     else if(next.innerText=="編輯塗鴉"){
+//         // console.log(3);
+//         step1.style.filter="grayscale(100%)";
+//         step2.style.filter="grayscale(100%)";
+//         step3.style.filter="grayscale(0%)";
+//         back.style.display="block";
+//         upBtn.style.display="none";
+//         chooseBtn.style.display="none";
+//         share.style.display="block";
+//         canvas.style.display="block";
+//         controlBar.style.display="flex";
+//         next.style.display="none";
+//         power02=false;
+//         power03=true;
+//         back.innerText="選擇朋友";
+//         // friendLightBox.style.display="none";
+//     }
     
-}
-function backStep(){
-    var step1=document.getElementById("step1");
-    var step2=document.getElementById("step2");
-    var step3=document.getElementById("step3");
-    var upBtn=document.getElementById("upBtn");
-    var chooseBtn=document.getElementById("chooseBtn");
-    var share=document.getElementById("sharePhoto");
-    var controlBar=document.getElementsByClassName("controlBar")[0];
+// }
+// function backStep(){
+//     var step1=document.getElementById("step1");
+//     var step2=document.getElementById("step2");
+//     var step3=document.getElementById("step3");
+//     var upBtn=document.getElementById("upBtn");
+//     var chooseBtn=document.getElementById("chooseBtn");
+//     var share=document.getElementById("sharePhoto");
+//     var controlBar=document.getElementsByClassName("controlBar")[0];
 
-// 2變1
-    if(back.innerText=="選擇背景"){
-        console.log("back1");
-        step1.style.filter="grayscale(0%)";
-        step2.style.filter="grayscale(100%)";
-        step3.style.filter="grayscale(100%)";
-        upBtn.style.display="block";
-        chooseBtn.style.display="none";
-        back.style.display="none";
-        next.innerText="選擇朋友";
-        // friendLightBox.style.display="none";
+// // 2變1
+//     if(back.innerText=="選擇背景"){
+//         console.log("back1");
+//         step1.style.filter="grayscale(0%)";
+//         step2.style.filter="grayscale(100%)";
+//         step3.style.filter="grayscale(100%)";
+//         upBtn.style.display="block";
+//         chooseBtn.style.display="none";
+//         back.style.display="none";
+//         next.innerText="選擇朋友";
+//         // friendLightBox.style.display="none";
 
-    }
+//     }
 
-// 3變2
-    else if(back.innerText=="選擇朋友"){
-        console.log("back2");
-        // step3.style.filter="grayscale(0%)";
-        step1.style.filter="grayscale( 100%)";
-        step2.style.filter="grayscale(0%)";
-        step3.style.filter="grayscale(100%)";
-        back.style.display="block";
-        next.style.display="block";
-        upBtn.style.display="none";
-        chooseBtn.style.display="block";
-        share.style.display="none";
-        canvas.style.display="none";
-        controlBar.style.display="none";
-        next.innerText="編輯塗鴉";
-        back.innerText="選擇背景";
-        // friendLightBox.style.display="block";
+// // 3變2
+//     else if(back.innerText=="選擇朋友"){
+//         console.log("back2");
+//         // step3.style.filter="grayscale(0%)";
+//         step1.style.filter="grayscale( 100%)";
+//         step2.style.filter="grayscale(0%)";
+//         step3.style.filter="grayscale(100%)";
+//         back.style.display="block";
+//         next.style.display="block";
+//         upBtn.style.display="none";
+//         chooseBtn.style.display="block";
+//         share.style.display="none";
+//         canvas.style.display="none";
+//         controlBar.style.display="none";
+//         next.innerText="編輯塗鴉";
+//         back.innerText="選擇背景";
+//         // friendLightBox.style.display="block";
 
-    }
-}
+//     }
+// }
 
 //將顏色寫到ctx.strokeStyle
 function changeColor(e){
@@ -104,14 +104,15 @@ function drawImg(){
     var img2 = document.getElementById("model_hat");
     var imgPrev = document.getElementById("imgPreview");
     ctx.drawImage(imgPrev,0,0,350,350);  
-    ctx.drawImage(img,0,0,180,190);  
-    ctx.drawImage(img2,0,0,180,190);  
+    ctx.drawImage(img,100,105,152,161);  
+    ctx.drawImage(img2,100,93,152,160);  
 }
 function saveImage() {
     drawImg();
 
     var dataURL = canvas.toDataURL("image/png");
     document.getElementById('hidden_data').value = dataURL;
+
     var formData = new FormData(document.forms["form1"]);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'savePhoto.php', true);
@@ -129,19 +130,26 @@ function saveImage() {
 }
 // 分享至照片牆
 function shareToPhotoWall(){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if( xhr.status == 200){
-        if( xhr.responseText == 'true' ){
-            alert('已分享至塗鴉牆！');
-      }else{
-        alert( xhr.status );
+    if(window.confirm('確定要分享嗎？') == true){
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if( xhr.status == 200){
+            var newDiv = document.createElement('div');
+            newDiv.classList = 'card';
+            newDiv.id = 'photo1';
+            newDiv.innerHTML = xhr.responseText;
+            var area = document.getElementsByClassName('postArea')[0]
+            area.insertBefore(newDiv, area.children[1]);
+            alert('已分享至照片牆！');
+          }else{
+            alert( xhr.status );
+            }
         }
+    
+        xhr.open("POST", "ajaxSharePhoto.php", true);
+        var myForm = new FormData(document.getElementById('addPic'));
+        xhr.send(myForm);
     }
-
-    xhr.open("get", ajaxSharePhoto.php, true);
-    xhr.send(null);
-    }   
 }
 
 function init(){
@@ -156,11 +164,11 @@ function init(){
     
     var next=document.getElementById("next");
     var back=document.getElementById("back");
-    next.addEventListener("click",nextStep,false);
-    back.addEventListener("click",backStep,false);
-    power01=true;
-    power02=false;
-    power03=false;
+    // next.addEventListener("click",nextStep,false);
+    // back.addEventListener("click",backStep,false);
+    // power01=true;
+    // power02=false;
+    // power03=false;
 
 
     var canvas = document.getElementById('canvas');
@@ -257,13 +265,10 @@ y: touchEvent.touches[0].clientY - rect.top
 };
 }
 // 一鍵清除
-function clearCanvas() {
-}
-var clear = document.getElementById("reset");
-clear.addEventListener('click', function(){
-    canvas.width = canvas.width;
-},false);
-
+    var clear = document.getElementById("reset");
+    clear.addEventListener('click', function(){
+        canvas.width = canvas.width;
+    },false);
 document.body.addEventListener("touchstart", function (e) {
     if (e.target == canvas) {
       e.preventDefault();
@@ -307,8 +312,8 @@ document.body.addEventListener("touchstart", function (e) {
 
 
 
-    var share=document.getElementById("sharePhoto");
-        share.addEventListener("click",shareToPhotoWall,false);
+    var share=document.getElementById("picInput");
+        share.addEventListener("input",shareToPhotoWall,false);
 
     // share.onclick = showShareLB;
 

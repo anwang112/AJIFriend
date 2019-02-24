@@ -63,7 +63,7 @@ try {
            
             <div class="col3">
             <?php	
-                // $i=0;
+                $i=1;
                 while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){     
             ?>
                 <div  class="top top1">
@@ -71,9 +71,9 @@ try {
                     <div class="topbg">
                         <img src="images/photoclouds-24.png" alt="bg">
                     </div>
-                    <div class="headBox member" id="sticker"  ></div>
+                    <div class="headBox member" id="sticker<?php echo $i ?>"  ></div>
                     <script>
-                     head = document.getElementById('sticker');         
+                        head = document.getElementById('sticker<?php echo $i ?>');         
                         ooxxGetHead(head, {
                             animal: <?php echo $photoRow["animal"]; ?>,
                             color: '<?php echo $photoRow["mColor"]; ?>',
@@ -82,12 +82,12 @@ try {
                         
                     </script>
                     <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
-                    <a href="#"><?php echo $photoRow["memId"];?></a>
+                    <a href="#" class="showInfo"><?php echo $photoRow["memId"];?></a>
                     <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span><?php echo $photoRow["vote"];?></span>
                 </div>
             <?php
-                // $i ++;
+                $i ++;
             }
             ?>
             </div>
@@ -111,13 +111,13 @@ try {
                         <img  src="images/choiceBg-23.png" alt="chooseBg">
                         <h3>Step 1 選擇背景</h3>
                 </div>
-                <div class="step" id="step2">
+                <!-- <div class="step" id="step2">
                     <img src="images/chooseFriend-24.png" alt="chooseFriend">
                     <h3>Step 2 選擇朋友</h3>
-                </div>
+                </div> -->
                 <div class="step" id="step3">
                     <img src="images/colorPen-25.png" alt="colorPen">
-                    <h3>Step 3 編輯塗鴉</h3>
+                    <h3>Step 2 編輯塗鴉</h3>
                 </div>
             </div>
             <div class="bulletin">
@@ -215,31 +215,37 @@ try {
                 
             <!-- 按鈕們 上傳背景 選擇朋友 分享 上一步 下一步 -->
                 <div class="btns">
-                    <div class="back" >                
+                    <div class="back">                
                         <span id="back">選擇背景</span>
                     </div>
                     <label> 
                         <div class="upload">
                             <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
                             <span id="upBtn">上傳背景</span>
-                            <input style="width:'30px'; " type="file" id="upFile" name="upfile" hidden>
+                            <input style="width:'30px'; " type="file" id="upFile" name="upFile" hidden>
                         </div> 
                     </label>
-                    <label id="friendBox">
+                    <!-- <label id="friendBox">
                         <span id="chooseBtn">選擇朋友</span>
-                    </label>
-                    <label>
-                        <span id="sharePhoto" style="display:none">分享至照片牆</span>
-                    </label>
-                    <div class="next" >                
-                        <span id="next">選擇朋友</span>
-                    </div>
-                    <!-- 下載照片 -->
-                 <input type="button" value="下載照片" onclick="saveImage()" />
+                    </label> -->
                     
-                    <div id="shareHint" style="display:none">已分享合照至塗鴉牆!
+                    <!-- <div class="next" >                
+                        <span id="next">編輯塗鴉</span>
+                    </div> -->
+                    <!-- 下載照片 -->
+                    <input type="button" value="下載照片" onclick="saveImage()" />
+                    <form id="addPic" method="post" enctype="multipart/form-data">
+                    <label>
+                    <div class="upload">
+                        <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
+                        <span id="sharePhoto" style="display:block">發佈至投票區</span>
+                        <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
+                    </div> 
+                    </label>
+                    </form>
+                    <!-- <div id="shareHint" style="display:none">已分享合照至塗鴉牆! -->
                     <!-- 確定後燈箱消失 -->
-                        <div id="sureClose">確定</div>
+                        <!-- <div id="sureClose">確定</div> -->
                     </div>
                 </div>
             </div>
@@ -315,17 +321,35 @@ try {
                         <h3>我的相片</h3>
                     </a>
                 </div> -->
-            </div>
 <?php
     $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
     $photo = $pdo->query($sql); 
 ?>
 <?php	
+    $i=1;
 	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
 ?>	
             <div class="card" id="photo1">
                 <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
-                <img class="member" src="images/member4-20.png" alt="doggy">
+                <div class="headBox member" id="stickerCard<?php echo $i ?>"  ></div>
+                    <script>
+                        head = document.getElementById('stickerCard<?php echo $i ?>');         
+                        ooxxGetHead(head, {
+                            animal: <?php echo $photoRow["animal"]; ?>,
+                            color: '<?php echo $photoRow["mColor"]; ?>',
+                            eyes: <?php echo $photoRow["eye"]; ?>,
+                        })
+                    </script>
+                    <script>
+                        head = document.getElementById('stickerLB');         
+                        ooxxGetHead(head, {
+                            animal: <?php echo $photoRow["animal"]; ?>,
+                            color: '<?php echo $photoRow["mColor"]; ?>',
+                            eyes: <?php echo $photoRow["eye"]; ?>,
+                        })
+                    </script>
+                
+                <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
                 <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
@@ -334,21 +358,22 @@ try {
                 </div>
             </div>
 <?php
+    $i++;
 	}
 ?>   
             <div class="clear"></div>        
-            <!-- <div id="cardLB" class="照片id ex:card-photo7">
-                <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
-                <div id="left">%%</div>
-                <div id="right">>></div>
-                <img class="cardPhoto" src="images/rank1-13.png" alt="top1"
-                <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>>
-                <img class="member" src="images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
-                <p>整個城市都是我們的伸展台</p>
-            </div> -->
+            // <!-- <div id="cardLB" class="照片id ex:card-photo7">
+            //     <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
+            //     <div id="left">%%</div>
+            //     <div id="right">>></div>
+            //     <img class="cardPhoto" src="images/rank1-13.png" alt="top1"
+            //     <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>>
+            //     <img class="member" src="images/member4-20.png" alt="doggy">
+            //     <a href="#">AJI</a>
+            //     <img class="heart" src="images/fullheart-16.png" alt="heart">
+            //     <span id="voteNum">105 </span>
+            //     <p>整個城市都是我們的伸展台</p>
+            // </div> -->
         </div>
     </div>
     <script type="text/javascript">

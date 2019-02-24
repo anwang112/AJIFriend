@@ -16,7 +16,7 @@ function addHeart(e){
                 e.target.nextSibling.nextSibling.innerText = parseInt(e.target.nextSibling.nextSibling.innerText) + 1;
 
             }else{
-                alert('voted!');
+                alert('你投過了喔!');
             }
 
           }else{
