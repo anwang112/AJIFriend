@@ -346,7 +346,7 @@ function foot_html() {
             <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
             <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
-	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
+	        
 	        <a id="btn_memData"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
 	    <div class="chatboxRight">
@@ -435,6 +435,94 @@ function foot_html() {
 	}
 }
 
+//這是判斷朋友的ＢＴＮ  --by An
+function beFriend (tarNo,loginNo,btn) {
+  
+	if(btn.text() == '成為麻吉'){
+		if (!storage.getItem("memNo")) {
+			$('#alertText').text('請先登入!');
+			$('.alertWrap').show();
+		}else if(loginNo == tarNo){
+			$('#alertText').text('不能選擇自己唷!');
+			$('.alertWrap').show();
+		}else{
+			if (storage.getItem("loveGiven") <= 0) {
+				$('#alertText').text('今天的愛心已經用完囉！');
+				$('.alertWrap').show();
+			} else {
+				profile = {
+					memNo: loginNo,
+					targetNo: tarNo,
+					nowDay: nowDay,
+					action: 3,
+				};
+				makeFriend(profile);
+			}
+		}
+	}else if(btn.text() == '解除麻吉關係'){
+		data= {
+			sendMemId: storage.getItem("memNo"),
+			taMemId: tarNo,
+			action: 2,
+			btn: btn,
+		};
+		unFriend(data);
+	}
+   
+ }
+ 
+ 
+ //加朋友的方選  --by An
+ function makeFriend(profile) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		if (parseInt(xhr.responseText) >= 0) {
+			heart = xhr.responseText;
+			storage.setItem("loveGiven",heart);
+			changeBtn(btn);
+			loadHeart(heart)
+			$('#alertText').text('已送出邀請');
+			$('.alertWrap').show();
+		} else {
+			$('#alertText').text('請勿重複邀請唷!');
+			$('.alertWrap').show();
+		}
+ 
+	};
+	xhr.open("Post", "makeFriend.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("profile=" + JSON.stringify(profile));
+ }
+ 
+ 
+ 
+ //解除好友關係方選 --by An
+ function unFriend(data){
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		if (xhr.responseText == "delete friend~") {
+			$('#alertText').text('已解除麻吉關係!');
+			$('.alertWrap').show();
+			changeBtnNomal(btn);
+ 
+		}
+		div_chooseBox = document.getElementsByClassName("friendbox")[0];
+		while (div_chooseBox.children.length > 1) {
+			console.log("+++刪朋友列表");
+			div_chooseBox.removeChild(div_chooseBox.lastChild);
+		}
+		
+		friendList(storage.getItem("memNo"));
+ 
+	};
+	xhr.open("Post", "updateRelationship.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("upMem=" + JSON.stringify(data));
+	
+ 
+ }
+ 
+//檢舉 --by An
 function report(profile) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function () {

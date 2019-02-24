@@ -17,6 +17,7 @@ require_once('myRoomToDB.php');
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" type="text/css" href="css/myRoom.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/myRoom2_v2.js"></script>
     <script src="js/myRoom2.js"></script>
@@ -192,9 +193,25 @@ require_once('myRoomToDB.php');
         }
         
 
-        ?>
+            $memData = $ddd->fetch(PDO::FETCH_ASSOC) ;
+            // 衣櫃裡的角色
+            echo '
+            <script> 
+            ooxxGetRole($id("myRole"), {
+                    animal:'. $memData["animal"] .',
+                    color: "' .$memData["mColor"] .'",
+                    eyes:' . $memData["eye"] . ',
+                    hat:"'. $memData["wearHat"].'" ,
+                    clothes: "'. $memData["wearClothes"].'" ,
+                });
+                </script>
+            
+            
+            ';
+            ?>
 
         <script>
+
 
 
             //換衣衣
@@ -250,14 +267,7 @@ ooxxChangeHat = (...changeHatArray) => {
     
 
 
-    myRole = document.getElementById('myRole');
-    ooxxGetRole(myRole, {
-            animal: 1,
-            color: 'aaaaaa',
-            eyes: 6,
-            hat: 1,
-			    clothes: 3,
-        })
+
     
         myhats = document.getElementsByClassName('myhats')[0];
         myhatsItem = myhats.getElementsByTagName('li');
@@ -297,8 +307,7 @@ ooxxChangeHat = (...changeHatArray) => {
                     <div class="proLeft">
                         <h3>我的個人資料</h3>
                         <div class="leftcontent">
-                        <?php
-                            $memData = $ddd->fetch(PDO::FETCH_ASSOC) ;?>
+                        
                             <div id="inputbefore">
                                 <span>帳號</span>
                                 <p id="xhrAcctBack"><?php echo $memData["memId"]; ?></p>

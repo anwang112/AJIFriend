@@ -64,7 +64,7 @@ window.addEventListener('load', function () {
 
 		// console.log(roleHat.style.backgroundImage.split('/')[2].split(')')[0]);
 		// console.log(roleClothes.style.backgroundImage.split('/')[2].split(')')[0].split('"')[0]);
-		var memNo = 2; //登入情況下
+		var memNo = storage.getItem("memNo"); //登入情況下
 		// txt = $id('wearhat').src.split('/'); 	
 		// txts = $id('putonCloth').src.split('/');
         var srcHat = roleHat.style.backgroundImage;

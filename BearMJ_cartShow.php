@@ -17,6 +17,7 @@ session_start();
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/shop-style.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
     
     
@@ -36,7 +37,6 @@ session_start();
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
                     <li>代幣</li>
-                    <li>送禮</li>
                     <li>異動</li>
                 </ul>
                 
@@ -56,9 +56,9 @@ session_start();
                         <ul>
                             <input type="hidden" name="proNo" value="<?php echo $i;?>">
                             <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
-                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$i];?>"></li>
+                            <li class="li_img"><img src="images/<?php if($_SESSION["proCate"][$i]==1){echo "hatImages";}else{echo "clothesImages";} ?>/<?php echo $_SESSION["img"][$i];?>"></li>
                             <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
-                            <li><input type="button" value="送禮" class="btn_given"></li>
+                            <!-- <li><input type="button" value="送禮" class="btn_given"></li> -->
                             <li><input type="submit" value="刪除" class="btn_delete"></li>
                         </ul>
                     </form>
@@ -208,4 +208,4 @@ session_start();
 </script>
 <script src="js/cart.js"></script>
 
-<script src="js/match2.js"></script>
+<!-- <script src="js/match2.js"></script> -->

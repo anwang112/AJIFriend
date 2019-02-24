@@ -33,14 +33,14 @@ session_start();
 
     <div id="shop_background" class="background">
 
-    <script>
-        if(innerWidth<768){
-            $id("shop_background").style.height =window.screen.height +"px";
-        }else{ 
-            $id("shop_background").style.height =window.innerHeight +"px";
-        }
-    
-    </script>
+        <script>
+            if(innerWidth<768){
+                $id("shop_background").style.height =window.screen.height +"px";
+            }else{ 
+                $id("shop_background").style.height =window.innerHeight +"px";
+            }
+        
+        </script>
                         
         
             <div id="chooseId">
@@ -150,6 +150,63 @@ session_start();
                 </div>
 
             </div> 
+            <div id="btn_openGame">
+                <img src="images/wallet2.png" alt="">
+            </div>
+            <!-- 搖獎遊戲 -->
+            <div class="gameMask"></div>
+            <div class="game">
+            <div class="gameClose"></div>
+            <table>
+                <tr>
+                    <td id="column" class="c_1">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_2">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_3">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_4">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="column" class="c_12">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                    <td colspan="2" rowspan="2" class="gameBtnWrap">
+                        <button id="btnloto"class="btn">領金幣</button>
+                    </td>
+                    <td id="column" class="c_5">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="column" class="c_11">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_6">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="column" class="c_10">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_9">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_8">
+                        <img src="images/roll2.svg" alt="">
+                    </td>
+                    <td id="column" class="c_7">
+                        <img src="images/roll_2.svg" alt="">
+                    </td>
+                </tr>
+            </table>
+            </div>
         
     </div>
  
@@ -171,7 +228,7 @@ session_start();
     }
     window.addEventListener("load",function(){
         
-        	
+    
         
         
         $(window).resize(function() {
@@ -203,17 +260,42 @@ session_start();
 
         });
         
+        $id("btn_openGame").addEventListener("click",function(){
+        var gameBox = document.getElementsByClassName("game")[0];
+        var gameMask = document.getElementsByClassName("gameMask")[0];
+            gameBox.style.display = 'block';
+            gameMask.style.display = 'block';
 
+
+        },false);
         
         
         // $id('choose-friend').addEventListener('click', () => {
         //     ooxxLightBox($id('a'), $id('b'), $id('btn_friendBoxClose'));
         // });
+        $('.gameClose').click(function(){
+            $('.game').hide();
+            $('.gameMask').hide();
+        });
+
+        $id("btnloto").onclick = function(){
+            if(!storage.getItem("last_play")){
+                money = rand(10, 50) * 10;
+                loto(money);
+            }else if( nowDay > storage.getItem("last_play")){
+                money = rand(10, 50) * 10;
+                loto(money);
+            }else{
+                $('#alertText').text('今天領過囉');
+                        $('.alertWrap').show();
+            }
+            
+        };
         
     }
 
     window.addEventListener("load",init,false);
 
 </script>
-
-<script src="js/match2.js"></script>
+<!-- 
+<script src="js/match2.js"></script> -->
