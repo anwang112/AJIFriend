@@ -14,6 +14,7 @@
 }
 
 #reportData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   background-color: #a2988f;
@@ -138,6 +139,7 @@
 }
 
 #searData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   margin: auto;
@@ -246,6 +248,7 @@
   position: relative;
   top: 35px;
   right: -54%;
+  z-index: 5;
 }
 
 .heart .heartItem {
@@ -740,6 +743,7 @@
 }
 
 .rankTxtCs h3 {
+  color: #f05b79;
   font-size: 30px;
 }
 
@@ -911,6 +915,7 @@
         -ms-flex-align: center;
             align-items: center;
     height: auto;
+    min-width: 100%;
   }
   .searchWrap #searData .sRole {
     width: 100%;
@@ -972,6 +977,7 @@
   }
   #reportData {
     height: 770px;
+    min-width: 100%;
   }
 }
 
