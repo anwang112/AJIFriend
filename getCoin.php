@@ -4,11 +4,11 @@ $data = json_decode($_REQUEST["data"]);
 $errMsg = "";
 try {
     require_once("connectBooks.php");
-        $sql = "update member set mCoin = (mCoin + :money),last_play = :nowday where memNo=:memNo;";
+        $sql = "update member set mCoin = (mCoin + :money), last_play = :nowDay where memNo=:memNo;";
         $Sta = $pdo->prepare($sql);
         $Sta->bindParam(':money',$data->money);
         $Sta->bindParam(':memNo', $data->memNo);
-        $Sta->bindParam(':nowday', $data->nowday);
+        $Sta->bindParam(':nowDay', $data->nowDay);
         $Sta->execute();
 
        echo 1;
