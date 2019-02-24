@@ -14,6 +14,7 @@
 }
 
 #reportData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   background-color: #a2988f;
@@ -138,6 +139,7 @@
 }
 
 #searData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   margin: auto;
@@ -246,6 +248,7 @@
   position: relative;
   top: 35px;
   right: -54%;
+  z-index: 5;
 }
 
 .heart .heartItem {
