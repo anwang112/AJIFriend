@@ -1,7 +1,6 @@
 <?php 
 ob_start();
 session_start();
-
 require_once('myRoomToDB.php');
 ?>
 <!DOCTYPE html>
@@ -156,14 +155,46 @@ require_once('myRoomToDB.php');
         </div>
         <!-- ↓自己現在長什麼樣區↓ -->
         <div id="meNow">
+
+
             <!-- <img src="images/meNow.png"> -->
             <!-- <div id="meNow" class="roleBox"></div> -->
         </div>
+        
+        <?php 
+
+        // $memRole = ;
+        if(isset($_SESSION["memNo"])){
+            $ccc->fetch(PDO::FETCH_ASSOC) ;
+            echo '<script>
+                    if(storage.getItem("memNo")){
+                    
+                        ooxxGetRole($id("meNow"), {
+                            animal: ' .$myAnimal . ',
+                            color:"' . $myColor . '",
+                            eyes:' . $myEye . ',
+                            hat:' . $myHat . ',
+                            clothes:' . $myClothes . ',
+                            });
+                    }
+                </script>' ;
+        }else{
+            echo '<script>
+                ooxxGetRole($id("meNow"), {
+                    animal: 1,
+                    color:"24A4C0",
+                    eyes:1,
+                    hat:0,
+                    clothes:0,
+                    });
+                    
+                </script>' ;
+        }
+        
+
+        ?>
+
         <script>
-
-
-
-
 
 
             //換衣衣
@@ -195,7 +226,7 @@ ooxxChangeClothes = (...changeClothesArray) => {
 ooxxChangeHat = (...changeHatArray) => {
     let object = changeHatArray[0];
     let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/${hat})`;
+    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
     let scaleValue = 0;
     object.getElementsByClassName('roleHat')[0].style.transition = `.8s`;
     hatGo = () => {
@@ -216,14 +247,6 @@ ooxxChangeHat = (...changeHatArray) => {
 
 
 
-            meNow = document.getElementById('meNow');
-		ooxxGetRole(meNow, {
-			animal: 1,
-			color: '7E675C',
-			eyes: 2,
-			hat: 1,
-			clothes: 3,
-    });
     
 
 
@@ -242,7 +265,8 @@ ooxxChangeHat = (...changeHatArray) => {
         for(let i=0;i<myhatsItem.length;i++){
           myhatsItem[i].addEventListener("click",(e)=>{
               // changeHat = e.target.src.split('/')[6];
-              ooxxChangeHat(myRole, e.target.src.split('/')[6]);      
+              console.log(e.target.src);
+              ooxxChangeHat(myRole, e.target.src);      
           })
         }
 
@@ -357,6 +381,7 @@ ooxxChangeHat = (...changeHatArray) => {
 
     <script type="text/javascript">
         foot_html();
+
     </script>
 </body>
 

@@ -53,13 +53,29 @@
             $sqlbb = "select * FROM pro_orderitem p JOIN product a on (p.proNo = a.proNo) WHERE p.buyerNo = :buyerNo AND a.category = 2 limit 10";
             $bbb = $pdo->prepare($sqlbb); 
             if(isset($_SESSION["memNo"])){
-                $aaa -> bindValue(':buyerNo',$_SESSION["memNo"] );//$_SESSION["memNo"] 
+                $bbb -> bindValue(':buyerNo',$_SESSION["memNo"] );//$_SESSION["memNo"] 
             }else{
-                $aaa -> bindValue(':buyerNo' ,-1 );//$_SESSION["memNo"] 
+                $bbb -> bindValue(':buyerNo' ,-1 );//$_SESSION["memNo"] 
             }
             $bbb -> bindColumn('img', $clothbb);
             $bbb -> execute();
         // }
+
+
+        // 撈出會員現在的穿搭
+        $sqlcc = "select * FROM member WHERE memNo = :memNo";
+        $ccc = $pdo->prepare($sqlcc); 
+        if(isset($_SESSION["memNo"])){
+            $ccc -> bindValue(':memNo',$_SESSION["memNo"] );//$_SESSION["memNo"] 
+        }else{
+            $ccc -> bindValue(':memNo' ,-1 );
+        }
+        $ccc -> bindColumn('animal', $myAnimal);
+        $ccc -> bindColumn('eye', $myEye);
+        $ccc -> bindColumn('mColor', $myColor);
+        $ccc -> bindColumn('wearHat', $myHat);
+        $ccc -> bindColumn('wearClothes', $myClothes);
+        $ccc -> execute();
 
 
 
