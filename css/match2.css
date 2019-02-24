@@ -914,6 +914,7 @@
         -ms-flex-align: center;
             align-items: center;
     height: auto;
+    min-width: 100%;
   }
   .searchWrap #searData .sRole {
     width: 100%;
@@ -975,6 +976,7 @@
   }
   #reportData {
     height: 770px;
+    min-width: 100%;
   }
 }
 

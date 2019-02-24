@@ -675,6 +675,7 @@
       flex-flow: column;
       align-items: center;
       height: auto;
+      min-width: 100%;
 
       .sRole {
         width: 100%;
@@ -746,6 +747,7 @@
   }
   #reportData{
     height: 770px;
+    min-width: 100%;
   }
 }
 
