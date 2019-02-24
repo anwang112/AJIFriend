@@ -60,7 +60,6 @@ try {
                 <th scope="col">會員暱稱</th>
                 <th scope="col">MJ值</th>
                 <th scope="col">金幣數</th>
-                <th scope="col">備註</th>
                 <th scope="col">權限</th>
             </tr>
         </thead>
@@ -73,9 +72,6 @@ try {
                 </th>
                 <td>
                     <?php echo $memId; ?>
-                </td>
-                <td>
-                    <?php echo $memNo; ?>
                 </td>
                 <td>
                     <?php echo $mName; ?>
@@ -110,7 +106,7 @@ try {
     <script>
         changePower = document.getElementsByClassName('changePower');
         memberInput = document.getElementById('memberInput');
-
+        showMember = document.getElementById('showMember');
 
         memberGoGo = (oo, xx = 'xx') => {
             memberData = {
@@ -120,9 +116,93 @@ try {
             console.log(memberData);
             let xhr = new XMLHttpRequest();
             xhr.onload = function() {
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
+
+                switch (xhr.responseText) {
+                    case "更改成功":
+                        alert("成功更改!!");
+                        location.reload();
+                        break;
+                    case "找不到喔":
+                        alert("尋不到喔");
+                    default:
+                        serchResule = JSON.parse(xhr.responseText);
+                        console.log(serchResule);
+                        if (serchResule.power == 1) {
+                            showMember.innerHTML = `
+                        <tr>
+                            <th scope="row">
+                                <a href="">
+                                    ${serchResule.memNo}</a>
+                            </th>
+                            <td>
+                                    ${serchResule.memId}
+                            </td>
+                            <td>
+                                    ${serchResule.mName}
+                            </td>
+                            <td>
+                                    ${serchResule.mMJ}
+                            </td>
+                            <td>
+                                     ${serchResule.mCoin}
+                            </td>
+                            <td>
+                                <button type="button" value="1" class="btn btn-danger changePower">正常</button>
+                            </td>
+                        </tr>
+                        `;
+                            for (let i = 0; i < changePower.length; i++) {
+                                changePower[i].addEventListener('click', (e) => {
+                                    if (e.target.innerHTML == "正常") {
+                                        memberGoGo(e.target.value, '0');
+                                    } else if (e.target.innerHTML == "停權") {
+                                        memberGoGo(e.target.value, '1');
+                                    }
+
+                                    // console.log(e.target.innerHTML);
+                                });
+                            }
+                        } else {
+                            showMember.innerHTML = `
+                        <tr>
+                            <th scope="row">
+                                <a href="">
+                                    ${serchResule.memNo}</a>
+                            </th>
+                            <td>
+                                    ${serchResule.memId}
+                            </td>
+                            <td>
+                                    ${serchResule.mName}
+                            </td>
+                            <td>
+                                    ${serchResule.mMJ}
+                            </td>
+                            <td>
+                                     ${serchResule.mCoin}
+                            </td>
+                            <td>
+                            <button type="button" value="1" class="btn btn-danger changePower">停權</button>
+                            </td>
+                        </tr>
+                        `;
+                            for (let i = 0; i < changePower.length; i++) {
+                                changePower[i].addEventListener('click', (e) => {
+                                    if (e.target.innerHTML == "正常") {
+                                        memberGoGo(e.target.value, '0');
+                                    } else if (e.target.innerHTML == "停權") {
+                                        memberGoGo(e.target.value, '1');
+                                    }
+
+                                    // console.log(e.target.innerHTML);
+                                });
+                            }
+                        }
+                }
+
             }
-            xhr.open("Post", "../backmemberUpdate.php", true);
+            xhr.open("Post", "backmemberUpdate.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.send("memberData=" + JSON.stringify(memberData));
 
@@ -130,12 +210,12 @@ try {
 
         for (let i = 0; i < changePower.length; i++) {
             changePower[i].addEventListener('click', (e) => {
-                if(e.target.innerHTML == "正常"){
+                if (e.target.innerHTML == "正常") {
                     memberGoGo(e.target.value, '0');
-                }else if(e.target.innerHTML == "停權"){
+                } else if (e.target.innerHTML == "停權") {
                     memberGoGo(e.target.value, '1');
                 }
-                
+
                 // console.log(e.target.innerHTML);
             });
         }

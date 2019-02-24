@@ -30,7 +30,7 @@ function head_html() {
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.html">照片牆</a></li>
-                <li><a href="myRoom.html">我的窩</a></li>
+                <li><a href="myRoom_v2.php">我的窩</a></li>
             </ul>
 			<div class="loginBox">
 				<input type="hidden" id="userNo" value="">
@@ -97,7 +97,7 @@ function head_html() {
                 <li><a href="photo.html">照片牆</a></li>
                 <li><a href="#">登入</a></li>
                 <li><a href="#">魅力值</a></li>
-                <li><a id="head_member_icon" href="myRoom.html">會員中心</a></li>
+                <li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
             </ul>
 		</div>
 	<!-- Header結束 -->
