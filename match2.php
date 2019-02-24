@@ -157,7 +157,7 @@ try {
     <div class="wrap">
         <div class="searchMaji">
             <input type="text" placeholder="搜尋麻吉ID" class="searchTxt" id="sId" onkeyup="enter();">
-            <button class="search">搜尋</button>
+            <button class="search btn">搜尋</button>
         </div>
 
 
@@ -287,7 +287,7 @@ try {
                         <option value="8">爬山</option>
                         <option value="9">健身</option>
                     </select>
-                    <button class="matchNext">找麻吉</button>
+                    <button class="matchNext btn">找麻吉</button>
                 </div>
             </div>
 
@@ -320,7 +320,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo0">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo0 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                         
@@ -336,7 +336,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo1">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo1 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                         
@@ -352,7 +352,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo2">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo2 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn2 btn">成為麻吉</button>
                         </div>
                         
@@ -371,7 +371,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo0">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo0 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                     </div>
@@ -385,7 +385,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo1">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo1 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                     </div>
@@ -399,7 +399,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo2">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo2 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn2 btn">成為麻吉</button>
                         </div>
                     </div>
@@ -417,7 +417,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo0">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo0 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn0 btn">成為麻吉</button>
                         </div>
                     </div>
@@ -431,7 +431,7 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo1">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo1 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn1 btn">成為麻吉</button>
                         </div>
                         
@@ -447,12 +447,9 @@ try {
                             <span></span><br>
                             <span></span><br>
                             <span></span><br>
-                            <button class="rankBtn showInfo2">查看個人頁面</button><br>
+                            <button class="rankBtn showInfo2 btn">查看個人頁面</button><br>
                             <button class="rankFriendBtn2 btn">成為麻吉</button>
-<<<<<<< HEAD
                             <button class="btn_beFriend10">成為麻吉</button>
-=======
->>>>>>> ga
                         </div>
                     </div>
                 </div>

@@ -181,7 +181,7 @@ function JoinActTo(actNo,member){
                     $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
-                    renewJoin(actNo,member);
+                    // renewJoin(actNo,member);
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
                     $('#alertText').text('記性不好齁~已經報名過囉!');
@@ -205,68 +205,68 @@ function JoinActTo(actNo,member){
         xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
 }
 
-function renewJoin(actNo,member){ 
-    console.log(actNo);
-    console.log(member);
-    var xhr = new XMLHttpRequest();
-    xhr.onload=function (){
-        if( xhr.responseText == "null" ){
-            alert('xhr有錯誤喔');
-         }else{
-            // alert(JSON.parse(xhr.responseText));
-            // var JoinActBackToJs = JSON.parse(xhr.responseText);
-            // alert(xhr.responseText);
-            //印在已報名活動
-            var str =[];
-            var str_a = xhr.responseText;
+// function renewJoin(actNo,member){ 
+//     console.log(actNo);
+//     console.log(member);
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload=function (){
+//         if( xhr.responseText == "null" ){
+//             alert('xhr有錯誤喔');
+//          }else{
+//             // alert(JSON.parse(xhr.responseText));
+//             // var JoinActBackToJs = JSON.parse(xhr.responseText);
+//             // alert(xhr.responseText);
+//             //印在已報名活動
+//             var str =[];
+//             var str_a = xhr.responseText;
             
-            str = str_a.split(',');
-            console.log(str);
-            var partB_top = $id('partB_top');
-            var partB_top_content = document.getElementsByClassName('partB_top_content');
-            var div = document.createElement('div');
-            htmlappendTo=`
-                <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
-                <div class="spanbox">
-                    <span>活動名稱：${str[5]} </span>
-                    <span>活動介紹：${str[8]} </span>
-                    <span>發起人:${str[4]}</span>
-                    <span>地點：${str[9]}</span>
-                    <span>時間：${str[6]}</span>
-                    <span>獎勵:100MJ</span>
-                </div>
-                <div class="buttonbox">
-                <button class="checkout_act btn_R " value="${str[1]}">查看</button>
-                <input style="display:none" type="text" value="${str[5]}">
-                <input style="display:none" type="text" value="${str[1]}">
-                <input style="display:none" type="text" value="${str[4]}">
-                <input style="display:none" type="text" value="${str[9]}">
-                <input style="display:none" type="text" value="${str[6]}">
-                <input style="display:none" type="text" value="${str[7]}">
-                <input style="display:none" type="text" value="${str[8]}">
-                <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
-                <input style="display:none" type="text" value="${str[1]}">
-                <input class="userInput02" style="display:none" type="text" value="${str[0]}">
-            </div>
-            `;
-            div.setAttribute('class','partB_top_content');
-            div.innerHTML=htmlappendTo;
-            // partB_top.appendChild(div);
-            partB_top.insertBefore(div,partB_top_content[0]);
-            reBtn();
-            // alert('ok');
-        }
-    }
-   var JoinActObj = {
-        actNo: actNo ,
-        member: member,
-    };
+//             str = str_a.split(',');
+//             console.log(str);
+//             var partB_top = $id('partB_top');
+//             var partB_top_content = document.getElementsByClassName('partB_top_content');
+//             var div = document.createElement('div');
+//             htmlappendTo=`
+//                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
+//                 <div class="spanbox">
+//                     <span>活動名稱：${str[5]} </span>
+//                     <span>活動介紹：${str[8]} </span>
+//                     <span>發起人:${str[4]}</span>
+//                     <span>地點：${str[9]}</span>
+//                     <span>時間：${str[6]}</span>
+//                     <span>獎勵:100MJ</span>
+//                 </div>
+//                 <div class="buttonbox">
+//                 <button class="checkout_act btn_R " value="${str[1]}">查看</button>
+//                 <input style="display:none" type="text" value="${str[5]}">
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input style="display:none" type="text" value="${str[4]}">
+//                 <input style="display:none" type="text" value="${str[9]}">
+//                 <input style="display:none" type="text" value="${str[6]}">
+//                 <input style="display:none" type="text" value="${str[7]}">
+//                 <input style="display:none" type="text" value="${str[8]}">
+//                 <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input class="userInput02" style="display:none" type="text" value="${str[0]}">
+//             </div>
+//             `;
+//             div.setAttribute('class','partB_top_content');
+//             div.innerHTML=htmlappendTo;
+//             // partB_top.appendChild(div);
+//             partB_top.insertBefore(div,partB_top_content[0]);
+//             reBtn();
+//             // alert('ok');
+//         }
+//     }
+//    var JoinActObj = {
+//         actNo: actNo ,
+//         member: member,
+//     };
     
 
-    xhr.open("post", "renewJoin.php", true);
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
-}
+//     xhr.open("post", "renewJoin.php", true);
+//     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//     xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+// }
 
 function CancelActTo(actNo,member,target){
     console.log(actNo);
@@ -321,8 +321,8 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
             return keyTotal = fromAllAct_obj.total;
             
@@ -488,7 +488,11 @@ function comDB (memNo, actNoGet){
                     //印出來名字跟聊天內容
                     var str = $id("myMessagebox").innerHTML;
                     str += `
+<<<<<<< HEAD
                     <div class="commentItem" style="border:1px red solid">
+=======
+                    <div class="commentItem">
+>>>>>>> ga
                         <div id="commentHead${i}" class="headBox commentHead"></div> 
                         <input type="hidden" id="commentMemNo${i}" value=${memNo[i]}>
                         <div class="commentBox">
@@ -560,7 +564,11 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
+<<<<<<< HEAD
                     $('#alertText').text('記性不好唷，已經報名過!');
+=======
+                    $('#alertText').text('已報名，可至我的活動查看囉');
+>>>>>>> ga
                     $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
@@ -609,7 +617,11 @@ function JoinActTo(actNo,member){
 //             var partB_top_content = document.getElementsByClassName('partB_top_content');
 //             var div = document.createElement('div');
 //             htmlappendTo=`
+<<<<<<< HEAD
 //                 <div class="contentImg" style="background-image: url();"></div>
+=======
+//                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
+>>>>>>> ga
 //                 <div class="spanbox">
 //                     <span>活動名稱：${str[5]} </span>
 //                     <span>活動介紹：${str[8]} </span>
@@ -706,8 +718,13 @@ function officalAllAct(member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
+<<<<<<< HEAD
             imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+=======
+            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/' +  fromAllAct_obj.img;
+>>>>>>> ga
             officialTotal(fromAllAct_obj.total);
             return keyTotal = fromAllAct_obj.total;
             
@@ -786,12 +803,20 @@ function allAct_more(no){
     // //來源 
         var actTitleValue = $id(`act_actTitleV${no}`).value;  
         var actNoValue = no;  
+<<<<<<< HEAD
         var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
+=======
+        // var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
+>>>>>>> ga
         var actLocValue = $id(`act_actLocV${no}`).value; 
         var act_beginValue = $id(`act_act_beginV${no}`).value; 
         var act_endValue = $id(`act_act_endV${no}`).value;  
         var actIntroValue = $id(`act_actIntroV${no}`).value; 
         var actImgValue = $id(`act_actImgV${no}`).value; 
+<<<<<<< HEAD
+=======
+        var actHostIdValue = $id(`act_host_memIdV${no}`).value; 
+>>>>>>> ga
 
   
         // //放置目標
@@ -799,14 +824,22 @@ function allAct_more(no){
         var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
         var elements = document.querySelectorAll("#acts_lightbox_top_right span")
         element_actTitle[0].innerHTML=actTitleValue;
+<<<<<<< HEAD
         elements[0].innerHTML='發起人：'+host_memNoValue;
+=======
+        elements[0].innerHTML='發起人：'+actHostIdValue;
+>>>>>>> ga
         elements[1].innerHTML='地點：'+actLocValue;
         elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
         elements[3].innerHTML='活動介紹：'+actIntroValue;
         $id("lightBox_actNo").value = no;
         myMessagebox_inputNone.setAttribute('value',actNoValue);
         var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+<<<<<<< HEAD
         acts_lightbox_topImg.style.backgroundImage = actImgValue;
+=======
+        acts_lightbox_topImg.style.backgroundImage = `url("images/${actImgValue}")`;
+>>>>>>> ga
         // alert(acts_lightbox_topImg);
         // alert(actImgValue);
 
@@ -814,7 +847,11 @@ function allAct_more(no){
         comDB(memNo,no);
 }
 
+<<<<<<< HEAD
 
+=======
+// 我的活動
+>>>>>>> ga
 function checkMyAct(){
     while($id("partB_top").firstChild) {
         $id("partB_top").removeChild($id("partB_top").firstChild);
@@ -845,18 +882,34 @@ function checkMyAct(){
                 var begin = JSON.parse(objData.begin);
                 var end = JSON.parse(objData.end);
                 var intro = JSON.parse(objData.intro);
+<<<<<<< HEAD
+=======
+                var hostId = JSON.parse(objData.hostId);
+>>>>>>> ga
 
                 console.log(orderNo);
                 for(var i = 0; i<intro.length;i++){
                     var str = $id("partB_top").innerHTML;
+<<<<<<< HEAD
                     str += `
                     <div class="partB_top_content">                       
                         <div class="contentImg" style="background-image: url();">
+=======
+                    begin[i] = begin[i].substr(0,10);
+                    end[i] = end[i].substr(0,10);
+                    str += `
+                    <div class="partB_top_content">                       
+                        <div class="contentImg" style="background-image: url(images/${img[i]});">
+>>>>>>> ga
                         </div>
                             <div class="spanbox">
                                 <span>活動名稱：${title[i]}</span>
                                 <span>活動介紹：${intro[i]}</span>
+<<<<<<< HEAD
                                 <span>發起人:</span>
+=======
+                                <span>發起人:${hostId[i]}</span>
+>>>>>>> ga
                                 <span>地點：${loc[i]}</span>
                                 <span>時間：${begin[i]}至${end[i]}</span>
                                 <!-- <span>人數:{{}}</span> -->
@@ -865,6 +918,10 @@ function checkMyAct(){
                                 <button class="checkout_act btn_R " value=${no[i]} onclick="myAct_more(${i});">查看</button>
                                 <input type="hidden" id="actTitle${i}" value=${title[i]}>
                                 <input type="hidden" id="hostNo${i}" value=${hostNo[i]}>
+<<<<<<< HEAD
+=======
+                                <input type="hidden" id="hostId${i}" value=${hostId[i]}>
+>>>>>>> ga
                                 <input type="hidden" id="actImg${i}" value=${img[i]}>
                                 <input type="hidden" id="actLoc${i}" value=${loc[i]}>
                                 <input type="hidden" id="actBegin${i}" value=${begin[i]}>
@@ -943,10 +1000,18 @@ function myAct_more(no){
     var act_endValue = $id(`actEnd${no}`).value;  
     var actIntroValue = $id(`actIntro${no}`).value; 
     var actImgValue = $id(`actImg${no}`).value; 
+<<<<<<< HEAD
+=======
+    var actHostIdValue = $id(`hostId${no}`).value; 
+>>>>>>> ga
     // alert(actImgValue);
 
     //放置目標
     var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+<<<<<<< HEAD
+=======
+    acts_lightbox_topImg.style.backgroundImage= `url("images/${actImgValue}")`;
+>>>>>>> ga
     var acts_lightbox_top_right = $id('acts_lightbox_top_right');
     var acts_lightbox_top_img = $id('acts_lightbox_top_img');
     var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
@@ -954,7 +1019,11 @@ function myAct_more(no){
     console.log(elements);
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     element_actTitle[0].innerHTML=actTitleValue;
+<<<<<<< HEAD
     elements[0].innerHTML='發起人：';
+=======
+    elements[0].innerHTML='發起人：'+actHostIdValue;
+>>>>>>> ga
     elements[1].innerHTML='地點：'+actLocValue;
     elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
     elements[3].innerHTML='活動介紹：'+actIntroValue;

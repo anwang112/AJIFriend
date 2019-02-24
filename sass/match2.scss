@@ -8,9 +8,11 @@
   @include LRcenter(fixed);
   display: none;
   z-index: 20;
+ 
 }
 
 #reportData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   background-color: #a2988f;
@@ -82,6 +84,7 @@
 }
 
 #searData {
+  min-width: 620px;
   width: 60%;
   height: 450px;
   margin: auto;
@@ -162,6 +165,7 @@
   position: relative;
   top: 35px;
   right: -54%;
+  z-index: 5; 
 
 
   .heartItem {
@@ -561,6 +565,7 @@
   background-color: rgba(251, 197, 207, 0.5);
 
   h3 {
+    color: #f05b79;
     font-size: 30px;
   }
 }
@@ -671,6 +676,7 @@
       flex-flow: column;
       align-items: center;
       height: auto;
+      min-width: 100%;
 
       .sRole {
         width: 100%;
@@ -742,6 +748,7 @@
   }
   #reportData{
     height: 770px;
+    min-width: 100%;
   }
 }
 

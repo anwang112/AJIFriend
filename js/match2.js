@@ -244,6 +244,7 @@ function beFriend (tarNo,loginNo,btn) {
     
 }
 $('.btn_beFriend0').click(function(){
+    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -705,8 +706,9 @@ $('.showInfo2').click(function () {
 });
 //heart
 heart =  storage.getItem("loveGiven");
+heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
-
+    console.log(111);
     switch (parseInt(heart)) {
         case 2:
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -723,32 +725,16 @@ function loadHeart(heart){
 
     }
 }
-
+loadHeart(heart);
 //送出好友邀請ajax
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
-            heartItem = document.querySelectorAll('.heart div');
-            document.getElementById('userLove').value = heart;
+            storage.setItem("loveGiven",heart);
             changeBtn(btn);
-            switch (parseInt(heart)) {
-                case 2:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 1:
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-                case 0:
-                    heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-                    break;
-
-            }
-
+            loadHeart(heart)
             $('#alertText').text('已送出邀請');
             $('.alertWrap').show();
         } else {
@@ -762,25 +748,25 @@ function makeFriend(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 }
 
-//檢舉
-function report(profile) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (parseInt(xhr.responseText) == 1) {
-            $('#alertText').text('已經檢舉過囉!');
-            $('.alertWrap').show();
-        } else if(parseInt(xhr.responseText) == 0){ 
-            $('#alertText').text('已收到您的檢舉!');
-            $('.alertWrap').show();
-            $('.searchWrap').hide();
-        }
+// //檢舉
+// function report(profile) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (parseInt(xhr.responseText) == 1) {
+//             $('#alertText').text('已經檢舉過囉!');
+//             $('.alertWrap').show();
+//         } else if(parseInt(xhr.responseText) == 0){ 
+//             $('#alertText').text('已收到您的檢舉!');
+//             $('.alertWrap').show();
+//             $('.searchWrap').hide();
+//         }
 
-    };
-    xhr.open("Post", "report.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("profile=" + JSON.stringify(profile));
+//     };
+//     xhr.open("Post", "report.php", true);
+//     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+//     xhr.send("profile=" + JSON.stringify(profile));
 
-}
+// }
 //unfriend
 function unFriend(data){
     var xhr = new XMLHttpRequest();
