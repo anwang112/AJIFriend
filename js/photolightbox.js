@@ -9,7 +9,7 @@ function topLB(e){
 // 創建div
     var divBg=document.createElement("div");
     var divTop=document.createElement("div");
-    var wrap=document.getElementsByClassName("wrap")[0];
+    var wrap1=document.getElementsByClassName("wrap1")[0];
     divBg.id="LBbg"
     divTop.className="tops";
     divTop.id="LB";
@@ -47,7 +47,7 @@ function topLB(e){
     imgclose.id="close";
     imgclose.addEventListener("click",closeTop,false);
 
-    wrap.appendChild(divBg);
+    wrap1.appendChild(divBg);
     divBg.appendChild(divTop);
     divTop.appendChild(imgTop);
     divTop.appendChild(divMem);
@@ -58,9 +58,9 @@ function topLB(e){
     divTop.appendChild(imgclose);
 }
 function closeTop(){
-    var wrap=document.getElementsByClassName("wrap")[0];
+    var wrap1=document.getElementsByClassName("wrap1")[0];
     var divBg=document.getElementById("LBbg");
-    wrap.removeChild(divBg);
+    wrap1.removeChild(divBg);
 }
 // card的燈箱
 function cardLB(e){
@@ -153,12 +153,13 @@ function delCard(e){
 
 
 }
+
 function init(){
     var top  =document.getElementsByClassName("winnerPhoto");
     for(var i = 0; i < top.length; i++){
         top[i].addEventListener("click",topLB, true);
    }
-    var wrap=document.getElementsByClassName("wrap")[0];
+    var wrap1=document.getElementsByClassName("wrap1")[0];
     
     var card =document.getElementsByClassName("cardPhoto");
     for(var i=0;i<card.length;i++){

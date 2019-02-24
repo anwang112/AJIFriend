@@ -1,8 +1,11 @@
 <?php
+session_start();
+$_SESSION["loginMem"]['Id'] = 'An';
+
 //連線資料庫
 $errMsg = "";
 try {
-	require_once("connectRoot.php");
+	require_once("connectBooks.php");
     $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=1 order by p.vote desc";
  	$photo = $pdo->query($sql); 
 } catch (PDOException $e) {
@@ -23,7 +26,9 @@ try {
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <script src="js/commonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/photo.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
@@ -39,7 +44,7 @@ try {
 	</script>
 <!-- 第一屏 上月票選得名 -->
     <div class="bg">
-        <div class="wrap">
+        <div class="wrap1">
             <div class="clouds1">
                 <img src="images/clouds-21.png" alt="">
             </div>
@@ -233,7 +238,7 @@ try {
                  <input type="button" value="下載照片" onclick="saveImage()" />
                     
                     <div id="shareHint" style="display:none">已分享合照至塗鴉牆!
-                            <!-- 確定後燈箱消失 -->
+                    <!-- 確定後燈箱消失 -->
                         <div id="sureClose">確定</div>
                     </div>
                 </div>
@@ -304,12 +309,12 @@ try {
 <?php
 	}
 ?>   
-                <div id="myPhoto">
+                <!-- <div id="myPhoto">
                     <a href="#">
                         <img src="images/myPhoto-30.png" alt="photo">
                         <h3>我的相片</h3>
                     </a>
-                </div>
+                </div> -->
             </div>
 <?php
     $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";

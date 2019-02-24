@@ -24,7 +24,7 @@ body{
     background-size: 100% 90%;
 
 }
-.wrap{
+.wrap1{
     width: 100%;
     /* max-width: 1200px; */
     margin: auto;
@@ -32,23 +32,23 @@ body{
     overflow: hidden;
 
 }
-.wrap .clouds1{
+.wrap1 .clouds1{
     width: 100%;
     position: relative;
 
 }
-.wrap .clouds2{
+.wrap1 .clouds2{
     width: 100%;
     position: relative;
 }
-.wrap .clouds1 img{
+.wrap1 .clouds1 img{
     width: 60%;
     position: absolute;
     left: -10%;
     top: 10vh;
     animation: cloudsMoving 50s infinite linear;
 }
-.wrap .clouds2 img{
+.wrap1 .clouds2 img{
     width: 80%;
     position: absolute;
     left: -40%;
@@ -143,6 +143,8 @@ body{
 #LB .heart,.card .heart ,#cardLB .heart{
     width: 12%;
     margin-top: 1%;
+    display: unset;
+    position: unset;
   }
 #LB a , #cardLB a{
     margin-left: 20px;
@@ -806,21 +808,21 @@ body{
 
 /* ipad RWD */
 @media screen and (max-width: 768px){
-    .wrap{
+    .wrap1{
         width: 100%;
         height: 140vh;
     }
-    .wrap .trophy{  
+    .wrap1 .trophy{  
         width: 40%;}
-    .wrap .trophy h2{
+    .wrap1 .trophy h2{
         font-size: 1rem;
     }
-    .wrap .clouds2{   
+    .wrap1 .clouds2{   
         display: none;}
-    .wrap .clouds1{  
+    .wrap1 .clouds1{  
         position: fixed; 
         width: 150%;}
-    .wrap .clouds1 img{    
+    .wrap1 .clouds1 img{    
         width: 100%;}
     .col3{
         display: flex;
@@ -1030,29 +1032,29 @@ body{
 
 /* phone RWD */
 @media screen and (max-width: 476px){
-    .wrap{
+    .wrap1{
         width: 100%;
         height: 172vh;
         padding-top: 20px;
         padding-bottom: 50px;
         position: relative;
     }
-    .wrap .clouds2{
+    .wrap1 .clouds2{
         display: none;
     }
-    .wrap .clouds1,.wrap .clouds2{
+    .wrap1 .clouds1,.wrap1 .clouds2{
         width: 150%;
     }
-    .wrap .clouds1 img, .wrap .clouds2 img{
+    .wrap1 .clouds1 img, .wrap1 .clouds2 img{
         width: 100%;
         position: fixed;
     }
-    .wrap .trophy{
+    .wrap1 .trophy{
         width: 55%;
         margin-left: 17%;
         margin-bottom: 20px;
     }
-    .wrap .trophy h2{
+    .wrap1 .trophy h2{
         width: 150px;
         padding: 4px;
         margin-left: 5px;
