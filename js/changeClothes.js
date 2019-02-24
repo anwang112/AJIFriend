@@ -4,22 +4,14 @@ function changeClothes(no,cate){
     // console.log(wearNo);
 
     var hat_div = document.getElementsByClassName("roleHat")[0];
-<<<<<<< HEAD
-    var eye_div = document.getElementsByClassName("roleClothes")[0];
-=======
     var clothes_div = document.getElementsByClassName("roleClothes")[0];
     
->>>>>>> origin/ooxx
     if(cate==1){
         hat_div.style.backgroundImage = `url("images/hatImages/hat${no}.png")`;
 
     }else{
-<<<<<<< HEAD
-        eye_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
-=======
         clothes_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
 
->>>>>>> origin/ooxx
     }
 
     // 更衣動畫
