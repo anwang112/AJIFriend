@@ -1,17 +1,17 @@
 <?php
     //新增資料    
-    $JoinActObj = json_decode($_REQUEST["JoinActObj"]); //把字串轉回物件
+    // $JoinActObj = json_decode($_REQUEST["JoinActObj"]); //把字串轉回物件
     $time = date("Y-m-d H:i:s") ;
 
     //跟資料庫要資料
     try {
         require_once("connectBooks.php");
                 //parB 已報名活動
-        $sqlmemJoin = "select* from activity_order o  JOIN activity a on o.actNo = a.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
+        $sqlmemJoin = "select* from activity_order o  JOIN activity a on o.actNo = a.actNo  where o.order_memNo = 1 ORDER BY act_orderNo DESC ";
 
         // $activitmemJoin = $pdo->query($sqlmemJoin); 
         $activitmemJoin = $pdo->prepare($sqlmemJoin); 
-        $activitmemJoin -> bindValue(":member",$JoinActObj -> member ); 
+        // $activitmemJoin -> bindValue(":member",$JoinActObj -> member ); 
         //之後要改成bindParam
         $activitmemJoin -> bindColumn("act_orderNo", $act_orderNo); 
         $activitmemJoin -> bindColumn("order_memNo", $order_memNo);      

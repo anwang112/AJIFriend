@@ -16,26 +16,7 @@ function changeClothes(no,cate){
 
     // 更衣動畫
 
-    var  tl =  new TimelineMax({
-        repeat: 0,
-        // yoyo: true
-    });
-    
-    
-     tl.add(TweenMax.fromTo('#model_hat', 1.5, {
-        scale: .6,
-    }, {
-        scale: 1,
-        ease: Elastic.easeOut,
-    }))
-    tl.add(TweenMax.fromTo('#showModel', 1.5, {
-        y:-45,
-        scale: .5,
-    }, {
-        y:0,
-        scale: 1,
-        ease: Power2.easeIn
-    }))
+
 
     
 }

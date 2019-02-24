@@ -19,7 +19,6 @@ session_start();
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
     <script src="js/shop.js"></script>
-<script src="js/match2.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 </head>
@@ -201,25 +200,10 @@ session_start();
             $id("model_animal").src = "shop-images/model_1.png";
             $id("model_hat").src = "shop-images/hat_1.png";
             // $id("model_clothes").src = "";
-            TweenMax.fromTo('#showModel', 1.5, {
-                y:-45,
-                scale: .5,
-            }, {
-                y:0,
-                scale: 1,
-                ease: Power2.easeIn
-            });
+
         });
         
-        
-        TweenMax.fromTo('#showModel', 1.5, {
-            y:-45,
-            scale: .5,
-            }, {
-                y:0,
-                scale: 1,
-                ease: Power2.easeIn
-            });
+
         
         
         // $id('choose-friend').addEventListener('click', () => {
@@ -231,3 +215,5 @@ session_start();
     window.addEventListener("load",init,false);
 
 </script>
+
+<script src="js/match2.js"></script>

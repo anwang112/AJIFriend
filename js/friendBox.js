@@ -58,9 +58,9 @@ function changeModel(no){
 		xhr.open("get",url,true);
 		xhr.send(null);
 
-    TweenMax.fromTo('#showModel', 1.5, {
-        y:-45,
-        scale: .5,
+    TweenMax.fromTo('#showModel', .5, {
+        y:0,
+        scale: 1,
         }, {
             y:0,
             scale: 1,

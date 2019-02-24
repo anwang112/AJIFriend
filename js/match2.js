@@ -9,43 +9,43 @@ $('#alertBtn').click(function () {
     $('.alertWrap').hide();
 })
 
-//report
-td = document.querySelectorAll('#reportData table tr td');
-$('#report').click(function () {
-    document.getElementById('fname').value = '';
-    if (!storage.getItem("memNo")) {
-        $('#alertText').text('請先登入!');
-        $('.alertWrap').show();
+// //report
+// td = document.querySelectorAll('#reportData table tr td');
+// $('#report').click(function () {
+//     document.getElementById('fname').value = '';
+//     if (!storage.getItem("memNo")) {
+//         $('#alertText').text('請先登入!');
+//         $('.alertWrap').show();
 
-    }else{
-        var R = 0;
-        $('#searData').css({
-            'transform': 'rotateY(' + (R + 180) + 'deg)',
-        });
-        $('#reportData').css({
-            'transform': 'rotateY(' + R + 'deg)',
-        });
-        td[0].innerText = storage.getItem("memId");
-        td[2].innerText = nowDay;
-    }
+//     }else{
+//         var R = 0;
+//         $('#searData').css({
+//             'transform': 'rotateY(' + (R + 180) + 'deg)',
+//         });
+//         $('#reportData').css({
+//             'transform': 'rotateY(' + R + 'deg)',
+//         });
+//         td[0].innerText = storage.getItem("memId");
+//         td[2].innerText = nowDay;
+//     }
     
-})
-$('#reportSmt').click(function(){
-    if( td[0].innerText== td[1].innerText){
-        $('#alertText').text('不能檢舉自己唷！');
-        $('.alertWrap').show();
-    }else if(document.getElementById('fname').value == ''){
-        $('#alertText').text('請輸入檢舉原因');
-        $('.alertWrap').show();
-    }else{
-        profile = {
-            memNo: storage.getItem("memNo"),
-            ta_memNo: document.getElementById('sMemNo').value,
-            reason: document.getElementById('fname').value,
-        };
-        report(profile);
-    }
-})
+// })
+// $('#reportSmt').click(function(){
+//     if( td[0].innerText== td[1].innerText){
+//         $('#alertText').text('不能檢舉自己唷！');
+//         $('.alertWrap').show();
+//     }else if(document.getElementById('fname').value == ''){
+//         $('#alertText').text('請輸入檢舉原因');
+//         $('.alertWrap').show();
+//     }else{
+//         profile = {
+//             memNo: storage.getItem("memNo"),
+//             ta_memNo: document.getElementById('sMemNo').value,
+//             reason: document.getElementById('fname').value,
+//         };
+//         report(profile);
+//     }
+// })
 
 //placeholder
 $(function () {
@@ -244,6 +244,7 @@ function beFriend (tarNo,loginNo,btn) {
     
 }
 $('.btn_beFriend0').click(function(){
+    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -705,8 +706,9 @@ $('.showInfo2').click(function () {
 });
 //heart
 heart =  storage.getItem("loveGiven");
+heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
-
+    console.log(111);
     switch (parseInt(heart)) {
         case 2:
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -723,15 +725,14 @@ function loadHeart(heart){
 
     }
 }
-
+loadHeart(heart);
 //送出好友邀請ajax
 function makeFriend(profile) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
-            heartItem = document.querySelectorAll('.heart div');
-            storage.setItem("loveGiven" ,heart);
+            storage.setItem("loveGiven",heart);
             changeBtn(btn);
             loadHeart(heart)
             $('#alertText').text('已送出邀請');
@@ -747,25 +748,25 @@ function makeFriend(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 }
 
-//檢舉
-function report(profile) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (parseInt(xhr.responseText) == 1) {
-            $('#alertText').text('已經檢舉過囉!');
-            $('.alertWrap').show();
-        } else if(parseInt(xhr.responseText) == 0){ 
-            $('#alertText').text('已收到您的檢舉!');
-            $('.alertWrap').show();
-            $('.searchWrap').hide();
-        }
+// //檢舉
+// function report(profile) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (parseInt(xhr.responseText) == 1) {
+//             $('#alertText').text('已經檢舉過囉!');
+//             $('.alertWrap').show();
+//         } else if(parseInt(xhr.responseText) == 0){ 
+//             $('#alertText').text('已收到您的檢舉!');
+//             $('.alertWrap').show();
+//             $('.searchWrap').hide();
+//         }
 
-    };
-    xhr.open("Post", "report.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("profile=" + JSON.stringify(profile));
+//     };
+//     xhr.open("Post", "report.php", true);
+//     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+//     xhr.send("profile=" + JSON.stringify(profile));
 
-}
+// }
 //unfriend
 function unFriend(data){
     var xhr = new XMLHttpRequest();
