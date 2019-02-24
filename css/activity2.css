@@ -49,6 +49,19 @@
     color: #555;
     padding-left: 18px;
 }
+.lightbox_act .lightbox_act_info .spanbox {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}    
+.lightbox_act .lightbox_act_info p {
+  width: 35%;
+  color: #f05c79;
+  font-size: 1.3rem;
+  max-width: 600px;
+  line-height: 2rem;
+}
 .act_section01 {
   width: 100%;
   max-width: 1200px;

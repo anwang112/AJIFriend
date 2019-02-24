@@ -321,6 +321,7 @@ function head_html() {
 
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
+		window.location.reload();
 	}, false);
 
 	if (storage.getItem("memNo")) {
@@ -1646,10 +1647,10 @@ ooxxGetRole = (roleId, roleData) => {
 	// 眼睛 帽帽 衣服喔 
 	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
 	if (roleData.hat) {
-		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/${roleData.hat}`;
 	}
 	if (roleData.clothes) {
-		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/${roleData.clothes}`;
 	}
 
 	//眼睛動起來
