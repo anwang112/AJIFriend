@@ -1,5 +1,10 @@
 <?php
+ob_start();
 session_start();
+if(isset($_SESSION["adminName"]) === false){
+    header("Location:backLogin.php");
+    exit();
+}
 try {
     //連線
     require_once("../connectBooks.php");
@@ -41,10 +46,10 @@ try {
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            XXX您好
+            <?php echo $_SESSION["adminName"] ?>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">登出</a>
+            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
         </div>
     </nav>
 
@@ -172,7 +177,7 @@ try {
 
         for (let i = 0; i < changeAdmin.length; i++) {
             changeAdmin[i].addEventListener('click', (e) => {
-                console.log(e.target.innerHTML);    
+                console.log(e.target.innerHTML);
                 switch (e.target.innerHTML) {
                     case "編輯":
                         // console.log(showAdminInfo[e.target.value].getElementsByTagName('input'));
@@ -202,7 +207,7 @@ try {
         for (let i = 0; i < changeAdmin.length; i++) {
             dropAdmin[i].addEventListener('click', (e) => {
 
-               
+
                 changeAdminFunction({
                     adminNo: showAdminInfo[e.target.value].getElementsByTagName('input')[0].value,
                     adminName: showAdminInfo[e.target.value].getElementsByTagName('input')[1].value,
@@ -223,6 +228,25 @@ try {
                 adminPsw: createAdminWrap.getElementsByTagName('input')[2].value,
                 statue: "建立"
             })
+        })
+
+        //登出
+        logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', (e) => {
+            checkInFoValue = {};
+            checkInFoValue.status = '掰掰';
+            console.log(e);
+            let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if(xhr.responseText == "回到登入頁"){
+                        window.location.href="backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+            
         })
     </script>
 </body>

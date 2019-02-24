@@ -1,5 +1,10 @@
 <?php
+ob_start();
 session_start();
+if(isset($_SESSION["adminName"]) === false){
+    header("Location:backLogin.php");
+    exit();
+}
 try {
     //連線
     require_once("../connectBooks.php");
