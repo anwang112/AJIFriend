@@ -1159,3 +1159,94 @@ function cubeBezier(p0, c0, c1, p1, t) {
 
     return p;
 }
+
+//game
+var btnG = document.getElementById('btnloto');
+
+var timeId;
+var speed = 50;
+var steps = rand(13, 25);
+var stepNum = 0;
+var restep;
+
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+function getCoin(data) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if(xhr.responseText == 1){
+            btnG.innerText = '領取$'+money;
+
+        }
+
+    };
+    xhr.open("Post", "getCoin.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" + JSON.stringify(data));
+
+}
+
+function loto(money) {
+    
+    btnG.disabled = true;
+    btnG.style.backgroundColor = '#aaa';
+    btnG.innerText = '本日已領';
+    stepNum++;
+    speed += 15;
+    if (stepNum > 12) {
+        if (stepNum % 12 == 0) {
+            restep = 12;
+        } else if (stepNum % 12 == 1) {
+            restep = 1;
+            document.querySelector('.c_12').classList.toggle('highlight');
+        } else {
+            restep = stepNum % 12;
+        }
+    } else {
+        restep = stepNum;
+    }
+    console.log(money);
+    if (stepNum == steps) {
+        
+        document.querySelector('.c_' + restep).innerText = '$' + money;
+
+    } else {
+        timerId = setTimeout(loto, speed);
+    }
+    document.querySelector('.c_' + restep).classList.toggle('highlight');
+
+    if (restep > 1) {
+        var b = restep - 1;
+        document.querySelector('.c_' + b).classList.toggle('highlight');
+    }
+    // data={
+    //     money = money,
+    //     nowday = nowday,
+    // };
+    // console.log(data);
+    // getCoin(data);
+
+
+}
+// function restart(){
+//     if( btnG.innerText == '搖獎'){
+//         btnG.innerText='重新抽獎';
+//     }else{
+//         for(i=1;i<=12;i++){ 
+//             document.querySelector('.c_'+i).classList.remove('highlight');
+//             document.querySelector('.c_'+i).innerText='';
+//         }
+//         speed = 50;
+//         money = rand(10, 10000) * 100;
+//         steps = rand(13,35);
+//         stepNum = 0;
+//     }
+// }
+
+
+    btnG.onclick = function(){
+        money = rand(10, 50) * 10;
+        loto(money);
+    }

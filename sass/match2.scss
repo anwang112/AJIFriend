@@ -829,3 +829,36 @@
   
   }
 }
+.game{
+  #btnloto {
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #ef5c79;
+    color: #fff;
+    border-radius: 50%;
+  }
+  
+  table {
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ecded9;
+    border-radius: 50px;
+  }
+  
+  table td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding: 10px;
+    color: #ef5c79;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .highlight {
+    transform: scale(1.2);
+  }
+}
