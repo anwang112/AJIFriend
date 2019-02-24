@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="node_modules/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
-    <script src="node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script> 
-    <script src="node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/package/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+    <script src="js/package/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="js/package/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script> 
+    <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="js/commonPart.js"></script>
     <!-- <script src="js/commonPart.js"></script> -->
     <title>activity</title>
@@ -94,7 +94,7 @@
                 <?php $activityBUS -> fetch(PDO::FETCH_ASSOC)?>
                 <div class="act_mainbox">
                     <div class="imgBox">
-                        <img id="imgBoxImg" src="images/activity/<?php echo $actImg ;?>" alt="這個換掉"> 
+                        <img id="imgBoxImg" src="images/<?php echo $actImg ;?>" alt="這個換掉"> 
                     </div>
                     <div class="btnbox">
                         <span id="btn_actL"></span>
@@ -108,7 +108,7 @@
                     
                     <div id="lightbox_act_info" class="lightbox_act_info">
                         <?php if($actImg == null){?>
-                            <img id="imgBoxImg_B" src="images/activity/act_number02B.svg" alt="資料庫預設圖">
+                            <img id="imgBoxImg_B" src="images/act_number02B.svg" alt="資料庫預設圖">
                         <?php }else{ ?>
                             <img id="imgBoxImg_B" src="images/activity/<?php echo $actImg ;?>" alt="資料庫拿圖">
                         <?php }?>
@@ -142,7 +142,7 @@
                         <?php while($activityMemHold ->fetch(PDO::FETCH_ASSOC)){?>
                         <div id="Hold_box" class="act_memberHold_box act_memberHold_box<?php echo $i?>">
                             <?php if($actImg == null){?>
-                               <div class="Hold_box_img" style="background-image: url('images/activity/act_number02B.svg');"></div>
+                               <div class="Hold_box_img" style="background-image: url('images/act_number02B.svg');"></div>
                             <?php }else{ ?>
                                 <div class="Hold_box_img" style="background-image: url('images/<?php echo $actImg ;?>');"></div>
                             <?php }?>
@@ -150,7 +150,7 @@
                                 <button class="btn_ActJoin btn" value="<?php echo $actNo ;?>" onclick="allAct_more(<?php echo $actNo ;?>);"> 查看更多 </button>
                                 <input type="hidden" id="act_actTitleV<?php echo $actNo?>" value="<?php echo $actTitle ;?>">
                                 <input type="hidden" id="act_actNoV<?php echo $actNo?>" value="<?php echo $actNo ;?>">
-                                <input type="hidden" id="act_host_memNoV<?php echo $actNo?>" value="<?php echo $host_memNo ;?>">
+                                <input type="hidden" id="act_host_memIdV<?php echo $actNo?>" value="<?php echo $hostId ;?>">
                                 <input type="hidden" id="act_actLocV<?php echo $actNo?>" value="<?php echo $actLoc ;?>">
                                 <input type="hidden" id="act_act_beginV<?php echo $actNo?>" value="<?php echo $act_begin ;?>">
                                 <input type="hidden" id="act_act_endV<?php echo $actNo?>" value="<?php echo $act_end ;?>">
@@ -159,7 +159,7 @@
                             </div>
                             <h3><?php echo $actTitle ; ?></h3>
                             <div class="spanbox">
-                                <span>發起人:<?php echo $host_memNo ;?></span>
+                                <span>發起人:<?php echo $hostId ;?></span>
                                 <span>地點：<?php echo $actLoc ; ?></span>
                                 <span>時間：<?php echo  substr($act_begin,0,10) ; ?>至<?php echo substr($act_end,0,10);?></span>
                             </div>

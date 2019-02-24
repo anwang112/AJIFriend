@@ -11,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
-    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     
     <script src="js/commonPart.js"></script>

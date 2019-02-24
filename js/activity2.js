@@ -321,8 +321,8 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
             return keyTotal = fromAllAct_obj.total;
             
@@ -560,7 +560,7 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
-                    $('#alertText').text('記性不好唷，已經報名過!');
+                    $('#alertText').text('已報名，可至我的活動查看囉');
                     $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
@@ -706,8 +706,8 @@ function officalAllAct(member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
+            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            imgBoxImg.src='images/' +  fromAllAct_obj.img;
             officialTotal(fromAllAct_obj.total);
             return keyTotal = fromAllAct_obj.total;
             
@@ -786,12 +786,13 @@ function allAct_more(no){
     // //來源 
         var actTitleValue = $id(`act_actTitleV${no}`).value;  
         var actNoValue = no;  
-        var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
+        // var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
         var actLocValue = $id(`act_actLocV${no}`).value; 
         var act_beginValue = $id(`act_act_beginV${no}`).value; 
         var act_endValue = $id(`act_act_endV${no}`).value;  
         var actIntroValue = $id(`act_actIntroV${no}`).value; 
         var actImgValue = $id(`act_actImgV${no}`).value; 
+        var actHostIdValue = $id(`act_host_memIdV${no}`).value; 
 
   
         // //放置目標
@@ -799,14 +800,14 @@ function allAct_more(no){
         var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
         var elements = document.querySelectorAll("#acts_lightbox_top_right span")
         element_actTitle[0].innerHTML=actTitleValue;
-        elements[0].innerHTML='發起人：'+host_memNoValue;
+        elements[0].innerHTML='發起人：'+actHostIdValue;
         elements[1].innerHTML='地點：'+actLocValue;
         elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
         elements[3].innerHTML='活動介紹：'+actIntroValue;
         $id("lightBox_actNo").value = no;
         myMessagebox_inputNone.setAttribute('value',actNoValue);
         var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-        acts_lightbox_topImg.style.backgroundImage = actImgValue;
+        acts_lightbox_topImg.style.backgroundImage = `url("images/${actImgValue}")`;
         // alert(acts_lightbox_topImg);
         // alert(actImgValue);
 
@@ -845,10 +846,13 @@ function checkMyAct(){
                 var begin = JSON.parse(objData.begin);
                 var end = JSON.parse(objData.end);
                 var intro = JSON.parse(objData.intro);
+                var hostId = JSON.parse(objData.hostId);
 
                 console.log(orderNo);
                 for(var i = 0; i<intro.length;i++){
                     var str = $id("partB_top").innerHTML;
+                    begin[i] = begin[i].substr(0,10);
+                    end[i] = end[i].substr(0,10);
                     str += `
                     <div class="partB_top_content">                       
                         <div class="contentImg" style="background-image: url(images/${img[i]});">
@@ -856,7 +860,7 @@ function checkMyAct(){
                             <div class="spanbox">
                                 <span>活動名稱：${title[i]}</span>
                                 <span>活動介紹：${intro[i]}</span>
-                                <span>發起人:</span>
+                                <span>發起人:${hostId[i]}</span>
                                 <span>地點：${loc[i]}</span>
                                 <span>時間：${begin[i]}至${end[i]}</span>
                                 <!-- <span>人數:{{}}</span> -->
@@ -865,6 +869,7 @@ function checkMyAct(){
                                 <button class="checkout_act btn_R " value=${no[i]} onclick="myAct_more(${i});">查看</button>
                                 <input type="hidden" id="actTitle${i}" value=${title[i]}>
                                 <input type="hidden" id="hostNo${i}" value=${hostNo[i]}>
+                                <input type="hidden" id="hostId${i}" value=${hostId[i]}>
                                 <input type="hidden" id="actImg${i}" value=${img[i]}>
                                 <input type="hidden" id="actLoc${i}" value=${loc[i]}>
                                 <input type="hidden" id="actBegin${i}" value=${begin[i]}>
@@ -943,6 +948,7 @@ function myAct_more(no){
     var act_endValue = $id(`actEnd${no}`).value;  
     var actIntroValue = $id(`actIntro${no}`).value; 
     var actImgValue = $id(`actImg${no}`).value; 
+    var actHostIdValue = $id(`hostId${no}`).value; 
     // alert(actImgValue);
 
     //放置目標
@@ -955,7 +961,7 @@ function myAct_more(no){
     console.log(elements);
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     element_actTitle[0].innerHTML=actTitleValue;
-    elements[0].innerHTML='發起人：';
+    elements[0].innerHTML='發起人：'+actHostIdValue;
     elements[1].innerHTML='地點：'+actLocValue;
     elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
     elements[3].innerHTML='活動介紹：'+actIntroValue;

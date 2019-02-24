@@ -7,7 +7,8 @@ session_start();
 
             $userNo = $_SESSION['memNo'];
             //parB 已報名活動
-            $sqlmemJoin = "select * from activity_order o  JOIN activity a on o.actNo = a.actNo  where o.order_memNo = :member ORDER BY act_orderNo DESC ";
+            $sqlmemJoin = "select* from activity_order o JOIN (SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo) n ON o.actNo = n.actNo  
+                            where o.order_memNo = :member ORDER BY act_orderNo DESC ";
             $activitmemJoin = $pdo->prepare($sqlmemJoin); 
             $activitmemJoin -> bindValue(":member",$userNo); 
             $activitmemJoin -> execute();
@@ -31,6 +32,8 @@ session_start();
                 $act_begin[$i] = $data["act_begin"];
                 $act_end[$i] = $data["act_end"];
                 $actIntro[$i] = $data["actIntro"];
+                $hostId[$i] = $data["memId"];
+
                 $i++;
             }
             // echo $data["act_orderNo"];
@@ -46,6 +49,7 @@ session_start();
                 public $begin;
                 public $end;
                 public $intro;
+                public $hostId;
             };
             $actArr = new act();
             $actArr->orderNo = json_encode($act_orderNo);
@@ -59,6 +63,7 @@ session_start();
             $actArr->begin = json_encode($act_begin);
             $actArr->end = json_encode($act_end);
             $actArr->intro = json_encode($actIntro);
+            $actArr->hostId = json_encode($hostId);
 
             $send = json_encode($actArr);
             echo $send;
@@ -133,7 +138,7 @@ session_start();
             $start = ($pageNo-1) * $recPerPage;
 
             // $sql = "select * from activity ";
-            $sqlMemHold = "select * from activity  where host_memNo is NOT NULL ORDER BY actNo DESC limit $start,$recPerPage";
+            $sqlMemHold = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND a.host_memNo is NOT NULL AND showOrNot = 1 ORDER BY a.actNo DESC limit $start,$recPerPage";
             //
 
             
@@ -146,6 +151,8 @@ session_start();
             $activityMemHold -> bindColumn("act_end", $act_end);
             $activityMemHold -> bindColumn("actIntro", $actIntro);
             $activityMemHold -> bindColumn("actImg", $actImg);
+
+            $activityMemHold -> bindColumn("memId", $hostId);
 
         }
         
