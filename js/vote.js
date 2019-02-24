@@ -1,6 +1,6 @@
 //１.未登入者跳視窗 :登入才能按讚   alert請先登入
 //2-1.登入者先回去撈資料會員帳號 照片標號 判斷是否按過讚
-//2-2.你他媽已經按過了
+//2-2.你已經按過了
 
 function addHeart(e){
     var login=document.getElementById("loginNot");

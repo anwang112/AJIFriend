@@ -2,9 +2,8 @@
 //連線資料庫
 $errMsg = "";
 try {
-	require_once("connectBooks.php");
+	require_once("connectRoot.php");
     $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=1 order by p.vote desc";
-
  	$photo = $pdo->query($sql); 
 } catch (PDOException $e) {
 	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
@@ -53,7 +52,7 @@ try {
             </div>
             <?php
                 if( $errMsg != ""){
-                    exit("<div><center>$errMg</center></div>");
+                    exit("<div><center>$errMsg</center></div>");
                 }
             ?>	
            

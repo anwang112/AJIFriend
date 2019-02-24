@@ -11,7 +11,7 @@ function nextStep(){
 // 判斷式 
 // 1到2
     if (next.innerText=="選擇朋友"){
-        console.log(2);
+        // console.log(2);
         step1.style.filter="grayscale(100%)";
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
@@ -30,7 +30,7 @@ function nextStep(){
   
 // 2到3
     else if(next.innerText=="編輯塗鴉"){
-        console.log(3);
+        // console.log(3);
         step1.style.filter="grayscale(100%)";
         step2.style.filter="grayscale(100%)";
         step3.style.filter="grayscale(0%)";
@@ -99,27 +99,20 @@ function changeColor(e){
     var colorCode = window.getComputedStyle(e.target).getPropertyValue("background-color");
     ctx.strokeStyle = colorCode ;
 };
-
-
-  
 function drawImg(){
     var img = document.getElementById("model_animal");
     var img2 = document.getElementById("model_hat");
     var imgPrev = document.getElementById("imgPreview");
-    // imgPrev.style.width="350px";
-    // imgPrev.style.height="350px";
-    // img.style.width="11%";
-    // img2.style.width="11%";
     ctx.drawImage(imgPrev,0,0,350,350);  
     ctx.drawImage(img,0,0,180,190);  
     ctx.drawImage(img2,0,0,180,190);  
 }
 function saveImage() {
+    drawImg();
+
     var dataURL = canvas.toDataURL("image/png");
     document.getElementById('hidden_data').value = dataURL;
     var formData = new FormData(document.forms["form1"]);
-    
-
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'savePhoto.php', true);
     xhr.onreadystatechange = function() {
@@ -134,6 +127,23 @@ function saveImage() {
         
     xhr.send(formData);
 }
+// 分享至照片牆
+function shareToPhotoWall(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      if( xhr.status == 200){
+        if( xhr.responseText == 'true' ){
+            alert('已分享至塗鴉牆！');
+      }else{
+        alert( xhr.status );
+        }
+    }
+
+    xhr.open("get", ajaxSharePhoto.php, true);
+    xhr.send(null);
+    }   
+}
+
 function init(){
     $id("upFile").onchange = function(e){
         var file = e.target.files[0];
@@ -160,7 +170,7 @@ function init(){
     colors = document.getElementsByClassName('color');
     for(var i = 0; i < colors.length; i++){
     colors[i].addEventListener('click', changeColor,false)};
-
+        
 
     var drawing = false;
     var mousePos = { x:0, y:0 };
@@ -271,7 +281,6 @@ document.body.addEventListener("touchstart", function (e) {
   }, false);
   
 
-// 一鍵下載
 
 
 
@@ -299,11 +308,12 @@ document.body.addEventListener("touchstart", function (e) {
 
 
     var share=document.getElementById("sharePhoto");
-    // share.onclick = showShareLB;
-    // share.addEventListener("click",shareToPhotoWall,false);
+        share.addEventListener("click",shareToPhotoWall,false);
 
-    var sure_Close=document.getElementById("sureClose");
-    sure_Close.onclick =sureClose;
+    // share.onclick = showShareLB;
+
+    // var sure_Close=document.getElementById("sureClose");
+    // sure_Close.onclick =sureClose;
     
 
 

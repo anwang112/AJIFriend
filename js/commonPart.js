@@ -29,7 +29,7 @@ function head_html() {
                 <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="photo.php">照片牆</a></li>
                 <li><a href="myRoom.html">我的窩</a></li>
             </ul>
 			<div class="loginBox">
@@ -1601,118 +1601,6 @@ ooxxLightBox = (...lightBoxArray) => {
 //燈箱function end --介庸
 
 
-<<<<<<< HEAD
-window.addEventListener('load', function () {
-	
-	//聊天室內的好友邀請box收合 --by ga
-	reply_control = false;
-	$id("replyboxTitle").addEventListener("click",function(){
-		if(reply_control==false){ //打開
-			$id("replybox").style.height = "83%";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
-			document.getElementsByClassName("friendbox")[0].style.height = "0";
-			reply_control = true;
-		}else{ //收起來
-			$id("replybox").style.height = "32px";
-			$id("replybox").style.top = "";
-			$id("replybox").style.bottom = "8px";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height 1s";
-			document.getElementsByClassName("friendbox")[0].style.height = "";
-			reply_control = false;
-
-		}
-	});
-	// 登入start --by ga
-	$id("loginNot").addEventListener("click",function(){
-		if($id("loginNot").innerText=='登入'){
-			sendForm();
-			$id("loginNot").innerText='登出';
-			document.getElementsByClassName("loginContent")[0].style.display="";
-			var div_chooseBox = document.getElementsByClassName("friendbox")[0];
-			var label = document.createElement("label");
-			label.className = "friendClick";
-
-				//頭貼div
-				var headImg_div = document.createElement("div");
-				headImg_div.id="admin";
-				headImg_div.innerHTML='<img src="shop-images/gift.png" class="friendClick"></img>';
-				headImg_div.className= "friendClick";
-
-				//創建p_memName朋友暱稱
-				var p_memName = document.createElement("p");
-				p_memName.innerText = "管理員";
-				p_memName.className = "friendClick";
-
-
-			//將img_friend、p_memNam、input_submit塞進label
-			// label.appendChild(input);
-			label.appendChild(headImg_div);
-			label.appendChild(p_memName);
-			//將label塞進div
-			div_chooseBox.appendChild(label);
-		}else{
-			var xhr = new XMLHttpRequest(); // 建立xhr
-			xhr.onload = function(){
-				if(xhr.responseText == "null"){ //失敗狀態
-					alert("xhr錯誤發生");
-
-				}else{ //成功
-					alert("您已登出~");
-					$id("loginNot").innerText='登入';
-				}
-			};
-			xhr.open("Post","ajaxLogout.php",true);
-			xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-			xhr.send(null);
-
-			document.getElementById('mem-2').innerText='';
-			document.getElementById("memName").innerText =  ''; 
-			document.getElementById("memMJ").innerText =  '';
-			document.getElementsByClassName("Mjbar")[0].style.width = "0%";
-
-			document.getElementsByClassName("loginContent")[0].style.display="none";
-			document.getElementsByClassName("loginImg")[0].innerHTML= "<img src='images/loginPhoto.svg' >";
-
-			//登入的使用者資料暗樁 --各頁面可直接複製取用
-			document.getElementById("userNo").value = '';
-			document.getElementById("userId").value = '';
-			document.getElementById("userCoin").value = '';
-			document.getElementById("userAnimal").value = '';
-			document.getElementById("userEye").value = '';
-			document.getElementById("userColor").value = '';
-			document.getElementById("userStar").value = '';
-			document.getElementById("userHobby").value = '';
-			document.getElementById("userSelf").value = '';
-			document.getElementById("userHat").value = '';
-			document.getElementById("userClothes").value = '';
-			document.getElementById("userPlay").value = '';
-			document.getElementById("userLove").value = '';
-
-			var friendbox = document.getElementsByClassName("friendbox")[0];
-			var chatbox_show = document.getElementsByClassName("chatbox_show")[0];
-			while(friendbox.firstChild) {
-				friendbox.removeChild(friendbox.firstChild);
-			}
-			while(chatbox_show.firstChild) {
-				chatbox_show.removeChild(chatbox_show.firstChild);
-			}
-			
-
-
-			
-			
-		}
-		
-		
-		
-	});
-	// 登入end --by ga
-
-}, false);
-
-
-=======
->>>>>>> ga
 // 角色外觀載入函式start -- 介庸
 ooxxGetRole = (roleId, roleData) => {
 	// 載入角色
