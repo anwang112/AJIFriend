@@ -118,7 +118,7 @@ function head_html() {
 	<div class="alert">
 		<p id="alertText">今天的愛心已經用完囉！</p>
 		<p>
-		<button id="alertBtn">確定</button>
+		<button id="alertBtn"class="btn">確定</button>
 		</p>
 	</div>
 </div>
@@ -185,7 +185,7 @@ function head_html() {
 				<tr>
 					<td colspan="2" class="btns">
 						<button class="btn_beFriend0">成為麻吉</button>
-						<button id="report">檢舉麻吉</button>
+						<button id="report"class="btn">檢舉麻吉</button>
 					</td>
 			</table>
 		</div>
@@ -217,7 +217,7 @@ function head_html() {
 			<tr>
 				<th class="nop"></th>
 				<td class='nop'>
-					<button id="reportSmt">送出</button>
+					<button id="reportSmt"class="btn">送出</button>
 				</td>
 			</tr>
 		</table>

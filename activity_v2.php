@@ -119,7 +119,7 @@
                             <span id="box_Loc">地點：<?php echo $actLoc ?></span>  
                             <span>獎勵：100MJ</span> 
                         </div>
-                        <button id="btn_Actjoin" class="btn_R">立即參加</button> 
+                        <button id="btn_Actjoin" class="btn">立即參加</button> 
                         <input id="box_actNo" type="hidden" value="<?php echo $actNo ;?>">
                         <input id="userInput01" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>" > 
                         <!-- 之後把會員存在這個value -->
@@ -133,7 +133,7 @@
                 <div class="act_tabBar">
                     <span id="tab_allAct">所有活動</span>  <!-- 活動瀏覽(tab A) -->
                     <span id="tab_myAct">我的活動</span>  <!-- 個人活動區(tab B) -->
-                    <button id="btn_holdAct" class="btn_R">舉辦活動</button>
+                    <button id="btn_holdAct" class="btn">舉辦活動</button>
                 </div>
                 <div id="partA" class="partA">
                     <h2 id="posH2">熊麻吉們的主辦活動</h2>
@@ -146,7 +146,7 @@
                                 <div class="Hold_box_img" style="background-image: url('images/<?php echo $actImg ;?>');"></div>
                             <?php }?>
                             <div class="act_memberHold_join">
-                                <button class="btn_ActJoin btn_R" value="<?php echo $actNo ;?>" onclick="allAct_more(<?php echo $actNo ;?>);"> 查看更多 </button>
+                                <button class="btn_ActJoin btn" value="<?php echo $actNo ;?>" onclick="allAct_more(<?php echo $actNo ;?>);"> 查看更多 </button>
                                 <input type="hidden" id="act_actTitleV<?php echo $actNo?>" value="<?php echo $actTitle ;?>">
                                 <input type="hidden" id="act_actNoV<?php echo $actNo?>" value="<?php echo $actNo ;?>">
                                 <input type="hidden" id="act_host_memNoV<?php echo $actNo?>" value="<?php echo $host_memNo ;?>">
@@ -202,7 +202,7 @@
                             <input type="text" class="input_R" name="actLoc" placeholder="地點">
                             <input type="date" class="input_R" name="act_begin" placeholder="開始時間">
                             <input type="date" class="input_R" name="act_end" placeholder="結束時間">
-                            <input type="submit" class="btn_R" placeholder="確定">
+                            <input type="submit" class="btn" placeholder="確定">
                         </label>
                     </form>
                     <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                     <div class="acts_lightbox_down">
-                         <button id="btn_ActJoinToDB" class="btn_R">報名</button>
+                         <button id="btn_ActJoinToDB" class="btn">報名</button>
                             <input  type="hidden" id ="lightBox_actNo"value="">
                             <input id="userInput03" type="hidden" value="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["memNo"];}?>"> <!-- 之後把會員存在這個value -->
                         <span id="msgtitle">留言區</span>
