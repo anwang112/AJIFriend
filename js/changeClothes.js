@@ -1,4 +1,4 @@
-function changeClothes(no,cate){
+function changeClothes(src,cate){
     // var clothes = e.target.id;
     // var wearNo = clothes.substring(4,clothes.length);
     // console.log(wearNo);
@@ -7,10 +7,10 @@ function changeClothes(no,cate){
     var clothes_div = document.getElementsByClassName("roleClothes")[0];
     
     if(cate==1){
-        hat_div.style.backgroundImage = `url("images/hatImages/hat${no}.png")`;
+        hat_div.style.backgroundImage = `url("images/hatImages/${src}")`;
 
     }else{
-        clothes_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
+        clothes_div.style.backgroundImage = `url("images/clothesImages/${src}")`;
 
     }
 

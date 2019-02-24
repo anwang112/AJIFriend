@@ -5,6 +5,11 @@ var productsInfoArr = new Array();
 productsInfoArr = []; //產品資料陣列
 function getProducts(cate,pageNumber=1){ //撈出產品Ajax
     var xhr = new XMLHttpRequest(); // 建立xhr
+    if(cate==1){
+        cateName = "hatImages";
+    }else{
+        cateName = "clothesImages";
+    }
     
     console.log(pageNumber);
     xhr.onload = function (){
@@ -56,8 +61,8 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                         <div class="productItem">
                             <!-- 商品圖 -->
                             <div class="productImg">
-                                <img class="click_wear" src="shop-images/${productsInfoArr[i][5]}" id="hat_${productsInfoArr[i][0]}" 
-                                     onclick="changeClothes(${productsInfoArr[i][0]},${productsInfoArr[i][1]})">
+                                <img class="click_wear" src="images/${cateName}/${productsInfoArr[i][5]}" id="hat_${productsInfoArr[i][0]}" 
+                                     onclick="changeClothes('${productsInfoArr[i][5]}',${productsInfoArr[i][1]})">
                                 <div class="rwd-proInfo">
                                     <h3>${productsInfoArr[i][2]}</h3>
                                     <!-- 魅力值 -->

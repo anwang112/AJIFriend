@@ -165,7 +165,7 @@ session_start();
 </body>
 </html>
 <script>
-
+ 
     function $id(id){
         return document.getElementById(id);
     }
