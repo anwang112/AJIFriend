@@ -116,6 +116,7 @@
                         <p id="box_Intro">活動說明: <?php echo $actIntro ?></p>
                         <div class="spanbox">
                             <!-- <span>人數：</span> -->
+                            <span>時間：<?php echo  substr($act_begin,0,10) ; ?></span>
                             <span id="box_Loc">地點：<?php echo $actLoc ?></span>  
                             <span>獎勵：100MJ</span> 
                         </div>

@@ -181,7 +181,7 @@ function JoinActTo(actNo,member){
                     $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
-                    renewJoin(actNo,member);
+                    // renewJoin(actNo,member);
                     
                 }else if(JoinActBackToJs.DBmsg == '2222'){
                     $('#alertText').text('記性不好齁~已經報名過囉!');
@@ -205,68 +205,68 @@ function JoinActTo(actNo,member){
         xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
 }
 
-function renewJoin(actNo,member){ 
-    console.log(actNo);
-    console.log(member);
-    var xhr = new XMLHttpRequest();
-    xhr.onload=function (){
-        if( xhr.responseText == "null" ){
-            alert('xhr有錯誤喔');
-         }else{
-            // alert(JSON.parse(xhr.responseText));
-            // var JoinActBackToJs = JSON.parse(xhr.responseText);
-            // alert(xhr.responseText);
-            //印在已報名活動
-            var str =[];
-            var str_a = xhr.responseText;
+// function renewJoin(actNo,member){ 
+//     console.log(actNo);
+//     console.log(member);
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload=function (){
+//         if( xhr.responseText == "null" ){
+//             alert('xhr有錯誤喔');
+//          }else{
+//             // alert(JSON.parse(xhr.responseText));
+//             // var JoinActBackToJs = JSON.parse(xhr.responseText);
+//             // alert(xhr.responseText);
+//             //印在已報名活動
+//             var str =[];
+//             var str_a = xhr.responseText;
             
-            str = str_a.split(',');
-            console.log(str);
-            var partB_top = $id('partB_top');
-            var partB_top_content = document.getElementsByClassName('partB_top_content');
-            var div = document.createElement('div');
-            htmlappendTo=`
-                <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
-                <div class="spanbox">
-                    <span>活動名稱：${str[5]} </span>
-                    <span>活動介紹：${str[8]} </span>
-                    <span>發起人:${str[4]}</span>
-                    <span>地點：${str[9]}</span>
-                    <span>時間：${str[6]}</span>
-                    <span>獎勵:100MJ</span>
-                </div>
-                <div class="buttonbox">
-                <button class="checkout_act btn_R " value="${str[1]}">查看</button>
-                <input style="display:none" type="text" value="${str[5]}">
-                <input style="display:none" type="text" value="${str[1]}">
-                <input style="display:none" type="text" value="${str[4]}">
-                <input style="display:none" type="text" value="${str[9]}">
-                <input style="display:none" type="text" value="${str[6]}">
-                <input style="display:none" type="text" value="${str[7]}">
-                <input style="display:none" type="text" value="${str[8]}">
-                <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
-                <input style="display:none" type="text" value="${str[1]}">
-                <input class="userInput02" style="display:none" type="text" value="${str[0]}">
-            </div>
-            `;
-            div.setAttribute('class','partB_top_content');
-            div.innerHTML=htmlappendTo;
-            // partB_top.appendChild(div);
-            partB_top.insertBefore(div,partB_top_content[0]);
-            reBtn();
-            // alert('ok');
-        }
-    }
-   var JoinActObj = {
-        actNo: actNo ,
-        member: member,
-    };
+//             str = str_a.split(',');
+//             console.log(str);
+//             var partB_top = $id('partB_top');
+//             var partB_top_content = document.getElementsByClassName('partB_top_content');
+//             var div = document.createElement('div');
+//             htmlappendTo=`
+//                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
+//                 <div class="spanbox">
+//                     <span>活動名稱：${str[5]} </span>
+//                     <span>活動介紹：${str[8]} </span>
+//                     <span>發起人:${str[4]}</span>
+//                     <span>地點：${str[9]}</span>
+//                     <span>時間：${str[6]}</span>
+//                     <span>獎勵:100MJ</span>
+//                 </div>
+//                 <div class="buttonbox">
+//                 <button class="checkout_act btn_R " value="${str[1]}">查看</button>
+//                 <input style="display:none" type="text" value="${str[5]}">
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input style="display:none" type="text" value="${str[4]}">
+//                 <input style="display:none" type="text" value="${str[9]}">
+//                 <input style="display:none" type="text" value="${str[6]}">
+//                 <input style="display:none" type="text" value="${str[7]}">
+//                 <input style="display:none" type="text" value="${str[8]}">
+//                 <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
+//                 <input style="display:none" type="text" value="${str[1]}">
+//                 <input class="userInput02" style="display:none" type="text" value="${str[0]}">
+//             </div>
+//             `;
+//             div.setAttribute('class','partB_top_content');
+//             div.innerHTML=htmlappendTo;
+//             // partB_top.appendChild(div);
+//             partB_top.insertBefore(div,partB_top_content[0]);
+//             reBtn();
+//             // alert('ok');
+//         }
+//     }
+//    var JoinActObj = {
+//         actNo: actNo ,
+//         member: member,
+//     };
     
 
-    xhr.open("post", "renewJoin.php", true);
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
-}
+//     xhr.open("post", "renewJoin.php", true);
+//     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//     xhr.send( "JoinActObj=" + JSON.stringify(JoinActObj));//轉成字串送到php
+// }
 
 function CancelActTo(actNo,member,target){
     console.log(actNo);
@@ -488,7 +488,7 @@ function comDB (memNo, actNoGet){
                     //印出來名字跟聊天內容
                     var str = $id("myMessagebox").innerHTML;
                     str += `
-                    <div class="commentItem" style="border:1px red solid">
+                    <div class="commentItem">
                         <div id="commentHead${i}" class="headBox commentHead"></div> 
                         <input type="hidden" id="commentMemNo${i}" value=${memNo[i]}>
                         <div class="commentBox">
@@ -609,7 +609,7 @@ function JoinActTo(actNo,member){
 //             var partB_top_content = document.getElementsByClassName('partB_top_content');
 //             var div = document.createElement('div');
 //             htmlappendTo=`
-//                 <div class="contentImg" style="background-image: url();"></div>
+//                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
 //                 <div class="spanbox">
 //                     <span>活動名稱：${str[5]} </span>
 //                     <span>活動介紹：${str[8]} </span>
@@ -814,7 +814,7 @@ function allAct_more(no){
         comDB(memNo,no);
 }
 
-
+// 我的活動
 function checkMyAct(){
     while($id("partB_top").firstChild) {
         $id("partB_top").removeChild($id("partB_top").firstChild);
@@ -851,7 +851,7 @@ function checkMyAct(){
                     var str = $id("partB_top").innerHTML;
                     str += `
                     <div class="partB_top_content">                       
-                        <div class="contentImg" style="background-image: url();">
+                        <div class="contentImg" style="background-image: url(images/${img[i]});">
                         </div>
                             <div class="spanbox">
                                 <span>活動名稱：${title[i]}</span>
@@ -947,6 +947,7 @@ function myAct_more(no){
 
     //放置目標
     var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+    acts_lightbox_topImg.style.backgroundImage= `url("images/${actImgValue}")`;
     var acts_lightbox_top_right = $id('acts_lightbox_top_right');
     var acts_lightbox_top_img = $id('acts_lightbox_top_img');
     var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")

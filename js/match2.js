@@ -244,6 +244,7 @@ function beFriend (tarNo,loginNo,btn) {
     
 }
 $('.btn_beFriend0').click(function(){
+    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -731,12 +732,7 @@ function makeFriend(profile) {
     xhr.onload = function () {
         if (parseInt(xhr.responseText) >= 0) {
             heart = xhr.responseText;
-<<<<<<< HEAD
-            heartItem = document.querySelectorAll('.heart div');
-            storage.setItem("loveGiven" ,heart);
-=======
             storage.setItem("loveGiven",heart);
->>>>>>> index
             changeBtn(btn);
             loadHeart(heart)
             $('#alertText').text('已送出邀請');

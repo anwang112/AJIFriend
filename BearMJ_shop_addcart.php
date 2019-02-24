@@ -19,7 +19,6 @@ session_start();
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
     <script src="js/shop.js"></script>
-<script src="js/match2.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 </head>
@@ -231,3 +230,5 @@ session_start();
     window.addEventListener("load",init,false);
 
 </script>
+
+<script src="js/match2.js"></script>

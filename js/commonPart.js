@@ -98,12 +98,7 @@ function head_html() {
 				<li><a href="photo.html">照片牆</a></li>
 				<li><a id="head_member_icon" href="myRoom.html">我的窩</a></li>
                 <li><a href="#">登入</a></li>
-<<<<<<< HEAD
-                <li><a href="#">魅力值</a></li>
-                <li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
-=======
                 
->>>>>>> index
             </ul>
 		</div>
 	<!-- Header結束 -->
@@ -189,7 +184,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<td colspan="2" class="btns">
-						<button class="btn_beFriend0">成為麻吉</button>
+						<button class="btn_beFriend0 btn">成為麻吉</button>
 						<button id="report"class="btn">檢舉麻吉</button>
 					</td>
 			</table>
@@ -612,12 +607,7 @@ function searchMem(profile) {
 
 
 
-<<<<<<< HEAD
 function openLB_memData(memId=-1){
-=======
-function openLB_memData(memId = -1) {
-
->>>>>>> index
 	profile = {
 		memId: memId,
 		loginMemNo: storage.getItem("memNo"),
@@ -686,12 +676,8 @@ function sendForm(memId, memPsw) {
 						break;
 				}
 			}
-<<<<<<< HEAD
 			window.location.reload();
 	  	}
-=======
-		}
->>>>>>> index
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -892,26 +878,17 @@ function rwd_changeChat(taNo) {
 
 }
 // 拒絕交友邀請(更新關係資料表)Ajax -- by ga
-<<<<<<< HEAD
 function answerRequire(taNo,action){
 	// window.addEventListener('click',(e)=>{
 	// 	alert(e.target);	
 	// })
 	$id("replybox").removeChild($id(`requireItem${taNo}`));
-=======
-function rejectRequire(e) {
-	var replybox = e.target.parentNode.parentNode.parentNode;
-	var label = e.target.parentNode.parentNode;
-	replybox.removeChild(label);
-	var taNo = label.children[1].value;
->>>>>>> index
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function () {
 		if (xhr.responseText == "null") {
 			alert("xhr錯誤發生");
 
-<<<<<<< HEAD
 		}else{ //成功取得
 			if(action==0){
 				$('#alertText').text('已拒絕邀請!');
@@ -920,10 +897,6 @@ function rejectRequire(e) {
 				$('#alertText').text('交到朋友了!');
 				
 			}
-=======
-		} else { //成功取得
-			$('#alertText').text('已拒絕邀請!');
->>>>>>> index
 			$('.alertWrap').show();
 			friendList(storage.getItem("memNo"));
 		}
@@ -934,11 +907,7 @@ function rejectRequire(e) {
 	var chatMems = {
 		sendMemId: storage.getItem("memNo"),
 		taMemId: taNo,
-<<<<<<< HEAD
 		action: action , // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
-=======
-		action: 0, // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
->>>>>>> index
 	}; //物件範例
 	xhr.send("upMem=" + JSON.stringify(chatMems));
 }
@@ -968,7 +937,6 @@ function requireBack(myNo = -1) {
 					i_start = num;
 				}
 				// alert(friendInfo);
-<<<<<<< HEAD
 					for(var i = i_start;i<friendInfo.length;i++){ // i:朋友數量
 						for(var j = 0;j<6;j++){ // j:撈回的資料欄位數量
 							requireList[i] = friendInfo[i].split("||",6); 
@@ -1002,63 +970,11 @@ function requireBack(myNo = -1) {
 						`<div class="rwd_requireLabel">
 							<div id="rwd_requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
 							<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
-=======
-				for (var i = i_start; i < friendInfo.length; i++) { // i:朋友數量
-					for (var j = 0; j < 5; j++) { // j:撈回的資料欄位數量
-						requireList[i] = friendInfo[i].split("||", 5);
-						//friend_infoArr[i]:朋友資料陣列;
-						//friend_infoArr[i][0]:會員編號; friend_infoArr[i][1]:會員暱稱 friend_infoArr[i][2]:動物
-					}
-					var label = document.createElement("label");
-					label.className = "requireLabel";
-
-					// //頭貼div
-					// var headImg_div = document.createElement("div");
-					// headImg_div.id= "requireHead";
-
-					//創建p_memName朋友暱稱
-					var p_memName = document.createElement("p");
-					p_memName.innerText = requireList[i][1]; //會員暱稱
-
-					var input = document.createElement("input");
-					input.type = "hidden";
-					input.value = requireList[i][0];
-
-					var reply_btnGroup = document.createElement("div");
-					reply_btnGroup.className = "reply_btnGroup";
-
-
-					var btn_Y = document.createElement("button");
-					btn_Y.innerText = "查看檔案";
-					btn_Y.className = "btn_reply";
-
-					var btn_N = document.createElement("button");
-					btn_N.innerText = "拒絕";
-					btn_N.className = "btn_reply";
-
-					reply_btnGroup.appendChild(btn_Y);
-					reply_btnGroup.appendChild(btn_N);
-
-					//將img_friend、p_memNam、塞進label
-					label.appendChild(p_memName);
-					label.appendChild(input);
-					label.appendChild(reply_btnGroup);
-
-					//將label塞進div
-					replybox.appendChild(label);
-
-					// 手機
-					var str_rwdChat = replybox_phone.innerHTML;
-					str_rwdChat +=
-						`<label class="rwd_requireLabel">
-							<p>${requireList[i][1]}</p>
->>>>>>> index
 							<input type="hidden" value="${requireList[i][0]}">
 							<div class="reply_btnGroup">
 								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},1)">麻吉</button>
 								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},0)">拒絕</button>
 							</div>
-<<<<<<< HEAD
 						</div>`;
 						//將label塞進div
 						replybox_phone.innerHTML = str_rwdChat;
@@ -1079,29 +995,6 @@ function requireBack(myNo = -1) {
 				// 	// btn_N[i].addEventListener('click',rejectRequire);
 				// 	btn_N[i].onclick=rejectRequire;
 				// }
-=======
-						</label>`;
-					//將label塞進div
-					replybox_phone.innerHTML = str_rwdChat;
-
-					// //載入朋友頭像
-					// // rrr = document.getElementById('自己取');
-					// ooxxGetHead(headImg_div, {
-					// 	animal: friend_infoArr[i][2],
-					// 	color: friend_infoArr[i][4],
-					// 	eyes: friend_infoArr[i][3],
-					// });
-
-				}
-
-
-				var btn_N = document.getElementsByClassName("btn_reply");
-				for (var i = 0; i < btn_N.length; i++) {
-					// alert('11');
-					// btn_N[i].addEventListener('click',rejectRequire);
-					btn_N[i].onclick = rejectRequire;
-				}
->>>>>>> index
 			}
 		};
 		xhr.open("Post", "getRequireList.php", true);
@@ -1492,7 +1385,6 @@ window.addEventListener('load', function () {
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	var rwd_chatbox_show = document.getElementById('rwd_chatbox');
 
-<<<<<<< HEAD
 	reply_control = false;
 	$id("replybox").addEventListener("click",function(e){
 		// alert("HI");
@@ -1519,10 +1411,6 @@ window.addEventListener('load', function () {
 
 // 桌機送出訊息(按Enter) --ga
 	chatTxt_input.addEventListener('keydown',function(e){
-=======
-	// 桌機送出訊息(按Enter) --ga
-	chatTxt_input.addEventListener('keydown', function (e) {
->>>>>>> index
 		if (e.keyCode == 13) { //enter代碼
 			var txt = chatTxt_input.value; //送出的訊息
 			if (chatTxt_input.value != "") {
@@ -1556,25 +1444,6 @@ window.addEventListener('load', function () {
 	// sendForm();
 
 	//聊天室內的好友邀請box收合 --by ga
-<<<<<<< HEAD
-=======
-	reply_control = false;
-	$id("replyboxTitle").addEventListener("click", function () {
-		if (reply_control == false) { //打開
-			$id("replybox").style.height = "83%";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
-			document.getElementsByClassName("friendbox")[0].style.height = "0";
-			friendList(storage.getItem("memNo"));
-			requireBack(storage.getItem("memNo"));
-			reply_control = true;
-		} else { //收起來
-			$id("replybox").style.height = "32px";
-			$id("replybox").style.top = "";
-			$id("replybox").style.bottom = "8px";
-			document.getElementsByClassName("friendbox")[0].style.transition = "height 1s";
-			document.getElementsByClassName("friendbox")[0].style.height = "";
-			reply_control = false;
->>>>>>> index
 
 	// 登入start --by ga
 	$id("loginNot").addEventListener("click", function () {
@@ -1616,12 +1485,8 @@ window.addEventListener('load', function () {
 				} else { //成功
 					$('#alertText').text('已登出!');
 					$('.alertWrap').show();
-<<<<<<< HEAD
 					$id("loginNot").innerText='登入';
 					window.location.reload();
-=======
-					$id("loginNot").innerText = '登入';
->>>>>>> index
 				}
 			};
 			xhr.open("Post", "ajaxLogout.php", true);
