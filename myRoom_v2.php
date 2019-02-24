@@ -1,6 +1,7 @@
 <?php 
 ob_start();
 session_start();
+
 require_once('myRoomToDB.php');
 ?>
 <!DOCTYPE html>
@@ -156,7 +157,7 @@ require_once('myRoomToDB.php');
         <!-- ↓自己現在長什麼樣區↓ -->
         <div id="meNow">
             <!-- <img src="images/meNow.png"> -->
-            <div id="meNow" class="roleBox"></div>
+            <!-- <div id="meNow" class="roleBox"></div> -->
         </div>
         <script>
 
