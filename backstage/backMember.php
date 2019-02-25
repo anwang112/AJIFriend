@@ -1,5 +1,10 @@
 <?php
+ob_start();
 session_start();
+if (isset($_SESSION["adminName"]) === false) {
+    header("Location:backLogin.php");
+    exit();
+}
 try {
     //連線
     require_once("../connectBooks.php");
@@ -35,6 +40,12 @@ try {
 </head>
 
 <body>
+
+
+    <!-- 隱藏登入者ㄉinput -->
+    <input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
+
+
     <!-- Just an image -->
     <script>
         header();
@@ -222,6 +233,43 @@ try {
         buttonAddon2 = document.getElementById('buttonAddon2');
         buttonAddon2.addEventListener('click', () => {
             memberGoGo(memberInput.value);
+        });
+
+
+
+
+
+
+
+
+
+
+
+        //登入寫入登入框ㄉ
+        navbarDropdown = document.getElementById('navbarDropdown');
+        showAdminName = document.getElementById('showAdminName');
+        window.addEventListener('load', () => {
+            navbarDropdown.innerHTML = showAdminName.value;
+
+
+            //登出
+            logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', (e) => {
+                checkInFoValue = {};
+                checkInFoValue.status = '掰掰';
+                console.log(e);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if (xhr.responseText == "回到登入頁") {
+                        window.location.href = "backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
+            })
         });
     </script>
 </body>
