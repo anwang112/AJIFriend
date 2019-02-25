@@ -173,7 +173,7 @@ session_start();
                     </div>
                 </div>
                 <ul class="chairInfoList">
-                    <li>姓名 : <span id="chairName">挖底加</span></li>
+                    <li>暱稱 : <span id="chairName">挖底加</span></li>
                     <li>星座 : <span id="chairstar">金牛座</span></li>
                     <li>興趣 : <span id="chairHobby">看書</span></li>
                 </ul>
@@ -459,8 +459,6 @@ session_start();
         </div>
         <button id="createMemberBtn" class="btn_R">送出</button>
     </div>
-
-
 
 
 
