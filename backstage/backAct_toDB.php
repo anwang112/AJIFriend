@@ -1,14 +1,22 @@
 <?php
     //跟資料庫要資料
-    $actObj = json_decode($_REQUEST["actObj"]); 
-    $actDele = json_decode($_REQUEST["actDele"]); 
-    $actRe = json_decode($_REQUEST["actRe"]); 
-    $actObjDelCheck = json_decode($_REQUEST["actObjDelCheck"]); 
+    // if(isset($_REQUEST["actObj"])){
+    //     $actObj = json_decode($_REQUEST["actObj"]); 
+    //     $actDele = json_decode($_REQUEST["actDele"]); 
+    //     $actRe = json_decode($_REQUEST["actRe"]); 
+    //     $actObjDelCheck = json_decode($_REQUEST["actObjDelCheck"]); 
+    // }else{
+    //     $actObj = 0; 
+    //     $actDele = 0; 
+    //     $actRe = 0; 
+    //     $actObjDelCheck = 0; 
+    // }
+
     
     try {
         require_once("../connectBooks.php");
         //總筆數
-        $sqlactNo = "select * from activity where host_memNo != 1 ";
+        $sqlactNo = "select * from activity where host_memNo";
         $result = $pdo->query($sqlactNo);
         $totalRecord =  $result ->rowCount();
         
@@ -26,7 +34,7 @@
 
 
         //所有
-        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND `showOrNot` = '1' order by a.actNo limit $start,$recPerPage";
+        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo  AND a.showOrNot = '1' order by a.actNo desc limit $start,$recPerPage";
         
         $activityAll = $pdo->query($sql); 
         $activityAll -> bindColumn("actNo", $actNo); 
@@ -53,7 +61,7 @@
             public $memName;
         }
 
-        if($_REQUEST["actObj"]){
+        if(isset($_REQUEST["actObj"]) ){
             // switch($actObj) {
             //     case "1":
             //         // $sqlSearch_actNO = "SELECT * FROM activity where actNo = :actNo";
@@ -107,7 +115,7 @@
         }
 
         //活動刪除(欄位showOrNot設為0)
-        if($_REQUEST["actDele"]){
+        if(isset($_REQUEST["actDele"]) ){
             $sqlDelete_actNO = "UPDATE `activity` SET `showOrNot` = '0' WHERE `activity`.`actNo` = :actNo ";
             $bb = $pdo -> prepare($sqlDelete_actNO); 
             $bb -> bindValue(":actNo",  $actDele -> actNo);
@@ -117,7 +125,7 @@
 
         }
         
-        if($_REQUEST["actRe"]){
+        if(isset($_REQUEST["actRe"]) ){
             $sqlre_actNO = "UPDATE `activity` SET `showOrNot` = '1' WHERE `activity`.`actNo` = :actNo ";
             $cc = $pdo -> prepare($sqlre_actNO); 
             $cc -> bindValue(":actNo",  $actRe -> actNo);
@@ -127,8 +135,8 @@
 
         }
 
-        //新增活動
-        if($_POST["newAct"]){
+        //新增活動 ok
+        if(isset($_POST["newAct"]) ){
             $actTitle = $_POST["actTitle"];
             $actIntro = $_POST["actIntro"];
             $actLoc = $_POST["actLoc"];
@@ -144,13 +152,13 @@
             //上傳檔案處理
         
             $from = $_FILES["act_holdActFile"]["tmp_name"];
-            $to = "../images/" . $_FILES["act_holdActFile"]["name"];
+            $to = "../images/".$_FILES["act_holdActFile"]["name"];
             copy($from,$to);
             header('Location:backAct.php');
     
         }
 
-        if($_REQUEST["actObjDelCheck"]){
+        if(isset($_REQUEST["actObjDelCheck"]) ){
             
             $sqlCheck = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND `showOrNot` = '0' ";
             $aa = $pdo->prepare($sqlCheck); 

@@ -1,6 +1,5 @@
 <?php
     //跟資料庫要資料
-    $reportget = $_REQUEST["reportget"];
     
 
     try {
@@ -21,7 +20,7 @@
 
         //對應的被檢舉人
 
-        if($reportget){
+        if(isset($_REQUEST["reportget"]) ){
             $statusValue = $_REQUEST["statusValue"];
             $reportNo = $_REQUEST["reportNo"]; 
              

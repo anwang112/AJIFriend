@@ -1,3 +1,42 @@
+.lightbox_act .lightbox_act_info .spanbox {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}    
+.lightbox_act .lightbox_act_info p {
+    width: 35%;
+    color: #f05c79;
+    font-size: 1.3rem;
+    max-width: 600px;
+    line-height: 2rem;
+}
+.lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+    position: absolute;
+    left: 22%;
+    top: 0px;
+    padding: 5px 0;
+    font-size: 1.3rem;
+}
+
+
+.commentItem{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+.commentName{    
+    margin-bottom: 10px;
+    color: brown;
+}
+.commentText{
+    font-size: 17px;
+    color: #555;
+    padding-left: 18px;
+}
+
+
+
 #Agee {
   width: 22%;
   position: absolute;
@@ -677,9 +716,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        /* .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBoxOut {
+        .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBoxOut {
           position: absolute;
-          left: 0; } */
+          left: 0; }
         .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox .dddd .headBox {
           width: 35px;
           height: 35px; }

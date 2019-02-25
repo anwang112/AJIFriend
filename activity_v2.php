@@ -1,36 +1,76 @@
 <?php 
+
     ob_start();
-    session_start();
-    require_once('act.php');
+    // session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="node_modules/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
-    <script src="node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script> 
-    <script src="node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
-    <script src="js/commonPart.js"></script>
-    <!-- <script src="js/commonPart_old.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/activity2.css">
-	<link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/package/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+    <script src="js/package/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="js/package/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script> 
+    <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+    <script src="js/commonPart.js"></script>
+    <!-- <script src="js/commonPart.js"></script> -->
     <style>
-        .headBoxOut{
-            top: 45px;
-        }
+    .lightbox_act .lightbox_act_info .spanbox {
+        width: 70%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }    
+    .lightbox_act .lightbox_act_info p {
+        width: 35%;
+        color: #f05c79;
+        font-size: 1.3rem;
+        max-width: 600px;
+        line-height: 2rem;
+    }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+        position: absolute;
+        left: 22%;
+        top: 0px;
+        padding: 5px 0;
+        font-size: 1.3rem;
+    }
     
+    .commentItem{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    }
+    .commentName{    
+        margin-bottom: 10px;
+        color: brown;
+    }
+    .commentText{
+        font-size: 17px;
+        color: #555;
+        padding-left: 18px;
+    }
+
     </style>
     <title>activity</title>
 </head>
 <body>
     <script type="text/javascript">
-		head_html();
+        head_html();
+        
     </script>
+    <!-- 呼叫php撈資料 -->
+    <?php  require_once('act.php'); ?>
+
         <!-- 阿吉 -->
         <div id="Agee">
             <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -92,7 +132,7 @@
                 <?php $activityBUS -> fetch(PDO::FETCH_ASSOC)?>
                 <div class="act_mainbox">
                     <div class="imgBox">
-                        <img id="imgBoxImg" src="images/activity/<?php echo $actImg ;?>" alt="這個換掉"> 
+                        <img id="imgBoxImg" src="images/<?php echo $actImg ;?>" alt="這個換掉"> 
                     </div>
                     <div class="btnbox">
                         <span id="btn_actL"></span>
@@ -103,10 +143,10 @@
                 <img  id="act_bus" class="act_bus" src="images/activity/act_bus.svg" alt="bus">
 
                 <div id="lightbox_act" class="lightbox_act">
+                    
                     <div id="lightbox_act_info" class="lightbox_act_info">
-                        <div id="btn_xx01" class="searchClose"></div>
                         <?php if($actImg == null){?>
-                            <img id="imgBoxImg_B" src="images/activity/act_number02B.svg" alt="資料庫預設圖">
+                            <img id="imgBoxImg_B" src="images/act_number02B.svg" alt="資料庫預設圖">
                         <?php }else{ ?>
                             <img id="imgBoxImg_B" src="images/activity/<?php echo $actImg ;?>" alt="資料庫拿圖">
                         <?php }?>
@@ -118,9 +158,9 @@
                             <span id="box_Loc">地點：<?php echo $actLoc ?></span>  
                             <span>獎勵：100MJ</span> 
                         </div>
-                        <button id="btn_Actjoin" class="btn_R">立即參加</button> 
-                        <input id="box_actNo" style="display:none" type="text" value="<?php echo $actNo ;?>">
-                        <input id="userInput01" style="display:none" type="text" value="<?php echo $_SESSION["memNo"]?>" > 
+                        <button id="btn_Actjoin" class="btn">立即參加</button> 
+                        <input id="box_actNo" type="hidden" value="<?php echo $actNo ;?>">
+                        <input id="userInput01" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>" > 
                         <!-- 之後把會員存在這個value -->
                     </div>
                 </div>
@@ -132,7 +172,7 @@
                 <div class="act_tabBar">
                     <span id="tab_allAct">所有活動</span>  <!-- 活動瀏覽(tab A) -->
                     <span id="tab_myAct">我的活動</span>  <!-- 個人活動區(tab B) -->
-                    <button id="btn_holdAct" class="btn_R">舉辦活動</button>
+                    <button id="btn_holdAct" class="btn">舉辦活動</button>
                 </div>
                 <div id="partA" class="partA">
                     <h2 id="posH2">熊麻吉們的主辦活動</h2>
@@ -140,23 +180,24 @@
                         <?php while($activityMemHold ->fetch(PDO::FETCH_ASSOC)){?>
                         <div id="Hold_box" class="act_memberHold_box act_memberHold_box<?php echo $i?>">
                             <?php if($actImg == null){?>
-                               <div class="Hold_box_img" style="background-image: url('images/activity/act_number02B.svg');"></div>
+                               <div class="Hold_box_img" style="background-image: url('images/act_number02B.svg');"></div>
                             <?php }else{ ?>
                                 <div class="Hold_box_img" style="background-image: url('images/<?php echo $actImg ;?>');"></div>
                             <?php }?>
                             <div class="act_memberHold_join">
-                                <button class="btn_ActJoin btn_R" value="<?php echo $actNo ;?>"> 查看更多 </button>
+                                <button class="btn_ActJoin btn" value="<?php echo $actNo ;?>" onclick="allAct_more(<?php echo $actNo ;?>);"> 查看更多 </button>
                                 <input type="hidden" id="act_actTitleV<?php echo $actNo?>" value="<?php echo $actTitle ;?>">
                                 <input type="hidden" id="act_actNoV<?php echo $actNo?>" value="<?php echo $actNo ;?>">
-                                <input type="hidden" id="act_host_memNoV<?php echo $actNo?>" value="<?php echo $memId?>">
+                                <input type="hidden" id="act_host_memIdV<?php echo $actNo?>" value="<?php echo $hostId ;?>">
                                 <input type="hidden" id="act_actLocV<?php echo $actNo?>" value="<?php echo $actLoc ;?>">
                                 <input type="hidden" id="act_act_beginV<?php echo $actNo?>" value="<?php echo $act_begin ;?>">
                                 <input type="hidden" id="act_act_endV<?php echo $actNo?>" value="<?php echo $act_end ;?>">
                                 <input type="hidden" id="act_actIntroV<?php echo $actNo?>" value="<?php echo $actIntro ;?>">
+                                <input type="hidden" id="act_actImgV<?php echo $actNo?>" value="<?php echo $actImg ;?>">
                             </div>
                             <h3><?php echo $actTitle ; ?></h3>
                             <div class="spanbox">
-                                <span>發起人:<?php echo $memId?></span>
+                                <span>發起人:<?php echo $hostId ;?></span>
                                 <span>地點：<?php echo $actLoc ; ?></span>
                                 <span>時間：<?php echo  substr($act_begin,0,10) ; ?>至<?php echo substr($act_end,0,10);?></span>
                             </div>
@@ -180,38 +221,8 @@
                 <div id="partB" class="partB">
                     <h2>已報名活動</h2>
                     <div id="partB_top" class="partB_top">
-                    <?php while($activitmemJoin ->fetch(PDO::FETCH_ASSOC)){?>
-                        <div class="partB_top_content">                       
-                        <?php if($actImg == null){?>
-                            <div class="contentImg" style="background-image: url('images/activity/act_number02B.svg');">
-                        <?php }else{ ?>
-                            <div class="contentImg" style="background-image: url('images/<?php echo $actImg ;?>');">
-                            <?php }?>
-                            </div>
-                            <div class="spanbox">
-                                <span>活動名稱：<?php echo $actTitle ; ?> </span>
-                                <span>活動介紹：<?php echo $actIntro ; ?></span>
-                                <span>發起人:<?php echo $memId ; ?></span>
-                                <span>地點：<?php echo $actLoc ; ?></span>
-                                <span>時間：<?php echo substr($act_end,0,10);?></span>
-                                <!-- <span>人數:{{}}</span> -->
-                                <span>獎勵:100MJ</span>
-                            </div>
-                            <div class="buttonbox">
-                                <button class="checkout_act btn_R " value="<?php echo $actNo ; ?>">查看</button>
-                                <input style="display:none" type="text" value="<?php echo $actTitle ;?>">
-                                <input style="display:none" type="text" value="<?php echo $actNo ;?>">
-                                <input style="display:none" type="text" value="<?php echo $memId ;?>">
-                                <input style="display:none" type="text" value="<?php echo $actLoc ;?>">
-                                <input style="display:none" type="text" value="<?php echo $act_begin ;?>">
-                                <input style="display:none" type="text" value="<?php echo $act_end ;?>">
-                                <input style="display:none" type="text" value="<?php echo $actIntro ;?>">
-                                <button class="btn_R cancel_act" style="background-color:#ccc;">取消參加</button>
-                                <input style="display:none" type="text" value="<?php echo $actNo ;?>">
-                                <input class="userInput02" style="display:none" type="text" value="<?php echo $_SESSION["memNo"]?>">
-                            </div>
-                        </div>
-                    <?php } ?>
+                    <!-- 呼叫php撈資料 -->
+                    
                     </div>
   
                 </div>
@@ -219,10 +230,9 @@
 
             <div id="lightbox_holdact" class="lightbox_holdact">
                 <div id="lightbox_holdact_info" class="lightbox_holdact_info">
-                    <div id="btn_xx02" class="searchClose"></div>
                     <form action="actInser.php" method="post" enctype="multipart/form-data">
                     <h2>舉辦活動</h2>
-                        <label class="label1" for="">Step1_上傳活動圖片<br>
+                        <label class="label1" for="">Step1_上傳圖片<br>
                         <input type="file" id="act_holdActFile" name="act_holdActFile">
                         </label>
                         <label class="label2" for="">Step2_填寫活動介紹<br>
@@ -231,11 +241,10 @@
                             <input type="text" class="input_R" name="actLoc" placeholder="地點">
                             <input type="date" class="input_R" name="act_begin" placeholder="開始時間">
                             <input type="date" class="input_R" name="act_end" placeholder="結束時間">
-                            <input type="submit" class="btn_R" placeholder="確定">
-                            <input type="hidden" class="btn_R" name="memNo" value="<?php echo $_SESSION["memNo"]?>">
+                            <input type="submit" class="btn" placeholder="確定">
                         </label>
                     </form>
-                    <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt=""></div>
+                    <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
                     <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
                     <script type="text/javascript">
                         function $id(id){
@@ -260,13 +269,13 @@
                         }	
                         window.addEventListener("load", initss, false);	
                     </script>
+
                 </div>
             </div>
 
             <!-- 活動的 動態燈箱 -->
             <div id="lightbox_actsCheckout_outside" class="lightbox_actsCheckout_outside">
                 <div id="lightbox_actsCheckout" class="lightbox_actsCheckout">
-                    <div id="btn_xx03" class="searchClose"></div>
                     <h2>熊麻吉活動資訊</h2>
                     <div class="acts_lightbox_top">
                         <div id="acts_lightbox_topImg" class="acts_lightbox_topImg" style="background-image: url('');"></div>
@@ -282,18 +291,19 @@
                         </div>
                     </div>
                     <div class="acts_lightbox_down">
-                         <button id="btn_ActJoinToDB" class="btn_R">報名</button>
-                            <input style="display:none" type="text" id ="lightBox_actNo"value="">
-                            <input id="userInput03" style="display:none" type="text" value="<?php echo $_SESSION["memNo"]?>"> <!-- 之後把會員存在這個value -->
+                         <button id="btn_ActJoinToDB" class="btn">報名</button>
+                            <input  type="hidden" id ="lightBox_actNo"value="">
+                            <input id="userInput03" type="hidden" value="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["memNo"];}?>"> <!-- 之後把會員存在這個value -->
                         <span id="msgtitle">留言區</span>
                         <div id="myMessagebox" class="messagebox">
+
                         </div>
                         <div class="headBoxFather">
                             <div class="headBox" id="theUser"></div>
                         </div>
-                        <input id="myMessagebox_input" class="input_R" type="text" placeholder="<?php echo $_SESSION["mName"]?>  回覆留言">
-                        <input style="display:none;" id="myMessagebox_inputNone" class="input_R" type="text" placeholder="回覆留言" value="">
-                        <input id="userInput04" style="display:none" type="text" value="<?php echo $_SESSION["memNo"]?>">
+                        <input id="myMessagebox_input" class="input_R" type="text" placeholder="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["mName"];}?>  回覆留言">
+                        <input id="myMessagebox_inputNone" class="input_R" type="hidden" placeholder="回覆留言" value="">
+                        <input id="userInput04" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>">
                     </div>
                 </div>
             </div>
@@ -301,7 +311,6 @@
         </div>
     <script type="text/javascript">
         foot_html();
-        sendForm();
     </script>
     <script src="js/activity2.js"></script>
 </body>

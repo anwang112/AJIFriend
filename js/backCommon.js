@@ -6,10 +6,10 @@ function header() {
 </a>
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">
-    XXX您好
+    
 </a>
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="#">登出</a>
+    <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
 </div>
 </nav>
 

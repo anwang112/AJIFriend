@@ -16,7 +16,7 @@
 
         $result -> execute();
         
-        if($_REQUEST["seen"]!= null  && $_REQUEST["proMJ"]!= null  && $_REQUEST["proNo"]!= null  && $_REQUEST["proName"] != null  ){
+        if(isset($_REQUEST["seen"])!= null  && isset($_REQUEST["proMJ"])!= null  && isset($_REQUEST["proNo"])!= null  && isset($_REQUEST["proName"]) != null  ){
             //修改商品
             $seen_get = $_REQUEST["seen"];
             $price_get = $_REQUEST["price"];
@@ -43,9 +43,9 @@
             header('Location:backItem.php');
         }
 
-        if($_REQUEST["newPro"]){
+        if(isset($_REQUEST["newPro"]) ){
         
-            $_REQUEST["proNo_ins"];
+            // $_REQUEST["proNo_ins"];
             $_REQUEST["category_ins"];
             $_REQUEST["proName_ins"];
             $_REQUEST["price_ins"];

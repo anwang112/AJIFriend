@@ -16,7 +16,6 @@ try {
     }else{
         // $commentArr["send_comment"][0]="啊啊啊啊";
         $i = 0 ;
-        $num =1 ;
         
         while( $commentRow = $comment -> fetch(PDO::FETCH_ASSOC) ){
             $sql2 = "SELECT * FROM `member` WHERE `memNo` = :no";
@@ -25,21 +24,33 @@ try {
             $memberData->execute();
             $memberDataRows = $memberData->fetch(PDO::FETCH_ASSOC);
             // mName , animal , eye , mColor
-            $a[$i] = $memberDataRows["mName"] .','.
-                    $memberDataRows["animal"] .','.
-                    $memberDataRows["eye"] .','.
-                    $memberDataRows["mColor"] .','.
-                    $commentRow["content"];
+            $arr['mName'][$i] = $memberDataRows["mName"] ;
+            $arr['animal'][$i] = $memberDataRows["animal"] ;
+            $arr['eye'][$i] = $memberDataRows["eye"] ;
+            $arr['mColor'][$i] = $memberDataRows["mColor"] ;
+            $arr['content'][$i] = $commentRow["content"];
+            $arr['memNo'][$i] = $memberDataRows["memNo"];
+
             $i++;
             
         }
         // $str = new data();
         // $str -> content = $commentArr["send_comment"];
         class data{
-            public $arr;
+            public $name;
+            public $animal;
+            public $eye;
+            public $color;
+            public $comment;
+            public $memNo;
         }
         $data = new data();
-        $data->arr = $a;
+        $data->name = json_encode($arr['mName']);
+        $data->animal = json_encode($arr['animal']);
+        $data->eye = json_encode($arr['eye']);
+        $data->color = json_encode($arr['mColor']);
+        $data->comment = json_encode($arr['content']);
+        $data->memNo = json_encode($arr['memNo']);
 
         $send = json_encode($data);
 

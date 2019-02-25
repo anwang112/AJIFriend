@@ -1,4 +1,5 @@
 <?php
+session_start();
     //新增資料    
     $actTitle = $_POST["actTitle"];
     $actIntro = $_POST["actIntro"];
@@ -6,31 +7,28 @@
     $act_begin = $_POST["act_begin"];
     $act_end = $_POST["act_end"];
     $actImg = $_FILES["act_holdActFile"]["name"];
-    $act_memNo= $_POST["memNo"];
 
+    $userNo = $_SESSION['memNo'];
 
     //跟資料庫要資料
     try {
-        if($_POST["memNo"]){
+        require_once("connectBooks.php");
+        $sql1 = 'select * from activity	';
+        $actnum = $pdo -> query($sql1);
+        $num =  $actnum ->rowCount();
+        $num =  $num + 1;
 
-            require_once("connectBooks.php");
-            $sql1 = 'select * from activity	';
-            $actnum = $pdo -> query($sql1);
-            $num =  $actnum ->rowCount();
-            $num =  $num + 1;
+        $sql = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'$userNo','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
+        $activity = $pdo ->query($sql);
 
-            $sql = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'$act_memNo','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
-            $activity = $pdo ->query($sql);
-
-            //上傳檔案處理
-        
-            $from = $_FILES["act_holdActFile"]["tmp_name"];
-            $to = "images/" . $_FILES["act_holdActFile"]["name"];
-            copy($from,$to);
-            header('Location:activity_v2.php');
-
-        }
-
+        //上傳檔案處理
+    
+        $from = $_FILES["act_holdActFile"]["tmp_name"];
+        $to = "images/" . $_FILES["act_holdActFile"]["name"];
+        copy($from,$to);
+        // echo $from."<br>";
+        // echo $actImg." /////OK~?????";
+        header('Location:activity_v2.php');
 
     } catch (PDOException $e) {
         echo "錯誤 : ", $e -> getMessage(), "<br>";

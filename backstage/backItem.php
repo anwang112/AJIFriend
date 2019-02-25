@@ -1,6 +1,12 @@
 <?php
-    require_once("backItemToDB.php");
-?> 
+ob_start();
+session_start();
+if (isset($_SESSION["adminName"]) === false) {
+    header("Location:backLogin.php");
+    exit();
+}
+require_once("backItemToDB.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -141,15 +147,21 @@
         }
     </style>
 </head>
+
 <body>
-<!-- Just an image -->
-<script>
-header();
+
+
+    <!-- 隱藏登入者ㄉinput -->
+    <input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
+
+    <!-- Just an image -->
+    <script>
+        header();
 </script>
     <table id="myTable" class="table table-hover">
         <thead>
             <tr>
-            <td colspan="6"></td>
+                <td colspan="6"></td>
                 <td colspan="4">
                     <div class="dropdown">
                         <button id="holdAct01" class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,98 +192,135 @@ header();
             </tr>
         </thead>
         <tbody>
-            <?php $i = 0?>
-            <?php while($result->fetch(PDO::FETCH_ASSOC)){?>
+            <?php $i = 0 ?>
+            <?php while ($result->fetch(PDO::FETCH_ASSOC)) { ?>
             <tr>
-            <form action="backItemToDB.php" method="post" enctype="multipart/form-data">
-                <th scope="row">
-                    <a href="#"><?php echo $proNo ;?></a>
-                    <input type="hidden" name="proNo" value="<?php echo $proNo ;?>">
-                </th>
-                <td>
-                    <img  id="act_holdActFileBox" src="../images/<?php echo $img;?>" style="width:190px; height:140px;" alt="活動圖片">
-                </td> 
-                <td><?php echo $proName ;?><br><input type="text" name="proName" value="<?php echo $proName ;?>"></td>
-                <td><?php echo $price ;?><br><input type="text" name="price" value="<?php echo $price ;?>"></td>
-                <td><?php echo $proMJ ;?><br><input type="text" name="proMJ" value="<?php echo $proMJ ;?>"></td>
-                <td> 
-                    <?php if($seen == 1){
-                        echo "上架中"."<br>"."<input type='number' name='seen' value='1' min='0' max='1' value='1'>";
-                    }else{
-                        echo "下架中"."<br>"."<input type='number' name='seen' value='0' min='0' max='1'>";
-                    }?>
-                </td>
-                <td>
-                    <input type="submit" value="送出" ">
+                <form action="backItemToDB.php" method="post" enctype="multipart/form-data">
+                    <th scope="row">
+                        <a href="#">
+                            <?php echo $proNo; ?></a>
+                        <input type="hidden" name="proNo" value="<?php echo $proNo; ?>">
+                    </th>
+                    <td>
+                        <img id="act_holdActFileBox" src="../images/<?php echo $img; ?>" style="max-height:140px;" alt="活動圖片">
+                    </td>
+                    <td>
+                        <?php echo $proName; ?><br><input type="text" name="proName" value="<?php echo $proName; ?>"></td>
+                    <td>
+                        <?php echo $price; ?><br><input type="text" name="price" value="<?php echo $price; ?>"></td>
+                    <td>
+                        <?php echo $proMJ; ?><br><input type="text" name="proMJ" value="<?php echo $proMJ; ?>"></td>
+                    <td>
+                        <?php if ($seen == 1) {
+                            echo "上架中" . "<br>" . "<input type='number' name='seen' value='1' min='0' max='1' value='1'>";
+                        } else {
+                            echo "下架中" . "<br>" . "<input type='number' name='seen' value='0' min='0' max='1'>";
+                        } ?>
+                    </td>
+                    <td>
+                        <input type="submit" value="送出" ">
                 </td>
             </form>
-            </tr><?php $i++ ;?>
-            <?php } ?>
+            </tr><?php $i++; ?>
+            <?php 
+        } ?>
         </tbody>
 
-        <div id="lightbox_holdact" class="lightbox_holdact">
-            <div id="lightbox_holdact_info" class="lightbox_holdact_info">
-                <form action="backItemToDB.php" method="post" enctype="multipart/form-data">
-                <h2>增加商品</h2>
-                    <label class="label1" for="">Step1_上傳商品圖片<br>
-                    <input type="file" id="act_holdActFile" name="act_holdActFile">
-                    </label>
-                    <label class="label2" for="">Step2_填寫商品介紹<br>
-                    <label for="">商品分類
-                        <input type="number" class="input_R" name="category_ins" placeholder="請輸入1或2" min="1" max="2">
-                    </label>
-                    <label for="">商品名稱<input type="text" class="input_R" name="proName_ins" placeholder=""></label>
-                    <label for="">商品價格<input type="number" class="input_R" name="price_ins" placeholder=""  min="0"></label> 
-                    <label for="">魅力值<input type="number" class="input_R" name="proMJ_ins" placeholder="請輸入1到1000"  min="0" max="1000"></label>
-                    <label for="">商品上架<input type="number" class="input_R" name="seen_ins" placeholder="請輸入1或0" min="0" max="1"></label>
-                    <input type="hidden" class="input_R" name="newPro" value="1">
-                    <input type="submit" class="input_R" name="" placeholder="">
-                    </label>
-                </form>
-                <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
-                <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
-                <script type="text/javascript">
-                    function $id(id){
-                        return document.getElementById(id);
-                    }	
-                    function initss(){
-                        $id("act_holdActFile").onchange = function(e){
-                            var file = e.target.files[0];
-                            var reader = new FileReader();
-                            reader.onload = function(){
-                                // alert(reader.result);
-                                // var act_holdActFileBox = $id('act_holdActFileBox');
-                                $id("act_holdActFileBox").style.cssText = `padding-bottom: 27%;`;
-                                $id("act_holdActFileBox").src = reader.result;
-                                // act_holdActFileBox.style.cssText = `
-                                // background-image: url('images/activity/${reader.result});
-                                // `;
-                                // "background-image: url('images/activity/" + reader.result + "');" ";
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    }	
-                    window.addEventListener("load", initss, false);	
+        <div id=" lightbox_holdact" class="lightbox_holdact">
+                        <div id="lightbox_holdact_info" class="lightbox_holdact_info">
+                            <form action="backItemToDB.php" method="post" enctype="multipart/form-data">
+                                <h2>增加商品</h2>
+                                <label class="label1" for="">Step1_上傳商品圖片<br>
+                                    <input type="file" id="act_holdActFile" name="act_holdActFile">
+                                </label>
+                                <label class="label2" for="">Step2_填寫商品介紹<br>
+                                    <label for="">商品分類
+                                        <input type="number" class="input_R" name="category_ins" placeholder="請輸入1或2" min="1" max="2">
+                                    </label>
+                                    <label for="">商品名稱<input type="text" class="input_R" name="proName_ins" placeholder=""></label>
+                                    <label for="">商品價格<input type="number" class="input_R" name="price_ins" placeholder="" min="0"></label>
+                                    <label for="">魅力值<input type="number" class="input_R" name="proMJ_ins" placeholder="請輸入1到1000" min="0" max="1000"></label>
+                                    <label for="">商品上架<input type="number" class="input_R" name="seen_ins" placeholder="請輸入1或0" min="0" max="1"></label>
+                                    <input type="hidden" class="input_R" name="newPro" value="1">
+                                    <input type="submit" class="input_R" name="" placeholder="">
+                                </label>
+                            </form>
+                            <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
+                            <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
+                            <script type="text/javascript">
+                                function $id(id) {
+                                    return document.getElementById(id);
+                                }
 
-                    var holdAct01 = $id('holdAct01');
-                        holdAct01.addEventListener('click',function(){
-                            lightbox_holdact.style.cssText="display:flex;z-index:10;opacity:1";
-                            lightbox_holdact_info.style.cssText="display:block;z-index:10;opacity:1";
+                                function initss() {
+                                    $id("act_holdActFile").onchange = function(e) {
+                                        var file = e.target.files[0];
+                                        var reader = new FileReader();
+                                        reader.onload = function() {
+                                            // alert(reader.result);
+                                            // var act_holdActFileBox = $id('act_holdActFileBox');
+                                            $id("act_holdActFileBox").style.cssText = `padding-bottom: 27%;`;
+                                            $id("act_holdActFileBox").src = reader.result;
+                                            // act_holdActFileBox.style.cssText = `
+                                            // background-image: url('images/activity/${reader.result});
+                                            // `;
+                                            // "background-image: url('images/activity/" + reader.result + "');" ";
+                                        }
+                                        reader.readAsDataURL(file);
+                                    }
+                                }
+                                window.addEventListener("load", initss, false);
 
-                        lightbox_holdact_info.addEventListener('click',function(e){
-                            e.stopPropagation();
-                        },false);
-                        lightbox_holdact.addEventListener('click',function(){
-                        lightbox_holdact.style.cssText="display:none;z-index:-1;opacity:0";
-                        lightbox_holdact_info.style.cssText="display:none;z-index:-1;opacity:0";
-                        },false);
-                    },false);
-                </script>
-            </div>
-        </div>
+                                var holdAct01 = $id('holdAct01');
+                                holdAct01.addEventListener('click', function() {
+                                    lightbox_holdact.style.cssText = "display:flex;z-index:10;opacity:1";
+                                    lightbox_holdact_info.style.cssText = "display:block;z-index:10;opacity:1";
+
+                                    lightbox_holdact_info.addEventListener('click', function(e) {
+                                        e.stopPropagation();
+                                    }, false);
+                                    lightbox_holdact.addEventListener('click', function() {
+                                        lightbox_holdact.style.cssText = "display:none;z-index:-1;opacity:0";
+                                        lightbox_holdact_info.style.cssText = "display:none;z-index:-1;opacity:0";
+                                    }, false);
+                                }, false);
+                            </script>
+                        </div>
+                        </div>
     </table>
-<script>
-    buttom()    
-</script>
+    <script>
+        buttom()
+    </script>
+
+
+    <script>
+        //登入寫入登入框ㄉ
+        navbarDropdown = document.getElementById('navbarDropdown');
+        showAdminName = document.getElementById('showAdminName');
+        window.addEventListener('load', () => {
+            navbarDropdown.innerHTML = showAdminName.value;
+
+
+            //登出
+            logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', (e) => {
+                checkInFoValue = {};
+                checkInFoValue.status = '掰掰';
+                console.log(e);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if (xhr.responseText == "回到登入頁") {
+                        window.location.href = "backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
+            })
+        });
+    </script>
 </body>
-</html>
+
+</html> 

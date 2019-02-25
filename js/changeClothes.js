@@ -1,4 +1,4 @@
-function changeClothes(no,cate){
+function changeClothes(src,cate){
     // var clothes = e.target.id;
     // var wearNo = clothes.substring(4,clothes.length);
     // console.log(wearNo);
@@ -7,35 +7,16 @@ function changeClothes(no,cate){
     var clothes_div = document.getElementsByClassName("roleClothes")[0];
     
     if(cate==1){
-        hat_div.style.backgroundImage = `url("images/hatImages/hat${no}.png")`;
+        hat_div.style.backgroundImage = `url("images/hatImages/${src}")`;
 
     }else{
-        clothes_div.style.backgroundImage = `url("images/hatImages/clothes${no}.png")`;
+        clothes_div.style.backgroundImage = `url("images/clothesImages/${src}")`;
 
     }
 
     // 更衣動畫
 
-    var  tl =  new TimelineMax({
-        repeat: 0,
-        // yoyo: true
-    });
-    
-    
-     tl.add(TweenMax.fromTo('#model_hat', 1.5, {
-        scale: .6,
-    }, {
-        scale: 1,
-        ease: Elastic.easeOut,
-    }))
-    tl.add(TweenMax.fromTo('#showModel', 1.5, {
-        y:-45,
-        scale: .5,
-    }, {
-        y:0,
-        scale: 1,
-        ease: Power2.easeIn
-    }))
+
 
     
 }
@@ -49,10 +30,6 @@ function removeInfo(e){  //移除產品訊息
 
     var taImg = e.target.parentNode.parentNode.childNodes[1];
     taImg.removeEventListener("click",showInfo);
-    
-
-
-
     var imgs = document.getElementsByClassName("click_wear");
     for(var i=0;i<imgs.length;i++){
         // imgs[i].style.opacity = 1;
@@ -67,8 +44,6 @@ function removeInfo(e){  //移除產品訊息
 var check=false;
 
 function showInfo(e){
-
-
     // [重置]先將外框全部拿掉
     var img = document.getElementsByClassName("click_wear");
     for(var i=0;i<img.length;i++){

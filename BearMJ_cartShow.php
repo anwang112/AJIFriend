@@ -11,10 +11,14 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/shop-style.css">
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
     <script src="js/commonPart.js"></script>
+    <link rel="stylesheet" href="css/match2.css">
+    <link rel="stylesheet" href="css/shop-style.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
     
     
 </head>
@@ -33,7 +37,6 @@ session_start();
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
                     <li>代幣</li>
-                    <li>送禮</li>
                     <li>異動</li>
                 </ul>
                 
@@ -53,9 +56,9 @@ session_start();
                         <ul>
                             <input type="hidden" name="proNo" value="<?php echo $i;?>">
                             <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
-                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$i];?>"></li>
+                            <li class="li_img"><img src="images/<?php if($_SESSION["proCate"][$i]==1){echo "hatImages";}else{echo "clothesImages";} ?>/<?php echo $_SESSION["img"][$i];?>"></li>
                             <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
-                            <li><input type="button" value="送禮" class="btn_given"></li>
+                            <!-- <li><input type="button" value="送禮" class="btn_given"></li> -->
                             <li><input type="submit" value="刪除" class="btn_delete"></li>
                         </ul>
                     </form>
@@ -71,19 +74,38 @@ session_start();
                 <hr>
             <form id="cartForm">
                 <div id="totalCost">
-                    <span>總數量:{$}</span>
+                    <span>總數量:
+                        <?php if(isset($_SESSION["img"])){echo count($_SESSION["img"]);}else{
+                            echo 0;}?>
+                    </span>
                     <img src="shop-images/coin.png">
-                    <span>支付代幣金額:{$}</span>
+                    <span>支付代幣金額:
+                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
+                    </span>
                 </div>
                 <div id="actionBtns">
                     <a href="BearMJ_shop_addcart.php"><input type="button" value="繼續購物" class="btn-buy"></a>
-                    <a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>
+                    
+                        <?php
+                            if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])<=$_SESSION["mCoin"]){
+                                $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
+                                
+                            }else if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
+                                $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>';
+                            }else{
+                                $str = '';
+                            }
+                        echo $str;
+                        ?>
+                    
+                    
+                    
                 </div>
                 
             </form>
 
         </div>
-        <div id="giftBox">
+        <!-- <div id="giftBox">
             <div id="btn_giftBoxClose">
                 <img src="shop-images/close.png">
             </div>
@@ -135,11 +157,15 @@ session_start();
                 <input type="button" id="choose_ok" value="確定">
                 <input type="button" id="choose_delete"value="全部清除">
             </div>
-        </div>
+        </div> -->
 
     </div>
     <script type="text/javascript">
 		foot_html();
+        if( storage.getItem("memNo") ){
+            getProducts(1,storage.getItem("memNo"));
+            changeModel(storage.getItem("memNo"));
+        }
 	</script>
 </body>
 </html>
@@ -181,3 +207,5 @@ session_start();
 
 </script>
 <script src="js/cart.js"></script>
+
+<!-- <script src="js/match2.js"></script> -->
