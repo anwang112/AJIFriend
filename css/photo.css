@@ -612,7 +612,7 @@ body{
     /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        /* filter: grayscale(100%); */
+        filter: grayscale(100%);
     }
     #step3 img{
         width: 100px;
