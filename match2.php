@@ -455,7 +455,8 @@ try {
             </div>
         </div>
     </div>
-    <div class="game">
+    <!-- <div class="game">
+    <div class="gameClose"></div>
     <table>
         <tr>
             <td id="column" class="c_1">
@@ -475,7 +476,7 @@ try {
             <td id="column" class="c_12">
                 <img src="images/roll2.svg" alt="">
             </td>
-            <td colspan="2" rowspan="2">
+            <td colspan="2" rowspan="2" class="gameBtnWrap">
                 <button id="btnloto"class="btn">領金幣</button>
             </td>
             <td id="column" class="c_5">
@@ -505,7 +506,7 @@ try {
             </td>
         </tr>
     </table>
-    </div>
+    </div> -->
     <script src="js/match2.js"></script>
     <script type="text/javascript">
         foot_html();
