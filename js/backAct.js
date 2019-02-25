@@ -179,7 +179,7 @@ function deletAct(actNo, target) { //刪除
             // var actObjback = JSON.parse(xhr.responseText);
             //  alert (xhr.responseText);
             target.style.display = "none";
-            alert("成功刪除");
+            // alert("成功刪除");
             location.reload();
         }
     }
@@ -231,7 +231,7 @@ function checkDeleAct() { //查看刪除
                 maintable.innerHTML = txt;
             } else {
                 console.log(xhr.responseText);
-                alert(xhr.responseText);
+                // alert(xhr.responseText);
                 var aaR_Obj = JSON.parse(xhr.responseText);
                 console.log(aaR_Obj.arr);
                 console.log(aaR_Obj);

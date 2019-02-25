@@ -130,13 +130,14 @@
             <div class="act_section01">
                 <h1 >聯聯誼揪揪團<br><span>官方活動區</span></h1>
                 <?php $activityBUS -> fetch(PDO::FETCH_ASSOC)?>
+                <input id="totalbus" type="hidden" value = "<?php echo $totalbus ?>">
                 <div class="act_mainbox">
-                    <div class="imgBox">
+                    <div class="imgBox" >
                         <img id="imgBoxImg" src="images/<?php echo $actImg ;?>" alt="這個換掉"> 
                     </div>
                     <div class="btnbox">
-                        <span id="btn_actL"></span>
-                        <span id="btn_actR"></span>
+                        <span id="btn_actL"><input id="box_actNoA" type="hidden" value="<?php echo $actNo ;?>"></span>
+                        <span id="btn_actR"><input id="box_actNoB" type="hidden" value="<?php echo $actNo ;?>"></span>
                     </div>
                 </div>
                 <div class="act_bg_moving01"></div>

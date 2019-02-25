@@ -146,7 +146,7 @@
             $act_memNo= $_POST["memNo"];
 
 
-            $sql_newAct = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'1','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
+            $sql_newAct = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'3','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')"; //3 表示官方的會員帳號
             $activity = $pdo ->query($sql_newAct);
     
             //上傳檔案處理
