@@ -20,7 +20,7 @@ body{
 /* 第一屏背景 */
 /* #ead3cc */
 .bg{
-    background:  rgba(98,167,236, .8) no-repeat scroll 100%;
+    background:  #81b9f0 no-repeat scroll 100%;
     background-size: 100% 90%;
 
 }
@@ -126,7 +126,7 @@ body{
 }
 
 #LB .topPhoto ,#cardLB .cardPhoto{
-    width: 94%;
+    
     padding: 3%;
 }
 #LB .member ,#cardLB .member{
@@ -152,10 +152,14 @@ body{
 #cardLB span{
     margin-left: 20px;
     font-size: 0.8rem;
+    color: rgba(102,102,102,1);
+
 }
 
 #LB p, #cardLB p{
     margin-left: 10%;
+    color: rgba(102,102,102,1);
+
     margin-top: 5%;
 }
 #close {
@@ -219,6 +223,8 @@ body{
   .top span,.tops span{
     font-size: .8rem;
     margin-left: 10px;
+    color: rgba(102,102,102,1);
+
 
 
   }
@@ -248,11 +254,14 @@ body{
   .headBox{
       top: 10px;
   }
+  .headBox .headEyes{
+      z-index: 0;
+  }
   .top .topheart,.card .heart{
     width: 12%;
     margin-top: 1%;
   }
-  .top a,.card a{
+  .top a,.tops a,.card a{
     margin-left: 5px;
     margin-right: 20px;
 
@@ -321,7 +330,7 @@ body{
 
   /* 背景 */
   .bg2{
-    background:rgba(98,167,236, .8)  url("../images/bg2photo1-23.png") no-repeat scroll 50% 5%;
+    background:#81b9f0 url("../images/bg2photo1-23.png") no-repeat fixed 50% 5%;
     background-size: 100%;
 } 
 .postArea{
@@ -428,7 +437,9 @@ body{
         top: 9%;
     }
     .card img, #cardLB .cardPhoto img{
-        width:94%;
+        width: 93%;
+        /* width: 240px;
+        height: 226px;         */
         margin-bottom: 3%;
         padding: 3%;
         vertical-align:middle;
@@ -1022,6 +1033,11 @@ body{
     }
     #LB span,#cardLB span{
         margin-left: 20px;
+        color: rgba(102,102,102,1);
+    }
+    #LB a,#cardLB a{
+                color: rgba(102,102,102,1);
+
     }
     #close{
         position: absolute;
@@ -1286,8 +1302,8 @@ body{
         background-color: #E5E2DD;
       }
     #LB .topPhoto ,#cardLB .cardPhoto{
-        width:100%;
-        padding: 3%;
+        width: 240px;
+        height: 226px;        padding: 3%;
     }
     #LB a, #cardLB a{
         margin-right: 25px;

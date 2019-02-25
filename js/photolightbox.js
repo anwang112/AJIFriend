@@ -38,11 +38,10 @@ function topLB(e){
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";
     imgHeart.src="images/fullheart-16.png"
-    // imgHeart.src =parent.childNodes[13].src;
     // 創建p
-    // var pContent=document.createElement("p");
-        // pContent.innerText=parent.childNodes[10].innerText;
-    // pContent.innerText="";
+    var pContent=document.createElement("p");
+        pContent.innerText=parent.childNodes[16].innerText;
+    pContent.innerText="哇～～～！";
 
     //創建svg關閉圖片
     var imgclose=document.createElement("img");
@@ -57,7 +56,7 @@ function topLB(e){
     divTop.appendChild(aMem);
     divTop.appendChild(imgHeart);
     divTop.appendChild(spanVote);
-    // divTop.appendChild(pContent);
+    divTop.appendChild(pContent);
     divTop.appendChild(imgclose);
 }
 function closeTop(){
@@ -93,23 +92,24 @@ function cardLB(e){
     divMem.className="member";
     divMem.className="headBox";
     divMem.id="stickerLB";
-    divMem.src=e.target.parentNode.children[5].src;
+    divMem.src=e.target.parentNode.children[3].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=e.target.parentNode.children[7].innerText;
+    aMem.innerText=e.target.parentNode.children[4].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[9].innerText;
+    spanVote.innerText=e.target.parentNode.children[6].innerText;
+    console.log(e.target.parentNode.children);
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";
     imgHeart.src ="images/fullheart-16.png";
     // 創建p
-    // var pContent=document.createElement("p");
-    //console.log(parent.childNodes[11]);
-        // pContent.innerText=parent.childNodes[10].innerText;
-    // pContent.innerText="整個城市都是我們的伸展台";
+    var pContent=document.createElement("p");
+    console.log(parent.childNodes);
+    // pContent.innerText=parent.childNodes[11].innerText;
+    pContent.innerText="整個城市都是我們的伸展台";
 
     //創建svg關閉圖片
     var imgClose=document.createElement("img");
@@ -131,7 +131,7 @@ function cardLB(e){
     divCard.appendChild(aMem);
     divCard.appendChild(imgHeart);
     divCard.appendChild(spanVote);
-    // divCard.appendChild(pContent);
+    divCard.appendChild(pContent);
     divCard.appendChild(imgClose);
     divCard.appendChild(imgDel);
 

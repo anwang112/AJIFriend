@@ -109,7 +109,6 @@ try {
                         <img  src="images/choiceBg-23.png" alt="chooseBg">
                         <h3>Step 1 選擇背景</h3>
                 </div>
-<<<<<<< HEAD
                 <div class="step" id="step2">
                     <img src="images/chooseFriend-24.png" alt="chooseFriend">
                     <h3>Step 2 選擇朋友</h3>
@@ -117,15 +116,6 @@ try {
                 <div class="step" id="step3">
                     <img src="images/colorPen-25.png" alt="colorPen">
                     <h3>Step 3 編輯塗鴉</h3>
-=======
-                <!-- <div class="step" id="step2">
-                    <img src="images/chooseFriend-24.png" alt="chooseFriend">
-                    <h3>Step 2 選擇朋友</h3>
-                </div> -->
-                <div class="step" id="step3">
-                    <img src="images/colorPen-25.png" alt="colorPen">
-                    <h3>Step 2 編輯塗鴉</h3>
->>>>>>> ga
                 </div>
             </div>
             <div class="bulletin">
@@ -145,10 +135,6 @@ try {
                     <div id="content_friendBox">
                         <input type="text" id="searchBox" placeholder="搜尋朋友ID">
                         <div id="chooseBox">
-<<<<<<< HEAD
-=======
-
->>>>>>> ga
                         </div>
                     </div>
                 </div>
@@ -337,7 +323,7 @@ try {
 ?>	
             <div class="card" id="photo1">
                 <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
-                <div class="headBox member" id="stickerCard<?php echo $i ?>"  ></div>
+                <div class="headBox member" id="stickerCard<?php echo $i ?>"></div>
                     <script>
                         head = document.getElementById('stickerCard<?php echo $i ?>');         
                         ooxxGetHead(head, {
@@ -355,13 +341,9 @@ try {
                         })
                     </script>
                 
-                <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
                 <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
-                <div class="bigHeart" id="bigHeart">
-                    <img src="images/heart.svg" alt="bigHeart">
-                </div>
             </div>
 <?php
     $i++;
