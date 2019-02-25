@@ -1,10 +1,17 @@
 function $id(id){
     return document.getElementById(id);
 }
+var Today = new Date();
+nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 var productsInfoArr = new Array();
 productsInfoArr = []; //產品資料陣列
 function getProducts(cate,pageNumber=1){ //撈出產品Ajax
     var xhr = new XMLHttpRequest(); // 建立xhr
+    if(cate==1){
+        cateName = "hatImages";
+    }else{
+        cateName = "clothesImages";
+    }
     
     console.log(pageNumber);
     xhr.onload = function (){
@@ -56,8 +63,8 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                         <div class="productItem">
                             <!-- 商品圖 -->
                             <div class="productImg">
-                                <img class="click_wear" src="shop-images/${productsInfoArr[i][5]}" id="hat_${productsInfoArr[i][0]}" 
-                                     onclick="changeClothes(${productsInfoArr[i][0]},${productsInfoArr[i][1]})">
+                                <img class="click_wear" src="images/${cateName}/${productsInfoArr[i][5]}" id="hat_${productsInfoArr[i][0]}" 
+                                     onclick="changeClothes('${productsInfoArr[i][5]}',${productsInfoArr[i][1]})">
                                 <div class="rwd-proInfo">
                                     <h3>${productsInfoArr[i][2]}</h3>
                                     <!-- 魅力值 -->
@@ -101,6 +108,7 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                 
 
                 }
+                
                 for(var i = 1 ; i <= pageTotal ; i++){
                     if(i==pageNumber){
                         page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" style="color:white;background:rgba(200,78,106,1)" class="page_span">${i}</span>`;
@@ -135,3 +143,103 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
 
 
 }
+//game
+var btnG = document.getElementById('btnloto');
+
+var timeId;
+var speed = 50;
+var steps = rand(13, 25);
+var stepNum = 0;
+var restep;
+
+
+
+function rand(min, max) {
+   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+function getCoin(data) {
+   var xhr = new XMLHttpRequest();
+   xhr.onload = function () {
+       console.log(xhr.responseText);
+       if(xhr.responseText == 1){
+           btnG.innerText = '已領取$'+money;
+           storage.setItem("last_play",nowDay);
+
+       }
+
+   };
+   xhr.open("Post", "getCoin.php", true);
+   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+   xhr.send("data=" + JSON.stringify(data));
+
+}
+
+function ooxx(){
+
+document.querySelector('.c_' + restep).innerText = '$' + money;
+data = {
+   money: money,
+   nowDay: nowDay,
+   memNo: storage.getItem("memNo"),
+}
+getCoin(data);
+}
+
+function loto() {
+    var btnG = document.getElementById('btnloto');
+   btnG.disabled = true;
+   btnG.style.backgroundColor = '#aaa';
+   btnG.style.boxShadow='0px 4px 0px #555';
+   btnG.innerText = '本日已領';
+   stepNum++; 
+   speed += 15;
+   if (stepNum > 12) {
+       if (stepNum % 12 == 0) {
+           restep = 12;
+       } else if (stepNum % 12 == 1) {
+           restep = 1;
+           document.querySelector('.c_12').classList.toggle('highlight');
+       } else {
+           restep = stepNum % 12;
+       }
+   } else {
+       restep = stepNum;
+   }
+  
+   if (stepNum == steps) {
+       // console.log('1');
+      
+       ooxx();
+
+   } else {
+       timerId = setTimeout(loto, speed);
+       // console.log('2');
+   }
+   document.querySelector('.c_' + restep).classList.toggle('highlight');
+
+   if (restep > 1) {
+       var b = restep - 1;
+       document.querySelector('.c_' + b).classList.toggle('highlight');
+       // console.log('3');
+   }
+  
+
+
+}
+// function restart(){
+//     if( btnG.innerText == '搖獎'){
+//         btnG.innerText='重新抽獎';
+//     }else{
+//         for(i=1;i<=12;i++){
+//             document.querySelector('.c_'+i).classList.remove('highlight');
+//             document.querySelector('.c_'+i).innerText='';
+//         }
+//         speed = 50;
+//         money = rand(10, 10000) * 100;
+//         steps = rand(13,35);
+//         stepNum = 0;
+//     }
+// }
+
+

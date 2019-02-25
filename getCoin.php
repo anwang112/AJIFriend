@@ -10,6 +10,9 @@ try {
         $Sta->bindParam(':memNo', $data->memNo);
         $Sta->bindParam(':nowDay', $data->nowDay);
         $Sta->execute();
+        
+        $_SESSION["mCoin"]  =  $_SESSION["mCoin"] + $data->money;
+        
 
        echo 1;
       

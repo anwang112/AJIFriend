@@ -94,10 +94,10 @@ ooxxGetRole(matchMaji, {
 });
 
 
-// $('.searchClose').click(function () {
-//     $('.searchWrap').hide();
+$('.searchClose').click(function () {
+    $('.searchWrap').hide();
 
-// });
+});
 
 //搜尋好友
 //enter
@@ -239,10 +239,12 @@ function beFriend (tarNo,loginNo,btn) {
             btn: btn,
         };
         unFriend(data);
+        
     }
     
 }
 $('.btn_beFriend0').click(function(){
+    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -706,6 +708,7 @@ $('.showInfo2').click(function () {
 heart =  storage.getItem("loveGiven");
 heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
+    console.log(111);
     switch (parseInt(heart)) {
         case 2:
             heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
@@ -1158,121 +1161,3 @@ function cubeBezier(p0, c0, c1, p1, t) {
 
     return p;
 }
-
-
-
-
-
-// //game
-// var btnG = document.getElementById('btnloto');
-
-// var timeId;
-// var speed = 50;
-// var steps = rand(13, 25);
-// var stepNum = 0;
-// var restep;
-
-// function rand(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// };
-
-// function getCoin(data) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.onload = function () {
-//         console.log(xhr.responseText);
-//         if(xhr.responseText == 1){
-//             btnG.innerText = '已領取$'+money;
-//             storage.setItem("last_play",nowDay);
-
-//         }
-
-//     };
-//     xhr.open("Post", "getCoin.php", true);
-//     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-//     xhr.send("data=" + JSON.stringify(data));
-
-// }
-
-// function ooxx(){
-
-// document.querySelector('.c_' + restep).innerText = '$' + money;
-// data = {
-//     money: money,
-//     nowDay: nowDay,
-//     memNo: storage.getItem("memNo"),
-// }
-// getCoin(data);
-// }
-
-// function loto() {
-    
-//     btnG.disabled = true;
-//     btnG.style.backgroundColor = '#aaa';
-//     btnG.style.boxShadow='0px 4px 0px #555';
-//     btnG.innerText = '本日已領';
-//     stepNum++;  
-//     speed += 15;
-//     if (stepNum > 12) {
-//         if (stepNum % 12 == 0) {
-//             restep = 12;
-//         } else if (stepNum % 12 == 1) {
-//             restep = 1;
-//             document.querySelector('.c_12').classList.toggle('highlight');
-//         } else {
-//             restep = stepNum % 12;
-//         }
-//     } else {
-//         restep = stepNum;
-//     }
-    
-//     if (stepNum == steps) {
-//         // console.log('1');
-        
-//         ooxx();
-
-//     } else {
-//         timerId = setTimeout(loto, speed);
-//         // console.log('2');
-//     }
-//     document.querySelector('.c_' + restep).classList.toggle('highlight');
-
-//     if (restep > 1) {
-//         var b = restep - 1;
-//         document.querySelector('.c_' + b).classList.toggle('highlight');
-//         // console.log('3');
-//     }
-    
-
-
-// }
-// // function restart(){
-// //     if( btnG.innerText == '搖獎'){
-// //         btnG.innerText='重新抽獎';
-// //     }else{
-// //         for(i=1;i<=12;i++){ 
-// //             document.querySelector('.c_'+i).classList.remove('highlight');
-// //             document.querySelector('.c_'+i).innerText='';
-// //         }
-// //         speed = 50;
-// //         money = rand(10, 10000) * 100;
-// //         steps = rand(13,35);
-// //         stepNum = 0;
-// //     }
-// // }
-//     $('.gameClose').click(function(){
-//         $('.game').hide();
-//     })
-
-//     btnG.onclick = function(){
-//         if(!storage.getItem("last_play")){
-//             money = rand(10, 50) * 10;
-//             loto(money);
-//         }else if( nowDay > storage.getItem("last_play")){
-//             money = rand(10, 50) * 10;
-//             loto(money);
-//         }else{
-//             $('#alertText').text('今天領過囉');
-//                     $('.alertWrap').show();
-//         }
-       
-//     }

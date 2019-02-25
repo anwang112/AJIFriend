@@ -11,11 +11,13 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="css/reset.css">
-    <script src="node_modules/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/shop-style.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
     
     
@@ -23,7 +25,6 @@ session_start();
 <body>
         <script type="text/javascript">
             head_html();
-            sendForm();
         </script>
     <div id="cart_background" class="background">
         <div class="title">
@@ -36,7 +37,6 @@ session_start();
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
                     <li>代幣</li>
-                    <li>送禮</li>
                     <li>異動</li>
                 </ul>
                 
@@ -56,9 +56,9 @@ session_start();
                         <ul>
                             <input type="hidden" name="proNo" value="<?php echo $i;?>">
                             <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
-                            <li class="li_img"><img src="shop-images/<?php echo $_SESSION["img"][$i];?>"></li>
+                            <li class="li_img"><img src="images/<?php if($_SESSION["proCate"][$i]==1){echo "hatImages";}else{echo "clothesImages";} ?>/<?php echo $_SESSION["img"][$i];?>"></li>
                             <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
-                            <li><input type="button" value="送禮" class="btn_given"></li>
+                            <!-- <li><input type="button" value="送禮" class="btn_given"></li> -->
                             <li><input type="submit" value="刪除" class="btn_delete"></li>
                         </ul>
                     </form>
@@ -105,7 +105,7 @@ session_start();
             </form>
 
         </div>
-        <div id="giftBox">
+        <!-- <div id="giftBox">
             <div id="btn_giftBoxClose">
                 <img src="shop-images/close.png">
             </div>
@@ -157,7 +157,7 @@ session_start();
                 <input type="button" id="choose_ok" value="確定">
                 <input type="button" id="choose_delete"value="全部清除">
             </div>
-        </div>
+        </div> -->
 
     </div>
     <script type="text/javascript">
@@ -207,3 +207,5 @@ session_start();
 
 </script>
 <script src="js/cart.js"></script>
+
+<!-- <script src="js/match2.js"></script> -->

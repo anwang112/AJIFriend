@@ -1,32 +1,63 @@
+//１.未登入者跳視窗 :登入才能按讚   alert請先登入
+//2-1.登入者先回去撈資料會員帳號 照片標號 判斷是否按過讚
+//2-2.你已經按過了
 
 function addHeart(e){
-    // var voteNum=document.getElementsByClassName("voteNum");
-    e.target.parentNode.children[5].innerText=parseInt(e.target.parentNode.children[5].innerText)+1;
-    // voteNum[i].innerText=parseInt(voteNum.innerText)+1;
-    console.log(e.target.parentNode.children[5]);
+    var login=document.getElementById("loginNot");
+    if(login.innerText=="登入"){
+        alert("請先登入！");
+    }else if(login.innerText=="登出"){
+        var picNo = e.target.id.split("|")[1]; 
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if( xhr.status == 200){
+            if( xhr.responseText == 'true' ){
+                alert('已完成投票！');
+                e.target.nextSibling.nextSibling.innerText = parseInt(e.target.nextSibling.nextSibling.innerText) + 1;
+
+            }else{
+                alert('你投過了喔!');
+            }
+
+          }else{
+            alert( xhr.status );
+            }
+        }
+
+        xhr.open("get", "ajaxCheckVote.php?picNo=" + picNo, true);
+        xhr.send(null);
+    }   
+}    
 
 
-}
 
-function showHeart(e){
-    // var bigHeart=document.getElementsByClassName("bigHeart");
+ 
 
-    e.target.parentNode.children[6].style.display=="block";
 
-    // bigHeart[j].style.display="block";
-    // bigHeart[j].style.opicity="0.5";
-    console.log("in");
-    e.target.parentNode.children[6].addEventListener("click",addHeart,false);
 
-}
-function hiddenHeart(e){
-    // var bigHeart=document.getElementsByClassName("bigHeart");
-    // bigHeart[j].style.display="none";
-    e.target.parentNode.children[6].style.display=="none";
 
-    console.log("out");
+// function addHeart(e){
+//     // var voteNum=document.getElementsByClassName("voteNum");
+//     e.target.parentNode.children[5].innerText=parseInt(e.target.parentNode.children[5].innerText)+1;
+//     // voteNum[i].innerText=parseInt(voteNum.innerText)+1;
+//     console.log(e.target.parentNode.children[5]);
+// }
 
-}
+// function showHeart(e){
+//     // var bigHeart=document.getElementsByClassName("bigHeart");
+//     e.target.parentNode.children[6].style.display=="block";
+
+//     console.log("in");
+//     e.target.parentNode.children[6].addEventListener("click",addHeart,false);
+
+// }
+// function hiddenHeart(e){
+//     // var bigHeart=document.getElementsByClassName("bigHeart");
+//     // bigHeart[j].style.display="none";
+//     e.target.parentNode.children[6].style.display=="none";
+//     console.log("out");
+
+// }
 function init(){
     var heart =document.getElementsByClassName("heart");
     for(var i = 0; i < heart.length; i++){
@@ -34,8 +65,8 @@ function init(){
     }
     var card=document.getElementsByClassName("card");
     for(var j=0;j<card.length;j++){
-        card[j].addEventListener("mouseover",showHeart,false);
-        card[j].addEventListener("mouseout",hiddenHeart,false);
+        // card[j].addEventListener("mouseover",showHeart,false);
+        // card[j].addEventListener("mouseout",hiddenHeart,false);
     }
     
 

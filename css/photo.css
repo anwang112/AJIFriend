@@ -24,7 +24,7 @@ body{
     background-size: 100% 90%;
 
 }
-.wrap{
+.wrap1{
     width: 100%;
     /* max-width: 1200px; */
     margin: auto;
@@ -32,23 +32,23 @@ body{
     overflow: hidden;
 
 }
-.wrap .clouds1{
+.wrap1 .clouds1{
     width: 100%;
     position: relative;
 
 }
-.wrap .clouds2{
+.wrap1 .clouds2{
     width: 100%;
     position: relative;
 }
-.wrap .clouds1 img{
+.wrap1 .clouds1 img{
     width: 60%;
     position: absolute;
     left: -10%;
     top: 10vh;
     animation: cloudsMoving 50s infinite linear;
 }
-.wrap .clouds2 img{
+.wrap1 .clouds2 img{
     width: 80%;
     position: absolute;
     left: -40%;
@@ -140,9 +140,11 @@ body{
     width: 15%;
     margin-left: 8%;
 }
-#LB .heart,.card .heart ,#cardLB .heart{
+#LB .heart, .heart ,#cardLB .heart{
     width: 12%;
     margin-top: 1%;
+    display: unset;
+    position: unset;
   }
 #LB a , #cardLB a{
     margin-left: 20px;
@@ -248,6 +250,10 @@ body{
   .top .member,.card .member{
     width: 18%;
     margin-left: 4%;
+    display: inline-block;
+  }
+  .headBox{
+      top: 10px;
   }
   .top .topheart,.card .heart{
     width: 12%;
@@ -277,16 +283,16 @@ body{
   .content .aji{
       width: 20%;
       position: absolute;
-      top: 53%;
+      top: 18%;
       left: 20%;
-      display: inline-block;
+      display: none;
   }
   .content .ajiY{
       width: 20%;
       position: absolute;
       left: 20%;
-      top: 53%;
-      display: inline-block;
+      top: 18%;
+      display: none;
   }
   .content .aji:hover{
       display: none;
@@ -300,6 +306,7 @@ body{
         width: 110px;
         height: 50%;
         cursor: pointer;
+        z-index: 10;
         animation: camera 3s infinite;
     }
 
@@ -322,9 +329,9 @@ body{
 
   /* 背景 */
   .bg2{
-    background:rgba(98,167,236, .8) url("/images/bg2photo1-23.png") no-repeat scroll 50% 5%;
+    background:rgba(98,167,236, .8)  url("../images/bg2photo1-23.png") no-repeat scroll 50% 5%;
     background-size: 100%;
-}
+} 
 .postArea{
     width: 100%;
     /* padding-top: 10%; */
@@ -332,8 +339,6 @@ body{
     position: relative;
     margin: auto;
     max-width: 1200px;
-
-
 }
     .father{
         position: relative;
@@ -464,11 +469,12 @@ body{
 
 
 
-/* fixed 合照功能彈出～ */
+/* 合照功能滑出～ */
 
 .mkPhoto{
     position: fixed;
     width: 100%;
+    height: 100%;
     /* max-width: 1200px; */
     right: 0;
     top: 0;
@@ -477,7 +483,7 @@ body{
     display: none;
     padding-top: 40px;
     padding-bottom: 200px;
-    background: #ccc;
+    background: #b2b2b2;
     opacity: 1;
     text-align: center;
 }
@@ -494,8 +500,8 @@ body{
     #friend_LightBox {
         width: 25%;
         position: absolute;
-        top: 45%;
-        left: 2%;
+        top: 35%;
+        left: 5%;
         z-index: 3;
     }
     .bg_friendBox img{
@@ -565,7 +571,20 @@ body{
    }
    #friend_LightBox #content_friendBox #chooseBox label p {
     display: inline;
+   }
 
+   #chooseId #showModel {
+       width: 152px;
+       height: 160px;
+       position: absolute;
+       z-index: 1;
+       left: 105px;
+       top: 110px;
+   }
+   #chooseId #showModel #model_hat{
+    position: absolute;
+    left: 0;
+    top: -10px;
    }
     .steps{
         display: flex;
@@ -584,7 +603,6 @@ body{
         width: 100px;
         margin: 5%;
         box-shadow: 5px 10px 5px #aaa;
-
     }
     #step2{
         display: block;
@@ -594,9 +612,15 @@ body{
         width: 100px;
         margin: 5%;
     }
+
+
+
+
+
+    /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        filter: grayscale(100%);
+        /* filter: grayscale(100%); */
     }
     #step3 img{
         width: 100px;
@@ -611,9 +635,7 @@ body{
         border-radius: 20px;
         box-shadow: 5px 10px 10px #aaa;
         background:linear-gradient(-45deg,rgba(240,92,121,1),rgba(125,164,203,1));
-        /* animation: upndown 3s infinite; */
-        /* border:4px solid coral; */
-        /* opacity: 0; */
+
     }
     .bulletin img{
         width: 15%;
@@ -639,9 +661,12 @@ body{
     .controlBar{
         width: 40px;
         height: 300px;
+        position: absolute;
+        left: 27vw;
+        top: 40vh;
         display: flex;
         flex-direction: column;
-        display: none;
+        /* display: none; */
 
     }
     .color{
@@ -655,7 +680,7 @@ body{
     #red{ background-color:crimson;}
     #coral{background-color: coral;}
     #yellow{background-color: gold;}
-    #blue{background-color:skyblue;}
+    #blue{background-color:rgb(68, 176, 219);}
     #green{background-color: seagreen;}
     #black{background-color: black;}
     .preCanvas{
@@ -665,15 +690,14 @@ body{
         cursor: cell;
         position: absolute;
         left: 0;top: 0;
-        border: 5px solid rgba(240,92,121,.7);
-        display: none;
-       
+        z-index: 1;
+        /* border: 5px solid rgba(240,92,121,.7); */
+        /* display: none;        */
     }
     .preview{
         width: 350px;
         height: 350px;
         border: 5px solid rgba(240,92,121,.7);
-
         background-color: #ffffff;
     }
     .preview img{
@@ -681,7 +705,7 @@ body{
         height: 100%;
         position: absolute;
         top: 0;        
-        border: 5px solid rgba(240,92,121,.7);
+        /* border: 5px solid rgba(240,92,121,.7); */
         left: 0;
     }
     .upload img{
@@ -689,54 +713,104 @@ body{
         margin-left: 23%;
         margin-bottom: 10%;
     }
-    .mkPhoto .drawing #upBtn,#chooseBtn{ 
+
+    /* btn 按鈕：上傳 選擇朋友 */
+    .mkPhoto .drawing .upload #upBtn{
         display: block;
         margin-top: 10%;
         margin-left: 20%;
-
-    }
-    .upload #upBtn{
-        display: block;
     }
     #chooseBtn{
         display: none;
+        margin-top: 10%;
+        margin-left: 20%;
     }
-    /* 下一步 btn */
+    /* btn :下一步  */
     .next span{
         display: block;
         margin-top: 0%;
         margin-left: 20%;
         margin-right: 10%;
     }
-    /* 上一步 btn */
+    /* btn 上一步  */
     .back span{
-        /* position: absolute;
-        right: 17.5%;
-        top: 60%; */
         display: none;
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
         /* margin-top: 150%; */
-        margin-bottom: 0%;
+        margin-bottom: 20px;
         margin-left: 20%;
         margin-right: 10%;
-        border-radius: 10px;
         background: #aaa;
-        box-shadow: 3px 5px 1px #797979;
+        box-shadow: 0 1vh #797979;
+        text-align: center;
+        line-height: 1.6;
+        color: #fff;
+        z-index: 30;
+        border-radius: 30px;
     }
+
+/* 提示燈箱 */
+    #shareHint{
+        position: absolute;
+        top: 45%;
+        left: 37%;
+        width: 30vw;
+        height: 20vh;
+        z-index: 30;
+        border-radius: 12px;
+        background-color: #E5E2DD;
+      }
+      /* btn 關閉提示燈箱按鈕 */
+      #sureClose{
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        width: 80px;
+        height: 30px;
+        cursor:pointer;
+        text-align: center;
+        line-height: 1.6;
+        font-size: 14px;
+        color: #fff;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
+      }
+
+/* btn style :上傳 選擇朋友 下一步 分享照片  */
     .upload span,#friendBox span,.next span,#sharePhoto{
         cursor: pointer;
         width: 80px;
         padding: 10px 20px;
+        text-align: center;
+        line-height: 1.6;
         color: #fff;
-        background: rgba(240,92,121,1);
-        box-shadow: 3px 5px 1px rgba(200,78,106,1);
-        border-radius: 10px;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
+        margin-bottom: 20px;
+    }
+    input[type=button]{
+        margin-left: 20%;
+        cursor: pointer;
+        width: 80px;
+        padding: 10px 20px;
+        text-align: center;
+        line-height: 1.6;
+        color: #fff;
+        z-index: 30;
+        background-color: #E15974;
+        box-shadow: 0 1vh #C64D6A;
+        border-radius: 30px;
         margin-bottom: 20px;
     }
     #sharePhoto{
-        display: none;
+        width: 130px;
+        margin-left: 20%
     }
     .mkPhoto a:hover,input:hover{
         background-color: rgba(200,78,106,1);
@@ -744,21 +818,21 @@ body{
 
 /* ipad RWD */
 @media screen and (max-width: 768px){
-    .wrap{
+    .wrap1{
         width: 100%;
         height: 140vh;
     }
-    .wrap .trophy{  
+    .wrap1 .trophy{  
         width: 40%;}
-    .wrap .trophy h2{
+    .wrap1 .trophy h2{
         font-size: 1rem;
     }
-    .wrap .clouds2{   
+    .wrap1 .clouds2{   
         display: none;}
-    .wrap .clouds1{  
+    .wrap1 .clouds1{  
         position: fixed; 
         width: 150%;}
-    .wrap .clouds1 img{    
+    .wrap1 .clouds1 img{    
         width: 100%;}
     .col3{
         display: flex;
@@ -843,25 +917,97 @@ body{
     }
     .steps{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
-    .drawing{
-        display: flex;
-        flex-direction: column;
-    }
-    .mkPhoto .drawing .upload span{
-        margin-top: 0;
-        margin-left: 0px;
-    }
-    .mkPhoto .drawing .next span{
-        margin-top: 20px;
-        margin-left: 0px;
+    #exit{
+        position: absolute;
+        top: 4vh;
+        right: 2vw;
 
     }
-    .preview{
+    .drawing{
+        display: block;
+        position: relative;
+        left: 27vw;
+    }
+
+    /* 登入會員 紙娃娃 */
+    #chooseId #showModel{
+        width: 19%;
         position: absolute;
-        left: 7.7%;
-        top: 22.3%;
+        z-index: 1;
+        left: 13%;
+        top: 42%;
+    }
+    .controlBar{
+        position: absolute;
+        left: -7vw;
+        top: 11vh;
+
+    }
+    /* #canvas{
+        margin-top: 10vh; 
+    } */
+    .btns{
+        display: flex;
+        flex-direction: row;
+    }
+    .mkPhoto .drawing .upload #upBtn{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0;
+        margin-right: 30px;
+    }
+    .mkPhoto .drawing .next span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .preCanvas{
+        width: 350px;
+        height: 350px;
+        margin-top: 7vh;
+    }
+    .back span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    #friendBox span{
+        width: 95px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    #sharePhoto{
+        width: 150px;
+        padding: 10px 10px;
+        margin-top: 30px;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+    /* 選擇朋友燈箱 */
+    #friend_LightBox{
+        width: 45%;
+        position: absolute;
+        top: 15%;
+        left: 0%;
+        z-index: 3;
+    }
+    /* 提示 已分享至照片牆 */
+    #shareHint{
+        position: absolute;
+        top: 45%;
+        left: 37%;
+        width: 30vw;
+        height: 20vh;
+
     }
     /* 燈箱 */
     #LB,#cardLB{
@@ -891,34 +1037,34 @@ body{
         right: 2vw;
         top: 2vh;
     }
-    
+
 }
 
 /* phone RWD */
 @media screen and (max-width: 476px){
-    .wrap{
+    .wrap1{
         width: 100%;
         height: 172vh;
         padding-top: 20px;
         padding-bottom: 50px;
         position: relative;
     }
-    .wrap .clouds2{
+    .wrap1 .clouds2{
         display: none;
     }
-    .wrap .clouds1,.wrap .clouds2{
+    .wrap1 .clouds1,.wrap1 .clouds2{
         width: 150%;
     }
-    .wrap .clouds1 img, .wrap .clouds2 img{
+    .wrap1 .clouds1 img, .wrap1 .clouds2 img{
         width: 100%;
         position: fixed;
     }
-    .wrap .trophy{
+    .wrap1 .trophy{
         width: 55%;
         margin-left: 17%;
         margin-bottom: 20px;
     }
-    .wrap .trophy h2{
+    .wrap1 .trophy h2{
         width: 150px;
         padding: 4px;
         margin-left: 5px;
@@ -1014,12 +1160,23 @@ body{
         display: none;
     }
     #exit{
+        width: 45px;
         position: absolute;
         right: 10px;
         top: 10px;
     }
+    .controlBar {
+        position: absolute;
+        left: 14vw;
+        top: 10vh;
+    }
+    .preCanvas{
+        width: 350px;
+        height: 350px;
+        margin: auto;
+    }
     #canvas{
-        margin-left: 36px;
+        margin-left: 0px;
     }
     .btns{
         display: flex;
@@ -1028,71 +1185,103 @@ body{
     .mkPhoto .drawing span{
         font-size: 14px;
         padding: 10px 10px;
-
     }
     .back span{
         width: 90px;
         position: unset;
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 10px;
     }
     #sharePhoto{
-        width: 90px;
-        margin-top: 360px;
-        margin-left: 20px;
+        width: 130px;
+        margin-top: 60px;
+        margin-left: 0px;
     }
-    .mkPhoto .drawing #upBtn,#chooseBtn,#friendBox span{
+    .mkPhoto .drawing .upload #upBtn,#chooseBtn,#friendBox span{
         width: 90px;
         padding: 10px 10px;
-
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 10px;
     }
     .btns a{
-        margin-top: 360px;
+        margin-top: 20px;
     }
     .steps{
+        width: 300px;
+        height: 110px;
+        margin: auto;
         display: flex;
         flex-direction: row;
     }
-    .step1{
-        width: 100px;
+    .step{
+        margin: 6%;
     }
     .drawing{
         position: relative;
         display: block;
+        left: 0;
     }
-    .controlBar{
+    /* .controlBar{
         position: absolute;
         left: 0;top: 12px;
+    } */
+    #chooseId #showModel{
+        width: 35%;
+        position: absolute;
+        left: 33vw;
+        top: 25vh;
+    }
+    #friend_LightBox{
+        width: 65%;
+        position: absolute;
+        top: 10vh;
+        left: 15vw;
     }
     .controlBar .colorPack{
+        width: 350px;
+        height: 50px;
+        position: absolute;
+        top: 45vh;
+        left: -1vw;
 
-        width: 40px;
-        height: 40px;
+        display: flex;
+        flex-direction: row;
+    }
+    .controlBar .colorPack .color{
+        margin: 0%;
     }
     .controlBar .reset{
         width: 40px;
-        margin: 10%;
+        margin: 0%;
         cursor: pointer;
 
     }
     .mkPhoto .drawing .upload span{
         width: 90px;
-        margin-top: 0;
-        margin-left: 0px;
+        margin-top: 60px;
+        margin-left: 15px;
     }
     .mkPhoto .drawing .next span{
         width: 90px;
-        margin-top: 360px;
-        margin-left: 20px;
+        margin-top: 60px;
+        margin-left: 10px;
     }
     /* .preview{
         position: absolute;
         left: 7.7%;
         top: 22.3%;
     } */
-
+    /* 提示燈箱：已分享合照至塗鴉牆  */
+    #shareHint{
+        width: 40vw;
+        position: absolute;
+        left: 30vw;
+        top: 20vh;
+    }
+    #sureClose{
+        position: absolute;
+        top: 12vh;
+    }
     /* 燈箱 */
     #LB,#cardLB{
         position: absolute;
