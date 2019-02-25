@@ -1,12 +1,10 @@
 <?php
 session_start();
-$_SESSION["loginMem"]['Id'] = 'An';
-
 //連線資料庫
 $errMsg = "";
 try {
 	require_once("connectBooks.php");
-    $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=1 order by p.vote desc";
+    $sql = "select * from picture p join member m on p.po_memNo = m.memNo where p.pic_cateNo=1 order by p.vote desc";
  	$photo = $pdo->query($sql); 
 } catch (PDOException $e) {
 	$errMsg .= "錯誤 : ".$e -> getMessage()."<br>";
@@ -34,7 +32,7 @@ try {
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/drawing-2.js"></script>
-    <script src="js/chooseFriend.js"></script>
+    <!-- <script src="js/chooseFriend.js"></script> -->
     <script src="js/photolightbox.js"></script>
     <script src="js/vote.js"></script>
 </head>
@@ -111,13 +109,13 @@ try {
                         <img  src="images/choiceBg-23.png" alt="chooseBg">
                         <h3>Step 1 選擇背景</h3>
                 </div>
-                <!-- <div class="step" id="step2">
+                <div class="step" id="step2">
                     <img src="images/chooseFriend-24.png" alt="chooseFriend">
                     <h3>Step 2 選擇朋友</h3>
-                </div> -->
+                </div>
                 <div class="step" id="step3">
                     <img src="images/colorPen-25.png" alt="colorPen">
-                    <h3>Step 2 編輯塗鴉</h3>
+                    <h3>Step 3 編輯塗鴉</h3>
                 </div>
             </div>
             <div class="bulletin">
@@ -137,7 +135,6 @@ try {
                     <div id="content_friendBox">
                         <input type="text" id="searchBox" placeholder="搜尋朋友ID">
                         <div id="chooseBox">
-
                         </div>
                     </div>
                 </div>
@@ -220,32 +217,27 @@ try {
                     </div>
                     <label> 
                         <div class="upload">
-                            <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
                             <span id="upBtn">上傳背景</span>
                             <input style="width:'30px'; " type="file" id="upFile" name="upFile" hidden>
                         </div> 
                     </label>
-                    <!-- <label id="friendBox">
+                    <label id="friendBox">
                         <span id="chooseBtn">選擇朋友</span>
-                    </label> -->
+                    </label>
                     
-                    <!-- <div class="next" >                
-                        <span id="next">編輯塗鴉</span>
-                    </div> -->
+                    <div class="next" >                
+                        <span id="next">選擇朋友</span>
+                    </div>
                     <!-- 下載照片 -->
                     <input type="button" value="下載照片" onclick="saveImage()" />
                     <form id="addPic" method="post" enctype="multipart/form-data">
                     <label>
                     <div class="upload">
-                        <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
                         <span id="sharePhoto" style="display:block">發佈至投票區</span>
                         <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
                     </div> 
                     </label>
                     </form>
-                    <!-- <div id="shareHint" style="display:none">已分享合照至塗鴉牆! -->
-                    <!-- 確定後燈箱消失 -->
-                        <!-- <div id="sureClose">確定</div> -->
                     </div>
                 </div>
             </div>
@@ -315,14 +307,14 @@ try {
 <?php
 	}
 ?>   
-                <!-- <div id="myPhoto">
+                <div id="myPhoto">
                     <a href="#">
                         <img src="images/myPhoto-30.png" alt="photo">
                         <h3>我的相片</h3>
                     </a>
-                </div> -->
+                </div>
 <?php
-    $sql = "select * from picture p join member m on p.memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
+    $sql = "select * from picture p join member m on p.po_memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
     $photo = $pdo->query($sql); 
 ?>
 <?php	
@@ -362,7 +354,7 @@ try {
 	}
 ?>   
             <div class="clear"></div>        
-            // <!-- <div id="cardLB" class="照片id ex:card-photo7">
+             <!-- <div id="cardLB" class="照片id ex:card-photo7">
             //     <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
             //     <div id="left">%%</div>
             //     <div id="right">>></div>

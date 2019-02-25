@@ -124,14 +124,7 @@ body{
     left: 35%;
     top: 20%;
 }
-/* #LB .winnerPhoto img{
-    width:80%;
-    padding: 2%;
-    margin: auto;
-    border-radius: 10px;
-    vertical-align:middle;
 
-} */
 #LB .topPhoto ,#cardLB .cardPhoto{
     width: 94%;
     padding: 3%;
@@ -250,6 +243,10 @@ body{
   .top .member,.card .member{
     width: 18%;
     margin-left: 4%;
+    display: inline-block;
+  }
+  .headBox{
+      top: 10px;
   }
   .top .topheart,.card .heart{
     width: 12%;
@@ -265,7 +262,6 @@ body{
     color: rgba(102,102,102,1);
   }
   .top:hover,.card:hover{
-    /* box-shadow: 5px 10px 5px #aaa; */
     transform: translateY(5px);
     transition: .5s;
 
@@ -279,7 +275,7 @@ body{
   .content .aji{
       width: 20%;
       position: absolute;
-      top: 53%;
+      top: 18%;
       left: 20%;
       display: inline-block;
   }
@@ -287,7 +283,7 @@ body{
       width: 20%;
       position: absolute;
       left: 20%;
-      top: 53%;
+      top: 18%;
       display: inline-block;
   }
   .content .aji:hover{
@@ -496,7 +492,7 @@ body{
     #friend_LightBox {
         width: 25%;
         position: absolute;
-        top: 35%;
+        top: 30%;
         left: 5%;
         z-index: 3;
     }
@@ -608,15 +604,9 @@ body{
         width: 100px;
         margin: 5%;
     }
-
-
-
-
-
-    /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        /* filter: grayscale(100%); */
+        filter: grayscale(100%);
     }
     #step3 img{
         width: 100px;
@@ -631,7 +621,6 @@ body{
         border-radius: 20px;
         box-shadow: 5px 10px 10px #aaa;
         background:linear-gradient(-45deg,rgba(240,92,121,1),rgba(125,164,203,1));
-
     }
     .bulletin img{
         width: 15%;
@@ -662,7 +651,7 @@ body{
         top: 40vh;
         display: flex;
         flex-direction: column;
-        /* display: none; */
+        display: none;
 
     }
     .color{
@@ -759,7 +748,7 @@ body{
         background-color: #E5E2DD;
       }
       /* btn 關閉提示燈箱按鈕 */
-      #sureClose{
+    #sureClose{
         position: absolute;
         top: 40%;
         left: 25%;
@@ -774,7 +763,7 @@ body{
         background-color: #E15974;
         box-shadow: 0 1vh #C64D6A;
         border-radius: 30px;
-      }
+    }
 
 /* btn style :上傳 選擇朋友 下一步 分享照片  */
     .upload span,#friendBox span,.next span,#sharePhoto{

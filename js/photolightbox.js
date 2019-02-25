@@ -25,8 +25,8 @@ function topLB(e){
     divMem.className="member";
     divMem.className="headBox";
     divMem.id="stickerLB";
-    divMem.style = parent.children[3].style;
-    alert(parent.className);
+    // divMem.style = parent.children[3].style;
+    // alert(parent.className);
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
@@ -93,14 +93,14 @@ function cardLB(e){
     divMem.className="member";
     divMem.className="headBox";
     divMem.id="stickerLB";
-    divMem.src=e.target.parentNode.children[1].src;
+    divMem.src=e.target.parentNode.children[5].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=e.target.parentNode.children[3].innerText;
+    aMem.innerText=e.target.parentNode.children[7].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[5].innerText;
+    spanVote.innerText=e.target.parentNode.children[9].innerText;
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
     imgHeart.className="heart";

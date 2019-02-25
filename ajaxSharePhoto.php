@@ -24,14 +24,14 @@ try{
       default : 
         echo "['error']: " , $_FILES['addPic']['error'] , "<br>";
     }
-    $sql = "insert into picture (memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2,0,:time, :src, :text )";
+    $sql = "insert into picture (po_memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2,0,:time, :src, :text )";
     $pic = $pdo -> prepare($sql);
     $pic -> bindValue(":time", date("Y-m-d H:i:s"));
     $pic -> bindValue(":src", $to);
     $pic -> bindValue(":text", "abc");
     $pic -> execute();
     $picNo = $pdo -> lastInsertId();
-    $sql = "select * from picture p join member m on p.memNo = m.memNo where p.picNo = {$picNo}";
+    $sql = "select * from picture p join member m on p.po_memNo = m.memNo where p.picNo = {$picNo}";
     $pictures = $pdo -> query($sql);
     $photoRow = $pictures -> fetch();
 
