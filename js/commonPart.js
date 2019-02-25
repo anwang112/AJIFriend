@@ -366,14 +366,11 @@ function foot_html() {
 	    <!-- 聊天室收合左側欄  -->
 	    <label for="" id="closeLabel"><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
 	    <div id="chatboxLeft" class="chatboxLeft">
-	        <input id="search_input" type="text" placeholder="搜尋好友">
+	        <p style="color:rgba(240,92,121,1);;text-align:left;margin:5px 15px">麻吉聊起來</p>
 	        <div class="friendbox">
-				<label class="friendClick">
-					<div id="admin">
-						<img src="shop-images/gift.png" class="friendClick">
-					</div>
-					<p class="friendClick">管理員</p>
-				</label>
+				<span>
+
+				</span>
 	        </div>
 			<div id="replybox">
 				<p id="replyboxTitle">回覆好友邀請</p>
