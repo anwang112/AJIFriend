@@ -30,7 +30,7 @@ function head_html() {
                 <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="photo.php">照片牆</a></li>
                 <li><a href="myRoom_v2.php">我的窩</a></li>
             </ul>
 			<div class="loginBox">
@@ -95,8 +95,8 @@ function head_html() {
                 <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-				<li><a href="photo.html">照片牆</a></li>
-				<li><a id="head_member_icon" href="myRoom.html">我的窩</a></li>
+				<li><a href="photo.php">照片牆</a></li>
+				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
                 <li><a href="#">登入</a></li>
                 
             </ul>

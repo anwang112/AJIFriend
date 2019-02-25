@@ -276,11 +276,15 @@ session_start();
         $('.gameClose').click(function(){
             $('.game').hide();
             $('.gameMask').hide();
+            window.location.reload();
         });
 
         $id("btnloto").onclick = function(){
             if(!storage.getItem("last_play")){
                 money = rand(10, 50) * 10;
+                loto(money);
+            }else if(storage.getItem("last_play") == 'null'){
+                 money = rand(10, 50) * 10;
                 loto(money);
             }else if( nowDay > storage.getItem("last_play")){
                 money = rand(10, 50) * 10;

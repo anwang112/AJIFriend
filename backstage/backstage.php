@@ -42,7 +42,7 @@ try {
 <body>
     <!-- Just an image -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="backStage.php">
+        <a class="navbar-brand" href="backStage.html">
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -118,6 +118,36 @@ try {
                         <?php 
                     } ?>
 
+                        <tr id="createAdminWrap" style="display:none;">
+                            <th scope="row">
+                                <label>
+                                    <span>管理員</span>
+                                    <input type="text" required>
+                                </label>
+                            </th>
+                            <td>
+                                <label>
+                                    <span>帳號</span>
+                                    <input type="text" required>
+                                </label>
+
+                            </td>
+                            <td>
+                                <label>
+                                    <span>密碼</span>
+                                    <input type="text" required>
+                                </label>
+
+                            </td>
+                            <td>
+                            <input type="button" value="送出" id="adminSendBtn">
+
+                            </td>
+                        
+                        </tr>
+
+
+
                     </tbody>
                 </table>
             </div>
@@ -125,23 +155,6 @@ try {
     </div>
 
 
-    <div id="createAdminWrap" style="display:none;">
-        <form>
-            <label>
-                <span>管理員</span>
-                <input type="text" required>
-            </label>
-            <label>
-                <span>帳號</span>
-                <input type="text" required>
-            </label>
-            <label>
-                <span>密碼</span>
-                <input type="text" required>
-            </label>
-            <input type="button" value="送出" id="adminSendBtn">
-        </form>
-    </div>
 
 
     <script>
@@ -219,7 +232,7 @@ try {
         }
 
         createAdmin.addEventListener('click', (e) => {
-            createAdminWrap.style.display = "block";
+            createAdminWrap.style.display = "contents";
         })
         adminSendBtn.addEventListener('click', (e) => {
             changeAdminFunction({

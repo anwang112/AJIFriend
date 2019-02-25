@@ -330,13 +330,13 @@ indexInit = () => {
         // const donutTitle = document.querySelector('.donut-title');
 
         // 放好人物
-        ooxxGetRole($id('trojanItemRole01'), { animal: 1, color: '00aa99', eyes: 1, hat: 1, clothes: 1, });
-        ooxxGetRole($id('trojanItemRole02'), { animal: 2, color: '118899', eyes: 5, hat: 2, clothes: 3, });
-        ooxxGetRole($id('trojanItemRole03'), { animal: 4, color: 'aabbff', eyes: 4, hat: 1, clothes: 1, });
-        ooxxGetRole($id('trojanItemRole04'), { animal: 1, color: '880022', eyes: 3, hat: 2, clothes: 2, });
-        ooxxGetRole($id('trojanItemRole05'), { animal: 3, color: '2277cc', eyes: 1, hat: 2, clothes: 1, });
-        ooxxGetRole($id('trojanItemRole06'), { animal: 2, color: '4acc99', eyes: 2, hat: 2, clothes: 2, });
-        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 4, hat: 1, clothes: 3, });
+        ooxxGetRole($id('trojanItemRole01'), { animal: 1, color: '00aa99', eyes: 1, hat: 'hat1.png', clothes: 'clothes1.png', });
+        ooxxGetRole($id('trojanItemRole02'), { animal: 2, color: '118899', eyes: 5, hat: 'hat2.png', clothes: 'clothes2.png', });
+        ooxxGetRole($id('trojanItemRole03'), { animal: 4, color: 'aabbff', eyes: 4, hat: 'hat3.png', clothes: 'clothes3.png', });
+        ooxxGetRole($id('trojanItemRole04'), { animal: 1, color: '880022', eyes: 3, hat: 'hat4.png', clothes: 'clothes4.png', });
+        ooxxGetRole($id('trojanItemRole05'), { animal: 3, color: '2277cc', eyes: 1, hat: 'hat5.png', clothes: 'clothes5.png', });
+        ooxxGetRole($id('trojanItemRole06'), { animal: 2, color: '4acc99', eyes: 2, hat: 'hat6.png', clothes: 'clothes6.png', });
+        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 4, hat: 'hat8.png', clothes: 'clothes7.png', });
 
         const circle = document.getElementById("circle");
         const showCircle = document.getElementById('showCircle');
@@ -400,7 +400,7 @@ indexInit = () => {
             },
             {
                 name: "An",
-                star: "博愛座",
+                star: "觸女座",
                 hobby: "抓寶可夢"
             }
             ,
@@ -552,8 +552,8 @@ indexInit = () => {
             animal: 1,
             color: '50423B',
             eyes: 1,
-            hat: ooxxRandom(1, 2),
-            clothes: ooxxRandom(1, 3),
+            hat: `hat${ooxxRandom(1, 15)}.png`,
+            clothes: `clothes${ooxxRandom(1, 15)}.png`,
         })
         lightOpen = 0;
 
@@ -681,7 +681,7 @@ indexInit = () => {
                 PhotoInfoRed.style.opacity = `0`;
                 PhotoInfo.style.opacity = `1`;
                 indexPhotoPaper.style.transform = `rotate(9deg) translateY(20%)`;
-                PhotoInfo.style.right = `-9%`;
+                PhotoInfo.style.right = `-6.3%`;
                 PhotoInfo.style.transform = `rotate(9deg) translateY(20%)`;
                 // fourthScreenFunction();
             }
@@ -1031,9 +1031,9 @@ indexInit = () => {
                 $('#alertText').text('註冊成功!');
                 $('.alertWrap').show();
                 $id('createMemberScreen').display = 'none';
-                sendForm($id('memId').value,$id('memPsw').value);
+                sendForm($id('memId').value, $id('memPsw').value);
                 // 更新登入者面板
-                document.getElementsByClassName("loginContent")[0].style.display="";
+                document.getElementsByClassName("loginContent")[0].style.display = "";
 
                 ooxxGetHead($id("loginHead"), {
                     animal: storage.getItem("animal"),
@@ -1042,14 +1042,16 @@ indexInit = () => {
                 });
                 $id("memName").innerText = $id('mName').value;
                 $id("memMJ").innerText = 0;
-                
+
                 $id('createMemberScreen').style.display = 'none';
             }
             createxhr.open("Post", "setUpMember.php", true);
             createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
         })
-
+        $id('createMemberScreenCloseBtn').addEventListener('click', () => {
+            $id('createMemberScreen').style.display = 'none';
+        })
     }
     createMember();
 
