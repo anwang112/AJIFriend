@@ -681,7 +681,7 @@ indexInit = () => {
                 PhotoInfoRed.style.opacity = `0`;
                 PhotoInfo.style.opacity = `1`;
                 indexPhotoPaper.style.transform = `rotate(9deg) translateY(20%)`;
-                PhotoInfo.style.right = `-9%`;
+                PhotoInfo.style.right = `-6.3%`;
                 PhotoInfo.style.transform = `rotate(9deg) translateY(20%)`;
                 // fourthScreenFunction();
             }
@@ -1031,9 +1031,9 @@ indexInit = () => {
                 $('#alertText').text('註冊成功!');
                 $('.alertWrap').show();
                 $id('createMemberScreen').display = 'none';
-                sendForm($id('memId').value,$id('memPsw').value);
+                sendForm($id('memId').value, $id('memPsw').value);
                 // 更新登入者面板
-                document.getElementsByClassName("loginContent")[0].style.display="";
+                document.getElementsByClassName("loginContent")[0].style.display = "";
 
                 ooxxGetHead($id("loginHead"), {
                     animal: storage.getItem("animal"),
@@ -1042,14 +1042,16 @@ indexInit = () => {
                 });
                 $id("memName").innerText = $id('mName').value;
                 $id("memMJ").innerText = 0;
-                
+
                 $id('createMemberScreen').style.display = 'none';
             }
             createxhr.open("Post", "setUpMember.php", true);
             createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
         })
-
+        $id('createMemberScreenCloseBtn').addEventListener('click', () => {
+            $id('createMemberScreen').style.display = 'none';
+        })
     }
     createMember();
 

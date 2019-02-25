@@ -17,29 +17,90 @@ html {
     position: relative;
     body {
         overflow: hidden;
+        position: relative;
     }
 }
 
 // 共通部分
 .indexTitle {
+    box-sizing: border-box;
     position: relative;
-    padding: 0 0 20px 0;
+    padding: 0 20px 20px 20px;
     color: #EF5C79;
     text-align: center;
     h2 {
         text-align: center;
         font-weight: 600;
         font-size: 2.5rem;
-        @media only screen and (min-width: 768px) {
-            padding: 25px;
-        }
+    }
+}
+
+.secondPhoneIndexA {
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 20px 20px 20px;
+    color: #EF5C79;
+    text-align: center;
+    @media only screen and (min-width: 768px) {
+        display: none;
     }
     a {
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.5rem;
+    }
+}
+
+.thirdPhoneIndexA {
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 20px 20px 20px;
+    color: #EF5C79;
+    text-align: center;
+    @media only screen and (min-width: 768px) {
         display: none;
-        line-height: 35px;
-        @media only screen and (min-width: 768px) {
-            display: inline-block;
-        }
+    }
+    a {
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.5rem;
+    }
+}
+
+.indexA {
+    color: #EF5C79;
+}
+
+//燈箱
+.indexLightBoxWrap {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+    display: none;
+    z-index: 20;
+    .indexLightBox {
+        min-width: 620px;
+        width: 60%;
+        height: 450px;
+        margin: auto;
+        background-color: #a2988f;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+        position: absolute;
+        top: 15%;
+        z-index: 21;
+        transition: .5s;
+        left: 0;
+        right: 0;
     }
 }
 
@@ -220,6 +281,7 @@ html {
                 width: 12%;
                 min-width: 85px;
                 height: 5%;
+                font-size: 1rem;
                 @media only screen and (min-width: 768px) {
                     right: 16.5%;
                     bottom: 18%;
@@ -326,7 +388,7 @@ html {
     @media only screen and (min-width: 768px) {
         height: auto;
         width: 100%;
-        max-width: 1200px;
+        width: 1230px;
         margin: auto;
     }
     .cls-1 {
@@ -387,6 +449,9 @@ html {
     @include wrap();
     background-color: #ECDED9;
     padding-bottom: 50px;
+    @media only screen and (min-width: 768px) {
+        padding-bottom: 132px;
+    }
     .secondScreenSlider {
         width: 95%;
         margin: auto;
@@ -456,7 +521,7 @@ html {
                 bottom: 10%;
                 @media only screen and(min-width: 768px) {
                     width: 100%;
-                    bottom: -15%;
+                    bottom: -18%;
                     right: 0;
                 }
             }
@@ -471,7 +536,7 @@ html {
                     width: 300px;
                     height: 300px;
                     position: absolute;
-                    top: 9%;
+                    top: 20%;
                 }
                 #circleProcess {
                     position: relative;
@@ -524,16 +589,23 @@ html {
         }
         .secondTitle {
             width: 100%;
-            padding: 20px;
+            display: none; // padding: 20px;
             text-align: center;
             @media only screen and (min-width: 768px) {
-                width: 50%;
+                width: 100%;
+                display: block;
+                position: absolute;
+                top: 20px;
+                text-align: left;
             }
             h2 {
                 position: relative;
                 padding: 0 0 20px 0;
                 color: #EF5C79;
                 font-size: 2.5rem;
+                @media only screen and (min-width: 768px) {
+                    text-align: left;
+                }
             }
         }
     }
@@ -566,7 +638,7 @@ html {
             .shopEnergy {
                 position: absolute;
                 left: 0;
-                top: 15%;
+                top: 8%;
                 #energy {
                     width: 40%;
                 }
@@ -626,6 +698,16 @@ html {
                     width: 45%;
                 }
             }
+            .shopTitle {
+                display: none;
+                @media only screen and (min-width: 768px) {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
+            }
         }
         .showShop {
             padding: 30px 0;
@@ -639,7 +721,7 @@ html {
                 top: 2%;
                 width: 18%;
                 @media only screen and (min-width: 768px) {
-                    left: 54%;
+                    left: 64%;
                     top: 0%;
                 }
                 #indexModel {
@@ -649,19 +731,10 @@ html {
                     transition: .8s;
                 }
             }
-            .shopTitle {
-                @media only screen and (min-width: 768px) {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-end;
-                }
-            }
             #shop {
                 transform: translateX(10%);
                 @media only screen and (min-width: 768px) {
-                    transform: translateX(20%);
+                    transform: translateX(30%);
                 }
             }
             h2 {
@@ -712,9 +785,10 @@ html {
                 width: 90%;
             }
             #indexPhotoPaper {
-                width: 32%;
-                right: 2%;
-                bottom: 2%;
+                width: 32%; // right: 2%;
+                // bottom: 2%;
+                right: 5%;
+                bottom: 8%;
                 transition: 1.4s;
                 position: absolute;
                 transform-origin: center;
@@ -731,9 +805,10 @@ html {
             #PhotoInfo {
                 position: absolute;
                 width: 51%;
-                display: block;
-                bottom: 3%;
-                right: -8%;
+                display: block; // bottom: 3%;
+                // right: -8%;
+                bottom: 9%;
+                right: -5%;
                 opacity: 0;
                 transition: 1.6s;
                 transform-origin: center;
@@ -743,7 +818,7 @@ html {
         #lineStory {
             position: absolute;
             left: 10%;
-            top: 15%;
+            top: 12%;
             width: 51%;
             .cls-1 {
                 fill: none;
@@ -833,11 +908,16 @@ html {
                 width: 50%;
             }
             @media only screen and (min-width: 976px) {
-                @include absolute(bottom, 0);
+                @include absolute(bottom, 10%);
+                position: absolute;
+                z-index: 2;
             }
         }
         .signList {
             position: relative;
+            background-image: url("../images/indexImages/indexgrassArray.svg");
+            background-repeat: no-repeat;
+            background-position: left;
             @media only screen and (min-width: 768px) {
                 width: 50%;
             }
@@ -853,7 +933,8 @@ html {
                     display: none;
                     @media only screen and (min-width: 976px) {
                         display: block;
-                        @include absolute(top, 0);
+                        @include absolute(top,
+                        0);
                     }
                 }
                 &:nth-of-type(1) {
@@ -880,7 +961,8 @@ html {
                     width: 30%;
                 }
                 .activityphoto {
-                    @include absolute(top, -7px);
+                    @include absolute(top,
+                    -7px);
                     left: 2%;
                     position: absolute;
                     width: 92%;
@@ -1068,6 +1150,7 @@ html {
                 flex: 1;
                 flex-direction: column;
                 justify-content: center;
+                overflow-y: scroll;
                 @media only screen and (min-width: 400px) and (max-width: 830px) {
                     overflow-y: scroll;
                 }
