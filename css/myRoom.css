@@ -400,6 +400,7 @@ body input {
 #myRole {
     display: block;
     width: 100%;
+    z-index: 4;
 }
 
 #myRole img {
@@ -761,6 +762,11 @@ body input {
 .activity:hover .act_hoverBox {
     top: 0px;
 }
+
+.act_hoverBox .spanbox span{
+    margin: 10px;
+}
+
 
 .act_hoverBox button {
     width: 25%;

@@ -24,8 +24,10 @@ session_start();
         //上傳檔案處理
     
         $from = $_FILES["act_holdActFile"]["tmp_name"];
-        $to = "../images/" . $_FILES["act_holdActFile"]["name"];
+        $to = "images/" . $_FILES["act_holdActFile"]["name"];
         copy($from,$to);
+        // echo $from."<br>";
+        // echo $actImg." /////OK~?????";
         header('Location:activity_v2.php');
 
     } catch (PDOException $e) {

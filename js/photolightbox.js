@@ -66,20 +66,20 @@ function closeTop(){
     wrap1.removeChild(divBg);
 }
 // card的燈箱
-function cardLB(e){
-    console.log(e.target);
-    if( e.target.className.includes('card') ==  false){
-        var parent = e.target.parentNode;
-    }else{
-        var parent = e.target;
-    }
-    // 創建div
-    var divBg=document.createElement("div");
-    var divCard=document.createElement("div");
-    var postArea=document.getElementsByClassName("postArea")[0];
-    divCard.className="card-" +e.target.parentNode.id ;
-    divCard.id="cardLB" ;
-    divBg.id="cardLBbg";
+// function cardLB(e){
+//     console.log(e.target);
+//     if( e.target.className.includes('card') ==  false){
+//         var parent = e.target.parentNode;
+//     }else{
+//         var parent = e.target;
+//     }
+//     // 創建div
+//     var divBg=document.createElement("div");
+//     var divCard=document.createElement("div");
+//     var postArea=document.getElementsByClassName("postArea")[0];
+//     divCard.className="card-" +e.target.parentNode.id ;
+//     divCard.id="cardLB" ;
+//     divBg.id="cardLBbg";
     
 
     // 創建img 獲獎照片
@@ -135,7 +135,7 @@ function cardLB(e){
     divCard.appendChild(imgClose);
     divCard.appendChild(imgDel);
 
-}
+
 function closeCard(){
     var postArea=document.getElementsByClassName("postArea")[0];
     var divBg=document.getElementById("cardLBbg");

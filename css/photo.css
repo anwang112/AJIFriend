@@ -277,7 +277,7 @@ body{
       position: absolute;
       top: 18%;
       left: 20%;
-      display: inline-block;
+      display: none;
   }
   .content .ajiY{
       width: 20%;
@@ -604,9 +604,15 @@ body{
         width: 100px;
         margin: 5%;
     }
+
+
+
+
+
+    /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        filter: grayscale(100%);
+        /* filter: grayscale(100%); */
     }
     #step3 img{
         width: 100px;
@@ -651,7 +657,7 @@ body{
         top: 40vh;
         display: flex;
         flex-direction: column;
-        display: none;
+        /* display: none; */
 
     }
     .color{

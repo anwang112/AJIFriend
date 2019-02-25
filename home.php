@@ -11,10 +11,10 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    
+
     <link rel="stylesheet" href="css/match2.css">
     <!-- 共通 -->
-    
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
@@ -59,7 +59,7 @@ session_start();
                         </g>
                     </g>
                 </svg>
-                <button class="btn_R" id="createBtn">立即創角</button>
+                <button class="btn" id="createBtn">立即創角</button>
             </div>
 
             <div class="indexSlogan">
@@ -77,9 +77,10 @@ session_start();
     </div>
 
 
-    <!-- 走道 -->
+    <!-- 走道 1739 5392.61364 -->
     <!-- 石頭 -->
-    <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5392.61364">
+    <!-- 舊版走到 -->
+    <svg xmlns="http://www.w3.org/2000/svg" id="indexRoad" viewBox="0 0 1739 5220.61364">
         <defs>
         </defs>
         <title>資產 5</title>
@@ -99,7 +100,10 @@ session_start();
     <div class="secondScreen">
         <!-- 主要內容 -->
         <section class="secondScreenSlider">
-
+            <h2 class="secondPhoneIndexA">
+                <!-- 旋轉找麻吉手機板 -->
+                <a href="match2.php" title="旋轉找麻吉" class="indexA">轉轉找麻吉</a>
+            </h2>
             <div id="trojanList">
                 <div class="trojanItem">
                     <div class="trojanItemRolebox">
@@ -147,6 +151,15 @@ session_start();
             </div>
 
             <div class="sliderTitle indexTitle" id="ChairPerspective">
+                <div class="secondTitle indexTitle">
+                    <h2>
+                        <!-- 旋轉找麻吉 -->
+                        <a href="match2.php" title="旋轉找麻吉" class="indexA">轉轉找麻吉</a>
+                    </h2>
+                    <!-- <div class="indexTitle">
+                    <a href="match2.php" title="找麻吉" class="btn">找麻吉</a>
+                </div> -->
+                </div>
                 <!-- 默契值 -->
                 <div class="donut">
                     <svg id="circleProcess" xmlns="http://www.w3.org/2000/svg">
@@ -160,19 +173,14 @@ session_start();
                     </div>
                 </div>
                 <ul class="chairInfoList">
-                    <li>姓名 : <span id="chairName">挖底加</span></li>
+                    <li>暱稱 : <span id="chairName">挖底加</span></li>
                     <li>星座 : <span id="chairstar">金牛座</span></li>
                     <li>興趣 : <span id="chairHobby">看書</span></li>
                 </ul>
                 <!-- 坐椅子 -->
                 <embed id="chair" src="images/indexImages/indexChair.svg" style="display:block;" />
             </div>
-            <div class="secondTitle">
-                <h2>旋轉找麻吉</h2>
-                <div class="indexBtn">
-                    <a href="match2.php" title="找麻吉" class="btn_R">找麻吉</a>
-                </div>
-            </div>
+
         </section>
     </div>
 
@@ -180,9 +188,17 @@ session_start();
 
     <!-- 第三部分 商城 -->
     <div class="thirdScreen">
+        <h2 class="thirdPhoneIndexA">
+            <a href="BearMJ_shop_addcart.php" title="造型商城" class="indexA">造型商城</a>
+        </h2>
         <!-- 主要內容 -->
         <section class="thirdScreenShop">
             <div class="AjiShopSpring">
+                <div class="shopTitle indexTitle ">
+                    <h2>
+                        <a href="BearMJ_shop_addcart.php" title="造型商城" class="indexA">造型商城</a>
+                    </h2>
+                </div>
                 <div class="shopEnergy">
                     <h2>魅力值</h2>
                     <embed id="energy" src="images/indexImages/indexEnergy.svg" style="display:block;" />
@@ -204,23 +220,24 @@ session_start();
                     <div id="indexModel" class="roleBox"></div>
                     <div id="modelLight"></div>
                 </div>
-                <div class="shopTitle indexTitle">
-                    <h2>打造魅力形象</h2>
-                    <a href="BearMJ_shop_addcart.php" title="造型商城" class="btn_R">造型商城</a>
-                </div>
             </div>
         </section>
     </div>
 
-
+    <!-- <div class="thirdTitle">
+        <h2>
+            <a href="BearMJ_shop_addcart.php" title="旋轉找麻吉" class="indexA">旋轉找麻吉</a>
+        </h2>
+    </div> -->
 
     <!-- 第四部分 塗鴉合照 -->
     <div class="fourthScreen" id="fourthScreen">
         <!-- 主要內容 -->
         <section class="fourthScreenPhoto">
             <div class="photoTitle indexTitle">
-                <h2>塗鴉編輯麻吉合照</h2>
-                <a href="photo.php" title="照片牆" class="btn_R">照片牆</a>
+                <h2>
+                    <a href="photo.php" title="照片牆" class="indexA">塗鴉麻吉合照</a>
+                </h2>
             </div>
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
@@ -260,8 +277,9 @@ session_start();
     <div class="fifthScreen">
         <section class="fifthScreenActivity">
             <div class="activityTitle indexTitle">
-                <h2>聯誼揪團活動</h2>
-                <a href="activity_v2.php" title="活動巴士" class="btn_R">活動巴士</a>
+                <h2>
+                    <a href="activity_v2.php" title="活動巴士" class="indexA">聯誼揪團活動</a>
+                </h2>
             </div>
             <ul class="signList">
                 <li class="signItem">
@@ -441,8 +459,6 @@ session_start();
         </div>
         <button id="createMemberBtn" class="btn_R">送出</button>
     </div>
-
-
 
 
 
