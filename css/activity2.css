@@ -1,3 +1,17 @@
+
+#userInput_send{
+  position: absolute;
+  height: 35px;
+  width: 75px;
+  text-align: center;
+  border-radius: 15px;
+  outline: 1px solid transparent;
+  color: #fff;
+  background-color: #EE5E7B;
+  right: 0;
+  bottom: -12px;
+}
+
 .lightbox_act .lightbox_act_info .spanbox {
     width: 70%;
     display: flex;
@@ -194,8 +208,10 @@
   display: none;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: fixed; }
   .lightbox_act .lightbox_act_info {
+    position: fixed;
     width: 62%;
     max-width: 1200px;
     height: 65%;
@@ -213,7 +229,8 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    position: relative; }
+    position: relative;
+    position: fixed; }
     .lightbox_act .lightbox_act_info img {
       width: 50%;
       transform: rotate(-1deg);
@@ -1283,6 +1300,42 @@
         line-height: 20px; }
   .partA #posH2 {
     margin-bottom: 30px; } }
+
+@media only screen and (max-width: 476px){
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top span {
+      width: unset;
+      height: unset;
+      padding: 12px 10px;
+      font-size: 1rem;
+  }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #btn_ActJoinToDB {
+    position: absolute;
+    right: 0px;
+    bottom: 125%;
+    width: 75px;
+    height: 30px;
+  }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+    position: absolute;
+    left: 22%;
+    top: 0px;
+    padding: 5px 0;
+    font-size: 1.3rem;
+  }
+  .lightbox_actsCheckout_outside .acts_lightbox_down #myMessagebox_input {
+    position: absolute;
+    bottom: -12px;
+    left: 10px;
+    height: 35px;
+  }
+  .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+    position: absolute;
+    left: -52%;
+    top: 0px;
+    padding: 5px 0;
+    font-size: 1.3rem;
+  }
+}
 
 @media only screen and (max-width: 400px) {
   .act_memberHold .act_memberHold_box .act_memberHold_join button {

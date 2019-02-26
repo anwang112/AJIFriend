@@ -305,6 +305,8 @@
                         <input id="myMessagebox_input" class="input_R" type="text" placeholder="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["mName"];}?>  回覆留言">
                         <input id="myMessagebox_inputNone" class="input_R" type="hidden" placeholder="回覆留言" value="">
                         <input id="userInput04" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>">
+                        <button id="userInput_send" >送出</button>
+
                     </div>
                 </div>
             </div>
