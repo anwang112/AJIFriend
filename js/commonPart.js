@@ -1725,7 +1725,7 @@ ooxxGetRole = (roleId, roleData) => {
 	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
 		for (let i = 0; i < fillColor.length; i++) {
-			fillColor[i].style.fill = `#${roleData.color}`;
+			fillColor[i].fillStyle = `#${roleData.color}`;
 		}
 	})
 
@@ -1831,7 +1831,7 @@ ooxxGetHead = (headId, headData) => {
 
 	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		fillColor.style.fill = `#${headData.color}`;
+		fillColor.fillStyle = `#${headData.color}`;
 	})
 
 	//插入眼睛
