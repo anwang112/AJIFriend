@@ -26,22 +26,55 @@ require_once("backAct_toDB.php");
     <link rel="stylesheet" href="../css/activity2.css">
     <script src="../js/backCommon.js"></script>
     <style>
+    *{
+        /* outline:1px solid red; */
+    }
+    .container {
+        max-width:unset;
+        padding-left:0px;
+        /* margin-left:15px; */
+    }
+    .col-9{
+        padding-left:0;
+    }
+    .list-group-item{
+        padding:1.75rem 1.25rem;
+    }
+    .table td{
+        padding:0.25rem;
+    }
+    
+    .row{
+        margin-left:0;
+    }
+    button{
+        margin:auto;    
+    }
+    tbody th input{
+        color:blue;
+    }
+    tbody th{
+        font-weight:normal;
+        color:#007bff;
+    }
+    thead tr:first-child{
+        height:82px;
+    }
+    
         #lightbox_holdact_info,#lightbox_holdact{
             opacity:0;
         }
-        .table thead th {
+        /* .table thead th {
             vertical-align: bottom;
             border-bottom: 2px solid #dee2e6;
             width: 15%;
             font-size: 20px;
-        }
+        } */
         td,th{
-            text-align:center;
-            
-
+            text-align:left;
         }
         #maintable{
-            width: 120%;
+            width: 100%;
         }
     </style>
 </head>
@@ -52,15 +85,42 @@ require_once("backAct_toDB.php");
     <input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?>">
 
     <!-- Just an image -->
-    <script>
+    <!-- <script>
         header();
-   </script>
+    </script> -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="backStage.html">
+        <img src="../images/logo2.png" width="130" alt="logo">後台
+        </a>    
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
+        </div>
+    </nav>
+
+    <div class="container content">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="list-group">
+                <a href="backStage.php" class="list-group-item list-group-item-action">
+                    管理員帳號管理
+                </a>
+                <a href="backMember.php" class="list-group-item list-group-item-action" >會員管理</a>
+                <a href="backItem.php" class="list-group-item list-group-item-action">商品管理</a>
+                <a href="backReport.php" class="list-group-item list-group-item-action">檢舉管理</a>
+                <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true" style="color:#007bff">活動管理</a>
+            </div>
+        </div>
+    <div class="col-9">
     <table id="maintable" class="table table-hover">
         <thead>
             <tr>
                 <td colspan="4">
-                    <button id="holdAct02" type="button" class="btn btn-secondary">查看已刪除活動</button>
-                    <button id="holdAct01" type="button" class="btn btn-secondary">新增活動</button>
+                    <button id="holdAct02" type="button" class="btn btn-outline-primary">查看已刪除活動</button>
+                    <button id="holdAct01" type="button" class="btn btn-outline-primary">新增活動</button>
                 </td>
                 <td colspan="3">
                     <div class="input-group mb-3">
@@ -87,7 +147,6 @@ require_once("backAct_toDB.php");
             <tr>
                 <th scope="row">
                     <?php echo $actNo; ?><br>
-                    <button id="act_delet_btn<?php echo $actNo; ?>" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
                     <input type="hidden" value="<?php echo $actNo; ?>">
                 </th>
                 <td>
@@ -105,6 +164,9 @@ require_once("backAct_toDB.php");
                 <td>
                     <?php echo  substr($act_begin, 0, 10); ?><br>至<br>
                     <?php echo substr($act_end, 0, 10); ?>
+                </td>
+                <td>              
+                    <button id="act_delet_btn<?php echo $actNo; ?>" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
                 </td>
             </tr>
             <?php 

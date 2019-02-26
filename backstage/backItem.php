@@ -24,6 +24,39 @@ require_once("backItemToDB.php");
     <link rel="stylesheet" href="../css/activity2.css">
     <script src="../js/backCommon.js"></script>
     <style>
+    *{  
+        text-align:left;
+        /* outline:1px solid red; */
+    }
+    .container {
+        max-width:unset;
+        padding-left:0px;
+        /* margin-left:15px; */
+    }
+    .col-9{
+        padding-left:0;
+    }
+    .list-group-item{
+        padding:1.75rem 1.25rem;
+    }
+    .table td{
+        padding:0.25rem;
+    }
+    .row{
+        margin-left:0;
+    }
+    button{
+        margin:auto;    
+    }
+    tbody th input{
+        color:blue;
+    }
+    thead tr:first-child{
+        height:82px;
+    }
+    a{
+        font-weight:normal;
+    }
         #lightbox_holdact_info,#lightbox_holdact{
             opacity:0;
         }
@@ -51,10 +84,10 @@ require_once("backItemToDB.php");
         }
         input{
             width:120px;
-            text-align:center;
+            text-align:left;
         }
         td,th{
-            text-align:center;
+            text-align:left;
             vertical-align: middle;
             width:120px;
             
@@ -130,7 +163,7 @@ require_once("backItemToDB.php");
         .input_R{
             width: 160px;
             padding: 4px 5px;
-            text-align: center;
+            text-align: left;
             margin-left: 8px;
         }
         /* #myTable button{
@@ -155,20 +188,49 @@ require_once("backItemToDB.php");
     <input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
 
     <!-- Just an image -->
-    <script>
+    <!-- <script>
         header();
-</script>
+</script> -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="backStage.html">
+        <img src="../images/logo2.png" width="130" alt="logo">後台
+        </a>    
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
+        </div>
+    </nav>
+
+    <div class="container content">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="list-group">
+                <a href="backStage.php" class="list-group-item list-group-item-action">
+                    管理員帳號管理
+                </a>
+                <a href="backMember.php" class="list-group-item list-group-item-action" >會員管理</a>
+                <a href="backItem.php" class="list-group-item list-group-item-action" style="color:#007bff">商品管理</a>
+                <a href="backReport.php" class="list-group-item list-group-item-action">檢舉管理</a>
+                <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
+            </div>
+        </div>
+    <div class="col-9">
     <table id="myTable" class="table table-hover">
         <thead>
             <tr>
-                <td colspan="6"></td>
-                <td colspan="4">
+                <td colspan="12">  
                     <div class="dropdown">
-                        <button id="holdAct01" class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="holdAct01" class="btn btn-outline-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             新增商品
                         </button>
                     </div>
                 </td>
+                <!-- <td colspan="4">
+                  
+                </td> -->
                 <!-- <td colspan="3">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="商品編號" aria-label="Recipient's username"
@@ -182,7 +244,7 @@ require_once("backItemToDB.php");
                 </td> -->
             </tr>
             <tr>
-                <th scope="col">NO.</th>
+                <th scope="col">商品編號</th>
                 <th scope="col">商品圖片</th>
                 <th scope="col">商品名稱</th>
                 <th scope="col">售價</th>

@@ -37,6 +37,35 @@ try {
     <script src="../js/package/popover.js"></script>
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
+    <style>
+    *{
+        /* outline:1px solid red; */
+    }
+    .container {
+        max-width:unset;
+        padding-left:0px;
+        /* margin-left:15px; */
+    }
+    .col-9{
+        padding-left:0;
+    }
+    .list-group-item{
+        padding:1.75rem 1.25rem;
+    }
+    .table td{
+        padding:0.25rem;
+        width:16.5%;
+    }
+    .row{
+        margin-left:0;
+    }
+    a{
+        font-weight:normal;
+    }
+    thead tr:first-child{
+        height:82px;
+    }
+    </style>
 </head>
 
 <body>
@@ -47,22 +76,49 @@ try {
 
 
     <!-- Just an image -->
-    <script>
+    <!-- <script>
         header();
-    </script>
+    </script> -->
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="backStage.html">
+        <img src="../images/logo2.png" width="130" alt="logo">後台
+        </a>    
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <?php echo $_SESSION["adminName"] ?>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
+        </div>
+    </nav>
+
+    <div class="container content">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="list-group">
+                <a href="backStage.php" class="list-group-item list-group-item-action">
+                    管理員帳號管理
+                </a>
+                <a href="backMember.php" class="list-group-item list-group-item-action" style="color:#007bff">會員管理</a>
+                <a href="backItem.php" class="list-group-item list-group-item-action">商品管理</a>
+                <a href="backReport.php" class="list-group-item list-group-item-action">檢舉管理</a>
+                <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
+            </div>
+        </div>
+    <div class="col-9">
     <table class="table table-hover">
         <thead>
             <tr>
                 <td colspan="4"></td>
                 <td colspan="3">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="memberInput" placeholder="會員編號" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="會員帳號" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="buttonAddon2">搜尋
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜尋
                             </button>
                         </div>
                     </div>
-
                 </td>
             </tr>
             <tr>

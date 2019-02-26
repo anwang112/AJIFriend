@@ -41,7 +41,6 @@ function writeInTo(actObj) {
         <tr>
             <th scope="row">
                 ${actObj.no}<br> 
-                <button id="act_delet_btn${actObj.no}" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
                 <input type="hidden" value="${actObj.no}">
             </th>
             <td>${actObj.memName}</td> 
@@ -52,6 +51,9 @@ function writeInTo(actObj) {
             </td>
             <td>
                 ${actObj.begin.substr(0, 10)}<br>至<br>${actObj.end.substr(0, 10)}
+            </td>
+            <td>
+                <button id="act_delet_btn${actObj.no}" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
             </td>
         </tr>
     </tbody>
@@ -106,7 +108,6 @@ function writeInTo2(txt_arr) {
             <tr>
                 <th scope="row">
                     ${txt_arr[i][0]}<br>
-                    <button id="act_delet_btn ${txt_arr[i][0]}" type="button" class="btn btn-danger btn-sm act_rebtn">復原</button> 
                     <input type="hidden" value=" ${txt_arr[i][0]}">
                 </th>
                 <td>${txt_arr[i][12]}</td> 
@@ -117,6 +118,9 @@ function writeInTo2(txt_arr) {
                 </td>
                 <td>
                     ${txt_arr[i][5].substr(0, 10)}<br>至<br>${txt_arr[i][5].substr(0, 10)}
+                </td>
+                <td>
+                    <button id="act_delet_btn ${txt_arr[i][0]}" type="button" class="btn btn-danger btn-sm act_rebtn">復原</button> 
                 </td>
             </tr>
         </tbody>

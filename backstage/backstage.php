@@ -38,9 +38,16 @@ try {
     <script src="../js/backCommon.js"></script>
     <script src="../js/package/jquery/dist/jquery.min.js"></script>
     <style>
+    *{
+        /* outline:1px solid red; */
+    }
     .container {
+        max-width:unset;
         padding-left:0px;
-        margin-left:15px;
+        /* margin-left:15px; */
+    }
+    .col-9{
+        padding-left:0;
     }
     .list-group-item{
         padding:1.75rem 1.25rem;
@@ -52,7 +59,13 @@ try {
         margin-left:0;
     }
     button{
-        margin:3px;
+        margin:auto;    
+    }
+    tbody th input{
+        color:#007bff;
+    }
+    thead tr:first-child{
+        height:82px;
     }
     
     </style>
@@ -77,8 +90,8 @@ try {
 
         <div class="row justify-content-center">
             <div class="col-3">
-                <div class="list-group">
-                    <a href="backStage.php" class="list-group-item list-group-item-action">
+                <div class="list-group ">
+                    <a href="backStage.php" class="list-group-item list-group-item-action" style="color:#007bff">
                         管理員帳號管理
                     </a>
                     <a href="backMember.php" class="list-group-item list-group-item-action">會員管理</a>
@@ -92,11 +105,12 @@ try {
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td colspan="5">
-                                <button type="button" class="btn btn-outline-info" id="createAdmin">新增管理員</button>
+                            <td colspan="12">
+                                    <button type="button" class="btn btn-outline-primary" id="createAdmin" >新增管理員</button>
                                 <!-- 
                                     <button type="button" class="btn btn-outline-info">更改權限</button> 先鼻要
                                  -->
+                                 
                             </td>
                         </tr>
                         <tr>
@@ -130,7 +144,7 @@ try {
 
                             </td>
                             <td>
-                                <button type="button" value="<?php echo $oo; ?>" class="btn btn-info changeAdmin">編輯</button>
+                                <button type="button" value="<?php echo $oo; ?>" class="btn btn-primary changeAdmin">編輯</button>
                                 <button type="button" value="<?php echo $oo; ?>" class="btn btn-danger dropAdmin">刪除</button>
                             </td>
                         </tr>
@@ -160,7 +174,7 @@ try {
 
                             </td>
                             <td>
-                            <input type="button" value="送出" id="adminSendBtn">
+                            <input class="input-primary" type="button " value="送出" id="adminSendBtn">
 
                             </td>
                         

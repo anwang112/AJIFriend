@@ -24,12 +24,47 @@ require_once("backReport_toDB.php");
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <style>
+
+    *{
+        /* outline:1px solid red; */
+    }
+    .container {
+        max-width:unset;
+        padding-left:0px;
+        /* margin-left:15px; */
+    }
+    .col-9{
+        padding-left:0;
+    }
+    .list-group-item{
+        padding:1.75rem 1.25rem;
+    }
+    .table td{
+        padding:0.25rem;
+    }
+    .row{
+        margin-left:0;
+    }
+    button{
+        margin:auto;    
+    }
+    tbody th input{
+        color:blue;
+    }
+    thead tr:first-child{
+        height:82px;
+    }
+   a{
+       font-weight:normal;
+   }
+    
+    
         td,th{
-            text-align:center;
+            text-align:left;
             width:120px;
         }
         .table {
-            width: 120%;
+            width: 100%;
             margin-bottom: 1rem;
             background-color: transparent;
         }
@@ -43,9 +78,36 @@ require_once("backReport_toDB.php");
 
 
     <!-- Just an image -->
-    <script>
+    <!-- <script>
         header();
-   </script>
+   </script> -->
+   <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="backStage.html">
+        <img src="../images/logo2.png" width="130" alt="logo">後台
+        </a>    
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
+        </div>
+    </nav>
+
+    <div class="container content">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="list-group">
+                <a href="backStage.php" class="list-group-item list-group-item-action">
+                    管理員帳號管理
+                </a>
+                <a href="backMember.php" class="list-group-item list-group-item-action" >會員管理</a>
+                <a href="backItem.php" class="list-group-item list-group-item-action">商品管理</a>
+                <a href="backReport.php" class="list-group-item list-group-item-action" style="color:#007bff">檢舉管理</a>
+                <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
+            </div>
+        </div>
+    <div class="col-9">
     <table class="table table-hover">
         <thead>
             <tr>
