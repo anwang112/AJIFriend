@@ -20,7 +20,6 @@ require_once("backItemToDB.php");
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
-    <link rel="stylesheet" href="../css/backstage.css">
     <link rel="stylesheet" href="../css/activity2.css">
     <script src="../js/backCommon.js"></script>
     <style>

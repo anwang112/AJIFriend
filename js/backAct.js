@@ -107,7 +107,9 @@ function writeInTo2(txt_arr) {
         <tbody id="clearTarget" class="dddd">
             <tr>
                 <th scope="row">
-                    ${txt_arr[i][0]}<br>
+                    <span>${txt_arr[i][0]}</span>
+                    <button id="act_delet_btn ${txt_arr[i][0]}" type="button" class="btn btn-danger btn-sm act_rebtn ml-4">復原</button> 
+
                     <input type="hidden" value=" ${txt_arr[i][0]}">
                 </th>
                 <td>${txt_arr[i][12]}</td> 
@@ -118,9 +120,6 @@ function writeInTo2(txt_arr) {
                 </td>
                 <td>
                     ${txt_arr[i][5].substr(0, 10)}<br>至<br>${txt_arr[i][5].substr(0, 10)}
-                </td>
-                <td>
-                    <button id="act_delet_btn ${txt_arr[i][0]}" type="button" class="btn btn-danger btn-sm act_rebtn">復原</button> 
                 </td>
             </tr>
         </tbody>

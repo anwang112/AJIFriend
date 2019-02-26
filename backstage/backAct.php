@@ -22,7 +22,6 @@ require_once("backAct_toDB.php");
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
-    <link rel="stylesheet" href="../css/backstage.css">
     <link rel="stylesheet" href="../css/activity2.css">
     <script src="../js/backCommon.js"></script>
     <style>
@@ -60,7 +59,9 @@ require_once("backAct_toDB.php");
     thead tr:first-child{
         height:82px;
     }
-    
+    thead tr th:first-child{
+        width:130px;
+    }
         #lightbox_holdact_info,#lightbox_holdact{
             opacity:0;
         }
@@ -146,7 +147,9 @@ require_once("backAct_toDB.php");
             <?php while ($activityAll->fetch(PDO::FETCH_ASSOC)) { ?>
             <tr>
                 <th scope="row">
-                    <?php echo $actNo; ?><br>
+                    <?php echo $actNo; ?>
+                    <button id="act_delet_btn<?php echo $actNo; ?>" type="button" class="btn btn-danger btn-sm act_delet_btn ml-4">刪除</button>
+
                     <input type="hidden" value="<?php echo $actNo; ?>">
                 </th>
                 <td>
@@ -165,9 +168,7 @@ require_once("backAct_toDB.php");
                     <?php echo  substr($act_begin, 0, 10); ?><br>至<br>
                     <?php echo substr($act_end, 0, 10); ?>
                 </td>
-                <td>              
-                    <button id="act_delet_btn<?php echo $actNo; ?>" type="button" class="btn btn-danger btn-sm act_delet_btn">刪除</button>
-                </td>
+                
             </tr>
             <?php 
         } ?>
