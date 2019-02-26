@@ -34,7 +34,7 @@
 
 
         //所有
-        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo order by a.actNo limit $start,$recPerPage";
+        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo  AND a.showOrNot = '1' order by a.actNo desc limit $start,$recPerPage";
         
         $activityAll = $pdo->query($sql); 
         $activityAll -> bindColumn("actNo", $actNo); 
@@ -146,7 +146,7 @@
             $act_memNo= $_POST["memNo"];
 
 
-            $sql_newAct = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'1','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
+            $sql_newAct = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'3','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')"; //3 表示官方的會員帳號
             $activity = $pdo ->query($sql_newAct);
     
             //上傳檔案處理
