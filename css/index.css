@@ -902,7 +902,7 @@ html {
   top: 0;
   bottom: 0;
   max-width: 400px;
-  max-height: 500px;
+  max-height: 555px;
   height: 80%; }
   @media only screen and (min-width: 768px) {
     .indexCreateRoleBox {

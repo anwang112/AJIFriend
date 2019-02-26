@@ -1071,14 +1071,14 @@ window.addEventListener('load',function(){
             }
         }
     },false);
-    userInput_send.addEventListener('click',function(e){
-        var txt = '';
-        txt = myMessagebox_input.value;
-        actNo = myMessagebox_inputNone.value;
-        var memNo = storage.getItem("memNo");
-        // alert('memNo:'+ memNo);
-        sendCom(memNo,actNo,txt);
-    },false);
+    // userInput_send.addEventListener('click',function(e){
+    //     var txt = '';
+    //     txt = myMessagebox_input.value;
+    //     actNo = myMessagebox_inputNone.value;
+    //     var memNo = storage.getItem("memNo");
+    //     // alert('memNo:'+ memNo);
+    //     sendCom(memNo,actNo,txt);
+    // },false);
 
     // var r_act = document.getElementById('theUser');
     // ooxxGetHead(r_act, {
@@ -1193,7 +1193,6 @@ window.addEventListener('load',function(){
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
-<<<<<<< HEAD
 
         if(storage.getItem("memNo")){
             window.scrollTo(0,(act_memberHold.offsetTop+400));
@@ -1201,15 +1200,6 @@ window.addEventListener('load',function(){
 
             lightbox_holdact.style.cssText="display:flex;z-index:10;";
             lightbox_holdact_info.style.cssText="display:block;z-index:10;";
-=======
-        if(storage.getItem("memNo")){ //有登入
-            window.scrollTo(0,(act_memberHold.offsetTop+400));
-            console.log(act_memberHold.offsetTop);
-    
-            lightbox_holdact.style.cssText="display:flex;z-index:10;";
-            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
-    
->>>>>>> lien0213
             lightbox_holdact_info.addEventListener('click',function(e){
                 e.stopPropagation();
             },false);
