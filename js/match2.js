@@ -66,8 +66,8 @@ $(function () {
 sEye = 1;
 sBody = 1;
 sColor = 'aaaaaa';
-sHat = 1;
-sClothes = 1;
+sHat = 'hat1.png';
+sClothes = 'clothes1.png';
 totalMatch = 55;
 //init role type
 topMoney05 = document.getElementById('topMoney05');
@@ -81,8 +81,8 @@ ooxxGetRole(topMoney05, {
 mcEye = 1;
 mcBody = 1;
 mcColor = 'aaaaaa';
-mcHat = 1;
-mcClothes = 1;
+mcHat ='hat1.png';
+mcClothes = 'clothes1.png';
 
 matchMaji = document.getElementById('matchMaji');
 ooxxGetRole(matchMaji, {
@@ -793,8 +793,8 @@ function topFriend() {
         rankEye = 1;
         rankBody = 1;
         rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
+        rankHat = 'hat1.png';
+        rankClothes = 'clothes1.png';
 
         topFan = document.getElementById('topFriend' + i);
         ooo.push(topFan);
@@ -823,8 +823,8 @@ $('#topMoney').click(function () {
         rankEye = 1;
         rankBody = 1;
         rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
+        rankHat = 'hat1.png';
+        rankClothes = 'clothes1.png';
 
         topMoney = document.getElementById('topMoney' + i);
         ooo.push(topMoney);
@@ -849,8 +849,8 @@ $('#topMJ').click(function () {
         rankEye = 1;
         rankBody = 1;
         rankColor = 'aaaaaa';
-        rankHat = 1;
-        rankClothes = 1;
+        rankHat = 'hat1.png';
+        rankClothes = 'clothes1.png';
 
         topMJ = document.getElementById('topMJ' + i);
         ooo.push(topMJ);
