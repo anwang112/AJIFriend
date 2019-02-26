@@ -243,13 +243,7 @@ function beFriend (tarNo,loginNo,btn) {
     }
     
 }
-$('.btn_beFriend0').click(function(){
-    alert(0);
-    tarNo = document.getElementById('sMemNo').value;
-    loginNo = storage.getItem("memNo");
-    btn = $(this);
-    beFriend(tarNo,loginNo,btn);
-});
+
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
@@ -708,19 +702,18 @@ $('.showInfo2').click(function () {
 heart =  storage.getItem("loveGiven");
 heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
-    console.log(111);
     switch (parseInt(heart)) {
         case 2:
-            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 1:
-            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
-            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 0:
-            heartItem[0].style.backgroundImage = 'url(../images/heartdark.svg)';
-            heartItem[1].style.backgroundImage = 'url(../images/heartdark.svg)';
-            heartItem[2].style.backgroundImage = 'url(../images/heartdark.svg)';
+            heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
 
     }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #f5d1e1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            margin: auto;
+            width: 40%;
+
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 30%;
+        }
+
+        .ani {
+            width: 100px;
+            height: 155px;
+            margin: 10px;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        img {
+            position: absolute;
+            width: 100px;
+            z-index: 1;
+        }
+
+        .bear {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 50%;
+            animation: aaa 1s infinite alternate;
+            background-color: #7e675c;
+        }
+
+        .cat {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 40%;
+            animation: aaa 1.5s infinite alternate;
+            background-color: #ffa665;
+        }
+
+        .rabi {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 30%;
+            animation: aaa 1.2s infinite alternate;
+            background-color: #e69dc2;
+        }
+
+        .dog {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-bottom: 20%;
+            animation: aaa 1.8s infinite alternate;
+            background-color: #7793cb;
+        }
+
+        @keyframes aaa {
+            0% {
+                height: 0;
+            }
+
+            25% {
+                height: 30px;
+            }
+
+            75% {
+                height: 80px;
+            }
+
+            100% {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="ani">
+            <img src="images/bearmask.png" alt="">
+            <div class="bear"></div>
+        </div>
+        <div class="ani">
+            <img src="images/rabimask.png" alt="">
+            <div class="rabi"></div>
+        </div>
+        <div class="ani">
+            <img src="images/catmask.png" alt="">
+            <div class="cat"></div>
+        </div>
+        <div class="ani ">
+            <img src="images/dogmask.png" alt="">
+            <div class="dog"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

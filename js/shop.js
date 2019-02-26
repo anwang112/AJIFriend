@@ -159,11 +159,13 @@ function rand(min, max) {
 };
 
 function getCoin(data) {
+    var btnG = document.getElementById('btnloto');
    var xhr = new XMLHttpRequest();
    xhr.onload = function () {
-       console.log(xhr.responseText);
+    console.log(xhr.responseText);
        if(xhr.responseText == 1){
-           btnG.innerText = '已領取$'+money;
+           btnG.innerText = '領取$'+money;
+           
            storage.setItem("last_play",nowDay);
 
        }
@@ -191,7 +193,6 @@ function loto() {
    btnG.disabled = true;
    btnG.style.backgroundColor = '#aaa';
    btnG.style.boxShadow='0px 4px 0px #555';
-   btnG.innerText = '本日已領';
    stepNum++; 
    speed += 15;
    if (stepNum > 12) {
