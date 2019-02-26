@@ -90,7 +90,11 @@ session_start();
             // 活動巴士 第一屏 官方活動 主辦者為where條件
             
             
+<<<<<<< HEAD
             $sqlBUS = "SELECT * FROM `activity` WHERE `host_memNo` IS NULL";
+=======
+            $sqlBUS = "SELECT * FROM `activity` WHERE `host_memNo` = 3 AND showOrNot != 0 ";
+>>>>>>> lien0213
 
             $activityBUS = $pdo->query($sqlBUS); 
             $activityBUS -> bindColumn("actNo", $actNo); 
@@ -101,7 +105,12 @@ session_start();
             $activityBUS -> bindColumn("act_end", $act_end);
             $activityBUS -> bindColumn("actIntro", $actIntro);
             $activityBUS -> bindColumn("actImg", $actImg);
+<<<<<<< HEAD
             $host_memNo = "官方";
+=======
+            $totalbus = $activityBUS -> rowCount();
+            // $host_memNo = "官方";
+>>>>>>> lien0213
             
             // 所有活動-官方活動
             // $sqlOficial = "select * from activity where host_memNo = 1 ORDER BY actNo DESC ";
@@ -111,7 +120,11 @@ session_start();
 
             //所有活動-熊麻吉們主辦
             
+<<<<<<< HEAD
             $sqlactNo = "SELECT * FROM `activity` WHERE `host_memNo` is NOT NULL";
+=======
+            $sqlactNo = "SELECT * FROM `activity` WHERE `host_memNo` !=3";
+>>>>>>> lien0213
             $result = $pdo->query($sqlactNo);
             $totalRecord =  $result ->rowCount();
             //每頁有幾筆
@@ -156,6 +169,7 @@ session_start();
 
         }
         
+<<<<<<< HEAD
         
 
 
@@ -163,6 +177,8 @@ session_start();
         
 
   
+=======
+>>>>>>> lien0213
         // echo "成功";
 
 

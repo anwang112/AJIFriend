@@ -12,6 +12,7 @@
         // }else{
         //     $sqlBUS = "select * from activity where host_memNo = 1 AND actNo != :actNo ";
         // }
+<<<<<<< HEAD
         $sqlBUS = "select * from activity where host_memNo IS NULL";
         
         //
@@ -23,15 +24,13 @@
         $aa = $pdo->prepare($sqlBUS); 
         // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
         
+=======
+        $sqlBUS = "select * from activity where host_memNo = 3";
 
-        // $aa -> bindColumn("actNo", $actNo); 
-        // $aa -> bindColumn("host_memNo", $host_memNo);      
-        // $aa -> bindColumn("actTitle", $actTitle);
-        // $aa -> bindColumn("actLoc", $actLoc);
-        // $aa -> bindColumn("act_begin", $act_begin);
-        // $aa -> bindColumn("act_end", $act_end);
-        // $aa -> bindColumn("actIntro", $actIntro);
-        // $aa -> bindColumn("actImg", $actImg);
+        $aa = $pdo->prepare($sqlBUS); 
+        // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
+>>>>>>> lien0213
+
         $aa -> execute();
         
 
@@ -52,7 +51,7 @@
 
 
         $aaR = $aa -> fetchAll(PDO::FETCH_ASSOC);
-        $aDB = new data ;
+        $aDB = new data() ;
 
         $aDB -> no = $aaR[$key]["actNo"];
         $aDB -> memNo = $aaR[$key]["host_memNo"];
@@ -62,7 +61,6 @@
         $aDB -> end = $aaR[$key]["act_end"];
         $aDB -> actIntro = $aaR[$key]["actIntro"];
         $aDB -> img = $aaR[$key]["actImg"];
-        $aDB -> total =  $aa -> rowCount();
 
         $send = json_encode($aDB);
         echo  $send ;
