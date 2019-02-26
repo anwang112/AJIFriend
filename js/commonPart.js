@@ -432,7 +432,6 @@ function foot_html() {
 	}
 }
 
-
 //這是判斷朋友的ＢＴＮ  --by An
 function beFriend (tarNo,loginNo,btn) {
   

@@ -1,10 +1,5 @@
 <?php
-ob_start();
 session_start();
-if (isset($_SESSION["adminName"]) === false) {
-    header("Location:backLogin.php");
-    exit();
-}
 try {
     //連線
     require_once("../connectBooks.php");
@@ -46,10 +41,10 @@ try {
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo $_SESSION["adminName"] ?>
+            XXX您好
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
+            <a class="dropdown-item" href="#">登出</a>
         </div>
     </nav>
 
@@ -58,13 +53,13 @@ try {
         <div class="row justify-content-center">
             <div class="col-3">
                 <div class="list-group">
-                    <a href="backStage.php" class="list-group-item list-group-item-action">
+                    <a href="backStage.html" class="list-group-item list-group-item-action">
                         管理員帳號管理
                     </a>
-                    <a href="backMember.php" class="list-group-item list-group-item-action">會員管理</a>
-                    <a href="backItem.php" class="list-group-item list-group-item-action">商品管理</a>
-                    <a href="backReport.php" class="list-group-item list-group-item-action">檢舉管理</a>
-                    <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
+                    <a href="backMember.html" class="list-group-item list-group-item-action">會員管理</a>
+                    <a href="backItem.html" class="list-group-item list-group-item-action">商品管理</a>
+                    <a href="backReport.html" class="list-group-item list-group-item-action">檢舉管理</a>
+                    <a href="backAct.html" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
                 </div>
             </div>
             <div class="col-9">
@@ -118,36 +113,6 @@ try {
                         <?php 
                     } ?>
 
-                        <tr id="createAdminWrap" style="display:none;">
-                            <th scope="row">
-                                <label>
-                                    <span>管理員</span>
-                                    <input type="text" required>
-                                </label>
-                            </th>
-                            <td>
-                                <label>
-                                    <span>帳號</span>
-                                    <input type="text" required>
-                                </label>
-
-                            </td>
-                            <td>
-                                <label>
-                                    <span>密碼</span>
-                                    <input type="text" required>
-                                </label>
-
-                            </td>
-                            <td>
-                            <input type="button" value="送出" id="adminSendBtn">
-
-                            </td>
-                        
-                        </tr>
-
-
-
                     </tbody>
                 </table>
             </div>
@@ -155,6 +120,23 @@ try {
     </div>
 
 
+    <div id="createAdminWrap" style="display:none;">
+        <form>
+            <label>
+                <span>管理員</span>
+                <input type="text" required>
+            </label>
+            <label>
+                <span>帳號</span>
+                <input type="text" required>
+            </label>
+            <label>
+                <span>密碼</span>
+                <input type="text" required>
+            </label>
+            <input type="button" value="送出" id="adminSendBtn">
+        </form>
+    </div>
 
 
     <script>
@@ -190,7 +172,7 @@ try {
 
         for (let i = 0; i < changeAdmin.length; i++) {
             changeAdmin[i].addEventListener('click', (e) => {
-                console.log(e.target.innerHTML);
+                console.log(e.target.innerHTML);    
                 switch (e.target.innerHTML) {
                     case "編輯":
                         // console.log(showAdminInfo[e.target.value].getElementsByTagName('input'));
@@ -220,7 +202,7 @@ try {
         for (let i = 0; i < changeAdmin.length; i++) {
             dropAdmin[i].addEventListener('click', (e) => {
 
-
+               
                 changeAdminFunction({
                     adminNo: showAdminInfo[e.target.value].getElementsByTagName('input')[0].value,
                     adminName: showAdminInfo[e.target.value].getElementsByTagName('input')[1].value,
@@ -232,7 +214,7 @@ try {
         }
 
         createAdmin.addEventListener('click', (e) => {
-            createAdminWrap.style.display = "contents";
+            createAdminWrap.style.display = "block";
         })
         adminSendBtn.addEventListener('click', (e) => {
             changeAdminFunction({
@@ -241,25 +223,6 @@ try {
                 adminPsw: createAdminWrap.getElementsByTagName('input')[2].value,
                 statue: "建立"
             })
-        })
-
-        //登出
-        logoutBtn = document.getElementById('logoutBtn');
-        logoutBtn.addEventListener('click', (e) => {
-            checkInFoValue = {};
-            checkInFoValue.status = '掰掰';
-            console.log(e);
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function() {
-                // checkInfo = JSON.parse(xhr.responseText);
-                if (xhr.responseText == "回到登入頁") {
-                    window.location.href = "backLogin.php";
-                }
-            }
-            xhr.open("Post", "backLogout.php", true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
-
         })
     </script>
 </body>

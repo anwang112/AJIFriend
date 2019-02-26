@@ -93,7 +93,33 @@
   background-size: cover;
   position: relative;
   margin-top: -2px; }
-
+.messagebox  .commentItem{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+.messagebox .commentName{    
+    margin-bottom: 10px;
+    color: brown;
+}
+.messagebox .commentText{
+    font-size: 17px;
+    color: #555;
+    padding-left: 18px;
+}
+.lightbox_act .lightbox_act_info .spanbox {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}    
+.lightbox_act .lightbox_act_info p {
+  width: 35%;
+  color: #f05c79;
+  font-size: 1.3rem;
+  max-width: 600px;
+  line-height: 2rem;
+}
 .act_section01 {
   width: 100%;
   max-width: 1200px;
@@ -705,7 +731,7 @@
       overflow-y: scroll;
       position: relative;
       bottom: 35px; }
-      .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox span {
+      /* .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox span {
         display: block;
         font-size: .9rem;
         padding: 5px 0px;
@@ -728,7 +754,7 @@
           font-size: .8rem;
           position: relative;
           left: 5px;
-          border-bottom: 1px dotted transparent; }
+          border-bottom: 1px dotted transparent; } */
     .lightbox_actsCheckout_outside .acts_lightbox_down #myMessagebox_input {
       width: 86%;
       position: absolute;
@@ -1222,6 +1248,7 @@
       bottom: 0px; }
     .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #myMessagebox_input {
       width: 74%; }
+    
   .act_tabBar #btn_holdAct {
     display: block;
     position: absolute;

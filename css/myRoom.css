@@ -763,11 +763,6 @@ body input {
     top: 0px;
 }
 
-.act_hoverBox .spanbox span{
-    margin: 10px;
-}
-
-
 .act_hoverBox button {
     width: 25%;
     height: 6vh;

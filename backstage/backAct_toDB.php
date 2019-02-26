@@ -1,22 +1,22 @@
 <?php
     //跟資料庫要資料
-    // if(isset($_REQUEST["actObj"])){
-    //     $actObj = json_decode($_REQUEST["actObj"]); 
-    //     $actDele = json_decode($_REQUEST["actDele"]); 
-    //     $actRe = json_decode($_REQUEST["actRe"]); 
-    //     $actObjDelCheck = json_decode($_REQUEST["actObjDelCheck"]); 
-    // }else{
-    //     $actObj = 0; 
-    //     $actDele = 0; 
-    //     $actRe = 0; 
-    //     $actObjDelCheck = 0; 
-    // }
+    if(isset($_REQUEST["actObj"])){
+        $actObj = json_decode($_REQUEST["actObj"]); 
+        $actDele = json_decode($_REQUEST["actDele"]); 
+        $actRe = json_decode($_REQUEST["actRe"]); 
+        $actObjDelCheck = json_decode($_REQUEST["actObjDelCheck"]); 
+    }else{
+        $actObj = 0; 
+        $actDele = 0; 
+        $actRe = 0; 
+        $actObjDelCheck = 0; 
+    }
 
     
     try {
         require_once("../connectBooks.php");
         //總筆數
-        $sqlactNo = "select * from activity where host_memNo";
+        $sqlactNo = "select * from activity where host_memNo != 1 ";
         $result = $pdo->query($sqlactNo);
         $totalRecord =  $result ->rowCount();
         
@@ -34,7 +34,7 @@
 
 
         //所有
-        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo order by a.actNo limit $start,$recPerPage";
+        $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND `showOrNot` = '1' order by a.actNo limit $start,$recPerPage";
         
         $activityAll = $pdo->query($sql); 
         $activityAll -> bindColumn("actNo", $actNo); 
@@ -152,7 +152,7 @@
             //上傳檔案處理
         
             $from = $_FILES["act_holdActFile"]["tmp_name"];
-            $to = "../images/".$_FILES["act_holdActFile"]["name"];
+            $to = "../images/" . $_FILES["act_holdActFile"]["name"];
             copy($from,$to);
             header('Location:backAct.php');
     

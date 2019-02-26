@@ -62,6 +62,21 @@
 
     </style>
     <title>activity</title>
+    <style>
+            .lightbox_act .lightbox_act_info .spanbox {
+            width: 70%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }    
+        .lightbox_act .lightbox_act_info p {
+            width: 35%;
+            color: #f05c79;
+            font-size: 1.3rem;
+            max-width: 600px;
+            line-height: 2rem;
+        }
+    </style>
 </head>
 <body>
     <script type="text/javascript">
