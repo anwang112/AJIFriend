@@ -23,8 +23,6 @@
     <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="js/commonPart.js"></script>
     <!-- <script src="js/commonPart.js"></script> -->
-<<<<<<< HEAD
-=======
     <style>
     .lightbox_act .lightbox_act_info .spanbox {
         width: 70%;
@@ -64,7 +62,6 @@
 
     </style>
     <title>activity</title>
->>>>>>> index
     <style>
     .lightbox_act .lightbox_act_info .spanbox {
         width: 70%;

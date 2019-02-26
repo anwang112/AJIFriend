@@ -15,7 +15,7 @@ try {
 
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
 
-    if ($memRow["power"] == '0') { 
+    if ($memRow["power"] == '0') {   //增加權限 by 庸
       echo "權限不足";
     } else {
 

@@ -7,8 +7,7 @@ function $id(id) {
 
 function boxScroll(o) {
 	o.scrollTop = o.scrollHeight;
-	o.scrollTop += 200;
-
+	o.scrollTop += 210;
 }
 
 var body = document.getElementsByTagName('body');
@@ -59,8 +58,8 @@ function head_html() {
                             </span>
                         </div>
 						<div class="loginMj">
-							<span>MJ /</span>
-							
+							<span>LV .</span>
+							<span id='memLV'></span>
 							<span id="memMJ">
                             </span>
 						</div>
@@ -318,7 +317,7 @@ function head_html() {
 		$id("loginNot").innerText = '登出';
 	}
 	$id("login_send").addEventListener("click", function (e) {
-		e.preventDefault();
+		e.preventDefault();  //防止表單直接送出 by 庸
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
 		// window.location.reload();
@@ -675,6 +674,18 @@ function searchMem(profile) {
 			document.getElementById('sLv').innerText = lv;
 			document.getElementById('sIntro').innerText = info.intro;
 
+			function changeBtnUnf(btn) {
+				btn.removeClass('disable');
+				btn.addClass('btn');
+				btn.text('解除麻吉關係').attr("disabled", false);
+			};
+			console.log(info.name);
+			if (info.name == storage.getItem('mName')) {
+				document.getElementsByClassName('btns')[0].style.display = 'none';
+			} else {
+				document.getElementsByClassName('btns')[0].style.display = 'table-cell';
+			}
+
 			if (info.friendRe == 0) {
 				btn = $('.btn_beFriend0');
 				changeBtn(btn);
@@ -720,10 +731,10 @@ function sendForm(memId, memPsw) {
 		if (xhr.responseText == "error") {
 			$('#alertText').text('帳密錯誤，請重新輸入!');
 			$('.alertWrap').show();
-		} else if (xhr.responseText == "權限不足"){
+		} else if (xhr.responseText == "權限不足") {  //增加權限 by 庸
 			$('#alertText').text('您已被停權!');
 			$('.alertWrap').show();
-		}else {
+		} else {
 			var user = JSON.parse(xhr.responseText);
 
 			//登入的使用者資料暗樁 --各頁面可直接複製取用
@@ -828,6 +839,8 @@ function friendList(myNo = -1) {
                         </div>
 					</label> `;
 						div_chooseBox.innerHTML = chatList;
+
+
 
 						//載入朋友頭像
 						// rrr = document.getElementById('自己取');
@@ -1083,6 +1096,8 @@ function requireBack(myNo = -1) {
 						eyes: requireList[i][3],
 					});
 
+
+
 				}
 
 
@@ -1110,8 +1125,8 @@ function requireBack(myNo = -1) {
 //進資料庫撈聊天歷史訊息 --by ga
 function msgDB() {
 	console.log("還在reload唷!");
-	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //桌機聊天內容顯示區域
-	var rwd_chatbox_show = document.getElementById("rwd_chatbox"); //手機聊天內容顯示區域
+	chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //桌機聊天內容顯示區域
+	rwd_chatbox_show = document.getElementById("rwd_chatbox"); //手機聊天內容顯示區域
 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function () {
@@ -1170,12 +1185,12 @@ function msgDB() {
 				} else { //我發的訊息:靠右
 					msg_div.className = "youSaid";
 				}
-
+				boxScroll(chatbox_show);
+				boxScroll($id("rwd_chatbox"));
 			}
 			if (rwd_num == 0) {
 				boxScroll($id("rwd_chatbox"));
 			}
-
 
 
 		}
@@ -1523,6 +1538,7 @@ window.addEventListener('load', function () {
 	chatTxt_send.addEventListener('click', function () {
 		var txt = chatTxt_input.value;
 		sendMsg(txt);
+
 	}, false);
 
 	// 手機送出訊息(按送出) --ga
@@ -1727,6 +1743,7 @@ ooxxLightBox = (...lightBoxArray) => {
 // 角色外觀載入函式start -- 介庸
 ooxxGetRole = (roleId, roleData) => {
 	// 載入角色
+
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
@@ -1734,22 +1751,26 @@ ooxxGetRole = (roleId, roleData) => {
                             <embed class="eyesSvg" src="images/roleImages/eyes${roleData.eyes}.svg" style="display:block;">
                         </div>
                         <div class="roleHat"></div>
-                        <div class="roleClothes"></div>`;
+						<div class="roleClothes"></div>`;
 
+	//添加動畫
+	roleId.style.opacity = '1';
 	//填入顏色
 	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
 		for (let i = 0; i < fillColor.length; i++) {
-			fillColor[i].fillStyle = `#${roleData.color}`;
+			fillColor[i].style.fill = `#${roleData.color}`;
 		}
 	})
 
 	// 眼睛 帽帽 衣服喔 
 	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
 	if (roleData.hat) {
+		roleId.getElementsByClassName('roleHat')[0].style.opacity = '1';
 		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/${roleData.hat}`;
 	}
 	if (roleData.clothes) {
+		roleId.getElementsByClassName('roleClothes')[0].style.opacity = '1';
 		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/${roleData.clothes}`;
 	}
 
@@ -1839,18 +1860,132 @@ ooxxGetRole = (roleId, roleData) => {
 
 ooxxGetHead = (headId, headData) => {
 	// 載入頭頭
+
 	headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
                         <div class="headEyes"></div>`;
 
+
 	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		fillColor.fillStyle = `#${headData.color}`;
+		console.log('123');
+		fillColor.style.fill = `#${headData.color}`;
 	})
 
 	//插入眼睛
 	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
 
+// updateColor=(oo)=>{
+// 	oo.
+// }
+
 // 角色外觀載入函式end -- 介庸
+
+//更衣動畫 by 庸
+//換衣衣
+ooxxChangeClothes = (...changeClothesArray) => {
+	let object = changeClothesArray[0];
+	let clothes = changeClothesArray[1];
+	object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
+	let scaleValue = 0;
+	object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+	clothesGo = () => {
+		if (scaleValue <= 1) {
+			scaleValue += 0.06;
+			object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+			clothesId = requestAnimationFrame(clothesGo);
+		} else if (scaleValue >= 1.5) {
+			scaleValue = 1;
+			object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+			cancelAnimationFrame(clothesId)
+		}
+	}
+	clothesId = requestAnimationFrame(clothesGo);
+}
+
+
+
+
+
+//換帽帽
+ooxxChangeHat = (...changeHatArray) => {
+	let object = changeHatArray[0];
+	let hat = changeHatArray[1];
+	object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
+	let scaleValue = 0;
+	object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+	hatGo = () => {
+		if (scaleValue <= 1) {
+			scaleValue += 0.06;
+			object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+			hatId = requestAnimationFrame(hatGo);
+		} else if (scaleValue >= 1.5) {
+			scaleValue = 1;
+			object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+			cancelAnimationFrame(hatId)
+		}
+	}
+	hatId = requestAnimationFrame(hatGo);
+}
+
+
+
+// 更新金錢 和 mj值 by 庸
+window.addEventListener('load', () => {
+	if ($id("loginNot").innerText == '登出') {
+		loginBox
+		document.getElementsByClassName('loginContent')[0].style.display = 'block';
+		document.getElementsByClassName('loginBox')[0].style.top = '5px';
+		//更新mj值
+		ooxxUpdateMJ = () => {
+			let memberUpDateData = {
+				memId: storage.getItem("memId"), //登入後是誰
+				status: '更新錢MJ值'
+			};
+
+			let xhr = new XMLHttpRequest();
+			xhr.onload = function () {
+				let getData = JSON.parse(xhr.responseText);
+				storage.setItem('mMJ', getData.mMJ);
+				storage.setItem('mCoin', getData.mCoin);
+				$id("memMJ").innerText = getData.mMJ;
+				document.getElementById("userCoin").value = getData.mCoin;
+
+				if (parseInt(getData.mMJ) < 1000) {
+					document.getElementsByClassName('Mjbar')[0].style.width = `${getData.mMJ / 10}%`;
+				} else {
+					document.getElementsByClassName('Mjbar')[0].style.width = `100%`;
+				}
+				//$id('memLV')
+				if (parseInt(getData.mMJ) < 500) {
+					$id('memLV').innerHTML = '1';
+				} else if ((parseInt(getData.mMJ) > 500) && (parseInt(getData.mMJ) < 1000)) {
+					$id('memLV').innerHTML = '2';
+				} else if (parseInt(getData.mMJ) > 1000) {
+					$id('memLV').innerHTML = 'MAX';
+				}
+
+
+
+			}
+			xhr.open("Post", "upDateMember.php", true);
+			xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+			xhr.send("memberUpDateData=" + JSON.stringify(memberUpDateData));
+		}
+		ooxxUpdateMJ();
+
+		//
+		//點個人頭像
+		$id('loginHead').addEventListener('click', () => {
+			profile = {
+				memId: storage.getItem("memId"),
+				loginMemNo: storage.getItem("memNo"),
+			};
+			searchMem(profile);
+		})
+	}
+})
+
+

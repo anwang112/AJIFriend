@@ -85,47 +85,6 @@ ooxxEyesGo = (...eyesArray) => {
     setInterval(eyesGo, ooxxRandom(2000, 3500));
 }
 
-//換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${hat}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.8s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
-
-//換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${clothes}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.8s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
 
 
 
@@ -578,8 +537,8 @@ indexInit = () => {
                 shopLight[0].style.transform = `skewX(0) translateX(0)`;
                 modelLight.style.boxShadow = `0px -45px 120px 65px white`;
                 if (lightOpen == 188) {
-                    ooxxChangeHat($id('indexModel'), ooxxRandom(1, 15));
-                    ooxxChangeClothes($id('indexModel'), ooxxRandom(1, 24));
+                    ooxxChangeHat($id('indexModel'), `images/hatImages/hat${ooxxRandom(1, 15)}.png`);
+                    ooxxChangeClothes($id('indexModel'), `images/clothesImages/clothes${ooxxRandom(1, 24)}.png`);
                 }
                 if (lightOpen > 300) {
                     lightOpen = 0;
@@ -604,7 +563,7 @@ indexInit = () => {
         mj[1].style.transition = '1.5s';
         mj[2].style.transition = '1.7s';
         mj[2].setAttribute("width", `0`);
-        
+
         ajiThree = $id('ajiThree').getSVGDocument();
         ajiThreeMJ = [
             ajiThree.getElementsByClassName('cls-18')[0],  //氣泡
@@ -855,9 +814,9 @@ indexInit = () => {
                     break;
             }
             var createKindAll = document.getElementsByClassName("createKindAll")[0];
-            if(i==0){
+            if (i == 0) {
                 createKindAll.style.borderRadius = "0 10px 10px 10px";
-            }else{
+            } else {
                 createKindAll.style.borderRadius = "10px 10px 10px 10px";
             }
             e.target.style.background = 'rgba(255,255,255,0.7)';
@@ -1435,17 +1394,17 @@ indexInit = () => {
         }
         */
 
-    
-    //方法2
-    window.onload = function() { 
-        setTimeout(() => {
-            $(".load").fadeOut();
 
-        }, 2000);
-        setTimeout(() => {
-            indexInit();
+//方法2
+window.onload = function () {
+    setTimeout(() => {
+        $(".load").fadeOut();
 
-        }, 2000);
-        
-    };
+    }, 2000);
+    setTimeout(() => {
+        indexInit();
+
+    }, 2000);
+
+};
     // window.addEventListener('load', indexInit);
