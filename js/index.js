@@ -303,6 +303,7 @@ indexInit = () => {
 
         $id('createBtn').addEventListener('click', () => {
             $id('indexCreateRoleBox').style.display = 'flex';
+            $id("loginBox").style.cssText = 'display: block;z-index:14;';
 
         })
         $id('saveRoleBtn').addEventListener('click', () => {
@@ -733,6 +734,7 @@ indexInit = () => {
     indexCreateCloseBtn = document.getElementById('indexCreateCloseBtn');
     indexCreateCloseBtn.addEventListener('click', () => {
         $id('indexCreateRoleBox').style.display = `none`;
+        $id("loginBox").style.cssText = 'display: none;z-index:14;';
     })
     //tab切換
     createKindList = document.getElementById('createKindList');
@@ -952,6 +954,7 @@ indexInit = () => {
     saveRoleBtn = document.getElementById('saveRoleBtn');
     saveRoleBtn.addEventListener('click', () => {
         localStorage.setItem('role', JSON.stringify(roleObject));
+
     })
 
 
@@ -1059,6 +1062,7 @@ indexInit = () => {
         })
         $id('createMemberScreenCloseBtn').addEventListener('click', () => {
             $id('createMemberScreen').style.display = 'none';
+            $id("loginBox").style.cssText = 'display: none;z-index:14;';
         })
     }
     createMember();

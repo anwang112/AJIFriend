@@ -888,8 +888,9 @@ html {
   transform: rotate(-45deg); }
 
 .indexCreateRoleBox {
-  background-color: #7AB7CC;
-  border-radius: 35px;
+  border-radius: 15px;
+  border: 2px solid #f05c79;
+  background-color: #ecded9;
   display: none;
   flex-direction: column;
   position: fixed;
@@ -1097,11 +1098,12 @@ html {
   bottom: 0;
   max-height: 500px;
   min-height: 80%;
-  background-color: #7AB7CC;
+  border-radius: 15px;
+  border: 2px solid #f05c79;
+  background-color: #ecded9;
   position: fixed;
   padding: 20px;
-  max-width: 500px; 
-  border-radius: 35px;}
+  max-width: 500px; }
   @media only screen and (min-width: 768px) {
     #createMemberScreen {
       max-height: 650px; 
@@ -1165,6 +1167,7 @@ html {
           outline: none; }
           #createMemberScreen .createMemberBox .createRightForm li input:focus{
             background-color: #f8d7e6;
+            border:1px solid #F05C79;
           }
   #createMemberScreen #createMemberBtn {
     position: absolute;
