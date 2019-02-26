@@ -351,7 +351,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <button id="saveRoleBtn">製作完成</button>
+        <button id="saveRoleBtn" class="btn">製作完成</button>
 
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
@@ -363,13 +363,13 @@ session_start();
         <div class="createMemberBox">
             <ul class="createLeftForm">
                 <li>
-                    <label>會員帳號 :</label>
+                    <label>會員帳號</label>
                 </li>
                 <li>
-                    <label>會員密碼 :</label>
+                    <label>會員密碼</label>
                 </li>
                 <li>
-                    <label>會員暱稱 :</label>
+                    <label>會員暱稱</label>
                 </li>
                 <li>
                     <label>選擇星座</label>
@@ -457,7 +457,7 @@ session_start();
             </ul>
             <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
-        <button id="createMemberBtn" class="btn_R">送出</button>
+        <button id="createMemberBtn" class="btn">送出</button>
     </div>
 
 

@@ -36,9 +36,10 @@
     transition: .3s;
     border: none;
     color: #e5e5e5;
-    height: 35px; }
+    height: 35px; 
+    transform: translateY(-4px);}
     #reportData button:hover {
-      transform: translateY(4px);
+      transform: translateY(0px);
       box-shadow: 0px 0px 0px transparent; }
   #reportData table {
     margin: auto; }
@@ -73,30 +74,16 @@
       #reportData table textarea:focus::placeholder, #reportData table textarea.populated::placeholder {
         color: transparent; }
 
-#searData {
-  min-width: 620px;
-  width: 60%;
-  height: 450px;
-  margin: auto;
-  background-color: #a2988f;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-  position: absolute;
-  top: 15%;
-  z-index: 21;
-  transition: .5s;
-  left: 0;
-  right: 0;
-  transform: rotateY(0deg); }
+
   #searData .sRole {
     padding-top: 30px;
     width: 50%;
     background-image: url(../images/searbg.svg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 105%; }
+    background-size: 105%; 
+    border-radius: 24px;
+  }
     #searData .sRole #topMoney05 {
       width: 100%; }
 
@@ -135,9 +122,9 @@
       color: #e5e5e5;
       height: 35px;
       position: relative;
-      top: -4px; }
+      top: 0px; }
       .wrap .searchMaji button:hover {
-        transform: translateY(4px);
+        transform: translateY(0px);
         box-shadow: 0px 0px 0px transparent; }
     .wrap .searchMaji .searchTxt {
       height: 38px;
@@ -209,7 +196,6 @@
     .profileInfo.proAb .btnCol {
       text-align: center; }
   .profileInfo.serPro {
-    border: 3px solid #a2988f;
     width: 50%;
     line-height: 2;
     display: flex;
@@ -226,25 +212,27 @@
       border: none;
       color: #e5e5e5;
       height: 35px;
-      margin: 10px; }
+      margin: 10px; 
+      transform: translateY(-4px);}
       .profileInfo.serPro #report:hover {
-        transform: translateY(4px);
+        transform: translateY(0px);
         box-shadow: 0px 0px 0px transparent; }
     .profileInfo.serPro th {
-      display: block;
-      text-align: center;
-      background-color: #ecded9;
-      color: #a2988f;
-      border-radius: 5px;
-      margin: 10px;
-      padding: 0 5px;
-      width: 100px; }
+display: block;
+    text-align: center;
+    background-color: #ecded9;
+    color: #7C5B45;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0 5px;
+    width: 100px;}
     .profileInfo.serPro #sMJ {
       text-align: center;
-      background-color: #ecded9;
-      color: #a2988f;
+      background-color: #f05c79;
+      color: #ffffff;
       border-radius: 5px;
-      padding: 5px;
+      padding: 5px 15px;
+      margin: 5px;
       width: 100px; }
     .profileInfo.serPro td {
       text-align: left; }
@@ -348,7 +336,7 @@
       height: 30px;
       color: #eb616d; }
     .matchContent .selectBtn button {
-      width: 100px;
+      width: 115px;  /*ga*/
       border-radius: 12px;
       background-color: #f05c79;
       box-shadow: 0px 4px 0px #c84e6a;
@@ -358,9 +346,10 @@
       border: none;
       color: #e5e5e5;
       height: 35px;
-      margin: 5px; }
+      margin: 20px 5px; /*ga*/
+      transform: translateY(-4px);} /*ga*/
       .matchContent .selectBtn button:hover {
-        transform: translateY(4px);
+        transform: translateY(0px); /*ga*/
         box-shadow: 0px 0px 0px transparent; }
 
 .majiRank {
@@ -435,8 +424,7 @@
     display: flex;
     justify-content: center;
     padding-top: 50px; }
-    .majiRank .rankContent button {
-      height: 30px;
+    .majiRank .rankContent button { /*ga*/
       margin: 5px;
       line-height: 0; }
     .majiRank .rankContent .rankItem {
@@ -465,9 +453,10 @@
   transition: .3s;
   border: none;
   color: #e5e5e5;
-  height: 35px; }
+  height: 35px; 
+  transform: translateY(-4px);}
   .rankBtn:hover {
-    transform: translateY(4px);
+    transform: translateY(0px);
     box-shadow: 0px 0px 0px transparent; }
 
 .rankTxtCs {
@@ -529,9 +518,10 @@
       right: 0;
       left: 0;
       margin: 0 auto;
-      bottom: 30px; }
+      bottom: 30px; 
+      transform: translateY(-4px);}
       .alertWrap .alert #alertBtn:hover {
-        transform: translateY(4px);
+        transform: translateY(0px);
         box-shadow: 0px 0px 0px transparent; }
     .alertWrap .alert #alertText {
       text-align: center;
@@ -559,9 +549,10 @@
   transition: .3s;
   border: none;
   color: #e5e5e5;
-  height: 35px; }
+  height: 35px; 
+  transform: translateY(-4px);}
   .btn:hover {
-    transform: translateY(4px);
+    transform: translateY(0px);
     box-shadow: 0px 0px 0px transparent; }
 
 @media only screen and (max-width: 768px) {
