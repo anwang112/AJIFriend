@@ -322,7 +322,7 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            // imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
 
@@ -1037,6 +1037,7 @@ window.addEventListener('load',function(){
     },false);
 
 // 寫入留言
+    var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     myMessagebox_input.addEventListener('keydown',function(e){
@@ -1069,6 +1070,14 @@ window.addEventListener('load',function(){
                 $('.alertWrap').show();
             }
         }
+    },false);
+    userInput_send.addEventListener('click',function(e){
+        var txt = '';
+        txt = myMessagebox_input.value;
+        actNo = myMessagebox_inputNone.value;
+        var memNo = storage.getItem("memNo");
+        // alert('memNo:'+ memNo);
+        sendCom(memNo,actNo,txt);
     },false);
 
     // var r_act = document.getElementById('theUser');
@@ -1160,6 +1169,9 @@ window.addEventListener('load',function(){
 
         lightbox_act.style.cssText="display:flex;z-index:10;";
         lightbox_act_info.style.cssText="display:flex;z-index:10;";
+        var imgBoxImg_B = $id('imgBoxImg_B');
+        var imgBoxImg = $id('imgBoxImg');
+        imgBoxImg_B.src=imgBoxImg.src;
 
         lightbox_act_info.addEventListener('click',function(e){
             e.stopPropagation();
@@ -1181,6 +1193,7 @@ window.addEventListener('load',function(){
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
+<<<<<<< HEAD
 
         if(storage.getItem("memNo")){
             window.scrollTo(0,(act_memberHold.offsetTop+400));
@@ -1188,6 +1201,15 @@ window.addEventListener('load',function(){
 
             lightbox_holdact.style.cssText="display:flex;z-index:10;";
             lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+=======
+        if(storage.getItem("memNo")){ //有登入
+            window.scrollTo(0,(act_memberHold.offsetTop+400));
+            console.log(act_memberHold.offsetTop);
+    
+            lightbox_holdact.style.cssText="display:flex;z-index:10;";
+            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+    
+>>>>>>> lien0213
             lightbox_holdact_info.addEventListener('click',function(e){
                 e.stopPropagation();
             },false);
