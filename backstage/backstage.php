@@ -37,7 +37,27 @@ try {
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <script src="../js/package/jquery/dist/jquery.min.js"></script>
+    <style>
+    .container {
+        padding-left:0px;
+        margin-left:15px;
+    }
+    .list-group-item{
+        padding:1.75rem 1.25rem;
+    }
+    .table td{
+        padding:0.25rem;
+    }
+    .row{
+        margin-left:0;
+    }
+    button{
+        margin:3px;
+    }
+    
+    </style>
 </head>
+
 
 <body>
     <!-- Just an image -->
