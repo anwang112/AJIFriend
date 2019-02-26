@@ -1187,7 +1187,7 @@ indexInit = () => {
     window.addEventListener('resize', lightChangeScreen);
     window.addEventListener("scroll", scrollFourthScreen);
 }
-window.addEventListener('load', indexInit);
+
 
 // 走道測試區 可是效果不好
 // window.addEventListener("scroll", function (e) {
@@ -1337,3 +1337,18 @@ window.addEventListener('load', indexInit);
             });
         }
         */
+
+    
+    //方法2
+    window.onload = function() { 
+        setTimeout(() => {
+            $(".load").fadeOut();
+
+        }, 2000);
+        setTimeout(() => {
+            indexInit();
+
+        }, 2000);
+        
+    };
+    // window.addEventListener('load', indexInit);
