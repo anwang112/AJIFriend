@@ -8,10 +8,10 @@ try {
 
     if (isset($_REQUEST["actObj"])) {
         $actObj = $memberData = json_decode($_REQUEST["actObj"]);
-        $sqlSearch_actNO = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND actTitle = :actTitle";
+        $sqlSearch_actNO = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND actNo = :actNo";
         $aa = $pdo->prepare($sqlSearch_actNO);
 
-        $aa->bindValue(":actTitle",  $actObj->actValue);
+        $aa->bindValue(":actNo",  $actObj->actValue);
 
         $aa->bindColumn("actNo", $actNo);
         $aa->bindColumn("host_memNo", $host_memNo);

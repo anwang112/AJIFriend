@@ -322,5 +322,4 @@ require_once("backItemToDB.php");
         });
     </script>
 </body>
-
-</html> 
+</html>

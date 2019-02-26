@@ -316,4 +316,4 @@ window.addEventListener('load', function () {
         checkDeleAct();
     }, false);
 
-}, false);
+},false);

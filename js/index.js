@@ -335,55 +335,13 @@ indexInit = () => {
         // const donutTitle = document.querySelector('.donut-title');
 
         // 放好人物
-        ooxxGetRole($id('trojanItemRole01'), {
-            animal: 1,
-            color: '00aa99',
-            eyes: 1,
-            hat: 'hat1.png',
-            clothes: 'clothes1.png',
-        });
-        ooxxGetRole($id('trojanItemRole02'), {
-            animal: 2,
-            color: '118899',
-            eyes: 5,
-            hat: 'hat2.png',
-            clothes: 'clothes2.png',
-        });
-        ooxxGetRole($id('trojanItemRole03'), {
-            animal: 4,
-            color: 'aabbff',
-            eyes: 4,
-            hat: 'hat3.png',
-            clothes: 'clothes3.png',
-        });
-        ooxxGetRole($id('trojanItemRole04'), {
-            animal: 1,
-            color: '880022',
-            eyes: 3,
-            hat: 'hat4.png',
-            clothes: 'clothes4.png',
-        });
-        ooxxGetRole($id('trojanItemRole05'), {
-            animal: 3,
-            color: '2277cc',
-            eyes: 1,
-            hat: 'hat5.png',
-            clothes: 'clothes5.png',
-        });
-        ooxxGetRole($id('trojanItemRole06'), {
-            animal: 2,
-            color: '4acc99',
-            eyes: 2,
-            hat: 'hat6.png',
-            clothes: 'clothes6.png',
-        });
-        ooxxGetRole($id('trojanItemRole07'), {
-            animal: 3,
-            color: '123456',
-            eyes: 4,
-            hat: 'hat8.png',
-            clothes: 'clothes7.png',
-        });
+        ooxxGetRole($id('trojanItemRole01'), { animal: 1, color: '00aa99', eyes: 1, hat: 'hat1.png', clothes: 'clothes1.png', });
+        ooxxGetRole($id('trojanItemRole02'), { animal: 2, color: '118899', eyes: 5, hat: 'hat2.png', clothes: 'clothes2.png', });
+        ooxxGetRole($id('trojanItemRole03'), { animal: 4, color: 'aabbff', eyes: 4, hat: 'hat3.png', clothes: 'clothes3.png', });
+        ooxxGetRole($id('trojanItemRole04'), { animal: 1, color: '880022', eyes: 3, hat: 'hat4.png', clothes: 'clothes4.png', });
+        ooxxGetRole($id('trojanItemRole05'), { animal: 3, color: '2277cc', eyes: 1, hat: 'hat5.png', clothes: 'clothes5.png', });
+        ooxxGetRole($id('trojanItemRole06'), { animal: 2, color: '4acc99', eyes: 2, hat: 'hat6.png', clothes: 'clothes6.png', });
+        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 4, hat: 'hat8.png', clothes: 'clothes7.png', });
 
         const circle = document.getElementById("circle");
         const showCircle = document.getElementById('showCircle');
