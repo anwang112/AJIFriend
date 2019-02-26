@@ -913,8 +913,7 @@ html {
             flex-direction: column;
     text-align: center;
     transition: 1s;
-    position: absolute;
-    top: -100vh;
+    position: fixed;
     left: 0;
     opacity: 1;
     z-index: 7;
@@ -950,6 +949,7 @@ html {
     border-radius: 15px;
     background-color: #fff;
     text-align: center;
+    border:none;
   }
   .rwd_chatRoom .fr_demo {
     width: 90%;

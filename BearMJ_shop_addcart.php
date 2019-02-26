@@ -152,6 +152,7 @@ session_start();
             </div> 
             <div id="btn_openGame">
                 <img src="images/wallet2.png" alt="">
+                <span>領金幣</span>
             </div>
             <!-- 搖獎遊戲 -->
             <div class="gameMask"></div>

@@ -17,6 +17,7 @@ session_start();
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
+    <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 
@@ -28,7 +29,27 @@ session_start();
     <script type="text/javascript">
         head_html();
     </script>
-
+    <div class="load">
+        <div class="loadBox">
+        <div class="ani">
+            <img src="images/bearmask.png" alt="">
+            <div class="bear"></div>
+        </div>
+        <div class="ani">
+            <img src="images/rabimask.png" alt="">
+            <div class="rabi"></div>
+        </div>
+        <div class="ani">
+            <img src="images/catmask.png" alt="">
+            <div class="cat"></div>
+        </div>
+        <div class="ani ">
+            <img src="images/dogmask.png" alt="">
+            <div class="dog"></div>
+        </div>
+    </div>
+    <div id="scoreDisplay1"></div>
+    </div>
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
@@ -234,11 +255,15 @@ session_start();
     <div class="fourthScreen" id="fourthScreen">
         <!-- 主要內容 -->
         <section class="fourthScreenPhoto">
-            <div class="photoTitle indexTitle">
+        <div class="pic">
+                <img src="images/picpic.png" alt="">
+            </div>
+            <div class="photoTitle indexTitle picTitle">
                 <h2>
                     <a href="photo.php" title="照片牆" class="indexA">塗鴉麻吉合照</a>
                 </h2>
             </div>
+           
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
                 <svg id="lineStory" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -30 900 500" preserveAspectRatio="xMinYMin meet">

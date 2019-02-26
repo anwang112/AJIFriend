@@ -194,7 +194,7 @@ try {
                         <input type="hidden"value=""id="matchMemNo">
                         <tr>
                             <th>
-                                ID：
+                                ID
                             </th>
                             <td>
                                 <span id="mcId"></span>
@@ -202,7 +202,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                默契值：
+                                默契值
                             </th>
                             <td>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
@@ -212,7 +212,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                暱稱：
+                                暱稱
                             </th>
                             <td>
                                 <span id="mcName"></span>
@@ -220,7 +220,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                等級：
+                                等級
                             </th>
                             <td>
                                 <span id="mcLv"></span><br>
@@ -230,7 +230,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                興趣：
+                                興趣
                             </th>
                             <td>
                                 <span id="mcHobby"></span>
@@ -238,7 +238,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                星座：
+                                星座
                             </th>
                             <td>
                                 <span id="cons"></span>
@@ -246,7 +246,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                自我介紹：
+                                自我介紹
                             </th>
                             <td>
                                 <span id="mcIntro"></span>
