@@ -324,7 +324,7 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            // imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
 
@@ -1141,6 +1141,9 @@ window.addEventListener('load',function(){
 
         lightbox_act.style.cssText="display:flex;z-index:10;";
         lightbox_act_info.style.cssText="display:flex;z-index:10;";
+        var imgBoxImg_B = $id('imgBoxImg_B');
+        var imgBoxImg = $id('imgBoxImg');
+        imgBoxImg_B.src=imgBoxImg.src;
 
         lightbox_act_info.addEventListener('click',function(e){
             e.stopPropagation();
@@ -1162,20 +1165,24 @@ window.addEventListener('load',function(){
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
-        window.scrollTo(0,(act_memberHold.offsetTop+400));
-        console.log(act_memberHold.offsetTop);
-
-        lightbox_holdact.style.cssText="display:flex;z-index:10;";
-        lightbox_holdact_info.style.cssText="display:block;z-index:10;";
-
-        lightbox_holdact_info.addEventListener('click',function(e){
-            e.stopPropagation();
-        },false);
-        lightbox_holdact.addEventListener('click',function(){
-            lightbox_holdact.style.cssText="display:none;z-index:-1;";
-            lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
-        },false);
-
+        if(storage.getItem("memNo")){ //有登入
+            window.scrollTo(0,(act_memberHold.offsetTop+400));
+            console.log(act_memberHold.offsetTop);
+    
+            lightbox_holdact.style.cssText="display:flex;z-index:10;";
+            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+    
+            lightbox_holdact_info.addEventListener('click',function(e){
+                e.stopPropagation();
+            },false);
+            lightbox_holdact.addEventListener('click',function(){
+                lightbox_holdact.style.cssText="display:none;z-index:-1;";
+                lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
+            },false);
+        }else{
+            $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
+            $id("loginBox").style.cssText = 'display: block;z-index:14;';
+        }
     },false);
     
     //actbox03

@@ -120,7 +120,7 @@
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
-    /* transform: rotate(-1.5deg); */
+    transform: rotate(-1.5deg);
 
     position: absolute;
     right: 10%;
@@ -216,7 +216,8 @@
     position: relative; }
     .lightbox_act .lightbox_act_info img {
       width: 50%;
-      transform: rotate(-1deg); }
+      transform: rotate(-1deg);
+      max-height: 300px; }
     .lightbox_act .lightbox_act_info h2 {
       width: 70%;
       height: 30px;
@@ -936,7 +937,7 @@
       bottom: 17%;
       z-index: 2;
       overflow: hidden;
-      /* transform: rotate(-1.5deg);  */
+      transform: rotate(-1.5deg); 
     }
       .act_section01 .act_mainbox .btnbox {
         width: 100%;
@@ -998,7 +999,7 @@
       bottom: 16%;
       z-index: 2;
       overflow: hidden;
-      /* transform: rotate(-1.5deg);  */
+      transform: rotate(-1.5deg); 
     }
       .act_section01 .act_mainbox .btnbox {
         width: 100%;
@@ -1097,7 +1098,7 @@
       bottom: 24%;
       z-index: 2;
       overflow: hidden;
-      /* transform: rotate(-1.5deg);  */
+      transform: rotate(-1.5deg); 
     }
       .act_section01 .act_mainbox .btnbox {
         width: 100%;
