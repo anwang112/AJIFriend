@@ -196,8 +196,9 @@ function init() {
 		var wardrobe = document.getElementById("wardrobe");
 		var wardrobeLightBox = document.getElementById("wardrobeLightBox");
 		wardrobeLightBox.style.display = "";
-	}
+	} 
 	function wardrobeClose() {
+		window.location.reload();
 		wardrobeLightBox.style.display = "none";
 	}
 	function showKeepsaveSuccessLightBox() {

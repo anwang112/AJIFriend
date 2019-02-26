@@ -17,6 +17,7 @@ require_once('myRoomToDB.php');
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" type="text/css" href="css/myRoom.css">
+    <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/myRoom2_v2.js"></script>
     <script src="js/myRoom2.js"></script>
@@ -173,8 +174,8 @@ require_once('myRoomToDB.php');
                             animal: ' .$myAnimal . ',
                             color:"' . $myColor . '",
                             eyes:' . $myEye . ',
-                            hat:' . $myHat . ',
-                            clothes:' . $myClothes . ',
+                            hat:"' . $myHat . '",
+                            clothes:"' . $myClothes . '",
                             });
                     }
                 </script>' ;
@@ -192,18 +193,34 @@ require_once('myRoomToDB.php');
         }
         
 
-        ?>
+            $memData = $ddd->fetch(PDO::FETCH_ASSOC) ;
+            // 衣櫃裡的角色
+            echo '
+            <script> 
+            ooxxGetRole($id("myRole"), {
+                    animal:'. $memData["animal"] .',
+                    color: "' .$memData["mColor"] .'",
+                    eyes:' . $memData["eye"] . ',
+                    hat:"'. $memData["wearHat"].'" ,
+                    clothes: "'. $memData["wearClothes"].'" ,
+                });
+                </script>
+            
+            
+            ';
+            ?>
 
         <script>
+
 
 
             //換衣衣
 ooxxChangeClothes = (...changeClothesArray) => {
     let object = changeClothesArray[0];
     let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/${clothes})`;
+    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
     let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.8s`;
+    object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
     clothesGo = () => {
         if (scaleValue <= 1) {
             scaleValue += 0.06;
@@ -228,7 +245,7 @@ ooxxChangeHat = (...changeHatArray) => {
     let hat = changeHatArray[1];
     object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
     let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.8s`;
+    object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
     hatGo = () => {
         if (scaleValue <= 1) {
             scaleValue += 0.06;
@@ -250,14 +267,7 @@ ooxxChangeHat = (...changeHatArray) => {
     
 
 
-    myRole = document.getElementById('myRole');
-    ooxxGetRole(myRole, {
-            animal: 1,
-            color: 'aaaaaa',
-            eyes: 6,
-            hat: 1,
-			    clothes: 3,
-        })
+
     
         myhats = document.getElementsByClassName('myhats')[0];
         myhatsItem = myhats.getElementsByTagName('li');
@@ -276,7 +286,7 @@ ooxxChangeHat = (...changeHatArray) => {
         for(let i=0;i<myClothesItem.length;i++){
           myClothesItem[i].addEventListener("click",(e)=>{
               // console.log(e.target.src.split('/')[6]);
-              ooxxChangeClothes(myRole, e.target.src.split('/')[6]);      
+              ooxxChangeClothes(myRole, e.target.src);      
           })
         }
 
@@ -297,30 +307,81 @@ ooxxChangeHat = (...changeHatArray) => {
                     <div class="proLeft">
                         <h3>我的個人資料</h3>
                         <div class="leftcontent">
-
+                        
                             <div id="inputbefore">
                                 <span>帳號</span>
-                                <p id="xhrAcctBack">Aji007</p>
+                                <p id="xhrAcctBack"><?php echo $memData["memId"]; ?></p>
                             </div>
                             <div>
                                 <span>暱稱</span>
                                 <input type="" name="" value="" id="mName">
-                                <p id="mNameText">阿吉</p>
+                                <p id="mNameText"><?php echo $memData["mName"]; ?></p>
                             </div>
                             <div>
                                 <span>星座</span>
-                                <input type="" name="" value="" id="constellation">
-                                <p id="constellationText">水瓶座</p>
+                                <input type="hidden" name="" value="<?php echo $memData["constellation"]; ?>" id="constellation">
+                                <p id="constellationText"></p>
                             </div>
+
+<script>
+    function $id(id) {
+	return document.getElementById(id);
+}
+    switch ($id("constellation").value) {
+        case '1':
+            $id("constellationText").innerText = "牡羊座";
+            break;
+        case '2':
+            $id("constellationText").innerText = "金牛座";
+            break;
+        case '3':
+            $id("constellationText").innerText = "雙子座";
+            break;
+        case '4':
+            $id("constellationText").innerText = "巨蟹座";
+            break;
+        case '5':
+            $id("constellationText").innerText = "獅子座";
+            break;
+        case '6':
+            $id("constellationText").innerText = "處女座";
+            break;
+        case '7':
+            $id("constellationText").innerText = "天秤座";
+            break;
+        case '8':
+            $id("constellationText").innerText = "天蠍座";
+            break;
+        case '9':
+            $id("constellationText").innerText = "射手座";
+            break;
+        case '10':
+            $id("constellationText").innerText = "摩羯座";
+            break;
+        case '11':
+            $id("constellationText").innerText = "水瓶座";
+            break;
+        case '12':
+            $id("constellationText").innerText = "雙魚座";
+            break;
+    }
+
+
+
+
+</script>
+
+
+                                
+                                
                             <div>
                                 <span>興趣</span>
-                                <input type="" name="" value="" id="hobby">
                                 <p id="hobbyText">運動、桌遊</p>
                             </div>
                             <div>
                                 <span>自介</span>
                                 <input type="" name="" value="" id="selfIntro">
-                                <p id="selfIntroText">尋找春天的一把熊熊烈火</p>
+                                <p id="selfIntroText"><?php echo $memData["self-intro"]; ?></p>
                             </div>
 
                             <div id="change_and_reset">

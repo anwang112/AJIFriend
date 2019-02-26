@@ -1,8 +1,9 @@
 <?php
+// session_start();
     //要抓到會員值 $_SESSION["memNo"]
     
     try {
-        //跟資料庫要資料
+        // //跟資料庫要資料
         require_once("connectBooks.php");
         // 已報名活動
         
@@ -70,6 +71,7 @@
         }else{
             $ccc -> bindValue(':memNo' ,-1 );
         }
+
         $ccc -> bindColumn('animal', $myAnimal);
         $ccc -> bindColumn('eye', $myEye);
         $ccc -> bindColumn('mColor', $myColor);
@@ -77,7 +79,22 @@
         $ccc -> bindColumn('wearClothes', $myClothes);
         $ccc -> execute();
 
+        $sqldd = "select * FROM member WHERE memNo = ?";
+        $ddd = $pdo->prepare($sqldd); 
+        if(isset($_SESSION["memNo"])){
+            
+            $ddd -> bindValue(1,$_SESSION["memNo"]);//$_SESSION["memNo"] 
+        }else{
+            $ddd -> bindValue(1 ,-1 );
+        }
+        // $ddd -> bindColumn('mName', $myName);
+        // $ddd -> bindColumn('constellation', $myStar);
+        // $ddd -> bindColumn('memId', $myId);
+        // $ddd -> bindColumn('hobby', $myHobby);
+        // $ddd -> bindColumn('self-intro', $myIntro);
+        $ddd -> execute();
 
+        // echo $myName;
 
 
         //寫入穿好的

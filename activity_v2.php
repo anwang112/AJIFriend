@@ -23,6 +23,44 @@
     <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="js/commonPart.js"></script>
     <!-- <script src="js/commonPart.js"></script> -->
+    <style>
+    .lightbox_act .lightbox_act_info .spanbox {
+        width: 70%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }    
+    .lightbox_act .lightbox_act_info p {
+        width: 35%;
+        color: #f05c79;
+        font-size: 1.3rem;
+        max-width: 600px;
+        line-height: 2rem;
+    }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
+        position: absolute;
+        left: 22%;
+        top: 0px;
+        padding: 5px 0;
+        font-size: 1.3rem;
+    }
+    
+    .commentItem{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    }
+    .commentName{    
+        margin-bottom: 10px;
+        color: brown;
+    }
+    .commentText{
+        font-size: 17px;
+        color: #555;
+        padding-left: 18px;
+    }
+
+    </style>
     <title>activity</title>
 </head>
 <body>

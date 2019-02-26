@@ -30,7 +30,7 @@ function head_html() {
                 <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.html">照片牆</a></li>
+                <li><a href="photo.php">照片牆</a></li>
                 <li><a href="myRoom_v2.php">我的窩</a></li>
             </ul>
 			<div class="loginBox">
@@ -95,8 +95,8 @@ function head_html() {
                 <li><a href="match2.php">找麻吉</a></li>
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-				<li><a href="photo.html">照片牆</a></li>
-				<li><a id="head_member_icon" href="myRoom.html">我的窩</a></li>
+				<li><a href="photo.php">照片牆</a></li>
+				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
                 <li><a href="#">登入</a></li>
                 
             </ul>
@@ -321,6 +321,7 @@ function head_html() {
 
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
+		window.location.reload();
 	}, false);
 
 	if (storage.getItem("memNo")) {
@@ -345,7 +346,7 @@ function foot_html() {
             <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
             <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
-	        <a href="#"><img src="pic/chatroom_btn_gift.svg" alt="送禮物按鍵"></a>
+	        
 	        <a id="btn_memData"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
 	    </div> 
 	    <div class="chatboxRight">
@@ -365,14 +366,11 @@ function foot_html() {
 	    <!-- 聊天室收合左側欄  -->
 	    <label for="" id="closeLabel"><img id="chatroom_btn_open" src="pic/chatroom_btn_open1.svg" alt="收合左側欄按鍵"></label>
 	    <div id="chatboxLeft" class="chatboxLeft">
-	        <input id="search_input" type="text" placeholder="搜尋好友">
+	        <p style="color:rgba(240,92,121,1);;text-align:left;margin:5px 15px">麻吉聊起來</p>
 	        <div class="friendbox">
-				<label class="friendClick">
-					<div id="admin">
-						<img src="shop-images/gift.png" class="friendClick">
-					</div>
-					<p class="friendClick">管理員</p>
-				</label>
+				<span>
+
+				</span>
 	        </div>
 			<div id="replybox">
 				<p id="replyboxTitle">回覆好友邀請</p>
@@ -434,6 +432,94 @@ function foot_html() {
 	}
 }
 
+//這是判斷朋友的ＢＴＮ  --by An
+function beFriend (tarNo,loginNo,btn) {
+  
+	if(btn.text() == '成為麻吉'){
+		if (!storage.getItem("memNo")) {
+			$('#alertText').text('請先登入!');
+			$('.alertWrap').show();
+		}else if(loginNo == tarNo){
+			$('#alertText').text('不能選擇自己唷!');
+			$('.alertWrap').show();
+		}else{
+			if (storage.getItem("loveGiven") <= 0) {
+				$('#alertText').text('今天的愛心已經用完囉！');
+				$('.alertWrap').show();
+			} else {
+				profile = {
+					memNo: loginNo,
+					targetNo: tarNo,
+					nowDay: nowDay,
+					action: 3,
+				};
+				makeFriend(profile);
+			}
+		}
+	}else if(btn.text() == '解除麻吉關係'){
+		data= {
+			sendMemId: storage.getItem("memNo"),
+			taMemId: tarNo,
+			action: 2,
+			btn: btn,
+		};
+		unFriend(data);
+	}
+   
+ }
+ 
+ 
+ //加朋友的方選  --by An
+ function makeFriend(profile) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		if (parseInt(xhr.responseText) >= 0) {
+			heart = xhr.responseText;
+			storage.setItem("loveGiven",heart);
+			changeBtn(btn);
+			loadHeart(heart)
+			$('#alertText').text('已送出邀請');
+			$('.alertWrap').show();
+		} else {
+			$('#alertText').text('請勿重複邀請唷!');
+			$('.alertWrap').show();
+		}
+ 
+	};
+	xhr.open("Post", "makeFriend.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("profile=" + JSON.stringify(profile));
+ }
+ 
+ 
+ 
+ //解除好友關係方選 --by An
+ function unFriend(data){
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		if (xhr.responseText == "delete friend~") {
+			$('#alertText').text('已解除麻吉關係!');
+			$('.alertWrap').show();
+			changeBtnNomal(btn);
+ 
+		}
+		div_chooseBox = document.getElementsByClassName("friendbox")[0];
+		while (div_chooseBox.children.length > 1) {
+			console.log("+++刪朋友列表");
+			div_chooseBox.removeChild(div_chooseBox.lastChild);
+		}
+		
+		friendList(storage.getItem("memNo"));
+ 
+	};
+	xhr.open("Post", "updateRelationship.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("upMem=" + JSON.stringify(data));
+	
+ 
+ }
+ 
+//檢舉 --by An
 function report(profile) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function () {
@@ -1646,10 +1732,10 @@ ooxxGetRole = (roleId, roleData) => {
 	// 眼睛 帽帽 衣服喔 
 	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
 	if (roleData.hat) {
-		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${roleData.hat}.png`;
+		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/${roleData.hat}`;
 	}
 	if (roleData.clothes) {
-		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${roleData.clothes}.png`;
+		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/${roleData.clothes}`;
 	}
 
 	//眼睛動起來
