@@ -578,7 +578,7 @@ indexInit = () => {
                 shopLight[0].style.transform = `skewX(0) translateX(0)`;
                 modelLight.style.boxShadow = `0px -45px 120px 65px white`;
                 if (lightOpen == 188) {
-                    ooxxChangeHat($id('indexModel'), ooxxRandom(1, 18));
+                    ooxxChangeHat($id('indexModel'), ooxxRandom(1, 15));
                     ooxxChangeClothes($id('indexModel'), ooxxRandom(1, 24));
                 }
                 if (lightOpen > 300) {
