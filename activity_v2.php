@@ -132,11 +132,7 @@
                 <?php $activityBUS -> fetch(PDO::FETCH_ASSOC)?>
                 <input id="totalbus" type="hidden" value = "<?php echo $totalbus ?>">
                 <div class="act_mainbox">
-<<<<<<< HEAD
-                    <div class="imgBox">
-=======
                     <div class="imgBox" >
->>>>>>> lien0213
                         <img id="imgBoxImg" src="images/<?php echo $actImg ;?>" alt="這個換掉"> 
                     </div>
                     <div class="btnbox">
