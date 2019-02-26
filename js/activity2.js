@@ -297,11 +297,12 @@ function CancelActTo(actNo,member,target){
     xhr.send( "CancelActObj=" + JSON.stringify(CancelActObj));//轉成字串送到php
 
 }
-var keyTotal = 3 ;
+// var keyTotal = 3 ;
 // var key = 1;
 function officalAllAct(actNo,member,key){
-    console.log(actNo);
-    console.log(member);
+    // alert("key"+key);
+    // console.log(actNo);
+    // console.log(member);
     var xhr = new XMLHttpRequest();
     xhr.onload=function (){
         if( xhr.responseText == "null" ){
@@ -310,9 +311,11 @@ function officalAllAct(actNo,member,key){
              
             // alert(JSON.parse(xhr.responseText));
             // alert( xhr.responseText);
+       
             var fromAllAct_obj = JSON.parse(xhr.responseText);
+            console.log(fromAllAct_obj);
             // alert(xhr.responseText);
-            console.log(fromAllAct_obj.total);
+
             var box_Loc =$id('box_Loc');
             var box_Intro =$id('box_Intro');
             var box_actNo =$id('box_actNo');
@@ -324,8 +327,6 @@ function officalAllAct(actNo,member,key){
             imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
-            return keyTotal = fromAllAct_obj.total;
-            
 
          }
 
@@ -694,20 +695,21 @@ function CancelActTo(actNo,member){
 
 }
 
-var keyTotal;
-function officialTotal(num){
-    keyTotal = num;
-}
+// var keyTotal;
+// function officialTotal(num){
+//     keyTotal = num;
+// }
 // var key = 1;
-function officalAllAct(member,key){
-    // console.log(actNo);
-    console.log(member);
-    var xhr = new XMLHttpRequest();
-    xhr.onload=function (){
-        if( xhr.responseText == "null" ){
-            alert('xhr有錯誤喔');
-         }else{
+// function officalAllAct(member,key){
+//     // console.log(actNo);
+//     console.log(member);
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload=function (){
+//         if( xhr.responseText == "null" ){
+//             alert('xhr有錯誤喔');
+//          }else{
              
+<<<<<<< HEAD
             var fromAllAct_obj = JSON.parse(xhr.responseText);
             console.log(fromAllAct_obj.total);
             var box_Loc =$id('box_Loc');
@@ -727,21 +729,37 @@ function officalAllAct(member,key){
 >>>>>>> ga
             officialTotal(fromAllAct_obj.total);
             return keyTotal = fromAllAct_obj.total;
+=======
+//             var fromAllAct_obj = JSON.parse(xhr.responseText);
+//             console.log(fromAllAct_obj.total);
+//             var box_Loc =$id('box_Loc');
+//             var box_Intro =$id('box_Intro');
+//             var box_actNo =$id('box_actNo');
+//             var imgBoxImg_B = $id('imgBoxImg_B');
+//             var imgBoxImg = $id('imgBoxImg');
+//             box_Loc.innerHTML=fromAllAct_obj.loc;
+//             box_Intro.innerHTML=fromAllAct_obj.actIntro;
+//             box_actNo.value=fromAllAct_obj.no;
+//             imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+//             imgBoxImg.src='images/' +  fromAllAct_obj.img;
+//             officialTotal(fromAllAct_obj.total);
+//             return keyTotal = fromAllAct_obj.total;
+>>>>>>> ga
             
-         }
+//          }
 
-   }
-   var officalAllObj = {
-        member: member,
-        key: key,
-    };
+//    }
+//    var officalAllObj = {
+//         member: member,
+//         key: key,
+//     };
 
 
-    xhr.open("post", "officalAllAct.php", true);
-    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xhr.send( "officalAllObj=" + JSON.stringify(officalAllObj));//轉成字串送到php            
+//     xhr.open("post", "officalAllAct.php", true);
+//     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//     xhr.send( "officalAllObj=" + JSON.stringify(officalAllObj));//轉成字串送到php            
              
-}
+// }
 
 function countJoinNum(host_memNoValue,actNoValue){
     console.log(host_memNoValue);
@@ -934,9 +952,6 @@ function checkMyAct(){
                         $id("partB_top").innerHTML = str;
                 }
                     
-    
-                
-                
             }
         };
         xhr.open("Post","act.php",true);
@@ -1054,25 +1069,24 @@ window.addEventListener('load',function(){
     btn_actL.addEventListener('click',function(){
         var btn_Actjoin = $id('btn_Actjoin');
         member = storage.getItem("memNo");
-        // alert('actNo:'+actNo);
-        officalAllAct(member,key);
-        if(key == keyTotal){
-            key = 0;
-        }else{
-            key++;
-        }  
+        var actNo = $id('box_actNoB').value ;
+        keytotalbus --; 
+        if( keytotalbus  == -1){
+            keytotalbus = parseInt( $id('totalbus').value) -1 ;
+        }
+        officalAllAct(actNo,member,keytotalbus);
         
     },false);
     btn_actR.addEventListener('click',function(){
         var btn_Actjoin = $id('btn_Actjoin');
         member = storage.getItem("memNo");
-        // alert('actNo:'+actNo);
-        officalAllAct(member,key);
-        if(key == 0){
-            key = keyTotal;
-        }else{
-            key--;
-        }  
+        // alert($id('totalbus').value);
+        var actNo = $id('box_actNoB').value ;
+        keytotalbus ++; 
+        if( keytotalbus  >= parseInt( $id('totalbus').value)){
+            keytotalbus =  0 ;
+        }
+        officalAllAct(actNo,member,keytotalbus);
     },false);
 
 
@@ -1548,4 +1562,7 @@ window.addEventListener('load',function(){
     // }).
     addTo(controller);
 
+    var keytotalbus = parseInt($id('totalbus').value)  - 1;
+
+   
 },false);

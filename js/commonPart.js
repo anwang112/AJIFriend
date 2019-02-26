@@ -510,6 +510,11 @@ function beFriend (tarNo,loginNo,btn) {
 		while (div_chooseBox.children.length > 1) {
 			console.log("+++刪朋友列表");
 			div_chooseBox.removeChild(div_chooseBox.lastChild);
+		}		
+		rwd_chatList = document.getElementById("rwd_chatList");
+		while (rwd_chatList.children.length > 0) {
+			console.log("+++刪朋友列表");
+			rwd_chatList.removeChild(rwd_chatList.lastChild);
 		}
 		
 		friendList(storage.getItem("memNo"));
@@ -972,6 +977,7 @@ function answerRequire(taNo,action){
 	// 	alert(e.target);	
 	// })
 	$id("replybox").removeChild($id(`requireItem${taNo}`));
+	$id("replybox_phone").removeChild($id(`rwd_requireItem${taNo}`));
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function () {
@@ -984,10 +990,10 @@ function answerRequire(taNo,action){
 
 			}else{
 				$('#alertText').text('交到朋友了!');
+				friendList(storage.getItem("memNo"));
 				
 			}
 			$('.alertWrap').show();
-			friendList(storage.getItem("memNo"));
 		}
 	};
 	xhr.open("Post", "updateRelationship.php", true);
@@ -1056,7 +1062,7 @@ function requireBack(myNo = -1) {
 						// 手機
 						var str_rwdChat = replybox_phone.innerHTML;
 						str_rwdChat += 
-						`<div class="rwd_requireLabel">
+						`<div class="rwd_requireLabel" id="rwd_requireItem${requireList[i][0]}">
 							<div id="rwd_requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
 							<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
 							<input type="hidden" value="${requireList[i][0]}">
@@ -1289,7 +1295,11 @@ window.addEventListener('load', function () {
 	var control_openChat = false;
 	btn_chatroom_phone.addEventListener('click', function () {
 		if (control_openChat == false) {
-			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
+			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";				
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo"));
+
+			boxScroll($id("rwd_chatbox"));
 			control_openChat = true;
 		} else {
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
@@ -1728,7 +1738,7 @@ ooxxGetRole = (roleId, roleData) => {
 	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
 		for (let i = 0; i < fillColor.length; i++) {
-			fillColor[i].style.fill = `#${roleData.color}`;
+			fillColor[i].fillStyle = `#${roleData.color}`;
 		}
 	})
 
@@ -1834,7 +1844,7 @@ ooxxGetHead = (headId, headData) => {
 
 	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		fillColor.style.fill = `#${headData.color}`;
+		fillColor.fillStyle = `#${headData.color}`;
 	})
 
 	//插入眼睛
