@@ -18,6 +18,13 @@ try{
         $friend -> bindValue( ":sendMemId",$data->taMemId);
         $friend -> bindValue( ":taMemId",$data->sendMemId);
         $friend ->execute();
+
+        $sql2 = "update member set friend=friend+1 where memNo=:sendMemId or memNo=:taMemId";
+        $friend2 = $pdo->prepare( $sql2 );
+        $friend2 -> bindValue( ":sendMemId",$data->taMemId);
+        $friend2 -> bindValue( ":taMemId",$data->sendMemId);
+        $friend2 ->execute();
+
         echo "get friend~";
     }else if($data->action==2){ //刪除好友
         $sql = "delete from relationship where (memNo = :sendMemId and targetNo = :taMemId ) or (memNo = :taMemId and targetNo= :sendMemId) and relaCate=1";
@@ -25,6 +32,12 @@ try{
         $friend -> bindValue( ":sendMemId",$data->sendMemId);
         $friend -> bindValue( ":taMemId",$data->taMemId);
         $friend ->execute();
+
+        $sql2 = "update member set friend=friend-1 where memNo=:sendMemId or memNo=:taMemId";
+        $friend2 = $pdo->prepare( $sql2 );
+        $friend2 -> bindValue( ":sendMemId",$data->taMemId);
+        $friend2 -> bindValue( ":taMemId",$data->sendMemId);
+        $friend2 ->execute();
         echo "delete friend~";
     }
 }catch(PDOException $e){

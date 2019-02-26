@@ -105,13 +105,13 @@ function head_html() {
     <!-- 登入燈箱開始 -->
     <div id="loginBox" class="LightBoxMask"></div>
     <div id="lightBoxInner" class="middleLightBox login_box">
-        <h2>登入/註冊</h2>
+        <h2>登入</h2>
         <form id="login_form" >
             <input type="text" name="memId" placeholder="hi@gmail.com" id="memId_input">
 			<input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
-			<input type="submit" value="註冊" class="input_R" id="">
+			<input type="submit" value="註冊" class="input_R" id="rigister_send">
 			</div>
 			<span id="forget_btn">忘記密碼?</span>
         </form>
@@ -128,7 +128,7 @@ function head_html() {
 </div>
 <!-- 個人頁面燈箱開始 -->
 <div class="searchWrap">
-	<div id="searData">
+	<div id="searData" class="finalLB">
 		<div class="searchClose"></div>
 		<div class="sRole">
 			<div id="topMoney05" class="roleBox sRoleBox"></div>
@@ -139,7 +139,7 @@ function head_html() {
 			<input type="hidden"value=""id="sMemNo">
 				<tr>
 					<th>
-						ID:
+						ID
 					</th>
 					<td>
 						<span id="sMemId"></span>
@@ -147,7 +147,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						魅力等級:
+						魅力等級
 					</th>
 					<td>
 						<span id="sLv"></span>
@@ -156,7 +156,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						暱稱：
+						暱稱
 					</th>
 					<td>
 						<span id="sName"></span>
@@ -164,7 +164,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						興趣：
+						興趣
 					</th>
 					<td>
 						<div id="hobby"></div>
@@ -172,7 +172,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						星座：
+						星座
 					</th>
 					<td>
 						<span id="sConstellation"></span>
@@ -180,7 +180,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						自我介紹：
+						自我介紹
 					</th>
 					<td>
 						<span id="sIntro"></span>
@@ -511,6 +511,11 @@ function beFriend (tarNo,loginNo,btn) {
 		while (div_chooseBox.children.length > 1) {
 			console.log("+++刪朋友列表");
 			div_chooseBox.removeChild(div_chooseBox.lastChild);
+		}		
+		rwd_chatList = document.getElementById("rwd_chatList");
+		while (rwd_chatList.children.length > 0) {
+			console.log("+++刪朋友列表");
+			rwd_chatList.removeChild(rwd_chatList.lastChild);
 		}
 		
 		friendList(storage.getItem("memNo"));
@@ -973,6 +978,7 @@ function answerRequire(taNo,action){
 	// 	alert(e.target);	
 	// })
 	$id("replybox").removeChild($id(`requireItem${taNo}`));
+	$id("replybox_phone").removeChild($id(`rwd_requireItem${taNo}`));
 	// 更新關係列表 Ajax 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function () {
@@ -985,10 +991,10 @@ function answerRequire(taNo,action){
 
 			}else{
 				$('#alertText').text('交到朋友了!');
+				friendList(storage.getItem("memNo"));
 				
 			}
 			$('.alertWrap').show();
-			friendList(storage.getItem("memNo"));
 		}
 	};
 	xhr.open("Post", "updateRelationship.php", true);
@@ -1057,7 +1063,7 @@ function requireBack(myNo = -1) {
 						// 手機
 						var str_rwdChat = replybox_phone.innerHTML;
 						str_rwdChat += 
-						`<div class="rwd_requireLabel">
+						`<div class="rwd_requireLabel" id="rwd_requireItem${requireList[i][0]}">
 							<div id="rwd_requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
 							<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
 							<input type="hidden" value="${requireList[i][0]}">
@@ -1290,7 +1296,11 @@ window.addEventListener('load', function () {
 	var control_openChat = false;
 	btn_chatroom_phone.addEventListener('click', function () {
 		if (control_openChat == false) {
-			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
+			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";				
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo"));
+
+			boxScroll($id("rwd_chatbox"));
 			control_openChat = true;
 		} else {
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
@@ -1729,7 +1739,7 @@ ooxxGetRole = (roleId, roleData) => {
 	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
 		for (let i = 0; i < fillColor.length; i++) {
-			fillColor[i].style.fill = `#${roleData.color}`;
+			fillColor[i].fillStyle = `#${roleData.color}`;
 		}
 	})
 
@@ -1835,7 +1845,7 @@ ooxxGetHead = (headId, headData) => {
 
 	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		fillColor.style.fill = `#${headData.color}`;
+		fillColor.fillStyle = `#${headData.color}`;
 	})
 
 	//插入眼睛

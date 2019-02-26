@@ -110,7 +110,6 @@ require_once("backAct_toDB.php");
             <?php 
         } ?>
         </tbody>
-
     </table>
 
     <div id="lightbox_holdact" class="lightbox_holdact">

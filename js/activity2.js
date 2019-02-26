@@ -1039,6 +1039,7 @@ window.addEventListener('load',function(){
     },false);
 
 // 寫入留言
+    var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     myMessagebox_input.addEventListener('keydown',function(e){
@@ -1050,6 +1051,14 @@ window.addEventListener('load',function(){
             // alert('memNo:'+ memNo);
             sendCom(memNo,actNo,txt);
         }
+    },false);
+    userInput_send.addEventListener('click',function(e){
+        var txt = '';
+        txt = myMessagebox_input.value;
+        actNo = myMessagebox_inputNone.value;
+        var memNo = storage.getItem("memNo");
+        // alert('memNo:'+ memNo);
+        sendCom(memNo,actNo,txt);
     },false);
 
     // var r_act = document.getElementById('theUser');

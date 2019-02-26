@@ -28,7 +28,26 @@ session_start();
     <script type="text/javascript">
         head_html();
     </script>
-
+    <div class="load">
+        <div class="loadBox">
+        <div class="ani">
+            <img src="images/bearmask.png" alt="">
+            <div class="bear"></div>
+        </div>
+        <div class="ani">
+            <img src="images/rabimask.png" alt="">
+            <div class="rabi"></div>
+        </div>
+        <div class="ani">
+            <img src="images/catmask.png" alt="">
+            <div class="cat"></div>
+        </div>
+        <div class="ani ">
+            <img src="images/dogmask.png" alt="">
+            <div class="dog"></div>
+        </div>
+    </div>
+    </div>
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
@@ -351,7 +370,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <button id="saveRoleBtn">製作完成</button>
+        <button id="saveRoleBtn" class="btn">製作完成</button>
 
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
@@ -363,13 +382,13 @@ session_start();
         <div class="createMemberBox">
             <ul class="createLeftForm">
                 <li>
-                    <label>會員帳號 :</label>
+                    <label>會員帳號</label>
                 </li>
                 <li>
-                    <label>會員密碼 :</label>
+                    <label>會員密碼</label>
                 </li>
                 <li>
-                    <label>會員暱稱 :</label>
+                    <label>會員暱稱</label>
                 </li>
                 <li>
                     <label>選擇星座</label>
@@ -457,7 +476,7 @@ session_start();
             </ul>
             <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
-        <button id="createMemberBtn" class="btn_R">送出</button>
+        <button id="createMemberBtn" class="btn">送出</button>
     </div>
 
 

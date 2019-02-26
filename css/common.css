@@ -47,7 +47,15 @@ html {
 .btnbox_login{
   width: 160px;
 }
+
+#login_send{
+  cursor: pointer;
+}
+#rigister_send{
+  cursor: pointer;
+}
 #forget_btn{
+  cursor: pointer;
   color: #ccc;
 }
 
@@ -177,11 +185,12 @@ html {
   cursor: pointer;
   -webkit-transition: .3s;
   transition: .3s;
+  transform: translateY(-4px);
 }
 
 .btn_R:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
   -webkit-box-shadow: 0px 0px 0px transparent;
           box-shadow: 0px 0px 0px transparent;
 }
@@ -199,11 +208,12 @@ html {
   cursor: pointer;
   -webkit-transition: .3s;
   transition: .3s;
+  transform: translateY(-4px);
 }
 
 .btn_R_B:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
   -webkit-box-shadow: 0px 0px 0px transparent;
           box-shadow: 0px 0px 0px transparent;
 }
@@ -225,10 +235,11 @@ html {
     cursor: pointer;
     -webkit-transition: .3s;
     transition: .3s;
+    transform: translateY(-4px);
   }
   .btn_R:hover {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     -webkit-box-shadow: 0px 0px 0px transparent;
             box-shadow: 0px 0px 0px transparent;
   }
@@ -263,10 +274,11 @@ html {
     cursor: pointer;
     -webkit-transition: .3s;
     transition: .3s;
+    transform: translateY(-4px);
   }
   .btn_R_B:hover {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     -webkit-box-shadow: 0px 0px 0px transparent;
             box-shadow: 0px 0px 0px transparent;
   }
@@ -289,10 +301,11 @@ html {
     cursor: pointer;
     -webkit-transition: .3s;
     transition: .3s;
+    transform: translateY(-4px);
   }
   .btn_R:hover {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     -webkit-box-shadow: 0px 0px 0px transparent;
             box-shadow: 0px 0px 0px transparent;
   }
@@ -327,10 +340,11 @@ html {
     cursor: pointer;
     -webkit-transition: .3s;
     transition: .3s;
+    transform: translateY(-4px);
   }
   .btn_R_B:hover {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     -webkit-box-shadow: 0px 0px 0px transparent;
             box-shadow: 0px 0px 0px transparent;
   }
@@ -766,14 +780,32 @@ html {
   border: none;
   color: #e5e5e5;
   height: 35px;
+  transform: translateY(-4px);
 }
 
 .btn:hover {
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
   -webkit-box-shadow: 0px 0px 0px transparent;
           box-shadow: 0px 0px 0px transparent;
 }
+.finalLB {
+  min-width: 620px;
+  width: 60%;
+  height: 450px;
+  margin: auto;
+  background-color: #7AB7CC;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  position: absolute;
+  top: 15%;
+  z-index: 21;
+  transition: .5s;
+  left: 0;
+  right: 0;
+  transform: rotateY(0deg); }
 .disable {
   font-size: 14px;
   width: 100px;
