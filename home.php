@@ -295,12 +295,6 @@ session_start();
         </section>
     </div>
 
-
-
-
-
-
-
     <!-- 創建角色 -->
     <div id="indexCreateRoleBox" class="indexCreateRoleBox">
         <h2>創建專屬角色</h2>
@@ -352,7 +346,6 @@ session_start();
             </div>
         </div>
         <button id="saveRoleBtn">製作完成</button>
-
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
 
