@@ -841,6 +841,7 @@ indexInit = () => {
             $id('colorKindList').style.display = 'none';
             for (let i = 0; i < createKindItem.length; i++) {
                 createKindItem[i].style.background = 'transparent';
+                createKindItem[i].style.color = '#000000';
             }
             switch (e.target.value) {
                 case 0:
@@ -853,7 +854,14 @@ indexInit = () => {
                     $id('colorKindList').style.display = 'flex';
                     break;
             }
-            e.target.style.background = '#F05C79';
+            var createKindAll = document.getElementsByClassName("createKindAll")[0];
+            if(i==0){
+                createKindAll.style.borderRadius = "0 10px 10px 10px";
+            }else{
+                createKindAll.style.borderRadius = "10px 10px 10px 10px";
+            }
+            e.target.style.background = 'rgba(255,255,255,0.7)';
+            e.target.style.color = '#000000';
         })
     }
     //角色值
@@ -1276,7 +1284,7 @@ indexInit = () => {
     window.addEventListener('resize', lightChangeScreen);
     window.addEventListener("scroll", scrollFourthScreen);
 }
-window.addEventListener('load', indexInit);
+
 
 // 走道測試區 可是效果不好
 // window.addEventListener("scroll", function (e) {
@@ -1426,3 +1434,18 @@ window.addEventListener('load', indexInit);
             });
         }
         */
+
+    
+    //方法2
+    window.onload = function() { 
+        setTimeout(() => {
+            $(".load").fadeOut();
+
+        }, 2000);
+        setTimeout(() => {
+            indexInit();
+
+        }, 2000);
+        
+    };
+    // window.addEventListener('load', indexInit);

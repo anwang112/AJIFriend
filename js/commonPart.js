@@ -105,7 +105,7 @@ function head_html() {
     <!-- 登入燈箱開始 -->
     <div id="loginBox" class="LightBoxMask"></div>
     <div id="lightBoxInner" class="middleLightBox login_box">
-        <h2>登入/註冊</h2>
+        <h2>登入</h2>
         <form id="login_form" >
             <input type="text" name="memId" placeholder="hi@gmail.com" id="memId_input">
             <input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
@@ -124,7 +124,7 @@ function head_html() {
 </div>
 <!-- 個人頁面燈箱開始 -->
 <div class="searchWrap">
-	<div id="searData">
+	<div id="searData" class="finalLB">
 		<div class="searchClose"></div>
 		<div class="sRole">
 			<div id="topMoney05" class="roleBox sRoleBox"></div>
@@ -135,7 +135,7 @@ function head_html() {
 			<input type="hidden"value=""id="sMemNo">
 				<tr>
 					<th>
-						ID:
+						ID
 					</th>
 					<td>
 						<span id="sMemId"></span>
@@ -143,7 +143,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						魅力等級:
+						魅力等級
 					</th>
 					<td>
 						<span id="sLv"></span>
@@ -152,7 +152,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						暱稱：
+						暱稱
 					</th>
 					<td>
 						<span id="sName"></span>
@@ -160,7 +160,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						興趣：
+						興趣
 					</th>
 					<td>
 						<div id="hobby"></div>
@@ -168,7 +168,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						星座：
+						星座
 					</th>
 					<td>
 						<span id="sConstellation"></span>
@@ -176,7 +176,7 @@ function head_html() {
 				</tr>
 				<tr>
 					<th>
-						自我介紹：
+						自我介紹
 					</th>
 					<td>
 						<span id="sIntro"></span>
