@@ -21,7 +21,6 @@ require_once("backReport_toDB.php");
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
-    <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <style>
 
@@ -82,7 +81,7 @@ require_once("backReport_toDB.php");
         header();
    </script> -->
    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="backStage.html">
+        <a class="navbar-brand" href="backStage.php">
         <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>    
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -182,11 +181,12 @@ require_once("backReport_toDB.php");
 
                 <td>
                     <form action="backReport_toDB.php" method="post" enctype="multipart/form-data">
-                        <input type="number" name="statusValue" value="<?php echo $status; ?>"" min=" 0" max="1">
-                        <input type="hidden" name="reportNo" value="<?php echo $repoNo; ?>"">
+                        <input type="number" name="statusValue" value="<?php echo $status; ?>" min=" 0" max="1">
+                        <input type="hidden" name="reportNo" value="<?php echo $repoNo; ?>">
                     <input type=" hidden" name="reportget" value="1111">
                 </td>
-                <td><input type="submit" value="送出"></td>
+                <td><button class="btn btn-primary" type="submit">送出</button></td>
+                <!-- <td><input type="submit" value="送出"></td> -->
                 </form>
             </tr>
             <?php $i++ ?>

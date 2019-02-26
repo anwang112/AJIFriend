@@ -75,7 +75,7 @@ try {
 <body>
     <!-- Just an image -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="backStage.html">
+        <a class="navbar-brand" href="backStage.php">
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -115,7 +115,7 @@ try {
                         </tr>
                         <tr>
                             <th scope="col">管理員編號</th>
-                            <th scope="col">管理員</th>
+                            <th scope="col">管理員名稱</th>
                             <th scope="col">帳號</th>
                             <th scope="col">密碼</th>
                             <th scope="col">備註</th>
@@ -154,27 +154,31 @@ try {
 
                         <tr id="createAdminWrap" style="display:none;">
                             <th scope="row">
-                                <label>
-                                    <span>管理員</span>
-                                    <input type="text" required>
-                                </label>
+                                <span>新增管理員</span>
                             </th>
                             <td>
+                            <label>
+                                    <span></span>
+                                    <input type="text" placeholder="請輸入管理員名稱" required>
+                                </label>
+                            </td>
+                            <td>
                                 <label>
-                                    <span>帳號</span>
-                                    <input type="text" required>
+                                    <span></span>
+                                    <input type="text" placeholder="請輸入帳號" required>
                                 </label>
 
                             </td>
                             <td>
                                 <label>
-                                    <span>密碼</span>
-                                    <input type="text" required>
+                                    <span></span>
+                                    <input type="text" placeholder="請輸入密碼" required>
                                 </label>
 
                             </td>
                             <td>
-                            <input class="input-primary" type="button " value="送出" id="adminSendBtn">
+                            <button class="btn btn-secondary" type="submit" id="adminSendBtn">送出</button>
+                            <!-- <input class="input-primary" type="button " value="送出" id="adminSendBtn"> -->
 
                             </td>
                         

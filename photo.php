@@ -29,10 +29,11 @@ try {
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/package/html2canvas.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/drawing-2.js"></script>
-    <!-- <script src="js/chooseFriend.js"></script> -->
+    <script src="js/chooseFriend.js"></script>
     <script src="js/photolightbox.js"></script>
     <script src="js/vote.js"></script>
 </head>
@@ -138,57 +139,17 @@ try {
                         </div>
                     </div>
                 </div>
-            <!-- <div id="friend_LightBox" class="bg_friendBox">
-                <img src="images/chooseF-31.png" alt="bg">
-                <div id="btn_friendBoxClose">
-                    <img src="images/closeX.png">
-                </div>
-                <div id="content_friendBox">
-                    <input type="text" id="searchBox" placeholder="搜尋朋友ID">
-                    <div id="chooseBox">
-                        <label for="f_001">
-                            <img src="images/member1-17.png">
-                            <p>煞氣阿吉</p>
-                        </label>
-                        <label for="f_002">
-                            <img src="images/member2-18.png">
-                            <p>霹靂嬌媧</p>
-                        </label>
-                        <label for="f_003">
-                            <img src="images/member3-19.png">
-                            <p>理科太太</p>
-                        </label>
-                        <label for="f_004">
-                            <img src="images/member4-20.png">
-                            <p>蔡小英</p>
-                        </label>
-            
-                    </div>
-                </div>
-            </div> -->
+        
 
             <div class="drawing">
-                    <!-- 登入會員 先用阿吉代打 -->
-                    <div id="chooseId">
-                            <!-- 試穿預視 -->
-                            <div id="showModel">
-                                <img src="shop-images/model_1.png" id="model_animal" >
-                                <img src="shop-images/hat_1.png" id="model_hat">
-                                <!-- <img src="" id="model_clothes"> -->
-                            </div>
-                            <div id="chooseArea">
-                                <!-- 試穿角色暱稱顯示區塊 -->
-                                <span id="showId"></span>
 
-                            </div>
-                    </div>
                 <!-- 下載照片要get php -->
                 <form method="get" accept-charset="utf-8" name="form1">
                     <input name="hidden_data" id='hidden_data' type="hidden"/>
                 </form>
                 <!-- 選擇顏色 -->
                 <div class="controlBar">
-                    <div class="colorPack">
+                    <!-- <div class="colorPack">
                         <div class="color" id="red"></div>
                         <div class="color" id="coral"></div>
                         <div class="color" id="yellow"></div>
@@ -199,16 +160,40 @@ try {
                             <img id="reset" src="images/reset-26.svg" alt="reset">
                         </div>
 
-                    </div>
+                    </div> -->
                  </div>
                  
                 <!--畫布canvas 與 背景預覽  -->
-                <div class="preCanvas">
-                        <div class="preview"><img id="imgPreview" src="" alt="">
+                <div id="preCanvas" class="preCanvas">
+                        <div class="preview">
+                            <img id="imgPreview" src="" alt="">
+                            <div id="chooseId">
+                                <!-- 自己預視 -->
+                                <div id="showMe"></div>
+                                <!-- 朋友預視 -->
+                                <div id="showModel">
+                                    <!-- <img src="shop-images/model_1.png" id="model_animal" >
+                                    <img src="shop-images/hat_1.png" id="model_hat"> -->
+                                    <!-- <img src="" id="model_clothes"> -->
+                                </div>
+                                <div id="chooseArea">
+                                    <!-- 角色暱稱顯示區塊 -->
+                                    <!-- <span id="showId"></span> -->
+                                    
+                            
+                                    <!-- 角色暱稱顯示區塊 -->
+                                    <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
+                                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
+                                        
+
+                                </div>
+                            </div>
+
+
                         </div>
-                        <canvas id="canvas" width="350px" height="350px"></canvas>
-                        
+                        <!-- <canvas id="canvas" width="350px" height="350px"></canvas> -->       
                 </div>
+                
                 
             <!-- 按鈕們 上傳背景 選擇朋友 分享 上一步 下一步 -->
                 <div class="btns">
@@ -229,7 +214,8 @@ try {
                         <span id="next">選擇朋友</span>
                     </div>
                     <!-- 下載照片 -->
-                    <input type="button" value="下載照片" onclick="saveImage()" />
+                    <input  type="button" value="下載照片" onclick="saveImage()" />
+                    <button id="download">download</button>
                     <form id="addPic" method="post" enctype="multipart/form-data">
                     <label>
                     <div class="upload">
@@ -243,6 +229,15 @@ try {
             </div>
         </div>
     </div>
+    <script>
+        dd=document.getElementById("download");
+        dd.addEventListener("click",()=>{
+            html2canvas(document.querySelector("#preCanvas")).then(canvas => {
+            document.body.appendChild(canvas)
+            });
+         });
+    
+    </script>
 
 
     <!-- canvas tab -->
@@ -307,12 +302,13 @@ try {
 <?php
 	}
 ?>   
-                <div id="myPhoto">
+                <!-- <div id="myPhoto">
                     <a href="#">
                         <img src="images/myPhoto-30.png" alt="photo">
                         <h3>我的相片</h3>
                     </a>
-                </div>
+                </div> -->
+            </div>
 <?php
     $sql = "select * from picture p join member m on p.po_memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
     $photo = $pdo->query($sql); 
@@ -332,14 +328,14 @@ try {
                             eyes: <?php echo $photoRow["eye"]; ?>,
                         })
                     </script>
-                    <script>
+                    <!-- <script>
                         head = document.getElementById('stickerLB');         
                         ooxxGetHead(head, {
                             animal: <?php echo $photoRow["animal"]; ?>,
                             color: '<?php echo $photoRow["mColor"]; ?>',
                             eyes: <?php echo $photoRow["eye"]; ?>,
                         })
-                    </script>
+                    </script> -->
                 
                 <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
@@ -371,3 +367,14 @@ try {
 
 </body>
 </html>
+<script>
+function init(){
+    var choose = document.getElementById("chooseBtn");
+    choose.addEventListener("click",photo_showfriendBox);
+       
+    
+}
+window.addEventListener("load",init,false);
+
+
+</script>

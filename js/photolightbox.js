@@ -66,7 +66,6 @@ function closeTop(){
 }
 // card的燈箱
 function cardLB(e){
-    console.log(e.target);
     if( e.target.className.includes('card') ==  false){
         var parent = e.target.parentNode;
     }else{
@@ -80,26 +79,24 @@ function cardLB(e){
     divCard.id="cardLB" ;
     divBg.id="cardLBbg";
     
-
     // 創建img 獲獎照片
     var imgCard=document.createElement("img");
     imgCard.src = e.target.src;
     imgCard.className="cardPhoto";
-    ;
 
     // 創建div member
     var divMem=document.createElement("div");
     divMem.className="member";
     divMem.className="headBox";
     divMem.id="stickerLB";
-    divMem.src=e.target.parentNode.children[3].src;
+    divMem.src=e.target.parentNode.children[2].src;
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";
-    aMem.innerText=e.target.parentNode.children[4].innerText;
+    aMem.innerText=e.target.parentNode.children[3].innerText;
     // 創建照片得票數
     var spanVote=document.createElement("span");
-    spanVote.innerText=e.target.parentNode.children[6].innerText;
+    spanVote.innerText=e.target.parentNode.children[5].innerText;
     console.log(e.target.parentNode.children);
     // 創建愛心數
     var imgHeart=document.createElement("img"); 
@@ -121,8 +118,6 @@ function cardLB(e){
     imgDel.src="images/trash-alt.svg";
     imgDel.id="del";
     imgDel.addEventListener("click",delCard,false);
-
-
 
     postArea.appendChild(divBg);
     divBg.appendChild(divCard);

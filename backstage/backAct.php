@@ -89,7 +89,7 @@ require_once("backAct_toDB.php");
         header();
     </script> -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="backStage.html">
+        <a class="navbar-brand" href="backStage.php">
         <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>    
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
