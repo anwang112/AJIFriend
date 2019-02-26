@@ -324,7 +324,7 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            // imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
 
@@ -489,11 +489,7 @@ function comDB (memNo, actNoGet){
                     //印出來名字跟聊天內容
                     var str = $id("myMessagebox").innerHTML;
                     str += `
-<<<<<<< HEAD
-                    <div class="commentItem" style="border:1px red solid">
-=======
                     <div class="commentItem">
->>>>>>> ga
                         <div id="commentHead${i}" class="headBox commentHead"></div> 
                         <input type="hidden" id="commentMemNo${i}" value=${memNo[i]}>
                         <div class="commentBox">
@@ -565,11 +561,7 @@ function JoinActTo(actNo,member){
                 var JoinActBackToJs = JSON.parse(xhr.responseText);
                 // alert(JoinActBackToJs.DBmsg);
                 if( JoinActBackToJs.DBmsg == '1111'){
-<<<<<<< HEAD
-                    $('#alertText').text('記性不好唷，已經報名過!');
-=======
                     $('#alertText').text('已報名，可至我的活動查看囉');
->>>>>>> ga
                     $('.alertWrap').show();
                     // location.reload();
                     CloseLightActBox();
@@ -618,11 +610,7 @@ function JoinActTo(actNo,member){
 //             var partB_top_content = document.getElementsByClassName('partB_top_content');
 //             var div = document.createElement('div');
 //             htmlappendTo=`
-<<<<<<< HEAD
-//                 <div class="contentImg" style="background-image: url();"></div>
-=======
 //                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
->>>>>>> ga
 //                 <div class="spanbox">
 //                     <span>活動名稱：${str[5]} </span>
 //                     <span>活動介紹：${str[8]} </span>
@@ -709,27 +697,6 @@ function CancelActTo(actNo,member){
 //             alert('xhr有錯誤喔');
 //          }else{
              
-<<<<<<< HEAD
-            var fromAllAct_obj = JSON.parse(xhr.responseText);
-            console.log(fromAllAct_obj.total);
-            var box_Loc =$id('box_Loc');
-            var box_Intro =$id('box_Intro');
-            var box_actNo =$id('box_actNo');
-            var imgBoxImg_B = $id('imgBoxImg_B');
-            var imgBoxImg = $id('imgBoxImg');
-            box_Loc.innerHTML=fromAllAct_obj.loc;
-            box_Intro.innerHTML=fromAllAct_obj.actIntro;
-            box_actNo.value=fromAllAct_obj.no;
-<<<<<<< HEAD
-            imgBoxImg_B.src='images/activity/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/activity/' +  fromAllAct_obj.img;
-=======
-            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/' +  fromAllAct_obj.img;
->>>>>>> ga
-            officialTotal(fromAllAct_obj.total);
-            return keyTotal = fromAllAct_obj.total;
-=======
 //             var fromAllAct_obj = JSON.parse(xhr.responseText);
 //             console.log(fromAllAct_obj.total);
 //             var box_Loc =$id('box_Loc');
@@ -744,7 +711,6 @@ function CancelActTo(actNo,member){
 //             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 //             officialTotal(fromAllAct_obj.total);
 //             return keyTotal = fromAllAct_obj.total;
->>>>>>> ga
             
 //          }
 
@@ -821,20 +787,13 @@ function allAct_more(no){
     // //來源 
         var actTitleValue = $id(`act_actTitleV${no}`).value;  
         var actNoValue = no;  
-<<<<<<< HEAD
-        var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
-=======
         // var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
->>>>>>> ga
         var actLocValue = $id(`act_actLocV${no}`).value; 
         var act_beginValue = $id(`act_act_beginV${no}`).value; 
         var act_endValue = $id(`act_act_endV${no}`).value;  
         var actIntroValue = $id(`act_actIntroV${no}`).value; 
         var actImgValue = $id(`act_actImgV${no}`).value; 
-<<<<<<< HEAD
-=======
         var actHostIdValue = $id(`act_host_memIdV${no}`).value; 
->>>>>>> ga
 
   
         // //放置目標
@@ -842,22 +801,14 @@ function allAct_more(no){
         var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
         var elements = document.querySelectorAll("#acts_lightbox_top_right span")
         element_actTitle[0].innerHTML=actTitleValue;
-<<<<<<< HEAD
-        elements[0].innerHTML='發起人：'+host_memNoValue;
-=======
         elements[0].innerHTML='發起人：'+actHostIdValue;
->>>>>>> ga
         elements[1].innerHTML='地點：'+actLocValue;
         elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
         elements[3].innerHTML='活動介紹：'+actIntroValue;
         $id("lightBox_actNo").value = no;
         myMessagebox_inputNone.setAttribute('value',actNoValue);
         var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-<<<<<<< HEAD
-        acts_lightbox_topImg.style.backgroundImage = actImgValue;
-=======
         acts_lightbox_topImg.style.backgroundImage = `url("images/${actImgValue}")`;
->>>>>>> ga
         // alert(acts_lightbox_topImg);
         // alert(actImgValue);
 
@@ -865,11 +816,7 @@ function allAct_more(no){
         comDB(memNo,no);
 }
 
-<<<<<<< HEAD
-
-=======
 // 我的活動
->>>>>>> ga
 function checkMyAct(){
     while($id("partB_top").firstChild) {
         $id("partB_top").removeChild($id("partB_top").firstChild);
@@ -900,34 +847,21 @@ function checkMyAct(){
                 var begin = JSON.parse(objData.begin);
                 var end = JSON.parse(objData.end);
                 var intro = JSON.parse(objData.intro);
-<<<<<<< HEAD
-=======
                 var hostId = JSON.parse(objData.hostId);
->>>>>>> ga
 
                 console.log(orderNo);
                 for(var i = 0; i<intro.length;i++){
                     var str = $id("partB_top").innerHTML;
-<<<<<<< HEAD
-                    str += `
-                    <div class="partB_top_content">                       
-                        <div class="contentImg" style="background-image: url();">
-=======
                     begin[i] = begin[i].substr(0,10);
                     end[i] = end[i].substr(0,10);
                     str += `
                     <div class="partB_top_content">                       
                         <div class="contentImg" style="background-image: url(images/${img[i]});">
->>>>>>> ga
                         </div>
                             <div class="spanbox">
                                 <span>活動名稱：${title[i]}</span>
                                 <span>活動介紹：${intro[i]}</span>
-<<<<<<< HEAD
-                                <span>發起人:</span>
-=======
                                 <span>發起人:${hostId[i]}</span>
->>>>>>> ga
                                 <span>地點：${loc[i]}</span>
                                 <span>時間：${begin[i]}至${end[i]}</span>
                                 <!-- <span>人數:{{}}</span> -->
@@ -936,10 +870,7 @@ function checkMyAct(){
                                 <button class="checkout_act btn_R " value=${no[i]} onclick="myAct_more(${i});">查看</button>
                                 <input type="hidden" id="actTitle${i}" value=${title[i]}>
                                 <input type="hidden" id="hostNo${i}" value=${hostNo[i]}>
-<<<<<<< HEAD
-=======
                                 <input type="hidden" id="hostId${i}" value=${hostId[i]}>
->>>>>>> ga
                                 <input type="hidden" id="actImg${i}" value=${img[i]}>
                                 <input type="hidden" id="actLoc${i}" value=${loc[i]}>
                                 <input type="hidden" id="actBegin${i}" value=${begin[i]}>
@@ -1015,18 +946,12 @@ function myAct_more(no){
     var act_endValue = $id(`actEnd${no}`).value;  
     var actIntroValue = $id(`actIntro${no}`).value; 
     var actImgValue = $id(`actImg${no}`).value; 
-<<<<<<< HEAD
-=======
     var actHostIdValue = $id(`hostId${no}`).value; 
->>>>>>> ga
     // alert(actImgValue);
 
     //放置目標
     var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-<<<<<<< HEAD
-=======
     acts_lightbox_topImg.style.backgroundImage= `url("images/${actImgValue}")`;
->>>>>>> ga
     var acts_lightbox_top_right = $id('acts_lightbox_top_right');
     var acts_lightbox_top_img = $id('acts_lightbox_top_img');
     var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
@@ -1034,11 +959,7 @@ function myAct_more(no){
     console.log(elements);
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     element_actTitle[0].innerHTML=actTitleValue;
-<<<<<<< HEAD
-    elements[0].innerHTML='發起人：';
-=======
     elements[0].innerHTML='發起人：'+actHostIdValue;
->>>>>>> ga
     elements[1].innerHTML='地點：'+actLocValue;
     elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
     elements[3].innerHTML='活動介紹：'+actIntroValue;
@@ -1220,6 +1141,9 @@ window.addEventListener('load',function(){
 
         lightbox_act.style.cssText="display:flex;z-index:10;";
         lightbox_act_info.style.cssText="display:flex;z-index:10;";
+        var imgBoxImg_B = $id('imgBoxImg_B');
+        var imgBoxImg = $id('imgBoxImg');
+        imgBoxImg_B.src=imgBoxImg.src;
 
         lightbox_act_info.addEventListener('click',function(e){
             e.stopPropagation();
@@ -1241,20 +1165,24 @@ window.addEventListener('load',function(){
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
-        window.scrollTo(0,(act_memberHold.offsetTop+400));
-        console.log(act_memberHold.offsetTop);
-
-        lightbox_holdact.style.cssText="display:flex;z-index:10;";
-        lightbox_holdact_info.style.cssText="display:block;z-index:10;";
-
-        lightbox_holdact_info.addEventListener('click',function(e){
-            e.stopPropagation();
-        },false);
-        lightbox_holdact.addEventListener('click',function(){
-            lightbox_holdact.style.cssText="display:none;z-index:-1;";
-            lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
-        },false);
-
+        if(storage.getItem("memNo")){ //有登入
+            window.scrollTo(0,(act_memberHold.offsetTop+400));
+            console.log(act_memberHold.offsetTop);
+    
+            lightbox_holdact.style.cssText="display:flex;z-index:10;";
+            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+    
+            lightbox_holdact_info.addEventListener('click',function(e){
+                e.stopPropagation();
+            },false);
+            lightbox_holdact.addEventListener('click',function(){
+                lightbox_holdact.style.cssText="display:none;z-index:-1;";
+                lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
+            },false);
+        }else{
+            $id("lightBoxInner").style.cssText = 'opacity:1;z-index:15;display: block;';
+            $id("loginBox").style.cssText = 'display: block;z-index:14;';
+        }
     },false);
     
     //actbox03
