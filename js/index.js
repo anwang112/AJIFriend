@@ -1329,3 +1329,13 @@ window.addEventListener('load', indexInit);
             });
         }
         */
+
+    
+    //方法2
+    window.onload = function() { 
+        setTimeout(() => {
+            $(".load").fadeOut();
+
+        }, 2000);
+        
+    };

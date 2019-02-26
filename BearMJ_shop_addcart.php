@@ -283,6 +283,7 @@ session_start();
             if(!storage.getItem("last_play")){
                 money = rand(10, 50) * 10;
                 loto(money);
+                $id("btnloto").innerText = '請先登入';
             }else if(storage.getItem("last_play") == 'null'){
                  money = rand(10, 50) * 10;
                 loto(money);
