@@ -349,7 +349,6 @@ session_start();
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
 
-
     <!-- 註冊帳號 -->
     <div id="createMemberScreen">
         <h2>註冊會員</h2>
