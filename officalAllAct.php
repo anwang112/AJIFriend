@@ -12,24 +12,10 @@
         // }else{
         //     $sqlBUS = "select * from activity where host_memNo = 1 AND actNo != :actNo ";
         // }
-<<<<<<< HEAD
-        $sqlBUS = "select * from activity where host_memNo IS NULL";
-        
-        //
-        // $officalAll = $pdo -> prepare($sqlBUS);
-        // $officalAll -> bindValue(":actNo",  $officalAllObj -> actNo);
-        // $officalAll -> execute();
-        // $offical = $officalAll -> fetchObject();
-        // echo '0';
-        $aa = $pdo->prepare($sqlBUS); 
-        // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
-        
-=======
         $sqlBUS = "select * from activity where host_memNo = 3";
 
         $aa = $pdo->prepare($sqlBUS); 
         // $aa -> bindValue(":actNo",  $officalAllObj -> actNo);
->>>>>>> lien0213
 
         $aa -> execute();
         

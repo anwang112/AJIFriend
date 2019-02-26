@@ -64,11 +64,7 @@ require_once("backAct_toDB.php");
                 </td>
                 <td colspan="3">
                     <div class="input-group mb-3">
-<<<<<<< HEAD
-                        <input id="act_search_txt" type="text" class="form-control" placeholder="活動編號" aria-label="Recipient's username" aria-describedby="button-addon2">
-=======
                         <input id="act_search_txt" type="text" class="form-control" placeholder="活動名稱" aria-label="Recipient's username" aria-describedby="button-addon2">
->>>>>>> lien0213
                         <div class="input-group-append">
                             <button id="act_search_btn" class="btn btn-outline-secondary" type="button" id="button-addon2">搜尋
                             </button>
@@ -114,22 +110,6 @@ require_once("backAct_toDB.php");
             <?php 
         } ?>
         </tbody>
-<<<<<<< HEAD
-        <tbody id="tab_under">
-            <tr>
-                <?php
-            //印可連結的頁數資料
-                // echo "<span><a href='?pageNo=1'>first page</a></span>";
-                for ($i = 1; $i <= $totalPage; $i++) {
-                    echo "<td><a href='?pageNo=$i#posH2'>", $i, "</a></td>";
-                }
-                // echo "<span><a href='?pageNo=$totalPage'>last page</a></span>";
-                ?>
-            </tr>
-        </tbody>
-=======
-
->>>>>>> lien0213
     </table>
 
     <div id="lightbox_holdact" class="lightbox_holdact">
