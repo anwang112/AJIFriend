@@ -1071,21 +1071,8 @@ window.addEventListener('load',function(){
             }
         }
     },false);
-    // userInput_send.addEventListener('click',function(e){
-    //     var txt = '';
-    //     txt = myMessagebox_input.value;
-    //     actNo = myMessagebox_inputNone.value;
-    //     var memNo = storage.getItem("memNo");
-    //     // alert('memNo:'+ memNo);
-    //     sendCom(memNo,actNo,txt);
-    // },false);
 
-    // var r_act = document.getElementById('theUser');
-    // ooxxGetHead(r_act, {
-    //     animal: 2,
-    //     color: 'aaaaaa',
-    //     eyes: 3,
-    // })
+
 
 
     
