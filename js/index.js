@@ -1422,17 +1422,6 @@ indexInit = () => {
 window.onload = function () {
     setTimeout(() => {
         $(".load").fadeOut();
-<<<<<<< HEAD
-
-    }, 2000);
-    setTimeout(() => {
-        indexInit();
-
-    }, 2000);
-
-};
-    // window.addEventListener('load', indexInit);
-=======
 
     }, 2000);
     setTimeout(() => {
@@ -1456,4 +1445,3 @@ function showScore() {
     scoreDisplay.innerHTML = demo.score.toFixed(0)+'%';
 }
 // window.addEventListener('load', indexInit);
->>>>>>> index
