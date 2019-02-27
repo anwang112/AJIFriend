@@ -1,4 +1,12 @@
 
+.myhats li {
+    min-width: 200px;
+}
+
+.myClothes li {
+    min-width: 200px;
+}
+
 .act_Img {
     width: 80%;
     margin: 15px 10%;
@@ -20,7 +28,7 @@
   
   .spanbox span{
     width: 100%;
-    padding: 15px 0px;
+    padding: 2px 0px;
     color: #fff;
     line-height: 1.1rem;
   }
@@ -117,6 +125,10 @@
 
 
 @media only screen and (max-width: 476px){
+    .spanbox span{
+        padding: 8px 0px;
+      }
+
     .act_Img {
         margin: 20px 10%;
     }
@@ -130,10 +142,11 @@
     }
     .myClothes li {
         width: 39vw;
-        height: 6vh;
+        height: 25vh;
     }
     #btnSaveChageCloth .btnSave {
         left: 68%;
+        top: -70%;
     }
     #wardrobeLightBox {
         height: 198vh;
@@ -142,7 +155,7 @@
         height: 63vh;
     }
     #hatsSelf {
-        height: 29vh;
+        height: 28vh;
     }
     #clothesSelf {
         width: 94%;
@@ -183,6 +196,19 @@
     }
 }
 @media only screen and (max-width: 400px){
+    .myClothes li {
+        min-width: 85px;
+    }
+    .myhats li {
+        min-width: 180px;
+    }
+
+    #btnSaveChageCloth .btnSave {
+        left: 70%;
+        top: -84%;
+    }
+
+
     #fittingRoom {
         height: 70vh;
     }
