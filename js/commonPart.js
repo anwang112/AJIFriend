@@ -848,11 +848,11 @@ function friendList(myNo = -1) {
 						// });
 					}
 
-					//用時間載入頭像
+					// 用時間載入頭像
 					dd = 0;
-					hhhhh = () => {
-						if (dd == friendInfo.length) {
-							clearInterval(ssssss);
+					getHeadGo = () => {
+						if (dd == friendInfo.length-1) {
+							clearInterval(getHeadId);
 						}
 
 						ooxxGetHead($id(`chatListHead${friend_infoArr[dd][0]}`), {
@@ -862,7 +862,7 @@ function friendList(myNo = -1) {
 						});
 						dd++;
 					}
-					ssssss = setInterval(hhhhh, 100);
+					getHeadId = setInterval(getHeadGo, 100);
 
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
