@@ -1,5 +1,13 @@
 
-
+#chooseId #friend_LightBox #content_friendBox input[type="text"] {
+    width: 95%;
+    margin-bottom: 8px;
+    background-color: unset;
+    border-radius: 5px;
+    border: 2px solid #c84e6a;
+    color: white;
+    padding: 3px 10px;
+}
 
 
 
