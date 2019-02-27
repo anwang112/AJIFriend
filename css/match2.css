@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+.wrap .searchMaji .searchTxt::placeholder{
+  color: red;
+}
 .searchWrap {
   width: 100%;
   height: 100vh;
@@ -72,7 +76,9 @@
         color: #636363;
         transition: all 0.2s ease-in-out; }
       #reportData table textarea:focus::placeholder, #reportData table textarea.populated::placeholder {
-        color: transparent; }
+        
+
+      }
 
 
   #searData .sRole {
@@ -170,8 +176,8 @@
     position: absolute;
     top: 10%;
     right: -210px;
-    background-color: #eef2ef;
-    border: 10px solid #fbc5cf; }
+    background-color: #F9EBE5;
+    border: 10px solid #84ACBF; }
     .profileInfo.proAb button {
       margin: 10px; }
     .profileInfo.proAb #MJstatus {
@@ -186,7 +192,7 @@
       background-color: #fbc5cf;
       border-radius: 5px;
       margin: 5px 0px 5px -6px;
-      color: #eb616d;
+      color: #7d655b;
       width: 86%;
       padding: 0 10px; }
     .profileInfo.proAb td {
@@ -347,7 +353,8 @@ display: block;
       color: #e5e5e5;
       height: 35px;
       margin: 20px 5px; /*ga*/
-      transform: translateY(-4px);} /*ga*/
+      transform: translateY(-4px);
+      margin-top: 13px; } /*ga*/
       .matchContent .selectBtn button:hover {
         transform: translateY(0px); /*ga*/
         box-shadow: 0px 0px 0px transparent; }
@@ -629,7 +636,7 @@ display: block;
     height: 770px;
     min-width: 100%; } }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 415px) {
   .wrap .searchMaji {
     z-index: 3; }
   .wrap .matchContent {
