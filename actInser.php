@@ -14,9 +14,9 @@ session_start();
     try {
         require_once("connectBooks.php");
         $sql1 = 'select * from activity	';
-        $actnum = $pdo -> query($sql1);
-        $num =  $actnum ->rowCount();
-        $num =  $num + 1;
+        // $actnum = $pdo -> query($sql1);
+        // $num =  $actnum ->rowCount();
+        // $num =  $num + 1;
 
         $sql = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'$userNo','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')";
         $activity = $pdo ->query($sql);

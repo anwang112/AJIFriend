@@ -4,7 +4,7 @@ function $id(id) {
 function boxScroll(o){
     o.scrollTop = o.scrollHeight;
 }
-
+lightbox_actsCheckout
 function CloseLightActBox(){
     var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
     var lightbox_actsCheckout = $id('lightbox_actsCheckout');
@@ -26,16 +26,14 @@ function reBtn(){
     var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
     for(var i=0;i<checkout_act.length;i++){
         checkout_act[i].addEventListener('click',function(){
-            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
-            lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
-            btn_ActJoinToDB.style.cssText = "background-color:#ccc";
+            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
+            lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
             lightbox_actsCheckout.addEventListener('click',function(e){
                 e.stopPropagation();
             },false);
             lightbox_actsCheckout_outside.addEventListener('click',function(){
                 lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
                 lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
-                btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
                 var myMessagebox = $id('myMessagebox');
                 if( myMessagebox.hasChildNodes){
                     divs = document.getElementsByClassName('dddd');
@@ -228,12 +226,12 @@ function JoinActTo(actNo,member){
 //             htmlappendTo=`
 //                 <div class="contentImg" style="background-image: url('images/${str[3]}');"></div>
 //                 <div class="spanbox">
-//                     <span>活動名稱：${str[5]} </span>
-//                     <span>活動介紹：${str[8]} </span>
-//                     <span>發起人:${str[4]}</span>
-//                     <span>地點：${str[9]}</span>
-//                     <span>時間：${str[6]}</span>
-//                     <span>獎勵:100MJ</span>
+//                     <span class="spanbox_title">活動名稱：</span><span class="spanbox_content">活動名稱：${str[5]} </span>
+//                     <span class="spanbox_title">活動介紹：</span><span class="spanbox_content">活動名稱：${str[8]} </span>
+//                     <span class="spanbox_title">發起人:</span><span class="spanbox_content">活動名稱：${str[4]} </span>
+//                     <span class="spanbox_title">地點：</span><span class="spanbox_content">活動名稱：${str[9]} </span>
+//                     <span class="spanbox_title">時間：</span><span class="spanbox_content">活動名稱：${str[6]} </span>
+//                     <span class="spanbox_title">獎勵:100MJ</span>
 //                 </div>
 //                 <div class="buttonbox">
 //                 <button class="checkout_act btn_R " value="${str[1]}">查看</button>
@@ -324,7 +322,7 @@ function officalAllAct(actNo,member,key){
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
-            imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
+            // imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
             imgBoxImg.src='images/' +  fromAllAct_obj.img;
 
 
@@ -423,8 +421,8 @@ function reBtn(){
     var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
     for(var i=0;i<checkout_act.length;i++){
         checkout_act[i].addEventListener('click',function(){
-            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
-            lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
+            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
+            lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
             btn_ActJoinToDB.style.cssText = "background-color:#ccc";
             lightbox_actsCheckout.addEventListener('click',function(e){
                 e.stopPropagation();
@@ -801,10 +799,10 @@ function allAct_more(no){
         var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
         var elements = document.querySelectorAll("#acts_lightbox_top_right span")
         element_actTitle[0].innerHTML=actTitleValue;
-        elements[0].innerHTML='發起人：'+actHostIdValue;
-        elements[1].innerHTML='地點：'+actLocValue;
-        elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-        elements[3].innerHTML='活動介紹：'+actIntroValue;
+        elements[1].innerHTML=actHostIdValue;
+        elements[3].innerHTML=actLocValue;
+        elements[5].innerHTML=act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
+        elements[7].innerHTML=actIntroValue;
         $id("lightBox_actNo").value = no;
         myMessagebox_inputNone.setAttribute('value',actNoValue);
         var acts_lightbox_topImg = $id('acts_lightbox_topImg');
@@ -814,6 +812,8 @@ function allAct_more(no){
 
         var memNo = storage.getItem("memNo");
         comDB(memNo,no);
+        $id("indexActCloseBtn").onclick=CloseLightActBox;
+        // $id("loginBox").style.cssText = 'display: block;z-index:14;';
 }
 
 // 我的活動
@@ -859,15 +859,15 @@ function checkMyAct(){
                         <div class="contentImg" style="background-image: url(images/${img[i]});">
                         </div>
                             <div class="spanbox">
-                                <span>活動名稱：${title[i]}</span>
-                                <span>活動介紹：${intro[i]}</span>
-                                <span>發起人:${hostId[i]}</span>
-                                <span>地點：${loc[i]}</span>
-                                <span>時間：${begin[i]}至${end[i]}</span>
+                                <span class="myActItem_title">活動名稱</span><span class="myActItem_content">${title[i]}</span>
+                                <span class="myActItem_title">活動介紹</span><span class="myActItem_content">${intro[i]}</span>
+                                <span class="myActItem_title">發起人</span><span class="myActItem_content">${hostId[i]}</span>
+                                <span class="myActItem_title">地點</span><span class="myActItem_content">${loc[i]}</span>
+                                <span class="myActItem_title">時間</span><span class="myActItem_content">${begin[i]}至${end[i]}</span>
                                 <!-- <span>人數:{{}}</span> -->
                             </div>
                             <div class="buttonbox">
-                                <button class="checkout_act btn_R " value=${no[i]} onclick="myAct_more(${i});">查看</button>
+                                <button class="checkout_act btn_R btn" value=${no[i]} onclick="myAct_more(${i});">查看</button>
                                 <input type="hidden" id="actTitle${i}" value=${title[i]}>
                                 <input type="hidden" id="hostNo${i}" value=${hostNo[i]}>
                                 <input type="hidden" id="hostId${i}" value=${hostId[i]}>
@@ -876,7 +876,7 @@ function checkMyAct(){
                                 <input type="hidden" id="actBegin${i}" value=${begin[i]}>
                                 <input type="hidden" id="actEnd${i}" value=${end[i]}>
                                 <input type="hidden" id="actIntro${i}" value=${intro[i]}>
-                                <button class="btn_R cancel_act" style="background-color:#ccc;" onclick="CancelActTo(${no[i]},${storage.getItem("memNo")});">取消參加</button>
+                                <button class="cancel_act btn_cancel" onclick="CancelActTo(${no[i]},${storage.getItem("memNo")});">取消參加</button>
                                 <input type="hidden" id="actNo${i}" value=${no[i]}>
                             </div>
                         </div>`;
@@ -912,9 +912,8 @@ function checkMyAct(){
 }
 
 function myAct_more(no){
-    lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;bottom: 14%;";
-    lightbox_actsCheckout.style.cssText="display:block;z-index:10;bottom: 14%;";
-    btn_ActJoinToDB.style.cssText = "background-color:#ccc";
+    lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
+    lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
     lightbox_actsCheckout.addEventListener('click',function(e){
         e.stopPropagation();
     },false);
@@ -925,7 +924,6 @@ function myAct_more(no){
             $id("myMessagebox").removeChild($id("myMessagebox").firstChild);
         }
         lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
-        btn_ActJoinToDB.style.cssText = "background-color:#f05c79";
         var myMessagebox = $id('myMessagebox');
         if( myMessagebox.hasChildNodes){
             divs = document.getElementsByClassName('dddd');
@@ -959,10 +957,10 @@ function myAct_more(no){
     console.log(elements);
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     element_actTitle[0].innerHTML=actTitleValue;
-    elements[0].innerHTML='發起人：'+actHostIdValue;
-    elements[1].innerHTML='地點：'+actLocValue;
-    elements[2].innerHTML='時間：'+act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-    elements[3].innerHTML='活動介紹：'+actIntroValue;
+    elements[1].innerHTML=actHostIdValue;
+    elements[3].innerHTML=actLocValue;
+    elements[5].innerHTML=act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
+    elements[7].innerHTML=actIntroValue;
     myMessagebox_inputNone.setAttribute('value',actNoValue);
     $id('lightBox_actNo').value = actNoValue;
     
@@ -1039,18 +1037,48 @@ window.addEventListener('load',function(){
     },false);
 
 // 寫入留言
+    var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     myMessagebox_input.addEventListener('keydown',function(e){
         if(e.keyCode == 13 ){//enter代碼
-            var txt = '';
-            txt = myMessagebox_input.value;
-            actNo = myMessagebox_inputNone.value;
-            var memNo = storage.getItem("memNo");
-            // alert('memNo:'+ memNo);
-            sendCom(memNo,actNo,txt);
+            if(storage.getItem("memNo")){
+                var txt = '';
+                txt = myMessagebox_input.value;
+                actNo = myMessagebox_inputNone.value;
+                var memNo = storage.getItem("memNo");
+                sendCom(memNo,actNo,txt);
+
+            }else{
+                $('#alertText').text('請先登入!');
+                $('.alertWrap').show();
+            }
         }
     },false);
+    var btn_myMessagebox = document.getElementsByClassName("btn_myMessagebox")[0];
+    btn_myMessagebox.addEventListener('click',function(e){
+        if(myMessagebox_input.value != '' ){//enter代碼
+            if(storage.getItem("memNo")){
+                var txt = '';
+                txt = myMessagebox_input.value;
+                actNo = myMessagebox_inputNone.value;
+                var memNo = storage.getItem("memNo");
+                sendCom(memNo,actNo,txt);
+
+            }else{
+                $('#alertText').text('請先登入!');
+                $('.alertWrap').show();
+            }
+        }
+    },false);
+    // userInput_send.addEventListener('click',function(e){
+    //     var txt = '';
+    //     txt = myMessagebox_input.value;
+    //     actNo = myMessagebox_inputNone.value;
+    //     var memNo = storage.getItem("memNo");
+    //     // alert('memNo:'+ memNo);
+    //     sendCom(memNo,actNo,txt);
+    // },false);
 
     // var r_act = document.getElementById('theUser');
     // ooxxGetHead(r_act, {
@@ -1141,6 +1169,9 @@ window.addEventListener('load',function(){
 
         lightbox_act.style.cssText="display:flex;z-index:10;";
         lightbox_act_info.style.cssText="display:flex;z-index:10;";
+        var imgBoxImg_B = $id('imgBoxImg_B');
+        var imgBoxImg = $id('imgBoxImg');
+        imgBoxImg_B.src=imgBoxImg.src;
 
         lightbox_act_info.addEventListener('click',function(e){
             e.stopPropagation();
@@ -1162,19 +1193,25 @@ window.addEventListener('load',function(){
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
 
-        window.scrollTo(0,(act_memberHold.offsetTop+400));
-        console.log(act_memberHold.offsetTop);
 
-        lightbox_holdact.style.cssText="display:flex;z-index:10;";
-        lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+        if(storage.getItem("memNo")){
+            window.scrollTo(0,(act_memberHold.offsetTop+400));
+            console.log(act_memberHold.offsetTop);
 
-        lightbox_holdact_info.addEventListener('click',function(e){
-            e.stopPropagation();
-        },false);
-        lightbox_holdact.addEventListener('click',function(){
-            lightbox_holdact.style.cssText="display:none;z-index:-1;";
-            lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
-        },false);
+            lightbox_holdact.style.cssText="display:flex;z-index:10;";
+            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
+            lightbox_holdact_info.addEventListener('click',function(e){
+                e.stopPropagation();
+            },false);
+            lightbox_holdact.addEventListener('click',function(){
+                lightbox_holdact.style.cssText="display:none;z-index:-1;";
+                lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
+            },false);
+
+        }else{
+            $('#alertText').text('請先登入!');
+            $('.alertWrap').show();
+        }
 
     },false);
     

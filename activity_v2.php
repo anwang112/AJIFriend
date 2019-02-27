@@ -24,27 +24,10 @@
     <script src="js/commonPart.js"></script>
     <!-- <script src="js/commonPart.js"></script> -->
     <style>
-    .lightbox_act .lightbox_act_info .spanbox {
-        width: 70%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }    
-    .lightbox_act .lightbox_act_info p {
-        width: 35%;
-        color: #f05c79;
-        font-size: 1.3rem;
-        max-width: 600px;
-        line-height: 2rem;
+
+    .commentHead{
+        max-width: 8%;
     }
-    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
-        position: absolute;
-        left: 22%;
-        top: 0px;
-        padding: 5px 0;
-        font-size: 1.3rem;
-    }
-    
     .commentItem{
     display: flex;
     align-items: center;
@@ -62,45 +45,7 @@
 
     </style>
     <title>activity</title>
-    <style>
-    .lightbox_act .lightbox_act_info .spanbox {
-        width: 70%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }    
-    .lightbox_act .lightbox_act_info p {
-        width: 35%;
-        color: #f05c79;
-        font-size: 1.3rem;
-        max-width: 600px;
-        line-height: 2rem;
-    }
-    .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top h3 {
-        position: absolute;
-        left: 22%;
-        top: 0px;
-        padding: 5px 0;
-        font-size: 1.3rem;
-    }
     
-    .commentItem{
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    }
-    .commentName{    
-        margin-bottom: 10px;
-        color: brown;
-    }
-    .commentText{
-        font-size: 17px;
-        color: #555;
-        padding-left: 18px;
-    }
-
-    </style>
-    <title>activity</title>
 </head>
 <body>
     <script type="text/javascript">
@@ -191,14 +136,16 @@
                             <img id="imgBoxImg_B" src="images/activity/<?php echo $actImg ;?>" alt="資料庫拿圖">
                         <?php }?>
                         <!-- <img id="imgBoxImg_B" src="" alt=""> -->
-                        <p id="box_Intro">活動說明: <?php echo $actIntro ?></p>
-                        <div class="spanbox">
+
+                        <div class="spanbox">                       
+                            <p id="box_title"><?php echo $actTitle ?></p>
+                            <p id="box_Intro">活動說明: <?php echo $actIntro ?></p>
                             <!-- <span>人數：</span> -->
                             <span>時間：<?php echo  substr($act_begin,0,10) ; ?></span>
                             <span id="box_Loc">地點：<?php echo $actLoc ?></span>  
                             <span>獎勵：100MJ</span> 
                         </div>
-                        <button id="btn_Actjoin" class="btn">立即參加</button> 
+                        <button id="btn_Actjoin" class="btn btn_Actjoin">立即參加</button> 
                         <input id="box_actNo" type="hidden" value="<?php echo $actNo ;?>">
                         <input id="userInput01" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>" > 
                         <!-- 之後把會員存在這個value -->
@@ -237,7 +184,7 @@
                             </div>
                             <h3><?php echo $actTitle ; ?></h3>
                             <div class="spanbox">
-                                <span>發起人:<?php echo $hostId ;?></span>
+                                <span>發起人：<?php echo $hostId ;?></span>
                                 <span>地點：<?php echo $actLoc ; ?></span>
                                 <span>時間：<?php echo  substr($act_begin,0,10) ; ?>至<?php echo substr($act_end,0,10);?></span>
                             </div>
@@ -270,11 +217,18 @@
 
             <div id="lightbox_holdact" class="lightbox_holdact">
                 <div id="lightbox_holdact_info" class="lightbox_holdact_info">
-                    <form action="actInser.php" method="post" enctype="multipart/form-data">
                     <h2>舉辦活動</h2>
-                        <label class="label1" for="">Step1_上傳圖片<br>
-                        <input type="file" id="act_holdActFile" name="act_holdActFile">
-                        </label>
+                    <form action="actInser.php" method="post" enctype="multipart/form-data">
+                        <div class="holderPic">
+                            <label class="label1" for="">Step1_上傳圖片<br>
+                                <input type="file" id="act_holdActFile"  name="act_holdActFile">
+                            </label>
+                            <div class="act_holdActFileBox">
+                                
+                                <img id="act_holdActFileBox" src="" alt="">
+                            </div>
+                        </div>
+                        
                         <label class="label2" for="">Step2_填寫活動介紹<br>
                             <input type="text" class="input_R" name="actTitle" placeholder="活動名稱">
                             <input id="actIntro" type="text" class="input_R" name="actIntro" placeholder="活動介紹">
@@ -284,7 +238,7 @@
                             <input type="submit" class="btn" placeholder="確定">
                         </label>
                     </form>
-                    <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
+                    
                     <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
                     <script type="text/javascript">
                         function $id(id){
@@ -315,19 +269,20 @@
 
             <!-- 活動的 動態燈箱 -->
             <div id="lightbox_actsCheckout_outside" class="lightbox_actsCheckout_outside">
+
                 <div id="lightbox_actsCheckout" class="lightbox_actsCheckout">
-                    <h2>熊麻吉活動資訊</h2>
+                <div id="indexActCloseBtn" class="lightBoxXX"></div>
                     <div class="acts_lightbox_top">
                         <div id="acts_lightbox_topImg" class="acts_lightbox_topImg" style="background-image: url('');"></div>
                         <!-- <img id="acts_lightbox_top_img" src="images/activity/act_number01B.svg" alt="活動圖 要寫成動態寫入">     -->
                         <div id="acts_lightbox_top_right" class="acts_lightbox_top_right">
                             <h3>攀岩聯聯看</h3>
-                            <span>發起人:</span>
-                            <span>地點：</span>
-                            <span>時間：至</span>
-                            <span>活動介紹：</span>
+                            <span class="spanbox_title">發起人</span><span class="spanbox_content"></span>
+                            <span class="spanbox_title">地點</span><span class="spanbox_content"></span>
+                            <span class="spanbox_title">時間</span><span class="spanbox_content"></span>
+                            <span class="spanbox_title">活動介紹</span><span class="spanbox_content"></span>
                             <!-- <span id="actJoinCount">人數:{{}}</span> -->
-                            <span>獎勵:100MJ值</span>
+                            <span class="spanbox_title">獎勵</span>
                         </div>
                     </div>
                     <div class="acts_lightbox_down">
@@ -343,6 +298,7 @@
                         </div>
                         <input id="myMessagebox_input" class="input_R" type="text" placeholder="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["mName"];}?>  回覆留言">
                         <input id="myMessagebox_inputNone" class="input_R" type="hidden" placeholder="回覆留言" value="">
+                        <input type="button" class="btn btn_myMessagebox" value="送出留言">
                         <input id="userInput04" type="hidden" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>">
                     </div>
                 </div>

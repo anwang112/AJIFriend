@@ -112,7 +112,7 @@ session_start();
 
             //所有活動-熊麻吉們主辦
             
-            $sqlactNo = "SELECT * FROM `activity` WHERE `host_memNo` !=3";
+            $sqlactNo = "SELECT * FROM `activity` WHERE `host_memNo` != 3";
             $result = $pdo->query($sqlactNo);
             $totalRecord =  $result ->rowCount();
             //每頁有幾筆
