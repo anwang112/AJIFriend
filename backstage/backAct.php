@@ -194,4 +194,4 @@ require_once("backAct_toDB.php");
     <!-- <script src="../js/activity2.js"></script> -->
 </body>
 
-</html>
+</html> 
