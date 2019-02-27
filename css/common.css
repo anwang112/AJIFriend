@@ -1045,7 +1045,7 @@ input::placeholder{
         flex-direction: column;
         text-align: center;
         transition: 1s;
-        position: absolute;
+        position: fixed;
         top: -100vh;
         left: 0;
         opacity: 1;

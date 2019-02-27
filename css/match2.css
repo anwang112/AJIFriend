@@ -108,6 +108,7 @@
   width: 100%;
   padding-bottom: 100px;
   overflow-y: hidden;
+  overflow-x: hidden;
   background-image: url("../images/matchBg.svg");
   background-size: cover;
   background-position: center center;
@@ -648,7 +649,7 @@ display: block;
     top: 98%;
     padding-top: 35px; }
   .majiRank {
-    margin-top: 130%; }
+    margin-top: 140%; }
   .wrap .matchContent .selectBtn {
     left: 29%;
     top: 28%;
