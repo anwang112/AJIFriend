@@ -839,17 +839,31 @@ function friendList(myNo = -1) {
                         </div>
 					</label> `;
 						div_chooseBox.innerHTML = chatList;
-
-
-
 						//載入朋友頭像
 						// rrr = document.getElementById('自己取');
-						ooxxGetHead($id(`chatListHead${friend_infoArr[i][0]}`), {
-							animal: friend_infoArr[i][2],
-							color: friend_infoArr[i][4],
-							eyes: friend_infoArr[i][3],
-						});
+						// ooxxGetHead($id(`chatListHead${friend_infoArr[i][0]}`), {
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
+						// });
 					}
+
+					//用時間載入頭像
+					dd = 0;
+					hhhhh = () => {
+						if (dd == friendInfo.length) {
+							clearInterval(ssssss);
+						}
+
+						ooxxGetHead($id(`chatListHead${friend_infoArr[dd][0]}`), {
+							animal: friend_infoArr[dd][2],
+							color: friend_infoArr[dd][4],
+							eyes: friend_infoArr[dd][3],
+						});
+						dd++;
+					}
+					ssssss = setInterval(hhhhh, 100);
+
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
 				if (rwd_num == 0) {
@@ -1858,28 +1872,25 @@ ooxxGetRole = (roleId, roleData) => {
 
 }
 
+
+
 ooxxGetHead = (headId, headData) => {
 	// 載入頭頭
 
 	headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
-                        <div class="headEyes"></div>`;
+						<div class="headEyes"></div>`;
 
-
-	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+	headId.getElementsByClassName('headSvg')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		console.log('123');
 		fillColor.style.fill = `#${headData.color}`;
 	})
-
-	//插入眼睛
 	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
 
-// updateColor=(oo)=>{
-// 	oo.
-// }
+
+
 
 // 角色外觀載入函式end -- 介庸
 
