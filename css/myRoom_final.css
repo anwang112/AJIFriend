@@ -117,6 +117,13 @@
 
 
 @media only screen and (max-width: 476px){
+    .act_Img {
+        margin: 20px 10%;
+    }
+    .act_hoverBox .spanbox span {
+        margin: -2px;
+    }
+
     #hatselfSlide {
         position: relative;
         top: -23%;

@@ -1,0 +1,113 @@
+
+
+
+
+
+@media only screen and (max-width: 768px){
+    .game {
+        width: 95%;
+        top: 290px;
+    }
+
+    #chooseId #rwd_showCart {
+        width: 14%;
+    }
+    #chooseId #chooseArea {
+        width: 88%;
+    }
+    #btn_openGame {
+        right: 28%;
+        bottom: 58%;
+    }
+    #shop_background{
+        background-size: 200%;
+    }
+
+    #productBlock #productsArea {
+        width: 100%;
+    }
+    #chooseId {
+        margin: 220px auto;
+    }
+    #btn_openGame {
+        width: 12%;
+        right: 25%;
+        bottom: 47%;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 476px){
+    #chooseId #rwd_showCart {
+        width: 106px;
+        padding: 0px 0px;
+    }
+    #chooseId #rwd_showCoin {
+        width: 106px;
+    }
+    #chooseId {
+        margin: 130px auto;
+    }
+
+    #shop_background{
+        background-size: cover;
+    }
+
+    #chooseId #showModel {
+        position: relative;
+        top: -46px;
+    }
+    #chooseId #chooseArea {
+        position: relative;
+        top: -61px;
+    }
+    #btn_openGame img {
+        position: relative;
+        left: 80px;
+        bottom: 78px;
+    }
+    #btn_openGame {
+        width: 17%;
+        bottom: 35%;
+    }
+    #productBlock #productsArea {
+        width: 100%;
+        height: 210px;
+        margin: -13px 0;
+        padding: 0 10px;
+    }
+    .game {
+        width: 95%;
+        top: 130px;
+    }
+    #chooseId #friend_LightBox {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 400px){
+
+    #chooseId #rwd_showCart {
+        width: 28%;
+    }
+    #chooseId #showModel {
+        position: relative;
+        top: -18px;
+    }
+    #chooseId #chooseArea {
+        position: relative;
+        top: -31px;
+    }
+    #productBlock #productsArea {
+        width: 100%;
+        height: 250px;
+    }
+    #productBlock #productsArea #productsShow {
+        width: 107%;
+    }
+    #chooseId #rwd_showCoin {
+        padding: 6px 4px;
+    }
+}
