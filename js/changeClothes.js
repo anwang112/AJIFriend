@@ -1,27 +1,32 @@
-function changeClothes(src,cate){
+function changeClothes(src, cate) {
     // var clothes = e.target.id;
     // var wearNo = clothes.substring(4,clothes.length);
     // console.log(wearNo);
 
+    console.log(src);
+    console.log(cate);
+
     var hat_div = document.getElementsByClassName("roleHat")[0];
     var clothes_div = document.getElementsByClassName("roleClothes")[0];
-    
-    if(cate==1){
-        hat_div.style.backgroundImage = `url("images/hatImages/${src}")`;
 
-    }else{
-        clothes_div.style.backgroundImage = `url("images/clothesImages/${src}")`;
+    if (cate == 1) {
+        // hat_div.style.backgroundImage = `url("images/hatImages/${src}")`;
+        ooxxChangeHat($id('showModel'), `images/hatImages/${src}`);
 
+
+    } else {
+        // clothes_div.style.backgroundImage = `url("images/clothesImages/${src}")`;
+        ooxxChangeClothes($id('showModel'), `images/clothesImages/${src}`);
     }
 
     // 更衣動畫
 
 
 
-    
+
 }
 
-function removeInfo(e){  //移除產品訊息
+function removeInfo(e) {  //移除產品訊息
     // e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     //商品圖透明度恢復
     // console.log(e.target.parentNode.parentNode.childNodes[1]);
@@ -29,34 +34,34 @@ function removeInfo(e){  //移除產品訊息
     e.target.parentNode.style.zIndex = "-10";
 
     var taImg = e.target.parentNode.parentNode.childNodes[1];
-    taImg.removeEventListener("click",showInfo);
+    taImg.removeEventListener("click", showInfo);
     var imgs = document.getElementsByClassName("click_wear");
-    for(var i=0;i<imgs.length;i++){
+    for (var i = 0; i < imgs.length; i++) {
         // imgs[i].style.opacity = 1;
         imgs[i].parentNode.style.borderColor = "transparent";
-        
+
         // console.log(img[i].parentNode);
     }
     e.target.parentNode.parentNode.childNodes[1].style.opacity = ".2";
-    check=false;
+    check = false;
 
 }
-var check=false;
+var check = false;
 
-function showInfo(e){
+function showInfo(e) {
     // [重置]先將外框全部拿掉
     var img = document.getElementsByClassName("click_wear");
-    for(var i=0;i<img.length;i++){
+    for (var i = 0; i < img.length; i++) {
         img[i].parentNode.style.borderColor = "transparent";
     }
     // [重置]若有其他格產生資訊，先把其他格的資訊關掉
-    if(check==true){
-        var proInfo =  document.getElementsByClassName("rwd-proInfo"); 
+    if (check == true) {
+        var proInfo = document.getElementsByClassName("rwd-proInfo");
         var click_wear = document.getElementsByClassName("click_wear");
-        for(var i=0;i<proInfo.length;i++){
+        for (var i = 0; i < proInfo.length; i++) {
             proInfo[i].style.display = "none";
             click_wear[i].style.opacity = "1";
-            
+
         }
     }
     console.log(e.target.nextElementSibling);
@@ -71,8 +76,9 @@ function showInfo(e){
 
     //註冊事件聆聽:購買按鈕按了要關掉產品資訊
     var btn_buy = document.getElementsByClassName("btn_buy");
-    for(var i=0; i<btn_buy.length;i++){
-        btn_buy[i].addEventListener("click",removeInfo);
+    for (var i = 0; i < btn_buy.length; i++) {
+        btn_buy[i].addEventListener("click", removeInfo);
     }
-    
+
 }
+

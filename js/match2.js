@@ -244,7 +244,6 @@ function beFriend (tarNo,loginNo,btn) {
     
 }
 $('.btn_beFriend0').click(function(){
-    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);

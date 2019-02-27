@@ -30,23 +30,23 @@ session_start();
     </script>
     <div class="load">
         <div class="loadBox">
-        <div class="ani">
-            <img src="images/bearmask.png" alt="">
-            <div class="bear"></div>
+            <div class="ani">
+                <img src="images/bearmask.png" alt="">
+                <div class="bear"></div>
+            </div>
+            <div class="ani">
+                <img src="images/rabimask.png" alt="">
+                <div class="rabi"></div>
+            </div>
+            <div class="ani">
+                <img src="images/catmask.png" alt="">
+                <div class="cat"></div>
+            </div>
+            <div class="ani ">
+                <img src="images/dogmask.png" alt="">
+                <div class="dog"></div>
+            </div>
         </div>
-        <div class="ani">
-            <img src="images/rabimask.png" alt="">
-            <div class="rabi"></div>
-        </div>
-        <div class="ani">
-            <img src="images/catmask.png" alt="">
-            <div class="cat"></div>
-        </div>
-        <div class="ani ">
-            <img src="images/dogmask.png" alt="">
-            <div class="dog"></div>
-        </div>
-    </div>
     </div>
     <!-- 第一部分城市 -->
     <div class="firstScreen">
@@ -314,12 +314,6 @@ session_start();
         </section>
     </div>
 
-
-
-
-
-
-
     <!-- 創建角色 -->
     <div id="indexCreateRoleBox" class="indexCreateRoleBox">
         <h2>創建專屬角色</h2>
@@ -374,7 +368,6 @@ session_start();
 
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
-
 
     <!-- 註冊帳號 -->
     <div id="createMemberScreen">

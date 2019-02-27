@@ -222,8 +222,8 @@
                     eyesArray[1].style.transformBox = `fill-box`;
                     eyesArray[0].style.transformOrigin = `center`;
                     eyesArray[1].style.transformOrigin = `center`;
-                    eyesArray[0].setAttribute('transform', `translate(0) rotate(45)`);
-                    eyesArray[1].setAttribute('transform', `translate(0) rotate(45)`);
+
+
                     eyesGo = () => {
                         eyesArray[0].animate([{
                             transform: 'scaleY(1)'
@@ -238,7 +238,6 @@
                                 duration: 200,
                                 endDelay: 1000,
                             });
-
                         eyesArray[1].animate([{
                             transform: 'scaleY(1)'
                         },
