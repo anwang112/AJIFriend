@@ -48,9 +48,11 @@ session_start();
                 <div class="dog"></div>
             </div>
         </div>
+        <div id="scoreDisplay1"></div>
+    
     </div>
-    <div id="scoreDisplay1"></div>
-    </div>
+    
+    
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
