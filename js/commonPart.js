@@ -439,6 +439,10 @@ function foot_html() {
 		friendList(storage.getItem("memNo"));
 		requireBack(storage.getItem("memNo"));
 	}
+	data={
+		loginNo:storage.getItem("memNo"),
+	};
+	noticeFriend(data);
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
@@ -2041,14 +2045,8 @@ window.addEventListener('load', () => {
 
 
 //好友通知
-window.onload = function () {
-	data={
-		loginNo:storage.getItem("memNo"),
-	};
-	noticeFriend(data);
-}
-
 function noticeFriend(data){
+	console.log(data);
     if(storage.getItem("memNo")){
 		var xhr = new XMLHttpRequest();
 		
