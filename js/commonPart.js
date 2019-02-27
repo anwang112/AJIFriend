@@ -96,7 +96,7 @@ function head_html() {
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
 				<li><a href="photo.php">照片牆</a></li>
 				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
-                <li><a href="#">登入</a></li>
+                <li><a href="#" id="phoneLogBtn">登入</a></li>
                 
             </ul>
 		</div>
@@ -858,11 +858,11 @@ function friendList(myNo = -1) {
 						// });
 					}
 
-					//用時間載入頭像
+					// 用時間載入頭像
 					dd = 0;
-					hhhhh = () => {
-						if (dd == friendInfo.length) {
-							clearInterval(ssssss);
+					getHeadGo = () => {
+						if (dd == friendInfo.length - 1) {
+							clearInterval(getHeadId);
 						}
 
 						ooxxGetHead($id(`chatListHead${friend_infoArr[dd][0]}`), {
@@ -872,7 +872,7 @@ function friendList(myNo = -1) {
 						});
 						dd++;
 					}
-					ssssss = setInterval(hhhhh, 100);
+					getHeadId = setInterval(getHeadGo, 100);
 
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
@@ -898,12 +898,29 @@ function friendList(myNo = -1) {
 					</label> `;
 						$id("rwd_chatList").innerHTML = rwd_chatList;
 
-						ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[i][0]}`), {
-							animal: friend_infoArr[i][2],
-							color: friend_infoArr[i][4],
-							eyes: friend_infoArr[i][3],
-						});
+						// ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[i][0]}`), {
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
+						// });
+
 					}
+
+					// 用時間載入頭像
+					pp = 0;
+					getHeadPhoneGo = () => {
+						if (pp == friendInfo.length - 1) {
+							clearInterval(getHeadPhoneId);
+						}
+
+						ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[pp][0]}`), {
+							animal: friend_infoArr[pp][2],
+							color: friend_infoArr[pp][4],
+							eyes: friend_infoArr[pp][3],
+						});
+						pp++;
+					}
+					getHeadPhoneId = setInterval(getHeadPhoneGo, 100);
 
 				}
 				// 執行動作撰寫
@@ -1362,6 +1379,18 @@ window.addEventListener('load', function () {
 			control_openMenu = false;
 		}
 	});
+
+	//手機版漢堡打開點擊登入紐 by庸
+	$id('phoneLogBtn').addEventListener('click', () => {
+		$id('menu_phone').style.transform = 'translateX(-100%)';
+		$id('loginBox').style.display = 'block';
+		$id('lightBoxInner').style.display = 'block';
+		$id('lightBoxInner').style.opacity = '1';
+	})
+
+
+
+
 	//手機版menu操控 end--by ga
 
 	//聊天室貼圖操作

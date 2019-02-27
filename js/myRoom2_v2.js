@@ -81,6 +81,25 @@ window.addEventListener('load', function () {
 	}, false);
 
 
+	//更新個人ㄉ興趣
+	//興趣
+	$id('hobbyText').innerHTML = '';
+	var hobby = storage.getItem('hobby').split("");
+	var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+	var c = [];
+	for (var i = 0; i < hobby.length; i++) {
+		var a = hobby[i];
+		var b = hobbys[a];
+		c.push(b);
+	}
+	for (var j = 0; j < c.length; j++) {
+		var d = c[j] + '&nbsp' + '|' + '&nbsp';
+		if (j == c.length - 1) {
+			d = c[j];
+		}
+		$id('hobbyText').innerHTML += d;
+	}
+
 
 }, false);
 

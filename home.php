@@ -493,7 +493,7 @@ session_start();
         foot_html();
     </script>
     <script src="js/index.js"></script>
-    <script src="js/match2.js"></script>
+    <!-- <script src="js/match2.js"></script> -->
 </body>
 
 </html> 
