@@ -19,6 +19,7 @@ session_start();
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
     <script src="js/shop.js"></script>
+    <link rel="stylesheet" href="css/chatStyle_final.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 </head>
@@ -152,6 +153,7 @@ session_start();
             </div> 
             <div id="btn_openGame">
                 <img src="images/wallet2.png" alt="">
+                <span>領金幣</span>
             </div>
             <!-- 搖獎遊戲 -->
             <div class="gameMask"></div>

@@ -1,0 +1,225 @@
+
+.myhats li {
+    min-width: 200px;
+}
+
+.myClothes li {
+    min-width: 200px;
+}
+
+.act_Img {
+    width: 80%;
+    margin: 15px 10%;
+    max-height: unset;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+  .spanbox{
+    width: 100%;
+    padding: 39px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    color: #fff;
+}
+  
+  .spanbox span{
+    width: 100%;
+    padding: 2px 0px;
+    color: #fff;
+    line-height: 1.1rem;
+  }
+
+#hatselfSlide {
+    top: -16%;
+}
+
+.leftcontent p {
+    width: 54%;
+}
+/* 燈箱 */
+#profile {
+
+    border-radius: 15px;
+    background-color: #fae8f0;;
+}
+
+#change_and_reset {
+    position: absolute;
+    top: 90%;
+    width: 197%;
+}
+
+.leftcontent button {
+    width: 85px;
+    height: 35px;
+    color: #fff;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    border-radius: 15px;
+    background-color: #F05c79;
+    box-shadow: 0px 4px 0px #444;
+    position: absolute;
+}
+.act_hoverBox button {
+    width: 85px;
+    height: 35px;
+    color: #fff;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    bottom: 16px;
+    left: 8%;
+}
+.act_hoverBox .spanbox span {
+    margin: 7px;
+}
+
+#btnSaveChageCloth .btnSave {
+    width: 85px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: #F05c79;
+    box-shadow: 0px 4px 0px #444;
+}
+
+.clothCloset {
+
+    background-color: #fae8f0;
+    border-radius: 15px;
+}
+.fittingBox {
+
+    background-color: #fae8f0;
+    border-radius: 15px;
+}
+
+.proLeft {
+    background-color: #cd9e9a;
+}
+
+.proRight {
+    border-radius: 0px 15px 15px 0px;
+    background-color: #cd9e9a;
+}
+
+.leftcontent div span {
+    color: #e5e2dd;
+    padding: 0 25px;
+}
+.leftcontent p {
+    color: #e5e2dd;
+}
+
+.leftcontent input {
+    width: 55%;
+}
+
+
+@media only screen and (max-width: 476px){
+    .spanbox span{
+        padding: 8px 0px;
+      }
+
+    .act_Img {
+        margin: 20px 10%;
+    }
+    .act_hoverBox .spanbox span {
+        margin: -2px;
+    }
+
+    #hatselfSlide {
+        position: relative;
+        top: -23%;
+    }
+    .myClothes li {
+        width: 39vw;
+        height: 25vh;
+    }
+    #btnSaveChageCloth .btnSave {
+        left: 68%;
+        top: -70%;
+    }
+    #wardrobeLightBox {
+        height: 198vh;
+    }
+    #fittingRoom {
+        height: 63vh;
+    }
+    #hatsSelf {
+        height: 28vh;
+    }
+    #clothesSelf {
+        width: 94%;
+        height: 35vh;
+        margin: 0vh 3vw;
+    }
+    #change {
+        left: -1%;
+        bottom: 32px;
+    }
+    #dataReset {
+        left: 38%;
+        bottom: 32px;
+    }
+    .leftcontent div span {
+        color: #e5e2dd;
+        padding: 0 25px;
+        width: 23%;
+    }
+    .leftcontent input {
+        width: 74%;
+    }
+    #profileLightBox {
+        height: 183vh;
+    }
+    #profile {
+        border-radius: 15px;
+        background-color: #fae8f0;
+        height: 150vh;
+    }
+    .proRight {
+        height: 92vh;
+    }
+    .rightcontent {
+        width: 100%;
+        height: 84vh;
+        overflow-y: scroll;
+    }
+}
+@media only screen and (max-width: 400px){
+    .myClothes li {
+        min-width: 85px;
+    }
+    .myhats li {
+        min-width: 180px;
+    }
+
+    #btnSaveChageCloth .btnSave {
+        left: 70%;
+        top: -84%;
+    }
+
+
+    #fittingRoom {
+        height: 70vh;
+    }
+    #clothesSelf {
+        width: 94%;
+        height: 25vh;
+        margin: 0vh 3vw;
+    }
+    .leftcontent div span {
+        color: #e5e2dd;
+        padding: 0px 20px;
+        width: 24%;
+    }
+}

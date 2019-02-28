@@ -56,31 +56,31 @@ ooxxEyesGo = (...eyesArray) => {
     eyesArray[1].style.transformOrigin = `center`;
     eyesGo = () => {
         eyesArray[0].animate([{
-            transform: 'scaleY(1)'
-        },
-        {
-            transform: 'scaleY(0.01)'
-        },
-        {
-            transform: 'scaleY(1)'
-        }
+                transform: 'scaleY(1)'
+            },
+            {
+                transform: 'scaleY(0.01)'
+            },
+            {
+                transform: 'scaleY(1)'
+            }
         ], {
-                duration: 500,
-                endDelay: 1000,
-            });
+            duration: 500,
+            endDelay: 1000,
+        });
         eyesArray[1].animate([{
-            transform: 'scaleY(1)'
-        },
-        {
-            transform: 'scaleY(0.01)'
-        },
-        {
-            transform: 'scaleY(1)'
-        }
+                transform: 'scaleY(1)'
+            },
+            {
+                transform: 'scaleY(0.01)'
+            },
+            {
+                transform: 'scaleY(1)'
+            }
         ], {
-                duration: 500,
-                endDelay: 1000,
-            });
+            duration: 500,
+            endDelay: 1000,
+        });
     }
     setInterval(eyesGo, ooxxRandom(2000, 3500));
 }
@@ -96,8 +96,7 @@ indexInit = () => {
     //取得當前螢幕寬度
     if (window.innerWidth) {
         winWidth = window.innerWidth;
-    }
-    else if ((document.body) && (document.body.clientWidth)) {
+    } else if ((document.body) && (document.body.clientWidth)) {
         winWidth = document.body.clientWidth;
     }
 
@@ -143,13 +142,19 @@ indexInit = () => {
             springHandGo = () => {
                 springHandGoTime++
                 if (springHandGoTime > 150) {
-                    springHand.animate([
-                        { transform: `rotate(0) translateX(0)` },
-                        { transform: `rotate(-43deg) translateX(29%)` },
-                        { transform: `rotate(0) translateX(0)` }], {
-                            duration: 1000,
-                            endDelay: 500,
-                        });
+                    springHand.animate([{
+                            transform: `rotate(0) translateX(0)`
+                        },
+                        {
+                            transform: `rotate(-43deg) translateX(29%)`
+                        },
+                        {
+                            transform: `rotate(0) translateX(0)`
+                        }
+                    ], {
+                        duration: 1000,
+                        endDelay: 500,
+                    });
                     springHandGoTime = 0;
                 }
                 springHandId = requestAnimationFrame(springHandGo);
@@ -205,11 +210,11 @@ indexInit = () => {
         cupidLightstartId = requestAnimationFrame(cupidLightstart);
 
         //阿吉與春天對話開始
-        SpringDialogWrap = indexAjiSpring.getElementsByClassName('cls-1')[0];  //春天對話框
-        SpringDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[0];  //春天對話文字
+        SpringDialogWrap = indexAjiSpring.getElementsByClassName('cls-1')[0]; //春天對話框
+        SpringDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[0]; //春天對話文字
 
-        AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0];  //阿吉對話框
-        AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1];  //阿吉對話文字
+        AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0]; //阿吉對話框
+        AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1]; //阿吉對話文字
 
         SpringDialogTime = 0;
         SpringDialogGo = () => {
@@ -314,8 +319,8 @@ indexInit = () => {
         } else {
             transZ = winWidth / trojanItem.length * 1.8;
         }
-        let rotateValue = 0;  //每次轉的方值
-        let nowRole = 0;  //目前角色
+        let rotateValue = 0; //每次轉的方值
+        let nowRole = 0; //目前角色
         for (let i = 0; i < trojanItem.length; i++) {
             trojanItem[i].style.transform = "rotateY(" + (i * rotate + rotateValue) + "deg) translateZ(" + transZ + "px)";
         }
@@ -352,8 +357,7 @@ indexInit = () => {
         }
 
         //亂數人的資訊
-        chairinfoArray = [
-            {
+        chairinfoArray = [{
                 name: "lien",
                 star: "射手座",
                 hobby: "抓寶可夢"
@@ -362,14 +366,12 @@ indexInit = () => {
                 name: "An",
                 star: "觸女座",
                 hobby: "抓寶可夢"
-            }
-            ,
+            },
             {
                 name: "ooxx",
                 star: "雙魚座",
                 hobby: "睡覺"
-            }
-            ,
+            },
             {
                 name: "你好阿",
                 star: "水瓶座",
@@ -379,7 +381,7 @@ indexInit = () => {
 
         //木馬轉轉開始  
         trojanItemGo = () => {
-            ooxxHide(trojanItemRolebox[nowRole], 0.086);// 當前ㄉ人消失
+            ooxxHide(trojanItemRolebox[nowRole], 0.086); // 當前ㄉ人消失
             //失偵方式處裡讓人物消失
             for (let i = 0; i < trojanItemRolebox.length; i++) {
                 // trojanItemRolebox[i].style.display = `none`;
@@ -427,45 +429,63 @@ indexInit = () => {
 
             switch (ooxxRandom(0, 1)) {
                 case 0:
-                    chairLeftHand[0].animate([
-                        { transform: 'rotate(0deg) translateX(0%)' },
-                        { transform: 'rotate(-20deg) translateX(15%)' },
-                        { transform: 'rotate(0deg) translateX(0%)' }],
+                    chairLeftHand[0].animate([{
+                            transform: 'rotate(0deg) translateX(0%)'
+                        },
                         {
-                            duration: 800,
-                            // endDelay: 1000,
+                            transform: 'rotate(-20deg) translateX(15%)'
+                        },
+                        {
+                            transform: 'rotate(0deg) translateX(0%)'
                         }
-                    );
+                    ], {
+                        duration: 800,
+                        // endDelay: 1000,
+                    });
                     for (let i = 1; i < chairLeftHand.length; i++) {
-                        chairLeftHand[i].animate([
-                            { opacity: '0' },
-                            { opacity: '1' },
-                            { opacity: '0' },
+                        chairLeftHand[i].animate([{
+                                opacity: '0'
+                            },
+                            {
+                                opacity: '1'
+                            },
+                            {
+                                opacity: '0'
+                            },
                         ], {
-                                duration: 3000,
-                                delay: 500
-                            });
+                            duration: 3000,
+                            delay: 500
+                        });
                     }
                     break;
                 case 1:
-                    chairRightHand[0].animate([
-                        { transform: 'rotate(0deg) translateX(0%)' },
-                        { transform: 'rotate(15deg) translateX(-10%)' },
-                        { transform: 'rotate(0deg) translateX(0%)' }],
+                    chairRightHand[0].animate([{
+                            transform: 'rotate(0deg) translateX(0%)'
+                        },
                         {
-                            duration: 800,
-                            // endDelay: 1000,
+                            transform: 'rotate(15deg) translateX(-10%)'
+                        },
+                        {
+                            transform: 'rotate(0deg) translateX(0%)'
                         }
-                    );
+                    ], {
+                        duration: 800,
+                        // endDelay: 1000,
+                    });
                     for (let i = 1; i < chairRightHand.length; i++) {
-                        chairRightHand[i].animate([
-                            { opacity: '0' },
-                            { opacity: '1' },
-                            { opacity: '0' },
+                        chairRightHand[i].animate([{
+                                opacity: '0'
+                            },
+                            {
+                                opacity: '1'
+                            },
+                            {
+                                opacity: '0'
+                            },
                         ], {
-                                duration: 3000,
-                                delay: 500
-                            });
+                            duration: 3000,
+                            delay: 500
+                        });
                     }
                     break;
             }
@@ -482,8 +502,7 @@ indexInit = () => {
         changeScreen = () => {
             if (window.innerWidth) {
                 winWidth = window.innerWidth;
-            }
-            else if ((document.body) && (document.body.clientWidth)) {
+            } else if ((document.body) && (document.body.clientWidth)) {
                 winWidth = document.body.clientWidth;
             }
             clearInterval(trojanItemId);
@@ -500,7 +519,7 @@ indexInit = () => {
     // 第三部分
     thirdScreenFunctionn = () => {
         shop = document.getElementById('shop').getSVGDocument();
-        shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
+        shopLight = shop.getElementsByClassName('cls-4'); //0-3是電燈
         modelLight = document.getElementById('modelLight');
 
         for (let i = 0; i < shopLight.length - 1; i++) {
@@ -651,7 +670,7 @@ indexInit = () => {
     lightChangeScreen = () => {
         $id('shop').addEventListener('load', () => {
             shop = document.getElementById('shop').getSVGDocument();
-            shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
+            shopLight = shop.getElementsByClassName('cls-4'); //0-3是電燈
             for (let i = 0; i < shopLight.length - 1; i++) {
                 shopLight[i].style.transformOrigin = `left bottom`;
                 shopLight[i].style.transformBox = `fill-box`;
@@ -698,8 +717,8 @@ indexInit = () => {
     //第四部份
     fourthScreenFunction = () => {
         window.removeEventListener('scroll', scrollFourthScreen);
-        flash = document.getElementById('flash');  //閃光燈物件
-        lineStory = document.getElementById('lineStory');  //線條svg
+        flash = document.getElementById('flash'); //閃光燈物件
+        lineStory = document.getElementById('lineStory'); //線條svg
 
         var indexLine = document.getElementById('indexLine');
         // console.log(indexLine.getTotalLength()); //印出線條長
@@ -1409,6 +1428,20 @@ window.onload = function () {
         indexInit();
 
     }, 2000);
-
 };
-    // window.addEventListener('load', indexInit);
+var demo = {
+        score: 0
+    },
+    scoreDisplay = document.getElementById("scoreDisplay1");
+
+//create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
+var tween = TweenLite.to(demo, 1.8, {
+    score: 100,
+    onUpdate: showScore
+})
+
+//each time the tween updates this function will be called.
+function showScore() {
+    scoreDisplay.innerHTML = demo.score.toFixed(0)+'%';
+}
+// window.addEventListener('load', indexInit);

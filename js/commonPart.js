@@ -344,7 +344,13 @@ function foot_html() {
 		    
     <div id="chatRoom" class="chatRoom">
 	    <!-- 聊天室右側主要顯示區  -->
-	    <h2 id="chatRoom_control">麻吉聊天室</h2>
+		<h2 id="chatRoom_control">麻吉聊天室
+			<div id="mail">
+				<img src="images/mail.png" alt="">
+				<span>好友邀請</span>
+				<span id="noticeNum">0</span>
+		</div>
+		</h2>
 	    <div class="chatRoom_info">
             <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
             <input type="hidden" id="chatTaNo">
@@ -433,6 +439,10 @@ function foot_html() {
 		friendList(storage.getItem("memNo"));
 		requireBack(storage.getItem("memNo"));
 	}
+	data={
+		loginNo:storage.getItem("memNo"),
+	};
+	noticeFriend(data);
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
@@ -2033,3 +2043,27 @@ window.addEventListener('load', () => {
 })
 
 
+
+//好友通知
+function noticeFriend(data){
+	console.log(data);
+    if(storage.getItem("memNo")){
+		var xhr = new XMLHttpRequest();
+		
+    xhr.onload = function () {
+		console.log( parseInt( xhr.responseText));
+            if(parseInt( xhr.responseText )== 0){
+                document.getElementById('mail').style.cssText = "display:none"
+            }else{
+                document.getElementById('mail').style.cssText = "display:block"
+                document.getElementById('noticeNum').innerText = xhr.responseText;
+            }
+            
+        }
+    }
+    
+    xhr.open("Post", "notice.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" + JSON.stringify(data));
+
+};
