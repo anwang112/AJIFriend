@@ -78,10 +78,10 @@ session_start();
 
                 <div id="chooseArea">
                     <!-- 自己穿 -->
-                    <div id="choose-me" class="btn_chooseModel"> 
+                    <!-- <div id="choose-me" class="btn_chooseModel"> 
                         <img src="shop-images/gift.png">
                         <p>自己穿</p>
-                    </div>
+                    </div> -->
             
                     <!-- 試穿角色暱稱顯示區塊 -->
                     <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
@@ -163,7 +163,7 @@ session_start();
             </div> 
             <div id="btn_openGame">
                 <img src="images/wallet2.png" alt="">
-                <span>領金幣</span>
+                <span></span>
             </div>
             <!-- 搖獎遊戲 -->
             <div class="gameMask"></div>
@@ -283,12 +283,12 @@ session_start();
         }
 
 
-        $id("choose-me").addEventListener("click",function(){
-            $id("model_animal").src = "shop-images/model_1.png";
-            $id("model_hat").src = "shop-images/hat_1.png";
-            // $id("model_clothes").src = "";
+        // $id("choose-me").addEventListener("click",function(){
+        //     $id("model_animal").src = "shop-images/model_1.png";
+        //     $id("model_hat").src = "shop-images/hat_1.png";
+        //     // $id("model_clothes").src = "";
 
-        });
+        // });
         
         $id("btn_openGame").addEventListener("click",function(){
         var gameBox = document.getElementsByClassName("game")[0];

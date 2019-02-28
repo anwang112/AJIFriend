@@ -1,4 +1,18 @@
 
+/* #btn_openGame:before{
+    content: '領金幣';
+    color: #fff;
+    display: block;
+    width: 100px;
+    position: absolute;
+    left: 147%;
+    bottom: 108%;
+} */
+
+#chooseId #rwd_showCart a p {
+    color: #f05c79;
+}
+
 #chooseId #friend_LightBox #content_friendBox input[type="text"] {
     width: 95%;
     margin-bottom: 8px;
@@ -12,6 +26,10 @@
 
 
 @media only screen and (max-width: 768px){
+    #chooseId #chooseArea {
+        justify-content: space-around;
+    }
+
     .game {
         width: 95%;
         top: 290px;
@@ -48,6 +66,10 @@
 
 
 @media only screen and (max-width: 476px){
+    #chooseId #rwd_showCart a {
+        background-color: #ccc;
+    }
+
     #chooseId #rwd_showCart {
         width: 106px;
         padding: 0px 0px;
@@ -88,7 +110,7 @@
     }
     .game {
         width: 95%;
-        top: 130px;
+        top: 9%;
     }
     #chooseId #friend_LightBox {
         width: 80%;
@@ -98,7 +120,7 @@
 @media only screen and (max-width: 400px){
 
     #chooseId {
-        margin: 65px auto;
+        margin: 25px auto;
     }
 
     #chooseId #rwd_showCart {
@@ -122,6 +144,6 @@
     }
     #chooseId #rwd_showCoin {
         padding: 6px 4px;
-        top: 85px;
+        top: 384px;
     }
 }
