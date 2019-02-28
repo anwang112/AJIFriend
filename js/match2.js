@@ -703,17 +703,32 @@ heart =  storage.getItem("loveGiven");
 heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
     switch (parseInt(heart)) {
+        case 4:
+            hartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+            break;
+        case 3:
+           
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+            break;
         case 2:
+       
             heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 1:
-            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 0:
             heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
 
     }

@@ -20,6 +20,8 @@ session_start();
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    
 
     <title>熊麻吉</title>
 </head>

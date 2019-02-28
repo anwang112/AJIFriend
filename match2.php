@@ -172,6 +172,8 @@ try {
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
                 </div>
                 <img src="images/matchBoard.svg" class="board">
                 <div class="matchHorse">

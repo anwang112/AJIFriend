@@ -46,14 +46,14 @@ function ga(){
 ga();
 function hacky(){
     profile={
-        memNo: 6,
+        memNo: 13,
     }
     getTeam5(profile);
 };
 hacky();
 function ron(){
     profile={
-        memNo: 7,
+        memNo: 13,
     }
     getTeam6(profile);
 };
@@ -288,6 +288,41 @@ function getTeam6(profile) {
         $('.mWrap').not(this).children(".memInfo").hide();
     })
     $('#showInfo1').click(function(){
+        profile = {
+            memId: 'KOKO',
+            loginMemNo:storage.getItem("memNo"),
+        };
+        searchMem(profile);
+    })
+    $('#showInfo2').click(function(){
+        profile = {
+            memId: 'KOKO',
+            loginMemNo:storage.getItem("memNo"),
+        };
+        searchMem(profile);
+    })
+    $('#showInfo3').click(function(){
+        profile = {
+            memId: 'an',
+            loginMemNo:storage.getItem("memNo"),
+        };
+        searchMem(profile);
+    })
+    $('#showInfo4').click(function(){
+        profile = {
+            memId: 'ga',
+            loginMemNo:storage.getItem("memNo"),
+        };
+        searchMem(profile);
+    })
+    $('#showInfo5').click(function(){
+        profile = {
+            memId: 'hacky',
+            loginMemNo:storage.getItem("memNo"),
+        };
+        searchMem(profile);
+    })
+    $('#showInfo6').click(function(){
         profile = {
             memId: 'KOKO',
             loginMemNo:storage.getItem("memNo"),
