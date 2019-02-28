@@ -1,0 +1,61 @@
+
+
+@media only screen and (max-width: 768px){
+    .act_section01 .act_mainbox {
+        transform: rotate(-1.5deg);
+    }
+    .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox {
+        width: 34%;
+        padding-bottom: 20%;
+    }
+    .lightbox_holdact .lightbox_holdact_info form .label2 {
+        width: 40%;
+        text-align: left;
+        vertical-align: top;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        bottom: 216px;
+        left: 215px;
+    }
+    .act_memberHold .act_memberHold_box {
+        width: 48%;
+        height: 342px;
+    }
+    .act_memberHold .act_memberHold_box .act_memberHold_join button {
+        width: 75px;
+        height: 30px;
+        position: relative;
+        right: -5%;
+        bottom: -24%;
+    }
+    .act_memberHold .act_memberHold_box h3 {
+        font-size: 1rem;
+        border-bottom: 2px solid #fff;
+        width: 50%;
+    }
+    .lightbox_actsCheckout_outside .lightbox_actsCheckout {
+        width: 95%;
+        height: 60%;
+        padding: 10px 20px;
+    }
+}
+
+
+@media only screen and (max-width: 476px){
+    .lightbox_holdact .lightbox_holdact_info .act_holdActFileBox {
+        width: 100%;
+        padding-bottom: 60%;
+    }
+    .lightbox_holdact .lightbox_holdact_info form .label2 {
+        width: 40%;
+        text-align: left;
+        vertical-align: top;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+    }
+
+}

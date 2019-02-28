@@ -17,6 +17,7 @@ session_start();
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/shop-style.css">
+    <link rel="stylesheet" href="css/BearMJ_cartShow_final.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
     
@@ -31,6 +32,12 @@ session_start();
             <img src="shop-images/cart_pink.png">
             <h2>麻吉購物車</h2>
         </div>
+                        <!-- 餘額顯示 -->
+        <div id="rwd_showCoin" class="showCoin_postion">
+            <img src="shop-images/coin.png">
+            <span><?php if(isset($_SESSION["memId"])){echo $_SESSION["mCoin"];}?></span>
+        </div>
+
         <div id="cart-content">
             
                 <ul id="tableTitle">

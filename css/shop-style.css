@@ -535,7 +535,8 @@ img {
       #productBlock #productsArea #productsShow section {
         display: flex;
         flex-direction: row;
-        box-shadow: inset 3px 0 10px #ccc, inset -3px 0 10px #ccc; }
+        box-shadow: inset 3px 0 10px #ccc,
+ inset -3px 0 10px #ccc; }
         @media all and (max-width: 768px) {
           #productBlock #productsArea #productsShow section {
             overflow-X: auto; } }
@@ -741,12 +742,21 @@ img {
   position: absolute;
   right: 35%;
   bottom: 40%;
+  cursor: pointer; 
   animation: updownWallet 1.5s infinite; }
   #btn_openGame img {
     width: 100%; }
-  #btn_openGame:hover {
-    cursor: pointer;
-    animation: none; }
+  #btn_openGame:hover span{
+   
+    opacity: 1;}
+    #btn_openGame span{
+      transition: .5s;
+      position: relative;
+      top:-50px;
+      left: 30px;
+      color: #F5F5F5;
+      opacity: 0;
+    }
 
 @keyframes updownWallet {
   0% {

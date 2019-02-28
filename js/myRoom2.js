@@ -202,9 +202,11 @@ function init() {
 		wardrobeLightBox.style.display = "none";
 	}
 	function showKeepsaveSuccessLightBox() {
-		var btnSaveChageCloth = document.getElementById("btnSaveChageCloth");
-		var keepSaveClothes = document.getElementById("keepSaveClothes");
-		keepSaveClothes.style.display = "";
+		// var btnSaveChageCloth = document.getElementById("btnSaveChageCloth");
+		// var keepSaveClothes = document.getElementById("keepSaveClothes");
+		// keepSaveClothes.style.display = "";
+		$('#alertText').text('保存成功!');
+		$('.alertWrap').show();
 	}
 	function keepSaveClothesClose() {
 		keepSaveClothes.style.display = "none";
@@ -225,6 +227,7 @@ function init() {
 	var btnSaveChageCloth = document.getElementById("btnSaveChageCloth");
 	btnSaveChageCloth.onclick = showKeepsaveSuccessLightBox;
 
+
 	var btnkeepSaveClose = document.getElementById("btnkeepSaveClose");
 	btnkeepSaveClose.onclick = keepSaveClothesClose;
 
@@ -242,6 +245,7 @@ function init() {
 			document.getElementById("putonCloth").src = src;
 		})
 	}
+	$('.alertWrap').hide();
 
 }
 window.onload = init;
