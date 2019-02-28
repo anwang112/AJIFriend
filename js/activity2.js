@@ -4,7 +4,7 @@ function $id(id) {
 function boxScroll(o) {
     o.scrollTop = o.scrollHeight;
 }
-function CloseLightActBox(){
+function CloseLightActBox() {
     var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
     var lightbox_actsCheckout = $id('lightbox_actsCheckout');
     lightbox_actsCheckout_outside.style.cssText = "display:none;z-index:-1;";
@@ -20,19 +20,19 @@ function CloseLightActBox(){
     }
 }
 
-function reBtn(){
-    var checkout_act=document.getElementsByClassName('checkout_act') ;
-    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
-    for(var i=0;i<checkout_act.length;i++){
-        checkout_act[i].addEventListener('click',function(){
-            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
-            lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
-            lightbox_actsCheckout.addEventListener('click',function(e){
+function reBtn() {
+    var checkout_act = document.getElementsByClassName('checkout_act');
+    var btn_ActJoinToDB = document.getElementById('btn_ActJoinToDB');
+    for (var i = 0; i < checkout_act.length; i++) {
+        checkout_act[i].addEventListener('click', function () {
+            lightbox_actsCheckout_outside.style.cssText = "display:flex;z-index:10;";
+            lightbox_actsCheckout.style.cssText = "display:block;z-index:10;";
+            lightbox_actsCheckout.addEventListener('click', function (e) {
                 e.stopPropagation();
-            },false);
-            lightbox_actsCheckout_outside.addEventListener('click',function(){
-                lightbox_actsCheckout_outside.style.cssText="display:none;z-index:-1;bottom: 0%;";
-                lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+            }, false);
+            lightbox_actsCheckout_outside.addEventListener('click', function () {
+                lightbox_actsCheckout_outside.style.cssText = "display:none;z-index:-1;bottom: 0%;";
+                lightbox_actsCheckout.style.cssText = "display:none;z-index:-1;bottom: 0%;";
                 var myMessagebox = $id('myMessagebox');
                 if (myMessagebox.hasChildNodes) {
                     divs = document.getElementsByClassName('dddd');
@@ -85,7 +85,7 @@ function comDB(memNo, actNoGet, txtGet) {
             var strAll = [];
 
             if (comments.arr == undefined) {//沒有內容 印尚未有留言
-                str += "尚未有留言喔～～"
+                str += "尚未有留言喔～～";
             } else {
                 for (var i = 0; i < comments.arr.length; i++) {
                     //印出來名字跟聊天內容
@@ -336,11 +336,11 @@ function officalAllAct(actNo, member, key) {
             var box_actNo = $id('box_actNo');
             var imgBoxImg_B = $id('imgBoxImg_B');
             var imgBoxImg = $id('imgBoxImg');
-            box_Loc.innerHTML=fromAllAct_obj.loc;
-            box_Intro.innerHTML=fromAllAct_obj.actIntro;
-            box_actNo.value=fromAllAct_obj.no;
+            box_Loc.innerHTML = fromAllAct_obj.loc;
+            box_Intro.innerHTML = fromAllAct_obj.actIntro;
+            box_actNo.value = fromAllAct_obj.no;
             // imgBoxImg_B.src='images/' +  fromAllAct_obj.img;
-            imgBoxImg.src='images/' +  fromAllAct_obj.img;
+            imgBoxImg.src = 'images/' + fromAllAct_obj.img;
 
 
         }
@@ -434,12 +434,12 @@ function CloseLightActBox() {
 
 function reBtn() {
     // 我的活動--打開查看
-    var checkout_act=document.getElementsByClassName('checkout_act') ;
-    var btn_ActJoinToDB=document.getElementById('btn_ActJoinToDB');
-    for(var i=0;i<checkout_act.length;i++){
-        checkout_act[i].addEventListener('click',function(){
-            lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
-            lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
+    var checkout_act = document.getElementsByClassName('checkout_act');
+    var btn_ActJoinToDB = document.getElementById('btn_ActJoinToDB');
+    for (var i = 0; i < checkout_act.length; i++) {
+        checkout_act[i].addEventListener('click', function () {
+            lightbox_actsCheckout_outside.style.cssText = "display:flex;z-index:10;";
+            lightbox_actsCheckout.style.cssText = "display:block;z-index:10;";
             btn_ActJoinToDB.style.cssText = "background-color:#ccc";
             lightbox_actsCheckout.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -517,12 +517,27 @@ function comDB(memNo, actNoGet) {
                     $id("myMessagebox").innerHTML = str;
                     //印出大頭
 
-                    ooxxGetHead($id(`commentHead${i}`), {
-                        animal: animal[i],
-                        color: color[i],
-                        eyes: eye[i],
-                    });
+                    // ooxxGetHead($id(`commentHead${i}`), {
+                    //     animal: animal[i],
+                    //     color: color[i],
+                    //     eyes: eye[i],
+                    // });
                 }
+
+                //更正大頭顏色
+                // 用時間載入頭像  by庸
+                getMessageboxGo = () => {
+                    if (i_start == name.length - 1) {
+                        clearInterval(getMessageboxId);
+                    }
+                    ooxxGetHead($id(`commentHead${i_start}`), {
+                        animal: animal[i_start],
+                        color: color[i_start],
+                        eyes: eye[i_start],
+                    });
+                    i_start++;
+                }
+                getMessageboxId = setInterval(getMessageboxGo, 100);
             }
 
             $id("myMessagebox_input").value = '';
@@ -800,37 +815,37 @@ function allAct_more(no) {
     var checkout_act = document.getElementsByClassName('checkout_act');
     var btn_ActJoinToDB = document.getElementById('btn_ActJoinToDB');
     // //來源 
-        var actTitleValue = $id(`act_actTitleV${no}`).value;  
-        var actNoValue = no;  
-        // var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
-        var actLocValue = $id(`act_actLocV${no}`).value; 
-        var act_beginValue = $id(`act_act_beginV${no}`).value; 
-        var act_endValue = $id(`act_act_endV${no}`).value;  
-        var actIntroValue = $id(`act_actIntroV${no}`).value; 
-        var actImgValue = $id(`act_actImgV${no}`).value; 
-        var actHostIdValue = $id(`act_host_memIdV${no}`).value; 
+    var actTitleValue = $id(`act_actTitleV${no}`).value;
+    var actNoValue = no;
+    // var host_memNoValue = $id(`act_host_memNoV${no}`).value; 
+    var actLocValue = $id(`act_actLocV${no}`).value;
+    var act_beginValue = $id(`act_act_beginV${no}`).value;
+    var act_endValue = $id(`act_act_endV${no}`).value;
+    var actIntroValue = $id(`act_actIntroV${no}`).value;
+    var actImgValue = $id(`act_actImgV${no}`).value;
+    var actHostIdValue = $id(`act_host_memIdV${no}`).value;
 
-  
-        // //放置目標
-        var acts_lightbox_top_right = $id('acts_lightbox_top_right');
-        var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
-        var elements = document.querySelectorAll("#acts_lightbox_top_right span")
-        element_actTitle[0].innerHTML=actTitleValue;
-        elements[1].innerHTML=actHostIdValue;
-        elements[3].innerHTML=actLocValue;
-        elements[5].innerHTML=act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-        elements[7].innerHTML=actIntroValue;
-        $id("lightBox_actNo").value = no;
-        myMessagebox_inputNone.setAttribute('value',actNoValue);
-        var acts_lightbox_topImg = $id('acts_lightbox_topImg');
-        acts_lightbox_topImg.style.backgroundImage = `url("images/${actImgValue}")`;
-        // alert(acts_lightbox_topImg);
-        // alert(actImgValue);
 
-        var memNo = storage.getItem("memNo");
-        comDB(memNo,no);
-        $id("indexActCloseBtn").onclick=CloseLightActBox;
-        // $id("loginBox").style.cssText = 'display: block;z-index:14;';
+    // //放置目標
+    var acts_lightbox_top_right = $id('acts_lightbox_top_right');
+    var element_actTitle = document.querySelectorAll("#acts_lightbox_top_right h3")
+    var elements = document.querySelectorAll("#acts_lightbox_top_right span")
+    element_actTitle[0].innerHTML = actTitleValue;
+    elements[1].innerHTML = actHostIdValue;
+    elements[3].innerHTML = actLocValue;
+    elements[5].innerHTML = act_beginValue.substring(0, 10); +'至' + act_endValue.substring(0, 10);
+    elements[7].innerHTML = actIntroValue;
+    $id("lightBox_actNo").value = no;
+    myMessagebox_inputNone.setAttribute('value', actNoValue);
+    var acts_lightbox_topImg = $id('acts_lightbox_topImg');
+    acts_lightbox_topImg.style.backgroundImage = `url("images/${actImgValue}")`;
+    // alert(acts_lightbox_topImg);
+    // alert(actImgValue);
+
+    var memNo = storage.getItem("memNo");
+    comDB(memNo, no);
+    $id("indexActCloseBtn").onclick = CloseLightActBox;
+    // $id("loginBox").style.cssText = 'display: block;z-index:14;';
 }
 
 // 我的活動
@@ -928,10 +943,10 @@ function checkMyAct() {
     // tab_allAct.style.cssText='color:rgba(255, 255, 255,.5);';
 }
 
-function myAct_more(no){
-    lightbox_actsCheckout_outside.style.cssText="display:flex;z-index:10;";
-    lightbox_actsCheckout.style.cssText="display:block;z-index:10;";
-    lightbox_actsCheckout.addEventListener('click',function(e){
+function myAct_more(no) {
+    lightbox_actsCheckout_outside.style.cssText = "display:flex;z-index:10;";
+    lightbox_actsCheckout.style.cssText = "display:block;z-index:10;";
+    lightbox_actsCheckout.addEventListener('click', function (e) {
         e.stopPropagation();
     }, false);
     lightbox_actsCheckout_outside.addEventListener('click', function () {
@@ -940,7 +955,7 @@ function myAct_more(no){
         while ($id("myMessagebox").firstChild) {
             $id("myMessagebox").removeChild($id("myMessagebox").firstChild);
         }
-        lightbox_actsCheckout.style.cssText="display:none;z-index:-1;bottom: 0%;";
+        lightbox_actsCheckout.style.cssText = "display:none;z-index:-1;bottom: 0%;";
         var myMessagebox = $id('myMessagebox');
         if (myMessagebox.hasChildNodes) {
             divs = document.getElementsByClassName('dddd');
@@ -973,12 +988,12 @@ function myAct_more(no){
     var elements = document.querySelectorAll("#acts_lightbox_top_right span");
     console.log(elements);
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
-    element_actTitle[0].innerHTML=actTitleValue;
-    elements[1].innerHTML=actHostIdValue;
-    elements[3].innerHTML=actLocValue;
-    elements[5].innerHTML=act_beginValue.substring(0, 10);+'至'+act_endValue.substring(0, 10);
-    elements[7].innerHTML=actIntroValue;
-    myMessagebox_inputNone.setAttribute('value',actNoValue);
+    element_actTitle[0].innerHTML = actTitleValue;
+    elements[1].innerHTML = actHostIdValue;
+    elements[3].innerHTML = actLocValue;
+    elements[5].innerHTML = act_beginValue.substring(0, 10); +'至' + act_endValue.substring(0, 10);
+    elements[7].innerHTML = actIntroValue;
+    myMessagebox_inputNone.setAttribute('value', actNoValue);
     $id('lightBox_actNo').value = actNoValue;
 
     // acts_lightbox_top_img.src = actImgValue;
@@ -1053,41 +1068,42 @@ window.addEventListener('load', function () {
         }
     }, false);
 
-// 寫入留言
+    // 寫入留言
     var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
     myMessagebox_input.addEventListener('keydown',function(e){
         if(e.keyCode == 13 ){//enter代碼
+            var txt = '';
+            txt = myMessagebox_input.value;
             if(storage.getItem("memNo")){
-                var txt = '';
-                txt = myMessagebox_input.value;
-                actNo = myMessagebox_inputNone.value;
-                var memNo = storage.getItem("memNo");
-                sendCom(memNo,actNo,txt);
-
+                if(txt!=''){
+                    actNo = myMessagebox_inputNone.value;
+                    var memNo = storage.getItem("memNo");
+                    sendCom(memNo,actNo,txt);
+                }
             }else{
                 $('#alertText').text('請先登入!');
                 $('.alertWrap').show();
             }
         }
-    },false);
+    }, false);
     var btn_myMessagebox = document.getElementsByClassName("btn_myMessagebox")[0];
-    btn_myMessagebox.addEventListener('click',function(e){
-        if(myMessagebox_input.value != '' ){//enter代碼
-            if(storage.getItem("memNo")){
+    btn_myMessagebox.addEventListener('click', function (e) {
+        if (myMessagebox_input.value != '') {//enter代碼
+            if (storage.getItem("memNo")) {
                 var txt = '';
                 txt = myMessagebox_input.value;
                 actNo = myMessagebox_inputNone.value;
                 var memNo = storage.getItem("memNo");
-                sendCom(memNo,actNo,txt);
+                sendCom(memNo, actNo, txt);
 
-            }else{
+            } else {
                 $('#alertText').text('請先登入!');
                 $('.alertWrap').show();
             }
         }
-    },false);
+    }, false);
 
 
 
@@ -1171,11 +1187,11 @@ window.addEventListener('load', function () {
 
     imgBoxImg.addEventListener('click', function (e) {
 
-        lightbox_act.style.cssText="display:flex;z-index:10;";
-        lightbox_act_info.style.cssText="display:flex;z-index:10;";
+        lightbox_act.style.cssText = "display:flex;z-index:10;";
+        lightbox_act_info.style.cssText = "display:flex;z-index:10;";
         var imgBoxImg_B = $id('imgBoxImg_B');
         var imgBoxImg = $id('imgBoxImg');
-        imgBoxImg_B.src=imgBoxImg.src;
+        imgBoxImg_B.src = imgBoxImg.src;
 
         lightbox_act_info.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -1198,27 +1214,27 @@ window.addEventListener('load', function () {
     btn_holdAct.addEventListener('click', function (e) {
 
 
-        if(storage.getItem("memNo")){
-            window.scrollTo(0,(act_memberHold.offsetTop+400));
+        if (storage.getItem("memNo")) {
+            window.scrollTo(0, (act_memberHold.offsetTop + 400));
             console.log(act_memberHold.offsetTop);
 
-            lightbox_holdact.style.cssText="display:flex;z-index:10;";
-            lightbox_holdact_info.style.cssText="display:block;z-index:10;";
-            lightbox_holdact_info.addEventListener('click',function(e){
+            lightbox_holdact.style.cssText = "display:flex;z-index:10;";
+            lightbox_holdact_info.style.cssText = "display:block;z-index:10;";
+            lightbox_holdact_info.addEventListener('click', function (e) {
                 e.stopPropagation();
-            },false);
-            lightbox_holdact.addEventListener('click',function(){
-                lightbox_holdact.style.cssText="display:none;z-index:-1;";
-                lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
-            },false);
+            }, false);
+            lightbox_holdact.addEventListener('click', function () {
+                lightbox_holdact.style.cssText = "display:none;z-index:-1;";
+                lightbox_holdact_info.style.cssText = "display:none;z-index:-1;";
+            }, false);
 
-        }else{
+        } else {
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
         }
 
-    },false);
-    
+    }, false);
+
     //actbox03
     var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
     var lightbox_actsCheckout = $id('lightbox_actsCheckout');

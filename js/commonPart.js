@@ -98,7 +98,7 @@ function head_html() {
 				<li><a href="photo.php">照片牆</a></li>
 				<li><a href="team.php">麻吉團隊</a></li>
 				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
-                <li><a href="#">登入</a></li>
+                <li><a href="#" id="phoneLogBtn">登入</a></li>
                 
             </ul>
 		</div>
@@ -112,7 +112,7 @@ function head_html() {
 			<input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
-			<input type="submit" value="註冊" class="input_R" id="rigister_send">
+			<input type="button" value="註冊" class="input_R" id="rigister_send">
 			</div>
 			<span id="forget_btn">忘記密碼?</span>
         </form>
@@ -336,6 +336,12 @@ function head_html() {
 			eyes: storage.getItem("eye"),
 		});
 	}
+	$('.btn_beFriend0').click(function(){
+		tarNo = document.getElementById('sMemNo').value;
+		loginNo = storage.getItem("memNo");
+		btn = $(this);
+		beFriend(tarNo,loginNo,btn);
+	});
 
 }
 
@@ -357,17 +363,10 @@ function foot_html() {
             <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
             <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
-	        
-	        <a id="btn_memData"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
+
 	    </div> 
 	    <div class="chatboxRight">
 	        <div class="chatbox_show">
-	        </div>
-	        <div class="chatbox_faces">
-	            <img src="pic/chatroom_face_01.svg" alt="喜">
-	            <img src="pic/chatroom_face_02.svg" alt="怒">
-	            <img src="pic/chatroom_face_03.svg" alt="哀">
-	            <img src="pic/chatroom_face_04.svg" alt="樂">
 	        </div>
 	        <div class="chatbox_input">
 	            <input id="chatTxt_input" type="text">
@@ -439,7 +438,13 @@ function foot_html() {
 
 	if (storage.getItem("memNo")) {
 		friendList(storage.getItem("memNo"));
-		requireBack(storage.getItem("memNo"));
+		requireBack(storage.getItem("memNo"));		
+		data={
+			loginNo:storage.getItem("memNo"),
+		};
+		noticeFunc = setInterval(noticeFriend,3000);
+		noticeFriend();
+
 	}
 }
 
@@ -556,18 +561,20 @@ function report(profile) {
 }
 
 // 不知道誰寫的
-function loginPhoto() {
-	var photo = `
-	<script>
-	loginphoto = document.getElementById('loginphoto');
-	ooxxGetHead(loginphoto, {
-		animal:  <?php  echo  $stadRow["animal"];?>,
-		color: '<?php  echo $stadRow["mColor"];?>',
-		eyes: <?php  echo  $stadRow["eye"];?>,
-	})
-	</script>`;
-	document.write(photo);
-}
+// function loginPhoto() {
+// 	var photo = `
+// 	<script>
+// 	loginphoto = document.getElementById('loginphoto');
+// 	ooxxGetHead(loginphoto, {
+// 		animal:  <?php  echo  $stadRow["animal"];?>,
+// 		color: '<?php  echo $stadRow["mColor"];?>',
+// 		eyes: <?php  echo  $stadRow["eye"];?>,
+// 	})
+// 	</script>`;
+// 	document.write(photo);
+// }   擋路 我註解調ㄌ 庸
+
+
 
 //  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
 function searchMem(profile) {
@@ -770,6 +777,7 @@ function sendForm(memId, memPsw) {
 			for (var key in user.arr) {
 				storage.setItem(key, user.arr[key]);
 			}
+			//桌機板顯示
 			$id("loginNot").innerText = '登出';
 			ooxxGetHead($id("loginHead"), {
 				animal: storage.getItem("animal"),
@@ -795,7 +803,6 @@ function sendForm(memId, memPsw) {
 						break;
 				}
 			}
-
 		}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
@@ -860,11 +867,11 @@ function friendList(myNo = -1) {
 						// });
 					}
 
-					//用時間載入頭像
+					// 用時間載入頭像
 					dd = 0;
-					hhhhh = () => {
-						if (dd == friendInfo.length) {
-							clearInterval(ssssss);
+					getHeadGo = () => {
+						if (dd == friendInfo.length - 1) {
+							clearInterval(getHeadId);
 						}
 
 						ooxxGetHead($id(`chatListHead${friend_infoArr[dd][0]}`), {
@@ -874,7 +881,7 @@ function friendList(myNo = -1) {
 						});
 						dd++;
 					}
-					ssssss = setInterval(hhhhh, 100);
+					getHeadId = setInterval(getHeadGo, 100);
 
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
@@ -900,12 +907,29 @@ function friendList(myNo = -1) {
 					</label> `;
 						$id("rwd_chatList").innerHTML = rwd_chatList;
 
-						ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[i][0]}`), {
-							animal: friend_infoArr[i][2],
-							color: friend_infoArr[i][4],
-							eyes: friend_infoArr[i][3],
-						});
+						// ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[i][0]}`), {
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
+						// });
+
 					}
+
+					// 用時間載入頭像
+					pp = 0;
+					getHeadPhoneGo = () => {
+						if (pp == friendInfo.length - 1) {
+							clearInterval(getHeadPhoneId);
+						}
+
+						ooxxGetHead($id(`rwd_chatListHead${friend_infoArr[pp][0]}`), {
+							animal: friend_infoArr[pp][2],
+							color: friend_infoArr[pp][4],
+							eyes: friend_infoArr[pp][3],
+						});
+						pp++;
+					}
+					getHeadPhoneId = setInterval(getHeadPhoneGo, 100);
 
 				}
 				// 執行動作撰寫
@@ -1337,14 +1361,19 @@ window.addEventListener('load', function () {
 	//手機版聊天室收合操控 start--by ga
 	var control_openChat = false;
 	btn_chatroom_phone.addEventListener('click', function () {
-		if (control_openChat == false) {
+		if (control_openChat == false) { //手機版聊天室打開
+			//先把漢堡menu收起來
+			menu_phone.style.cssText = "transform: translateX(-100%)";
+			control_openMenu = false;
+
 			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
+			control_openChat = true;
 			friendList(storage.getItem("memNo"));
 			requireBack(storage.getItem("memNo"));
 
 			boxScroll($id("rwd_chatbox"));
-			control_openChat = true;
-		} else {
+			
+		} else { //手機版聊天室收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
 		}
@@ -1354,9 +1383,13 @@ window.addEventListener('load', function () {
 
 
 	//手機版menu收合操控 start--by ga
-	var control_openMenu = false;
+	control_openMenu = false;
 	btn_menu_menu.addEventListener('click', function () {
-		if (control_openMenu == false) {
+		if (control_openMenu == false) {			
+			//先把訊息收起來
+			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
+			control_openChat = false;
+
 			menu_phone.style.cssText = "transform: translateX(0%)";
 			control_openMenu = true;
 		} else {
@@ -1364,6 +1397,12 @@ window.addEventListener('load', function () {
 			control_openMenu = false;
 		}
 	});
+
+
+
+
+
+
 	//手機版menu操控 end--by ga
 
 	//聊天室貼圖操作
@@ -1563,7 +1602,9 @@ window.addEventListener('load', function () {
 	// 桌機送出訊息(按送出) --ga
 	chatTxt_send.addEventListener('click', function () {
 		var txt = chatTxt_input.value;
-		sendMsg(txt);
+		if (chatTxt_input.value != "") {
+			sendMsg(txt);
+		}
 
 	}, false);
 
@@ -1573,8 +1614,20 @@ window.addEventListener('load', function () {
 		sendMsg(txt);
 	}, false);
 
+	// 聊天室頭貼點擊查看個人檔案
+	$id("rwd_chatTaName").addEventListener("click", function () {
+		if (storage.getItem("chatTaId")) {
+			openLB_memData(storage.getItem("chatTaId"));
+		}
+	}, false);	
 
-	$id("btn_memData").addEventListener("click", function () {
+	$id("rwd_chatTaHead").addEventListener("click", function () {
+		if (storage.getItem("chatTaId")) {
+			openLB_memData(storage.getItem("chatTaId"));
+		}
+	}, false);	
+	var chatRoom_info = document.getElementsByClassName("chatRoom_info")[0];
+	chatRoom_info.addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
@@ -1630,6 +1683,7 @@ window.addEventListener('load', function () {
 					$('.alertWrap').show();
 					$id("loginNot").innerText = '登入';
 					window.location.reload();
+					clearInterval(noticeFunc);
 				}
 			};
 			xhr.open("Post", "ajaxLogout.php", true);
@@ -1901,37 +1955,6 @@ ooxxGetHead = (headId, headData) => {
 	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
 
-// 角色外觀載入函式end -- 介庸
-
-//好友通知
-window.onload = function () {
-	data={
-		loginNo:storage.getItem("memNo"),
-	};
-	noticeFriend(data);
-}
-
-function noticeFriend(data){
-    if(storage.getItem("memNo")){
-		var xhr = new XMLHttpRequest();
-		
-    xhr.onload = function () {
-		console.log( parseInt( xhr.responseText));
-            if(parseInt( xhr.responseText )== 0){
-                document.getElementById('mail').style.cssText = "display:none"
-            }else{
-                document.getElementById('mail').style.cssText = "display:block"
-                document.getElementById('noticeNum').innerText = xhr.responseText;
-            }
-            
-        }
-    }
-    
-    xhr.open("Post", "notice.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("data=" + JSON.stringify(data));
-
-};
 
 
 
@@ -2043,3 +2066,66 @@ window.addEventListener('load', () => {
 })
 
 
+
+//好友通知
+function noticeFriend(){
+    if(storage.getItem("memNo")){
+		var xhr = new XMLHttpRequest();
+		
+    xhr.onload = function () {
+		console.log("好友通知reload");
+		console.log( parseInt( xhr.responseText));
+            if(parseInt( xhr.responseText )== 0){
+                document.getElementById('mail').style.cssText = "display:none";
+            }else{
+                document.getElementById('mail').style.cssText = "display:block";
+                document.getElementById('noticeNum').innerText = xhr.responseText;
+            }
+            
+        }
+    }
+    
+    xhr.open("Post", "notice.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" +storage.getItem("memNo"));
+
+};
+
+//手機板登入顯示判斷 --by庸 02/28
+window.addEventListener('load', () => {
+	if (storage.getItem("memId")) {
+		$id('phoneLogBtn').innerText = "登出";
+	}
+	//------------------------------------------------
+	//手機板登出
+	$id('phoneLogBtn').addEventListener('click', () => {
+		if ($id('phoneLogBtn').innerText == "登出") {
+			storage.clear();
+			$id('phoneLogBtn').innerText = "登入";
+			window.location.reload();
+		} else {
+			// $id('menu_phone').style.transform = 'translateX(-100%)';
+			$id('loginBox').style.display = 'block';
+			$id('lightBoxInner').style.display = 'block';
+			$id('lightBoxInner').style.opacity = '1';
+		}
+		if (control_openMenu == false) {
+			$id('menu_phone').style.cssText = "transform: translateX(0%)";
+			control_openMenu = true;
+		} else {
+			$id('menu_phone').style.cssText = "transform: translateX(-100%)";
+			control_openMenu = false;
+		}
+	})
+
+
+	//註冊按鈕點擊跳到首頁並且要燈箱要打開唷
+	//原本都是關掉唷
+	checkoutPage = () => {
+
+		storage.setItem('register', 'true');
+		document.location = "home.php";
+
+	}
+	$id('rigister_send').addEventListener('click', checkoutPage)
+})

@@ -29,9 +29,10 @@
     color: brown;
 }
 .commentText{
-    font-size: 17px;
-    color: #555;
-    padding-left: 18px;
+  font-size: 17px;
+  color: #555;
+  padding-left: 18px;
+  max-width: 60%;
 }
 
 
@@ -1463,4 +1464,7 @@
     .btn_cancel:hover {    
       transform: translateY(0px);
       box-shadow: 0px 0px 0px transparent;
+    }
+    .commentBox{
+      width: 90%;
     }

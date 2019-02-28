@@ -25,14 +25,14 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
 
             var str = "";
             var page_a = "";
-            pageTotal = Math.ceil(productsInfo.length / 5);
+            pageTotal = Math.ceil(productsInfo.length / 4);
             console.log(pageTotal + "頁");
             if (innerWidth < 768) {
                 start_i = 0;
                 end_i = productsInfo.length;
             } else {
-                start_i = pageNumber * 5 - 5;
-                end_i = (pageNumber == pageTotal) ? productsInfo.length : (pageNumber) * 5;
+                start_i = pageNumber * 4 - 4;
+                end_i = (pageNumber == pageTotal) ? productsInfo.length : (pageNumber) * 4;
 
             }
             console.log(end_i);
@@ -120,6 +120,18 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
             $id("prductsSection").innerHTML = str;
             $id("pages").innerHTML = page_a;
 
+
+            //加入購物車ㄉ提示窗
+            addToCartBtn = document.getElementsByClassName('btn_addToCart');
+            for (let i = 0; i < addToCartBtn.length; i++) {
+                addToCartBtn[i].addEventListener('click', () => {
+                    $('#alertText').text('成功加入購物車');
+                    $('.alertWrap').show();
+                })
+            }
+
+
+
         }
 
         if (cate == '1') {
@@ -137,14 +149,18 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
         }
     };
     var showId = document.getElementById("showId");
-    url = `getProducts.php?cate=${cate}&mem=${showId.value}`;
+    if(showId.value){
+        url = `getProducts.php?cate=${cate}&mem=${showId.value}`;
+    }else{
+        url = `getProducts.php?cate=${cate}&mem=0`;
+    }
     xhr.open("get", url, true);
     xhr.send(null);
 
 
 }
 //game
-btnG = document.getElementById('btnloto');
+var btnG = document.getElementById('btnloto');
 
 var timeId;
 var speed = 50;
@@ -159,13 +175,13 @@ function rand(min, max) {
 };
 
 function getCoin(data) {
-    btnG = document.getElementById('btnloto');
-   var xhr = new XMLHttpRequest();
-   xhr.onload = function () {
-       console.log(xhr.responseText);
-       if(xhr.responseText == 1){
-           btnG.innerText = '已領取$'+money;
-           storage.setItem("last_play",nowDay);
+    var btnG = document.getElementById('btnloto');
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        console.log(xhr.responseText);
+        if (xhr.responseText == 1) {
+            btnG.innerText = '已領取$' + money;
+            storage.setItem("last_play", nowDay);
 
         }
 

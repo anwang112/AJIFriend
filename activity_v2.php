@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/activity2.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <!-- <link rel="stylesheet" href="css/activity_final.css"> -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/package/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
@@ -37,11 +38,7 @@
         margin-bottom: 10px;
         color: brown;
     }
-    .commentText{
-        font-size: 17px;
-        color: #555;
-        padding-left: 18px;
-    }
+
 
     </style>
     <title>activity</title>

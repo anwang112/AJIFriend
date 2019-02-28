@@ -1129,10 +1129,10 @@ html {
         padding: 5px 0;
         display: flex;
         align-items: center; }
-        #createMemberScreen .createMemberBox .createLeftForm li:nth-of-type(5) {
-          height: 30%; }
         #createMemberScreen .createMemberBox .createLeftForm li:nth-of-type(6) {
-          height: 25%; }
+          height: 30%; }
+        #createMemberScreen .createMemberBox .createLeftForm li:nth-of-type(7) {
+          height: 5%; }
     #createMemberScreen .createMemberBox .createRightForm {
       flex: 2; }
       #createMemberScreen .createMemberBox .createRightForm li {
@@ -1141,25 +1141,26 @@ html {
         display: flex;
         align-items: center;
         flex-wrap: wrap; }
-        #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(4) select {
-          height: 80%;
+        #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(5) select {
+          height: 60%;
           width: 45%;
-          min-height: 30px;
+          min-height: 25px;
           border:1px solid #f8d7e6;
           border-radius: 10px; }
-        #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(5) {
+        #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) {
           height: 30%; }
-          #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(5) label {
+          #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) label {
             width: 50%; 
             cursor: pointer;}
         #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) {
-          height: 25%; }
-          #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) textarea {
-            height: 100%;
+          height: 30%; }
+          #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(7) textarea {
+            height: 110%;
             width: 100%; 
             border-radius: 10px;
             background-color: #f8d7e6;
-            padding: 5px;}
+            padding: 5px;
+          overflow: auto;}
         #createMemberScreen .createMemberBox .createRightForm li input {
           padding: 0 10px;
           border: 1px solid #f8d7e6;
