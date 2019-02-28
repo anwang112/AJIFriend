@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>麻吉團隊</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
@@ -13,7 +13,6 @@
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/team.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
   
 </head>
 
@@ -32,6 +31,7 @@
                 <div class="mWrap">
                     <div class="memInfo">
                         <p class="infoTitle"><span class="name">柯筑云 </span><span>(美術總監)</span></p>
+                        <span class="email">colleenko0216@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 
@@ -51,7 +51,7 @@
                             </div>
                             <div class="infoRight">
                                 <button class="btn" id="showInfo1">查看個人頁面</button>
-                                <a href="http://140.115.236.71/demo-personal/cd105/web/I1800049/" class="btn">個人網站作品</a>
+                                <a href="http://140.115.236.72/demo-personal/CD105/web/O1800318/FLEAPIT/" class="btn">個人網站作品</a>
                             </div>
                         </div>
                     </div>
@@ -60,6 +60,7 @@
                 <div class="mWrap">
                 <div class="memInfo">
                         <p class="infoTitle"><span class="name">連宗聖 </span><span>(邏輯大師)</span></p>
+                        <span class="email">anwang112@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 
@@ -81,7 +82,7 @@
                             </div>
                             <div class="infoRight">
                                 <button class="btn" id="showInfo1">查看個人頁面</button>
-                                <a href="http://140.115.236.71/demo-personal/cd105/web/I1800049/" class="btn">個人網站作品</a>
+                                <a href="http://140.115.236.72/demo-personal/CD105/web/I1800059/" class="btn">個人網站作品</a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
                                 </p>
                             </div>
                             <div class="infoRight">
-                                <button class="btn" id="showInfo1">查看個人頁面</button>
+                                <button class="btn" id="showInfo3">查看個人頁面</button>
                                 <a href="http://140.115.236.71/demo-personal/cd105/web/I1800049/" class="btn">個人網站作品</a>
                             </div>
                         </div>
@@ -120,6 +121,7 @@
                 <div class="mWrap">
                 <div class="memInfo">
                         <p class="infoTitle"><span class="name">張廷嘉 </span><span>(技術長)</span></p>
+                        <span class="email">rt250619@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 
@@ -139,8 +141,8 @@
                                 </p>
                             </div>
                             <div class="infoRight">
-                                <button class="btn" id="showInfo1">查看個人頁面</button>
-                                <a href="http://140.115.236.71/demo-personal/cd105/web/I1800049/" class="btn">個人網站作品</a>
+                                <button class="btn" id="showInfo4">查看個人頁面</button>
+                                <a href="http://140.115.236.71/demo-personal/CD105/web/I1800046/" class="btn">個人網站作品</a>
                             </div>
                         </div>
                     </div>
@@ -149,6 +151,7 @@
                 <div class="mWrap">
                 <div class="memInfo">
                         <p class="infoTitle"><span class="name">羅介庸 </span><span>(動畫高手)</span></p>
+                        <span class="email">anwang112@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 
@@ -169,7 +172,7 @@
                             </div>
                             <div class="infoRight">
                                 <button class="btn" id="showInfo1">查看個人頁面</button>
-                                <a href="http://140.115.236.71/demo-personal/cd105/web/I1800049/" class="btn">個人網站作品</a>
+                                <a href="http://140.115.236.71/demo-personal/CD105/web/I1800045/" class="btn">個人網站作品</a>
                             </div>
                         </div>
                     </div>
@@ -178,6 +181,7 @@
                 <div class="mWrap">
                 <div class="memInfo">
                         <p class="infoTitle"><span class="name">張容慈 </span><span>(照片牆製作人)</span></p>
+                        <span class="email">anwang112@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 

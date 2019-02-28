@@ -243,12 +243,7 @@ function beFriend (tarNo,loginNo,btn) {
     }
     
 }
-$('.btn_beFriend0').click(function(){
-    tarNo = document.getElementById('sMemNo').value;
-    loginNo = storage.getItem("memNo");
-    btn = $(this);
-    beFriend(tarNo,loginNo,btn);
-});
+
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
@@ -275,7 +270,7 @@ $('.fans .rankFriendBtn2').click(function () {
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
-$('.moneyS.rankFriendBtn0').click(function () {
+$('.moneyS .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -708,17 +703,32 @@ heart =  storage.getItem("loveGiven");
 heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
     switch (parseInt(heart)) {
+        case 4:
+            hartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+            break;
+        case 3:
+           
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+            break;
         case 2:
+       
             heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 1:
-            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 0:
             heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
             heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+            heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
 
     }

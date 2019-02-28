@@ -35,6 +35,7 @@ try {
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -168,6 +169,8 @@ try {
                 <h1>轉轉找麻吉</h1>
                 <div class="heart">
                     <span>今日可找麻吉數：</span>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>

@@ -896,6 +896,7 @@ input::placeholder{
     color: #e5e5e5;
     height: 35px;
     transform: translateY(-4px);
+    min-width: 110px;
 }
 
 .btn:hover {
@@ -1176,10 +1177,14 @@ input::placeholder{
         font-size: 20px;
     }
     #rwd_chatContent #rwd_chatbox {
-        height: 75vh;
+        background-image: url("../images/rwd_chatRoom.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 75%;
         padding: 20px 5px;
         border-radius: 5px;
-        border: 2px solid #aaa;
+        /* border: 2px solid #aaa; */
         overflow-y: auto;
     }
     #rwd_chatContent #rwd_sendMsgBox {
