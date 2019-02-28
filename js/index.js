@@ -85,47 +85,6 @@ ooxxEyesGo = (...eyesArray) => {
     setInterval(eyesGo, ooxxRandom(2000, 3500));
 }
 
-//換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${hat}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.8s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
-
-//換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${clothes}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.8s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
 
 
 
@@ -169,7 +128,7 @@ indexInit = () => {
             }
             cloudId = requestAnimationFrame(cloudGo);
         }
-        // cloudId = requestAnimationFrame(cloudGo);
+        cloudId = requestAnimationFrame(cloudGo);
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
@@ -342,7 +301,7 @@ indexInit = () => {
         ooxxGetRole($id('trojanItemRole04'), { animal: 1, color: '880022', eyes: 3, hat: 'hat4.png', clothes: 'clothes4.png', });
         ooxxGetRole($id('trojanItemRole05'), { animal: 3, color: '2277cc', eyes: 1, hat: 'hat5.png', clothes: 'clothes5.png', });
         ooxxGetRole($id('trojanItemRole06'), { animal: 2, color: '4acc99', eyes: 2, hat: 'hat6.png', clothes: 'clothes6.png', });
-        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 4, hat: 'hat8.png', clothes: 'clothes7.png', });
+        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 6, hat: 'hat8.png', clothes: 'clothes7.png', });
 
         const circle = document.getElementById("circle");
         const showCircle = document.getElementById('showCircle');
@@ -598,8 +557,8 @@ indexInit = () => {
                 shopLight[0].style.transform = `skewX(0) translateX(0)`;
                 modelLight.style.boxShadow = `0px -45px 120px 65px white`;
                 if (lightOpen == 188) {
-                    ooxxChangeHat($id('indexModel'), ooxxRandom(1, 2));
-                    ooxxChangeClothes($id('indexModel'), ooxxRandom(1, 3));
+                    ooxxChangeHat($id('indexModel'), `images/hatImages/hat${ooxxRandom(1, 15)}.png`);
+                    ooxxChangeClothes($id('indexModel'), `images/clothesImages/clothes${ooxxRandom(1, 24)}.png`);
                 }
                 if (lightOpen > 300) {
                     lightOpen = 0;
@@ -608,6 +567,103 @@ indexInit = () => {
             shopLightId = requestAnimationFrame(shopLightGo);
         }
         shopLightId = requestAnimationFrame(shopLightGo);
+
+        //mj值動畫開始
+        energy = $id('energy').getSVGDocument();
+        mj = [
+            energy.getElementsByClassName('cls-4')[0], //mj值
+            energy.getElementsByClassName('cls-5')[0], //mj值
+            energy.getElementsByClassName('cls-3')[0], //mj條
+        ];
+        mj[0].style.opacity = '0';
+        mj[1].style.opacity = '0';
+        mj[2].style.opacity = '0';
+
+        mj[0].style.transition = '1.5s';
+        mj[1].style.transition = '1.5s';
+        mj[2].style.transition = '1.7s';
+        mj[2].setAttribute("width", `0`);
+
+        ajiThree = $id('ajiThree').getSVGDocument();
+        ajiThreeMJ = [
+            ajiThree.getElementsByClassName('cls-18')[0],  //氣泡
+            ajiThree.getElementsByClassName('cls-18')[1],  //氣泡
+            ajiThree.getElementsByClassName('cls-18')[2],  //氣泡
+            ajiThree.getElementsByClassName('cls-19')[0],  //文字
+            ajiThree.getElementsByClassName('cls-19')[1],  //文字
+            ajiThree.getElementsByClassName('cls-19')[2],  //文字
+        ]
+        for (let i = 0; i < ajiThreeMJ.length; i++) {
+            ajiThreeMJ[i].style.opacity = '0';
+            ajiThreeMJ[i].style.transition = '1.5s';
+        }
+
+        mjanimatio = 0;
+        mjanimationGo = () => {
+            mjanimatio++;
+            if (mjanimatio == 50) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                mj[2].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 130) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+            }
+            if (mjanimatio == 170) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 240) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+            }
+            if (mjanimatio == 290) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 330) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+
+            }
+            if (mjanimatio == 450) {
+                mj[2].style.opacity = '0';
+                mjanimatio = 0;
+
+                mj[2].style.opacity = '0';
+            }
+            if (mjanimatio == 500) {
+                mjanimatio = 0;
+            }
+
+            mjanimationId = requestAnimationFrame(mjanimationGo);
+        }
+        mjanimationId = requestAnimationFrame(mjanimationGo);
+
+
+
 
     }
     thirdScreenFunctionn();
@@ -736,7 +792,7 @@ indexInit = () => {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //第五部分
 
-    //還沒有寫唷//
+    //沒有唷//
 
 
 
@@ -1054,7 +1110,7 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-
+            console.log(createRoleData);
             var createxhr = new XMLHttpRequest();
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);

@@ -7,8 +7,7 @@ function $id(id) {
 
 function boxScroll(o) {
 	o.scrollTop = o.scrollHeight;
-	o.scrollTop += 200;
-
+	o.scrollTop += 210;
 }
 
 var body = document.getElementsByTagName('body');
@@ -59,8 +58,8 @@ function head_html() {
                             </span>
                         </div>
 						<div class="loginMj">
-							<span>MJ /</span>
-							
+							<span>LV .</span>
+							<span id='memLV'></span>
 							<span id="memMJ">
                             </span>
 						</div>
@@ -292,7 +291,7 @@ function head_html() {
 
 
 	function report(profile) {
-		
+
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function () {
 			if (parseInt(xhr.responseText) == 1) {
@@ -321,11 +320,11 @@ function head_html() {
 	} else {
 		$id("loginNot").innerText = '登出';
 	}
-	$id("login_send").addEventListener("click", function () {
-
+	$id("login_send").addEventListener("click", function (e) {
+		e.preventDefault();  //防止表單直接送出 by 庸
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
-		window.location.reload();
+		// window.location.reload();
 	}, false);
 
 	if (storage.getItem("memNo")) {
@@ -443,16 +442,16 @@ function foot_html() {
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
-function beFriend (tarNo,loginNo,btn) {
-  
-	if(btn.text() == '成為麻吉'){
+function beFriend(tarNo, loginNo, btn) {
+
+	if (btn.text() == '成為麻吉') {
 		if (!storage.getItem("memNo")) {
 			$('#alertText').text('請先登入!');
 			$('.alertWrap').show();
-		}else if(loginNo == tarNo){
+		} else if (loginNo == tarNo) {
 			$('#alertText').text('不能選擇自己唷!');
 			$('.alertWrap').show();
-		}else{
+		} else {
 			if (storage.getItem("loveGiven") <= 0) {
 				$('#alertText').text('今天的愛心已經用完囉！');
 				$('.alertWrap').show();
@@ -466,8 +465,8 @@ function beFriend (tarNo,loginNo,btn) {
 				makeFriend(profile);
 			}
 		}
-	}else if(btn.text() == '解除麻吉關係'){
-		data= {
+	} else if (btn.text() == '解除麻吉關係') {
+		data = {
 			sendMemId: storage.getItem("memNo"),
 			taMemId: tarNo,
 			action: 2,
@@ -475,17 +474,17 @@ function beFriend (tarNo,loginNo,btn) {
 		};
 		unFriend(data);
 	}
-   
- }
- 
- 
- //加朋友的方選  --by An
- function makeFriend(profile) {
+
+}
+
+
+//加朋友的方選  --by An
+function makeFriend(profile) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function () {
 		if (parseInt(xhr.responseText) >= 0) {
 			heart = xhr.responseText;
-			storage.setItem("loveGiven",heart);
+			storage.setItem("loveGiven", heart);
 			changeBtn(btn);
 			loadHeart(heart)
 			$('#alertText').text('已送出邀請');
@@ -494,46 +493,46 @@ function beFriend (tarNo,loginNo,btn) {
 			$('#alertText').text('請勿重複邀請唷!');
 			$('.alertWrap').show();
 		}
- 
+
 	};
 	xhr.open("Post", "makeFriend.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send("profile=" + JSON.stringify(profile));
- }
- 
- 
- 
- //解除好友關係方選 --by An
- function unFriend(data){
+}
+
+
+
+//解除好友關係方選 --by An
+function unFriend(data) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function () {
 		if (xhr.responseText == "delete friend~") {
 			$('#alertText').text('已解除麻吉關係!');
 			$('.alertWrap').show();
 			changeBtnNomal(btn);
- 
+
 		}
 		div_chooseBox = document.getElementsByClassName("friendbox")[0];
 		while (div_chooseBox.children.length > 1) {
 			console.log("+++刪朋友列表");
 			div_chooseBox.removeChild(div_chooseBox.lastChild);
-		}		
+		}
 		rwd_chatList = document.getElementById("rwd_chatList");
 		while (rwd_chatList.children.length > 0) {
 			console.log("+++刪朋友列表");
 			rwd_chatList.removeChild(rwd_chatList.lastChild);
 		}
-		
+
 		friendList(storage.getItem("memNo"));
- 
+
 	};
 	xhr.open("Post", "updateRelationship.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send("upMem=" + JSON.stringify(data));
-	
- 
- }
- 
+
+
+}
+
 //檢舉 --by An
 function report(profile) {
 	var xhr = new XMLHttpRequest();
@@ -685,6 +684,18 @@ function searchMem(profile) {
 			document.getElementById('sLv').innerText = lv;
 			document.getElementById('sIntro').innerText = info.intro;
 
+			function changeBtnUnf(btn) {
+				btn.removeClass('disable');
+				btn.addClass('btn');
+				btn.text('解除麻吉關係').attr("disabled", false);
+			};
+			console.log(info.name);
+			if (info.name == storage.getItem('mName')) {
+				document.getElementsByClassName('btns')[0].style.display = 'none';
+			} else {
+				document.getElementsByClassName('btns')[0].style.display = 'table-cell';
+			}
+
 			if (info.friendRe == 0) {
 				btn = $('.btn_beFriend0');
 				changeBtn(btn);
@@ -708,7 +719,7 @@ function searchMem(profile) {
 
 
 
-function openLB_memData(memId=-1){
+function openLB_memData(memId = -1) {
 	profile = {
 		memId: memId,
 		loginMemNo: storage.getItem("memNo"),
@@ -726,8 +737,12 @@ function sendForm(memId, memPsw) {
 
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function () {
+		console.log(xhr.responseText);
 		if (xhr.responseText == "error") {
 			$('#alertText').text('帳密錯誤，請重新輸入!');
+			$('.alertWrap').show();
+		} else if (xhr.responseText == "權限不足") {  //增加權限 by 庸
+			$('#alertText').text('您已被停權!');
 			$('.alertWrap').show();
 		} else {
 			var user = JSON.parse(xhr.responseText);
@@ -761,6 +776,7 @@ function sendForm(memId, memPsw) {
 			});
 
 			heartItem = document.querySelectorAll('.heart div');
+			window.location.reload();
 			if (heartItem) {
 				switch (user.arr["loveGiven"]) {
 					case '2':
@@ -777,8 +793,8 @@ function sendForm(memId, memPsw) {
 						break;
 				}
 			}
-			window.location.reload();
-	  	}
+
+		}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -833,15 +849,31 @@ function friendList(myNo = -1) {
                         </div>
 					</label> `;
 						div_chooseBox.innerHTML = chatList;
-
 						//載入朋友頭像
 						// rrr = document.getElementById('自己取');
-						ooxxGetHead($id(`chatListHead${friend_infoArr[i][0]}`), {
-							animal: friend_infoArr[i][2],
-							color: friend_infoArr[i][4],
-							eyes: friend_infoArr[i][3],
-						});
+						// ooxxGetHead($id(`chatListHead${friend_infoArr[i][0]}`), {
+						// 	animal: friend_infoArr[i][2],
+						// 	color: friend_infoArr[i][4],
+						// 	eyes: friend_infoArr[i][3],
+						// });
 					}
+
+					//用時間載入頭像
+					dd = 0;
+					hhhhh = () => {
+						if (dd == friendInfo.length) {
+							clearInterval(ssssss);
+						}
+
+						ooxxGetHead($id(`chatListHead${friend_infoArr[dd][0]}`), {
+							animal: friend_infoArr[dd][2],
+							color: friend_infoArr[dd][4],
+							eyes: friend_infoArr[dd][3],
+						});
+						dd++;
+					}
+					ssssss = setInterval(hhhhh, 100);
+
 				}
 				var rwd_num = $id("rwd_chatList").children.length;
 				if (rwd_num == 0) {
@@ -979,7 +1011,7 @@ function rwd_changeChat(taNo) {
 
 }
 // 拒絕交友邀請(更新關係資料表)Ajax -- by ga
-function answerRequire(taNo,action){
+function answerRequire(taNo, action) {
 	// window.addEventListener('click',(e)=>{
 	// 	alert(e.target);	
 	// })
@@ -991,14 +1023,14 @@ function answerRequire(taNo,action){
 		if (xhr.responseText == "null") {
 			alert("xhr錯誤發生");
 
-		}else{ //成功取得
-			if(action==0){
+		} else { //成功取得
+			if (action == 0) {
 				$('#alertText').text('已拒絕邀請!');
 
-			}else{
+			} else {
 				$('#alertText').text('交到朋友了!');
 				friendList(storage.getItem("memNo"));
-				
+
 			}
 			$('.alertWrap').show();
 		}
@@ -1009,7 +1041,7 @@ function answerRequire(taNo,action){
 	var chatMems = {
 		sendMemId: storage.getItem("memNo"),
 		taMemId: taNo,
-		action: action , // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
+		action: action, // 0:拒絕 ,  1:加為好友 , 2:刪除好友 
 	}; //物件範例
 	xhr.send("upMem=" + JSON.stringify(chatMems));
 }
@@ -1039,14 +1071,14 @@ function requireBack(myNo = -1) {
 					i_start = num;
 				}
 				// alert(friendInfo);
-					for(var i = i_start;i<friendInfo.length;i++){ // i:朋友數量
-						for(var j = 0;j<6;j++){ // j:撈回的資料欄位數量
-							requireList[i] = friendInfo[i].split("||",6); 
-							//requireList[i]:朋友資料陣列;
-							//requireList[i][0]:會員編號; requireList[i][1]:會員暱稱 requireList[i][2]:動物
-						}
-						var str = replybox.innerHTML;
-						str += `
+				for (var i = i_start; i < friendInfo.length; i++) { // i:朋友數量
+					for (var j = 0; j < 6; j++) { // j:撈回的資料欄位數量
+						requireList[i] = friendInfo[i].split("||", 6);
+						//requireList[i]:朋友資料陣列;
+						//requireList[i][0]:會員編號; requireList[i][1]:會員暱稱 requireList[i][2]:動物
+					}
+					var str = replybox.innerHTML;
+					str += `
 						<div class="requireLabel" id="requireItem${requireList[i][0]}">
 							<div id="requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
 								<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
@@ -1057,18 +1089,18 @@ function requireBack(myNo = -1) {
 							</div>
 						</div>`;
 
-						replybox.innerHTML = str;
+					replybox.innerHTML = str;
 
-						//載入朋友頭像
-						ooxxGetHead($id(`requireHead${requireList[i][0]}`), {
-							animal: requireList[i][2],
-							color: requireList[i][4],
-							eyes: requireList[i][3],
-						});
-						
-						// 手機
-						var str_rwdChat = replybox_phone.innerHTML;
-						str_rwdChat += 
+					//載入朋友頭像
+					ooxxGetHead($id(`requireHead${requireList[i][0]}`), {
+						animal: requireList[i][2],
+						color: requireList[i][4],
+						eyes: requireList[i][3],
+					});
+
+					// 手機
+					var str_rwdChat = replybox_phone.innerHTML;
+					str_rwdChat +=
 						`<div class="rwd_requireLabel" id="rwd_requireItem${requireList[i][0]}">
 							<div id="rwd_requireHead${requireList[i][0]}" class="headBox" onclick="openLB_memData('${requireList[i][5]}')"></div>
 							<p onclick="openLB_memData('${requireList[i][5]}')">${requireList[i][1]}</p>
@@ -1078,19 +1110,21 @@ function requireBack(myNo = -1) {
 								<button class="btn_reply" onclick="answerRequire(${requireList[i][0]},0)">拒絕</button>
 							</div>
 						</div>`;
-						//將label塞進div
-						replybox_phone.innerHTML = str_rwdChat;
-						
-						//載入朋友頭像
-						ooxxGetHead($id(`rwd_requireHead${requireList[i][0]}`), {
-							animal: requireList[i][2],
-							color: requireList[i][4],
-							eyes: requireList[i][3],
-						});
-						
-					}
-					
-				
+					//將label塞進div
+					replybox_phone.innerHTML = str_rwdChat;
+
+					//載入朋友頭像
+					ooxxGetHead($id(`rwd_requireHead${requireList[i][0]}`), {
+						animal: requireList[i][2],
+						color: requireList[i][4],
+						eyes: requireList[i][3],
+					});
+
+
+
+				}
+
+
 				// var btn_N = document.getElementsByClassName("btn_reply");
 				// for(var i = 0;i<btn_N.length;i++){
 				// 	// alert('11');
@@ -1115,8 +1149,8 @@ function requireBack(myNo = -1) {
 //進資料庫撈聊天歷史訊息 --by ga
 function msgDB() {
 	console.log("還在reload唷!");
-	var chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //桌機聊天內容顯示區域
-	var rwd_chatbox_show = document.getElementById("rwd_chatbox"); //手機聊天內容顯示區域
+	chatbox_show = document.getElementsByClassName('chatbox_show')[0]; //桌機聊天內容顯示區域
+	rwd_chatbox_show = document.getElementById("rwd_chatbox"); //手機聊天內容顯示區域
 
 	var xhr = new XMLHttpRequest(); // 建立xhr
 	xhr.onload = function () {
@@ -1175,12 +1209,12 @@ function msgDB() {
 				} else { //我發的訊息:靠右
 					msg_div.className = "youSaid";
 				}
-
+				boxScroll(chatbox_show);
+				boxScroll($id("rwd_chatbox"));
 			}
 			if (rwd_num == 0) {
 				boxScroll($id("rwd_chatbox"));
 			}
-
 
 
 		}
@@ -1280,7 +1314,7 @@ window.addEventListener('load', function () {
 		if (ch == 0) { //要顯示出來
 			chatboxLeft.style.cssText = "opacity:0;";
 			return ch = 1;
-			
+
 		} else { //要關閉
 			chatboxLeft.style.cssText = "opacity:1;";
 			return ch = 0;
@@ -1302,7 +1336,7 @@ window.addEventListener('load', function () {
 	var control_openChat = false;
 	btn_chatroom_phone.addEventListener('click', function () {
 		if (control_openChat == false) {
-			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";				
+			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
 			friendList(storage.getItem("memNo"));
 			requireBack(storage.getItem("memNo"));
 
@@ -1492,16 +1526,16 @@ window.addEventListener('load', function () {
 	var rwd_chatbox_show = document.getElementById('rwd_chatbox');
 
 	reply_control = false;
-	$id("replybox").addEventListener("click",function(e){
+	$id("replybox").addEventListener("click", function (e) {
 		// alert("HI");
-		if(reply_control==false){ //打開
+		if (reply_control == false) { //打開
 			$id("replybox").style.cssText = "height:83%";
 			document.getElementsByClassName("friendbox")[0].style.transition = "height .5s";
 			document.getElementsByClassName("friendbox")[0].style.height = "0";
 			friendList(storage.getItem("memNo"));
-			requireBack(storage.getItem("memNo")); 
+			requireBack(storage.getItem("memNo"));
 			reply_control = true;
-		}else{ //收起來
+		} else { //收起來
 			$id("replybox").style.height = "32px";
 			$id("replybox").style.top = "";
 			$id("replybox").style.bottom = "8px";
@@ -1515,8 +1549,8 @@ window.addEventListener('load', function () {
 	});
 
 
-// 桌機送出訊息(按Enter) --ga
-	chatTxt_input.addEventListener('keydown',function(e){
+	// 桌機送出訊息(按Enter) --ga
+	chatTxt_input.addEventListener('keydown', function (e) {
 		if (e.keyCode == 13) { //enter代碼
 			var txt = chatTxt_input.value; //送出的訊息
 			if (chatTxt_input.value != "") {
@@ -1528,6 +1562,7 @@ window.addEventListener('load', function () {
 	chatTxt_send.addEventListener('click', function () {
 		var txt = chatTxt_input.value;
 		sendMsg(txt);
+
 	}, false);
 
 	// 手機送出訊息(按送出) --ga
@@ -1591,7 +1626,7 @@ window.addEventListener('load', function () {
 				} else { //成功
 					$('#alertText').text('已登出!');
 					$('.alertWrap').show();
-					$id("loginNot").innerText='登入';
+					$id("loginNot").innerText = '登入';
 					window.location.reload();
 				}
 			};
@@ -1732,6 +1767,7 @@ ooxxLightBox = (...lightBoxArray) => {
 // 角色外觀載入函式start -- 介庸
 ooxxGetRole = (roleId, roleData) => {
 	// 載入角色
+
 	roleId.innerHTML = `<div class="role">
                             <embed class="bodySvg" src="images/roleImages/body${roleData.animal}.svg" style="display:block;">
                          </div>
@@ -1739,22 +1775,26 @@ ooxxGetRole = (roleId, roleData) => {
                             <embed class="eyesSvg" src="images/roleImages/eyes${roleData.eyes}.svg" style="display:block;">
                         </div>
                         <div class="roleHat"></div>
-                        <div class="roleClothes"></div>`;
+						<div class="roleClothes"></div>`;
 
+	//添加動畫
+	roleId.style.opacity = '1';
 	//填入顏色
 	roleId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-2');
 		for (let i = 0; i < fillColor.length; i++) {
-			fillColor[i].fillStyle = `#${roleData.color}`;
+			fillColor[i].style.fill = `#${roleData.color}`;
 		}
 	})
 
 	// 眼睛 帽帽 衣服喔 
 	// roleId.getElementsByClassName('roleEyes')[0].style.backgroundImage = `url(roleImages/eyes${roleData.eyes}.svg`;
 	if (roleData.hat) {
+		roleId.getElementsByClassName('roleHat')[0].style.opacity = '1';
 		roleId.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/${roleData.hat}`;
 	}
 	if (roleData.clothes) {
+		roleId.getElementsByClassName('roleClothes')[0].style.opacity = '1';
 		roleId.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/${roleData.clothes}`;
 	}
 
@@ -1768,32 +1808,32 @@ ooxxGetRole = (roleId, roleData) => {
 
 		eyesGo = () => {
 			eyesArray[0].animate([{
-					transform: 'scaleY(1)'
-				},
-				{
-					transform: 'scaleY(0.01)'
-				},
-				{
-					transform: 'scaleY(1)'
-				}
+				transform: 'scaleY(1)'
+			},
+			{
+				transform: 'scaleY(0.01)'
+			},
+			{
+				transform: 'scaleY(1)'
+			}
 			], {
-				duration: 500,
-				endDelay: 1000,
-			});
+					duration: 500,
+					endDelay: 1000,
+				});
 
 			eyesArray[1].animate([{
-					transform: 'scaleY(1)'
-				},
-				{
-					transform: 'scaleY(0.01)'
-				},
-				{
-					transform: 'scaleY(1)'
-				}
+				transform: 'scaleY(1)'
+			},
+			{
+				transform: 'scaleY(0.01)'
+			},
+			{
+				transform: 'scaleY(1)'
+			}
 			], {
-				duration: 500,
-				endDelay: 1000,
-			});
+					duration: 500,
+					endDelay: 1000,
+				});
 		}
 		setInterval(eyesGo, getRandom(2000, 3500));
 	}
@@ -1842,19 +1882,20 @@ ooxxGetRole = (roleId, roleData) => {
 
 }
 
+
+
 ooxxGetHead = (headId, headData) => {
 	// 載入頭頭
+
 	headId.innerHTML = `<div class="roadHead">
                             <embed class="headSvg" src="images/roleImages/head${headData.animal}.svg" style="display:block;">
                         </div>
-                        <div class="headEyes"></div>`;
+						<div class="headEyes"></div>`;
 
-	headId.getElementsByTagName('embed')[0].addEventListener('load', (e) => {
+	headId.getElementsByClassName('headSvg')[0].addEventListener('load', (e) => {
 		let fillColor = e.path[0].getSVGDocument().getElementsByClassName('cls-1')[0];
-		fillColor.fillStyle = `#${headData.color}`;
+		fillColor.style.fill = `#${headData.color}`;
 	})
-
-	//插入眼睛
 	headId.getElementsByClassName('headEyes')[0].style.backgroundImage = `url(images/roleImages/eyes${headData.eyes}.svg`;
 }
 
@@ -1889,3 +1930,114 @@ function noticeFriend(data){
     xhr.send("data=" + JSON.stringify(data));
 
 };
+
+
+
+// 角色外觀載入函式end -- 介庸
+
+//更衣動畫 by 庸
+//換衣衣
+ooxxChangeClothes = (...changeClothesArray) => {
+	let object = changeClothesArray[0];
+	let clothes = changeClothesArray[1];
+	object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
+	let scaleValue = 0;
+	object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+	clothesGo = () => {
+		if (scaleValue <= 1) {
+			scaleValue += 0.06;
+			object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+			clothesId = requestAnimationFrame(clothesGo);
+		} else if (scaleValue >= 1.5) {
+			scaleValue = 1;
+			object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+			cancelAnimationFrame(clothesId)
+		}
+	}
+	clothesId = requestAnimationFrame(clothesGo);
+}
+
+
+
+
+
+//換帽帽
+ooxxChangeHat = (...changeHatArray) => {
+	let object = changeHatArray[0];
+	let hat = changeHatArray[1];
+	object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
+	let scaleValue = 0;
+	object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+	hatGo = () => {
+		if (scaleValue <= 1) {
+			scaleValue += 0.06;
+			object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+			hatId = requestAnimationFrame(hatGo);
+		} else if (scaleValue >= 1.5) {
+			scaleValue = 1;
+			object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+			cancelAnimationFrame(hatId)
+		}
+	}
+	hatId = requestAnimationFrame(hatGo);
+}
+
+
+
+// 更新金錢 和 mj值 by 庸
+window.addEventListener('load', () => {
+	if ($id("loginNot").innerText == '登出') {
+		loginBox
+		document.getElementsByClassName('loginContent')[0].style.display = 'block';
+		document.getElementsByClassName('loginBox')[0].style.top = '5px';
+		//更新mj值
+		ooxxUpdateMJ = () => {
+			let memberUpDateData = {
+				memId: storage.getItem("memId"), //登入後是誰
+				status: '更新錢MJ值'
+			};
+
+			let xhr = new XMLHttpRequest();
+			xhr.onload = function () {
+				let getData = JSON.parse(xhr.responseText);
+				storage.setItem('mMJ', getData.mMJ);
+				storage.setItem('mCoin', getData.mCoin);
+				$id("memMJ").innerText = getData.mMJ;
+				document.getElementById("userCoin").value = getData.mCoin;
+
+				if (parseInt(getData.mMJ) < 1000) {
+					document.getElementsByClassName('Mjbar')[0].style.width = `${getData.mMJ / 10}%`;
+				} else {
+					document.getElementsByClassName('Mjbar')[0].style.width = `100%`;
+				}
+				//$id('memLV')
+				if (parseInt(getData.mMJ) < 500) {
+					$id('memLV').innerHTML = '1';
+				} else if ((parseInt(getData.mMJ) > 500) && (parseInt(getData.mMJ) < 1000)) {
+					$id('memLV').innerHTML = '2';
+				} else if (parseInt(getData.mMJ) > 1000) {
+					$id('memLV').innerHTML = 'MAX';
+				}
+
+
+
+			}
+			xhr.open("Post", "upDateMember.php", true);
+			xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+			xhr.send("memberUpDateData=" + JSON.stringify(memberUpDateData));
+		}
+		ooxxUpdateMJ();
+
+		//
+		//點個人頭像
+		$id('loginHead').addEventListener('click', () => {
+			profile = {
+				memId: storage.getItem("memId"),
+				loginMemNo: storage.getItem("memNo"),
+			};
+			searchMem(profile);
+		})
+	}
+})
+
+
