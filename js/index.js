@@ -1117,7 +1117,8 @@ indexInit = () => {
         });
         //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
-            var checkedValue = document.querySelector('.hobbyItem:checked').value;
+            var checkedValue = document.querySelector('.hobbyItem:checked');
+
             //把表單值塞入物件傳到php
             createRoleData = {
                 memId: $id('memId').value,
@@ -1130,36 +1131,49 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-            if ($id('createMemberBtn').disabled == true) {
-                $('#alertText').text('不能唷!');
+
+            if ($id('getCheckmemId').innerHTML != '可以使用') {
+                $('#alertText').text('帳號不能用唷!');
                 $('.alertWrap').show();
             } else {
-                var createxhr = new XMLHttpRequest();
-                createxhr.onload = function () {
-                    // checkInfo = JSON.parse(createxhr.responseText);
-                    $('#alertText').text('註冊成功!');
+                //判斷是否有值才能送出製作
+
+                if (($id('constellation').value == "") && (checkedValue.value == "")) {
+                    $('#alertText').text('有東西沒有填唷!');
                     $('.alertWrap').show();
-                    $id('createMemberScreen').display = 'none';
-                    sendForm($id('memId').value, $id('memPsw').value);
-                    // 更新登入者面板
-                    document.getElementsByClassName("loginContent")[0].style.display = "";
+                } else {
+                    if ($id('memPsw').value != $id('memPswDBC').value) {
+                        $('#alertText').text('密碼不一致喔!');
+                        $('.alertWrap').show();
+                    } else {
+                        var createxhr = new XMLHttpRequest();
+                        createxhr.onload = function () {
+                            // checkInfo = JSON.parse(createxhr.responseText);
+                            $('#alertText').text('註冊成功!');
+                            $('.alertWrap').show();
+                            $id('createMemberScreen').display = 'none';
+                            sendForm($id('memId').value, $id('memPsw').value);
+                            // 更新登入者面板
+                            document.getElementsByClassName("loginContent")[0].style.display = "";
 
-                    ooxxGetHead($id("loginHead"), {
-                        animal: storage.getItem("animal"),
-                        color: storage.getItem("mColor"),
-                        eyes: storage.getItem("eye"),
-                    });
-                    $id("memName").innerText = $id('mName').value;
-                    $id("memMJ").innerText = 0;
+                            ooxxGetHead($id("loginHead"), {
+                                animal: storage.getItem("animal"),
+                                color: storage.getItem("mColor"),
+                                eyes: storage.getItem("eye"),
+                            });
+                            $id("memName").innerText = $id('mName').value;
+                            $id("memMJ").innerText = 0;
 
-                    $id('createMemberScreen').style.display = 'none';
+                            $id('createMemberScreen').style.display = 'none';
+                        }
+                        createxhr.open("Post", "setUpMember.php", true);
+                        createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                        createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
+                    }
                 }
-                createxhr.open("Post", "setUpMember.php", true);
-                createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
+
+
             }
-
-
         })
         $id('createMemberScreenCloseBtn').addEventListener('click', () => {
             $id('createMemberScreen').style.display = 'none';
