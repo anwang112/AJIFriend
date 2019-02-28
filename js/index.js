@@ -1073,7 +1073,6 @@ indexInit = () => {
                 if (checkInfo.checkmemId == '不能使用') {
                     $id('getCheckmemId').style.color = 'red';
                     $id('getCheckmemId').innerHTML = checkInfo.checkmemId;
-                    $id('createMemberBtn').disabled = true;
                 }
                 if (checkInfo.checkmName == '不能使用') {
 
@@ -1096,7 +1095,7 @@ indexInit = () => {
                     });
                     $id('getCheckmemId').innerHTML = '可以使用';
                     $id('getCheckmemId').style.color = 'green';
-                    $id('createMemberBtn').disabled = false;
+                   
                 });
             }
         });
@@ -1117,8 +1116,14 @@ indexInit = () => {
         });
         //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
-            var checkedValue = document.querySelector('.hobbyItem:checked');
+      
+            
 
+            if(document.querySelector('.hobbyItem:checked') != null){
+                checkedValue = document.querySelector('.hobbyItem:checked').value;
+            }else{
+                checkedValue = 1;
+            }
             //把表單值塞入物件傳到php
             createRoleData = {
                 memId: $id('memId').value,
@@ -1132,13 +1137,10 @@ indexInit = () => {
                 animal: roleObject.animal,
             }
 
-            if ($id('getCheckmemId').innerHTML != '可以使用') {
-                $('#alertText').text('帳號不能用唷!');
-                $('.alertWrap').show();
-            } else {
-                //判斷是否有值才能送出製作
 
-                if (($id('constellation').value == "") && (checkedValue.value == "")) {
+            if ($id('getCheckmemId').innerHTML == '可以使用') {
+                //判斷是否有值才能送出製作
+                if ((createRoleData.constellation == "") || (createRoleData.hobby == "")||(createRoleData.memPsw == "")||(createRoleData.mName == "")) {
                     $('#alertText').text('有東西沒有填唷!');
                     $('.alertWrap').show();
                 } else {
@@ -1172,8 +1174,9 @@ indexInit = () => {
                         createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
                     }
                 }
-
-
+            } else {
+                $('#alertText').text('帳號不能用唷!');
+                $('.alertWrap').show();
             }
         })
         $id('createMemberScreenCloseBtn').addEventListener('click', () => {
