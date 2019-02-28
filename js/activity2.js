@@ -1072,7 +1072,6 @@ window.addEventListener('load', function () {
     var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
-<<<<<<< HEAD
     myMessagebox_input.addEventListener('keydown',function(e){
         if(e.keyCode == 13 ){//enter代碼
             var txt = '';
@@ -1084,18 +1083,6 @@ window.addEventListener('load', function () {
                     sendCom(memNo,actNo,txt);
                 }
             }else{
-=======
-    myMessagebox_input.addEventListener('keydown', function (e) {
-        if (e.keyCode == 13) {//enter代碼
-            if (storage.getItem("memNo")) {
-                var txt = '';
-                txt = myMessagebox_input.value;
-                actNo = myMessagebox_inputNone.value;
-                var memNo = storage.getItem("memNo");
-                sendCom(memNo, actNo, txt);
-
-            } else {
->>>>>>> ooxx
                 $('#alertText').text('請先登入!');
                 $('.alertWrap').show();
             }
