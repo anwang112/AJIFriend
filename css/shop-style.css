@@ -785,6 +785,10 @@ img {
   top: 0; }
 
 .game {
+  background-image: url(../images/money.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: none;
   width: 600px;
   background-color: #ecded9;

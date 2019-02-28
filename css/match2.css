@@ -419,7 +419,7 @@ display: block;
       content: "- 金幣最多"; }
     .majiRank .rankNav li .mjTopBtn::before {
       content: "- MJ值最高"; }
-    .majiRank .rankNav .active a {
+    .majiRank .rankNav .active  {
       background-color: #f3b9b4;
       color: #eef2ef;
       text-shadow: #eb616d 1px 1px 1px; }

@@ -704,7 +704,7 @@ heartItem = document.querySelectorAll('.heart div');
 function loadHeart(heart){
     switch (parseInt(heart)) {
         case 4:
-            hartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+        heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
             break;
         case 3:
            

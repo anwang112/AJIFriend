@@ -1597,3 +1597,15 @@ window.addEventListener('load', function () {
 
 
 }, false);
+
+
+$('#tab_allAct').click(function(){
+    $(this).addClass('active');
+    $('#tab_myAct').removeClass('active');
+    
+})
+$('#tab_myAct').click(function(){
+    $(this).addClass('active');
+    $('#tab_allAct').removeClass('active');
+    
+})

@@ -323,7 +323,7 @@ function head_html() {
 		$id("loginNot").innerText = '登出';
 	}
 	$id("login_send").addEventListener("click", function (e) {
-		e.preventDefault();  //防止表單直接送出 by 庸
+		e.preventDefault(); //防止表單直接送出 by 庸
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
 		// window.location.reload();
@@ -336,11 +336,11 @@ function head_html() {
 			eyes: storage.getItem("eye"),
 		});
 	}
-	$('.btn_beFriend0').click(function(){
+	$('.btn_beFriend0').click(function () {
 		tarNo = document.getElementById('sMemNo').value;
 		loginNo = storage.getItem("memNo");
 		btn = $(this);
-		beFriend(tarNo,loginNo,btn);
+		beFriend(tarNo, loginNo, btn);
 	});
 
 }
@@ -438,11 +438,11 @@ function foot_html() {
 
 	if (storage.getItem("memNo")) {
 		friendList(storage.getItem("memNo"));
-		requireBack(storage.getItem("memNo"));		
-		data={
-			loginNo:storage.getItem("memNo"),
+		requireBack(storage.getItem("memNo"));
+		data = {
+			loginNo: storage.getItem("memNo"),
 		};
-		noticeFunc = setInterval(noticeFriend,3000);
+		noticeFunc = setInterval(noticeFriend, 3000);
 		noticeFriend();
 
 	}
@@ -509,20 +509,22 @@ function makeFriend(profile) {
 
 //送出好友邀請
 //改好友BTN
-function changeBtn(btn){
-    btn.addClass('disable');
-    btn.removeClass('btn');
-    btn.text('邀請中').attr("disabled",true);
+function changeBtn(btn) {
+	btn.addClass('disable');
+	btn.removeClass('btn');
+	btn.text('邀請中').attr("disabled", true);
 };
-function changeBtnNomal(btn){
-    btn.removeClass('disable');
-    btn.addClass('btn');
-    btn.text('成為麻吉').attr("disabled",false);
+
+function changeBtnNomal(btn) {
+	btn.removeClass('disable');
+	btn.addClass('btn');
+	btn.text('成為麻吉').attr("disabled", false);
 };
-function changeBtnUnf(btn){
-    btn.removeClass('disable');
-    btn.addClass('btn');
-    btn.text('解除麻吉關係').attr("disabled",false);
+
+function changeBtnUnf(btn) {
+	btn.removeClass('disable');
+	btn.addClass('btn');
+	btn.text('解除麻吉關係').attr("disabled", false);
 };
 
 
@@ -768,7 +770,7 @@ function sendForm(memId, memPsw) {
 		if (xhr.responseText == "error") {
 			$('#alertText').text('帳密錯誤，請重新輸入!');
 			$('.alertWrap').show();
-		} else if (xhr.responseText == "權限不足") {  //增加權限 by 庸
+		} else if (xhr.responseText == "權限不足") { //增加權限 by 庸
 			$('#alertText').text('您已被停權!');
 			$('.alertWrap').show();
 		} else {
@@ -805,19 +807,37 @@ function sendForm(memId, memPsw) {
 
 			heartItem = document.querySelectorAll('.heart div');
 			window.location.reload();
+
+
 			if (heartItem) {
 				switch (user.arr["loveGiven"]) {
-					case '2':
-						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+					case 4:
+						alert()
+						hartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
-					case '1':
+					case 3:
+
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+						break;
+					case 2:
+
 						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+						break;
+					case 1:
 						heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
-					case '0':
+					case 0:
 						heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
 						heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
 						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
 				}
 			}
@@ -1390,7 +1410,7 @@ window.addEventListener('load', function () {
 			requireBack(storage.getItem("memNo"));
 
 			boxScroll($id("rwd_chatbox"));
-			
+
 		} else { //手機版聊天室收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
@@ -1403,7 +1423,7 @@ window.addEventListener('load', function () {
 	//手機版menu收合操控 start--by ga
 	control_openMenu = false;
 	btn_menu_menu.addEventListener('click', function () {
-		if (control_openMenu == false) {			
+		if (control_openMenu == false) {
 			//先把訊息收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
@@ -1639,13 +1659,13 @@ window.addEventListener('load', function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
-	}, false);	
+	}, false);
 
 	$id("rwd_chatTaHead").addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
-	}, false);	
+	}, false);
 	var chatRoom_info = document.getElementsByClassName("chatRoom_info")[0];
 	chatRoom_info.addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
@@ -1884,32 +1904,32 @@ ooxxGetRole = (roleId, roleData) => {
 
 		eyesGo = () => {
 			eyesArray[0].animate([{
-				transform: 'scaleY(1)'
-			},
-			{
-				transform: 'scaleY(0.01)'
-			},
-			{
-				transform: 'scaleY(1)'
-			}
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
 			], {
-					duration: 500,
-					endDelay: 1000,
-				});
+				duration: 500,
+				endDelay: 1000,
+			});
 
 			eyesArray[1].animate([{
-				transform: 'scaleY(1)'
-			},
-			{
-				transform: 'scaleY(0.01)'
-			},
-			{
-				transform: 'scaleY(1)'
-			}
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
 			], {
-					duration: 500,
-					endDelay: 1000,
-				});
+				duration: 500,
+				endDelay: 1000,
+			});
 		}
 		setInterval(eyesGo, getRandom(2000, 3500));
 	}
@@ -2090,26 +2110,26 @@ window.addEventListener('load', () => {
 
 
 //好友通知
-function noticeFriend(){
-    if(storage.getItem("memNo")){
+function noticeFriend() {
+	if (storage.getItem("memNo")) {
 		var xhr = new XMLHttpRequest();
-		
-    xhr.onload = function () {
-		// console.log("好友通知reload");
-		// console.log( parseInt( xhr.responseText));
-            if(parseInt( xhr.responseText )== 0){
-                document.getElementById('mail').style.cssText = "display:none";
-            }else{
-                document.getElementById('mail').style.cssText = "display:block";
-                document.getElementById('noticeNum').innerText = xhr.responseText;
-            }
-            
-        }
-    }
-    
-    xhr.open("Post", "notice.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("data=" +storage.getItem("memNo"));
+
+		xhr.onload = function () {
+			// console.log("好友通知reload");
+			// console.log( parseInt( xhr.responseText));
+			if (parseInt(xhr.responseText) == 0) {
+				document.getElementById('mail').style.cssText = "display:none";
+			} else {
+				document.getElementById('mail').style.cssText = "display:block";
+				document.getElementById('noticeNum').innerText = xhr.responseText;
+			}
+
+		}
+	}
+
+	xhr.open("Post", "notice.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("data=" + storage.getItem("memNo"));
 
 };
 

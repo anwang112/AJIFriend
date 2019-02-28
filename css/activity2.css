@@ -304,19 +304,21 @@
   .act_tabBar span:hover {
     color: #fff; }
   .act_tabBar #tab_allAct {
-    padding: 7px 12px;
-    color: #fff;
-    background-image: url("../images/activity/spanBg03.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center; }
+    width: 100px;
+    height: 40px;
+    background-color: #eef2ef;
+    color: #f05b79;
+    margin: 10px;
+    border-radius: 10px;
+    line-height: 2; }
   .act_tabBar #tab_myAct {
-    padding: 7px 12px;
-    color: #fff;
-    background-image: url("../images/activity/spanBg04.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center; }
+    width: 100px;
+      height: 40px;
+      background-color: #eef2ef;
+      color: #f05b79;
+      margin: 10px;
+      border-radius: 10px;
+      line-height: 2; }
   .act_tabBar #btn_holdAct {
     display: block;
     position: absolute;
@@ -1469,3 +1471,8 @@
     .commentBox{
       width: 90%;
     }
+
+    .active {
+      background-color: #f3b9b4 !important;
+      color: #eef2ef!important;
+      text-shadow: #eb616d 1px 1px 1px; }
