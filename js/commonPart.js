@@ -438,13 +438,6 @@ function foot_html() {
 		noticeFriend();
 
 	}
-<<<<<<< HEAD
-=======
-	data = {
-		loginNo: storage.getItem("memNo"),
-	};
-	noticeFriend(data);
->>>>>>> ooxx
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
@@ -2065,7 +2058,6 @@ window.addEventListener('load', () => {
 
 
 //好友通知
-<<<<<<< HEAD
 function noticeFriend(){
     if(storage.getItem("memNo")){
 		var xhr = new XMLHttpRequest();
@@ -2086,27 +2078,6 @@ function noticeFriend(){
     xhr.open("Post", "notice.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("data=" +storage.getItem("memNo"));
-=======
-function noticeFriend(data) {
-	if (storage.getItem("memNo")) {
-		var xhr = new XMLHttpRequest();
-
-		xhr.onload = function () {
-			console.log(parseInt(xhr.responseText));
-			if (parseInt(xhr.responseText) == 0) {
-				document.getElementById('mail').style.cssText = "display:none"
-			} else {
-				document.getElementById('mail').style.cssText = "display:block"
-				document.getElementById('noticeNum').innerText = xhr.responseText;
-			}
-
-		}
-		xhr.open("Post", "notice.php", true);
-		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-		xhr.send("data=" + JSON.stringify(data));
-	}
-
->>>>>>> ooxx
 
 };
 
