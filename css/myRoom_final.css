@@ -199,6 +199,11 @@
     .myClothes li {
         min-width: 85px;
     }
+    .myClothes img {
+        position: absolute;
+        width: 102%;
+        top: -8%;
+    }
     .myhats li {
         min-width: 180px;
     }
@@ -221,5 +226,10 @@
         color: #e5e2dd;
         padding: 0px 20px;
         width: 24%;
+    }
+    .myClothes img {
+        position: absolute;
+        width: 102%;
+        top: -8%;
     }
 }

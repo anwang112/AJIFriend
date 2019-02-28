@@ -1,0 +1,81 @@
+.searchWrap {
+    background-color: rgba(255,255,255,.7);
+}
+
+.wrap {
+    background-image:none;
+    background-color: #f9ebe5;
+}
+
+.finalLB {
+    min-width: 620px;
+    width: 60%;
+    height: 450px;
+    margin: auto;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background-color: #ecded9;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    position: absolute;
+    top: 15%;
+    z-index: 21;
+    transition: .5s;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 10px 10px rgba(197,121,138, .7);
+    transform: rotateY(0deg);
+}
+
+@media only screen and (max-width: 768px){
+    .searchWrap #searData {
+        flex-flow: column;
+        align-items: center;
+        height: auto;
+        min-width: 90%;
+        height: 90%;
+        overflow-y: scroll;
+        top: 9%;
+        width: 95%;
+    }
+    .searchWrap #searData .profileInfo td {
+        padding: 0 0px;
+    }
+    #searData .searchClose {
+        right: 16px;
+        top: 10px;
+    }
+
+}
+@media only screen and (max-width: 476px){
+    .searchWrap #searData .profileInfo {
+        width: 100%;
+        border: none;
+        padding: 0;
+        position: relative;
+        top: 40px;
+    }
+
+}
+
+@media only screen and (max-width: 400px){
+    .searchWrap #searData .sRole {
+        width: 39%;
+        max-height: 240px;
+        min-width: 220px;
+    }
+    #searData .sRole #topMoney05 {
+        width: 100%;
+        position: relative;
+        bottom: 100px;
+    }
+    .searchWrap #searData .profileInfo th {
+        min-width: 83px;
+    }
+    
+
+}
+
+
+

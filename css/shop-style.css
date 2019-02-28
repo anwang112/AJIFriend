@@ -201,7 +201,7 @@ img {
         width: 65%; } }
     @media all and (max-width: 476px) {
       #chooseId #friend_LightBox {
-        width: 65%; } }
+        width: 95%; } }
     #chooseId #friend_LightBox img {
       width: 100%; }
     #chooseId #friend_LightBox #btn_friendBoxClose {
@@ -387,7 +387,7 @@ img {
   #productBlock .onclick {
     background-color: rgba(255, 255, 255, 0.8); }
   #productBlock .tab-chooseCloth:first-child {
-    margin-left: 20%; }
+    margin-left: 23%; }
     @media all and (max-width: 768px) {
       #productBlock .tab-chooseCloth:first-child {
         margin-left: 5%; } }
@@ -397,7 +397,7 @@ img {
   #productBlock #productsArea {
     width: 95%;
     margin: auto;
-    padding: 0 20px;
+    padding: 0 15px;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
     flex-direction: row;
@@ -445,7 +445,7 @@ img {
           margin: 2% 0;
           transition: all .3s; }
       #productBlock #productsArea #actionPanel #rwd-showName {
-        width: 55%;
+        width: 50%;
         text-align: center;
         /* border-radius: 12px; */
         line-height: 37px;
@@ -459,7 +459,7 @@ img {
           #productBlock #productsArea #actionPanel #rwd-showName {
             display: none; } }
       #productBlock #productsArea #actionPanel #showCoin {
-        width: 55%;
+        width: 50%;
         text-align: center;
         padding: 3% 0%;
         max-height: 27px;

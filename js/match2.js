@@ -243,12 +243,7 @@ function beFriend (tarNo,loginNo,btn) {
     }
     
 }
-$('.btn_beFriend0').click(function(){
-    tarNo = document.getElementById('sMemNo').value;
-    loginNo = storage.getItem("memNo");
-    btn = $(this);
-    beFriend(tarNo,loginNo,btn);
-});
+
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
@@ -275,7 +270,7 @@ $('.fans .rankFriendBtn2').click(function () {
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
-$('.moneyS.rankFriendBtn0').click(function () {
+$('.moneyS .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);

@@ -30,7 +30,8 @@ function head_html() {
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
                 <li><a href="photo.php">照片牆</a></li>
-                <li><a href="myRoom_v2.php">我的窩</a></li>
+				<li><a href="myRoom_v2.php">我的窩</a></li>
+				<li><a href="team.php">麻吉團隊</a></li>
             </ul>
 			<div class="loginBox">
 				<input type="hidden" id="userNo" value="">
@@ -95,6 +96,7 @@ function head_html() {
                 <li><a href="activity_v2.php">活動巴士</a></li>
                 <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
 				<li><a href="photo.php">照片牆</a></li>
+				<li><a href="team.php">麻吉團隊</a></li>
 				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
                 <li><a href="#" id="phoneLogBtn">登入</a></li>
                 
@@ -399,7 +401,7 @@ function foot_html() {
             <!-- 聊天室分頁 -->
             <div id="rwd_chatContent">
                 <div id="rwd_chatContentTitle">
-                    <span onclick="close_rwdChat();" style="font-size:30px">^</span>
+                    <span onclick="close_rwdChat();" style="font-size:30px; width:30px;"><img src="images/rwd_chatClose.png" ></span>
                     <div id="rwd_chatTaHead" class="headBox" alt="朋友大頭照"></div>
                     <p id="rwd_chatTaName" class="">寂寞阿吉</p>
                     <input type="hidden" id="rwd_chatTaNo" >
@@ -504,6 +506,24 @@ function makeFriend(profile) {
 	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 	xhr.send("profile=" + JSON.stringify(profile));
 }
+
+//送出好友邀請
+//改好友BTN
+function changeBtn(btn){
+    btn.addClass('disable');
+    btn.removeClass('btn');
+    btn.text('邀請中').attr("disabled",true);
+};
+function changeBtnNomal(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('成為麻吉').attr("disabled",false);
+};
+function changeBtnUnf(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('解除麻吉關係').attr("disabled",false);
+};
 
 
 
@@ -1609,7 +1629,9 @@ window.addEventListener('load', function () {
 	// 手機送出訊息(按送出) --ga
 	rwd_chatTxt_send.addEventListener('click', function () {
 		var txt = rwd_chatTxt_input.value;
-		sendMsg(txt);
+		if (txt != "") {
+			sendMsg(txt);
+		}
 	}, false);
 
 	// 聊天室頭貼點擊查看個人檔案

@@ -23,6 +23,7 @@ html {
   color: #EF5C79;
   text-align: center; }
   @media only screen and (min-width: 768px) {
+    
     .secondPhoneIndexA {
       display: none; } }
   .secondPhoneIndexA a {
@@ -238,7 +239,6 @@ html {
         z-index: 5;
         width: 12%;
         min-width: 85px;
-        height: 5%;
         font-size: 1rem; }
         @media only screen and (min-width: 768px) {
           .firstScreen .firstScreenInfo .indexGod #createBtn {
@@ -890,21 +890,22 @@ html {
 
 .indexCreateRoleBox {
   border-radius: 15px;
-  border: 2px solid #f05c79;
+  box-shadow:0px 10px 10px rgba(197,121,138, .7);
   background-color: #ecded9;
   display: none;
   flex-direction: column;
   position: fixed;
-  width: 90%;
+  width: 95%;
   z-index: 106;
   left: 0;
   right: 0;
   margin: auto;
-  top: 0;
+  top: 9%;
   bottom: 0;
   max-width: 400px;
   max-height: 555px;
-  height: 80%; }
+  height: 90%; }
+ 
   @media only screen and (min-width: 768px) {
     .indexCreateRoleBox {
       padding: 35px;
@@ -927,7 +928,7 @@ html {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-end;
-        align-items: center; } }
+        transform: translateY(12%); } }
     .indexCreateRoleBox .createRoleScreen .showMyRole {
       background-image: linear-gradient(0deg, #CD9E9A 30%, #FBC5CF 30%);
       padding-bottom: 70%;
@@ -935,7 +936,7 @@ html {
       height: 0; }
       .indexCreateRoleBox .createRoleScreen .showMyRole .myRole {
         width: 50%;
-        margin-top: -15px; }
+        margin-top: -30px; }
         @media only screen and (min-width: 768px) {
           .indexCreateRoleBox .createRoleScreen .showMyRole .myRole {
             width: 70%; } }
@@ -943,7 +944,7 @@ html {
         .indexCreateRoleBox .createRoleScreen .showMyRole {
           width: 45%;
           order: 2;
-          padding-bottom: 47%;
+          padding-bottom: 42%;
           height: 0; 
         border-radius: 10px;} }
     .indexCreateRoleBox .createRoleScreen .createNavList {
@@ -953,7 +954,8 @@ html {
       height: 84%; }
       @media only screen and (min-width: 768px) {
         .indexCreateRoleBox .createRoleScreen .createNavList {
-          width: 50%; } }
+          width: 50%; 
+          transform: translateY(-12%);} }
       .indexCreateRoleBox .createRoleScreen .createNavList #createKindList {
         display: flex; }
         .indexCreateRoleBox .createRoleScreen .createNavList #createKindList li {
@@ -971,14 +973,15 @@ html {
         flex-direction: column;
         justify-content: center;
         background-color: rgba(255,255,255,0.7);
-        margin-right: 5%;
       border-radius:0px 10px 10px 10px;
     padding: 10px;}
         @media only screen and (min-width: 400px) and (max-width: 830px) {}
         .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList {
           display: flex;
-          height: 100%; }
+          height: 36%; }
           @media only screen and (min-width: 768px) {
+            .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll {
+                margin-right: 5%;}
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList {
               height: 100%;
               flex-wrap: wrap; } }
@@ -990,17 +993,56 @@ html {
             background-position: center center;
             background-repeat: no-repeat; 
           border-radius: 50%;}
-            .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:hover{
-              background-color: #a2988f;
-            }
+
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(1) {
-              background-image: url("../images/indexImages/indexBearIcon.svg"); }
+              background-image: url("../images/indexImages/indexBearIcon_gray.svg"); }
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(2) {
-              background-image: url("../images/indexImages/indexRabbitIcon.svg"); }
+              background-image: url("../images/indexImages/indexRabbitIcon_gray.svg"); }
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(3) {
-              background-image: url("../images/indexImages/indexCatIcon.svg"); }
+              background-image: url("../images/indexImages/indexCatIcon_gray.svg"); }
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(4) {
-              background-image: url("../images/indexImages/indexDogIcon.svg"); }
+              background-image: url("../images/indexImages/indexDogIcon_gray.svg"); }     
+              @keyframes puddingmove_roleChoose {
+                0% {
+                    transform: scaleX(1) scaleY(1);
+                }
+                1% {
+                    transform: scaleX(1) scaleY(1);
+                }
+                10% {
+                    transform: scaleX(1.3) scaleY(1);
+                }
+                15% {
+                    transform: scaleX(1) scaleY(1);
+                }
+                20% {
+                    transform: scaleX(1.1) scaleY(0.85);
+                }
+                25% {
+                    transform: scaleX(0.9) scaleY(1.1);
+                }
+                30% {
+                    transform: scaleX(1.05) scaleY(0.95);
+                }
+                35% {
+                    transform: scaleX(0.98) scaleY(1.02);
+                }
+                40% {
+                    transform: scaleX(1) scaleY(1);
+                }
+            }  
+              .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(1):hover {
+                background-image: url("../images/indexImages/indexBearIcon.svg");
+              animation: puddingmove_roleChoose 1.5s ; }
+              .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(2):hover {
+                background-image: url("../images/indexImages/indexRabbitIcon.svg");
+              animation: puddingmove_roleChoose 1.5s ; }
+              .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(3):hover {
+                background-image: url("../images/indexImages/indexCatIcon.svg");
+              animation: puddingmove_roleChoose 1.5s ; }
+              .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li:nth-of-type(4):hover {
+                background-image: url("../images/indexImages/indexDogIcon.svg");
+              animation: puddingmove_roleChoose 1.5s ; }
             @media only screen and (min-width: 768px) {
               .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList li {
                 width: 32%;
@@ -1084,8 +1126,9 @@ html {
     top: 59%;}
     @media only screen and (min-width: 768px) {
       .indexCreateRoleBox #saveRoleBtn {
-        right: 45%;
-        top: 90%; } }
+        transform: translateX(50%);
+        right: 50%;
+        top: 88%; } }
 
 #createMemberScreen {
   display: none;
@@ -1100,7 +1143,7 @@ html {
   max-height: 500px;
   min-height: 80%;
   border-radius: 15px;
-  border: 2px solid #f05c79;
+  box-shadow:0px 10px 10px rgba(197,121,138, .7);
   background-color: #ecded9;
   position: fixed;
   padding: 20px;
@@ -1155,7 +1198,7 @@ html {
         #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) {
           height: 30%; }
           #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(7) textarea {
-            height: 110%;
+            height: 140%;
             width: 100%; 
             border-radius: 10px;
             background-color: #f8d7e6;
@@ -1175,7 +1218,6 @@ html {
     position: absolute;
     width: 20%;
     bottom: 18px;
-    height: 7%;
     left: 0;
     right: 0;
     margin: auto; }
@@ -1309,6 +1351,30 @@ html {
     }
   }
   @media only screen and (max-width: 476px){
+    
+    .firstScreen .firstScreenInfo .indexGod #createBtn{
+      left: 16%;
+    }
+    #createMemberScreen{
+      max-height: 550px;
+      width: 95%;
+      height: 90%;
+      top: 9%;
+    }
+    #createMemberScreen .createMemberBox .createRightForm li{
+      margin-left: 5%;
+    }
+    .indexCreateRoleBox #saveRoleBtn{
+      position: absolute;
+      right: 50%;
+      top: 91%;
+      transform: translateX(50%);
+    }
+    .indexCreateRoleBox .createRoleScreen .createNavList{
+      padding-bottom: 50px;
+      width: 99%;
+      margin:5px auto;
+    }
     .picTitle h2{
       transform: rotate(0deg);
     }
