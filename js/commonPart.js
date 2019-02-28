@@ -797,7 +797,8 @@ function sendForm(memId, memPsw) {
 						break;
 				}
 			}
-
+			//登入成功手機板按鈕字改成登出
+			$id('phoneLogBtn').innerText = '登出';
 		}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
