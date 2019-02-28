@@ -845,7 +845,8 @@ img {
     margin-left: 3%;
     display: flex;
     align-items: center;
-    padding-top: 8%; }
+    padding-top: 8%; 
+    max-width:1200px ;}
     #cart_background .title h2 {
       font-size: 28px;
       font-weight: bolder;
@@ -853,7 +854,8 @@ img {
       margin-left: 20px; }
   #cart_background #cart-content {
     margin: 0px auto;
-    width: 85%; }
+    width: 85%; 
+    max-width: 1200px;}
     @media all and (max-width: 768px) {
       #cart_background #cart-content {
         width: 90%; } }
@@ -870,6 +872,22 @@ img {
         padding: 8px 3%;
         font-weight: bolder;
         width: 10%; }
+        .btn_cancel {
+          width: 100%;
+          border-radius: 12px;
+          background-color: #97837c;
+          box-shadow: 0px 4px 0px #7d655b;
+          text-align: center;
+          cursor: pointer;
+          transition: .3s;
+          border: transparent;
+          color: white;
+          transform: translateY(-4px);
+        }
+        .btn_cancel:hover {    
+          transform: translateY(0px);
+          box-shadow: 0px 0px 0px transparent;
+        }
         @media all and (max-width: 768px) {
           #cart_background #cart-content #tableTitle li {
             width: 18%; } }
@@ -900,7 +918,8 @@ img {
           width: 10%; }
           @media all and (max-width: 768px) {
             #cart_background #cart-content #cartTable ul li {
-              width: 18%; } }
+              width: 18%; 
+              font-size: 0.8rem;} }
           @media all and (max-width: 476px) {
             #cart_background #cart-content #cartTable ul li {
               width: 18%; } }
@@ -961,33 +980,45 @@ img {
       display: flex;
       /* justify-content: flex-end; */
       align-items: center; }
-      #cart_background #cart-content #nowInfo {
+      #cart_background #cart-content #cartForm #nowInfo {
         height: 30px;
         display: flex;
         /* justify-content: flex-end; */
-        align-items: center; }
+        align-items: center; 
+        margin-bottom: 1%;
+      }
 
-      #cart_background #cart-content #totalCost #totalNum{
-        padding-bottom: 5px;
+      #cart_background #cart-content #totalCost span{
+
         border-bottom:2px dotted #c84e6a; 
       }
-      #cart_background #cart-content .cartShow{
-        width: 30%;
-      }
-      #cart_background #cart-content #totalCost #totalMJ{
+      #cart_background #cart-content .cartPanelShow{
+        width: 24%;
         padding-bottom: 5px;
-        border-bottom:2px dotted #c84e6a; 
+        border-bottom: 2px transparent;
+        box-sizing: border-box;
+        margin-right: 8%;
       }
-      #cart_background #cart-content #totalCost #totalspend{
-        padding-bottom: 5px;
-        border-bottom:2px dotted #c84e6a; 
+      @media all and (max-width: 476px) {
+        #cart_background #cart-content .cartPanelShow{
+          width: 45%;
+        }
+        #cart_background #cart-content #totalCost{
+          height: 90px;
+          display: flex;
+          /* justify-content: flex-end; */
+          align-items: center;
+          flex-wrap: wrap;
+
+                
+          }
       }
-      #cart_background #cart-content #totalCost span {
-        margin-right: 6%; }
+
+
       #cart_background #cart-content #totalCost img {
         width: 25px; }
     #cart_background #cart-content #actionBtns {
-      text-align: right;
+      text-align: left;
       margin: 10px 0; }
       #cart_background #cart-content #actionBtns .btn-buy {
         text-decoration: none;
@@ -1007,12 +1038,13 @@ img {
           transform: translateY(4px);
           box-shadow: 0px 0px 0px transparent; }
       #cart_background #cart-content #actionBtns .notEnough {
-        width: 90%;
+        width: 90px;
         border: 0px transparent;
         padding: 10px 10px;
         color: white;
-        border-radius: 5px;
-        background-color: #7d655b; }
+        border-radius: 12px;
+        background-color: #7d655b; 
+        transform: translateY(0px);}
   #cart_background #giftBox {
     box-sizing: border-box;
     border: 3px solid #f4c8db;

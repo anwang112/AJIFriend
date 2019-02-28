@@ -49,7 +49,7 @@ if(isset($_SESSION["memNo"])){
                 <ul id="tableTitle">
                     <li class="flexGrow">商品名稱</li>
                     <li class="li_img">圖片</li>
-                    <li>MJ加值</li>
+                    <li>MJ+</li>
                     <li>代幣</li>
                     <li>異動</li>
                 </ul>
@@ -74,7 +74,7 @@ if(isset($_SESSION["memNo"])){
                             <li><span>+<?php echo $_SESSION["mj"][$i];?></span></li>                            
                             <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
                             <!-- <li><input type="button" value="送禮" class="btn_given"></li> -->
-                            <li><input type="submit" value="刪除" class="btn_delete"></li>
+                            <li><input type="submit" value="刪除" class="btn_cancel"></li>
                         </ul>
                     </form>
 
@@ -89,28 +89,26 @@ if(isset($_SESSION["memNo"])){
                 <hr>
             <form id="cartForm">    
                 <div id="nowInfo">                   
-                    <span id="showMJ" class="cartShow">
+                    <span id="" class="cartPanelShow">
                         目前MJ值：<?php if(isset($_SESSION["memId"])){ echo $_SESSION["mMJ"];}?>
-                    <!-- </span> -->
-                    <span id="showCoin" class="cartShow">
-                        <img src="shop-images/coin.png">
+                    </span>
+                    <span id="" class="cartPanelShow">
                         目前餘額：<?php if(isset($_SESSION["memId"])){ echo $_SESSION["mCoin"];}?>
                     </span>
                 </div>
                 <div id="totalCost">                    
 
-                    <span id="totalMJ" class="cartShow">購物MJ值+： 
+                    <span id="totalMJ" class="cartPanelShow">購物MJ值+： 
                         <?php if(isset($_SESSION["mj"])){echo count($_SESSION["mj"]);}else{
                             echo 0;}?>
                     </span>
-                    <span id="totalNum" class="cartShow">購物數量：
+                    <span id="totalspend" class="cartPanelShow">
+                        購物金額： 
+                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
+                    </span>
+                    <span id="totalNum" class="cartPanelShow">購物數量：
                         <?php if(isset($_SESSION["img"])){echo count($_SESSION["img"]);}else{
                             echo 0;}?>
-                    </span>
-                    <span id="totalspend" class="cartShow">
-                        <img src="shop-images/coin.png">
-                        <span>購物金額：</span> 
-                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
                     </span>
                 </div>
                 <div id="actionBtns">
@@ -121,7 +119,9 @@ if(isset($_SESSION["memNo"])){
                                 $str = '<a href="buyNow.php"><input type="button" value="確認購買" class="btn-buy"></a>';
                                 
                             }else if(isset($_SESSION["img"]) && array_sum($_SESSION["price"])>$_SESSION["mCoin"]){
-                                $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>';
+                                $a =  array_sum($_SESSION["price"]) - $_SESSION["mCoin"];
+                                $str = '<a><input type="button" value="餘額不足" class="notEnough"></a>
+                                <span style="color:red">不足'.$a.'元</span>';
                             }else{
                                 $str = '';
                             }
