@@ -414,7 +414,7 @@ session_start();
                     <input type="password" required name="memPsw" id="memPsw">
                 </li>
                 <li>
-                    <input type="password" required name="memPsw_check" id="memPsw">
+                    <input type="password" required name="memPsw_check" id="memPswDBC">
                 </li>
                 <li>
                     <input type="text" required name="mName" id="mName"><span id="getCheckmName" style="display:none;"></span>

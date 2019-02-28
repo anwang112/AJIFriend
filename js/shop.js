@@ -160,7 +160,7 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
 
 }
 //game
-btnG = document.getElementById('btnloto');
+var btnG = document.getElementById('btnloto');
 
 var timeId;
 var speed = 50;

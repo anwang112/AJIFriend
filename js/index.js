@@ -56,31 +56,31 @@ ooxxEyesGo = (...eyesArray) => {
     eyesArray[1].style.transformOrigin = `center`;
     eyesGo = () => {
         eyesArray[0].animate([{
-                transform: 'scaleY(1)'
-            },
-            {
-                transform: 'scaleY(0.01)'
-            },
-            {
-                transform: 'scaleY(1)'
-            }
+            transform: 'scaleY(1)'
+        },
+        {
+            transform: 'scaleY(0.01)'
+        },
+        {
+            transform: 'scaleY(1)'
+        }
         ], {
-            duration: 500,
-            endDelay: 1000,
-        });
+                duration: 500,
+                endDelay: 1000,
+            });
         eyesArray[1].animate([{
-                transform: 'scaleY(1)'
-            },
-            {
-                transform: 'scaleY(0.01)'
-            },
-            {
-                transform: 'scaleY(1)'
-            }
+            transform: 'scaleY(1)'
+        },
+        {
+            transform: 'scaleY(0.01)'
+        },
+        {
+            transform: 'scaleY(1)'
+        }
         ], {
-            duration: 500,
-            endDelay: 1000,
-        });
+                duration: 500,
+                endDelay: 1000,
+            });
     }
     setInterval(eyesGo, ooxxRandom(2000, 3500));
 }
@@ -143,18 +143,18 @@ indexInit = () => {
                 springHandGoTime++
                 if (springHandGoTime > 150) {
                     springHand.animate([{
-                            transform: `rotate(0) translateX(0)`
-                        },
-                        {
-                            transform: `rotate(-43deg) translateX(29%)`
-                        },
-                        {
-                            transform: `rotate(0) translateX(0)`
-                        }
+                        transform: `rotate(0) translateX(0)`
+                    },
+                    {
+                        transform: `rotate(-43deg) translateX(29%)`
+                    },
+                    {
+                        transform: `rotate(0) translateX(0)`
+                    }
                     ], {
-                        duration: 1000,
-                        endDelay: 500,
-                    });
+                            duration: 1000,
+                            endDelay: 500,
+                        });
                     springHandGoTime = 0;
                 }
                 springHandId = requestAnimationFrame(springHandGo);
@@ -358,25 +358,25 @@ indexInit = () => {
 
         //亂數人的資訊
         chairinfoArray = [{
-                name: "lien",
-                star: "射手座",
-                hobby: "抓寶可夢"
-            },
-            {
-                name: "An",
-                star: "觸女座",
-                hobby: "抓寶可夢"
-            },
-            {
-                name: "ooxx",
-                star: "雙魚座",
-                hobby: "睡覺"
-            },
-            {
-                name: "你好阿",
-                star: "水瓶座",
-                hobby: "奔跑"
-            }
+            name: "lien",
+            star: "射手座",
+            hobby: "抓寶可夢"
+        },
+        {
+            name: "An",
+            star: "觸女座",
+            hobby: "抓寶可夢"
+        },
+        {
+            name: "ooxx",
+            star: "雙魚座",
+            hobby: "睡覺"
+        },
+        {
+            name: "你好阿",
+            star: "水瓶座",
+            hobby: "奔跑"
+        }
         ]
 
         //木馬轉轉開始  
@@ -430,62 +430,62 @@ indexInit = () => {
             switch (ooxxRandom(0, 1)) {
                 case 0:
                     chairLeftHand[0].animate([{
-                            transform: 'rotate(0deg) translateX(0%)'
-                        },
-                        {
-                            transform: 'rotate(-20deg) translateX(15%)'
-                        },
-                        {
-                            transform: 'rotate(0deg) translateX(0%)'
-                        }
+                        transform: 'rotate(0deg) translateX(0%)'
+                    },
+                    {
+                        transform: 'rotate(-20deg) translateX(15%)'
+                    },
+                    {
+                        transform: 'rotate(0deg) translateX(0%)'
+                    }
                     ], {
-                        duration: 800,
-                        // endDelay: 1000,
-                    });
+                            duration: 800,
+                            // endDelay: 1000,
+                        });
                     for (let i = 1; i < chairLeftHand.length; i++) {
                         chairLeftHand[i].animate([{
-                                opacity: '0'
-                            },
-                            {
-                                opacity: '1'
-                            },
-                            {
-                                opacity: '0'
-                            },
+                            opacity: '0'
+                        },
+                        {
+                            opacity: '1'
+                        },
+                        {
+                            opacity: '0'
+                        },
                         ], {
-                            duration: 3000,
-                            delay: 500
-                        });
+                                duration: 3000,
+                                delay: 500
+                            });
                     }
                     break;
                 case 1:
                     chairRightHand[0].animate([{
-                            transform: 'rotate(0deg) translateX(0%)'
-                        },
-                        {
-                            transform: 'rotate(15deg) translateX(-10%)'
-                        },
-                        {
-                            transform: 'rotate(0deg) translateX(0%)'
-                        }
+                        transform: 'rotate(0deg) translateX(0%)'
+                    },
+                    {
+                        transform: 'rotate(15deg) translateX(-10%)'
+                    },
+                    {
+                        transform: 'rotate(0deg) translateX(0%)'
+                    }
                     ], {
-                        duration: 800,
-                        // endDelay: 1000,
-                    });
+                            duration: 800,
+                            // endDelay: 1000,
+                        });
                     for (let i = 1; i < chairRightHand.length; i++) {
                         chairRightHand[i].animate([{
-                                opacity: '0'
-                            },
-                            {
-                                opacity: '1'
-                            },
-                            {
-                                opacity: '0'
-                            },
+                            opacity: '0'
+                        },
+                        {
+                            opacity: '1'
+                        },
+                        {
+                            opacity: '0'
+                        },
                         ], {
-                            duration: 3000,
-                            delay: 500
-                        });
+                                duration: 3000,
+                                delay: 500
+                            });
                     }
                     break;
             }
@@ -804,6 +804,30 @@ indexInit = () => {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //註冊
+    if (storage.getItem('register') == 'true') {
+        setTimeout(() => {
+            $id('indexCreateRoleBox').style.display = 'flex';
+            storage.setItem('register', 'fales');
+        }, 1800);
+    } else {
+        storage.setItem('register', 'fales');
+    }
+    //確保要給我關掉唷
+    $id('indexCreateCloseBtn').addEventListener('click', () => {
+        storage.setItem('register', 'fales');
+    })
+
+    //首頁點擊註冊ㄉ化
+    $id('rigister_send').removeEventListener('click', checkoutPage)
+    $id('rigister_send').addEventListener('click', () => {
+        $id('loginBox').style.display = 'none';
+        $id('lightBoxInner').style.display = 'none';
+        $id('indexCreateRoleBox').style.display = 'flex';
+        $id("loginBox").style.cssText = 'display: block;z-index:14;';
+    })
+
     //換角色
     //關掉創角燈箱
     indexCreateCloseBtn = document.getElementById('indexCreateCloseBtn');
@@ -1094,10 +1118,6 @@ indexInit = () => {
         //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
             var checkedValue = document.querySelector('.hobbyItem:checked').value;
-            if ($id('createMemberBtn').disabled == true) {
-                $('#alertText').text('不能唷!');
-                $('.alertWrap').show();
-            }
             //把表單值塞入物件傳到php
             createRoleData = {
                 memId: $id('memId').value,
@@ -1110,30 +1130,36 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-            console.log(createRoleData);
-            var createxhr = new XMLHttpRequest();
-            createxhr.onload = function () {
-                // checkInfo = JSON.parse(createxhr.responseText);
-                $('#alertText').text('註冊成功!');
+            if ($id('createMemberBtn').disabled == true) {
+                $('#alertText').text('不能唷!');
                 $('.alertWrap').show();
-                $id('createMemberScreen').display = 'none';
-                sendForm($id('memId').value, $id('memPsw').value);
-                // 更新登入者面板
-                document.getElementsByClassName("loginContent")[0].style.display = "";
+            } else {
+                var createxhr = new XMLHttpRequest();
+                createxhr.onload = function () {
+                    // checkInfo = JSON.parse(createxhr.responseText);
+                    $('#alertText').text('註冊成功!');
+                    $('.alertWrap').show();
+                    $id('createMemberScreen').display = 'none';
+                    sendForm($id('memId').value, $id('memPsw').value);
+                    // 更新登入者面板
+                    document.getElementsByClassName("loginContent")[0].style.display = "";
 
-                ooxxGetHead($id("loginHead"), {
-                    animal: storage.getItem("animal"),
-                    color: storage.getItem("mColor"),
-                    eyes: storage.getItem("eye"),
-                });
-                $id("memName").innerText = $id('mName').value;
-                $id("memMJ").innerText = 0;
+                    ooxxGetHead($id("loginHead"), {
+                        animal: storage.getItem("animal"),
+                        color: storage.getItem("mColor"),
+                        eyes: storage.getItem("eye"),
+                    });
+                    $id("memName").innerText = $id('mName').value;
+                    $id("memMJ").innerText = 0;
 
-                $id('createMemberScreen').style.display = 'none';
+                    $id('createMemberScreen').style.display = 'none';
+                }
+                createxhr.open("Post", "setUpMember.php", true);
+                createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
             }
-            createxhr.open("Post", "setUpMember.php", true);
-            createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
+
+
         })
         $id('createMemberScreenCloseBtn').addEventListener('click', () => {
             $id('createMemberScreen').style.display = 'none';
@@ -1430,8 +1456,8 @@ window.onload = function () {
     }, 2000);
 };
 var demo = {
-        score: 0
-    },
+    score: 0
+},
     scoreDisplay = document.getElementById("scoreDisplay1");
 
 //create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
@@ -1442,6 +1468,6 @@ var tween = TweenLite.to(demo, 1.8, {
 
 //each time the tween updates this function will be called.
 function showScore() {
-    scoreDisplay.innerHTML = demo.score.toFixed(0)+'%';
+    scoreDisplay.innerHTML = demo.score.toFixed(0) + '%';
 }
 // window.addEventListener('load', indexInit);

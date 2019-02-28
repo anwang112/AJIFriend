@@ -110,7 +110,7 @@ function head_html() {
 			<input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
-			<input type="submit" value="註冊" class="input_R" id="rigister_send">
+			<input type="button" value="註冊" class="input_R" id="rigister_send">
 			</div>
 			<span id="forget_btn">忘記密碼?</span>
         </form>
@@ -438,6 +438,13 @@ function foot_html() {
 		noticeFriend();
 
 	}
+<<<<<<< HEAD
+=======
+	data = {
+		loginNo: storage.getItem("memNo"),
+	};
+	noticeFriend(data);
+>>>>>>> ooxx
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
@@ -553,18 +560,18 @@ function report(profile) {
 }
 
 // 不知道誰寫的
-function loginPhoto() {
-	var photo = `
-	<script>
-	loginphoto = document.getElementById('loginphoto');
-	ooxxGetHead(loginphoto, {
-		animal:  <?php  echo  $stadRow["animal"];?>,
-		color: '<?php  echo $stadRow["mColor"];?>',
-		eyes: <?php  echo  $stadRow["eye"];?>,
-	})
-	</script>`;
-	document.write(photo);
-}
+// function loginPhoto() {
+// 	var photo = `
+// 	<script>
+// 	loginphoto = document.getElementById('loginphoto');
+// 	ooxxGetHead(loginphoto, {
+// 		animal:  <?php  echo  $stadRow["animal"];?>,
+// 		color: '<?php  echo $stadRow["mColor"];?>',
+// 		eyes: <?php  echo  $stadRow["eye"];?>,
+// 	})
+// 	</script>`;
+// 	document.write(photo);
+// }   擋路 我註解調ㄌ 庸
 
 //  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
 function searchMem(profile) {
@@ -767,6 +774,7 @@ function sendForm(memId, memPsw) {
 			for (var key in user.arr) {
 				storage.setItem(key, user.arr[key]);
 			}
+			//桌機板顯示
 			$id("loginNot").innerText = '登出';
 			ooxxGetHead($id("loginHead"), {
 				animal: storage.getItem("animal"),
@@ -792,7 +800,6 @@ function sendForm(memId, memPsw) {
 						break;
 				}
 			}
-
 		}
 	}
 	xhr.open("Post", "ajaxLogin.php", true);
@@ -1373,7 +1380,7 @@ window.addEventListener('load', function () {
 
 
 	//手機版menu收合操控 start--by ga
-	var control_openMenu = false;
+	control_openMenu = false;
 	btn_menu_menu.addEventListener('click', function () {
 		if (control_openMenu == false) {			
 			//先把訊息收起來
@@ -1388,13 +1395,7 @@ window.addEventListener('load', function () {
 		}
 	});
 
-	//手機版漢堡打開點擊登入紐 by庸
-	$id('phoneLogBtn').addEventListener('click', () => {
-		$id('menu_phone').style.transform = 'translateX(-100%)';
-		$id('loginBox').style.display = 'block';
-		$id('lightBoxInner').style.display = 'block';
-		$id('lightBoxInner').style.opacity = '1';
-	})
+
 
 
 
@@ -2064,6 +2065,7 @@ window.addEventListener('load', () => {
 
 
 //好友通知
+<<<<<<< HEAD
 function noticeFriend(){
     if(storage.getItem("memNo")){
 		var xhr = new XMLHttpRequest();
@@ -2084,5 +2086,65 @@ function noticeFriend(){
     xhr.open("Post", "notice.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("data=" +storage.getItem("memNo"));
+=======
+function noticeFriend(data) {
+	if (storage.getItem("memNo")) {
+		var xhr = new XMLHttpRequest();
+
+		xhr.onload = function () {
+			console.log(parseInt(xhr.responseText));
+			if (parseInt(xhr.responseText) == 0) {
+				document.getElementById('mail').style.cssText = "display:none"
+			} else {
+				document.getElementById('mail').style.cssText = "display:block"
+				document.getElementById('noticeNum').innerText = xhr.responseText;
+			}
+
+		}
+		xhr.open("Post", "notice.php", true);
+		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+		xhr.send("data=" + JSON.stringify(data));
+	}
+
+>>>>>>> ooxx
 
 };
+
+//手機板登入顯示判斷 --by庸 02/28
+window.addEventListener('load', () => {
+	if (storage.getItem("memId")) {
+		$id('phoneLogBtn').innerText = "登出";
+	}
+	//------------------------------------------------
+	//手機板登出
+	$id('phoneLogBtn').addEventListener('click', () => {
+		if ($id('phoneLogBtn').innerText == "登出") {
+			storage.clear();
+			$id('phoneLogBtn').innerText = "登入";
+			window.location.reload();
+		} else {
+			// $id('menu_phone').style.transform = 'translateX(-100%)';
+			$id('loginBox').style.display = 'block';
+			$id('lightBoxInner').style.display = 'block';
+			$id('lightBoxInner').style.opacity = '1';
+		}
+		if (control_openMenu == false) {
+			$id('menu_phone').style.cssText = "transform: translateX(0%)";
+			control_openMenu = true;
+		} else {
+			$id('menu_phone').style.cssText = "transform: translateX(-100%)";
+			control_openMenu = false;
+		}
+	})
+
+
+	//註冊按鈕點擊跳到首頁並且要燈箱要打開唷
+	//原本都是關掉唷
+	checkoutPage = () => {
+
+		storage.setItem('register', 'true');
+		document.location = "home.php";
+
+	}
+	$id('rigister_send').addEventListener('click', checkoutPage)
+})
