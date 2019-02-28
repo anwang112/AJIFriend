@@ -62,121 +62,166 @@ function reBtn(){
     }
 }
 
-function comDB(memNo, actNoGet, txtGet) {
+// function comDB(memNo, actNoGet, txtGet) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (xhr.responseText == "null") {
+//             alert('xhr有錯誤喔');
+//         } else {
+//             //寫入前清除
+//             var myMessagebox = $id('myMessagebox');
+//             if (myMessagebox.hasChildNodes) {
+//                 divs = document.getElementsByClassName('dddd');
+//                 console.log(divs)
+//                 for (var i = 0; i < document.getElementsByClassName('dddd').length; i++) {
+//                     divs[i].remove();
+//                     console.log('dddd')
+//                 }
+//             }
+//             //寫入
+//             var comments = JSON.parse(xhr.responseText);
+//             var str = '';
+//             // alert(comments.arr);
+//             var strAll = [];
+
+//             if (comments.arr == undefined) {//沒有內容 印尚未有留言
+//                 str += "尚未有留言喔～～"
+//             } else {
+//                 for (var i = 0; i < comments.arr.length; i++) {
+//                     //印出來名字跟聊天內容
+//                     strAll[i] = comments.arr[i].split(",");
+//                     // str += `<div>`;
+//                     // str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
+//                     str += `<span style="padding:10px 10px;">`;
+//                     str += `${strAll[i][0]}:`;
+//                     str += `${strAll[i][4]}`;
+//                     str += `</span>`;
+
+//                     //印出大頭
+
+//                     // rrr = document.getElementById('theUserBBB'+i);
+//                     // ooxxGetHead(rrr, {
+//                     //     animal:  strAll[i][1],
+//                     //     color: strAll[i][3],
+//                     //     eyes: strAll[i][2],
+//                     // });
+//                     // profile = {
+//                     //     memId: comments.arr[0][i],
+//                     //     loginMemNo: comments.arr[5][i],
+//                     // };
+//                     // console.log(profile);
+//                 }
+//             }
+
+//             var myMessagebox = $id('myMessagebox');
+//             var div = document.createElement('div');
+//             div.setAttribute('class', 'dddd');
+//             div.innerHTML = str;
+//             myMessagebox.appendChild(div);
+
+
+//             //載入點擊頭像顯示個人頁面
+//             // for (let i = 0; i < document.getElementsByClassName('roadHead').length; i++) {
+//             //     document.getElementsByClassName('roadHead')[i].addEventListener('click', () => {
+
+
+//             //         searchMem(profile);
+//             //     })
+//             // }
+
+
+
+
+
+//             // console.log( strAll );
+//             var myMessagebox_input = $id('myMessagebox_input');
+//             myMessagebox_input.value = '';
+
+//             boxScroll(myMessagebox);
+
+//         }
+//     }
+//     xhr.open("post", "comment.php", true);
+//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+//     var actBoxObj = {
+//         memNo: memNo,
+//         actNO: actNoGet,
+//         txt: txtGet,
+//     };
+
+//     xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));
+// }
+
+var numm=0;
+function sendCom(memNo,actNo,txt){
+    console.log(memNo);
+    // alert(txt);
     var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.responseText == "null") {
-            alert('xhr有錯誤喔');
-        } else {
-            //寫入前清除
-            var myMessagebox = $id('myMessagebox');
-            if (myMessagebox.hasChildNodes) {
-                divs = document.getElementsByClassName('dddd');
-                console.log(divs)
-                for (var i = 0; i < document.getElementsByClassName('dddd').length; i++) {
-                    divs[i].remove();
-                    console.log('dddd')
-                }
-            }
-            //寫入
-            var comments = JSON.parse(xhr.responseText);
-            var str = '';
+    xhr.onload=function (){
+        if( xhr.responseText == "null" ){
+           alert('xhr有錯誤喔');
+        }else{
+            //印出一筆
+            var comments= JSON.parse(xhr.responseText);
+            // alert(xhr.responseText);
+            var str ='';
             // alert(comments.arr);
             var strAll = [];
 
-            if (comments.arr == undefined) {//沒有內容 印尚未有留言
+            if( comments.arr == undefined){//沒有內容 印尚未有留言
                 str += "尚未有留言喔～～"
-            } else {
-                for (var i = 0; i < comments.arr.length; i++) {
+            }else{
+                for( var i=0;i<comments.arr.length;i++){
                     //印出來名字跟聊天內容
                     strAll[i] = comments.arr[i].split(",");
                     // str += `<div>`;
-                    // str += `<div class="headBoxOut"><div class="headBox" id="theUserBBB${i}"></div></div>`;
-                    str += `<span style="padding:10px 10px;">`;
-                    str += `${strAll[i][0]}:`;
-                    str += `${strAll[i][4]}`;
-                    str += `</span>`;
 
-                    //印出大頭
-
-                    // rrr = document.getElementById('theUserBBB'+i);
-                    // ooxxGetHead(rrr, {
-                    //     animal:  strAll[i][1],
-                    //     color: strAll[i][3],
-                    //     eyes: strAll[i][2],
-                    // });
-                    // profile = {
-                    //     memId: comments.arr[0][i],
-                    //     loginMemNo: comments.arr[5][i],
-                    // };
-                    // console.log(profile);
+                    str += `<div class="headBox commentHead" id="theUserCCC${numm}"></div>`;
+                    str +=`<div class="commentBox">`;
+                    str += `<p class="commentName">${strAll[i][0]}</p>`;
+                    str += `<p class="commentText">${strAll[i][4]}</p>`;
+                    str += `</div>`;
                 }
             }
-
+            // var num = giftTa_chooseBox.children.length;
+            // var datalength = friendArr.length;
+            
             var myMessagebox = $id('myMessagebox');
             var div = document.createElement('div');
-            div.setAttribute('class', 'dddd');
-            div.innerHTML = str;
+            div.setAttribute('class','commentItem');
+            div.innerHTML =  str;
             myMessagebox.appendChild(div);
 
-
-            //載入點擊頭像顯示個人頁面
-            // for (let i = 0; i < document.getElementsByClassName('roadHead').length; i++) {
-            //     document.getElementsByClassName('roadHead')[i].addEventListener('click', () => {
-
-
-            //         searchMem(profile);
-            //     })
-            // }
-
-
-
-
-
+            for(var i=0;i<comments.arr.length;i++){
+                //印出大頭
+                rrr = document.getElementById('theUserCCC'+numm);
+                ooxxGetHead(rrr, {
+                    animal:  strAll[i][1],
+                    color: strAll[i][3],
+                    eyes: strAll[i][2],
+                });  
+            }
+            numm++;
+            
             // console.log( strAll );
             var myMessagebox_input = $id('myMessagebox_input');
             myMessagebox_input.value = '';
 
             boxScroll(myMessagebox);
-
         }
-    }
-    xhr.open("post", "comment.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   }
 
-    var actBoxObj = {
-        memNo: memNo,
-        actNO: actNoGet,
-        txt: txtGet,
-    };
-
-    xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));
-}
-
-function sendCom(memNo, actNo, txt) {
-    // alert(txt);
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.responseText == "null") {
-            alert('xhr有錯誤喔');
-        } else {
-            // console.log("xhr:"+xhr.responseText);
-            // console.log(txt);
-            comDB(memNo, actNo, txt);
-
-        }
-    }
-
-    var actBoxObj = {
-        memNo: memNo,
-        actNO: actNo,
+   var actBoxObj = {
+        memNo : memNo ,
+        actNO : actNo ,
         txt: txt,
     };
 
 
     xhr.open("post", "comInsert.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send( "actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
 }
 
 function JoinActTo(actNo, member) {
@@ -467,8 +512,8 @@ function reBtn() {
 
 
 }
-// 留言
-function comDB(memNo, actNoGet) {
+// 留言 work中
+function comDB(memNo, actNoGet,txt) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
 
@@ -517,17 +562,31 @@ function comDB(memNo, actNoGet) {
                     $id("myMessagebox").innerHTML = str;
                     //印出大頭
 
-                    ooxxGetHead($id(`commentHead${i}`), {
-                        animal: animal[i],
-                        color: color[i],
-                        eyes: eye[i],
-                    });
+                    // ooxxGetHead($id(`commentHead${i}`), {
+                    //     animal: animal[i],
+                    //     color: color[i],
+                    //     eyes: eye[i],
+                    // });
                 }
             }
 
             $id("myMessagebox_input").value = '';
             boxScroll($id("myMessagebox"));
 
+           uuxxuu = 0;
+///
+            getmesheadgo =()=>{
+                if(uuxxuu == name.length - 1){
+                    clearInterval(getmeshead);
+                }
+                ooxxGetHead($id(`commentHead${uuxxuu}`), {
+                    animal: animal[uuxxuu],
+                    color: color[uuxxuu],
+                    eyes: eye[uuxxuu],
+                });
+                uuxxuu++;
+            }
+            getmeshead = setInterval(getmesheadgo,1);
         }
     }
     xhr.open("post", "comment.php", true);
@@ -541,27 +600,27 @@ function comDB(memNo, actNoGet) {
     xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));
 }
 
-function sendCom(memNo, actNo, txt) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.responseText == "123") {
-        } else {
-            comDB(memNo, actNo);
+// function sendCom(memNo, actNo, txt) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (xhr.responseText == "123") {
+//         } else {
+//             comDB(memNo, actNo);
 
-        }
-    };
+//         }
+//     };
 
-    var actBoxObj = {
-        memNo: memNo,
-        actNO: actNo,
-        txt: txt,
-    };
+//     var actBoxObj = {
+//         memNo: memNo,
+//         actNO: actNo,
+//         txt: txt,
+//     };
 
 
-    xhr.open("post", "comInsert.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
-}
+//     xhr.open("post", "comInsert.php", true);
+//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhr.send("actBoxObj=" + JSON.stringify(actBoxObj));//轉成字串送到php
+// }
 
 function JoinActTo(actNo, member) {
     console.log(actNo);
@@ -828,7 +887,8 @@ function allAct_more(no) {
         // alert(actImgValue);
 
         var memNo = storage.getItem("memNo");
-        comDB(memNo,no);
+        comDB(memNo,no,'');
+        // comDB(memNo,no);
         $id("indexActCloseBtn").onclick=CloseLightActBox;
         // $id("loginBox").style.cssText = 'display: block;z-index:14;';
 }
@@ -1064,6 +1124,7 @@ window.addEventListener('load', function () {
                 txt = myMessagebox_input.value;
                 actNo = myMessagebox_inputNone.value;
                 var memNo = storage.getItem("memNo");
+                // alert(memNo);
                 sendCom(memNo,actNo,txt);
 
             }else{

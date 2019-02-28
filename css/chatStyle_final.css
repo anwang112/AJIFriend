@@ -9,6 +9,10 @@
     bottom: 108%;
 } */
 
+.game {
+    box-shadow: 0px 10px 10px rgba(197,121,138, .7);
+}
+
 #chooseId #rwd_showCart a p {
     color: #f05c79;
 }
