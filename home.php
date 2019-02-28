@@ -20,6 +20,7 @@ session_start();
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <link rel="stylesheet" href="css/match2.css">
 
     <title>熊麻吉</title>
 </head>
@@ -48,9 +49,10 @@ session_start();
                 <div class="dog"></div>
             </div>
         </div>
+        <div id="scoreDisplay1"></div>
     </div>
-    <div id="scoreDisplay1"></div>
-    </div>
+   
+   
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
