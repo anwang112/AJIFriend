@@ -1140,7 +1140,7 @@ indexInit = () => {
 
             if ($id('getCheckmemId').innerHTML == '可以使用') {
                 //判斷是否有值才能送出製作
-                if ((createRoleData.constellation == "") && (createRoleData.hobby == "")&&(createRoleData.memPsw == "")&&(createRoleData.mName == "")) {
+                if ((createRoleData.constellation == "") || (createRoleData.hobby == "")||(createRoleData.memPsw == "")||(createRoleData.mName == "")) {
                     $('#alertText').text('有東西沒有填唷!');
                     $('.alertWrap').show();
                 } else {
