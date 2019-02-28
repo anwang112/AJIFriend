@@ -64,6 +64,9 @@
         right: 25%;
         bottom: 47%;
     }
+    .btn {
+        line-height: 35px;
+    }
 }
 
 
@@ -135,7 +138,7 @@
     }
     #chooseId #chooseArea {
         position: relative;
-        top: -31px;
+        top: 0px;
     }
     #productBlock #productsArea {
         width: 100%;

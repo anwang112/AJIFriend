@@ -720,9 +720,10 @@ input::placeholder{
 .chatboxLeft {
     width: 80%;
     height: 423px;
-    background-color: #FCC6D0;
-    border-top: 4px solid #f05c79;
-    border-left: 4px solid #f05c79;
+    background-color: #FAE8F0;
+    /* border-top: 4px solid rgba(197, 121, 138,.5);
+    border-left: 4px solid rgba(197, 121, 138,.5); */
+    box-shadow: -7px -2px 2px 4px rgba(197, 121, 138,.5);
     border-radius: 15px 0 0 15px;
     opacity: 1;
     position: fixed;
