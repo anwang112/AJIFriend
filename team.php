@@ -60,7 +60,7 @@
                 <div class="mWrap">
                 <div class="memInfo">
                         <p class="infoTitle"><span class="name">連宗聖 </span><span>(邏輯大師)</span></p>
-                        <span class="email">anwang112@gmail.com</span>
+                        <span class="email">k1319900103@gmail.com</span>
                         <div class="infoItem">
                             <div class="infoLeft">
                         <p> 

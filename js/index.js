@@ -1475,13 +1475,13 @@ var demo = {
     scoreDisplay = document.getElementById("scoreDisplay1");
 
 //create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
-var tween = TweenLite.to(demo, 1.8, {
+var tween = TweenLite.to(demo, 1.9, {
     score: 100,
     onUpdate: showScore
 })
 
 //each time the tween updates this function will be called.
 function showScore() {
-    scoreDisplay.innerHTML = demo.score.toFixed(0) + '%';
+    scoreDisplay.innerHTML = demo.score.toFixed(0) + ' %';
 }
 // window.addEventListener('load', indexInit);
