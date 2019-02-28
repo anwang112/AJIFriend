@@ -38,11 +38,7 @@
         margin-bottom: 10px;
         color: brown;
     }
-    .commentText{
-        font-size: 17px;
-        color: #555;
-        padding-left: 18px;
-    }
+
 
     </style>
     <title>activity</title>

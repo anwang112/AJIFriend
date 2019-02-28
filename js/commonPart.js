@@ -355,17 +355,10 @@ function foot_html() {
             <div id="friendPic" class="headBox chatTaHead" alt="朋友大頭照"></div>
             <input type="hidden" id="chatTaNo">
 			<span id="mem-2" class="2"></span>
-	        
-	        <a id="btn_memData"><img src="pic/chatroom_btn_profile.svg" alt="查看個人檔案按鍵"></a>
+
 	    </div> 
 	    <div class="chatboxRight">
 	        <div class="chatbox_show">
-	        </div>
-	        <div class="chatbox_faces">
-	            <img src="pic/chatroom_face_01.svg" alt="喜">
-	            <img src="pic/chatroom_face_02.svg" alt="怒">
-	            <img src="pic/chatroom_face_03.svg" alt="哀">
-	            <img src="pic/chatroom_face_04.svg" alt="樂">
 	        </div>
 	        <div class="chatbox_input">
 	            <input id="chatTxt_input" type="text">
@@ -437,12 +430,14 @@ function foot_html() {
 
 	if (storage.getItem("memNo")) {
 		friendList(storage.getItem("memNo"));
-		requireBack(storage.getItem("memNo"));
+		requireBack(storage.getItem("memNo"));		
+		data={
+			loginNo:storage.getItem("memNo"),
+		};
+		noticeFunc = setInterval(noticeFriend,3000);
+		noticeFriend();
+
 	}
-	data = {
-		loginNo: storage.getItem("memNo"),
-	};
-	noticeFriend(data);
 }
 
 //這是判斷朋友的ＢＴＮ  --by An
@@ -1356,14 +1351,19 @@ window.addEventListener('load', function () {
 	//手機版聊天室收合操控 start--by ga
 	var control_openChat = false;
 	btn_chatroom_phone.addEventListener('click', function () {
-		if (control_openChat == false) {
+		if (control_openChat == false) { //手機版聊天室打開
+			//先把漢堡menu收起來
+			menu_phone.style.cssText = "transform: translateX(-100%)";
+			control_openMenu = false;
+
 			chatRoom_phone_part1.style.cssText = " top: 8vh;opacity:1";
+			control_openChat = true;
 			friendList(storage.getItem("memNo"));
 			requireBack(storage.getItem("memNo"));
 
 			boxScroll($id("rwd_chatbox"));
-			control_openChat = true;
-		} else {
+			
+		} else { //手機版聊天室收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
 		}
@@ -1375,7 +1375,11 @@ window.addEventListener('load', function () {
 	//手機版menu收合操控 start--by ga
 	control_openMenu = false;
 	btn_menu_menu.addEventListener('click', function () {
-		if (control_openMenu == false) {
+		if (control_openMenu == false) {			
+			//先把訊息收起來
+			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
+			control_openChat = false;
+
 			menu_phone.style.cssText = "transform: translateX(0%)";
 			control_openMenu = true;
 		} else {
@@ -1588,7 +1592,9 @@ window.addEventListener('load', function () {
 	// 桌機送出訊息(按送出) --ga
 	chatTxt_send.addEventListener('click', function () {
 		var txt = chatTxt_input.value;
-		sendMsg(txt);
+		if (chatTxt_input.value != "") {
+			sendMsg(txt);
+		}
 
 	}, false);
 
@@ -1598,8 +1604,20 @@ window.addEventListener('load', function () {
 		sendMsg(txt);
 	}, false);
 
+	// 聊天室頭貼點擊查看個人檔案
+	$id("rwd_chatTaName").addEventListener("click", function () {
+		if (storage.getItem("chatTaId")) {
+			openLB_memData(storage.getItem("chatTaId"));
+		}
+	}, false);	
 
-	$id("btn_memData").addEventListener("click", function () {
+	$id("rwd_chatTaHead").addEventListener("click", function () {
+		if (storage.getItem("chatTaId")) {
+			openLB_memData(storage.getItem("chatTaId"));
+		}
+	}, false);	
+	var chatRoom_info = document.getElementsByClassName("chatRoom_info")[0];
+	chatRoom_info.addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
@@ -1655,6 +1673,7 @@ window.addEventListener('load', function () {
 					$('.alertWrap').show();
 					$id("loginNot").innerText = '登入';
 					window.location.reload();
+					clearInterval(noticeFunc);
 				}
 			};
 			xhr.open("Post", "ajaxLogout.php", true);
@@ -2039,25 +2058,26 @@ window.addEventListener('load', () => {
 
 
 //好友通知
-function noticeFriend(data) {
-	if (storage.getItem("memNo")) {
+function noticeFriend(){
+    if(storage.getItem("memNo")){
 		var xhr = new XMLHttpRequest();
-
-		xhr.onload = function () {
-			console.log(parseInt(xhr.responseText));
-			if (parseInt(xhr.responseText) == 0) {
-				document.getElementById('mail').style.cssText = "display:none"
-			} else {
-				document.getElementById('mail').style.cssText = "display:block"
-				document.getElementById('noticeNum').innerText = xhr.responseText;
-			}
-
-		}
-		xhr.open("Post", "notice.php", true);
-		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-		xhr.send("data=" + JSON.stringify(data));
-	}
-
+		
+    xhr.onload = function () {
+		console.log("好友通知reload");
+		console.log( parseInt( xhr.responseText));
+            if(parseInt( xhr.responseText )== 0){
+                document.getElementById('mail').style.cssText = "display:none";
+            }else{
+                document.getElementById('mail').style.cssText = "display:block";
+                document.getElementById('noticeNum').innerText = xhr.responseText;
+            }
+            
+        }
+    }
+    
+    xhr.open("Post", "notice.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" +storage.getItem("memNo"));
 
 };
 

@@ -85,7 +85,7 @@ function comDB(memNo, actNoGet, txtGet) {
             var strAll = [];
 
             if (comments.arr == undefined) {//沒有內容 印尚未有留言
-                str += "尚未有留言喔～～"
+                str += "尚未有留言喔～～";
             } else {
                 for (var i = 0; i < comments.arr.length; i++) {
                     //印出來名字跟聊天內容
@@ -1072,16 +1072,17 @@ window.addEventListener('load', function () {
     var userInput_send = $id('userInput_send');
     var myMessagebox_input = $id('myMessagebox_input');
     var myMessagebox_inputNone = $id('myMessagebox_inputNone');
-    myMessagebox_input.addEventListener('keydown', function (e) {
-        if (e.keyCode == 13) {//enter代碼
-            if (storage.getItem("memNo")) {
-                var txt = '';
-                txt = myMessagebox_input.value;
-                actNo = myMessagebox_inputNone.value;
-                var memNo = storage.getItem("memNo");
-                sendCom(memNo, actNo, txt);
-
-            } else {
+    myMessagebox_input.addEventListener('keydown',function(e){
+        if(e.keyCode == 13 ){//enter代碼
+            var txt = '';
+            txt = myMessagebox_input.value;
+            if(storage.getItem("memNo")){
+                if(txt!=''){
+                    actNo = myMessagebox_inputNone.value;
+                    var memNo = storage.getItem("memNo");
+                    sendCom(memNo,actNo,txt);
+                }
+            }else{
                 $('#alertText').text('請先登入!');
                 $('.alertWrap').show();
             }

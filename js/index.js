@@ -810,7 +810,7 @@ indexInit = () => {
         setTimeout(() => {
             $id('indexCreateRoleBox').style.display = 'flex';
             storage.setItem('register', 'fales');
-        }, 1800);
+        }, 800);
     } else {
         storage.setItem('register', 'fales');
     }
