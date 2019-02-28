@@ -50,7 +50,18 @@ session_start();
                 <div id="showModel" class="roleBox">
                     
                 </div>
-
+                <?php
+                    echo '<script>
+                    ooxxGetRole($id("showModel"), {
+                        animal: 1,
+                        color:"24A4C0",
+                        eyes:1,
+                        hat:0,
+                        clothes:0,
+                        });
+                        
+                    </script>'
+                ?>
                 <!-- 前往購物車 -->
                 <div id="rwd_showCart">
                     <a href="BearMJ_cartShow.php">
@@ -215,8 +226,8 @@ session_start();
 
     <script>
         foot_html();  
+        getProducts(1,1);
         if( storage.getItem("memNo") ){
-            getProducts(1,1);
             changeModel(storage.getItem("memNo"));
         }
      //試穿角色顯示	

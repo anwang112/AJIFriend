@@ -15,15 +15,13 @@ try {
         }else{
             
             echo $OStaRow["count(*)"];
-        }
-    
+        }    
 
 } catch (PDOException $e) {
     echo $e->getMessage();
     $errMsg .= "錯誤 : " . $e->getMessage() . "<br>";
     $errMsg .= "行號 : " . $e->getLine() . "<br>";
 }
-
 
 ?>
 
