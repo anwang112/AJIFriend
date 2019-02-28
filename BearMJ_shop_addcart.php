@@ -126,22 +126,21 @@ session_start();
                 <div id="productsArea">
                     <div id="actionPanel">
                         <!-- 選朋友來試穿(送禮) -->
-                        <div id="" class="choose-friend gift">
+                        <div id="" class="choose-friend gift btn">
                             <div class="btn_chooseModel" >
-                                <img src="shop-images/gift.png">
                                 <span class="wearChange">麻吉</span>
                             </div>
 
                         </div>
                             <!-- 試穿角色暱稱顯示區塊 -->
-                            <p id="rwd-showName" class="gift">
-                                <?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?>
+                            <p id="rwd-showName" class="gift btn">
+                                <?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];}else{echo '請先登入';} ?>
                             </p>
                         <!-- 前往購物車 -->
-                        <div id="showCart">
-                            <a href="BearMJ_cartShow.php">
-                                <img src="shop-images/cart_pink.png">
-                                <p>查看</p>
+                        <div id="showCart" class="btn">
+                            <a>
+                                <img src="shop-images/cart.png">
+                                <p>購物車</p>
                             </a>
                         </div>
 
@@ -260,9 +259,27 @@ session_start();
     console.log(window.screen.availWidth);
 
     function init(){
+        $id("showCart").addEventListener("click",function(){
+            if(storage.getItem("memNo")){
+                document.location.href="BearMJ_cartShow.php";
+            }else{
+                $('#alertText').text('請先登入!');
+                $('.alertWrap').show();
+            }
+        },false);
+
+        
         var choose = document.getElementsByClassName("gift");
         for(var i = 0 ; i < choose.length ; i++){
-            choose[i].addEventListener("click",showfriendBox);
+            if(storage.getItem("memNo")){
+                choose[i].addEventListener("click",showfriendBox);
+            }else{
+                choose[i].addEventListener("click",function(){
+                    $('#alertText').text('請先登入!');
+                    $('.alertWrap').show();
+
+                },false);
+            }
         }
 
 
