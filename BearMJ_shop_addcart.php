@@ -49,6 +49,18 @@ session_start();
                 <div id="showModel" class="roleBox">
                     
                 </div>
+                <?php
+                    echo '<script>
+                    ooxxGetRole($id("showModel"), {
+                        animal: 1,
+                        color:"24A4C0",
+                        eyes:1,
+                        hat:0,
+                        clothes:0,
+                        });
+                        
+                    </script>'
+                ?>
 
                 <!-- 前往購物車 -->
                 <div id="rwd_showCart">

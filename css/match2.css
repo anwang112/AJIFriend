@@ -667,7 +667,7 @@ display: block;
   .majiRank .rankContent .rankItem {
     flex-flow: column; }
   .searchWrap #searData .sRole {
-    width: 73%; }
+    width: 45%; }
   #searData .searchClose {
     right: 16px;
     top: 48px; }
