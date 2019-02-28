@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/activity2.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
-    <!-- <link rel="stylesheet" href="css/activity_final.css"> -->
+    <link rel="stylesheet" href="css/activity_final.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/package/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
@@ -25,7 +25,6 @@
     <script src="js/commonPart.js"></script>
     <!-- <script src="js/commonPart.js"></script> -->
     <style>
-
     .commentHead{
         max-width: 8%;
     }
@@ -131,6 +130,7 @@
                 <div id="lightbox_act" class="lightbox_act">
                     
                     <div id="lightbox_act_info" class="lightbox_act_info">
+                    <div id="indexActCloseBtn03" class="lightBoxXX"></div>
                         <?php if($actImg == null){?>
                             <img id="imgBoxImg_B" src="images/act_number02B.svg" alt="資料庫預設圖">
                         <?php }else{ ?>
@@ -218,6 +218,7 @@
 
             <div id="lightbox_holdact" class="lightbox_holdact">
                 <div id="lightbox_holdact_info" class="lightbox_holdact_info">
+                <div id="indexActCloseBtn02" class="lightBoxXX"></div>
                     <h2>舉辦活動</h2>
                     <form action="actInser.php" method="post" enctype="multipart/form-data">
                         <div class="holderPic">
@@ -231,11 +232,11 @@
                         </div>
                         
                         <label class="label2" for="">Step2_填寫活動介紹<br>
-                            <input type="text" class="input_R" name="actTitle" placeholder="活動名稱">
-                            <input id="actIntro" type="text" class="input_R" name="actIntro" placeholder="活動介紹">
-                            <input type="text" class="input_R" name="actLoc" placeholder="地點">
-                            <input type="date" class="input_R" name="act_begin" placeholder="開始時間">
-                            <input type="date" class="input_R" name="act_end" placeholder="結束時間">
+                            <input type="text" class="input_R" name="actTitle" placeholder="活動名稱" required="required">
+                            <input id="actIntro" type="text" class="input_R" name="actIntro" placeholder="活動介紹" required="required">
+                            <input type="text" class="input_R" name="actLoc" placeholder="地點" required="required">
+                            <input type="date" class="input_R" name="act_begin" placeholder="開始時間" required="required">
+                            <input type="date" class="input_R" name="act_end" placeholder="結束時間" required="required">
                             <input type="submit" class="btn" placeholder="確定">
                         </label>
                     </form>
@@ -252,7 +253,6 @@
                                 reader.onload = function(){
                                     // alert(reader.result);
                                     // var act_holdActFileBox = $id('act_holdActFileBox');
-                                    $id("act_holdActFileBox").style.cssText = `padding-bottom: 27%;`;
                                     $id("act_holdActFileBox").src = reader.result;
                                     // act_holdActFileBox.style.cssText = `
                                     // background-image: url('images/activity/${reader.result});
@@ -281,16 +281,16 @@
                             <span class="spanbox_title">發起人</span><span class="spanbox_content"></span>
                             <span class="spanbox_title">地點</span><span class="spanbox_content"></span>
                             <span class="spanbox_title">時間</span><span class="spanbox_content"></span>
-                            <span class="spanbox_title">活動介紹</span><span class="spanbox_content"></span>
+                            <span class="spanbox_title" >活動介紹</span><span class="spanbox_content" id="spanbox_title_context"></span>
                             <!-- <span id="actJoinCount">人數:{{}}</span> -->
-                            <span class="spanbox_title">獎勵</span>
+                            <!-- <span class="spanbox_title">獎勵</span> -->
                         </div>
                     </div>
                     <div class="acts_lightbox_down">
                          <button id="btn_ActJoinToDB" class="btn">報名</button>
                             <input  type="hidden" id ="lightBox_actNo"value="">
                             <input id="userInput03" type="hidden" value="<?php if(isset($_SESSION["memNo"])){ echo $_SESSION["memNo"];}?>"> <!-- 之後把會員存在這個value -->
-                        <span id="msgtitle">留言區</span>
+                        <!-- <span id="msgtitle">留言區</span> -->
                         <div id="myMessagebox" class="messagebox">
 
                         </div>

@@ -1164,6 +1164,7 @@ window.addEventListener('load',function(){
     //actbox01
     var lightbox_act = $id('lightbox_act');
     var lightbox_act_info = $id('lightbox_act_info');
+    var indexActCloseBtn03 =$id('indexActCloseBtn03');
 
     imgBoxImg.addEventListener('click',function(e){
 
@@ -1180,6 +1181,10 @@ window.addEventListener('load',function(){
             lightbox_act.style.cssText="display:none;z-index:-1;";
             lightbox_act_info.style.cssText="display:none;z-index:-1;";
         },false);
+        indexActCloseBtn03.addEventListener('click',function(){
+            lightbox_act.style.cssText="display:none;z-index:-1;";
+            lightbox_act_info.style.cssText="display:none;z-index:-1;";
+        },false);
         // var thisSrc = e.target.src;
         // imgBoxImg_B.src = thisSrc ;
 
@@ -1188,12 +1193,11 @@ window.addEventListener('load',function(){
     //actbox02
     var lightbox_holdact = $id('lightbox_holdact');
     var lightbox_holdact_info = $id('lightbox_holdact_info');
+    var indexActCloseBtn02 = $id('indexActCloseBtn02');
     var btn_holdAct=$id('btn_holdAct');
     var act_memberHold = $id('act_memberHold');
     // console.log(lightbox_holdact_info.scrollTop);
     btn_holdAct.addEventListener('click',function(e){
-
-
         if(storage.getItem("memNo")){
             window.scrollTo(0,(act_memberHold.offsetTop+400));
             console.log(act_memberHold.offsetTop);
@@ -1212,8 +1216,12 @@ window.addEventListener('load',function(){
             $('#alertText').text('請先登入!');
             $('.alertWrap').show();
         }
-
     },false);
+    indexActCloseBtn02.addEventListener('click',function(){
+        lightbox_holdact.style.cssText="display:none;z-index:-1;";
+        lightbox_holdact_info.style.cssText="display:none;z-index:-1;";
+    },false);
+
     
     //actbox03
     var lightbox_actsCheckout_outside = $id('lightbox_actsCheckout_outside');
