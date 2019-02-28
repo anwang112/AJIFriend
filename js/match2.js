@@ -270,7 +270,7 @@ $('.fans .rankFriendBtn2').click(function () {
     btn = $(this);
     beFriend(tarNo,loginNo,btn);
 });
-$('.moneyS.rankFriendBtn0').click(function () {
+$('.moneyS .rankFriendBtn0').click(function () {
     tarNo = document.querySelector('.moneyS .rankNo0').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);

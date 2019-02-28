@@ -1785,7 +1785,7 @@ input::placeholder{
     font-size: 11px;
     display: none;
     top: 5%;
-    animation: puddingmove 1.5s infinite;
+    animation: puddingmove 1s infinite;
   }
   @keyframes puddingmove {
     0% {
