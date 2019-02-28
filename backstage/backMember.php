@@ -160,7 +160,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                                <button type="button" value="19" class="btn btn-primary changePower">正常</button>
+                                <button type="button" value="1" class="btn btn-primary changePower">正常</button>
                             </td>
                         </tr>
                         `;
