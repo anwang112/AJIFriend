@@ -62,10 +62,6 @@ session_start();
                         
                     </script>'
                 ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> ooxx
                 <!-- 前往購物車 -->
                 <div id="rwd_showCart">
                     <a href="BearMJ_cartShow.php">
@@ -335,5 +331,5 @@ session_start();
     window.addEventListener("load",init,false);
 
 </script>
-<!-- 
-<script src="js/match2.js"></script> -->
+
+<script src="js/match2.js"></script>
