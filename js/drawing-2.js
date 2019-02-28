@@ -21,11 +21,11 @@ function nextStep(){
         upBtn.style.display="none";
         chooseBtn.style.display="block";
         back.style.display="block";
-        // canvas.style.display="none";
-        controlBar.style.display="none";
+        canvas.style.display="none";
+        // controlBar.style.display="none";
         power02=true;
         console.log(power02);
-        next.innerText="編輯塗鴉";
+        next.innerText="分享合照";
         back.innerText="選擇背景";
 
         ooxxGetRole($id("showMe"), {
@@ -42,7 +42,7 @@ function nextStep(){
     }
   
 // 2到3
-    else if(next.innerText=="編輯塗鴉"){
+    else if(next.innerText=="分享合照"){
         // console.log(3);
         step1.style.filter="grayscale(100%)";
         step2.style.filter="grayscale(100%)";
@@ -52,7 +52,7 @@ function nextStep(){
         chooseBtn.style.display="none";
         share.style.display="block";
         canvas.style.display="block";
-        controlBar.style.display="flex";
+        // controlBar.style.display="flex";
         next.style.display="none";
         power02=false;
         power03=true;
@@ -68,7 +68,7 @@ function backStep(){
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
-    var controlBar=document.getElementsByClassName("controlBar")[0];
+    // var controlBar=document.getElementsByClassName("controlBar")[0];
 
 // 2變1
     if(back.innerText=="選擇背景"){
@@ -87,7 +87,7 @@ function backStep(){
 // 3變2
     else if(back.innerText=="選擇朋友"){
         console.log("back2");
-        // step3.style.filter="grayscale(0%)";
+        step3.style.filter="grayscale(0%)";
         step1.style.filter="grayscale( 100%)";
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
@@ -97,8 +97,8 @@ function backStep(){
         chooseBtn.style.display="block";
         share.style.display="none";
         canvas.style.display="none";
-        controlBar.style.display="none";
-        next.innerText="編輯塗鴉";
+        // controlBar.style.display="none";
+        next.innerText="分享合照";
         back.innerText="選擇背景";
         friend_Light_Box.style.display="block";
 
@@ -106,21 +106,23 @@ function backStep(){
 }
 
 //將顏色寫到ctx.strokeStyle
-function changeColor(e){
-    var color = e.target.id;
-    var color_Pack = document.getElementsByClassName('colorPack')[0];
-    var colorCode = window.getComputedStyle(e.target).getPropertyValue("background-color");
-    ctx.strokeStyle = colorCode ;
-};
+// function changeColor(e){
+//     var color = e.target.id;
+//     var color_Pack = document.getElementsByClassName('colorPack')[0];
+//     var colorCode = window.getComputedStyle(e.target).getPropertyValue("background-color");
+//     ctx.strokeStyle = colorCode ;
+// };
 function drawImg(){
     var img = document.getElementsByClassName("bodySvg")[0];
     var img2 = document.getElementsByClassName("eyesSvg")[0];
     var img3 =document.getElementsByClassName("roleHat")[0];
+    var img4 =document.getElementsByClassName("roleClothes")[0];
     var imgPrev = document.getElementById("imgPreview");
     ctx.drawImage(imgPrev,0,0,350,350);  
     ctx.drawImage(img,100,105,152,213);  
     ctx.drawImage(img2,100,103,152,212);  
     ctx.drawImage(img3,100,103,152,212);  
+    ctx.drawImage(img4,100,103,152,212);
 
 }
 function saveImage() {
@@ -157,6 +159,14 @@ function shareToPhotoWall(){
             var area = document.getElementsByClassName('postArea')[0]
             area.insertBefore(newDiv, area.children[1]);
             alert('已分享至照片牆！');
+            var card =document.getElementsByClassName("cardPhoto");
+            for(var i=0;i<card.length;i++){
+                card[i].addEventListener("click",cardLB,true);
+            };
+            var heart =document.getElementsByClassName("heart");
+            for(var i = 0; i < heart.length; i++){
+                heart[i].addEventListener("click",addHeart,false);
+            };
           }else{
             alert( xhr.status );
             }
@@ -187,28 +197,28 @@ function init(){
     power03=false;
 
 
-//     var canvas = document.getElementById('canvas');
-//     ctx = canvas.getContext('2d');
+    var canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
     
-//     // 宣告 改變顏色
-//     colors = document.getElementsByClassName('color');
-//     for(var i = 0; i < colors.length; i++){
-//     colors[i].addEventListener('click', changeColor,false)};
+    // 宣告 改變顏色
+    colors = document.getElementsByClassName('color');
+    for(var i = 0; i < colors.length; i++){
+    colors[i].addEventListener('click', changeColor,false)};
         
 
-//     var drawing = false;
-//     var mousePos = { x:0, y:0 };
-//     var lastPos = mousePos;
-//     canvas.addEventListener("mousedown", function (e) {
-//         drawing = true;
-//         lastPos = getMousePos(canvas, e);
-//     }, false);
-//     canvas.addEventListener("mouseup", function (e) {
-//         drawing = false;
-//     }, false);
-//     canvas.addEventListener("mousemove", function (e) {
-//         mousePos = getMousePos(canvas, e);
-//     }, false);
+    var drawing = false;
+    var mousePos = { x:0, y:0 };
+    var lastPos = mousePos;
+    canvas.addEventListener("mousedown", function (e) {
+        drawing = true;
+        lastPos = getMousePos(canvas, e);
+    }, false);
+    canvas.addEventListener("mouseup", function (e) {
+        drawing = false;
+    }, false);
+    canvas.addEventListener("mousemove", function (e) {
+        mousePos = getMousePos(canvas, e);
+    }, false);
 
 
 

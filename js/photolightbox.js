@@ -86,10 +86,14 @@ function cardLB(e){
 
     // 創建div member
     var divMem=document.createElement("div");
-    divMem.className="member";
-    divMem.className="headBox";
+    divMem.className="member headBox";
     divMem.id="stickerLB";
-    divMem.src=e.target.parentNode.children[2].src;
+    ooxxGetHead(divMem, {
+        animal: e.target.id.split('|')[0],
+        color: e.target.id.split('|')[1],
+        eyes: e.target.id.split('|')[2],
+    })
+
     // 創建會員帳號連結
     var aMem=document.createElement("a");
     aMem.src="#";

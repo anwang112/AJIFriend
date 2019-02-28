@@ -132,14 +132,6 @@ function photo_showfriendBox(){
 
     }
 
-    // 關燈相
-    
-    // // 暫時關閉送禮給朋友按鈕功能
-    // var choose = document.getElementsByClassName("gift");
-    // for(var i = 0 ; i < choose.length ; i++){
-    //     choose[i].removeEventListener("click",showfriendBox);
-    // }
-
 }
 
 

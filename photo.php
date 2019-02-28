@@ -22,16 +22,14 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>照片牆</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <script src="js/commonPart.js"></script>
+    <script src="js/photoCommonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/package/html2canvas.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/drawing-2.js"></script>
     <script src="js/chooseFriend.js"></script>
     <script src="js/photolightbox.js"></script>
@@ -80,7 +78,6 @@ try {
                         })
                         
                     </script>
-                    <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
                     <a href="#" class="showInfo"><?php echo $photoRow["memId"];?></a>
                     <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span><?php echo $photoRow["vote"];?></span>
@@ -115,8 +112,8 @@ try {
                     <h3>Step 2 選擇朋友</h3>
                 </div>
                 <div class="step" id="step3">
-                    <img src="images/colorPen-25.png" alt="colorPen">
-                    <h3>Step 3 編輯塗鴉</h3>
+                    <img src="images/photograph-18.png" alt="photo">
+                    <h3>Step 3 分享合照 </h3>
                 </div>
             </div>
             <div class="bulletin">
@@ -148,8 +145,8 @@ try {
                     <input name="hidden_data" id='hidden_data' type="hidden"/>
                 </form>
                 <!-- 選擇顏色 -->
-                <div class="controlBar">
-                    <!-- <div class="colorPack">
+                <!-- <div class="controlBar">
+                    <div class="colorPack">
                         <div class="color" id="red"></div>
                         <div class="color" id="coral"></div>
                         <div class="color" id="yellow"></div>
@@ -160,9 +157,9 @@ try {
                             <img id="reset" src="images/reset-26.svg" alt="reset">
                         </div>
 
-                    </div> -->
+                    </div>
                  </div>
-                 
+                  -->
                 <!--畫布canvas 與 背景預覽  -->
                 <div id="preCanvas" class="preCanvas">
                         <div class="preview">
@@ -191,7 +188,7 @@ try {
 
 
                         </div>
-                        <!-- <canvas id="canvas" width="350px" height="350px"></canvas> -->       
+                        <canvas id="canvas" width="350px" height="350px"></canvas>       
                 </div>
                 
                 
@@ -215,13 +212,12 @@ try {
                     </div>
                     <!-- 下載照片 -->
                     <input  type="button" value="下載照片" onclick="saveImage()" />
-                    <button id="download">download</button>
                     <form id="addPic" method="post" enctype="multipart/form-data">
                     <label>
-                    <div class="upload">
-                        <span id="sharePhoto" style="display:block">發佈至投票區</span>
-                        <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
-                    </div> 
+                        <div class="upload">
+                            <span id="sharePhoto" style="display:block">發佈至投票區</span>
+                            <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
+                        </div> 
                     </label>
                     </form>
                     </div>
@@ -229,15 +225,6 @@ try {
             </div>
         </div>
     </div>
-    <script>
-        dd=document.getElementById("download");
-        dd.addEventListener("click",()=>{
-            html2canvas(document.querySelector("#preCanvas")).then(canvas => {
-            document.body.appendChild(canvas)
-            });
-         });
-    
-    </script>
 
 
     <!-- canvas tab -->
@@ -317,8 +304,9 @@ try {
     $i=1;
 	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
 ?>	
-            <div class="card" id="photo1">
-                <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
+            <div class="card" id="photo<?php echo $i ?>">
+                <img class="cardPhoto" src="<?php echo $photoRow["src"];?>"
+                 id="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"] ?>" alt="no1">
                 <div class="headBox member" id="stickerCard<?php echo $i ?>"></div>
                     <script>
                         head = document.getElementById('stickerCard<?php echo $i ?>');         
@@ -328,15 +316,6 @@ try {
                             eyes: <?php echo $photoRow["eye"]; ?>,
                         })
                     </script>
-                    <!-- <script>
-                        head = document.getElementById('stickerLB');         
-                        ooxxGetHead(head, {
-                            animal: <?php echo $photoRow["animal"]; ?>,
-                            color: '<?php echo $photoRow["mColor"]; ?>',
-                            eyes: <?php echo $photoRow["eye"]; ?>,
-                        })
-                    </script> -->
-                
                 <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>

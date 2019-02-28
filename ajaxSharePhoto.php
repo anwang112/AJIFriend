@@ -24,7 +24,7 @@ try{
       default : 
         echo "['error']: " , $_FILES['addPic']['error'] , "<br>";
     }
-    $sql = "insert into picture (po_memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2,0,:time, :src, :text )";
+    $sql = "insert into picture (po_memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2, 0, :time, :src, :text )";
     $pic = $pdo -> prepare($sql);
     $pic -> bindValue(":time", date("Y-m-d H:i:s"));
     $pic -> bindValue(":src", $to);
