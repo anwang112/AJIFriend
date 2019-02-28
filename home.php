@@ -484,7 +484,7 @@ session_start();
             </ul>
             <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
-        <button id="createMemberBtn" class="btn_R">送出</button>
+        <button id="createMemberBtn" class="btn">送出</button>
     </div>
 
 

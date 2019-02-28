@@ -238,7 +238,6 @@ html {
         z-index: 5;
         width: 12%;
         min-width: 85px;
-        height: 5%;
         font-size: 1rem; }
         @media only screen and (min-width: 768px) {
           .firstScreen .firstScreenInfo .indexGod #createBtn {
@@ -890,21 +889,22 @@ html {
 
 .indexCreateRoleBox {
   border-radius: 15px;
-  border: 2px solid #f05c79;
+  box-shadow:0px 10px 10px rgba(197,121,138, .7);
   background-color: #ecded9;
   display: none;
   flex-direction: column;
   position: fixed;
-  width: 90%;
+  width: 95%;
   z-index: 106;
   left: 0;
   right: 0;
   margin: auto;
-  top: 0;
+  top: 9%;
   bottom: 0;
   max-width: 400px;
   max-height: 555px;
-  height: 80%; }
+  height: 90%; }
+ 
   @media only screen and (min-width: 768px) {
     .indexCreateRoleBox {
       padding: 35px;
@@ -971,13 +971,12 @@ html {
         flex-direction: column;
         justify-content: center;
         background-color: rgba(255,255,255,0.7);
-        margin-right: 5%;
       border-radius:0px 10px 10px 10px;
     padding: 10px;}
         @media only screen and (min-width: 400px) and (max-width: 830px) {}
         .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList {
           display: flex;
-          height: 100%; }
+          height: 36%; }
           @media only screen and (min-width: 768px) {
             .indexCreateRoleBox .createRoleScreen .createNavList .createKindAll #animalKindList {
               height: 100%;
@@ -1100,7 +1099,7 @@ html {
   max-height: 500px;
   min-height: 80%;
   border-radius: 15px;
-  border: 2px solid #f05c79;
+  box-shadow:0px 10px 10px rgba(197,121,138, .7);
   background-color: #ecded9;
   position: fixed;
   padding: 20px;
@@ -1155,7 +1154,7 @@ html {
         #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(6) {
           height: 30%; }
           #createMemberScreen .createMemberBox .createRightForm li:nth-of-type(7) textarea {
-            height: 110%;
+            height: 140%;
             width: 100%; 
             border-radius: 10px;
             background-color: #f8d7e6;
@@ -1175,7 +1174,6 @@ html {
     position: absolute;
     width: 20%;
     bottom: 18px;
-    height: 7%;
     left: 0;
     right: 0;
     margin: auto; }
@@ -1309,6 +1307,29 @@ html {
     }
   }
   @media only screen and (max-width: 476px){
+    .firstScreen .firstScreenInfo .indexGod #createBtn{
+      left: 16%;
+    }
+    #createMemberScreen{
+      max-height: 550px;
+      width: 95%;
+      height: 90%;
+      top: 9%;
+    }
+    #createMemberScreen .createMemberBox .createRightForm li{
+      margin-left: 5%;
+    }
+    .indexCreateRoleBox #saveRoleBtn{
+      position: absolute;
+      right: 50%;
+      top: 91%;
+      transform: translateX(50%);
+    }
+    .indexCreateRoleBox .createRoleScreen .createNavList{
+      padding-bottom: 50px;
+      width: 99%;
+      margin:5px auto;
+    }
     .picTitle h2{
       transform: rotate(0deg);
     }

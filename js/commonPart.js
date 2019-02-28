@@ -399,7 +399,7 @@ function foot_html() {
             <!-- 聊天室分頁 -->
             <div id="rwd_chatContent">
                 <div id="rwd_chatContentTitle">
-                    <span onclick="close_rwdChat();" style="font-size:30px">^</span>
+                    <span onclick="close_rwdChat();" style="font-size:30px; width:30px;"><img src="images/rwd_chatClose.png" ></span>
                     <div id="rwd_chatTaHead" class="headBox" alt="朋友大頭照"></div>
                     <p id="rwd_chatTaName" class="">寂寞阿吉</p>
                     <input type="hidden" id="rwd_chatTaNo" >
@@ -1609,7 +1609,9 @@ window.addEventListener('load', function () {
 	// 手機送出訊息(按送出) --ga
 	rwd_chatTxt_send.addEventListener('click', function () {
 		var txt = rwd_chatTxt_input.value;
-		sendMsg(txt);
+		if (txt != "") {
+			sendMsg(txt);
+		}
 	}, false);
 
 	// 聊天室頭貼點擊查看個人檔案

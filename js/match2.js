@@ -243,12 +243,7 @@ function beFriend (tarNo,loginNo,btn) {
     }
     
 }
-$('.btn_beFriend0').click(function(){
-    tarNo = document.getElementById('sMemNo').value;
-    loginNo = storage.getItem("memNo");
-    btn = $(this);
-    beFriend(tarNo,loginNo,btn);
-});
+
 //配對-送出好友邀請
 $('.btn_beFriend1').click(function () {
     tarNo = document.getElementById('matchMemNo').value;
