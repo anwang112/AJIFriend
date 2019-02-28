@@ -1988,6 +1988,7 @@ ooxxChangeClothes = (...changeClothesArray) => {
 	object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
 	let scaleValue = 0;
 	object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+	object.getElementsByClassName('roleClothes')[0].style.opacity = '1';
 	clothesGo = () => {
 		if (scaleValue <= 1) {
 			scaleValue += 0.06;
@@ -2013,6 +2014,7 @@ ooxxChangeHat = (...changeHatArray) => {
 	object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
 	let scaleValue = 0;
 	object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+	object.getElementsByClassName('roleClothes')[0].style.opacity = '1';
 	hatGo = () => {
 		if (scaleValue <= 1) {
 			scaleValue += 0.06;
@@ -2093,8 +2095,8 @@ function noticeFriend(){
 		var xhr = new XMLHttpRequest();
 		
     xhr.onload = function () {
-		console.log("好友通知reload");
-		console.log( parseInt( xhr.responseText));
+		// console.log("好友通知reload");
+		// console.log( parseInt( xhr.responseText));
             if(parseInt( xhr.responseText )== 0){
                 document.getElementById('mail').style.cssText = "display:none";
             }else{

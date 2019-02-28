@@ -201,19 +201,18 @@
     height: 65%;
     padding: 20px 20px;
     border-radius: 15px;
-    border: 2px solid #f05c79;
+    /* border: 2px solid #f05c79; */
     background-color: #ecded9;
     display: none;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    position: relative; }
+    position: relative;
+    box-shadow: 0px 10px 10px rgba(197,121,138, .7); }
 
     @media only screen and (min-width: 768px){
-      .lightbox_act .lightbox_act_info{
 
-      }
       .lightbox_act .lightbox_act_info img {
         width: 45%;
         transform: rotate(-1deg); }
@@ -346,7 +345,7 @@
     height: 70%;
     padding: 20px 20px;
     border-radius: 15px;
-    border: 2px solid #f05c79;
+    /* border: 2px solid #f05c79; */
     background-color: #ecded9;
     margin: auto;
     position: fixed;
@@ -355,7 +354,8 @@
     bottom: 0;
     right: 0;
     position: relative;
-    bottom: 21%; }
+    bottom: 21%;
+    box-shadow:0px 10px 10px rgba(197,121,138, .7); }
     .lightbox_holdact .lightbox_holdact_info h2 {
       display: block;
       padding: 20px 30px;
@@ -679,7 +679,7 @@
     margin: 5px auto;
     padding: 20px 20px;
     border-radius: 15px;
-    border: 2px solid #f05c79;
+    /* border: 2px solid #f05c79; */
     background-color: #ecded9;
     margin: auto;
     position: fixed;
@@ -687,7 +687,8 @@
     top: 81px;
     bottom: 0;
     right: 0;
-    z-index: 150;}
+    z-index: 150;
+    box-shadow:0px 10px 10px rgba(197,121,138, .7);}
     .lightBoxXX{
       background-color: #a2988f;
       -webkit-box-shadow: 2px 5px #444440;
@@ -736,6 +737,7 @@
       @media only screen and (min-width: 768px){
       .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top {
         height: 335px;
+        width: 90%;
         display: flex;
         justify-content: space-between; }
         .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_top_right {
@@ -751,13 +753,15 @@
         .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_topImg {
           width: 30%;
           height: 240px;
+          max-height: 240px;
           position: relative;
           left: 40px;
           padding: 10px 10px;
           background-repeat: no-repeat;
           background-position: center center;
           background-size: contain;
-          border-radius: 15px; }
+          border-radius: 15px; 
+          top:42px;}
         }
         @media only screen and (max-width: 768px){
           .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_top .acts_lightbox_topImg {
@@ -790,9 +794,6 @@
           border-radius: 10px;
           text-align: center;
         }
-        .spanbox_title:nth-child(8){
-          line-height: 70px;
-        }
         .spanbox_content{
           width: 60%;
           padding: 10px 10px;
@@ -807,11 +808,14 @@
     .lightbox_actsCheckout_outside .acts_lightbox_down #btn_ActJoinToDB {
       position: absolute;
       right: 10.5%;
-      top: -145%;
+      top: -45%;
       width: 75px;
-      height: 30px;}
+      height: 30px;
+      min-width: 101px;
+      min-height: 35px;}
     .lightbox_actsCheckout_outside .acts_lightbox_down .messagebox {
-      width: 80%;
+      width: 90%;
+      margin: auto;
       height: 155px;
       text-align: left;
       padding: 10px 20px;
@@ -823,7 +827,7 @@
       .btn_myMessagebox{
         position: absolute;
         bottom: 0px;
-        right: 15.5%;
+        right: 12.5%;
         height: 45px;;
       }
       .myActItem_title{
@@ -866,6 +870,7 @@
           border-bottom: 1px dotted transparent; }
     .lightbox_actsCheckout_outside .acts_lightbox_down #myMessagebox_input {
       width: 70%;
+      margin-left: 3%;
       height: 35px;
       color: #ccc;
       font-size: .9rem;
@@ -1275,7 +1280,7 @@
     .lightbox_act .lightbox_act_info p {
       width: 80%;
       color: #f05c79;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       max-width: 600px;
       line-height: 2rem; }
     .lightbox_act .lightbox_act_info .spanbox {
@@ -1362,9 +1367,7 @@
     .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #btn_ActJoinToDB {
       position: absolute;
       right: 0px;
-      bottom: 100%;
-      width: 75px;
-      height: 30px; }
+      bottom: 100%; }
     .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down .messagebox {
       width: 100%;
       height: 155px;
@@ -1393,8 +1396,6 @@
     bottom: -5px;
     opacity: 1; }
     .act_memberHold .act_memberHold_box .act_memberHold_join button {
-      width: 75px;
-      height: 30px;
       display: block; }
   .partB .partB_top .partB_top_content {
     width: 100%;

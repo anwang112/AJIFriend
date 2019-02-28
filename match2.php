@@ -35,7 +35,7 @@ try {
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/match2_final.css">
 </head>
 
 <body>

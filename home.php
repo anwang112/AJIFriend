@@ -51,9 +51,10 @@ session_start();
             </div>
         </div>
         <div id="scoreDisplay1"></div>
+    
     </div>
-   
-   
+    
+    
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
@@ -391,13 +392,16 @@ session_start();
                     <label>會員密碼</label>
                 </li>
                 <li>
+                    <label>確認密碼</label>
+                </li>
+                <li>
                     <label>會員暱稱</label>
                 </li>
                 <li>
-                    <label>選擇星座</label>
+                    <label>星座選擇</label>
                 </li>
                 <li>
-                    <span>興趣</span>
+                    <span>興趣勾選</span>
                 </li>
                 <li>
                     <span>自我介紹</span>
@@ -412,11 +416,14 @@ session_start();
                     <input type="password" required name="memPsw" id="memPsw">
                 </li>
                 <li>
+                    <input type="password" required name="memPsw_check" id="memPswDBC">
+                </li>
+                <li>
                     <input type="text" required name="mName" id="mName"><span id="getCheckmName" style="display:none;"></span>
                 </li>
                 <li>
                     <select name="constellation" id="constellation">
-                        <option value="0">選擇星座</option>
+                        <option value="0"></option>
                         <option value="1">牡羊座</option>
                         <option value="2">金牛座</option>
                         <option value="3">雙子座</option>
@@ -431,7 +438,7 @@ session_start();
                         <option value="12">雙魚座</option>
                     </select>
                 </li>
-                <li>
+                <li id="checkbox_home">
                     <label>
                         <input type="checkbox" name="hobby" value="0" class="hobbyItem">
                         <span>打籃球</span>
@@ -488,7 +495,7 @@ session_start();
         foot_html();
     </script>
     <script src="js/index.js"></script>
-    <script src="js/match2.js"></script>
+    <!-- <script src="js/match2.js"></script> -->
 </body>
 
 </html> 
