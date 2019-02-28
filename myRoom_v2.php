@@ -12,7 +12,8 @@ require_once('myRoomToDB.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">

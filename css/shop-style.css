@@ -201,7 +201,7 @@ img {
         width: 65%; } }
     @media all and (max-width: 476px) {
       #chooseId #friend_LightBox {
-        width: 65%; } }
+        width: 95%; } }
     #chooseId #friend_LightBox img {
       width: 100%; }
     #chooseId #friend_LightBox #btn_friendBoxClose {
