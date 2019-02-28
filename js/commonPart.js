@@ -505,6 +505,24 @@ function makeFriend(profile) {
 	xhr.send("profile=" + JSON.stringify(profile));
 }
 
+//送出好友邀請
+//改好友BTN
+function changeBtn(btn){
+    btn.addClass('disable');
+    btn.removeClass('btn');
+    btn.text('邀請中').attr("disabled",true);
+};
+function changeBtnNomal(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('成為麻吉').attr("disabled",false);
+};
+function changeBtnUnf(btn){
+    btn.removeClass('disable');
+    btn.addClass('btn');
+    btn.text('解除麻吉關係').attr("disabled",false);
+};
+
 
 
 //解除好友關係方選 --by An
