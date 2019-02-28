@@ -331,5 +331,5 @@ session_start();
     window.addEventListener("load",init,false);
 
 </script>
-<!-- 
-<script src="js/match2.js"></script> -->
+
+<script src="js/match2.js"></script>

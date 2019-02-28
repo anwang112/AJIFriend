@@ -334,6 +334,12 @@ function head_html() {
 			eyes: storage.getItem("eye"),
 		});
 	}
+	$('.btn_beFriend0').click(function(){
+		tarNo = document.getElementById('sMemNo').value;
+		loginNo = storage.getItem("memNo");
+		btn = $(this);
+		beFriend(tarNo,loginNo,btn);
+	});
 
 }
 
@@ -565,6 +571,8 @@ function report(profile) {
 // 	</script>`;
 // 	document.write(photo);
 // }   擋路 我註解調ㄌ 庸
+
+
 
 //  個人資料燈箱   ===從偉安match2.js ---- 第546行複製
 function searchMem(profile) {

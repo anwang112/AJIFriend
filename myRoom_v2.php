@@ -18,10 +18,37 @@ require_once('myRoomToDB.php');
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" type="text/css" href="css/myRoom.css">
     <link rel="stylesheet" href="css/chatStyle.css">
-    <link rel="stylesheet" href="css/myRoom_final.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/myRoom2_v2.js"></script>
     <script src="js/myRoom2.js"></script>
+
+    <style>
+        .act_Img{
+    width:80%;
+    margin:15px 10%;
+    max-height:220px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+  }
+  .spanbox{
+    width: 100%;
+    padding: 39px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    color: #fff;
+}
+  }
+  .spanbox span{
+    width: 100%;
+    padding: 15px 0px;
+    color: #fff;
+    line-height: 1.1rem;
+  }
+</style>
 </head>
 
 <body>
@@ -188,50 +215,50 @@ require_once('myRoomToDB.php');
 
 
             //換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
+// ooxxChangeClothes = (...changeClothesArray) => {
+//     let object = changeClothesArray[0];
+//     let clothes = changeClothesArray[1];
+//     object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+//     clothesGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             clothesId = requestAnimationFrame(clothesGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(clothesId)
+//         }
+//     }
+//     clothesId = requestAnimationFrame(clothesGo);
+// }
 
 
 
 
 
 //換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
+// ooxxChangeHat = (...changeHatArray) => {
+//     let object = changeHatArray[0];
+//     let hat = changeHatArray[1];
+//     object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+//     hatGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             hatId = requestAnimationFrame(hatGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(hatId)
+//         }
+//     }
+//     hatId = requestAnimationFrame(hatGo);
+// }
 
 //函士區
 
@@ -395,7 +422,7 @@ ooxxChangeHat = (...changeHatArray) => {
                                                 <?php echo substr($act_end, 0, 10); ?></span>
                                         </div>
                                         <div class="act_btn">
-                                            <a href="activity_v2.php"><button class="act_readmore">查看</button></a>
+                                            <a href="activity_v2.php"><button class="act_readmore">前往我的活動</button></a>
                                         </div>
                                     </div>
                                 </div>
