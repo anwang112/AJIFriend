@@ -1166,6 +1166,7 @@ indexInit = () => {
 
                             $id('createMemberScreen').style.display = 'none';
                         }
+                        console.log(createRoleData.hobby);
                         createxhr.open("Post", "setUpMember.php", true);
                         createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                         createxhr.send("createRoleData=" + JSON.stringify(createRoleData));
