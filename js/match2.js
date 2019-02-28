@@ -244,7 +244,6 @@ function beFriend (tarNo,loginNo,btn) {
     
 }
 $('.btn_beFriend0').click(function(){
-    alert(0);
     tarNo = document.getElementById('sMemNo').value;
     loginNo = storage.getItem("memNo");
     btn = $(this);
@@ -1160,3 +1159,4 @@ function cubeBezier(p0, c0, c1, p1, t) {
 
     return p;
 }
+

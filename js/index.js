@@ -56,76 +56,35 @@ ooxxEyesGo = (...eyesArray) => {
     eyesArray[1].style.transformOrigin = `center`;
     eyesGo = () => {
         eyesArray[0].animate([{
-            transform: 'scaleY(1)'
-        },
-        {
-            transform: 'scaleY(0.01)'
-        },
-        {
-            transform: 'scaleY(1)'
-        }
+                transform: 'scaleY(1)'
+            },
+            {
+                transform: 'scaleY(0.01)'
+            },
+            {
+                transform: 'scaleY(1)'
+            }
         ], {
-                duration: 500,
-                endDelay: 1000,
-            });
+            duration: 500,
+            endDelay: 1000,
+        });
         eyesArray[1].animate([{
-            transform: 'scaleY(1)'
-        },
-        {
-            transform: 'scaleY(0.01)'
-        },
-        {
-            transform: 'scaleY(1)'
-        }
+                transform: 'scaleY(1)'
+            },
+            {
+                transform: 'scaleY(0.01)'
+            },
+            {
+                transform: 'scaleY(1)'
+            }
         ], {
-                duration: 500,
-                endDelay: 1000,
-            });
+            duration: 500,
+            endDelay: 1000,
+        });
     }
     setInterval(eyesGo, ooxxRandom(2000, 3500));
 }
 
-//換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(images/hatImages/hat${hat}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.8s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
-
-//換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(images/clothesImages/clothes${clothes}.png)`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.8s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
 
 
 
@@ -137,8 +96,7 @@ indexInit = () => {
     //取得當前螢幕寬度
     if (window.innerWidth) {
         winWidth = window.innerWidth;
-    }
-    else if ((document.body) && (document.body.clientWidth)) {
+    } else if ((document.body) && (document.body.clientWidth)) {
         winWidth = document.body.clientWidth;
     }
 
@@ -170,7 +128,7 @@ indexInit = () => {
             }
             cloudId = requestAnimationFrame(cloudGo);
         }
-        // cloudId = requestAnimationFrame(cloudGo);
+        cloudId = requestAnimationFrame(cloudGo);
 
         //春天與阿吉動畫區
         AJITalkSpring = () => {
@@ -184,13 +142,19 @@ indexInit = () => {
             springHandGo = () => {
                 springHandGoTime++
                 if (springHandGoTime > 150) {
-                    springHand.animate([
-                        { transform: `rotate(0) translateX(0)` },
-                        { transform: `rotate(-43deg) translateX(29%)` },
-                        { transform: `rotate(0) translateX(0)` }], {
-                            duration: 1000,
-                            endDelay: 500,
-                        });
+                    springHand.animate([{
+                            transform: `rotate(0) translateX(0)`
+                        },
+                        {
+                            transform: `rotate(-43deg) translateX(29%)`
+                        },
+                        {
+                            transform: `rotate(0) translateX(0)`
+                        }
+                    ], {
+                        duration: 1000,
+                        endDelay: 500,
+                    });
                     springHandGoTime = 0;
                 }
                 springHandId = requestAnimationFrame(springHandGo);
@@ -246,11 +210,11 @@ indexInit = () => {
         cupidLightstartId = requestAnimationFrame(cupidLightstart);
 
         //阿吉與春天對話開始
-        SpringDialogWrap = indexAjiSpring.getElementsByClassName('cls-1')[0];  //春天對話框
-        SpringDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[0];  //春天對話文字
+        SpringDialogWrap = indexAjiSpring.getElementsByClassName('cls-1')[0]; //春天對話框
+        SpringDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[0]; //春天對話文字
 
-        AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0];  //阿吉對話框
-        AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1];  //阿吉對話文字
+        AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0]; //阿吉對話框
+        AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1]; //阿吉對話文字
 
         SpringDialogTime = 0;
         SpringDialogGo = () => {
@@ -337,7 +301,7 @@ indexInit = () => {
         ooxxGetRole($id('trojanItemRole04'), { animal: 1, color: '880022', eyes: 3, hat: 'hat4.png', clothes: 'clothes4.png', });
         ooxxGetRole($id('trojanItemRole05'), { animal: 3, color: '2277cc', eyes: 1, hat: 'hat5.png', clothes: 'clothes5.png', });
         ooxxGetRole($id('trojanItemRole06'), { animal: 2, color: '4acc99', eyes: 2, hat: 'hat6.png', clothes: 'clothes6.png', });
-        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 4, hat: 'hat8.png', clothes: 'clothes7.png', });
+        ooxxGetRole($id('trojanItemRole07'), { animal: 3, color: '123456', eyes: 6, hat: 'hat8.png', clothes: 'clothes7.png', });
 
         const circle = document.getElementById("circle");
         const showCircle = document.getElementById('showCircle');
@@ -355,8 +319,8 @@ indexInit = () => {
         } else {
             transZ = winWidth / trojanItem.length * 1.8;
         }
-        let rotateValue = 0;  //每次轉的方值
-        let nowRole = 0;  //目前角色
+        let rotateValue = 0; //每次轉的方值
+        let nowRole = 0; //目前角色
         for (let i = 0; i < trojanItem.length; i++) {
             trojanItem[i].style.transform = "rotateY(" + (i * rotate + rotateValue) + "deg) translateZ(" + transZ + "px)";
         }
@@ -393,8 +357,7 @@ indexInit = () => {
         }
 
         //亂數人的資訊
-        chairinfoArray = [
-            {
+        chairinfoArray = [{
                 name: "lien",
                 star: "射手座",
                 hobby: "抓寶可夢"
@@ -403,14 +366,12 @@ indexInit = () => {
                 name: "An",
                 star: "觸女座",
                 hobby: "抓寶可夢"
-            }
-            ,
+            },
             {
                 name: "ooxx",
                 star: "雙魚座",
                 hobby: "睡覺"
-            }
-            ,
+            },
             {
                 name: "你好阿",
                 star: "水瓶座",
@@ -420,7 +381,7 @@ indexInit = () => {
 
         //木馬轉轉開始  
         trojanItemGo = () => {
-            ooxxHide(trojanItemRolebox[nowRole], 0.086);// 當前ㄉ人消失
+            ooxxHide(trojanItemRolebox[nowRole], 0.086); // 當前ㄉ人消失
             //失偵方式處裡讓人物消失
             for (let i = 0; i < trojanItemRolebox.length; i++) {
                 // trojanItemRolebox[i].style.display = `none`;
@@ -468,45 +429,63 @@ indexInit = () => {
 
             switch (ooxxRandom(0, 1)) {
                 case 0:
-                    chairLeftHand[0].animate([
-                        { transform: 'rotate(0deg) translateX(0%)' },
-                        { transform: 'rotate(-20deg) translateX(15%)' },
-                        { transform: 'rotate(0deg) translateX(0%)' }],
+                    chairLeftHand[0].animate([{
+                            transform: 'rotate(0deg) translateX(0%)'
+                        },
                         {
-                            duration: 800,
-                            // endDelay: 1000,
+                            transform: 'rotate(-20deg) translateX(15%)'
+                        },
+                        {
+                            transform: 'rotate(0deg) translateX(0%)'
                         }
-                    );
+                    ], {
+                        duration: 800,
+                        // endDelay: 1000,
+                    });
                     for (let i = 1; i < chairLeftHand.length; i++) {
-                        chairLeftHand[i].animate([
-                            { opacity: '0' },
-                            { opacity: '1' },
-                            { opacity: '0' },
+                        chairLeftHand[i].animate([{
+                                opacity: '0'
+                            },
+                            {
+                                opacity: '1'
+                            },
+                            {
+                                opacity: '0'
+                            },
                         ], {
-                                duration: 3000,
-                                delay: 500
-                            });
+                            duration: 3000,
+                            delay: 500
+                        });
                     }
                     break;
                 case 1:
-                    chairRightHand[0].animate([
-                        { transform: 'rotate(0deg) translateX(0%)' },
-                        { transform: 'rotate(15deg) translateX(-10%)' },
-                        { transform: 'rotate(0deg) translateX(0%)' }],
+                    chairRightHand[0].animate([{
+                            transform: 'rotate(0deg) translateX(0%)'
+                        },
                         {
-                            duration: 800,
-                            // endDelay: 1000,
+                            transform: 'rotate(15deg) translateX(-10%)'
+                        },
+                        {
+                            transform: 'rotate(0deg) translateX(0%)'
                         }
-                    );
+                    ], {
+                        duration: 800,
+                        // endDelay: 1000,
+                    });
                     for (let i = 1; i < chairRightHand.length; i++) {
-                        chairRightHand[i].animate([
-                            { opacity: '0' },
-                            { opacity: '1' },
-                            { opacity: '0' },
+                        chairRightHand[i].animate([{
+                                opacity: '0'
+                            },
+                            {
+                                opacity: '1'
+                            },
+                            {
+                                opacity: '0'
+                            },
                         ], {
-                                duration: 3000,
-                                delay: 500
-                            });
+                            duration: 3000,
+                            delay: 500
+                        });
                     }
                     break;
             }
@@ -523,8 +502,7 @@ indexInit = () => {
         changeScreen = () => {
             if (window.innerWidth) {
                 winWidth = window.innerWidth;
-            }
-            else if ((document.body) && (document.body.clientWidth)) {
+            } else if ((document.body) && (document.body.clientWidth)) {
                 winWidth = document.body.clientWidth;
             }
             clearInterval(trojanItemId);
@@ -541,7 +519,7 @@ indexInit = () => {
     // 第三部分
     thirdScreenFunctionn = () => {
         shop = document.getElementById('shop').getSVGDocument();
-        shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
+        shopLight = shop.getElementsByClassName('cls-4'); //0-3是電燈
         modelLight = document.getElementById('modelLight');
 
         for (let i = 0; i < shopLight.length - 1; i++) {
@@ -579,8 +557,8 @@ indexInit = () => {
                 shopLight[0].style.transform = `skewX(0) translateX(0)`;
                 modelLight.style.boxShadow = `0px -45px 120px 65px white`;
                 if (lightOpen == 188) {
-                    ooxxChangeHat($id('indexModel'), ooxxRandom(1, 2));
-                    ooxxChangeClothes($id('indexModel'), ooxxRandom(1, 3));
+                    ooxxChangeHat($id('indexModel'), `images/hatImages/hat${ooxxRandom(1, 15)}.png`);
+                    ooxxChangeClothes($id('indexModel'), `images/clothesImages/clothes${ooxxRandom(1, 24)}.png`);
                 }
                 if (lightOpen > 300) {
                     lightOpen = 0;
@@ -590,12 +568,109 @@ indexInit = () => {
         }
         shopLightId = requestAnimationFrame(shopLightGo);
 
+        //mj值動畫開始
+        energy = $id('energy').getSVGDocument();
+        mj = [
+            energy.getElementsByClassName('cls-4')[0], //mj值
+            energy.getElementsByClassName('cls-5')[0], //mj值
+            energy.getElementsByClassName('cls-3')[0], //mj條
+        ];
+        mj[0].style.opacity = '0';
+        mj[1].style.opacity = '0';
+        mj[2].style.opacity = '0';
+
+        mj[0].style.transition = '1.5s';
+        mj[1].style.transition = '1.5s';
+        mj[2].style.transition = '1.7s';
+        mj[2].setAttribute("width", `0`);
+
+        ajiThree = $id('ajiThree').getSVGDocument();
+        ajiThreeMJ = [
+            ajiThree.getElementsByClassName('cls-18')[0],  //氣泡
+            ajiThree.getElementsByClassName('cls-18')[1],  //氣泡
+            ajiThree.getElementsByClassName('cls-18')[2],  //氣泡
+            ajiThree.getElementsByClassName('cls-19')[0],  //文字
+            ajiThree.getElementsByClassName('cls-19')[1],  //文字
+            ajiThree.getElementsByClassName('cls-19')[2],  //文字
+        ]
+        for (let i = 0; i < ajiThreeMJ.length; i++) {
+            ajiThreeMJ[i].style.opacity = '0';
+            ajiThreeMJ[i].style.transition = '1.5s';
+        }
+
+        mjanimatio = 0;
+        mjanimationGo = () => {
+            mjanimatio++;
+            if (mjanimatio == 50) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                mj[2].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 130) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+            }
+            if (mjanimatio == 170) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 240) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+            }
+            if (mjanimatio == 290) {
+                mj[0].style.opacity = '1';
+                mj[1].style.opacity = '1';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '1';
+                }
+                mj[2].setAttribute("width", `${mjanimatio}`);
+            }
+            if (mjanimatio == 330) {
+                mj[0].style.opacity = '0';
+                mj[1].style.opacity = '0';
+                for (let i = 0; i < ajiThreeMJ.length; i++) {
+                    ajiThreeMJ[i].style.opacity = '0';
+                }
+
+            }
+            if (mjanimatio == 450) {
+                mj[2].style.opacity = '0';
+                mjanimatio = 0;
+
+                mj[2].style.opacity = '0';
+            }
+            if (mjanimatio == 500) {
+                mjanimatio = 0;
+            }
+
+            mjanimationId = requestAnimationFrame(mjanimationGo);
+        }
+        mjanimationId = requestAnimationFrame(mjanimationGo);
+
+
+
+
     }
     thirdScreenFunctionn();
     lightChangeScreen = () => {
         $id('shop').addEventListener('load', () => {
             shop = document.getElementById('shop').getSVGDocument();
-            shopLight = shop.getElementsByClassName('cls-4');  //0-3是電燈
+            shopLight = shop.getElementsByClassName('cls-4'); //0-3是電燈
             for (let i = 0; i < shopLight.length - 1; i++) {
                 shopLight[i].style.transformOrigin = `left bottom`;
                 shopLight[i].style.transformBox = `fill-box`;
@@ -642,8 +717,8 @@ indexInit = () => {
     //第四部份
     fourthScreenFunction = () => {
         window.removeEventListener('scroll', scrollFourthScreen);
-        flash = document.getElementById('flash');  //閃光燈物件
-        lineStory = document.getElementById('lineStory');  //線條svg
+        flash = document.getElementById('flash'); //閃光燈物件
+        lineStory = document.getElementById('lineStory'); //線條svg
 
         var indexLine = document.getElementById('indexLine');
         // console.log(indexLine.getTotalLength()); //印出線條長
@@ -717,7 +792,7 @@ indexInit = () => {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //第五部分
 
-    //還沒有寫唷//
+    //沒有唷//
 
 
 
@@ -760,9 +835,9 @@ indexInit = () => {
                     break;
             }
             var createKindAll = document.getElementsByClassName("createKindAll")[0];
-            if(i==0){
+            if (i == 0) {
                 createKindAll.style.borderRadius = "0 10px 10px 10px";
-            }else{
+            } else {
                 createKindAll.style.borderRadius = "10px 10px 10px 10px";
             }
             e.target.style.background = 'rgba(255,255,255,0.7)';
@@ -1035,7 +1110,7 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-
+            console.log(createRoleData);
             var createxhr = new XMLHttpRequest();
             createxhr.onload = function () {
                 // checkInfo = JSON.parse(createxhr.responseText);
@@ -1342,17 +1417,31 @@ indexInit = () => {
         }
         */
 
-    
-    //方法2
-    window.onload = function() { 
-        setTimeout(() => {
-            $(".load").fadeOut();
 
-        }, 2000);
-        setTimeout(() => {
-            indexInit();
+//方法2
+window.onload = function () {
+    setTimeout(() => {
+        $(".load").fadeOut();
 
-        }, 2000);
-        
-    };
-    // window.addEventListener('load', indexInit);
+    }, 2000);
+    setTimeout(() => {
+        indexInit();
+
+    }, 2000);
+};
+var demo = {
+        score: 0
+    },
+    scoreDisplay = document.getElementById("scoreDisplay1");
+
+//create a tween that changes the value of the score property of the demo object from 0 to 100 over the course of 20 seconds.
+var tween = TweenLite.to(demo, 1.8, {
+    score: 100,
+    onUpdate: showScore
+})
+
+//each time the tween updates this function will be called.
+function showScore() {
+    scoreDisplay.innerHTML = demo.score.toFixed(0)+'%';
+}
+// window.addEventListener('load', indexInit);

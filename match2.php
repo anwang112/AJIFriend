@@ -48,6 +48,7 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
+    
     <!-- <div class="alertWrap">
         <div class="alert">
             <p id="alertText">今天的愛心已經用完囉！</p>

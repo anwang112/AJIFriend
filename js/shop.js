@@ -1,56 +1,56 @@
-function $id(id){
+function $id(id) {
     return document.getElementById(id);
 }
 var Today = new Date();
 nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 var productsInfoArr = new Array();
 productsInfoArr = []; //產品資料陣列
-function getProducts(cate,pageNumber=1){ //撈出產品Ajax
+function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
     var xhr = new XMLHttpRequest(); // 建立xhr
-    if(cate==1){
+    if (cate == 1) {
         cateName = "hatImages";
-    }else{
+    } else {
         cateName = "clothesImages";
     }
-    
+
     console.log(pageNumber);
-    xhr.onload = function (){
-        if(xhr.responseText == "null"){ //失敗狀態
+    xhr.onload = function () {
+        if (xhr.responseText == "null") { //失敗狀態
             console.log("沒有資料");
 
-        }else{
+        } else {
             var productsArr = JSON.parse(xhr.responseText);
-				productsInfo = productsArr.productssInfo; 
-                //[proNo||類別||名稱||價格||MJ||圖檔名||上價值||買過了嗎 , ..... , ..... ]
-                
-                var str = "";
-                var page_a = "";
-                pageTotal = Math.ceil(productsInfo.length / 5);
-                console.log(pageTotal+"頁");
-                if(innerWidth<768){
-                    start_i = 0;
-                    end_i = productsInfo.length;
-                }else{
-                    start_i = pageNumber*5-5;
-                    end_i = (pageNumber == pageTotal) ? productsInfo.length : (pageNumber)*5;
+            productsInfo = productsArr.productssInfo;
+            //[proNo||類別||名稱||價格||MJ||圖檔名||上價值||買過了嗎 , ..... , ..... ]
 
+            var str = "";
+            var page_a = "";
+            pageTotal = Math.ceil(productsInfo.length / 4);
+            console.log(pageTotal + "頁");
+            if (innerWidth < 768) {
+                start_i = 0;
+                end_i = productsInfo.length;
+            } else {
+                start_i = pageNumber * 4 - 4;
+                end_i = (pageNumber == pageTotal) ? productsInfo.length : (pageNumber) * 4;
+
+            }
+            console.log(end_i);
+            for (var i = start_i; i < end_i; i++) { // i:產品數量
+                for (var j = 0; j < 8; j++) { // j:撈回的資料欄位數量
+                    productsInfoArr[i] = productsInfo[i].split("||", 8);
+                    //productsInfoArr[i]:產品資料陣列;
+                    //productsInfoArr[i][0]:產品編號; productsInfoArr[i][1]:產品類別 ; productsInfoArr[i][2]:產品名稱 ;
                 }
-                console.log(end_i);
-                for(var i = start_i ; i<end_i ; i++){ // i:產品數量
-                    for(var j = 0;j<8;j++){ // j:撈回的資料欄位數量
-                        productsInfoArr[i] = productsInfo[i].split("||",8); 
-                        //productsInfoArr[i]:產品資料陣列;
-                        //productsInfoArr[i][0]:產品編號; productsInfoArr[i][1]:產品類別 ; productsInfoArr[i][2]:產品名稱 ;
-                    }
-                    // 前端生成產品
-                    
-                    havingBtn_1 = `<input type="button" value="已擁有" class="btn_buy_having">`;
-                    havingBtn_2 = `<input type="button" value="已擁有" class="having">`;
+                // 前端生成產品
 
-                    NohavingBtn_1 = `<input type="submit" value="買" class="btn_buy">`;
-                    NohavingBtn_2 = `<input type="submit" value="" class="btn_addToCart">`;
+                havingBtn_1 = `<input type="button" value="已擁有" class="btn_buy_having">`;
+                havingBtn_2 = `<input type="button" value="已擁有" class="having">`;
 
-                    str1 = 
+                NohavingBtn_1 = `<input type="submit" value="買" class="btn_buy">`;
+                NohavingBtn_2 = `<input type="submit" value="" class="btn_addToCart">`;
+
+                str1 =
                     `<form action="cartAdd.php" target="nm_iframe" class="pro_form">    
                             
                         <input type="hidden" name="proNo" value="${productsInfoArr[i][0]}">
@@ -77,9 +77,9 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                                         <img src="shop-images/coin.png">
                                         <span>${productsInfoArr[i][3]}</span>
                                     </div>`;
-                                    // <input type="submit" value="買" class="btn_buy">
+                // <input type="submit" value="買" class="btn_buy">
 
-                str2=`</div>
+                str2 = `</div>
                             </div>
                             <div class="productInfo">
                                 <!-- 商品名稱 -->
@@ -93,58 +93,74 @@ function getProducts(cate,pageNumber=1){ //撈出產品Ajax
                                 <div class="cost">
                                     <img src="shop-images/coin.png"><span>${productsInfoArr[i][3]}</span>
                                 </div>`;
-                                // <!-- 加入購物車 -->
-                                // <input type="submit" class="btn_addToCart" value="">
-                str3=`</div>
+                // <!-- 加入購物車 -->
+                // <input type="submit" class="btn_addToCart" value="">
+                str3 = `</div>
                         </div>
                         <iframe class="id_iframe" name="nm_iframe"></iframe>
                     </form>`;
-                    
-                if(productsInfoArr[i][7]=="NEVER"){ //沒買過
+
+                if (productsInfoArr[i][7] == "NEVER") { //沒買過
                     str += str1 + NohavingBtn_1 + str2 + NohavingBtn_2 + str3;
-                }else{ //已買過
-                    str += str1 + havingBtn_1 + str2 + havingBtn_2 +str3;
+                } else { //已買過
+                    str += str1 + havingBtn_1 + str2 + havingBtn_2 + str3;
                 }
-                
 
-                }
-                
-                for(var i = 1 ; i <= pageTotal ; i++){
-                    if(i==pageNumber){
-                        page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" style="color:white;background:rgba(200,78,106,1)" class="page_span">${i}</span>`;
-                    }else{
-                        page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" class="page_span">${i}</span>`;
-                    }
-                    
-                }
-                $id("prductsSection").innerHTML = str;
-                $id("pages").innerHTML = page_a;
 
             }
-        
-            if(cate=='1'){
-                $id("hatTab").classList.add("onclick");
-                $id("clothesTab").classList.remove("onclick");
-            }else{
-                $id("clothesTab").classList.add("onclick");
-                $id("hatTab").classList.remove("onclick");
-            }
-            productImg = document.getElementsByClassName("click_wear");
-            for (var i = 0 ; i< productImg.length; i++){
-                if(innerWidth<768){
-                    productImg[i].addEventListener("click",showInfo); //link:changeClothes.js
+
+            for (var i = 1; i <= pageTotal; i++) {
+                if (i == pageNumber) {
+                    page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" style="color:white;background:rgba(200,78,106,1)" class="page_span">${i}</span>`;
+                } else {
+                    page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" class="page_span">${i}</span>`;
                 }
+
             }
+            $id("prductsSection").innerHTML = str;
+            $id("pages").innerHTML = page_a;
+
+
+            //加入購物車ㄉ提示窗
+            addToCartBtn = document.getElementsByClassName('btn_addToCart');
+            for (let i = 0; i < addToCartBtn.length; i++) {
+                addToCartBtn[i].addEventListener('click', () => {
+                    $('#alertText').text('成功加入購物車');
+                    $('.alertWrap').show();
+                })
+            }
+
+
+
+        }
+
+        if (cate == '1') {
+            $id("hatTab").classList.add("onclick");
+            $id("clothesTab").classList.remove("onclick");
+        } else {
+            $id("clothesTab").classList.add("onclick");
+            $id("hatTab").classList.remove("onclick");
+        }
+        productImg = document.getElementsByClassName("click_wear");
+        for (var i = 0; i < productImg.length; i++) {
+            if (innerWidth < 768) {
+                productImg[i].addEventListener("click", showInfo); //link:changeClothes.js
+            }
+        }
     };
     var showId = document.getElementById("showId");
-    url = `getProducts.php?cate=${cate}&mem=${showId.value}`;
-    xhr.open("get",url,true);
+    if(showId.value){
+        url = `getProducts.php?cate=${cate}&mem=${showId.value}`;
+    }else{
+        url = `getProducts.php?cate=${cate}&mem=0`;
+    }
+    xhr.open("get", url, true);
     xhr.send(null);
 
 
 }
 //game
-var btnG = document.getElementById('btnloto');
+btnG = document.getElementById('btnloto');
 
 var timeId;
 var speed = 50;
@@ -155,75 +171,76 @@ var restep;
 
 
 function rand(min, max) {
-   return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 function getCoin(data) {
-   var xhr = new XMLHttpRequest();
-   xhr.onload = function () {
-       console.log(xhr.responseText);
-       if(xhr.responseText == 1){
-           btnG.innerText = '已領取$'+money;
-           storage.setItem("last_play",nowDay);
+    var btnG = document.getElementById('btnloto');
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        console.log(xhr.responseText);
+        if (xhr.responseText == 1) {
+            btnG.innerText = '已領取$' + money;
+            storage.setItem("last_play", nowDay);
 
-       }
+        }
 
-   };
-   xhr.open("Post", "getCoin.php", true);
-   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-   xhr.send("data=" + JSON.stringify(data));
+    };
+    xhr.open("Post", "getCoin.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    xhr.send("data=" + JSON.stringify(data));
 
 }
 
-function ooxx(){
+function ooxx() {
 
-document.querySelector('.c_' + restep).innerText = '$' + money;
-data = {
-   money: money,
-   nowDay: nowDay,
-   memNo: storage.getItem("memNo"),
-}
-getCoin(data);
+    document.querySelector('.c_' + restep).innerText = '$' + money;
+    data = {
+        money: money,
+        nowDay: nowDay,
+        memNo: storage.getItem("memNo"),
+    }
+    getCoin(data);
 }
 
 function loto() {
     var btnG = document.getElementById('btnloto');
-   btnG.disabled = true;
-   btnG.style.backgroundColor = '#aaa';
-   btnG.style.boxShadow='0px 4px 0px #555';
-   btnG.innerText = '本日已領';
-   stepNum++; 
-   speed += 15;
-   if (stepNum > 12) {
-       if (stepNum % 12 == 0) {
-           restep = 12;
-       } else if (stepNum % 12 == 1) {
-           restep = 1;
-           document.querySelector('.c_12').classList.toggle('highlight');
-       } else {
-           restep = stepNum % 12;
-       }
-   } else {
-       restep = stepNum;
-   }
-  
-   if (stepNum == steps) {
-       // console.log('1');
-      
-       ooxx();
+    btnG.disabled = true;
+    btnG.style.backgroundColor = '#aaa';
+    btnG.style.boxShadow = '0px 4px 0px #555';
+    btnG.innerText = '本日已領';
+    stepNum++;
+    speed += 15;
+    if (stepNum > 12) {
+        if (stepNum % 12 == 0) {
+            restep = 12;
+        } else if (stepNum % 12 == 1) {
+            restep = 1;
+            document.querySelector('.c_12').classList.toggle('highlight');
+        } else {
+            restep = stepNum % 12;
+        }
+    } else {
+        restep = stepNum;
+    }
 
-   } else {
-       timerId = setTimeout(loto, speed);
-       // console.log('2');
-   }
-   document.querySelector('.c_' + restep).classList.toggle('highlight');
+    if (stepNum == steps) {
+        // console.log('1');
 
-   if (restep > 1) {
-       var b = restep - 1;
-       document.querySelector('.c_' + b).classList.toggle('highlight');
-       // console.log('3');
-   }
-  
+        ooxx();
+
+    } else {
+        timerId = setTimeout(loto, speed);
+        // console.log('2');
+    }
+    document.querySelector('.c_' + restep).classList.toggle('highlight');
+
+    if (restep > 1) {
+        var b = restep - 1;
+        document.querySelector('.c_' + b).classList.toggle('highlight');
+        // console.log('3');
+    }
+
 
 
 }

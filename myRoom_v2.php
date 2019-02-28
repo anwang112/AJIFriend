@@ -188,50 +188,50 @@ require_once('myRoomToDB.php');
 
 
             //換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
+// ooxxChangeClothes = (...changeClothesArray) => {
+//     let object = changeClothesArray[0];
+//     let clothes = changeClothesArray[1];
+//     object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+//     clothesGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             clothesId = requestAnimationFrame(clothesGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(clothesId)
+//         }
+//     }
+//     clothesId = requestAnimationFrame(clothesGo);
+// }
 
 
 
 
 
 //換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
+// ooxxChangeHat = (...changeHatArray) => {
+//     let object = changeHatArray[0];
+//     let hat = changeHatArray[1];
+//     object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+//     hatGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             hatId = requestAnimationFrame(hatGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(hatId)
+//         }
+//     }
+//     hatId = requestAnimationFrame(hatGo);
+// }
 
 //函士區
 
