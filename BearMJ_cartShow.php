@@ -99,7 +99,7 @@ if(isset($_SESSION["memNo"])){
                 <div id="totalCost">                    
 
                     <span id="totalMJ" class="cartPanelShow">購物MJ值+： 
-                        <?php if(isset($_SESSION["mj"])){echo count($_SESSION["mj"]);}else{
+                        <?php if(isset($_SESSION["mj"])){echo array_sum($_SESSION["mj"]);}else{
                             echo 0;}?>
                     </span>
                     <span id="totalspend" class="cartPanelShow">
