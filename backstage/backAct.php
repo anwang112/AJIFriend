@@ -1,5 +1,4 @@
 <?php
-
 ob_start();
 session_start();
 if (isset($_SESSION["adminName"]) === false) {
@@ -22,28 +21,10 @@ require_once("backAct_toDB.php");
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
-    <link rel="stylesheet" href="../css/backstage.css">
+    <!-- <link rel="stylesheet" href="../css/backstage.css"> -->
     <link rel="stylesheet" href="../css/activity2.css">
+    <link rel="stylesheet" href="../css/backcss_final.css">
     <script src="../js/backCommon.js"></script>
-    <style>
-        #lightbox_holdact_info,#lightbox_holdact{
-            opacity:0;
-        }
-        .table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-            width: 15%;
-            font-size: 20px;
-        }
-        td,th{
-            text-align:center;
-            
-
-        }
-        #maintable{
-            width: 120%;
-        }
-    </style>
 </head>
 
 <body>
@@ -58,7 +39,7 @@ require_once("backAct_toDB.php");
     <table id="maintable" class="table table-hover">
         <thead>
             <tr>
-                <td colspan="4">
+                <td colspan="3">
                     <button id="holdAct02" type="button" class="btn btn-secondary">查看已刪除活動</button>
                     <button id="holdAct01" type="button" class="btn btn-secondary">新增活動</button>
                 </td>
@@ -110,6 +91,7 @@ require_once("backAct_toDB.php");
             <?php 
         } ?>
         </tbody>
+
     </table>
 
     <div id="lightbox_holdact" class="lightbox_holdact">
@@ -136,7 +118,6 @@ require_once("backAct_toDB.php");
                 function $id(id) {
                     return document.getElementById(id);
                 }
-
                 function initss() {
                     $id("act_holdActFile").onchange = function(e) {
                         var file = e.target.files[0];
@@ -169,8 +150,6 @@ require_once("backAct_toDB.php");
         showAdminName = document.getElementById('showAdminName');
         window.addEventListener('load', () => {
             navbarDropdown.innerHTML = showAdminName.value;
-
-
             //登出
             logoutBtn = document.getElementById('logoutBtn');
             logoutBtn.addEventListener('click', (e) => {
@@ -187,7 +166,6 @@ require_once("backAct_toDB.php");
                 xhr.open("Post", "backLogout.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                 xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
-
             })
         });
     </script>

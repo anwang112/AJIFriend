@@ -11,7 +11,6 @@
     //     $actRe = 0; 
     //     $actObjDelCheck = 0; 
     // }
-
     
     try {
         require_once("../connectBooks.php");
@@ -31,8 +30,6 @@
             $pageNo=$_GET["pageNo"];
         }
         $start = ($pageNo-1) * $recPerPage;
-
-
         //所有
         $sql = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo  AND a.showOrNot = '1' order by a.actNo desc limit $start,$recPerPage";
         
@@ -46,8 +43,6 @@
         $activityAll -> bindColumn("actIntro", $actIntro);
         $activityAll -> bindColumn("actImg", $actImg);
         $activityAll -> bindColumn("mName", $mName);
-
-
         //搜尋
         class data{
             public $no;
@@ -60,7 +55,6 @@
             public $img;
             public $memName;
         }
-
         if(isset($_REQUEST["actObj"]) ){
             // switch($actObj) {
             //     case "1":
@@ -113,16 +107,13 @@
               $send = json_encode($aDB);
               echo  $send ;
         }
-
         //活動刪除(欄位showOrNot設為0)
         if(isset($_REQUEST["actDele"]) ){
             $sqlDelete_actNO = "UPDATE `activity` SET `showOrNot` = '0' WHERE `activity`.`actNo` = :actNo ";
             $bb = $pdo -> prepare($sqlDelete_actNO); 
             $bb -> bindValue(":actNo",  $actDele -> actNo);
             $bb -> execute();
-
             echo "1"; //成功刪除
-
         }
         
         if(isset($_REQUEST["actRe"]) ){
@@ -130,11 +121,8 @@
             $cc = $pdo -> prepare($sqlre_actNO); 
             $cc -> bindValue(":actNo",  $actRe -> actNo);
             $cc -> execute();
-
             echo "1"; //成功刪除
-
         }
-
         //新增活動 ok
         if(isset($_POST["newAct"]) ){
             $actTitle = $_POST["actTitle"];
@@ -144,8 +132,6 @@
             $act_end = $_POST["act_end"];
             $actImg = $_FILES["act_holdActFile"]["name"];
             $act_memNo= $_POST["memNo"];
-
-
             $sql_newAct = "insert into `activity`(`actNo`, `host_memNo`, `actTitle`, `actLoc`, `actImg`, `act_begin`, `act_end`, `actIntro`) VALUES (null,'3','$actTitle',' $actLoc','$actImg','$act_begin','$act_end','$actIntro')"; //3 表示官方的會員帳號
             $activity = $pdo ->query($sql_newAct);
     
@@ -157,7 +143,6 @@
             header('Location:backAct.php');
     
         }
-
         if(isset($_REQUEST["actObjDelCheck"]) ){
             
             $sqlCheck = "SELECT * FROM activity a JOIN member m where a.host_memNo = m.memNo AND `showOrNot` = '0' ";
@@ -190,13 +175,10 @@
                 $send = json_encode($info);
                 echo $send;
                 // echo $send;
-
             }
-
         }
     }catch (PDOException $e) {
         echo "錯誤 : ", $e -> getMessage(), "<br>";
         echo "行號 : ", $e -> getLine(), "<br>";
     }
-
 ?> 

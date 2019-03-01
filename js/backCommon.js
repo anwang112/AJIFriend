@@ -15,7 +15,7 @@ function header() {
 
 <div class="container content">
 <div class="row justify-content-center">
-    <div class="col-3">
+    <div class="col-2">
         <div class="list-group">
             <a href="backStage.php" class="list-group-item list-group-item-action">
                 管理員帳號管理
@@ -26,7 +26,7 @@ function header() {
             <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
         </div>
     </div>
-    <div class="col-9">`;
+    <div class="col-10">`;
 
     document.write(top);
 }
