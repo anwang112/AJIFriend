@@ -51,7 +51,7 @@ if(isset($_SESSION["memNo"])){
                     <li class="li_img">圖片</li>
                     <li>MJ+</li>
                     <li>代幣</li>
-                    <li>異動</li>
+                    <li></li>
                 </ul>
                 
                 <div id="cartTable">
@@ -71,7 +71,7 @@ if(isset($_SESSION["memNo"])){
                             <input type="hidden" name="proNo" value="<?php echo $i;?>">
                             <li class="flexGrow"><?php echo $_SESSION["proName"][$i];?></li>
                             <li class="li_img"><img src="images/<?php if($_SESSION["proCate"][$i]==1){echo "hatImages";}else{echo "clothesImages";} ?>/<?php echo $_SESSION["img"][$i];?>"></li>
-                            <li><span>+<?php echo $_SESSION["mj"][$i];?></span></li>                            
+                            <li><span><?php echo $_SESSION["mj"][$i];?></span></li>                            
                             <li><img src="shop-images/coin.png"><span><?php echo $_SESSION["price"][$i];?></span></li>
                             <!-- <li><input type="button" value="送禮" class="btn_given"></li> -->
                             <li><input type="submit" value="刪除" class="btn_cancel"></li>
