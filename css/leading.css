@@ -50,7 +50,7 @@
     position: absolute;
     min-width: 350px;
     z-index: 2;
-    max-width: 500px;
+    max-width: 390px;
 }
 
 #Front {
@@ -66,7 +66,7 @@
 #Back {
     min-width: 100px;
     width: 15%;
-    right: 9%;
+    right: 8%;
     top: 38%;
     position: absolute;
     z-index: 1;
@@ -104,7 +104,7 @@
         top: 42%;
     }
     #Back {
-        right: 21%;
+        right: 19%;
         top: 42%;
     }
 }

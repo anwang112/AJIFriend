@@ -219,16 +219,15 @@
                 }
                 ooxxEyesGo = (...eyesArray) => {
 
-                    eyesArray[0].setattribute("transform","translate(0) rotate(-45deg)");
-                    eyesArray[1].setattribute("transform","translate(0) rotate(-45deg)");
+                    eyesArray[0].setAttribute('transform', `translate(0) rotate(45)`);
+                    eyesArray[1].setAttribute('transform', `translate(0) rotate(45)`);
 
                     eyesArray[0].style.transformBox = `fill-box`;
                     eyesArray[1].style.transformBox = `fill-box`;
 
                     eyesArray[0].style.transformOrigin = `center`;
                     eyesArray[1].style.transformOrigin = `center`;
-                    //setAttribute("name", "helloButton")
-//transform="translate(0) rotate(-45deg)"
+
                     eyesGo = () => {
                         eyesArray[0].animate([{
                             transform: 'scaleY(1)'
@@ -287,27 +286,27 @@
 
 
             //改變螢幕寬度
-            changeScreen = () => {
-                if (window.innerWidth) {
-                    winWidth = window.innerWidth;
-                }
-                else if ((document.body) && (document.body.clientWidth)) {
-                    winWidth = document.body.clientWidth;
-                }
+            // changeScreen = () => {
+            //     if (window.innerWidth) {
+            //         winWidth = window.innerWidth;
+            //     }
+            //     else if ((document.body) && (document.body.clientWidth)) {
+            //         winWidth = document.body.clientWidth;
+            //     }
 
-                if (winWidth > 768) {
+            //     if (winWidth > 768) {
 
-                    ooxxEyesGo(xxRole[1], xxRole[3]);
-                    ooxxEyesGo(xxRole[12], xxRole[13]);
-                    ooxxEyesGo(xxRole[5], xxRole[7]);
-                    ooxxEyesGo(xxRole[10], xxRole[11]);
+            //         ooxxEyesGo(xxRole[1], xxRole[3]);
+            //         ooxxEyesGo(xxRole[12], xxRole[13]);
+            //         ooxxEyesGo(xxRole[5], xxRole[7]);
+            //         ooxxEyesGo(xxRole[10], xxRole[11]);
 
-                }
+            //     }
 
 
 
-            }
-            window.addEventListener('resize', changeScreen);
+            // }
+            // window.addEventListener('resize', changeScreen);
         </script>
 
 </body>

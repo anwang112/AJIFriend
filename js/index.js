@@ -271,8 +271,14 @@ indexInit = () => {
 
         })
         $id('saveRoleBtn').addEventListener('click', () => {
-            $id('indexCreateRoleBox').style.display = 'none';
-            $id('createMemberScreen').style.display = 'flex';
+            if (storage.getItem('memId')) {
+                $('#alertText').text('已經註冊了!!');
+                $('.alertWrap').show();
+            } else {
+                $id('indexCreateRoleBox').style.display = 'none';
+                $id('createMemberScreen').style.display = 'flex';
+            }
+
         })
 
 
@@ -1120,7 +1126,6 @@ indexInit = () => {
         //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
             checkedValue = '';
-            console.log(document.getElementsByName("hobby"));
             for (let i = 0; i < document.getElementsByName("hobby").length; i++) {
                 if (document.getElementsByName("hobby")[i].checked) {
                     checkedValue += document.getElementsByName("hobby")[i].value;
@@ -1145,7 +1150,6 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-            console.log(createRoleData);
             if ($id('getCheckmemId').innerHTML == '可以使用') {
                 //判斷是否有值才能送出製作
                 if ((createRoleData.memId == "") || (createRoleData.constellation == "") || (createRoleData.hobby == "") || (createRoleData.memPsw == "") || (createRoleData.mName == "") || (createRoleData.constellation == "0")) {
