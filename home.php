@@ -265,7 +265,7 @@ session_start();
             </div>
             <div class="photoTitle indexTitle picTitle">
                 <h2>
-                    <a href="photo.php" title="照片牆" class="indexA">塗鴉麻吉合照</a>
+                    <a href="photo.php" title="照片牆" class="indexA">麻吉合照</a>
                 </h2>
             </div>
            
@@ -298,8 +298,6 @@ session_start();
                 <embed id="PhotoInfo" src="images/indexImages/indexPhotoInfo.svg" style="display:block;" />
             </div>
             <div id="flash"></div>
-
-
         </section>
     </div>
 
@@ -308,7 +306,7 @@ session_start();
         <section class="fifthScreenActivity">
             <div class="activityTitle indexTitle">
                 <h2>
-                    <a href="activity_v2.php" title="活動巴士" class="indexA">聯誼揪團活動</a>
+                    <a href="activity_v2.php" title="活動巴士" class="indexA">揪團活動</a>
                 </h2>
             </div>
             <ul class="signList">
@@ -493,7 +491,6 @@ session_start();
 
     <script type="text/javascript">
         foot_html();
-
     </script>
     <script src="js/index.js"></script>
     <!-- <script src="js/match2.js"></script> -->

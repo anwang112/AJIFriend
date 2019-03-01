@@ -20,7 +20,7 @@ body{
 /* 第一屏背景 */
 /* #ead3cc */
 .bg{
-    background:  rgba(98,167,236, .8) no-repeat scroll 100%;
+    background:  #81b9f0 no-repeat scroll 100%;
     background-size: 100% 90%;
 
 }
@@ -124,17 +124,16 @@ body{
     left: 35%;
     top: 20%;
 }
-/* #LB .winnerPhoto img{
-    width:80%;
-    padding: 2%;
-    margin: auto;
-    border-radius: 10px;
-    vertical-align:middle;
 
-} */
 #LB .topPhoto ,#cardLB .cardPhoto{
-    width: 94%;
+    width: 350px;
+    height: 350px;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
     padding: 3%;
+    vertical-align:middle;
+    border-radius: 10px;
 }
 #LB .member ,#cardLB .member{
     width: 15%;
@@ -142,12 +141,11 @@ body{
 }
 #LB .heart, .heart ,#cardLB .heart{
     width: 12%;
-    margin-top: 1%;
     display: unset;
     position: unset;
   }
 #LB a , #cardLB a{
-    margin-left: 20px;
+    margin-left: 6%;
     margin-right: 40px;
     font-size: .8rem;
     cursor: pointer;
@@ -159,18 +157,22 @@ body{
 #cardLB span{
     margin-left: 20px;
     font-size: 0.8rem;
+    color: rgba(102,102,102,1);
+
 }
 
 #LB p, #cardLB p{
     margin-left: 10%;
+    color: rgba(102,102,102,1);
+
     margin-top: 5%;
 }
 #close {
     background-color: rgba(162,152,143,1);
     box-shadow: 0px 5px rgba(68,68,64,1);
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     top: 3vh;
     right: 2vw;
@@ -223,9 +225,11 @@ body{
     /* float: left; */
     position: relative;
 }
-  .top span,.tops span{
+  .top span,.tops span,.card span{
     font-size: .8rem;
     margin-left: 10px;
+    color: rgba(102,102,102,1);
+
 
 
   }
@@ -255,11 +259,15 @@ body{
   .headBox{
       top: 10px;
   }
+  .headBox .headEyes{
+      z-index: 0;
+  }
   .top .topheart,.card .heart{
     width: 12%;
-    margin-top: 1%;
+    margin-left: 10%;
+    margin-bottom: 3%;
   }
-  .top a,.card a{
+  .top a,.tops a,.card a{
     margin-left: 5px;
     margin-right: 20px;
 
@@ -269,7 +277,6 @@ body{
     color: rgba(102,102,102,1);
   }
   .top:hover,.card:hover{
-    /* box-shadow: 5px 10px 5px #aaa; */
     transform: translateY(5px);
     transition: .5s;
 
@@ -284,15 +291,15 @@ body{
       width: 20%;
       position: absolute;
       top: 18%;
-      left: 20%;
+      left: 15%;
       display: none;
   }
   .content .ajiY{
       width: 20%;
       position: absolute;
-      left: 20%;
+      left: 15%;
       top: 18%;
-      display: none;
+      display: inline-block;
   }
   .content .aji:hover{
       display: none;
@@ -301,10 +308,9 @@ body{
 /* 製作合照tab */
     #drawingTab{
         position: fixed;
-        top: 35%;
+        top: 25%;
         right: 3%;
         width: 110px;
-        height: 50%;
         cursor: pointer;
         z-index: 10;
         animation: camera 3s infinite;
@@ -329,7 +335,7 @@ body{
 
   /* 背景 */
   .bg2{
-    background:rgba(98,167,236, .8)  url("../images/bg2photo1-23.png") no-repeat scroll 50% 5%;
+    background:#81b9f0 url("../images/bg2photo1-23.png") no-repeat fixed 50% 5%;
     background-size: 100%;
 } 
 .postArea{
@@ -393,7 +399,7 @@ body{
         width: 300px;
         margin: auto;
         padding-top: 10vh;
-        padding-bottom: 30vh;
+        padding-bottom: 10vh;
         position: relative;
         /* position: absolute;
         left: 30%;
@@ -435,14 +441,25 @@ body{
         left: 9%;
         top: 9%;
     }
-    .card img, #cardLB .cardPhoto img{
-        width:94%;
+    .card img:first-child {
+        /* width: 93%; */
+        width: 225px;
+        height: 220px;        
         margin-bottom: 3%;
         padding: 3%;
         vertical-align:middle;
         border-radius: 10px;
-
-      }
+    }
+    #cardLB .cardPhoto{
+        width: 350px;
+        height: 350px;
+        margin-top: 3%;
+        margin-left: 3%;
+        margin-bottom: 3%;
+        padding: 3%;
+        vertical-align:middle;
+        border-radius: 10px;
+    }
 
     #trash{
         position: absolute;
@@ -500,7 +517,7 @@ body{
     #friend_LightBox {
         width: 25%;
         position: absolute;
-        top: 35%;
+        top: 30%;
         left: 5%;
         z-index: 3;
     }
@@ -550,7 +567,22 @@ body{
     #friend_LightBox #content_friendBox #chooseBox {
         overflow: auto;
     }
-
+    #friend_LightBox #content_friendBox #chooseBox a {
+        display: flex;
+        margin-bottom: 6px;
+        background-color: #eee;
+        padding: 10px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        align-items: center;
+    }
+    #friend_LightBox #content_friendBox #chooseBox a .gift_headBox {
+        width: 25%;
+        margin: 0 5px; 
+        position: relative;
+        top: 0;
+    }
+    
     #friend_LightBox #content_friendBox #chooseBox {
         height: 180px;
     }
@@ -565,29 +597,44 @@ body{
         font-family: "微軟正黑體";
         cursor: pointer;
     }
-   #friend_LightBox #content_friendBox #chooseBox label img {
+    
+    #friend_LightBox #content_friendBox #chooseBox label img {
         width: 20%;
         margin-right: 4px;
    }
-   #friend_LightBox #content_friendBox #chooseBox label p {
-    display: inline;
-   }
-
-   #chooseId #showModel {
-       width: 152px;
-       height: 160px;
+    #friend_LightBox #content_friendBox #chooseBox label p {
+        display: inline-block;
+        width: 80%;
+        color: #555;
+    }
+   /* #chooseId #showName{
        position: absolute;
-       z-index: 1;
-       left: 105px;
-       top: 110px;
-   }
-   #chooseId #showModel #model_hat{
+   } */
+   #chooseId #showMe {
+    width: 40%;
+
+    /* width: 152px;
+    height: 160px; */
     position: absolute;
-    left: 0;
-    top: -10px;
+    left: 4vw;
+    top: 12vh;
+    z-index: 1;
+}
+   #chooseId #showModel, #showMe {
+       width: 40%;
+        /* width: 152px;
+       height: 160px; */
+       position: absolute;
+       left: 16vw;
+       top: 12vh;
+       z-index: 1;
+   }
+   #chooseId #showModel #model_hat, #showMe #model_hat{
+    position: absolute;
    }
     .steps{
         display: flex;
+        padding-top: 50px;
         justify-content: center;
         align-items: flex-end;
     }
@@ -600,7 +647,8 @@ body{
         filter: grayscale(0%);
     }
     #step1 img{
-        width: 100px;
+        width: 90px;
+        height: 90px;
         margin: 5%;
         box-shadow: 5px 10px 5px #aaa;
     }
@@ -612,18 +660,12 @@ body{
         width: 100px;
         margin: 5%;
     }
-
-
-
-
-
-    /* 記得打開！！！！！！！！！ */
     #step3{
         display: block;
-        /* filter: grayscale(100%); */
+        filter: grayscale(100%);
     }
     #step3 img{
-        width: 100px;
+        width: 110px;
         margin: 5%;
     }
     .bulletin{
@@ -635,7 +677,6 @@ body{
         border-radius: 20px;
         box-shadow: 5px 10px 10px #aaa;
         background:linear-gradient(-45deg,rgba(240,92,121,1),rgba(125,164,203,1));
-
     }
     .bulletin img{
         width: 15%;
@@ -669,7 +710,7 @@ body{
         /* display: none; */
 
     }
-    .color{
+    /* .color{
         width: 40px;
         height: 40px;
         margin: 10%;
@@ -682,7 +723,8 @@ body{
     #yellow{background-color: gold;}
     #blue{background-color:rgb(68, 176, 219);}
     #green{background-color: seagreen;}
-    #black{background-color: black;}
+    #black{background-color: black;} */
+    
     .preCanvas{
         position: relative;
     }
@@ -692,7 +734,10 @@ body{
         left: 0;top: 0;
         z-index: 1;
         /* border: 5px solid rgba(240,92,121,.7); */
-        /* display: none;        */
+        /* display: none; */
+    }
+    .role,.roleEyes,.roleHat,.roleClothes{
+        height: 200px;
     }
     .preview{
         width: 350px;
@@ -763,7 +808,7 @@ body{
         background-color: #E5E2DD;
       }
       /* btn 關閉提示燈箱按鈕 */
-      #sureClose{
+    #sureClose{
         position: absolute;
         top: 40%;
         left: 25%;
@@ -778,7 +823,7 @@ body{
         background-color: #E15974;
         box-shadow: 0 1vh #C64D6A;
         border-radius: 30px;
-      }
+    }
 
 /* btn style :上傳 選擇朋友 下一步 分享照片  */
     .upload span,#friendBox span,.next span,#sharePhoto{
@@ -842,6 +887,18 @@ body{
         width: 35%;
         margin-bottom: 10vh;
     }
+    .topic{
+        padding-top: 0;
+    }
+    .topic h1{
+        top: 0;
+    }
+    .content .aji{
+        top: 35%;
+    }
+    .content .ajiY{
+        top: 35%;
+    }
     .top .topbg{
         width: 300px;
         position: absolute;
@@ -852,7 +909,7 @@ body{
     .card{
         margin-left: 11%;
     }
-    .card img{
+    .card img:first-child{
         width: 100%;
     }
 
@@ -861,16 +918,31 @@ body{
         margin-left: 8px;    
     }
     .top .member,.card .member{
-        width: 22%;
-        margin-left: 4%;
-        position: relative;
-        z-index: 3;
-    }
-    .top .topheart,.card .heart{
         width: 20%;
-        margin-top: 1%;
-        z-index: 3;
+        margin-left: 6%;
+        margin-top: -5%;
         position: relative;
+        z-index: 1;
+    }
+    .headBox{
+        top: 20px;
+    }
+    .top .topheart{
+        width: 20%;
+        margin-left: 0;
+        margin-top: 1%;
+        margin-bottom: 0;
+        z-index: 1;
+        position: relative;
+    }
+    .card .heart{
+        width: 20%;
+        position: unset;
+        padding: 3%;
+        margin-top: 1%;
+        margin-left: 0;
+        margin-bottom: 0;
+
     }
     .top a,.card a{
         margin-right: 10%;
@@ -878,11 +950,11 @@ body{
         width: 40px;
         display: inline-block;
         color: rgba(102,102,102,1);
-        z-index: 3;
+        z-index: 1;
         position: relative;
     }
     .top span,.card span{
-        z-index: 3;
+        z-index: 1;
         position: relative;
     }
     /* 第二屏  */
@@ -1022,7 +1094,8 @@ body{
         background-color: #E5E2DD;
     }
     #LB .topPhoto ,#cardLB .cardPhoto{
-        width:100%;
+        width: 370px;
+        height: 370px;
         padding: 3%;
     }
     #LB .heart, #cardLB .heart{
@@ -1031,6 +1104,11 @@ body{
     }
     #LB span,#cardLB span{
         margin-left: 20px;
+        color: rgba(102,102,102,1);
+    }
+    #LB a,#cardLB a{
+                color: rgba(102,102,102,1);
+
     }
     #close{
         position: absolute;
@@ -1044,7 +1122,7 @@ body{
 @media screen and (max-width: 476px){
     .wrap1{
         width: 100%;
-        height: 172vh;
+        height: 175vh;
         padding-top: 20px;
         padding-bottom: 50px;
         position: relative;
@@ -1060,7 +1138,7 @@ body{
         position: fixed;
     }
     .wrap1 .trophy{
-        width: 55%;
+        width: 57%;
         margin-left: 17%;
         margin-bottom: 20px;
     }
@@ -1078,11 +1156,10 @@ body{
         position: absolute;
         left: -6%;
         top: 67%;
-      
         display: block;
     }
     .card{
-        margin-left: 19%;
+        margin-left: 21%;
     }
     .card img{
         width: 100%;
@@ -1092,12 +1169,13 @@ body{
         margin-left: 8px;    
     }
     .top .member,.card .member{
-        width: 22%;
-        margin-left: 4%;
+        width: 20%;
+        margin-top: 3%;
+        margin-left: 8%;
     }
     .top .topheart,.card .heart{
         width: 20%;
-        margin-top: 1%;
+        margin-top: -3%;
     }
     .top a,.card a{
         margin-right: 10%;
@@ -1119,7 +1197,7 @@ body{
         font-size: 1rem;
         position: absolute;
         left: 7.5vh;
-        top: 10.5vh;
+        top: 0.5vh;
     }
   
 
@@ -1132,9 +1210,9 @@ body{
     .postArea{
         padding-top: 10%;
     }
-    .topic{
+    /* .topic{
         padding-bottom: 20vh;
-    }
+    } */
     .content .aji, .content .ajiY{
         display: none;
     }
@@ -1295,8 +1373,8 @@ body{
         background-color: #E5E2DD;
       }
     #LB .topPhoto ,#cardLB .cardPhoto{
-        width:100%;
-        padding: 3%;
+        width: 240px;
+        height: 226px;        padding: 3%;
     }
     #LB a, #cardLB a{
         margin-right: 25px;

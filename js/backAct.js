@@ -295,7 +295,7 @@ window.addEventListener('load', function () {
     var holdAct01 = $id('holdAct01');
     holdAct01.addEventListener('click', function () {
         lightbox_holdact.style.cssText = "display:flex;z-index:10;opacity:1";
-        lightbox_holdact_info.style.cssText = "display:block;z-index:10;opacity:1";
+        lightbox_holdact_info.style.cssText = "display:flex;z-index:10;opacity:1";
 
         lightbox_holdact_info.addEventListener('click', function (e) {
             e.stopPropagation();

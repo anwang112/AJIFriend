@@ -271,8 +271,14 @@ indexInit = () => {
 
         })
         $id('saveRoleBtn').addEventListener('click', () => {
-            $id('indexCreateRoleBox').style.display = 'none';
-            $id('createMemberScreen').style.display = 'flex';
+            if (storage.getItem('memId')) {
+                $('#alertText').text('已經註冊了!!');
+                $('.alertWrap').show();
+            } else {
+                $id('indexCreateRoleBox').style.display = 'none';
+                $id('createMemberScreen').style.display = 'flex';
+            }
+
         })
 
 
@@ -1095,7 +1101,7 @@ indexInit = () => {
                     });
                     $id('getCheckmemId').innerHTML = '可以使用';
                     $id('getCheckmemId').style.color = 'green';
-                   
+
                 });
             }
         });
@@ -1114,16 +1120,24 @@ indexInit = () => {
                 });
             }
         });
+
+
+
         //完成表單送出ㄉ
         $id('createMemberBtn').addEventListener('click', () => {
-      
-            
-
-            if(document.querySelector('.hobbyItem:checked') != null){
-                checkedValue = document.querySelector('.hobbyItem:checked').value;
-            }else{
-                checkedValue = 1;
+            checkedValue = '';
+            for (let i = 0; i < document.getElementsByName("hobby").length; i++) {
+                if (document.getElementsByName("hobby")[i].checked) {
+                    checkedValue += document.getElementsByName("hobby")[i].value;
+                }
             }
+
+            // if(document.querySelector('.hobbyItem:checked') != null){
+            //     checkedValue = document.querySelector('.hobbyItem:checked').value;
+            //     console.log(checkedValue.length);
+            // }else{
+            //     checkedValue = '1';
+            // }
             //把表單值塞入物件傳到php
             createRoleData = {
                 memId: $id('memId').value,
@@ -1136,11 +1150,9 @@ indexInit = () => {
                 eye: roleObject.eyes,
                 animal: roleObject.animal,
             }
-
-
             if ($id('getCheckmemId').innerHTML == '可以使用') {
                 //判斷是否有值才能送出製作
-                if ((createRoleData.constellation == "") || (createRoleData.hobby == "")||(createRoleData.memPsw == "")||(createRoleData.mName == "")) {
+                if ((createRoleData.memId == "") || (createRoleData.constellation == "") || (createRoleData.hobby == "") || (createRoleData.memPsw == "") || (createRoleData.mName == "") || (createRoleData.constellation == "0")) {
                     $('#alertText').text('有東西沒有填唷!');
                     $('.alertWrap').show();
                 } else {
@@ -1168,7 +1180,6 @@ indexInit = () => {
 
                             $id('createMemberScreen').style.display = 'none';
                         }
-                        console.log(createRoleData.hobby);
                         createxhr.open("Post", "setUpMember.php", true);
                         createxhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                         createxhr.send("createRoleData=" + JSON.stringify(createRoleData));

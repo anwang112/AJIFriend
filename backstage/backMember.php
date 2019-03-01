@@ -37,6 +37,12 @@ try {
     <script src="../js/package/popover.js"></script>
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
+    <link rel="stylesheet" href="../css/backcss_final.css">
+    <style>
+    .table tbody td,.table tbody th{
+        vertical-align: middle !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -56,7 +62,7 @@ try {
                 <td colspan="4"></td>
                 <td colspan="3">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="memberInput" placeholder="會員編號" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" id="memberInput" placeholder="會員暱稱" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="buttonAddon2">搜尋
                             </button>
@@ -96,9 +102,9 @@ try {
                 <td>
 
                     <?php if ($power == 1) {
-                        echo '<button type="button"' . 'value="' . $memNo . '"class="btn btn-primary changePower">正常</button>';
+                        echo '<button type="button"' . 'value="' . $mName . '"class="btn btn-primary changePower">正常</button>';
                     } else {
-                        echo '<button type="button"' . 'value="' . $memNo . '"class="btn btn-danger changePower">停權</button>';
+                        echo '<button type="button"' . 'value="' . $mName . '"class="btn btn-danger changePower">停權</button>';
                     }
                     ?>
 
@@ -121,7 +127,7 @@ try {
 
         memberGoGo = (oo, xx = 'xx') => {
             memberData = {
-                memNo: oo, //取得是誰
+                mName: oo, //取得是誰
                 power: xx, //權限值
             }
             console.log(memberData);
@@ -160,7 +166,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                                <button type="button" value="1" class="btn btn-primary changePower">正常</button>
+                                <button type="button" value="${serchResule.mName}" class="btn btn-primary changePower">正常</button>
                             </td>
                         </tr>
                         `;
@@ -195,7 +201,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                            <button type="button" value="1" class="btn btn-danger changePower">停權</button>
+                            <button type="button" value="${serchResule.mName}" class="btn btn-danger changePower">停權</button>
                             </td>
                         </tr>
                         `;

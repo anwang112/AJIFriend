@@ -2,6 +2,35 @@
 //2-1.登入者先回去撈資料會員帳號 照片標號 判斷是否按過讚
 //2-2.你已經按過了
 
+function addLBHeart(e){
+    var login=document.getElementById("loginNot");
+    if(login.innerText=="登入"){
+        alert("請先登入！");
+    }else if(login.innerText=="登出"){
+        var picNo = e.target.id.split("|")[1]; 
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if( xhr.status == 200){
+            if( xhr.responseText == 'true' ){
+                alert('已完成投票！');
+                e.target.nextSibling.innerText = parseInt(e.target.nextSibling.innerText) + 1;
+                var cardId = e.target.parentNode.className.split('-')[1];
+                var card = document.getElementById(cardId);
+                card.children[5].innerText = parseInt(card.children[5].innerText) + 1;
+
+            }else{
+                alert('你投過了喔!');
+            }
+
+          }else{
+            alert( xhr.status );
+            }
+        }
+
+        xhr.open("get", "ajaxCheckVote.php?picNo=" + picNo, true);
+        xhr.send(null);
+    }   
+}    
 function addHeart(e){
     var login=document.getElementById("loginNot");
     if(login.innerText=="登入"){

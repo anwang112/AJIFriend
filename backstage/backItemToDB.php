@@ -1,6 +1,5 @@
 <?php
     //跟資料庫要資料
-
     try {
         require_once("../connectBooks.php");
         //總檢舉數
@@ -13,7 +12,6 @@
         $result -> bindColumn("proMJ", $proMJ);   
         $result -> bindColumn("img", $img);  
         $result -> bindColumn("seen", $seen);  
-
         $result -> execute();
         
         if(isset($_REQUEST["seen"])!= null  && isset($_REQUEST["proMJ"])!= null  && isset($_REQUEST["proNo"])!= null  && isset($_REQUEST["proName"]) != null  ){
@@ -24,13 +22,11 @@
             $proNo_get = $_REQUEST["proNo"];
             $proName_get = $_REQUEST["proName"];
             // $img_get = $_FILES["act_holdActFile"]["name"];
-
             //圖片
             // $from = $_FILES["act_holdActFile"]["tmp_name"];
             // $to = "images/" . $_FILES["act_holdActFile"]["name"];
             // copy($from,$to);
              
-
             $sqlupdate = " update `product` SET `proName` = :proName ,`price` = :price , `proMJ` = :proMJ , `seen` = :seen  WHERE `product`.`proNo` = :proNo ";
             // UPDATE `report` SET `status` = '0' WHERE `report`.`repoNo` = 1;
             $rrr = $pdo->prepare($sqlupdate); 
@@ -42,7 +38,6 @@
             $rrr -> execute();
             header('Location:backItem.php');
         }
-
         if(isset($_REQUEST["newPro"]) ){
         
             // $_REQUEST["proNo_ins"];
@@ -52,19 +47,15 @@
             $_REQUEST["proMJ_ins"];
             $_REQUEST["seen_ins"];
             $_FILES["act_holdActFile"]["name"];
-
             //商品總數  
             $sqlNum = "select * from product ";
             $result = $pdo->query($sqlNum);
             $totalRecord =  $result ->rowCount();
             $totalRecord = $totalRecord + 1;
-
             //上傳檔案處理
-
             $from = $_FILES["act_holdActFile"]["tmp_name"];
             $to = "../images/".$_FILES["act_holdActFile"]["name"];
             copy($from,$to);
-
             $sqlIns = "INSERT INTO `product`(`proNo`, `category`, `proName`, `price`, `proMJ`, `img`, `seen`) VALUES (:proNo,:category,:proName,:price,:proMJ,:img,:seen)";
             $proInstoDB = $pdo->prepare($sqlIns ); 
             $proInstoDB -> bindValue(":proNo",  $totalRecord );
@@ -75,16 +66,10 @@
             $proInstoDB -> bindValue(":img", $_FILES["act_holdActFile"]["name"]);
             $proInstoDB -> bindValue(":seen", $_REQUEST["seen_ins"]);
             $proInstoDB -> execute();
-
-
             header('Location:backItem.php');
-
         }
-
-
     }catch (PDOException $e) {
         echo "錯誤 : ", $e -> getMessage(), "<br>";
         echo "行號 : ", $e -> getLine(), "<br>";
     }
-
-?> 
+?>
