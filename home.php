@@ -17,8 +17,11 @@ session_start();
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
+    <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    
 
     <title>熊麻吉</title>
 </head>
@@ -28,7 +31,30 @@ session_start();
     <script type="text/javascript">
         head_html();
     </script>
-
+    <div class="load">
+        <div class="loadBox">
+            <div class="ani">
+                <img src="images/bearmask.png" alt="">
+                <div class="bear"></div>
+            </div>
+            <div class="ani">
+                <img src="images/rabimask.png" alt="">
+                <div class="rabi"></div>
+            </div>
+            <div class="ani">
+                <img src="images/catmask.png" alt="">
+                <div class="cat"></div>
+            </div>
+            <div class="ani ">
+                <img src="images/dogmask.png" alt="">
+                <div class="dog"></div>
+            </div>
+        </div>
+        <div id="scoreDisplay1"></div>
+    
+    </div>
+    
+    
     <!-- 第一部分城市 -->
     <div class="firstScreen">
         <!-- 背景 -->
@@ -234,11 +260,15 @@ session_start();
     <div class="fourthScreen" id="fourthScreen">
         <!-- 主要內容 -->
         <section class="fourthScreenPhoto">
-            <div class="photoTitle indexTitle">
+        <div class="pic">
+                <img src="images/picpic.png" alt="">
+            </div>
+            <div class="photoTitle indexTitle picTitle">
                 <h2>
                     <a href="photo.php" title="照片牆" class="indexA">塗鴉麻吉合照</a>
                 </h2>
             </div>
+           
             <div class="camera">
                 <img alt="photo" class="photo" src="images/indexImages/indexCamera.svg">
                 <svg id="lineStory" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -30 900 500" preserveAspectRatio="xMinYMin meet">
@@ -295,12 +325,6 @@ session_start();
         </section>
     </div>
 
-
-
-
-
-
-
     <!-- 創建角色 -->
     <div id="indexCreateRoleBox" class="indexCreateRoleBox">
         <h2>創建專屬角色</h2>
@@ -351,11 +375,10 @@ session_start();
                 </div>
             </div>
         </div>
-        <button id="saveRoleBtn">製作完成</button>
+        <button id="saveRoleBtn" class="btn">製作完成</button>
 
         <div id="indexCreateCloseBtn" class="lightBoxXX"></div>
     </div>
-
 
     <!-- 註冊帳號 -->
     <div id="createMemberScreen">
@@ -363,19 +386,22 @@ session_start();
         <div class="createMemberBox">
             <ul class="createLeftForm">
                 <li>
-                    <label>會員帳號 :</label>
+                    <label>會員帳號</label>
                 </li>
                 <li>
-                    <label>會員密碼 :</label>
+                    <label>會員密碼</label>
                 </li>
                 <li>
-                    <label>會員暱稱 :</label>
+                    <label>確認密碼</label>
                 </li>
                 <li>
-                    <label>選擇星座</label>
+                    <label>會員暱稱</label>
                 </li>
                 <li>
-                    <span>興趣</span>
+                    <label>星座選擇</label>
+                </li>
+                <li>
+                    <span>興趣勾選</span>
                 </li>
                 <li>
                     <span>自我介紹</span>
@@ -390,11 +416,14 @@ session_start();
                     <input type="password" required name="memPsw" id="memPsw">
                 </li>
                 <li>
+                    <input type="password" required name="memPsw_check" id="memPswDBC">
+                </li>
+                <li>
                     <input type="text" required name="mName" id="mName"><span id="getCheckmName" style="display:none;"></span>
                 </li>
                 <li>
                     <select name="constellation" id="constellation">
-                        <option value="0">選擇星座</option>
+                        <option value="0"></option>
                         <option value="1">牡羊座</option>
                         <option value="2">金牛座</option>
                         <option value="3">雙子座</option>
@@ -409,7 +438,7 @@ session_start();
                         <option value="12">雙魚座</option>
                     </select>
                 </li>
-                <li>
+                <li id="checkbox_home">
                     <label>
                         <input type="checkbox" name="hobby" value="0" class="hobbyItem">
                         <span>打籃球</span>
@@ -457,16 +486,17 @@ session_start();
             </ul>
             <div id="createMemberScreenCloseBtn" class="lightBoxXX"></div>
         </div>
-        <button id="createMemberBtn" class="btn_R">送出</button>
+        <button id="createMemberBtn" class="btn">送出</button>
     </div>
 
 
 
     <script type="text/javascript">
         foot_html();
+
     </script>
     <script src="js/index.js"></script>
-    <script src="js/match2.js"></script>
+    <!-- <script src="js/match2.js"></script> -->
 </body>
 
 </html> 

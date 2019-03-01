@@ -11,7 +11,7 @@ function saveHatCloth(memNo, memHat, memCloth) {
 			console.log(xhr.responseText);//111
 		}
 	}
- 
+
 	memberObj = {
 		memNo: memNo, //登入後是誰
 		memHat: memHat,
@@ -26,10 +26,11 @@ function saveHatCloth(memNo, memHat, memCloth) {
 window.addEventListener('load', function () {
 	//ooxx來打扣唷以下為ooxx所打ㄉ////////////////////////////////////////////////////////////
 	ooxxMyRoom = () => {
-		memberUpDateData = {
+		let memberUpDateData = {
 			memId: 'An', //登入後是誰
 			mName: '', //登入後ㄉ值
 			selfIntro: '', //登入後ㄉ值
+			status: ''
 		};
 		$id('change').addEventListener('click', () => {
 			if ($id('change').innerHTML == '儲存') {
@@ -38,10 +39,14 @@ window.addEventListener('load', function () {
 				memberUpDateData.memId = storage.getItem("memId");
 				memberUpDateData.mName = $id('mName').value;
 				memberUpDateData.selfIntro = $id('selfIntro').value;
+				memberUpDateData.status = '改個人資料'
 
 				let xhr = new XMLHttpRequest();
 				xhr.onload = function () {
-					console.log(xhr.responseText);
+					let xx = JSON.parse(xhr.responseText)
+					storage.setItem('mName', xx.name);
+					storage.setItem('self-intro', xx.intro);
+					$id('memName').innerHTML = xx.name;
 					window.location.reload();
 				}
 				xhr.open("Post", "upDateMember.php", true);
@@ -67,14 +72,33 @@ window.addEventListener('load', function () {
 		var memNo = storage.getItem("memNo"); //登入情況下
 		// txt = $id('wearhat').src.split('/'); 	
 		// txts = $id('putonCloth').src.split('/');
-        var srcHat = roleHat.style.backgroundImage;
-		var memHat = srcHat.substring(srcHat.lastIndexOf("/")+1,srcHat.length-2);
+		var srcHat = roleHat.style.backgroundImage;
+		var memHat = srcHat.substring(srcHat.lastIndexOf("/") + 1, srcHat.length - 2);
 		var srcClothes = roleClothes.style.backgroundImage;
-		var memCloth = srcClothes.substring(srcClothes.lastIndexOf("/")+1,srcClothes.length-2);
+		var memCloth = srcClothes.substring(srcClothes.lastIndexOf("/") + 1, srcClothes.length - 2);
 		saveHatCloth(memNo, memHat, memCloth);
 
 	}, false);
 
+
+	//更新個人ㄉ興趣
+	//興趣
+	$id('hobbyText').innerHTML = '';
+	var hobby = storage.getItem('hobby').split("");
+	var hobbys = ['打籃球', '抓寶可夢', '跑步', '看電影', '吃美食', '游泳', '唱歌', '看書', '爬山', '健身'];
+	var c = [];
+	for (var i = 0; i < hobby.length; i++) {
+		var a = hobby[i];
+		var b = hobbys[a];
+		c.push(b);
+	}
+	for (var j = 0; j < c.length; j++) {
+		var d = c[j] + '&nbsp' + '|' + '&nbsp';
+		if (j == c.length - 1) {
+			d = c[j];
+		}
+		$id('hobbyText').innerHTML += d;
+	}
 
 
 }, false);

@@ -19,7 +19,7 @@ session_start();
     <script src="js/changeClothes.js"></script>
     <script src="js/commonPart.js"></script>
     <script src="js/shop.js"></script>
-<script src="js/match2.js"></script>
+    <link rel="stylesheet" href="css/chatStyle_final.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
 </head>
@@ -50,7 +50,18 @@ session_start();
                 <div id="showModel" class="roleBox">
                     
                 </div>
-
+                <?php
+                    echo '<script>
+                    ooxxGetRole($id("showModel"), {
+                        animal: 1,
+                        color:"24A4C0",
+                        eyes:1,
+                        hat:0,
+                        clothes:0,
+                        });
+                        
+                    </script>'
+                ?>
                 <!-- 前往購物車 -->
                 <div id="rwd_showCart">
                     <a href="BearMJ_cartShow.php">
@@ -67,10 +78,10 @@ session_start();
 
                 <div id="chooseArea">
                     <!-- 自己穿 -->
-                    <div id="choose-me" class="btn_chooseModel"> 
+                    <!-- <div id="choose-me" class="btn_chooseModel"> 
                         <img src="shop-images/gift.png">
                         <p>自己穿</p>
-                    </div>
+                    </div> -->
             
                     <!-- 試穿角色暱稱顯示區塊 -->
                     <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
@@ -79,8 +90,7 @@ session_start();
                     
             
                     <!-- 選朋友來試穿(送禮) -->
-                    <div class="choose-friend btn_chooseModel gift" >
-                        <img src="shop-images/gift.png">
+                    <div class="choose-friend btn gift" >
                         <p class="wearChange">麻吉</p>
                     </div>
 
@@ -115,22 +125,21 @@ session_start();
                 <div id="productsArea">
                     <div id="actionPanel">
                         <!-- 選朋友來試穿(送禮) -->
-                        <div id="" class="choose-friend gift">
+                        <div id="" class="choose-friend gift btn">
                             <div class="btn_chooseModel" >
-                                <img src="shop-images/gift.png">
                                 <span class="wearChange">麻吉</span>
                             </div>
 
                         </div>
                             <!-- 試穿角色暱稱顯示區塊 -->
-                            <p id="rwd-showName" class="gift">
-                                <?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?>
+                            <p id="rwd-showName" class="gift btn">
+                                <?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];}else{echo '請先登入';} ?>
                             </p>
                         <!-- 前往購物車 -->
-                        <div id="showCart">
-                            <a href="BearMJ_cartShow.php">
-                                <img src="shop-images/cart_pink.png">
-                                <p>查看</p>
+                        <div id="showCart" class="btn">
+                            <a>
+                                <img src="shop-images/cart.png">
+                                <p>購物車</p>
                             </a>
                         </div>
 
@@ -153,6 +162,7 @@ session_start();
             </div> 
             <div id="btn_openGame">
                 <img src="images/wallet2.png" alt="">
+                <span></span>
             </div>
             <!-- 搖獎遊戲 -->
             <div class="gameMask"></div>
@@ -214,8 +224,8 @@ session_start();
 
     <script>
         foot_html();  
+        getProducts(1,1);
         if( storage.getItem("memNo") ){
-            getProducts(1,1);
             changeModel(storage.getItem("memNo"));
         }
      //試穿角色顯示	
@@ -248,18 +258,36 @@ session_start();
     console.log(window.screen.availWidth);
 
     function init(){
+        $id("showCart").addEventListener("click",function(){
+            if(storage.getItem("memNo")){
+                document.location.href="BearMJ_cartShow.php";
+            }else{
+                $('#alertText').text('請先登入!');
+                $('.alertWrap').show();
+            }
+        },false);
+
+        
         var choose = document.getElementsByClassName("gift");
         for(var i = 0 ; i < choose.length ; i++){
-            choose[i].addEventListener("click",showfriendBox);
+            if(storage.getItem("memNo")){
+                choose[i].addEventListener("click",showfriendBox);
+            }else{
+                choose[i].addEventListener("click",function(){
+                    $('#alertText').text('請先登入!');
+                    $('.alertWrap').show();
+
+                },false);
+            }
         }
 
 
-        $id("choose-me").addEventListener("click",function(){
-            $id("model_animal").src = "shop-images/model_1.png";
-            $id("model_hat").src = "shop-images/hat_1.png";
-            // $id("model_clothes").src = "";
+        // $id("choose-me").addEventListener("click",function(){
+        //     $id("model_animal").src = "shop-images/model_1.png";
+        //     $id("model_hat").src = "shop-images/hat_1.png";
+        //     // $id("model_clothes").src = "";
 
-        });
+        // });
         
         $id("btn_openGame").addEventListener("click",function(){
         var gameBox = document.getElementsByClassName("game")[0];
@@ -302,5 +330,5 @@ session_start();
     window.addEventListener("load",init,false);
 
 </script>
-<!-- 
-<script src="js/match2.js"></script> -->
+
+<script src="js/match2.js"></script>

@@ -191,10 +191,11 @@ try {
                         break;
                     case "找不到喔":
                         alert("尋不到喔");
+                        break;
                     default:
                         serchResule = JSON.parse(xhr.responseText);
                         console.log(serchResule);
-                        if (serchResule.power == 1) {
+                        if (serchResule.power == '1') {
                             showMember.innerHTML = `
                         <tr>
                             <th scope="row">
@@ -214,7 +215,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                                <button type="button" value="1" class="btn btn-danger changePower">正常</button>
+                                <button type="button" value="1" class="btn btn-primary changePower">正常</button>
                             </td>
                         </tr>
                         `;
@@ -265,6 +266,7 @@ try {
                                 });
                             }
                         }
+                        break;
                 }
 
             }

@@ -12,7 +12,8 @@ require_once('myRoomToDB.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/commonPart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
@@ -215,50 +216,50 @@ require_once('myRoomToDB.php');
 
 
             //換衣衣
-ooxxChangeClothes = (...changeClothesArray) => {
-    let object = changeClothesArray[0];
-    let clothes = changeClothesArray[1];
-    object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
-    clothesGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            clothesId = requestAnimationFrame(clothesGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(clothesId)
-        }
-    }
-    clothesId = requestAnimationFrame(clothesGo);
-}
+// ooxxChangeClothes = (...changeClothesArray) => {
+//     let object = changeClothesArray[0];
+//     let clothes = changeClothesArray[1];
+//     object.getElementsByClassName('roleClothes')[0].style.backgroundImage = `url(${clothes})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleClothes')[0].style.transition = `.4s`;
+//     clothesGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             clothesId = requestAnimationFrame(clothesGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleClothes')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(clothesId)
+//         }
+//     }
+//     clothesId = requestAnimationFrame(clothesGo);
+// }
 
 
 
 
 
 //換帽帽
-ooxxChangeHat = (...changeHatArray) => {
-    let object = changeHatArray[0];
-    let hat = changeHatArray[1];
-    object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
-    let scaleValue = 0;
-    object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
-    hatGo = () => {
-        if (scaleValue <= 1) {
-            scaleValue += 0.06;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            hatId = requestAnimationFrame(hatGo);
-        } else if (scaleValue >= 1.5) {
-            scaleValue = 1;
-            object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
-            cancelAnimationFrame(hatId)
-        }
-    }
-    hatId = requestAnimationFrame(hatGo);
-}
+// ooxxChangeHat = (...changeHatArray) => {
+//     let object = changeHatArray[0];
+//     let hat = changeHatArray[1];
+//     object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
+//     let scaleValue = 0;
+//     object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
+//     hatGo = () => {
+//         if (scaleValue <= 1) {
+//             scaleValue += 0.06;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             hatId = requestAnimationFrame(hatGo);
+//         } else if (scaleValue >= 1.5) {
+//             scaleValue = 1;
+//             object.getElementsByClassName('roleHat')[0].style.transform = `scale(${scaleValue})`;
+//             cancelAnimationFrame(hatId)
+//         }
+//     }
+//     hatId = requestAnimationFrame(hatGo);
+// }
 
 //函士區
 

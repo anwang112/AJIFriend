@@ -11,7 +11,6 @@ try {
     $sql = "select * from admin";
     $alladmin = $pdo->prepare($sql);
     $alladmin->execute();
-
     $alladmin->bindColumn("adminNo", $adminNo);
     $alladmin->bindColumn("adminName", $adminName);
     $alladmin->bindColumn("adminId", $adminId);
@@ -31,43 +30,13 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>熊麻吉後台</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
     <script src="../js/backCommon.js"></script>
     <script src="../js/package/jquery/dist/jquery.min.js"></script>
-    <style>
-    *{
-        /* outline:1px solid red; */
-    }
-    .container {
-        max-width:unset;
-        padding-left:0px;
-        /* margin-left:15px; */
-    }
-    .col-9{
-        padding-left:0;
-    }
-    .list-group-item{
-        padding:1.75rem 1.25rem;
-    }
-    .table td{
-        padding:0.25rem;
-    }
-    .row{
-        margin-left:0;
-    }
-    button{
-        margin:auto;    
-    }
-    tbody th input{
-        color:#007bff;
-    }
-    thead tr:first-child{
-        height:82px;
-    }
-    
-    </style>
+ 
 </head>
 
 
@@ -201,7 +170,6 @@ try {
         createAdmin = document.getElementById('createAdmin');
         createAdminWrap = document.getElementById('createAdminWrap');
         adminSendBtn = document.getElementById('adminSendBtn');
-
         changeAdminFunction = (changeAdminData) => {
             console.log(changeAdminData);
             var changexhr = new XMLHttpRequest();
@@ -222,9 +190,6 @@ try {
             changexhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             changexhr.send("changeAdminData=" + JSON.stringify(changeAdminData));
         }
-
-
-
         for (let i = 0; i < changeAdmin.length; i++) {
             changeAdmin[i].addEventListener('click', (e) => {
                 console.log(e.target.innerHTML);
@@ -249,15 +214,12 @@ try {
                         })
                         e.target.innerHTML = '編輯';
                         // console.log(showAdminInfo[e.target.value].getElementsByTagName('input')[0].value);
-
                         break;
                 }
             })
         }
         for (let i = 0; i < changeAdmin.length; i++) {
             dropAdmin[i].addEventListener('click', (e) => {
-
-
                 changeAdminFunction({
                     adminNo: showAdminInfo[e.target.value].getElementsByTagName('input')[0].value,
                     adminName: showAdminInfo[e.target.value].getElementsByTagName('input')[1].value,
@@ -267,7 +229,6 @@ try {
                 })
             })
         }
-
         createAdmin.addEventListener('click', (e) => {
             createAdminWrap.style.display = "contents";
         })
@@ -279,7 +240,6 @@ try {
                 statue: "建立"
             })
         })
-
         //登出
         logoutBtn = document.getElementById('logoutBtn');
         logoutBtn.addEventListener('click', (e) => {
@@ -296,7 +256,6 @@ try {
             xhr.open("Post", "backLogout.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
-
         })
     </script>
 </body>

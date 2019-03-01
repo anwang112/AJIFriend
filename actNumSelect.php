@@ -6,7 +6,7 @@
         require_once("php/connect.php");
 
 
-        $sqlMemHoldNum = "select * from activity a JOIN activity_order o on a.actNo = o.actNo where o.actNo = :actNo ORDER BY `host_memNo`";
+        $sqlMemHoldNum = "select * -from activity a JOIN activity_order o on a.actNo = o.actNo where o.actNo = :actNo ORDER BY `host_memNo`";
         $actsss  = $pdo ->prepare($sqlMemHoldNum);
         // $actsss -> bindValue(":host_memNo", $ActJoinObj -> host_memNoValue);  
         $actsss -> bindValue(":actNo", $ActJoinObj -> actNoValue);  

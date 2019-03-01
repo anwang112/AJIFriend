@@ -35,6 +35,7 @@ try {
     <script src="js/package/gsap/src/minified/TweenLite.min.js"></script>
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/match2_final.css">
 </head>
 
 <body>
@@ -48,6 +49,7 @@ try {
     <script type="text/javascript">
         head_html();
     </script>
+    
     <!-- <div class="alertWrap">
         <div class="alert">
             <p id="alertText">今天的愛心已經用完囉！</p>
@@ -170,6 +172,8 @@ try {
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
                     <div class="heartItem"></div>
+                    <div class="heartItem"></div>
+                    <div class="heartItem"></div>
                 </div>
                 <img src="images/matchBoard.svg" class="board">
                 <div class="matchHorse">
@@ -194,7 +198,7 @@ try {
                         <input type="hidden"value=""id="matchMemNo">
                         <tr>
                             <th>
-                                ID：
+                                ID
                             </th>
                             <td>
                                 <span id="mcId"></span>
@@ -202,7 +206,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                默契值：
+                                默契值
                             </th>
                             <td>
                                 <span class="matchMJ pink" id="scoreDisplay"></span>
@@ -212,7 +216,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                暱稱：
+                                暱稱
                             </th>
                             <td>
                                 <span id="mcName"></span>
@@ -220,7 +224,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                等級：
+                                等級
                             </th>
                             <td>
                                 <span id="mcLv"></span><br>
@@ -230,7 +234,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                興趣：
+                                興趣
                             </th>
                             <td>
                                 <span id="mcHobby"></span>
@@ -238,7 +242,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                星座：
+                                星座
                             </th>
                             <td>
                                 <span id="cons"></span>
@@ -246,7 +250,7 @@ try {
                         </tr>
                         <tr>
                             <th>
-                                自我介紹：
+                                自我介紹
                             </th>
                             <td>
                                 <span id="mcIntro"></span>

@@ -248,6 +248,30 @@ function head_html() {
 	});
 
 	//檢舉
+	var locHref = location.href.substring(location.href.lastIndexOf("/")+1,location.href.length);
+	var  headerLi = document.getElementsByClassName("headerLi");
+	for(var i = 0; i<headerLi.length;i++){
+		headerLi[0].classList.remove("nowPage");
+	}
+	if(locHref=='match2.php'){
+		headerLi[0].classList.add("nowPage");
+		headerLi[6].classList.add("nowPage");
+	}else if(locHref=='activity_v2.php'){
+		headerLi[1].classList.add("nowPage");
+		headerLi[7].classList.add("nowPage");
+	}else if(locHref=='BearMJ_shop_addcart.php'){
+		headerLi[2].classList.add("nowPage");
+		headerLi[8].classList.add("nowPage");
+	}else if(locHref=='photo.php'){
+		headerLi[3].classList.add("nowPage");
+		headerLi[9].classList.add("nowPage");
+	}else if(locHref=='myRoom_v2.php'){
+		headerLi[4].classList.add("nowPage");
+		headerLi[11].classList.add("nowPage");
+	}else if(locHref=='team.php'){
+		headerLi[5].classList.add("nowPage");
+		headerLi[10].classList.add("nowPage");
+	}
 
 
 

@@ -218,12 +218,17 @@
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
                 ooxxEyesGo = (...eyesArray) => {
+
+                    eyesArray[0].setattribute("transform","translate(0) rotate(-45deg)");
+                    eyesArray[1].setattribute("transform","translate(0) rotate(-45deg)");
+
                     eyesArray[0].style.transformBox = `fill-box`;
                     eyesArray[1].style.transformBox = `fill-box`;
+
                     eyesArray[0].style.transformOrigin = `center`;
                     eyesArray[1].style.transformOrigin = `center`;
-                    eyesArray[0].setAttribute('transform', `translate(0) rotate(45)`);
-                    eyesArray[1].setAttribute('transform', `translate(0) rotate(45)`);
+                    //setAttribute("name", "helloButton")
+//transform="translate(0) rotate(-45deg)"
                     eyesGo = () => {
                         eyesArray[0].animate([{
                             transform: 'scaleY(1)'
@@ -238,7 +243,6 @@
                                 duration: 200,
                                 endDelay: 1000,
                             });
-
                         eyesArray[1].animate([{
                             transform: 'scaleY(1)'
                         },
@@ -256,14 +260,54 @@
                     setInterval(eyesGo, ooxxRandom(2000, 3500));
                 }
 
-                ooxxEyesGo(xxRole[1], xxRole[3]);
-                ooxxEyesGo(xxRole[12], xxRole[13]);
-                ooxxEyesGo(xxRole[5], xxRole[7]);
-                ooxxEyesGo(xxRole[10], xxRole[11]);
+
 
                 //載入出現ㄉ對話框
                 // document.getElementsByClassName('cls-22');
+
+                if (window.innerWidth) {
+                    winWidth = window.innerWidth;
+                }
+                else if ((document.body) && (document.body.clientWidth)) {
+                    winWidth = document.body.clientWidth;
+                }
+
+                if (winWidth > 768) {
+
+                    ooxxEyesGo(xxRole[1], xxRole[3]);
+                    ooxxEyesGo(xxRole[12], xxRole[13]);
+                    ooxxEyesGo(xxRole[5], xxRole[7]);
+                    ooxxEyesGo(xxRole[10], xxRole[11]);
+
+                }
             })
+
+
+
+
+
+            //改變螢幕寬度
+            changeScreen = () => {
+                if (window.innerWidth) {
+                    winWidth = window.innerWidth;
+                }
+                else if ((document.body) && (document.body.clientWidth)) {
+                    winWidth = document.body.clientWidth;
+                }
+
+                if (winWidth > 768) {
+
+                    ooxxEyesGo(xxRole[1], xxRole[3]);
+                    ooxxEyesGo(xxRole[12], xxRole[13]);
+                    ooxxEyesGo(xxRole[5], xxRole[7]);
+                    ooxxEyesGo(xxRole[10], xxRole[11]);
+
+                }
+
+
+
+            }
+            window.addEventListener('resize', changeScreen);
         </script>
 
 </body>
