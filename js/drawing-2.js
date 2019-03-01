@@ -113,16 +113,25 @@ function backStep(){
 //     ctx.strokeStyle = colorCode ;
 // };
 function drawImg(){
-    var img = document.getElementsByClassName("bodySvg")[0];
-    var img2 = document.getElementsByClassName("eyesSvg")[0];
-    var img3 =document.getElementsByClassName("roleHat")[0];
-    var img4 =document.getElementsByClassName("roleClothes")[0];
+    var imgMe = document.getElementsByClassName("bodySvg")[0];
+    var imgMe2 = document.getElementsByClassName("eyesSvg")[0];
+    var imgMe3 =document.getElementsByClassName("roleHat")[0];
+    var imgMe4 =document.getElementsByClassName("roleClothes")[0];
+    var img = document.getElementsByClassName("bodySvg")[1];
+    var img2 = document.getElementsByClassName("eyesSvg")[1];
+    var img3 =document.getElementsByClassName("roleHat")[1];
+    var img4 =document.getElementsByClassName("roleClothes")[1];
     var imgPrev = document.getElementById("imgPreview");
     ctx.drawImage(imgPrev,0,0,350,350);  
-    ctx.drawImage(img,100,105,152,213);  
-    ctx.drawImage(img2,100,103,152,212);  
-    ctx.drawImage(img3,100,103,152,212);  
-    ctx.drawImage(img4,100,103,152,212);
+    ctx.drawImage(imgMe,100,105,152,213);  
+    ctx.drawImage(imgMe2,100,103,152,212);  
+    ctx.drawImage(imgMe3,100,103,152,212);  
+    ctx.drawImage(imgMe4,100,103,152,212);
+    
+    ctx.drawImage(img,220,105,152,213);  
+    ctx.drawImage(img2,220,103,152,212);  
+    ctx.drawImage(img3,220,103,152,212);  
+    ctx.drawImage(img4,220,103,152,212);
 
 }
 function saveImage() {
@@ -155,9 +164,16 @@ function shareToPhotoWall(){
             var newDiv = document.createElement('div');
             newDiv.classList = 'card';
             newDiv.id = 'photo1';
-            newDiv.innerHTML = xhr.responseText;
+            text = xhr.responseText.split('&')[0];
+            newDiv.innerHTML = text;
             var area = document.getElementsByClassName('postArea')[0]
             area.insertBefore(newDiv, area.children[1]);
+            var head = document.getElementById('stickerCard1');         
+            ooxxGetHead(head, {
+                animal: xhr.responseText.split('&')[1],
+                color: xhr.responseText.split('&')[2],
+                eyes: xhr.responseText.split('&')[3],
+            })
             alert('已分享至照片牆！');
             var card =document.getElementsByClassName("cardPhoto");
             for(var i=0;i<card.length;i++){

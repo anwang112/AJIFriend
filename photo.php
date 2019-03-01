@@ -22,12 +22,12 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>照片牆</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <script src="js/photoCommonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script src="js/photoCommonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/drawing-2.js"></script>
@@ -64,7 +64,8 @@ try {
                 while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){     
             ?>
                 <div  class="top top1">
-                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="rank">
+                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="rank"
+                     data-role="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"]?>">
                     <div class="topbg">
                         <img src="images/photoclouds-24.png" alt="bg">
                     </div>
@@ -83,8 +84,8 @@ try {
                     <span><?php echo $photoRow["vote"];?></span>
                 </div>
             <?php
-                $i ++;
-            }
+                    $i ++;
+                }
             ?>
             </div>
            
@@ -301,12 +302,13 @@ try {
     $photo = $pdo->query($sql); 
 ?>
 <?php	
-    $i=1;
+    $i=2;
 	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
 ?>	
             <div class="card" id="photo<?php echo $i ?>">
                 <img class="cardPhoto" src="<?php echo $photoRow["src"];?>"
-                 id="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"] ?>" alt="no1">
+                 id="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"] ?>" alt="no1"
+                 data-pic="<?php echo $photoRow["picNo"]?>">
                 <div class="headBox member" id="stickerCard<?php echo $i ?>"></div>
                     <script>
                         head = document.getElementById('stickerCard<?php echo $i ?>');         
@@ -321,7 +323,7 @@ try {
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
             </div>
 <?php
-    $i++;
+        $i++;
 	}
 ?>   
             <div class="clear"></div>        
