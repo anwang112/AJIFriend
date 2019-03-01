@@ -48,7 +48,7 @@ function changeModel(no){
                     //     }
                     // }
                     
-                closeFriendBox();
+                // closeFriendBox();
                 
                 // getProducts(1);
             }

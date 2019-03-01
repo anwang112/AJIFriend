@@ -19,10 +19,11 @@ function nextStep(){
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
         upBtn.style.display="none";
-        chooseBtn.style.display="block";
+        chooseBtn.style.display="none";
         back.style.display="block";
         canvas.style.display="none";
-        // controlBar.style.display="none";
+        friend_Light_Box.style.display="block";
+
         power02=true;
         console.log(power02);
         next.innerText="分享合照";
@@ -51,7 +52,7 @@ function nextStep(){
         upBtn.style.display="none";
         chooseBtn.style.display="none";
         share.style.display="block";
-        canvas.style.display="block";
+        canvas.style.display="none";
         // controlBar.style.display="flex";
         next.style.display="none";
         power02=false;
@@ -68,6 +69,8 @@ function backStep(){
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
+    var friend_Light_Box=document.getElementById("friend_LightBox");
+
     // var controlBar=document.getElementsByClassName("controlBar")[0];
 
 // 2變1
@@ -94,7 +97,7 @@ function backStep(){
         back.style.display="block";
         next.style.display="block";
         upBtn.style.display="none";
-        chooseBtn.style.display="block";
+        chooseBtn.style.display="none";
         share.style.display="none";
         canvas.style.display="none";
         // controlBar.style.display="none";
@@ -325,22 +328,8 @@ function init(){
 //       e.preventDefault();
 //     }
 //     }, false);
-  
-
-  
-
-
-
 
     var share=document.getElementById("picInput");
         share.addEventListener("input",shareToPhotoWall,false);
-
-    // share.onclick = showShareLB;
-
-    // var sure_Close=document.getElementById("sureClose");
-    // sure_Close.onclick =sureClose;
-    
-
-
 }	
 window.addEventListener("load", init, false);
