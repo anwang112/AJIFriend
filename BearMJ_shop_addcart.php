@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BearMJ_Shop</title>
+    <title>造型商城</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/shop-style.css">
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -22,6 +22,7 @@ session_start();
     <link rel="stylesheet" href="css/chatStyle_final.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>	
     <script>

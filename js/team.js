@@ -53,7 +53,7 @@ function hacky(){
 hacky();
 function ron(){
     profile={
-        memNo: 13,
+        memNo: 22,
     }
     getTeam6(profile);
 };
@@ -296,7 +296,7 @@ function getTeam6(profile) {
     })
     $('#showInfo2').click(function(){
         profile = {
-            memId: 'KOKO',
+            memId: 'lien',
             loginMemNo:storage.getItem("memNo"),
         };
         searchMem(profile);
@@ -324,7 +324,7 @@ function getTeam6(profile) {
     })
     $('#showInfo6').click(function(){
         profile = {
-            memId: 'KOKO',
+            memId: 'RonRon',
             loginMemNo:storage.getItem("memNo"),
         };
         searchMem(profile);

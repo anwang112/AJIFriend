@@ -23,6 +23,7 @@
     <script src="js/package/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script> 
     <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="js/commonPart.js"></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <!-- <script src="js/commonPart.js"></script> -->
     <style>
     .commentHead{
@@ -40,7 +41,7 @@
 
 
     </style>
-    <title>activity</title>
+    <title>活動巴士</title>
     
 </head>
 <body>
