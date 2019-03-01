@@ -104,7 +104,8 @@ if(isset($_SESSION["memNo"])){
                     </span>
                     <span id="totalspend" class="cartPanelShow">
                         購物金額： 
-                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);} ?>
+                        <?php if(isset($_SESSION["img"])){echo array_sum($_SESSION["price"]);}else{
+                            echo 0;} ?>
                     </span>
                     <span id="totalNum" class="cartPanelShow">購物數量：
                         <?php if(isset($_SESSION["img"])){echo count($_SESSION["img"]);}else{
