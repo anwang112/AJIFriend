@@ -50,7 +50,8 @@ html {
 }
 
 .btnbox_login{
-  width: 160px;
+    width: 300px;
+    text-align: center;
 }
 
 #login_send{
@@ -1410,7 +1411,7 @@ input::placeholder{
 }
 
 .login_box form {
-    margin: auto;
+    /* margin: auto;
     position: relative;
     left: 0;
     right: 0;
@@ -1429,10 +1430,23 @@ input::placeholder{
     justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: center; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-.login_box form input {
+.login_box form>input {
+    width: 40%;
+    margin: 0 28%;
+    height: 30px;
+    color: #f05c79;
+    border: 1px solid #f05c79;
+    border-radius: 15px;
+    text-align: center;
+    background: transparent;
+    max-width: 266px;
+}
+.login_box form .btnbox_login >input {
     width: 40%;
     height: 30px;
     color: #f05c79;
@@ -1440,6 +1454,9 @@ input::placeholder{
     border-radius: 15px;
     text-align: center;
     background: transparent;
+}
+.login_box form input {
+    margin-top: 35px;
 }
 
 .login_box form input::placeholder {
@@ -1526,9 +1543,10 @@ input::placeholder{
 
 
 .btnbox_login{
-  width: 179px;
-  display: flex;
-  justify-content: space-around;
+    width: 50%;
+    display: flex;
+    margin: 35px auto;
+    justify-content: space-around;
 }
 
   .middleLightBox .lightBoxXX {

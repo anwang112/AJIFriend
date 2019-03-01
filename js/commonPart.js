@@ -109,12 +109,11 @@ function head_html() {
         <h2>登入</h2>
         <form id="login_form" >
             <input type="text" name="memId" placeholder="hi@gmail.com" id="memId_input">
-			<input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
+			<input type="password" name="memPsw" placeholder="密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
 			<input type="button" value="註冊" class="input_R" id="rigister_send">
 			</div>
-			<span id="forget_btn">忘記密碼?</span>
         </form>
 		<!-- 關掉按鈕 -->
         <div id="loginBoxClose" class="lightBoxXX" ></div>
@@ -827,8 +826,11 @@ function sendForm(memId, memPsw) {
 				eyes: storage.getItem("eye"),
 			});
 
+
 			heartItem = document.querySelectorAll('.heart div');
 			window.location.reload();
+			$('#alertText').text('已成功登入!');
+			$('.alertWrap').show();
 			if (heartItem) {
 				switch (user.arr["loveGiven"]) {
 					case '2':
