@@ -123,15 +123,14 @@ function drawImg(){
     var img4 =document.getElementsByClassName("roleClothes")[1];
     var imgPrev = document.getElementById("imgPreview");
     ctx.drawImage(imgPrev,0,0,350,350);  
-    ctx.drawImage(imgMe,100,105,152,213);  
-    ctx.drawImage(imgMe2,100,103,152,212);  
-    ctx.drawImage(imgMe3,100,103,152,212);  
-    ctx.drawImage(imgMe4,100,103,152,212);
-    
-    ctx.drawImage(img,220,105,152,213);  
-    ctx.drawImage(img2,220,103,152,212);  
-    ctx.drawImage(img3,220,103,152,212);  
-    ctx.drawImage(img4,220,103,152,212);
+    ctx.drawImage(imgMe,80,103,152,213);  
+    ctx.drawImage(imgMe2,80,103,152,212);  
+    ctx.drawImage(imgMe3,80,103,152,212);  
+    ctx.drawImage(imgMe4,80,103,152,212);
+    ctx.drawImage(img,170,103,152,213);  
+    ctx.drawImage(img2,170,103,152,212);  
+    ctx.drawImage(img3,170,103,152,212);  
+    ctx.drawImage(img4,170,103,152,212);
 
 }
 function saveImage() {
