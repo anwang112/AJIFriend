@@ -6,7 +6,7 @@ try {
     require_once("connectBooks.php");
     // if (isset($_SESSION["memId"]) === false) {
     $sql = "INSERT INTO `member` (`memNo`, `memId`, `memPsw`, `mName`, `constellation`, `hobby`, `self-intro` ,`loveGiven`,`mColor`, `eye`, `animal`)
-        values(NULL, :memId, :memPsw, :mName, :constellaton, :hobby, :selfIntro ,3 ,:mColor, :eye, :animal);";
+        values(NULL, :memId, :memPsw, :mName, :constellaton, :hobby, :selfIntro ,5 ,:mColor, :eye, :animal);";
     $createRole = $pdo->prepare($sql);
 
     $createRole->bindValue(":memId", $createRoleData->memId);

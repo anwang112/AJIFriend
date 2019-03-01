@@ -119,8 +119,8 @@
         top: -70%;
     }
     .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #myMessagebox_input {
-        width: 65%;
-        min-width: 210px;
+        width: 60%;
+        min-width: 175px;
         margin-top: 10px;
     }
     .lightbox_act .lightbox_act_info p {

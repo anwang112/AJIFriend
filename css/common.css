@@ -4,10 +4,14 @@
     outline: none;
     -webkit-box-sizing: initial;
     box-sizing: initial;
+    letter-spacing: 0px;
 }
+
+
 
 html body * {
     font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
 }
 
 a {
@@ -80,7 +84,7 @@ html {
     color: #f05c79;
     font-size: 15px;
     display: block;
-    width: 30px;
+    width: 35px;
     cursor: pointer;
 }
 
@@ -885,7 +889,9 @@ input::placeholder{
 
 .btn {
     font-size: 14px;
-    width: 100px;
+    width: 100px;    
+    min-width: 100px;    
+    height: 35px;
     border-radius: 12px;
     background-color: #f05c79;
     -webkit-box-shadow: 0px 4px 0px #c84e6a;
@@ -896,9 +902,9 @@ input::placeholder{
     transition: .3s;
     border: none;
     color: #e5e5e5;
-    height: 35px;
+
     transform: translateY(-4px);
-    min-width: 100px;
+
 }
 
 .btn:hover {
