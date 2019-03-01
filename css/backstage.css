@@ -1,0 +1,26 @@
+.container {
+    max-width:unset;
+    padding-left:0px;
+    /* margin-left:15px; */
+}
+.col-9{
+    padding-left:0;
+}
+.list-group-item{
+    padding:1.75rem 1.25rem;
+}
+.table td{
+    padding:0.25rem;
+}
+.row{
+    margin-left:0;
+}
+button{
+    margin:auto;    
+}
+tbody th input{
+    color:#007bff;
+}
+thead tr:first-child{
+    height:82px;
+}

@@ -171,49 +171,49 @@ session_start();
             <table>
                 <tr>
                     <td id="column" class="c_1">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g1.svg" alt="">
                     </td>
                     <td id="column" class="c_2">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g2.svg" alt="">
                     </td>
                     <td id="column" class="c_3">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g3.svg" alt="">
                     </td>
                     <td id="column" class="c_4">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g4.svg" alt="">
                     </td>
                 </tr>
                 <tr>
                     <td id="column" class="c_12">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g4.svg" alt="">
                     </td>
                     <td colspan="2" rowspan="2" class="gameBtnWrap">
                         <button id="btnloto"class="btn">領金幣</button>
                     </td>
                     <td id="column" class="c_5">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g3.svg" alt="">
                     </td>
                 </tr>
                 <tr>
                     <td id="column" class="c_11">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g2.svg" alt="">
                     </td>
                     <td id="column" class="c_6">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g1.svg" alt="">
                     </td>
                 </tr>
                 <tr>
                     <td id="column" class="c_10">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g3.svg" alt="">
                     </td>
                     <td id="column" class="c_9">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g2.svg" alt="">
                     </td>
                     <td id="column" class="c_8">
-                        <img src="images/roll2.svg" alt="">
+                        <img src="images/g1.svg" alt="">
                     </td>
                     <td id="column" class="c_7">
-                        <img src="images/roll_2.svg" alt="">
+                        <img src="images/g4.svg" alt="">
                     </td>
                 </tr>
             </table>

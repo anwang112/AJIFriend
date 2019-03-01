@@ -26,12 +26,12 @@ function head_html() {
         <div class="headWrap">
             <a href="home.php"><img id="logo" src="images/logo.svg" alt="logo"></a>
             <ul class="menu">
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.php">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.php">照片牆</a></li>
-				<li><a href="myRoom_v2.php">我的窩</a></li>
-				<li><a href="team.php">麻吉團隊</a></li>
+                <li><a href="match2.php" class="headerLi">找麻吉</a></li>
+                <li><a href="activity_v2.php" class="headerLi">活動巴士</a></li>
+                <li><a href="BearMJ_shop_addcart.php" class="headerLi">造型商城</a></li>
+                <li><a href="photo.php" class="headerLi">照片牆</a></li>
+				<li><a href="myRoom_v2.php" class="headerLi">我的窩</a></li>
+				<li><a href="team.php" class="headerLi">麻吉團隊</a></li>
             </ul>
 			<div class="loginBox">
 				<input type="hidden" id="userNo" value="">
@@ -92,13 +92,13 @@ function head_html() {
     </div>        
     <div id="menu_phone" class="menu_phone">
             <ul>
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.php">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-				<li><a href="photo.php">照片牆</a></li>
-				<li><a href="team.php">麻吉團隊</a></li>
-				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
-                <li><a href="#" id="phoneLogBtn">登入</a></li>
+                <li class="headerLi"><a href="match2.php">找麻吉</a></li>
+                <li class="headerLi"><a href="activity_v2.php">活動巴士</a></li>
+                <li class="headerLi"><a href="BearMJ_shop_addcart.php">造型商城</a></li>
+				<li class="headerLi"><a href="photo.php">照片牆</a></li>
+				<li class="headerLi"><a href="team.php">麻吉團隊</a></li>
+				<li class="headerLi"><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
+                <li class="headerLi"><a href="#" id="phoneLogBtn">登入</a></li>
                 
             </ul>
 		</div>
@@ -248,6 +248,30 @@ function head_html() {
 	});
 
 	//檢舉
+	var locHref = location.href.substring(location.href.lastIndexOf("/")+1,location.href.length);
+	var  headerLi = document.getElementsByClassName("headerLi");
+	for(var i = 0; i<headerLi.length;i++){
+		headerLi[0].classList.remove("nowPage");
+	}
+	if(locHref=='match2.php'){
+		headerLi[0].classList.add("nowPage");
+		headerLi[6].classList.add("nowPage");
+	}else if(locHref=='activity_v2.php'){
+		headerLi[1].classList.add("nowPage");
+		headerLi[7].classList.add("nowPage");
+	}else if(locHref=='BearMJ_shop_addcart.php'){
+		headerLi[2].classList.add("nowPage");
+		headerLi[8].classList.add("nowPage");
+	}else if(locHref=='photo.php'){
+		headerLi[3].classList.add("nowPage");
+		headerLi[9].classList.add("nowPage");
+	}else if(locHref=='myRoom_v2.php'){
+		headerLi[4].classList.add("nowPage");
+		headerLi[11].classList.add("nowPage");
+	}else if(locHref=='team.php'){
+		headerLi[5].classList.add("nowPage");
+		headerLi[10].classList.add("nowPage");
+	}
 
 
 
