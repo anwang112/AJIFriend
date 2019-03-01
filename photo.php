@@ -27,7 +27,7 @@ try {
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <script src="js/photoCommonPart.js"></script>
+    <script src="js/commonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/drawing-2.js"></script>
@@ -305,18 +305,6 @@ try {
 	}
 ?>   
             <div class="clear"></div>        
-             <!-- <div id="cardLB" class="照片id ex:card-photo7">
-            //     <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
-            //     <div id="left">%%</div>
-            //     <div id="right">>></div>
-            //     <img class="cardPhoto" src="images/rank1-13.png" alt="top1"
-            //     <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>>
-            //     <img class="member" src="images/member4-20.png" alt="doggy">
-            //     <a href="#">AJI</a>
-            //     <img class="heart" src="images/fullheart-16.png" alt="heart">
-            //     <span id="voteNum">105 </span>
-            //     <p>整個城市都是我們的伸展台</p>
-            // </div> -->
         </div>
     </div>
     <script type="text/javascript">
