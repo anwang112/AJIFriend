@@ -63,10 +63,9 @@ session_start();
                     </script>'
                 ?>
                 <!-- 前往購物車 -->
-                <div id="rwd_showCart">
-                    <a href="BearMJ_cartShow.php">
-                        <img src="shop-images/cart_pink.png">
-                        <p>查看</p>
+                <div id="rwd_showCart" class="btn">
+                    <a >
+                        <img src="shop-images/cart.png">
                     </a>
                 </div>
 
@@ -84,13 +83,13 @@ session_start();
                     </div> -->
             
                     <!-- 試穿角色暱稱顯示區塊 -->
-                    <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
+                    <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];}else{echo '請先登入';} ?></span>
                     <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
                         
                     
             
                     <!-- 選朋友來試穿(送禮) -->
-                    <div class="choose-friend btn gift" >
+                    <div class="pc_choose-friend btn gift" >
                         <p class="wearChange">麻吉</p>
                     </div>
 
@@ -125,7 +124,7 @@ session_start();
                 <div id="productsArea">
                     <div id="actionPanel">
                         <!-- 選朋友來試穿(送禮) -->
-                        <div id="" class="choose-friend gift btn">
+                        <div class="choose-friend gift btn">
                             <div class="btn_chooseModel" >
                                 <span class="wearChange">麻吉</span>
                             </div>
@@ -258,6 +257,16 @@ session_start();
     console.log(window.screen.availWidth);
 
     function init(){
+        $id("rwd_showCart").addEventListener("click",function(){
+            if(storage.getItem("memNo")){
+                document.location.href="BearMJ_cartShow.php";
+            }else{
+                $('#alertText').text('請先登入!');
+                $('.alertWrap').show();
+            }
+        },false);
+
+
         $id("showCart").addEventListener("click",function(){
             if(storage.getItem("memNo")){
                 document.location.href="BearMJ_cartShow.php";

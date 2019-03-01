@@ -22,17 +22,16 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>照片牆</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <script src="js/commonPart.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/match2.css">
     <link rel="stylesheet" href="css/photo.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script src="js/photoCommonPart.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/package/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/drawing-2.js"></script>
-    <!-- <script src="js/chooseFriend.js"></script> -->
+    <script src="js/chooseFriend.js"></script>
     <script src="js/photolightbox.js"></script>
     <script src="js/vote.js"></script>
 </head>
@@ -65,7 +64,8 @@ try {
                 while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){     
             ?>
                 <div  class="top top1">
-                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="rank">
+                    <img id="top1" class="winnerPhoto" src="<?php echo $photoRow["src"];?>" alt="rank"
+                     data-role="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"]?>">
                     <div class="topbg">
                         <img src="images/photoclouds-24.png" alt="bg">
                     </div>
@@ -79,14 +79,13 @@ try {
                         })
                         
                     </script>
-                    <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
                     <a href="#" class="showInfo"><?php echo $photoRow["memId"];?></a>
                     <img class="topheart" src="images/fullheart-16.png" alt="heart">
                     <span><?php echo $photoRow["vote"];?></span>
                 </div>
             <?php
-                $i ++;
-            }
+                    $i ++;
+                }
             ?>
             </div>
            
@@ -109,13 +108,13 @@ try {
                         <img  src="images/choiceBg-23.png" alt="chooseBg">
                         <h3>Step 1 選擇背景</h3>
                 </div>
-                <!-- <div class="step" id="step2">
+                <div class="step" id="step2">
                     <img src="images/chooseFriend-24.png" alt="chooseFriend">
                     <h3>Step 2 選擇朋友</h3>
-                </div> -->
+                </div>
                 <div class="step" id="step3">
-                    <img src="images/colorPen-25.png" alt="colorPen">
-                    <h3>Step 2 編輯塗鴉</h3>
+                    <img src="images/photograph-18.png" alt="photo">
+                    <h3>Step 3 分享合照 </h3>
                 </div>
             </div>
             <div class="bulletin">
@@ -135,60 +134,19 @@ try {
                     <div id="content_friendBox">
                         <input type="text" id="searchBox" placeholder="搜尋朋友ID">
                         <div id="chooseBox">
-
                         </div>
                     </div>
                 </div>
-            <!-- <div id="friend_LightBox" class="bg_friendBox">
-                <img src="images/chooseF-31.png" alt="bg">
-                <div id="btn_friendBoxClose">
-                    <img src="images/closeX.png">
-                </div>
-                <div id="content_friendBox">
-                    <input type="text" id="searchBox" placeholder="搜尋朋友ID">
-                    <div id="chooseBox">
-                        <label for="f_001">
-                            <img src="images/member1-17.png">
-                            <p>煞氣阿吉</p>
-                        </label>
-                        <label for="f_002">
-                            <img src="images/member2-18.png">
-                            <p>霹靂嬌媧</p>
-                        </label>
-                        <label for="f_003">
-                            <img src="images/member3-19.png">
-                            <p>理科太太</p>
-                        </label>
-                        <label for="f_004">
-                            <img src="images/member4-20.png">
-                            <p>蔡小英</p>
-                        </label>
-            
-                    </div>
-                </div>
-            </div> -->
+        
 
             <div class="drawing">
-                    <!-- 登入會員 先用阿吉代打 -->
-                    <div id="chooseId">
-                            <!-- 試穿預視 -->
-                            <div id="showModel">
-                                <img src="shop-images/model_1.png" id="model_animal" >
-                                <img src="shop-images/hat_1.png" id="model_hat">
-                                <!-- <img src="" id="model_clothes"> -->
-                            </div>
-                            <div id="chooseArea">
-                                <!-- 試穿角色暱稱顯示區塊 -->
-                                <span id="showId"></span>
 
-                            </div>
-                    </div>
                 <!-- 下載照片要get php -->
                 <form method="get" accept-charset="utf-8" name="form1">
                     <input name="hidden_data" id='hidden_data' type="hidden"/>
                 </form>
                 <!-- 選擇顏色 -->
-                <div class="controlBar">
+                <!-- <div class="controlBar">
                     <div class="colorPack">
                         <div class="color" id="red"></div>
                         <div class="color" id="coral"></div>
@@ -202,14 +160,38 @@ try {
 
                     </div>
                  </div>
-                 
+                  -->
                 <!--畫布canvas 與 背景預覽  -->
-                <div class="preCanvas">
-                        <div class="preview"><img id="imgPreview" src="" alt="">
+                <div id="preCanvas" class="preCanvas">
+                        <div class="preview">
+                            <img id="imgPreview" src="" alt="">
+                            <div id="chooseId">
+                                <!-- 自己預視 -->
+                                <div id="showMe"></div>
+                                <!-- 朋友預視 -->
+                                <div id="showModel">
+                                    <!-- <img src="shop-images/model_1.png" id="model_animal" >
+                                    <img src="shop-images/hat_1.png" id="model_hat"> -->
+                                    <!-- <img src="" id="model_clothes"> -->
+                                </div>
+                                <div id="chooseArea">
+                                    <!-- 角色暱稱顯示區塊 -->
+                                    <!-- <span id="showId"></span> -->
+                                    
+                            
+                                    <!-- 角色暱稱顯示區塊 -->
+                                    <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
+                                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
+                                        
+
+                                </div>
+                            </div>
+
+
                         </div>
-                        <canvas id="canvas" width="350px" height="350px"></canvas>
-                        
+                        <canvas id="canvas" width="350px" height="350px"></canvas>       
                 </div>
+                
                 
             <!-- 按鈕們 上傳背景 選擇朋友 分享 上一步 下一步 -->
                 <div class="btns">
@@ -218,32 +200,27 @@ try {
                     </div>
                     <label> 
                         <div class="upload">
-                            <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
                             <span id="upBtn">上傳背景</span>
                             <input style="width:'30px'; " type="file" id="upFile" name="upFile" hidden>
                         </div> 
                     </label>
-                    <!-- <label id="friendBox">
+                    <label id="friendBox">
                         <span id="chooseBtn">選擇朋友</span>
-                    </label> -->
+                    </label>
                     
-                    <!-- <div class="next" >                
-                        <span id="next">編輯塗鴉</span>
-                    </div> -->
+                    <div class="next" >                
+                        <span id="next">選擇朋友</span>
+                    </div>
                     <!-- 下載照片 -->
-                    <input type="button" value="下載照片" onclick="saveImage()" />
+                    <input  type="button" value="下載照片" onclick="saveImage()" />
                     <form id="addPic" method="post" enctype="multipart/form-data">
                     <label>
-                    <div class="upload">
-                        <!-- <img id="imgPreview" src="images/member4-20.png" alt="bear"> -->
-                        <span id="sharePhoto" style="display:block">發佈至投票區</span>
-                        <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
-                    </div> 
+                        <div class="upload">
+                            <span id="sharePhoto" style="display:block">發佈至投票區</span>
+                            <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
+                        </div> 
                     </label>
                     </form>
-                    <!-- <div id="shareHint" style="display:none">已分享合照至塗鴉牆! -->
-                    <!-- 確定後燈箱消失 -->
-                        <!-- <div id="sureClose">確定</div> -->
                     </div>
                 </div>
             </div>
@@ -319,17 +296,20 @@ try {
                         <h3>我的相片</h3>
                     </a>
                 </div> -->
+            </div>
 <?php
     $sql = "select * from picture p join member m on p.po_memNo = m.memNo where p.pic_cateNo=2 order by p.time desc";
     $photo = $pdo->query($sql); 
 ?>
 <?php	
-    $i=1;
+    $i=2;
 	while($photoRow = $photo->fetch(PDO::FETCH_ASSOC)){
 ?>	
-            <div class="card" id="photo1">
-                <img class="cardPhoto" src="<?php echo $photoRow["src"];?>" alt="no1">
-                <div class="headBox member" id="stickerCard<?php echo $i ?>"  ></div>
+            <div class="card" id="photo<?php echo $i ?>">
+                <img class="cardPhoto" src="<?php echo $photoRow["src"];?>"
+                 id="<?php echo $photoRow["animal"].'|'.$photoRow["mColor"].'|'.$photoRow["eye"] ?>" alt="no1"
+                 data-pic="<?php echo $photoRow["picNo"]?>">
+                <div class="headBox member" id="stickerCard<?php echo $i ?>"></div>
                     <script>
                         head = document.getElementById('stickerCard<?php echo $i ?>');         
                         ooxxGetHead(head, {
@@ -338,25 +318,12 @@ try {
                             eyes: <?php echo $photoRow["eye"]; ?>,
                         })
                     </script>
-                    <script>
-                        head = document.getElementById('stickerLB');         
-                        ooxxGetHead(head, {
-                            animal: <?php echo $photoRow["animal"]; ?>,
-                            color: '<?php echo $photoRow["mColor"]; ?>',
-                            eyes: <?php echo $photoRow["eye"]; ?>,
-                        })
-                    </script>
-                
-                <!-- <img class="member" src="images/member4-20.png" alt="doggy"> -->
                 <a href="#"><?php echo $photoRow["memId"];?></a>
                 <img id="heart<?php echo "|".$photoRow["picNo"]?>" class="heart" src="images/fullheart-16.png" alt="heart">
                 <span class="voteNum" id="voteNum"><?php echo $photoRow["vote"];?> </span>
-                <div class="bigHeart" id="bigHeart">
-                    <img src="images/heart.svg" alt="bigHeart">
-                </div>
             </div>
 <?php
-    $i++;
+        $i++;
 	}
 ?>   
             <div class="clear"></div>        
@@ -381,3 +348,14 @@ try {
 
 </body>
 </html>
+<script>
+function init(){
+    var choose = document.getElementById("chooseBtn");
+    choose.addEventListener("click",photo_showfriendBox);
+       
+    
+}
+window.addEventListener("load",init,false);
+
+
+</script>

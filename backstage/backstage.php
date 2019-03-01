@@ -11,6 +11,7 @@ try {
     $sql = "select * from admin";
     $alladmin = $pdo->prepare($sql);
     $alladmin->execute();
+
     $alladmin->bindColumn("adminNo", $adminNo);
     $alladmin->bindColumn("adminName", $adminName);
     $alladmin->bindColumn("adminId", $adminId);
@@ -30,20 +31,24 @@ try {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>熊麻吉後台</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/package/bootstrap.min.js"></script>
     <script src="../js/package/popover.js"></script>
+    <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <script src="../js/package/jquery/dist/jquery.min.js"></script>
- 
+    <link rel="stylesheet" href="../css/backcss_final.css">
+    <style>
+    .table tbody td,.table tbody th{
+        vertical-align: middle !important;
+    }
+    </style>
 </head>
-
 
 <body>
     <!-- Just an image -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="backStage.php">
+        <a class="navbar-brand" href="backStage.html">
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,8 +63,8 @@ try {
 
         <div class="row justify-content-center">
             <div class="col-3">
-                <div class="list-group ">
-                    <a href="backStage.php" class="list-group-item list-group-item-action" style="color:#007bff">
+                <div class="list-group">
+                    <a href="backStage.php" class="list-group-item list-group-item-action">
                         管理員帳號管理
                     </a>
                     <a href="backMember.php" class="list-group-item list-group-item-action">會員管理</a>
@@ -73,20 +78,19 @@ try {
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td colspan="12">
-                                    <button type="button" class="btn btn-outline-primary" id="createAdmin" >新增管理員</button>
+                            <td colspan="5">
+                                <button type="button" class="btn btn-outline-info" id="createAdmin">新增管理員</button>
                                 <!-- 
                                     <button type="button" class="btn btn-outline-info">更改權限</button> 先鼻要
                                  -->
-                                 
                             </td>
                         </tr>
                         <tr>
                             <th scope="col">管理員編號</th>
-                            <th scope="col">管理員名稱</th>
+                            <th scope="col">管理員</th>
                             <th scope="col">帳號</th>
                             <th scope="col">密碼</th>
-                            <th scope="col">備註</th>
+                            <!-- <th scope="col">備註</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -112,41 +116,41 @@ try {
 
                             </td>
                             <td>
-                                <button type="button" value="<?php echo $oo; ?>" class="btn btn-primary changeAdmin">編輯</button>
+                                <button type="button" value="<?php echo $oo; ?>" class="btn btn-info changeAdmin" >編輯</button>
                                 <button type="button" value="<?php echo $oo; ?>" class="btn btn-danger dropAdmin">刪除</button>
                             </td>
                         </tr>
 
                         <?php 
                     } ?>
-
+                        <script>
+                        document.getElementsByClassName('changeAdmin')[0].setAttribute("disabled", "disabled");
+                        document.getElementsByClassName('dropAdmin')[0].setAttribute("disabled", "disabled");
+                        document.getElementsByTagName('input')[3].value = '***';
+                        </script>
                         <tr id="createAdminWrap" style="display:none;">
                             <th scope="row">
-                                <span>新增管理員</span>
+                                <label>
+                                    <span>管理員</span>
+                                    <input type="text" required>
+                                </label>
                             </th>
                             <td>
-                            <label>
-                                    <span></span>
-                                    <input type="text" placeholder="請輸入管理員名稱" required>
-                                </label>
-                            </td>
-                            <td>
                                 <label>
-                                    <span></span>
-                                    <input type="text" placeholder="請輸入帳號" required>
+                                    <span>帳號</span>
+                                    <input type="text" required>
                                 </label>
 
                             </td>
                             <td>
                                 <label>
-                                    <span></span>
-                                    <input type="text" placeholder="請輸入密碼" required>
+                                    <span>密碼</span>
+                                    <input type="text" required>
                                 </label>
 
                             </td>
                             <td>
-                            <button class="btn btn-secondary" type="submit" id="adminSendBtn">送出</button>
-                            <!-- <input class="input-primary" type="button " value="送出" id="adminSendBtn"> -->
+                            <input type="button" value="送出" id="adminSendBtn">
 
                             </td>
                         
@@ -170,6 +174,7 @@ try {
         createAdmin = document.getElementById('createAdmin');
         createAdminWrap = document.getElementById('createAdminWrap');
         adminSendBtn = document.getElementById('adminSendBtn');
+
         changeAdminFunction = (changeAdminData) => {
             console.log(changeAdminData);
             var changexhr = new XMLHttpRequest();
@@ -190,6 +195,9 @@ try {
             changexhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             changexhr.send("changeAdminData=" + JSON.stringify(changeAdminData));
         }
+
+
+
         for (let i = 0; i < changeAdmin.length; i++) {
             changeAdmin[i].addEventListener('click', (e) => {
                 console.log(e.target.innerHTML);
@@ -214,12 +222,15 @@ try {
                         })
                         e.target.innerHTML = '編輯';
                         // console.log(showAdminInfo[e.target.value].getElementsByTagName('input')[0].value);
+
                         break;
                 }
             })
         }
         for (let i = 0; i < changeAdmin.length; i++) {
             dropAdmin[i].addEventListener('click', (e) => {
+
+
                 changeAdminFunction({
                     adminNo: showAdminInfo[e.target.value].getElementsByTagName('input')[0].value,
                     adminName: showAdminInfo[e.target.value].getElementsByTagName('input')[1].value,
@@ -229,6 +240,7 @@ try {
                 })
             })
         }
+
         createAdmin.addEventListener('click', (e) => {
             createAdminWrap.style.display = "contents";
         })
@@ -240,6 +252,7 @@ try {
                 statue: "建立"
             })
         })
+
         //登出
         logoutBtn = document.getElementById('logoutBtn');
         logoutBtn.addEventListener('click', (e) => {
@@ -256,6 +269,7 @@ try {
             xhr.open("Post", "backLogout.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
         })
     </script>
 </body>

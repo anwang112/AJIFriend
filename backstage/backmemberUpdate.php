@@ -5,9 +5,9 @@ try {
     //連線
     require_once("../connectBooks.php");
     if($memberData->power == 'xx'){
-        $sql = "select * from member where memNo = :memNo";
+        $sql = "select * from member where mName = :mName";
         $allmember = $pdo->prepare($sql);
-        $allmember->bindValue(":memNo", $memberData->memNo);
+        $allmember->bindValue(":mName", $memberData->mName);
         $allmember->execute();
         
         if ($allmember->rowCount() == 0) {
@@ -42,9 +42,9 @@ try {
 
 
     }else if (($memberData->power == '1')||($memberData->power == '0')){
-        $sql = "update member set power = :power where memNo= :memNo";
+        $sql = "update member set power = :power where mName= :mName";
         $allmember = $pdo->prepare($sql);
-        $allmember->bindValue(":memNo", $memberData->memNo);
+        $allmember->bindValue(":mName", $memberData->mName);
         if($memberData->power == '1'){
             $allmember->bindValue(":power", 1); 
         }elseif($memberData->power == '0'){

@@ -24,7 +24,7 @@ try{
       default : 
         echo "['error']: " , $_FILES['addPic']['error'] , "<br>";
     }
-    $sql = "insert into picture (po_memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2,0,:time, :src, :text )";
+    $sql = "insert into picture (po_memNo, pic_cateNo, vote, time, src, text) values({$_SESSION['memNo']}, 2, 0, :time, :src, :text )";
     $pic = $pdo -> prepare($sql);
     $pic -> bindValue(":time", date("Y-m-d H:i:s"));
     $pic -> bindValue(":src", $to);
@@ -35,16 +35,16 @@ try{
     $pictures = $pdo -> query($sql);
     $photoRow = $pictures -> fetch();
 
-    $html = "<img class='cardPhoto' src='{$photoRow['src']}' alt='no1'>
-        <img class='member' src='images/member4-20.png' alt='doggy'>
-        <a href='#'>{$photoRow['memId']}</a>
-        <img id='heart|{$photoRow['picNo']}' class='heart' src='images/fullheart-16.png' alt='heart'>
-        <span class='voteNum' id='voteNum'>{$photoRow['vote']}</span>
-        <div class='bigHeart' id='bigHeart'>
-            <img src='images/heart.svg' alt='bigHeart'>
-        </div>";
-
-    echo $html;
+    $html = "<img class='cardPhoto' src='{$photoRow['src']}'
+                 id='{$photoRow['animal']}|{$photoRow['mColor']}|{$photoRow['eye']}' alt='no1'
+                 data-pic='{$photoRow['picNo']}'>
+                <div class='headBox member' id='stickerCard1'></div>
+                <script></script>
+                <a href='#'>{$photoRow['memId']}</a>
+                <img id='heart|{$photoRow['picNo']}' class='heart' src='images/fullheart-16.png' alt='heart'>
+                <span class='voteNum' id='voteNum'>{$photoRow['vote']}</span>";
+    $str = $html.'&'.$photoRow['animal'].'&'.$photoRow['mColor'].'&'.$photoRow['eye'];
+    echo $str;
 }catch(PDOException $e){
     echo $e->getMessage();
 }
