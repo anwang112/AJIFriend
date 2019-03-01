@@ -19,7 +19,9 @@
   min-width: 620px;
   width: 60%;
   height: 450px;
-  background-color: #a2988f;
+  border-radius: 15px;
+  box-shadow: 0px 10px 10px rgba(197,121,138, .7);
+  background-color: #ecded9;
   position: absolute;
   top: 15%;
   left: 0;
@@ -49,7 +51,8 @@
     margin: auto; }
     #reportData table tr {
       display: flex;
-      align-items: flex-start; }
+      align-items: flex-start; 
+      width: 100%;}
     #reportData table td,
     #reportData table th {
       padding: 10px;
@@ -57,8 +60,8 @@
       display: block; }
     #reportData table th {
       text-align: center;
-      background-color: #ecded9;
-      color: #a2988f;
+      background-color: #F092A0;
+      color: #ecded9;
       border-radius: 5px;
       width: 120px; }
     #reportData table .nop {
@@ -67,13 +70,13 @@
       resize: none;
       border-radius: 5px;
       border: none;
-      background-color: #ecded9;
-      color: #a2988f;
+      background-color: #F092A0;
+      color: #ecded9;
       font-size: 15px;
       padding: 0 10px;
       margin: 0; }
       #reportData table textarea::placeholder {
-        color: #636363;
+        color: rgb(225,225,225);
         transition: all 0.2s ease-in-out; }
       #reportData table textarea:focus::placeholder, #reportData table textarea.populated::placeholder {
         
@@ -227,8 +230,8 @@
     .profileInfo.serPro th {
 display: block;
     text-align: center;
-    background-color: #ecded9;
-    color: #7C5B45;
+    background-color: #F092A0;
+    color: #ecded9;
     border-radius: 5px;
     margin: 10px;
     padding: 0 5px;
@@ -243,6 +246,7 @@ display: block;
       width: 100px; }
     .profileInfo.serPro td {
       text-align: left; }
+      
     .profileInfo.serPro .btns {
       text-align: right; }
   .profileInfo .matchMJ {
@@ -564,6 +568,10 @@ display: block;
     box-shadow: 0px 0px 0px transparent; }
 
 @media only screen and (max-width: 768px) {
+  #reportData table tr:nth-child(4){
+    display: flex;
+    flex-direction: column;
+  }
   .wrap .searchMaji {
     top: -100px;
     width: 100%; }

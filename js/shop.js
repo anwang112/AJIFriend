@@ -121,6 +121,13 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
             $id("pages").innerHTML = page_a;
 
 
+            btn_buy = document.getElementsByClassName("btn_buy");
+            for (let i = 0; i < btn_buy.length; i++) {
+                btn_buy[i].addEventListener('click', () => {
+                    $('#alertText').text('成功加入購物車');
+                    $('.alertWrap').show();
+                })
+            }
             //加入購物車ㄉ提示窗
             addToCartBtn = document.getElementsByClassName('btn_addToCart');
             for (let i = 0; i < addToCartBtn.length; i++) {

@@ -873,6 +873,7 @@ input::placeholder{
     left: 5px;
 }
 
+
 .menu_phone,
 .head_phone,
 .chatRoom_phone,
@@ -913,7 +914,7 @@ input::placeholder{
   height: 450px;
   margin: auto;
   border-radius: 15px;
-  border: 2px solid #f05c79;
+  box-shadow: 0px 10px 10px rgba(197,121,138, .7);
   background-color: #ecded9;
   display: flex;
   justify-content: center;
@@ -1092,9 +1093,10 @@ input::placeholder{
         margin: 20px auto;
     }
     .rwd_chatRoom #replybox_phone {
-        width: 90%;
+        width: 95%;
         margin: 20px auto;
-        border: 2px solid #f05c79;
+        background-color:  #e89fb7;
+        border-top: 3px solid #f05c79;
         border-radius: 10px;
         line-height: 30px;
         padding: 10px 0;
@@ -1102,6 +1104,9 @@ input::placeholder{
         position: absolute;
         left: 0;
         right: 0;
+        height: 45px;
+        overflow: hidden;
+        z-index: 100;
     }
     .rwd_chatRoom #replybox_phone .rwd_requireLabel {
         display: -webkit-box;
@@ -1135,15 +1140,18 @@ input::placeholder{
         cursor: pointer;
     }
     .rwd_chatRoom #replybox_phone h4 {
-        color: #7d655b;
+        color: #f05c79;
         font-size: 0.9rem;
         padding: 0px 0;
         font-size: 20px;
         text-align: left;
         padding-left: 18px;
+        cursor: pointer;
     }
     #rwd_chatListBox {
         padding: 20px 0;
+        max-height: 488px;
+        overflow: auto;
     }
     #rwd_chatContent {
         display: -webkit-box;
@@ -1163,7 +1171,7 @@ input::placeholder{
         position: absolute;
         bottom: 100%;
         opacity: 1;
-        z-index: 7;
+        z-index: 101;
         -webkit-box-shadow: -5px 1px 10px rgba(200, 200, 20, 0.7);
         box-shadow: -5px 1px 10px rgba(200, 200, 20, 0.7);
     }

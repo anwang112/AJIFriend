@@ -145,12 +145,19 @@ function head_html() {
 						<span id="sMemId"></span>
 					</td>
 				</tr>
-				<tr>
+				<tr >
 					<th>
 						魅力等級
 					</th>
 					<td>
 						<span id="sLv"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						
+					</th>
+					<td>
 						<span id="sMJ"></span>
 					</td>
 				</tr>
@@ -201,19 +208,19 @@ function head_html() {
 		<div class="searchClose reportClose"></div>
 		<table>
 			<tr>
-				<th>檢舉人ID：</th>
+				<th>檢舉人ID</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉對象ID：</th>
+				<th>檢舉對象ID</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉時間：</th>
+				<th>檢舉時間</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉原因：</th>
+				<th>檢舉原因</th>
 				<td class="nop">
 					<textarea  id="fname" cols="25" rows="4"placeholder="請輸入檢舉原因(20字)"onkeydown="this.value=this.value.substr(0,20)"></textarea>
 				</td>
@@ -414,7 +421,7 @@ function foot_html() {
         <!-- 聊天列表分頁 -->
 	    <div class="rwd_chatRoom" id="chatRoom_phone_part1">
             <div id="rwd_chatListBox">
-                <input id="search_input_phone" type="text" placeholder="搜尋好友">
+
             
                 <div id="rwd_chatList"> 
 
@@ -439,14 +446,10 @@ function foot_html() {
                 </div>
             </div>
 
-            <!-- 朋友列表分頁 -->
-            <div id="rwd_chatFriendList">
-                <div id="replybox_phone">
-                    <h4>待回覆好友邀請</h4>
-                </div>
 
-            </div>
-            
+			<div id="replybox_phone">
+				<h4 id="replybox_phoneTitle">待回覆好友邀請</h4>
+			</div>
             
 	    </div>
 
@@ -1632,6 +1635,28 @@ window.addEventListener('load', function () {
 		e.stopPropagation();
 
 	});
+	rwd_eply_control = false;
+	$id("replybox_phoneTitle").addEventListener("click", function (e) {
+		// alert("HI");
+		if (rwd_eply_control == false) { //打開
+			$id("replybox_phone").style.cssText = "height:93%";
+			document.getElementById("replybox_phone").style.transition = "height .5s";
+			document.getElementById("rwd_chatList").style.cssText = "height:0;overflow: hidden;";
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo"));
+			rwd_eply_control = true;
+		} else { //收起來
+			$id("replybox_phone").style.height = "45px";
+			$id("replybox_phone").style.top = "";
+			$id("replybox_phone").style.bottom = "8px";
+			document.getElementById("replybox_phone").style.transition = "height 1s";
+			document.getElementById("rwd_chatList").style.cssText = "height:510px;padding: 20px 0;";
+			rwd_eply_control = false;
+
+		}
+		e.stopPropagation();
+
+	});
 
 
 	// 桌機送出訊息(按Enter) --ga
@@ -2040,7 +2065,7 @@ ooxxChangeHat = (...changeHatArray) => {
 	object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
 	let scaleValue = 0;
 	object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
-	object.getElementsByClassName('roleClothes')[0].style.opacity = '1';
+	object.getElementsByClassName('roleHat')[0].style.opacity = '1';
 	hatGo = () => {
 		if (scaleValue <= 1) {
 			scaleValue += 0.06;
