@@ -122,7 +122,13 @@ img {
   position: relative;
   margin: 80px auto; 
   max-width: 1200px;}
+  #rwd_choose-friend{
+    display: none;
+  }
   @media all and (max-width: 768px) {
+    #rwd_choose-friend{
+      display: block;
+    }
     #chooseId {
       margin: 130px auto; } }
   @media all and (max-width: 476px) {
@@ -200,6 +206,9 @@ img {
       #chooseId #friend_LightBox {
         width: 65%; } }
     @media all and (max-width: 476px) {
+      #rwd_choose-friend{
+        display: none;
+      }
       #chooseId #friend_LightBox {
         width: 95%; } }
     #chooseId #friend_LightBox img {

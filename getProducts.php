@@ -5,7 +5,7 @@ $cate = $_GET["cate"];
 $mem = $_GET["mem"];
 try{
     require_once("connectBooks.php");
-    $sql = "select * from product where category=?";
+    $sql = "select * from product where category=? and seen=1;";
     $products = $pdo->prepare( $sql );
     $products -> bindValue( 1 , $cate);
     $products ->execute();

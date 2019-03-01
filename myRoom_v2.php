@@ -20,8 +20,11 @@ require_once('myRoomToDB.php');
     <link rel="stylesheet" type="text/css" href="css/myRoom.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/myRoom_final.css">
     <script src="js/myRoom2_v2.js"></script>
     <script src="js/myRoom2.js"></script>
+    
+
 
     <style>
         .act_Img{

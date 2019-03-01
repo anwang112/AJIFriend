@@ -90,7 +90,7 @@ session_start();
                     
             
                     <!-- 選朋友來試穿(送禮) -->
-                    <div class="choose-friend btn gift" >
+                    <div id="pc_choose-friend" class="choose-friend btn gift" >
                         <p class="wearChange">麻吉</p>
                     </div>
 
@@ -125,7 +125,7 @@ session_start();
                 <div id="productsArea">
                     <div id="actionPanel">
                         <!-- 選朋友來試穿(送禮) -->
-                        <div id="" class="choose-friend gift btn">
+                        <div class="choose-friend gift btn">
                             <div class="btn_chooseModel" >
                                 <span class="wearChange">麻吉</span>
                             </div>
