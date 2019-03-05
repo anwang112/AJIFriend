@@ -15,14 +15,12 @@ a{
 body{
     background-repeat: repeat;
     color: rgba(102,102,102,1);
-
 }
 /* 第一屏背景 */
 /* #ead3cc */
 .bg{
     background:  #81b9f0 no-repeat scroll 100%;
     background-size: 100% 90%;
-
 }
 .wrap1{
     width: 100%;
@@ -52,7 +50,7 @@ body{
     width: 80%;
     position: absolute;
     left: -40%;
-    top: 65vh;
+    top: 60vh;
     animation: cloudsMoving2 50s infinite linear forwards;
 }
 @keyframes cloudsMoving2{
@@ -134,29 +132,49 @@ body{
     padding: 3%;
     vertical-align:middle;
     border-radius: 10px;
+
 }
-#LB .member ,#cardLB .member{
+
+#LB .member {
     width: 15%;
     margin-left: 8%;
+    margin-right: 0;
+    position: absolute;
+    left: 0vw;
+    top: 43vh;
+}
+#cardLB .member{
+    width: 15%;
+    margin-left: 8%;
+    margin-right: 0;
+    position: absolute;
+    left: 0vw;
+    top: 50vh;
 }
 #LB .heart, .heart ,#cardLB .heart{
     width: 12%;
     display: unset;
     position: unset;
   }
-#LB a , #cardLB a{
-    margin-left: 6%;
+#LB a {
+    margin-left: 7vw;
     margin-right: 40px;
-    font-size: .8rem;
+    margin-top: 5vh;
+    font-size: 1rem;
     cursor: pointer;
     color: rgba(102,102,102,1);
-  }
-#LB a:hover, #cardLB a:hover {
-    color:rgba(240,92,121,1);  
-  }
+  } 
+/* #cardLB a{
+    margin-left: 7vw;
+    margin-right: 40px;
+    margin-top: 5vh;
+    font-size: 1rem;
+    cursor: pointer;
+    color: rgba(102,102,102,1);
+} */
 #cardLB span{
     margin-left: 20px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: rgba(102,102,102,1);
 
 }
@@ -189,22 +207,6 @@ body{
     font-size: 1.3rem;
     color:rgba(240,92,121,1);
 }
-/* #LB #left{
-    position: absolute;
-    left: 3%;
-    top: 40%;
-    color:rgba(240,92,121,1);
-    cursor: pointer;
-}
-#LB #right{
-    position: absolute;
-    right: 3%;
-    top: 40%;
-    color:rgba(240,92,121,1);
-    cursor: pointer;
-} */
-
-
 
 
 .col3{
@@ -225,13 +227,21 @@ body{
     /* float: left; */
     position: relative;
 }
-  .top span,.tops span,.card span{
-    font-size: .8rem;
-    margin-left: 10px;
+
+/* 票選排行跟燈箱一樣的span */
+  .top span{
+    font-size: 1rem;
     color: rgba(102,102,102,1);
-
-
-
+  }
+  .tops span{
+    font-size: 1rem;
+    margin-left: 1vw;
+    color: rgba(102,102,102,1);
+  }
+  .card span{
+    font-size: 1rem;
+    margin-left: .5vw;
+    color: rgba(102,102,102,1);
   }
   .top1 img,.top2 img,.top3 img{
     width:94%;
@@ -262,7 +272,11 @@ body{
   .headBox .headEyes{
       z-index: 0;
   }
-  .top .topheart,.card .heart{
+  .top .topheart{
+    width: 12%;
+    margin-bottom: 3%;
+  }
+  .card .heart{
     width: 12%;
     margin-left: 10%;
     margin-bottom: 3%;
@@ -271,7 +285,7 @@ body{
     margin-left: 5px;
     margin-right: 20px;
 
-    font-size: .8rem;
+    font-size: 1rem;
     width: 40px;
     display: inline-block;
     color: rgba(102,102,102,1);
@@ -292,14 +306,14 @@ body{
       position: absolute;
       top: 18%;
       left: 15%;
-      display: none;
+      display: inline-block;
   }
   .content .ajiY{
       width: 20%;
       position: absolute;
       left: 15%;
       top: 18%;
-      display: inline-block;
+      /* display: inline-block; */
   }
   .content .aji:hover{
       display: none;
@@ -362,7 +376,7 @@ body{
         50% {top: -40px;}
         100%{top: -50px;}
     }
-    #myPhoto a{
+    /* #myPhoto a{
         display: inline-block;
     }
     #myPhoto a h3{
@@ -378,7 +392,7 @@ body{
         display: block;
        
 
-    }
+    } */
    #myPhoto:hover a{
         transform: translateY(10px);
         transition: .5s;
@@ -408,7 +422,7 @@ body{
     .topic h1{
         position: absolute;
         font-size: 1.5rem;
-        left: 8vh;
+        left: 5vh;
         top: 10vh;
         transform: rotate(-5deg);
     }
@@ -449,16 +463,7 @@ body{
         padding: 3%;
         vertical-align:middle;
         border-radius: 10px;
-    }
-    #cardLB .cardPhoto{
-        width: 350px;
-        height: 350px;
-        margin-top: 3%;
-        margin-left: 3%;
-        margin-bottom: 3%;
-        padding: 3%;
-        vertical-align:middle;
-        border-radius: 10px;
+    
     }
 
     #trash{
@@ -515,10 +520,10 @@ body{
 
     /* 燈箱背景 */
     #friend_LightBox {
-        width: 25%;
+        width: 20%;
         position: absolute;
-        top: 30%;
-        left: 5%;
+        top: 35vh;
+        left: 10vw;
         z-index: 3;
     }
     .bg_friendBox img{
@@ -607,25 +612,32 @@ body{
         width: 80%;
         color: #555;
     }
-   /* #chooseId #showName{
-       position: absolute;
-   } */
+   #chooseId #showName{
+       position: absolute;  
+   }
+   #chooseId .mememe{
+        left: 2vw;
+        top: 32vh;
+   }
+   #chooseId .friendo{
+        left: 13vw;
+        top: 32vh;
+   }
    #chooseId #showMe {
-    width: 40%;
-
-    /* width: 152px;
-    height: 160px; */
-    position: absolute;
-    left: 4vw;
-    top: 12vh;
-    z-index: 1;
+        width: 40%;
+        /* width: 152px;
+        height: 160px; */
+        position: absolute;
+        left: 4vw;
+        top: 12vh;
+        z-index: 1;
 }
    #chooseId #showModel, #showMe {
        width: 40%;
         /* width: 152px;
        height: 160px; */
        position: absolute;
-       left: 16vw;
+       left: 9vw;
        top: 12vh;
        z-index: 1;
    }
@@ -670,8 +682,8 @@ body{
     }
     .bulletin{
         position: absolute;
-        right: 6%;
-        top: 43%;
+        right: 13vw;
+        top: 25vh;
         width: 260px;
         padding: 2% 0;
         border-radius: 20px;
@@ -742,6 +754,7 @@ body{
     .preview{
         width: 350px;
         height: 350px;
+        display: flex;
         border: 5px solid rgba(240,92,121,.7);
         background-color: #ffffff;
     }

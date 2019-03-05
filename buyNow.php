@@ -21,7 +21,7 @@
             $memMJ -> bindValue( ":me",$_SESSION["memNo"]);
             $memMJ ->execute();
 
-            $_SESSION["mMJ"] = $_SESSION["mMJ"]-$mj;//同步更新會員session
+            $_SESSION["mMJ"] = $_SESSION["mMJ"]+$mj;//同步更新會員session
         }
 
         foreach($_SESSION["price"] as $index => $price){ // 減錢錢(更新會員資料表)

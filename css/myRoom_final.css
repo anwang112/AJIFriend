@@ -1,3 +1,6 @@
+/* *{
+    outline: 1px solid #f00;
+} */
 
 .myhats li {
     min-width: 200px;
@@ -42,15 +45,18 @@
 }
 /* 燈箱 */
 #profile {
-
     border-radius: 15px;
-    background-color: #fae8f0;;
+    background-color: #fae8f0;
 }
 
 #change_and_reset {
     position: absolute;
     top: 90%;
     width: 197%;
+}
+
+.proRight {
+    background-color: #cd9e9a;
 }
 
 .leftcontent button {
@@ -106,10 +112,7 @@
     background-color: #cd9e9a;
 }
 
-.proRight {
-    border-radius: 0px 15px 15px 0px;
-    background-color: #cd9e9a;
-}
+
 
 .leftcontent div span {
     color: #e5e2dd;
@@ -163,11 +166,11 @@
         margin: 0vh 3vw;
     }
     #change {
-        left: -1%;
+        left: 9%;
         bottom: 32px;
     }
     #dataReset {
-        left: 38%;
+        left: 27%;
         bottom: 32px;
     }
     .leftcontent div span {
@@ -176,7 +179,8 @@
         width: 23%;
     }
     .leftcontent input {
-        width: 74%;
+        width: 66%;
+        max-height: 16px;
     }
     #profileLightBox {
         height: 183vh;
@@ -197,7 +201,8 @@
 }
 @media only screen and (max-width: 400px){
     .myClothes li {
-        min-width: 85px;
+        min-width: 65vw;
+        bottom: 23vh;
     }
     .myClothes img {
         position: absolute;
@@ -209,8 +214,8 @@
     }
 
     #btnSaveChageCloth .btnSave {
-        left: 70%;
-        top: -84%;
+        left: 36%;
+        top: 38%;
     }
 
 
@@ -231,5 +236,34 @@
         position: absolute;
         width: 102%;
         top: -8%;
+    }
+}
+
+@media screen and (max-width: 375px){
+    #closet {
+        width: 27.5%;
+    }
+    #profile {
+        width: 27.5%;
+    }
+    .rightcontent::-webkit-scrollbar {
+        border-radius: 2.5px;
+        width: 5px;
+    }
+    
+    .rightcontent::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+        border: 1px solid #FBC5CF;
+        background-color: #CD9E9A;
+    }
+    
+    .rightcontent::-webkit-scrollbar-thumb {
+        border-radius: 2.5px;
+        height: 3px;
+        background-color: #FBC5CF;
+    }
+    .proRight {
+        border-radius: 15px 15px 15px 15px;
+        background-color: #cd9e9a;
     }
 }

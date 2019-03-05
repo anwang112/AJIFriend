@@ -710,7 +710,7 @@ body input {
     overflow-y: hidden;
     float: left;
     border-radius: 0px 15px 15px 0px;
-    background-color: #7487A2;
+    background-color: #fae8f0;
 }
 
 .rightcontent {
@@ -726,14 +726,14 @@ body input {
 
 .rightcontent::-webkit-scrollbar-track {
     border-radius: 2.5px;
-    border: 1px solid #E5E2DD;
-    background-color: #7487A2;
+    border: 1px solid #FBC5CF;
+    background-color: #CD9E9A;
 }
 
 .rightcontent::-webkit-scrollbar-thumb {
     border-radius: 2.5px;
-    width: 3px;
-    background-color: #E5E2DD;
+    height: 3px;
+    background-color: #FBC5CF;
 }
 
 .activity {
