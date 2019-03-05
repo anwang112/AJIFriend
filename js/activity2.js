@@ -376,11 +376,13 @@ function officalAllAct(actNo, member, key) {
             console.log(fromAllAct_obj);
             // alert(xhr.responseText);
 
+            var box_title = $id('box_title');
             var box_Loc = $id('box_Loc');
             var box_Intro = $id('box_Intro');
             var box_actNo = $id('box_actNo');
             var imgBoxImg_B = $id('imgBoxImg_B');
             var imgBoxImg = $id('imgBoxImg');
+            box_title.innerHTML=fromAllAct_obj.titless;
             box_Loc.innerHTML=fromAllAct_obj.loc;
             box_Intro.innerHTML=fromAllAct_obj.actIntro;
             box_actNo.value=fromAllAct_obj.no;
@@ -1388,17 +1390,17 @@ window.addEventListener('load', function () {
     // }
 
     //按鈕動畫事件 
-    for (var i = 0; i < act_memberHold_joins.length; i++) {
-        act_memberHold_boxs[i].addEventListener('mouseenter', function (e) {
-            var target = e.target.firstChild.nextSibling.nextSibling.nextSibling;
-            // console.log(target);
-            target.style.cssText = `opacity: 1;`;
-            target.addEventListener('mouseenter', function () {
-                target.style.cssText = `opacity: 1;`;
-            }, false);
-            return tar = target;
-        }, false);
-    }
+    // for (var i = 0; i < act_memberHold_joins.length; i++) {
+    //     act_memberHold_boxs[i].addEventListener('mouseenter', function (e) {
+    //         var target = e.target.firstChild.nextSibling.nextSibling.nextSibling;
+    //         // console.log(target);
+    //         target.style.cssText = `opacity: 1;`;
+    //         target.addEventListener('mouseenter', function () {
+    //             target.style.cssText = `opacity: 1;`;
+    //         }, false);
+    //         return tar = target;
+    //     }, false);
+    // }
 
     // for(var i=0; i < act_memberHold_joins.length;i++){
     //     act_memberHold_boxs[i].addEventListener('mouseleave',function(e){

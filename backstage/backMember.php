@@ -5,6 +5,7 @@ if (isset($_SESSION["adminName"]) === false) {
     header("Location:backLogin.php");
     exit();
 }
+
 try {
     //連線
     require_once("../connectBooks.php");
@@ -38,10 +39,20 @@ try {
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <link rel="stylesheet" href="../css/backcss_final.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <style>
     .table tbody td,.table tbody th{
         vertical-align: middle !important;
     }
+    @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
     </style>
 </head>
 
@@ -62,7 +73,7 @@ try {
                 <td colspan="4"></td>
                 <td colspan="3">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="memberInput" placeholder="會員暱稱" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" id="memberInput" placeholder="會員帳號" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="buttonAddon2">搜尋
                             </button>
@@ -102,9 +113,9 @@ try {
                 <td>
 
                     <?php if ($power == 1) {
-                        echo '<button type="button"' . 'value="' . $mName . '"class="btn btn-primary changePower">正常</button>';
+                        echo '<button type="button"' . 'value="' . $memId . '"class="btn btn-primary changePower">正常</button>';
                     } else {
-                        echo '<button type="button"' . 'value="' . $mName . '"class="btn btn-danger changePower">停權</button>';
+                        echo '<button type="button"' . 'value="' . $memId . '"class="btn btn-danger changePower">停權</button>';
                     }
                     ?>
 
@@ -127,10 +138,9 @@ try {
 
         memberGoGo = (oo, xx = 'xx') => {
             memberData = {
-                mName: oo, //取得是誰
+                memId: oo, //取得是誰
                 power: xx, //權限值
             }
-            console.log(memberData);
             let xhr = new XMLHttpRequest();
             xhr.onload = function() {
                 // console.log(xhr.responseText);
@@ -166,7 +176,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                                <button type="button" value="${serchResule.mName}" class="btn btn-primary changePower">正常</button>
+                                <button type="button" value="${serchResule.memId}" class="btn btn-primary changePower">正常</button>
                             </td>
                         </tr>
                         `;
@@ -192,7 +202,7 @@ try {
                                     ${serchResule.memId}
                             </td>
                             <td>
-                                    ${serchResule.mName}
+                                    ${serchResule.memId}
                             </td>
                             <td>
                                     ${serchResule.mMJ}
@@ -201,7 +211,7 @@ try {
                                      ${serchResule.mCoin}
                             </td>
                             <td>
-                            <button type="button" value="${serchResule.mName}" class="btn btn-danger changePower">停權</button>
+                            <button type="button" value="${serchResule.memId}" class="btn btn-danger changePower">停權</button>
                             </td>
                         </tr>
                         `;

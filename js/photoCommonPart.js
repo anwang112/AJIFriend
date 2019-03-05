@@ -26,12 +26,12 @@ function head_html() {
         <div class="headWrap">
             <a href="home.php"><img id="logo" src="images/logo.svg" alt="logo"></a>
             <ul class="menu">
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.php">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-                <li><a href="photo.php">照片牆</a></li>
-				<li><a href="myRoom_v2.php">我的窩</a></li>
-				<li><a href="team.php">麻吉團隊</a></li>
+                <li><a href="match2.php" class="headerLi">找麻吉</a></li>
+                <li><a href="activity_v2.php" class="headerLi">活動巴士</a></li>
+                <li><a href="BearMJ_shop_addcart.php" class="headerLi">造型商城</a></li>
+                <li><a href="photo.php" class="headerLi">照片牆</a></li>
+				<li><a href="myRoom_v2.php" class="headerLi">我的窩</a></li>
+				<li><a href="team.php" class="headerLi">麻吉團隊</a></li>
             </ul>
 			<div class="loginBox">
 				<input type="hidden" id="userNo" value="">
@@ -92,13 +92,13 @@ function head_html() {
     </div>        
     <div id="menu_phone" class="menu_phone">
             <ul>
-                <li><a href="match2.php">找麻吉</a></li>
-                <li><a href="activity_v2.php">活動巴士</a></li>
-                <li><a href="BearMJ_shop_addcart.php">造型商城</a></li>
-				<li><a href="photo.php">照片牆</a></li>
-				<li><a href="team.php">麻吉團隊</a></li>
-				<li><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
-                <li><a href="#" id="phoneLogBtn">登入</a></li>
+                <li class="headerLi"><a href="match2.php">找麻吉</a></li>
+                <li class="headerLi"><a href="activity_v2.php">活動巴士</a></li>
+                <li class="headerLi"><a href="BearMJ_shop_addcart.php">造型商城</a></li>
+				<li class="headerLi"><a href="photo.php">照片牆</a></li>
+				<li class="headerLi"><a href="team.php">麻吉團隊</a></li>
+				<li class="headerLi"><a id="head_member_icon" href="myRoom_v2.php">我的窩</a></li>
+                <li class="headerLi"><a href="#" id="phoneLogBtn">登入</a></li>
                 
             </ul>
 		</div>
@@ -109,12 +109,11 @@ function head_html() {
         <h2>登入</h2>
         <form id="login_form" >
             <input type="text" name="memId" placeholder="hi@gmail.com" id="memId_input">
-			<input type="password" name="memPsw" placeholder="8位數密碼" id="memPsw_input">
+			<input type="password" name="memPsw" placeholder="密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
 			<input type="button" value="註冊" class="input_R" id="rigister_send">
 			</div>
-			<span id="forget_btn">忘記密碼?</span>
         </form>
 		<!-- 關掉按鈕 -->
         <div id="loginBoxClose" class="lightBoxXX" ></div>
@@ -146,12 +145,19 @@ function head_html() {
 						<span id="sMemId"></span>
 					</td>
 				</tr>
-				<tr>
+				<tr >
 					<th>
 						魅力等級
 					</th>
 					<td>
 						<span id="sLv"></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						
+					</th>
+					<td>
 						<span id="sMJ"></span>
 					</td>
 				</tr>
@@ -202,19 +208,19 @@ function head_html() {
 		<div class="searchClose reportClose"></div>
 		<table>
 			<tr>
-				<th>檢舉人ID：</th>
+				<th>檢舉人ID</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉對象ID：</th>
+				<th>檢舉對象ID</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉時間：</th>
+				<th>檢舉時間</th>
 				<td></td>
 			</tr>
 			<tr>
-				<th>檢舉原因：</th>
+				<th>檢舉原因</th>
 				<td class="nop">
 					<textarea  id="fname" cols="25" rows="4"placeholder="請輸入檢舉原因(20字)"onkeydown="this.value=this.value.substr(0,20)"></textarea>
 				</td>
@@ -248,6 +254,30 @@ function head_html() {
 	});
 
 	//檢舉
+	var locHref = location.href.substring(location.href.lastIndexOf("/")+1,location.href.length);
+	var  headerLi = document.getElementsByClassName("headerLi");
+	for(var i = 0; i<headerLi.length;i++){
+		headerLi[0].classList.remove("nowPage");
+	}
+	if(locHref=='match2.php'){
+		headerLi[0].classList.add("nowPage");
+		headerLi[6].classList.add("nowPage");
+	}else if(locHref=='activity_v2.php'){
+		headerLi[1].classList.add("nowPage");
+		headerLi[7].classList.add("nowPage");
+	}else if(locHref=='BearMJ_shop_addcart.php'){
+		headerLi[2].classList.add("nowPage");
+		headerLi[8].classList.add("nowPage");
+	}else if(locHref=='photo.php'){
+		headerLi[3].classList.add("nowPage");
+		headerLi[9].classList.add("nowPage");
+	}else if(locHref=='myRoom_v2.php'){
+		headerLi[4].classList.add("nowPage");
+		headerLi[11].classList.add("nowPage");
+	}else if(locHref=='team.php'){
+		headerLi[5].classList.add("nowPage");
+		headerLi[10].classList.add("nowPage");
+	}
 
 
 
@@ -323,7 +353,7 @@ function head_html() {
 		$id("loginNot").innerText = '登出';
 	}
 	$id("login_send").addEventListener("click", function (e) {
-		e.preventDefault();  //防止表單直接送出 by 庸
+		e.preventDefault(); //防止表單直接送出 by 庸
 		// alert($id("memId_input").value+":::"+$id("memPsw_input").value);
 		sendForm($id("memId_input").value, $id("memPsw_input").value);
 		// window.location.reload();
@@ -336,11 +366,11 @@ function head_html() {
 			eyes: storage.getItem("eye"),
 		});
 	}
-	$('.btn_beFriend0').click(function(){
+	$('.btn_beFriend0').click(function () {
 		tarNo = document.getElementById('sMemNo').value;
 		loginNo = storage.getItem("memNo");
 		btn = $(this);
-		beFriend(tarNo,loginNo,btn);
+		beFriend(tarNo, loginNo, btn);
 	});
 
 }
@@ -391,7 +421,7 @@ function foot_html() {
         <!-- 聊天列表分頁 -->
 	    <div class="rwd_chatRoom" id="chatRoom_phone_part1">
             <div id="rwd_chatListBox">
-                <input id="search_input_phone" type="text" placeholder="搜尋好友">
+
             
                 <div id="rwd_chatList"> 
 
@@ -416,14 +446,10 @@ function foot_html() {
                 </div>
             </div>
 
-            <!-- 朋友列表分頁 -->
-            <div id="rwd_chatFriendList">
-                <div id="replybox_phone">
-                    <h4>待回覆好友邀請</h4>
-                </div>
 
-            </div>
-            
+			<div id="replybox_phone">
+				<h4 id="replybox_phoneTitle">待回覆好友邀請</h4>
+			</div>
             
 	    </div>
 
@@ -438,11 +464,11 @@ function foot_html() {
 
 	if (storage.getItem("memNo")) {
 		friendList(storage.getItem("memNo"));
-		requireBack(storage.getItem("memNo"));		
-		data={
-			loginNo:storage.getItem("memNo"),
+		requireBack(storage.getItem("memNo"));
+		data = {
+			loginNo: storage.getItem("memNo"),
 		};
-		noticeFunc = setInterval(noticeFriend,3000);
+		noticeFunc = setInterval(noticeFriend, 3000);
 		noticeFriend();
 
 	}
@@ -509,20 +535,22 @@ function makeFriend(profile) {
 
 //送出好友邀請
 //改好友BTN
-function changeBtn(btn){
-    btn.addClass('disable');
-    btn.removeClass('btn');
-    btn.text('邀請中').attr("disabled",true);
+function changeBtn(btn) {
+	btn.addClass('disable');
+	btn.removeClass('btn');
+	btn.text('邀請中').attr("disabled", true);
 };
-function changeBtnNomal(btn){
-    btn.removeClass('disable');
-    btn.addClass('btn');
-    btn.text('成為麻吉').attr("disabled",false);
+
+function changeBtnNomal(btn) {
+	btn.removeClass('disable');
+	btn.addClass('btn');
+	btn.text('成為麻吉').attr("disabled", false);
 };
-function changeBtnUnf(btn){
-    btn.removeClass('disable');
-    btn.addClass('btn');
-    btn.text('解除麻吉關係').attr("disabled",false);
+
+function changeBtnUnf(btn) {
+	btn.removeClass('disable');
+	btn.addClass('btn');
+	btn.text('解除麻吉關係').attr("disabled", false);
 };
 
 
@@ -768,7 +796,7 @@ function sendForm(memId, memPsw) {
 		if (xhr.responseText == "error") {
 			$('#alertText').text('帳密錯誤，請重新輸入!');
 			$('.alertWrap').show();
-		} else if (xhr.responseText == "權限不足") {  //增加權限 by 庸
+		} else if (xhr.responseText == "權限不足") { //增加權限 by 庸
 			$('#alertText').text('您已被停權!');
 			$('.alertWrap').show();
 		} else {
@@ -803,21 +831,40 @@ function sendForm(memId, memPsw) {
 				eyes: storage.getItem("eye"),
 			});
 
+
 			heartItem = document.querySelectorAll('.heart div');
 			window.location.reload();
+			$('#alertText').text('已成功登入!');
+			$('.alertWrap').show();
 			if (heartItem) {
 				switch (user.arr["loveGiven"]) {
-					case '2':
-						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+					case 4:
+						alert()
+						hartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
-					case '1':
+					case 3:
+
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+						break;
+					case 2:
+
 						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
+						break;
+					case 1:
 						heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
-					case '0':
+					case 0:
 						heartItem[0].style.backgroundImage = 'url(images/heartdark.svg)';
 						heartItem[1].style.backgroundImage = 'url(images/heartdark.svg)';
 						heartItem[2].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[3].style.backgroundImage = 'url(images/heartdark.svg)';
+						heartItem[4].style.backgroundImage = 'url(images/heartdark.svg)';
 						break;
 				}
 			}
@@ -1390,7 +1437,7 @@ window.addEventListener('load', function () {
 			requireBack(storage.getItem("memNo"));
 
 			boxScroll($id("rwd_chatbox"));
-			
+
 		} else { //手機版聊天室收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
@@ -1403,7 +1450,7 @@ window.addEventListener('load', function () {
 	//手機版menu收合操控 start--by ga
 	control_openMenu = false;
 	btn_menu_menu.addEventListener('click', function () {
-		if (control_openMenu == false) {			
+		if (control_openMenu == false) {
 			//先把訊息收起來
 			chatRoom_phone_part1.style.cssText = " top: -100vh;opacity:0";
 			control_openChat = false;
@@ -1606,6 +1653,28 @@ window.addEventListener('load', function () {
 		e.stopPropagation();
 
 	});
+	rwd_eply_control = false;
+	$id("replybox_phoneTitle").addEventListener("click", function (e) {
+		// alert("HI");
+		if (rwd_eply_control == false) { //打開
+			$id("replybox_phone").style.cssText = "height:93%";
+			document.getElementById("replybox_phone").style.transition = "height .5s";
+			document.getElementById("rwd_chatList").style.cssText = "height:0;overflow: hidden;";
+			friendList(storage.getItem("memNo"));
+			requireBack(storage.getItem("memNo"));
+			rwd_eply_control = true;
+		} else { //收起來
+			$id("replybox_phone").style.height = "45px";
+			$id("replybox_phone").style.top = "";
+			$id("replybox_phone").style.bottom = "8px";
+			document.getElementById("replybox_phone").style.transition = "height 1s";
+			document.getElementById("rwd_chatList").style.cssText = "height:510px;padding: 20px 0;";
+			rwd_eply_control = false;
+
+		}
+		e.stopPropagation();
+
+	});
 
 
 	// 桌機送出訊息(按Enter) --ga
@@ -1639,13 +1708,13 @@ window.addEventListener('load', function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
-	}, false);	
+	}, false);
 
 	$id("rwd_chatTaHead").addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
 			openLB_memData(storage.getItem("chatTaId"));
 		}
-	}, false);	
+	}, false);
 	var chatRoom_info = document.getElementsByClassName("chatRoom_info")[0];
 	chatRoom_info.addEventListener("click", function () {
 		if (storage.getItem("chatTaId")) {
@@ -1884,32 +1953,32 @@ ooxxGetRole = (roleId, roleData) => {
 
 		eyesGo = () => {
 			eyesArray[0].animate([{
-				transform: 'scaleY(1)'
-			},
-			{
-				transform: 'scaleY(0.01)'
-			},
-			{
-				transform: 'scaleY(1)'
-			}
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
 			], {
-					duration: 500,
-					endDelay: 1000,
-				});
+				duration: 500,
+				endDelay: 1000,
+			});
 
 			eyesArray[1].animate([{
-				transform: 'scaleY(1)'
-			},
-			{
-				transform: 'scaleY(0.01)'
-			},
-			{
-				transform: 'scaleY(1)'
-			}
+					transform: 'scaleY(1)'
+				},
+				{
+					transform: 'scaleY(0.01)'
+				},
+				{
+					transform: 'scaleY(1)'
+				}
 			], {
-					duration: 500,
-					endDelay: 1000,
-				});
+				duration: 500,
+				endDelay: 1000,
+			});
 		}
 		setInterval(eyesGo, getRandom(2000, 3500));
 	}
@@ -2014,7 +2083,7 @@ ooxxChangeHat = (...changeHatArray) => {
 	object.getElementsByClassName('roleHat')[0].style.backgroundImage = `url(${hat})`;
 	let scaleValue = 0;
 	object.getElementsByClassName('roleHat')[0].style.transition = `.4s`;
-	object.getElementsByClassName('roleClothes')[0].style.opacity = '1';
+	object.getElementsByClassName('roleHat')[0].style.opacity = '1';
 	hatGo = () => {
 		if (scaleValue <= 1) {
 			scaleValue += 0.06;
@@ -2090,26 +2159,26 @@ window.addEventListener('load', () => {
 
 
 //好友通知
-function noticeFriend(){
-    if(storage.getItem("memNo")){
+function noticeFriend() {
+	if (storage.getItem("memNo")) {
 		var xhr = new XMLHttpRequest();
-		
-    xhr.onload = function () {
-		// console.log("好友通知reload");
-		// console.log( parseInt( xhr.responseText));
-            if(parseInt( xhr.responseText )== 0){
-                document.getElementById('mail').style.cssText = "display:none";
-            }else{
-                document.getElementById('mail').style.cssText = "display:block";
-                document.getElementById('noticeNum').innerText = xhr.responseText;
-            }
-            
-        }
-    }
-    
-    xhr.open("Post", "notice.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("data=" +storage.getItem("memNo"));
+
+		xhr.onload = function () {
+			// console.log("好友通知reload");
+			// console.log( parseInt( xhr.responseText));
+			if (parseInt(xhr.responseText) == 0) {
+				document.getElementById('mail').style.cssText = "display:none";
+			} else {
+				document.getElementById('mail').style.cssText = "display:block";
+				document.getElementById('noticeNum').innerText = xhr.responseText;
+			}
+
+		}
+	}
+
+	xhr.open("Post", "notice.php", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+	xhr.send("data=" + storage.getItem("memNo"));
 
 };
 

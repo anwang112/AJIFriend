@@ -33,7 +33,7 @@
     width: 100%;
     padding: 2px 0px;
     color: #fff;
-    line-height: 1.1rem;
+    line-height: 1.4rem;
   }
 
 #hatselfSlide {
@@ -41,7 +41,8 @@
 }
 
 .leftcontent p {
-    width: 54%;
+    width: 70%;
+    line-height: 125%;
 }
 /* 燈箱 */
 #profile {
@@ -49,52 +50,31 @@
     background-color: #fae8f0;
 }
 
-#change_and_reset {
-    position: absolute;
-    top: 90%;
-    width: 197%;
-}
 
 .proRight {
     background-color: #cd9e9a;
 }
 
-.leftcontent button {
-    width: 85px;
-    height: 35px;
-    color: #fff;
-    text-align: center;
-    font-size: 0.7rem;
-    line-height: 1rem;
-    border-radius: 15px;
-    background-color: #F05c79;
-    box-shadow: 0px 4px 0px #444;
-    position: absolute;
-}
+
 .act_hoverBox button {
-    width: 85px;
-    height: 35px;
-    color: #fff;
     text-align: center;
-    font-size: 0.7rem;
     line-height: 1rem;
-    border-radius: 15px;
     cursor: pointer;
     z-index: 10;
     position: absolute;
     bottom: 16px;
-    left: 8%;
+    left: 40%;
 }
 .act_hoverBox .spanbox span {
     margin: 7px;
 }
 
 #btnSaveChageCloth .btnSave {
-    width: 85px;
+    /* width: 85px;
     height: 35px;
     border-radius: 15px;
     background-color: #F05c79;
-    box-shadow: 0px 4px 0px #444;
+    box-shadow: 0px 4px 0px #444; */
 }
 
 .clothCloset {
@@ -115,16 +95,18 @@
 
 
 .leftcontent div span {
-    color: #e5e2dd;
-    padding: 0 25px;
+    color: #cd9e9a;
+    padding: 6px 0%;
+    background-color: rgba(225,225,225,.9);
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 2px;
 }
 .leftcontent p {
     color: #e5e2dd;
 }
 
-.leftcontent input {
-    width: 55%;
-}
+
 
 
 @media only screen and (max-width: 476px){
@@ -214,7 +196,7 @@
     }
 
     #btnSaveChageCloth .btnSave {
-        left: 36%;
+        left: 35%;
         top: 38%;
     }
 
@@ -228,9 +210,9 @@
         margin: 0vh 3vw;
     }
     .leftcontent div span {
-        color: #e5e2dd;
-        padding: 0px 20px;
-        width: 24%;
+        color: #cd9e9a;
+        padding: 5px 0px;
+        width: 22%;
     }
     .myClothes img {
         position: absolute;

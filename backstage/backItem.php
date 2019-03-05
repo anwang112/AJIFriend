@@ -1,4 +1,12 @@
 <?php
+
+ob_start();
+session_start();
+if (isset($_SESSION["adminName"]) === false) {
+    header("Location:backLogin.php");
+    exit();
+}
+
     require_once("backItemToDB.php");
 ?> 
 
@@ -18,7 +26,17 @@
     <link rel="stylesheet" href="../css/activity2.css">
     <link rel="stylesheet" href="../css/backcss_final.css">
     <script src="../js/backCommon.js"></script>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <style>
+                  @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
         #lightbox_holdact_info,#lightbox_holdact{
             opacity:0;
         }
@@ -133,6 +151,8 @@
     </style>
 </head>
 <body>
+
+<input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
 <!-- Just an image -->
 <script>
 header();
@@ -180,7 +200,14 @@ header();
                     <input type="hidden" name="proNo" value="<?php echo $proNo ;?>">
                 </th>
                 <td>
-                    <img  id="act_holdActFileBox" src="../images/<?php echo $img;?>" style="width:190px; height:140px;" alt="商品圖片">
+                    <?php
+                        if($category == 1){
+                            echo '<img id="act_holdActFileBox" src="../images/hatImages/'.$img.'"style="width:190px;" alt="商品圖片">';
+                        }else if($category == 2){
+                            echo '<img id="act_holdActFileBox" src="../images/clothesImages/'.$img.'"style="width:190px;" alt="商品圖片">';
+                        }
+                     ?>
+                    
                 </td> 
                 <td><?php echo $proName ;?><br><input type="text" name="proName" value="<?php echo $proName ;?>"></td>
                 <td><?php echo $price ;?><br><input type="text" name="price" value="<?php echo $price ;?>"></td>
@@ -193,7 +220,7 @@ header();
                     }?>
                 </td>
                 <td>
-                    <input type="submit" value="送出" ">
+                    <input type="submit" value="送出" class="btn btn-primary">
                 </td>
             </form>
             </tr><?php $i++ ;?>
@@ -219,7 +246,7 @@ header();
                     <input type="submit" class="input_R" name="" placeholder="">
                     </label>
                 </form>
-                <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--活動圖片--</div>
+                <div class="act_holdActFileBox"><img id="act_holdActFileBox" src="" alt="">--商品圖片--</div>
                 <!-- <div class="act_holdActFileBox"><div id="act_holdActFileBox" style="" >--活動圖片--</div></div> -->
                 <script type="text/javascript">
                     function $id(id){
@@ -257,6 +284,38 @@ header();
                         lightbox_holdact_info.style.cssText="display:none;z-index:-1;opacity:0";
                         },false);
                     },false);
+
+
+        //登入寫入登入框ㄉ
+        navbarDropdown = document.getElementById('navbarDropdown');
+        showAdminName = document.getElementById('showAdminName');
+        window.addEventListener('load', () => {
+            navbarDropdown.innerHTML = showAdminName.value;
+
+
+            //登出
+            logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', (e) => {
+                checkInFoValue = {};
+                checkInFoValue.status = '掰掰';
+                console.log(e);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if (xhr.responseText == "回到登入頁") {
+                        window.location.href = "backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
+            })
+        });
+
+
+
+                    
                 </script>
             </div>
         </div>

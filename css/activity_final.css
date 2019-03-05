@@ -17,6 +17,12 @@
     background-color: rgba(255,255,255,.7);
 }
 
+.lightbox_actsCheckout_outside .acts_lightbox_down #btn_ActJoinToDB {
+    position: absolute;
+    right: 1.5%;
+    top: -45%;
+}
+
 @media only screen and (max-width: 768px){
     .act_section01 .act_mainbox {
         transform: rotate(-1.5deg);
@@ -40,8 +46,8 @@
         height: 370px;
     }
     .act_memberHold .act_memberHold_box .act_memberHold_join button {
-        width: 75px;
-        height: 30px;
+        /* width: 75px;
+        height: 30px; */
         /* position: relative;
         right: 125%;
         margin: 5px 0;
@@ -111,10 +117,10 @@
     #btn_ActJoinToDB {
         top: -15%;
     }
-    .btn{
+    /* .btn{
         max-width: 75px;
         max-height: 30px;
-    }
+    } */
     .lightbox_actsCheckout_outside .lightbox_actsCheckout .acts_lightbox_down #btn_ActJoinToDB{
         top: -70%;
     }

@@ -79,7 +79,7 @@
     height: auto;
     background-color: rgba(252, 222, 227,.9);
     position: absolute;
-    top: -350px;
+    top: -220%;
     right: 0;left: 0;
     margin: auto;
     z-index: 0;
@@ -90,6 +90,7 @@
     display: flex;
     flex-flow: column;
     padding-bottom: 20px;
+    transition:  .5s;
 }
 
 .memRole{
@@ -124,4 +125,65 @@
 .email{
     color: #aaa;
     font-size: 14px;
+}
+
+@media only screen and (max-width: 415px){
+    .memInfo{
+        position: unset;
+        width: 98vw;
+        margin: 0;
+        box-shadow: 0px 10px 10px rgba(197,121,138, .7);
+    }
+    .member{
+        padding-top: 10%;
+        display: flex;
+        flex-flow: column;
+    }
+    .teamMember{
+        position: unset;
+    }
+    .teamMember img{
+        display: none;
+    }
+    #m1{
+        position: unset;
+        order: -1;
+    }
+    #m2{
+        position: unset;
+        order: -1;
+    }
+    
+    #m3{
+        position: unset;
+        order: -1;
+    }
+    #m4{
+        position: unset;
+        order: -1;
+    }
+    #m5{
+        position: unset;
+        order: -1;
+    
+    }
+    #m6{
+        position: unset;
+        order: -1;
+    }
+    .mWrap{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .teamMember{
+        width: 100%;
+    }
+    .bgWrap{
+        height: auto;
+        background-image: unset;
+        background-color: #F9EBE5;
+    }
+  
+
 }

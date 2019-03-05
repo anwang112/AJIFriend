@@ -25,6 +25,19 @@ require_once("backAct_toDB.php");
     <link rel="stylesheet" href="../css/activity2.css">
     <link rel="stylesheet" href="../css/backcss_final.css">
     <script src="../js/backCommon.js"></script>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+    <style>
+                  @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
+
+    </style>
 </head>
 
 <body>
@@ -81,7 +94,7 @@ require_once("backAct_toDB.php");
                     <?php echo $actLoc; ?>
                 </td>
                 <td>
-                    <img src="../images/<?php echo $actImg; ?>" style="width:100px; height:150px;" alt="活動圖片">
+                    <img src="../images/<?php echo $actImg; ?>" style="width:120px;" alt="活動圖片">
                 </td>
                 <td>
                     <?php echo  substr($act_begin, 0, 10); ?><br>至<br>
@@ -102,13 +115,13 @@ require_once("backAct_toDB.php");
                     <input type="file" id="act_holdActFile" name="act_holdActFile">
                 </label>
                 <label class="label2" for="">Step2_填寫活動介紹<br>
-                    <input type="text" class="input_R" name="actTitle" placeholder="活動名稱">
-                    <input id="actIntro" type="text" class="input_R" name="actIntro" placeholder="活動介紹">
-                    <input type="text" class="input_R" name="actLoc" placeholder="地點">
-                    <input type="date" class="input_R" name="act_begin" placeholder="開始時間">
-                    <input type="date" class="input_R" name="act_end" placeholder="結束時間">
-                    <input type="hidden" name="newAct" value="1">
-                    <input type="hidden" class="btn_R" name="memNo" value="1">
+                    <input type="text" class="input_R" name="actTitle" placeholder="活動名稱" required="required">
+                    <input id="actIntro" type="text" class="input_R" name="actIntro" placeholder="活動介紹" required="required">
+                    <input type="text" class="input_R" name="actLoc" placeholder="地點" required="required">
+                    <input type="date" class="input_R" name="act_begin" placeholder="開始時間" required="required">
+                    <input type="date" class="input_R" name="act_end" placeholder="結束時間" required="required">
+                    <input type="hidden" name="newAct" value="1" required="required">
+                    <input type="hidden" class="btn_R" name="memNo" value="1" required="required">
                     <input type="submit" class="btn_R" placeholder="確定">
                 </label>
             </form>
@@ -125,7 +138,7 @@ require_once("backAct_toDB.php");
                         reader.onload = function() {
                             // alert(reader.result);
                             // var act_holdActFileBox = $id('act_holdActFileBox');
-                            $id("act_holdActFileBox").style.cssText = `padding-bottom: 27%;`;
+                            $id("act_holdActFileBox").style.cssText = `padding-bottom: 3%;`;
                             $id("act_holdActFileBox").src = reader.result;
                             // act_holdActFileBox.style.cssText = `
                             // background-image: url('images/activity/${reader.result});

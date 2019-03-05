@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <title>熊麻吉後台</title>
     <!-- <link rel="stylesheet" href="../css/backstage.css"> -->
     <!-- <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -16,6 +17,15 @@
     <script src="../js/package/jquery/dist/jquery.min.js"></script> -->
 
     <style>
+          @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
         body{
             width: 100%;
             height: 100vh;
@@ -42,22 +52,23 @@
             transition: .5s;
             left: 0;
             right: 0;
-            background-image: url("../images/indexImages/leadingInfo.svg");
+            background-image: url("../images/indexImages/leadingWrap.svg");
             background-repeat: no-repeat;
             background-size: 100% 100%;
         }
         h1{
-            text-align:center;
-            margin-top: 72px;
-    margin-left: 60px;
+            text-align: center;
+    margin-top: 150px;
+    margin-left: 52px;
         }
         input{
             height: 38px;
     padding: 0 10px;
-    width: 377px;
+    width:70%;
     border: none;
     border-radius: 12px;
     font-size: 15px;
+
         }
         label{
             display:flex;
@@ -69,16 +80,21 @@
             margin-right: 20px;
         }
         #sendBtn{
-            width: 40%;
+            width: 100%;
+            background-color: #f05c79;
+    cursor: pointer;
         }
         form{
             /* images/indexImages/leadingInfo.svg */
             position: absolute;
-    left: 35%;
-    top: 20%;
+    left: 37%;
+    width: 30%;
+    min-width: 300px;
         }
         .xxxx{
             justify-content: flex-start;
+            margin:auto;
+            width:80%;
         }
     </style>
 
@@ -90,11 +106,11 @@
         <form>
             <label>
                 <span>帳號</span>
-                <input type="text" required="required" placeholder="帳號" id="adminId">
+                <input type="text" required="required" id="adminId">
             </label>
             <label>
-                <span>帳號</span>
-                <input type="password" required="required" placeholder="密碼" id="adminPsw">
+                <span>密碼</span>
+                <input type="password" required="required" id="adminPsw">
             </label>
             <label class="xxxx">
                 <input type="button" id="sendBtn" value="送出">

@@ -1,3 +1,9 @@
+if (window.innerWidth) {
+	winWidth = window.innerWidth;
+} else if ((document.body) && (document.body.clientWidth)) {
+	winWidth = document.body.clientWidth;
+}
+
 var Today = new Date();
 nowDay = Today.getFullYear() + "-0" + (Today.getMonth() + 1) + "-" + Today.getDate();
 
@@ -108,7 +114,7 @@ function head_html() {
     <div id="lightBoxInner" class="middleLightBox login_box">
         <h2>登入</h2>
         <form id="login_form" >
-            <input type="text" name="memId" placeholder="hi@gmail.com" id="memId_input">
+            <input type="text" name="memId" placeholder="帳號" id="memId_input">
 			<input type="password" name="memPsw" placeholder="密碼" id="memPsw_input">
 			<div class="btnbox_login">
 			<input type="submit" value="登入" class="input_R" id="login_send" >
@@ -287,11 +293,18 @@ function head_html() {
 	td = document.querySelectorAll('#reportData table tr td');
 	$('#report').click(function () {
 		document.getElementById('fname').value = '';
-		if (storage.getItem("memId") == '') {
-			$('#alertText').text('請先登入!');
-			$('.alertWrap').show();
+		if(winWidth<415){
+			$('#searData').css({
+				'transform': 'rotateY(' + R + 'deg)',
+			});
+			$('#reportData').css({
+				'transform': 'rotateY(' + R + 'deg)',
+			});
+			$('#reportData').show();
+			td[0].innerText = storage.getItem("memId");
+			td[2].innerText = nowDay;
 
-		} else {
+		}else{
 			var R = 0;
 			$('#searData').css({
 				'transform': 'rotateY(' + (R + 180) + 'deg)',
@@ -632,14 +645,27 @@ function searchMem(profile) {
 			$('.alertWrap').show();
 
 		} else {
-			var R = 0;
-			$('#searData').css({
-				'transform': 'rotateY(' + R + 'deg)',
-			});
-			$('#reportData').css({
-				'transform': 'rotateY(' + (R + 180) + 'deg)',
-			});
-			$('.searchWrap').show();
+			if(winWidth<415){
+				var R = 0;
+				$('#searData').css({
+					'transform': 'rotateY(' + R + 'deg)',
+				});
+				$('#reportData').css({
+					'transform': 'rotateY(' + R  + 'deg)',
+				});
+				$('.searchWrap').show();
+				$('#reportData').hide();
+
+			}else{
+				var R = 0;
+				$('#searData').css({
+					'transform': 'rotateY(' + R + 'deg)',
+				});
+				$('#reportData').css({
+					'transform': 'rotateY(' + (R + 180) + 'deg)',
+				});
+				$('.searchWrap').show();
+			}
 			var hobbyinfo = document.getElementById('hobby');
 			var sNameinfo = document.getElementById('sName');
 			var sMJinfo = document.getElementById('sMJ');
@@ -1052,6 +1078,7 @@ function changeChat(taNo) {
 		color: friend_infoArr[index][4],
 		eyes: friend_infoArr[index][3],
 	})
+	taPic.style.cssText="border: 2px #f05c79 solid;";
 
 	var chatbox_show = document.getElementsByClassName('chatbox_show')[0];
 	//先把聊天室清掉
@@ -1076,6 +1103,7 @@ function rwd_changeChat(taNo) {
 			}
 		}
 	}
+	taPic.style.cssText="border: 2px #f05c79 solid;";
 	$id("rwd_chatTaName").innerText = friend_infoArr[index][1];
 	storage.setItem("chatTaNo", taNo);
 	storage.setItem("chatTaName", friend_infoArr[index][1]);

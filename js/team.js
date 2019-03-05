@@ -270,7 +270,7 @@ function getTeam6(profile) {
     xhr.send("profile=" + JSON.stringify(profile));
 }
 
-    $('.memInfo').hide();
+   $('.memInfo').hide();
     $('.mWrap').mouseover(function(){
         $(this).children(".memRole").css({
             'transform':'translateY(-30px)',
@@ -285,6 +285,7 @@ function getTeam6(profile) {
     })
     $('.mWrap').click(function(){
         $(this).children(".memInfo").show();
+        
         $('.mWrap').not(this).children(".memInfo").hide();
     })
     $('#showInfo1').click(function(){
@@ -330,3 +331,21 @@ function getTeam6(profile) {
         searchMem(profile);
     })
 
+
+    if (window.innerWidth) {
+        winWidth = window.innerWidth;
+    } else if ((document.body) && (document.body.clientWidth)) {
+        winWidth = document.body.clientWidth;
+    }
+
+    console.log(winWidth);
+
+    if(winWidth<415){
+        $('.memInfo').show();
+        $('.mWrap').click(function(){
+            $(this).children(".memInfo").show();
+        
+        $('.mWrap').not(this).children(".memInfo").show();
+            
+        })
+    }

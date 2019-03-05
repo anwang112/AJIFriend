@@ -215,7 +215,6 @@ indexInit = () => {
 
         AjiDialogWrap = indexAjiSpring.getElementsByClassName('cls-3')[0]; //阿吉對話框
         AjiDialogWord = indexAjiSpring.getElementsByClassName('cls-2')[1]; //阿吉對話文字
-
         SpringDialogTime = 0;
         SpringDialogGo = () => {
             SpringDialogTime += 1;
@@ -239,6 +238,7 @@ indexInit = () => {
                 SpringDialogWord.style.opacity = `0`;
                 AjiDialogWrap.style.opacity = `1`;
                 AjiDialogWord.style.opacity = `1`;
+                AjiDialogWord.setAttribute("transform","translate(50.59379 105.95652) rotate(-19.45399)");
             }
             if (SpringDialogTime == 380) {
                 SpringDialogWrap.style.opacity = `0`;
@@ -249,15 +249,17 @@ indexInit = () => {
             if (SpringDialogTime == 400) {
                 AjiDialogWrap.style.opacity = `1`;
                 AjiDialogWord.style.opacity = `1`;
-                AjiDialogWord.innerHTML = `我就是<tspan x="0" y="32.10254">什麼都不懂啦</tspan>`;
+                AjiDialogWord.setAttribute("transform","translate(30.59379 115.95652) rotate(-19.45399)");
+                AjiDialogWord.innerHTML = `你可以<tspan x="0" y="32.10254">當我的麻吉嗎?</tspan>`;
             }
             if (SpringDialogTime == 650) {
                 AjiDialogWrap.style.opacity = `0`;
                 AjiDialogWord.style.opacity = `0`;
             }
             if (SpringDialogTime > 700) {
-                AjiDialogWord.innerHTML = `大笨蛋
-                <tspan xmlns="http://www.w3.org/2000/svg" x="0" y="32.10254">才能追妳這麼久</tspan>`;
+                AjiDialogWord.innerHTML = `哈囉!
+                <tspan xmlns="http://www.w3.org/2000/svg" x="0" y="32.10254">我是阿吉!!</tspan>`;
+                AjiDialogWord.setAttribute("transform","translate(50.59379 105.95652) rotate(-19.45399)");
                 SpringDialogTime = 1;
             }
             // console.log(SpringDialog);
@@ -370,7 +372,7 @@ indexInit = () => {
         },
         {
             name: "An",
-            star: "觸女座",
+            star: "天秤座",
             hobby: "抓寶可夢"
         },
         {

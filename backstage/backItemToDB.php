@@ -50,15 +50,20 @@
             //商品總數  
             $sqlNum = "select * from product ";
             $result = $pdo->query($sqlNum);
-            $totalRecord =  $result ->rowCount();
-            $totalRecord = $totalRecord + 1;
+            // $totalRecord =  $result ->rowCount();
+            // $totalRecord = $totalRecord + 1;
             //上傳檔案處理
             $from = $_FILES["act_holdActFile"]["tmp_name"];
-            $to = "../images/".$_FILES["act_holdActFile"]["name"];
+            if($_REQUEST["category_ins"]==1){
+                $to = "../images/hatImages/".$_FILES["act_holdActFile"]["name"];
+            }elseif($_REQUEST["category_ins"]==2){
+                $to = "../images/clothesImages/".$_FILES["act_holdActFile"]["name"];
+            }
+           
             copy($from,$to);
-            $sqlIns = "INSERT INTO `product`(`proNo`, `category`, `proName`, `price`, `proMJ`, `img`, `seen`) VALUES (:proNo,:category,:proName,:price,:proMJ,:img,:seen)";
+            $sqlIns = "INSERT INTO `product`(`proNo`, `category`, `proName`, `price`, `proMJ`, `img`, `seen`) VALUES (null,:category,:proName,:price,:proMJ,:img,:seen)";
             $proInstoDB = $pdo->prepare($sqlIns ); 
-            $proInstoDB -> bindValue(":proNo",  $totalRecord );
+            // $proInstoDB -> bindValue(":proNo",  $totalRecord );
             $proInstoDB -> bindValue(":category", $_REQUEST["category_ins"]);
             $proInstoDB -> bindValue(":proName", $_REQUEST["proName_ins"]);
             $proInstoDB -> bindValue(":price", $_REQUEST["price_ins"]);

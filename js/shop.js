@@ -19,8 +19,11 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
             console.log("沒有資料");
 
         } else {
+            // alert(xhr.responseText);
             var productsArr = JSON.parse(xhr.responseText);
+            // console.log(productsArr);
             productsInfo = productsArr.productssInfo;
+            
             //[proNo||類別||名稱||價格||MJ||圖檔名||上價值||買過了嗎 , ..... , ..... ]
 
             var str = "";
@@ -39,6 +42,7 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
             for (var i = start_i; i < end_i; i++) { // i:產品數量
                 for (var j = 0; j < 8; j++) { // j:撈回的資料欄位數量
                     productsInfoArr[i] = productsInfo[i].split("||", 8);
+                    
                     //productsInfoArr[i]:產品資料陣列;
                     //productsInfoArr[i][0]:產品編號; productsInfoArr[i][1]:產品類別 ; productsInfoArr[i][2]:產品名稱 ;
                 }
@@ -111,9 +115,11 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
 
             for (var i = 1; i <= pageTotal; i++) {
                 if (i == pageNumber) {
-                    page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" style="color:white;background:#f05c79" class="page_span">${i}</span>`;
+                    // console.log(`productsInfoArr[${i}][1]`+productsInfoArr[i][1]);
+                    page_a += `<span onclick="getProducts(${cate},${i})" style="color:white;background:#f05c79" class="page_span">${i}</span>`;
                 } else {
-                    page_a += `<span onclick="getProducts(${productsInfoArr[i][1]},${i})" class="page_span">${i}</span>`;
+                    // console.log(`productsInfoArr[${i}][1]`+productsInfoArr[i][1]+"0000");
+                    page_a += `<span onclick="getProducts(${cate},${i})" class="page_span">${i}</span>`;
                 }
 
             }
@@ -156,7 +162,8 @@ function getProducts(cate, pageNumber = 1) { //撈出產品Ajax
         }
     };
     var showId = document.getElementById("showId");
-    if(showId.value){
+    // console.log(showId.value);
+    if(showId.value!=''){
         url = `getProducts.php?cate=${cate}&mem=${showId.value}`;
     }else{
         url = `getProducts.php?cate=${cate}&mem=0`;

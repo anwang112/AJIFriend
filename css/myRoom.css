@@ -440,19 +440,19 @@ body input {
 #btnSaveChageCloth .btnSave {
     position: absolute;
     top: 15%;
-    left: 35%;
-    width: 30%;
-    height: 4vh;
+    left: 32%;
+    /* transform: translateX(-50%); */
+    /* height: 4vh; */
     display: block;
-    border-radius: 15px;
-    background-color: rgba(171, 130, 119, 1);
-    box-shadow: 0 1vh rgba(138, 104, 95, 1);
-    color: #fff;
+    /* border-radius: 15px; */
+    /* background-color: rgba(171, 130, 119, 1); */
+    /* box-shadow: 0 1vh rgba(138, 104, 95, 1); */
+    /* color: #fff; */
     cursor: pointer;
-    text-align: center;
-    line-height: 4vh;
+    /* text-align: center; */
+    /* line-height: 4vh; */
     text-decoration: none;
-    font-size: 2vh;
+    /* font-size: 2vh; */
 }
 
 #keepSaveClothes {
@@ -656,16 +656,19 @@ body input {
 }
 
 .leftcontent input {
-    width: 75%;
-    text-align: center;
-    display: inline-block;
-    border-radius: 15px;
+    width: 55%;
     letter-spacing: 2px;
+    /* height: 38px; */
+    padding: 0 10px;
+    /* width: 500px; */
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
 }
 
 .leftcontent p {
     width: 75%;
-    text-align: center;
+    /* text-align: center; */
     display: inline-block;
     letter-spacing: 1px;
     vertical-align: text-top;
@@ -682,7 +685,7 @@ body input {
     width: 197%;
 }
 
-.leftcontent button {
+/* .leftcontent button {
     width: 9%;
     height: 4vh;
     color: #fff;
@@ -693,7 +696,7 @@ body input {
     background-color: #7487A2;
     box-shadow: 0px 4px 0px #5F6F86;
     position: absolute;
-}
+} */
 
 #change {
     left: 45%;
@@ -768,7 +771,7 @@ body input {
 }
 
 
-.act_hoverBox button {
+/* .act_hoverBox button {
     width: 25%;
     height: 6vh;
     color: #fff;
@@ -781,7 +784,7 @@ body input {
     position: absolute;
     bottom: 24px;
     left: 8%;
-}
+} */
 
 .act_readmore {
     background-color: #E15974;
@@ -812,6 +815,12 @@ body input {
     top: 25%;
     left: 19%;
     width: 55%;
+}
+
+#change_and_reset {
+    position: absolute;
+    top: 88%;
+    text-align: center;
 }
 
 /* ----------------------------------- */
@@ -854,6 +863,12 @@ body input {
     }
     #myRoom .roomBG {
         display: none;
+    }
+
+    #change_and_reset {
+        position: absolute;
+        top: 84%;
+        text-align: center;
     }
     #myRoom .RWDroomBG {
         display: block;
@@ -1059,10 +1074,10 @@ body input {
         top: 85%;
         width: 96%;
     }
-    .leftcontent button {
+    /* .leftcontent button {
         width: 20%;
         height: 4vh;
-    }
+    } */
     #change {
         left: 40%;
     }

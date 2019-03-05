@@ -41,7 +41,7 @@
 
         $aDB -> no = $aaR[$key]["actNo"];
         $aDB -> memNo = $aaR[$key]["host_memNo"];
-        $aDB -> title = $aaR[$key]["actTitle"];
+        $aDB -> titless = $aaR[$key]["actTitle"];
         $aDB -> loc = $aaR[$key]["actLoc"];
         $aDB -> begin = $aaR[$key]["act_begin"];
         $aDB -> end = $aaR[$key]["act_end"];

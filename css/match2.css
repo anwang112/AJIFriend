@@ -646,6 +646,9 @@ display: block;
     min-width: 100%; } }
 
 @media only screen and (max-width: 415px) {
+  .majiRank .rankNav li a{
+    line-height: 2.5;
+  }
   .wrap .searchMaji {
     z-index: 3; }
   .wrap .matchContent {
@@ -681,8 +684,8 @@ display: block;
     right: 16px;
     top: 48px; }
   .heart {
-    top: 747px;
-    right: 7%;
+    top: 735px;
+    right: 1%;
     z-index: 5; }
   #reportData {
     width: 100%;

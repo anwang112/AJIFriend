@@ -117,14 +117,28 @@ try {
                     <h3>Step 3 分享合照 </h3>
                 </div>
             </div>
-            <div class="bulletin">
-                <h3>本月票選主題</h3>
-                <p>城市愛情故事</p>
-                <h3>得名獎勵</h3>
-                <p>1.水行俠套裝</p><img src="images/wmSuit-27.png" alt="wmSuit">
-                <p>2.死神頭套</p><img src="images/ghostCap-28.png" alt="ghostCap">
-                <p>3.海盜頭套</p><img src="images/pirateCap-29.png" alt="pirateCap">
+            <div class="board">                
+                <img src="images/activity/act_board.svg" alt="borad">
+                <div class="boardContent">
+                    <div class="area1">
+                        <h3>本月票選主題</h3>
+                        <p style="color:rgba(240,92,121,1)">城市愛情故事</p>
+                    </div>
+                    <div class="area2">
+                        <h3>得名獎勵</h3>
+                        <p>1.水行俠套裝</p>
+                        <p>2.死神頭套</p>
+                        <p>3.海盜頭套</p>
+                        <div class="area2Img">
+                            <img src="images/wmSuit-27.png" alt="wmSuit">
+                            <img src="images/ghostCap-28.png" alt="ghostCap" style="margin: 10px 0;">
+                            <img src="images/pirateCap-29.png" alt="pirateCap">
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            
 
             <div id="friend_LightBox" class="bg_friendBox" style="display:none">
                     <img src="shop-images/friendBox.png">
@@ -162,45 +176,37 @@ try {
                  </div>
                   -->
                 <!--畫布canvas 與 背景預覽  -->
-                <div id="preCanvas" class="preCanvas">
+                <div id="preCanvas" class="preCanvas" style="position:relative">
                         <div class="preview">
                             <img id="imgPreview" src="" alt="">
                             <div id="chooseId">
                                 <!-- 自己預視 -->
                                 <div id="showMe"></div>
                                 <!-- 朋友預視 -->
-                                <div id="showModel">
-                                    <!-- <img src="shop-images/model_1.png" id="model_animal" >
-                                    <img src="shop-images/hat_1.png" id="model_hat"> -->
-                                    <!-- <img src="" id="model_clothes"> -->
-                                </div>
+                                <div id="showModel"></div>
                                 <div id="chooseArea">
                                     <!-- 角色暱稱顯示區塊 -->
-                                    <!-- <span id="showId"></span> -->
-                                    
+                                    <span id="showName"class="gift btn friendo"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
+                                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
                             
                                     <!-- 角色暱稱顯示區塊 -->
-                                    <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];} ?></span>
-                                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
-                                        
-
+                                    <!-- <span id="showName"class="gift btn"></span> -->
+                                    <!-- <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>"> -->
                                 </div>
                             </div>
-
-
                         </div>
                         <canvas id="canvas" width="350px" height="350px"></canvas>       
                 </div>
                 
                 
             <!-- 按鈕們 上傳背景 選擇朋友 分享 上一步 下一步 -->
-                <div class="btns">
+                <div class="btns ">
                     <div class="back">                
-                        <span id="back">選擇背景</span>
+                        <span class="btn" id="back">選擇背景</span>
                     </div>
                     <label> 
                         <div class="upload">
-                            <span id="upBtn">上傳背景</span>
+                            <span class="btn" id="upBtn">上傳背景</span>
                             <input style="width:'30px'; " type="file" id="upFile" name="upFile" hidden>
                         </div> 
                     </label>
@@ -209,15 +215,15 @@ try {
                     </label>
                     
                     <div class="next" >                
-                        <span id="next">選擇朋友</span>
+                        <span class="btn" id="next">選擇朋友</span>
                     </div>
                     <!-- 下載照片 -->
-                    <input  type="button" value="下載照片" onclick="saveImage()" />
+                    <input id="download" class="btn" type="button" value="1.下載照片" onclick="saveImage()" />
                     <form id="addPic" method="post" enctype="multipart/form-data">
                     <label>
                         <div class="upload">
-                            <span id="sharePhoto" style="display:block">發佈至投票區</span>
-                            <input style="width:'30px'; " type="file" id="picInput"  name="addPic" hidden>
+                            <span id="sharePhoto" class="btn">2.發佈合照</span>
+                            <input  type="file" id="picInput"  name="addPic" hidden>
                         </div> 
                     </label>
                     </form>
@@ -250,20 +256,6 @@ try {
             }
         window.addEventListener("load", init, false);
     </script>
-
-        <!-- <div id="LB">
-                <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
-                <div id="left">%%</div>
-                <div id="right">>></div>
-                <img class="cardPhoto" src="images/rank1-13.png" alt="top1">
-                <img class="member" src="images/member4-20.png" alt="doggy">
-                <a href="#">AJI</a>
-                <img class="heart" src="images/fullheart-16.png" alt="heart">
-                <span id="voteNum">105 </span>
-                <p>整個城市都是我們的伸展台</p>
-            </div> -->
-        </div>
-    </div>
 
 
 <?php
@@ -327,18 +319,6 @@ try {
 	}
 ?>   
             <div class="clear"></div>        
-             <!-- <div id="cardLB" class="照片id ex:card-photo7">
-            //     <div id="del"><img src="images/trash-alt.svg" alt="del"></div>
-            //     <div id="left">%%</div>
-            //     <div id="right">>></div>
-            //     <img class="cardPhoto" src="images/rank1-13.png" alt="top1"
-            //     <div class="voteHeart"><img id="heart" src="images/heart.png" alt=""></div>>
-            //     <img class="member" src="images/member4-20.png" alt="doggy">
-            //     <a href="#">AJI</a>
-            //     <img class="heart" src="images/fullheart-16.png" alt="heart">
-            //     <span id="voteNum">105 </span>
-            //     <p>整個城市都是我們的伸展台</p>
-            // </div> -->
         </div>
     </div>
     <script type="text/javascript">
@@ -348,9 +328,10 @@ try {
 
 </body>
 </html>
+
 <script>
 function init(){
-    var choose = document.getElementById("chooseBtn");
+    var choose = document.getElementById("next");
     choose.addEventListener("click",photo_showfriendBox);
        
     

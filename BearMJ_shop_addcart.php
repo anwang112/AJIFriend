@@ -23,6 +23,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/chatStyle.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    
 </head>
 <body>	
     <script>
@@ -85,7 +86,7 @@ session_start();
             
                     <!-- 試穿角色暱稱顯示區塊 -->
                     <span id="showName"class="gift"><?php if(isset($_SESSION["memId"])){echo $_SESSION["mName"];}else{echo '請先登入';} ?></span>
-                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memId"])){echo $_SESSION["memId"];}?>">
+                    <input type="hidden" id="showId" value="<?php if(isset($_SESSION["memNo"])){echo $_SESSION["memNo"];}?>">
                         
                     
             

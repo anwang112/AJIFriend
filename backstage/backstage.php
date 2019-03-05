@@ -38,31 +38,50 @@ try {
     <script src="../js/backCommon.js"></script>
     <script src="../js/package/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/backcss_final.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <style>
+          @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
+
     .table tbody td,.table tbody th{
         vertical-align: middle !important;
+    }
+    #createAdmin{
+        float:right;
+    }
+    .showAdminInfo .ddddda{
+        text-align: left;
     }
     </style>
 </head>
 
 <body>
+    <!-- 隱藏登入者ㄉinput -->
+    <input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
     <!-- Just an image -->
-    <nav class="navbar navbar-light bg-light">
+    <!-- <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="backStage.html">
             <img src="../images/logo2.png" width="130" alt="logo">後台
         </a>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo $_SESSION["adminName"] ?>
+         
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#" id="logoutBtn">登出</a>
         </div>
-    </nav>
+    </nav> -->
 
-    <div class="container content">
+    <!-- <div class="container content"> -->
 
-        <div class="row justify-content-center">
-            <div class="col-3">
+        <!-- <div class="row justify-content-center"> -->
+            <!-- <div class="col-2">
                 <div class="list-group">
                     <a href="backStage.php" class="list-group-item list-group-item-action">
                         管理員帳號管理
@@ -73,8 +92,10 @@ try {
                     <a href="backAct.php" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">活動管理</a>
                 </div>
             </div>
-            <div class="col-9">
-
+            <div class="col-9"> -->
+            <script>
+        header();
+    </script>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -115,7 +136,7 @@ try {
                                 <input type="text" disabled value="<?php echo $adminPsw; ?>">
 
                             </td>
-                            <td>
+                            <td class="ddddda">
                                 <button type="button" value="<?php echo $oo; ?>" class="btn btn-info changeAdmin" >編輯</button>
                                 <button type="button" value="<?php echo $oo; ?>" class="btn btn-danger dropAdmin">刪除</button>
                             </td>
@@ -126,7 +147,7 @@ try {
                         <script>
                         document.getElementsByClassName('changeAdmin')[0].setAttribute("disabled", "disabled");
                         document.getElementsByClassName('dropAdmin')[0].setAttribute("disabled", "disabled");
-                        document.getElementsByTagName('input')[3].value = '***';
+                        document.getElementsByTagName('input')[4].value = '***';
                         </script>
                         <tr id="createAdminWrap" style="display:none;">
                             <th scope="row">
@@ -150,7 +171,7 @@ try {
 
                             </td>
                             <td>
-                            <input type="button" value="送出" id="adminSendBtn">
+                            <input type="button" class="btn btn-outline-info" value="送出" id="adminSendBtn">
 
                             </td>
                         
@@ -160,10 +181,12 @@ try {
 
                     </tbody>
                 </table>
-            </div>
+            <!-- </div>
         </div>
-    </div>
-
+    </div> -->
+    <script>
+        buttom()
+    </script>
 
 
 
@@ -253,24 +276,35 @@ try {
             })
         })
 
-        //登出
-        logoutBtn = document.getElementById('logoutBtn');
-        logoutBtn.addEventListener('click', (e) => {
-            checkInFoValue = {};
-            checkInFoValue.status = '掰掰';
-            console.log(e);
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function() {
-                // checkInfo = JSON.parse(xhr.responseText);
-                if (xhr.responseText == "回到登入頁") {
-                    window.location.href = "backLogin.php";
-                }
-            }
-            xhr.open("Post", "backLogout.php", true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
 
-        })
+
+
+        //登入寫入登入框ㄉ
+        navbarDropdown = document.getElementById('navbarDropdown');
+        showAdminName = document.getElementById('showAdminName');
+        window.addEventListener('load', () => {
+            navbarDropdown.innerHTML = showAdminName.value;
+
+
+            //登出
+            logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', (e) => {
+                checkInFoValue = {};
+                checkInFoValue.status = '掰掰';
+                console.log(e);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if (xhr.responseText == "回到登入頁") {
+                        window.location.href = "backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
+            })
+        });
     </script>
 </body>
 

@@ -9,6 +9,7 @@ function nextStep(){
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
+    var downLoad=document.getElementById("download");
     var controlBar=document.getElementsByClassName("controlBar")[0];
     var friend_Light_Box=document.getElementById("friend_LightBox");
 // 判斷式 
@@ -19,10 +20,13 @@ function nextStep(){
         step2.style.filter="grayscale(0%)";
         step3.style.filter="grayscale(100%)";
         upBtn.style.display="none";
-        chooseBtn.style.display="block";
+        chooseBtn.style.display="none";
         back.style.display="block";
         canvas.style.display="none";
-        // controlBar.style.display="none";
+        friend_Light_Box.style.display="block";
+        share.style.display="none";
+        downLoad.style.display="none";
+
         power02=true;
         console.log(power02);
         next.innerText="分享合照";
@@ -36,9 +40,6 @@ function nextStep(){
             clothes: storage.getItem("wearClothes"),
         });
 
-
-      
-
     }
   
 // 2到3
@@ -51,13 +52,13 @@ function nextStep(){
         upBtn.style.display="none";
         chooseBtn.style.display="none";
         share.style.display="block";
-        canvas.style.display="block";
+        canvas.style.display="none";
+        downLoad.style.display="block";
         // controlBar.style.display="flex";
         next.style.display="none";
         power02=false;
         power03=true;
         back.innerText="選擇朋友";
-        friend_Light_Box.style.display="none";
     }
     
 }
@@ -68,6 +69,8 @@ function backStep(){
     var upBtn=document.getElementById("upBtn");
     var chooseBtn=document.getElementById("chooseBtn");
     var share=document.getElementById("sharePhoto");
+    var friend_Light_Box=document.getElementById("friend_LightBox");
+
     // var controlBar=document.getElementsByClassName("controlBar")[0];
 
 // 2變1
@@ -78,9 +81,11 @@ function backStep(){
         step3.style.filter="grayscale(100%)";
         upBtn.style.display="block";
         chooseBtn.style.display="none";
-        back.style.display="none";
-        next.innerText="選擇朋友";
-        
+        back.style.display="block";
+        share.style.display="none";
+        downLoad.style.display="none";
+        next.style.display="none";
+        back.innerText=="選擇朋友";
 
     }
 
@@ -94,10 +99,10 @@ function backStep(){
         back.style.display="block";
         next.style.display="block";
         upBtn.style.display="none";
-        chooseBtn.style.display="block";
+        chooseBtn.style.display="none";
         share.style.display="none";
         canvas.style.display="none";
-        // controlBar.style.display="none";
+        downLoad.style.display="none";
         next.innerText="分享合照";
         back.innerText="選擇背景";
         friend_Light_Box.style.display="block";
@@ -123,15 +128,14 @@ function drawImg(){
     var img4 =document.getElementsByClassName("roleClothes")[1];
     var imgPrev = document.getElementById("imgPreview");
     ctx.drawImage(imgPrev,0,0,350,350);  
-    ctx.drawImage(imgMe,100,105,152,213);  
-    ctx.drawImage(imgMe2,100,103,152,212);  
-    ctx.drawImage(imgMe3,100,103,152,212);  
-    ctx.drawImage(imgMe4,100,103,152,212);
-    
-    ctx.drawImage(img,200,105,152,213);  
-    ctx.drawImage(img2,200,103,152,212);  
-    ctx.drawImage(img3,200,103,152,212);  
-    ctx.drawImage(img4,200,103,152,212);
+    ctx.drawImage(imgMe,80,103,152,213);  
+    ctx.drawImage(imgMe2,80,103,152,212);  
+    ctx.drawImage(imgMe3,80,103,152,212);  
+    ctx.drawImage(imgMe4,80,103,152,212);
+    ctx.drawImage(img,170,103,152,213);  
+    ctx.drawImage(img2,170,103,152,212);  
+    ctx.drawImage(img3,170,103,152,212);  
+    ctx.drawImage(img4,170,103,152,212);
 
 }
 function saveImage() {
@@ -217,24 +221,24 @@ function init(){
     ctx = canvas.getContext('2d');
     
     // 宣告 改變顏色
-    colors = document.getElementsByClassName('color');
-    for(var i = 0; i < colors.length; i++){
-    colors[i].addEventListener('click', changeColor,false)};
+    // colors = document.getElementsByClassName('color');
+    // for(var i = 0; i < colors.length; i++){
+    // colors[i].addEventListener('click', changeColor,false)};
         
 
-    var drawing = false;
-    var mousePos = { x:0, y:0 };
-    var lastPos = mousePos;
-    canvas.addEventListener("mousedown", function (e) {
-        drawing = true;
-        lastPos = getMousePos(canvas, e);
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
-        drawing = false;
-    }, false);
-    canvas.addEventListener("mousemove", function (e) {
-        mousePos = getMousePos(canvas, e);
-    }, false);
+    // var drawing = false;
+    // var mousePos = { x:0, y:0 };
+    // var lastPos = mousePos;
+    // canvas.addEventListener("mousedown", function (e) {
+    //     drawing = true;
+    //     lastPos = getMousePos(canvas, e);
+    // }, false);
+    // canvas.addEventListener("mouseup", function (e) {
+    //     drawing = false;
+    // }, false);
+    // canvas.addEventListener("mousemove", function (e) {
+    //     mousePos = getMousePos(canvas, e);
+    // }, false);
 
 
 
@@ -326,22 +330,8 @@ function init(){
 //       e.preventDefault();
 //     }
 //     }, false);
-  
-
-  
-
-
-
 
     var share=document.getElementById("picInput");
         share.addEventListener("input",shareToPhotoWall,false);
-
-    // share.onclick = showShareLB;
-
-    // var sure_Close=document.getElementById("sureClose");
-    // sure_Close.onclick =sureClose;
-    
-
-
 }	
 window.addEventListener("load", init, false);

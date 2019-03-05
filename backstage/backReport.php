@@ -1,4 +1,10 @@
 <?php
+ob_start();
+session_start();
+if (isset($_SESSION["adminName"]) === false) {
+    header("Location:backLogin.php");
+    exit();
+}
     require_once("backReport_toDB.php");
 ?> 
 
@@ -17,7 +23,17 @@
     <link rel="stylesheet" href="../css/backstage.css">
     <script src="../js/backCommon.js"></script>
     <link rel="stylesheet" href="../css/backcss_final.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <style>
+                  @font-face {
+                font-family: 'AdobeFanHeitiStd-Bold';
+                src: url(../font/AdobeFanHeitiStd-Bold.otf) format("truetype");
+
+        }
+        html body * {
+    font-family: 'AdobeFanHeitiStd-Bold', serif;
+    letter-spacing: 0.8px;
+}
         td,th{
             text-align:center;
             width:120px;
@@ -26,6 +42,8 @@
 </head>
 
 <body>
+<!-- 隱藏登入者ㄉinput -->
+<input type="hidden" id="showAdminName" value="<?php echo $_SESSION["adminName"] ?> ">
     <!-- Just an image -->
     <script>
         header();
@@ -72,12 +90,12 @@
                     $sqlName = " SELECT * FROM member where memNo = :memNo ";
                     $result_name = $pdo->prepare($sqlName); 
                     $result_name -> bindValue(":memNo",  $memNo);
-                    $result_name  -> bindColumn("mName", $mName01); 
+                    $result_name  -> bindColumn("memId", $memId01); 
                     $result_name  -> execute();
                     $sqlName2 = " SELECT * FROM member where memNo = :memNo ";
                     $result_name2 = $pdo->prepare($sqlName2); 
                     $result_name2 -> bindValue(":memNo",  $ta_memNo);
-                    $result_name2  -> bindColumn("mName",  $mName02); 
+                    $result_name2  -> bindColumn("memId",  $memId02); 
                     $result_name2  -> execute();
                 ?>
             <tr>
@@ -88,10 +106,10 @@
                     <?php echo $reason ;?>
                 </td>
                 <?php while($result_name ->fetch(PDO::FETCH_ASSOC)){?>
-                <td><?php echo $mName01 ;?></td>
+                <td><?php echo $memId01 ;?></td>
                 <?php } ?>
                 <?php while($result_name2 ->fetch(PDO::FETCH_ASSOC)){?>
-                <td><?php echo $mName02 ;?></td>
+                <td><?php echo $memId02 ;?></td>
                 <?php } ?>
                 
                 <td>
@@ -107,7 +125,7 @@
                         <?php echo '已處理';?>
                     <?php }?>
                 </td>
-                <td><input type="submit" value="送出"></td>
+                <td><input type="submit" value="送出" class="btn btn-primary"></td>
                 </form>
             </tr><?php $i ++ ?>
             <?php } ?>
@@ -119,6 +137,36 @@
 
     <script>
         buttom()
+    </script>
+
+    <script>
+
+            //登入寫入登入框ㄉ
+            navbarDropdown = document.getElementById('navbarDropdown');
+        showAdminName = document.getElementById('showAdminName');
+        window.addEventListener('load', () => {
+            navbarDropdown.innerHTML = showAdminName.value;
+
+
+            //登出
+            logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', (e) => {
+                checkInFoValue = {};
+                checkInFoValue.status = '掰掰';
+                console.log(e);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    // checkInfo = JSON.parse(xhr.responseText);
+                    if (xhr.responseText == "回到登入頁") {
+                        window.location.href = "backLogin.php";
+                    }
+                }
+                xhr.open("Post", "backLogout.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                xhr.send("checkInFoValue=" + JSON.stringify(checkInFoValue));
+
+            })
+        });
     </script>
 </body>
 

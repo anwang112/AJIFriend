@@ -36,7 +36,7 @@ require_once('myRoomToDB.php');
   }
   .spanbox{
     width: 100%;
-    padding: 39px 30px;
+    padding: 10px 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -143,7 +143,7 @@ require_once('myRoomToDB.php');
                     <div class="clearfix"></div>
                     <!-- 保存按鈕 -->
                     <div id="btnSaveChageCloth">
-                        <button id="btnSave" class="btnSave">保存設定</button>
+                        <button id="btnSave" class="btnSave btn">保存設定</button>
                     </div>
                     <!-- 保存造型成功 燈箱 -->
                     <div id="keepSaveClothes" style="display:none">保存造型成功!
@@ -388,8 +388,8 @@ require_once('myRoomToDB.php');
                             </div>
 
                             <div id="change_and_reset">
-                                <button id="change">編輯</button>
-                                <button id="dataReset">復原</button>
+                                <button id="change" class="btn">編輯</button>
+                                <button id="dataReset" class="btn">復原</button>
                             </div>
 
                         </div>
@@ -415,17 +415,17 @@ require_once('myRoomToDB.php');
                                     <img class="act_Img" src="images/<?php echo $actImg; ?>">
                                     <div class="act_hoverBox">
                                         <div class="spanbox">
-                                            <span>活動名稱
+                                            <span>活動名稱：
                                                 <?php echo $actTitle; ?></span>
-                                            <span>發起人
+                                            <span>發起人：
                                                 <?php echo $memId; ?></span>
-                                            <span>地點
+                                            <span>地點：
                                                 <?php echo $actLoc; ?></span>
-                                            <span>時間
+                                            <span>時間：
                                                 <?php echo substr($act_end, 0, 10); ?></span>
                                         </div>
                                         <div class="act_btn">
-                                            <a href="activity_v2.php"><button class="act_readmore">前往我的活動</button></a>
+                                            <a href="activity_v2.php"><button class="act_readmore btn">前往查看</button></a>
                                         </div>
                                     </div>
                                 </div>

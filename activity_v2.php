@@ -24,6 +24,7 @@
     <script src="js/package/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="js/commonPart.js"></script>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    
     <!-- <script src="js/commonPart.js"></script> -->
     <style>
     .commentHead{
@@ -125,7 +126,6 @@
                 <img  id="act_bus" class="act_bus" src="images/activity/act_bus.svg" alt="bus">
 
                 <div id="lightbox_act" class="lightbox_act">
-                    
                     <div id="lightbox_act_info" class="lightbox_act_info">
                     <div id="indexActCloseBtn03" class="lightBoxXX"></div>
                         <?php if($actImg == null){?>
@@ -136,12 +136,12 @@
                         <!-- <img id="imgBoxImg_B" src="" alt=""> -->
 
                         <div class="spanbox">                       
-                            <p id="box_title"><?php echo $actTitle ?></p>
+                            <p id="box_title"> <?php echo $actTitle ?> </p>
                             <p id="box_Intro">活動說明: <?php echo $actIntro ?></p>
                             <!-- <span>人數：</span> -->
                             <span>時間：<?php echo  substr($act_begin,0,10) ; ?></span>
                             <span id="box_Loc">地點：<?php echo $actLoc ?></span>  
-                            <span>獎勵：100MJ</span> 
+                            <!-- <span>獎勵：100MJ</span>  -->
                         </div>
                         <button id="btn_Actjoin" class="btn btn_Actjoin">立即參加</button> 
                         <input id="box_actNo" type="hidden" value="<?php echo $actNo ;?>">
